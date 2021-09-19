@@ -1,0 +1,27 @@
+{
+  "name": "edt-lib",
+  "version": "1.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "module": "dist/index.modern.js",
+  "source": "src/index.js",
+  "scripts": {
+    "build": "microbundle-crl --no-compress --format modern,cjs",
+    "start": "microbundle-crl watch --no-compress --format modern,cjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^17.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "babel-loader": "^8.2.2",
+    "microbundle-crl": "^0.13.10"
+  },
+  "files": [
+    "dist",
+    "src/scss"
+  ]
+}

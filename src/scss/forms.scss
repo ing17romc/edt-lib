@@ -1,0 +1,145 @@
+@import "./variables.scss";
+@import "./functions.scss";
+
+$min-height-span: 20;
+$font-size: $fs-16;
+$height-control: 29;
+$letter-spacing: -0.25;
+$margin-bottom: 4;
+$padding: 5;
+$bg-size: 2px 7px, 100% 2px, 2px 7px;
+$bg-size-response: calculateSizeVW(2) calculateSizeVW(7), 100% calculateSizeVW(2), calculateSizeVW(2) calculateSizeVW(7);
+
+@mixin fondo-control($color, $bg-size) {
+    background: linear-gradient($color, $color), linear-gradient($color, $color), linear-gradient($color, $color);
+    background-position: bottom left, bottom center, bottom right;
+    background-repeat: no-repeat;
+    background-size: $bg-size;
+    color: $color;
+}
+
+.control-container {
+    display: block;
+
+    & .disabled {
+        & span {
+            opacity: $disabled-opacity;
+        }
+        & select,
+        & input {
+            scrollbar-width: none;
+            opacity: $disabled-opacity;
+            &::placeholder {
+                opacity: $disabled-opacity;
+            }
+        }
+    }
+    & .required {
+        span {
+            color: $red-color;
+        }
+        & select,
+        & input {
+            @include fondo-control($red-color, $bg-size-response);
+
+            &::placeholder {
+                color: $red-color;
+            }
+        }
+    }
+
+   & span {
+        min-height: calculateSizeVW($min-height-span);
+        display: block;
+        color: $black-color;
+        display: inline;
+        font-size: calculateSizeVW($font-size-control);
+    }
+
+    & select,
+    & input {
+        @include fondo-control($black-color, $bg-size-response);
+
+        border: none;
+        text-align: left;
+        opacity: 1;
+
+        width: 100%;
+        height: calculateSizeVW($height-control);
+        padding: 0px calculateSizeVW($padding) calculateSizeVW($padding) calculateSizeVW($padding);
+        margin-bottom: calculateSizeVW($margin-bottom);
+        letter-spacing: calculateSizeVW($letter-spacing);
+        font-size: calculateSizeVW($font-size);
+
+        &:focus {
+            outline: none;
+        }
+        &::placeholder {
+            font-size: calculateSizeVW($font-size);
+            color: $black-color;
+            opacity: 1;
+        }
+        & > option {
+            font-size: calculateSizeVW($font-size);
+            color: $black-color;
+            background-color: $white-color;
+            opacity: 1;
+        }
+    }
+    & select {
+        display: inline-block;
+        text-transform: lowercase;
+        -moz-appearance: none; /* Firefox */
+    }
+    & select::first-letter {
+        text-transform: uppercase;
+    }
+}
+
+.control-lista-desplegable {
+    align-self: end;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+}
+
+@media only screen and (min-width: calculateSizePX($min-height-screen)) {
+    .control-container {
+        & .required {
+            & select,
+            & input {
+                @include fondo-control($red-color, $bg-size);
+            }
+        }
+        & span {
+            min-height: calculateSizePX($min-height-span);
+            font-size: calculateSizePX($font-size-control);
+        }
+        & select,
+        & input {
+            @include fondo-control($black-color, $bg-size);
+            height: calculateSizePX($height-control);
+            padding: 0px calculateSizePX($padding) calculateSizePX($padding) calculateSizePX($padding);
+            margin-bottom: calculateSizePX($margin-bottom);
+            letter-spacing: calculateSizePX($letter-spacing);
+            font-size: calculateSizePX($font-size);
+
+            &::placeholder {
+                font-size: calculateSizePX($font-size);
+            }
+            & > option {
+                font-size: calculateSizePX($font-size);
+            }
+        }
+    }
+}

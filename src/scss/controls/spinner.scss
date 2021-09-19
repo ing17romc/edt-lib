@@ -1,0 +1,109 @@
+@import "../variables.scss";
+@import "../functions.scss";
+
+$color-one: lightblue;
+$color-two: $blue-color;
+$color-three: darkblue;
+$bg-spinner: $black-color; //#53565A;
+
+/***************************************************************************
+  Indicador de Espera
+****************************************************************************/
+div.container-load {
+  overflow: hidden;
+  z-index: 1000;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  background: transparentize($color: $color-one, $amount: 0.8);
+
+  .loading {
+    overflow: hidden;
+    display: block;
+    position: relative;
+    width: calculateSizeVW(150);
+    height: calculateSizeVW(100);
+    top: 0;
+    left: 0;
+    margin: calculateSizeVW(300) auto;
+    border-radius: 50%;
+    border-width: calculateSizeVW(2.5);
+    border-style: solid;
+    border-color: transparent;
+    border-top-color: $color-three;
+    animation: spin 2s linear infinite;
+  }
+
+  .loading:before {
+    content: "";
+    position: absolute;
+    top: calculateSizeVW(5);
+    left: calculateSizeVW(5);
+    right: calculateSizeVW(5);
+    bottom: calculateSizeVW(5);
+    border-radius: 50%;
+    border: calculateSizeVW(2.5) solid transparent;
+    border-top-color: $color-two;
+    animation: spin 3s linear infinite;
+  }
+
+  .loading:after {
+    content: "";
+    position: absolute;
+    top: calculateSizeVW(15);
+    left: calculateSizeVW(15);
+    right: calculateSizeVW(15);
+    bottom: calculateSizeVW(15);
+    border-radius: 50%;
+    border: calculateSizeVW(2.5) solid transparent;
+    border-top-color: $bg-spinner;
+    animation: spin 1.5s linear infinite;
+  }
+
+  @-webkit-keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @media screen and (min-width: 1025px) and (hover: hover) and (pointer: fine) {
+    div.container-load {
+      .loading {
+        width: 150px;
+        height: 100px;
+        margin: 300px auto;
+        border-width: 2.5px;
+      }
+      .loading:before {
+        top: 5px;
+        left: 5px;
+        right: 5px;
+        bottom: 5px;
+        border-width: 2.5px;
+      }
+      .loading:after {
+        top: 15px;
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        border-width: 2.5px;
+      }
+    }
+  }
+}
