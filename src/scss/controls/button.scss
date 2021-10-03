@@ -1,5 +1,5 @@
-@import "../variables.scss";
-@import "../functions.scss";
+@import '../variables.scss';
+@import '../functions.scss';
 
 $button-large: 48;
 $font-size-large: $fs-24;
@@ -27,19 +27,13 @@ button {
         opacity: $disabled-opacity
     }
 
-    &.default {
-        background-color: $white-color;
-        color: $gray-color;
-        border: calculateSizeVW($border-size) solid $gray-color;
-    }
-
     &.primary {
         background-color: $blue-color;
         color: $white-color;
         border: calculateSizeVW($border-size) solid $blue-color;
     }
 
-    &.secundary {
+    &.secondary {
         background-color: $white-color;
         color: $blue-color;
         border: calculateSizeVW($border-size) solid $blue-color;
@@ -70,15 +64,11 @@ button {
     button {
         border-radius: calculateSizePX($border-radius);
 
-        &.default {
-            border: calculateSizePX($border-size) solid $gray-color;
-        }
-
         &.primary {
             border: calculateSizePX($border-size) solid $blue-color;
         }
 
-        &.secundary {
+        &.secondary {
             border: calculateSizePX($border-size) solid $blue-color;
         }
 

@@ -1,101 +1,108 @@
-@import "../variables.scss";
-@import "../functions.scss";
+@import '../variables.scss';
+@import '../functions.scss';
 
 $border: 1;
 $size-md: 18;
-$span-height: 18;
-$span-padding-top: 1;
-$span-padding-left: 28;
-$span-line-height: 18;
+$size-sm: 14;
+$size-after: 2;
+$label-height: 18;
+$label-padding-top: 1;
+$label-padding-left: 28;
+$label-line-height: 18;
 
 .radiobutton {
-  input[type="radio"]:checked,
-  input[type="radio"]:not(:checked) {
-    display: none;
+  &.required > label {
+    color: $red-color;
+  }
 
-    &:disabled + label {
-      opacity: $disabled-opacity;
-    }
-
-    &:required + label {
-      color: $red-color;
-      &:before {
-        border: calculateSizeVW(1) solid $red-color;
+  &.required {
+    input[type='radio'] {
+      & + label {
+        &:before {
+          border: calculateSizeVW($border) solid $red-color;
+        }
       }
     }
+  }
 
-    + label {
+  input[type='radio'] {
+    display: none;
+
+    & + label {
       font-size: calculateSizeVW($font-size-control);
       position: relative;
-      height: calculateSizeVW(18);
-      padding-top: calculateSizeVW(1);
-      padding-left: calculateSizeVW(28);
+      height: calculateSizeVW($label-height);
+      padding-top: calculateSizeVW($label-padding-top);
+      padding-left: calculateSizeVW($label-padding-left);
       cursor: pointer;
-      line-height: calculateSizeVW(18);
+      line-height: calculateSizeVW($label-line-height);
       display: inline-block;
 
       &:before {
-        content: "";
+        content: '';
         position: absolute;
         left: 0;
         top: 0;
-        width: calculateSizeVW(18);
-        height: calculateSizeVW(18);
-        border: calculateSizeVW(1) solid $black-color;
+        width: calculateSizeVW($size-md);
+        height: calculateSizeVW($size-md);
+        border: calculateSizeVW($border) solid $black-color;
         border-radius: 100%;
         background-color: $white-color;
       }
 
       &:after {
-        content: "";
-        width: calculateSizeVW(14);
-        height: calculateSizeVW(14);
+        content: '';
+        width: calculateSizeVW($size-sm);
+        height: calculateSizeVW($size-sm);
         background-color: $blue-color;
         position: absolute;
-        top: calculateSizeVW(2);
-        left: calculateSizeVW(2);
+        top: calculateSizeVW($size-after);
+        left: calculateSizeVW($size-after);
         border-radius: 100%;
       }
     }
   }
 
-  input[type="radio"]:not(:checked) + label:after {
+  input[type='radio']:not(:checked) + label:after {
     display: none;
   }
 
-  input[type="radio"]:checked + label:after {
+  input[type='radio']:checked + label:after {
     display: block;
   }
 }
 
 @media screen and (min-width: calculateSizePX($min-height-screen)) and (hover: hover) and (pointer: fine) {
   .radiobutton {
-    input[type="radio"]:checked,
-    input[type="radio"]:not(:checked) {
-      &:required + label {
-        &:before {
-          border: calculateSizePX(1) solid $red-color;
+    &.required {
+      input[type='radio'] {
+        & + label {
+          &:before {
+            border: calculateSizePX($border) solid $red-color;
+          }
         }
       }
+    }
 
-      + label {
+    input[type='radio'] {
+      & + label {
         font-size: calculateSizePX($font-size-control);
-        height: calculateSizePX(18);
-        padding-top: calculateSizePX(1);
-        padding-left: calculateSizePX(28);
-        line-height: calculateSizePX(18);
+        height: calculateSizePX($label-height);
+        padding-top: calculateSizePX($label-padding-top);
+        padding-left: calculateSizePX($label-padding-left);
+        line-height: calculateSizePX($label-line-height);
 
         &:before {
-          width: calculateSizePX(18);
-          height: calculateSizePX(18);
-          border: calculateSizePX(1) solid $black-color;
+          width: calculateSizePX($size-md);
+          height: calculateSizePX($size-md);
+          border: calculateSizePX($border) solid $black-color;
         }
 
         &:after {
-          width: calculateSizePX(14);
-          height: calculateSizePX(14);
-          top: calculateSizePX(2);
-          left: calculateSizePX(2);
+          width: calculateSizePX($size-sm);
+          height: calculateSizePX($size-sm);
+          top: calculateSizePX($size-after);
+          left: calculateSizePX($size-after);
         }
       }
     }

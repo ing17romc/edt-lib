@@ -29,6 +29,10 @@
     }
 }
 
+.disabled {
+    opacity: $disabled-opacity;
+}
+
 @mixin line-height($number, $size) {
     .line-height-#{$number} {
         line-height: $size;
@@ -62,7 +66,7 @@
     visibility: hidden;
 }
 
-$min-height: 300;
+$min-height: 600;
 .container-body {
     height: auto;
     min-height: calculateSizeVW($min-height);
@@ -83,12 +87,14 @@ body {
 
 .little-hand {
     cursor: pointer;
-  }
-  
-  .line-spacing {
-    line-height: normal;
-  }
+}
 
+.line-spacing {
+    line-height: normal;
+}
+.strong {
+    font-weight: bold;
+}
 @media only screen and (min-width: calculateSizePX($min-height-screen)) {
     .main-container {
         max-width: calculateSizePX($min-height-screen);

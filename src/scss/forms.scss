@@ -1,6 +1,7 @@
-@import "./variables.scss";
-@import "./functions.scss";
+@import './variables.scss';
+@import './functions.scss';
 
+$border: 1;
 $min-height-span: 20;
 $font-size: $fs-16;
 $height-control: 29;
@@ -21,41 +22,12 @@ $bg-size-response: calculateSizeVW(2) calculateSizeVW(7), 100% calculateSizeVW(2
 .control-container {
     display: block;
 
-    & .disabled {
-        & span {
-            opacity: $disabled-opacity;
-        }
-        & select,
-        & input {
-            scrollbar-width: none;
-            opacity: $disabled-opacity;
-            &::placeholder {
-                opacity: $disabled-opacity;
-            }
-        }
-    }
-    & .required {
-        span {
-            color: $red-color;
-        }
-        & select,
-        & input {
-            @include fondo-control($red-color, $bg-size-response);
-
-            &::placeholder {
-                color: $red-color;
-            }
-        }
-    }
-
-   & span {
+    span {
         min-height: calculateSizeVW($min-height-span);
         display: block;
         color: $black-color;
-        display: inline;
         font-size: calculateSizeVW($font-size-control);
     }
-
     & select,
     & input {
         @include fondo-control($black-color, $bg-size-response);
@@ -76,7 +48,7 @@ $bg-size-response: calculateSizeVW(2) calculateSizeVW(7), 100% calculateSizeVW(2
         }
         &::placeholder {
             font-size: calculateSizeVW($font-size);
-            color: $black-color;
+            color: $gray-color;
             opacity: 1;
         }
         & > option {
@@ -86,42 +58,83 @@ $bg-size-response: calculateSizeVW(2) calculateSizeVW(7), 100% calculateSizeVW(2
             opacity: 1;
         }
     }
-    & select {
-        display: inline-block;
-        text-transform: lowercase;
-        -moz-appearance: none; /* Firefox */
+    & textarea {
+        display: block;
+        resize: none;
+        border: calculateSizeVW($border) solid $black-color;
+        overflow-y: auto;
+        width: 100%;
+        padding: calculateSizeVW($padding);
+        margin-bottom: calculateSizeVW($margin-bottom);
+        letter-spacing: calculateSizeVW($letter-spacing);
+        font-size: calculateSizeVW($font-size);
+
+        &:focus {
+            outline: none;
+        }
+        &::placeholder {
+            font-size: calculateSizeVW($font-size);
+            color: $gray-color;
+            opacity: 1;
+        }
     }
-    & select::first-letter {
-        text-transform: uppercase;
+
+    & .disabled {
+        opacity: $disabled-opacity;
+    }
+    & .required {
+        & span {
+            color: $red-color;
+        }
+        & select,
+        & input {
+            @include fondo-control($red-color, $bg-size-response);
+            &::placeholder {
+                opacity: $disabled-opacity;
+                color: $red-color;
+            }
+        }
+
+        & textarea {
+            border: calculateSizeVW($border) solid $red-color;
+            color: $red-color;
+            &::placeholder {
+                opacity: $disabled-opacity;
+                color: $red-color;
+            }
+        }
+    }
+
+    & .readOnly {
+        & span {
+            color: $black-color;
+        }
+        & select {
+            @include fondo-control($black-color, $bg-size-response);
+
+            &::placeholder {
+                color: $black-color;
+            }
+        }
     }
 }
 
-.control-lista-desplegable {
-    align-self: end;
-}
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
-input[type="search"]::-webkit-search-decoration,
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-results-button,
-input[type="search"]::-webkit-search-results-decoration {
+input[type='search']::-webkit-search-decoration,
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-results-button,
+input[type='search']::-webkit-search-results-decoration {
     -webkit-appearance: none;
 }
 
 @media only screen and (min-width: calculateSizePX($min-height-screen)) {
     .control-container {
-        & .required {
-            & select,
-            & input {
-                @include fondo-control($red-color, $bg-size);
-            }
-        }
-        & span {
+        span {
             min-height: calculateSizePX($min-height-span);
             font-size: calculateSizePX($font-size-control);
         }
@@ -139,6 +152,34 @@ input[type="search"]::-webkit-search-results-decoration {
             }
             & > option {
                 font-size: calculateSizePX($font-size);
+            }
+        }
+        & textarea {
+            border: calculateSizePX($border) solid $black-color;
+            padding: calculateSizePX($padding);
+            margin-bottom: calculateSizePX($margin-bottom);
+            letter-spacing: calculateSizePX($letter-spacing);
+            font-size: calculateSizePX($font-size);
+
+            &::placeholder {
+                font-size: calculateSizePX($font-size);
+            }
+        }
+
+        & .required {
+            & select,
+            & input {
+                @include fondo-control($red-color, $bg-size);
+            }
+
+            & textarea {
+                border: calculateSizePX($border) solid $red-color;
+            }
+        }
+
+        & .readOnly {
+            & select {
+                @include fondo-control($black-color, $bg-size);
             }
         }
     }
