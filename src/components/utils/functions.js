@@ -69,3 +69,17 @@ export const upperCaseText = value =>
 
 export const capitalText = value =>
     getInitialValue(value, '').replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase())));
+
+export default {
+    jsonToArray,
+    getOptionsSelector,
+    getValueInput,
+    getInitialValue,
+    ternaryOperation,
+    onlyNumber,
+    onlyAlphanumericWithSpace,
+    onlyAlphanumericWithoutSpace,
+    lowerCaseText,
+    upperCaseText,
+    capitalText,
+};

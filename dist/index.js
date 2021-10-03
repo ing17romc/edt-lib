@@ -42,6 +42,26 @@ var NAVIGATION_ICONS = ['close', 'menu', 'expand_more', 'expand_less', 'arrow_ba
 var NOTIFICATION_ICONS = ['support_agent', 'wifi', 'sync', 'event_available', 'priority_high', 'event_note', 'sync_problem', 'vpn_lock', 'do_disturb', 'voice_chat'];
 var SOCIAL_ICONS = ['person', 'notifications', 'groups', 'group', 'share', 'person_add', 'public', 'notifications_active', 'whatsapp', 'woman', 'man', 'recycling', 'telegram', 'adobe', 'snapchat', 'apple', 'thumb_up_alt', 'thumb_down_alt', 'notifications_paused', 'tiktok'];
 var ICONS = ACTION_ICONS.concat(ALERT_ICONS).concat(AUDIO_AND_VIDEO_ICONS).concat(COMMUNICATION_ICONS).concat(CONTENT_ICONS).concat(DIVICE_ICONS).concat(EDITOR_ICONS).concat(FILE_ICONS).concat(HARDWARE_ICONS).concat(IMAGE_ICONS).concat(NAVIGATION_ICONS).concat(NOTIFICATION_ICONS).concat(SOCIAL_ICONS);
+var constant = {
+  TYPE_NOTIFICATION: TYPE_NOTIFICATION,
+  SIZE_CONTROL: SIZE_CONTROL,
+  STYLE_CONTROL: STYLE_CONTROL,
+  STYLE_STATUS_CONTROL: STYLE_STATUS_CONTROL,
+  ICONS: ICONS,
+  ACTION_ICONS: ACTION_ICONS,
+  ALERT_ICONS: ALERT_ICONS,
+  AUDIO_AND_VIDEO_ICONS: AUDIO_AND_VIDEO_ICONS,
+  COMMUNICATION_ICONS: COMMUNICATION_ICONS,
+  CONTENT_ICONS: CONTENT_ICONS,
+  DIVICE_ICONS: DIVICE_ICONS,
+  EDITOR_ICONS: EDITOR_ICONS,
+  FILE_ICONS: FILE_ICONS,
+  HARDWARE_ICONS: HARDWARE_ICONS,
+  IMAGE_ICONS: IMAGE_ICONS,
+  NAVIGATION_ICONS: NAVIGATION_ICONS,
+  NOTIFICATION_ICONS: NOTIFICATION_ICONS,
+  SOCIAL_ICONS: SOCIAL_ICONS
+};
 
 var jsonToArray = function jsonToArray(json) {
   var result = [];
@@ -51,6 +71,57 @@ var jsonToArray = function jsonToArray(json) {
   }
 
   return result;
+};
+var getOptionsSelector = function getOptionsSelector(json) {
+  var result = [];
+
+  for (var i in json) {
+    result.push({
+      key: json[i],
+      value: json[i]
+    });
+  }
+
+  return result;
+};
+var getValueInput = function getValueInput(e) {
+  if (e && e.target) {
+    if (e.target.tagName.toLowerCase() === 'input') {
+      if (e.target.type.toLowerCase() === 'checkbox') {
+        return {
+          key: e.target.name,
+          value: e.target.checked
+        };
+      } else if (e.target.type.toLowerCase() === 'radio') {
+        return {
+          key: e.target.name,
+          value: e.target.id
+        };
+      } else {
+        return {
+          key: e.target.name,
+          value: e.target.value
+        };
+      }
+    } else if (e.target.tagName.toLowerCase() === 'button') {
+      return {
+        key: e.target.id,
+        value: ''
+      };
+    } else if (e.target.tagName.toLowerCase() === 'textarea' || e.target.tagName.toLowerCase() === 'select') {
+      return {
+        key: e.target.id,
+        value: e.target.value
+      };
+    }
+  } else if (e) {
+    return {
+      key: e.id,
+      value: e.value
+    };
+  } else {
+    return null;
+  }
 };
 var getInitialValue = function getInitialValue(newValue, initialValue) {
   if (newValue === undefined || newValue === null) {
@@ -65,6 +136,41 @@ var ternaryOperation = function ternaryOperation(condicion, valorVerdadero, valo
   } else {
     return valorFalso;
   }
+};
+var onlyNumber = function onlyNumber(value) {
+  return getInitialValue(value, '').replace(/[^0-9]/g, '');
+};
+var onlyAlphanumericWithSpace = function onlyAlphanumericWithSpace(value) {
+  return getInitialValue(value, '').replace(/[^\wñÑáÁéÉíÍóÓúÚ\s]/g, '');
+};
+var onlyAlphanumericWithoutSpace = function onlyAlphanumericWithoutSpace(value) {
+  return getInitialValue(value, '').replace(/[\W]/g, '');
+};
+var lowerCaseText = function lowerCaseText(value) {
+  return getInitialValue(value, '').toLowerCase();
+};
+var upperCaseText = function upperCaseText(value) {
+  return getInitialValue(value, '').toUpperCase();
+};
+var capitalText = function capitalText(value) {
+  return getInitialValue(value, '').replace(/\w\S*/g, function (w) {
+    return w.replace(/^\w/, function (c) {
+      return c.toUpperCase();
+    });
+  });
+};
+var functions = {
+  jsonToArray: jsonToArray,
+  getOptionsSelector: getOptionsSelector,
+  getValueInput: getValueInput,
+  getInitialValue: getInitialValue,
+  ternaryOperation: ternaryOperation,
+  onlyNumber: onlyNumber,
+  onlyAlphanumericWithSpace: onlyAlphanumericWithSpace,
+  onlyAlphanumericWithoutSpace: onlyAlphanumericWithoutSpace,
+  lowerCaseText: lowerCaseText,
+  upperCaseText: upperCaseText,
+  capitalText: capitalText
 };
 
 var Button = function Button(_ref) {
@@ -1348,5 +1454,356 @@ var UI = {
   Spinner: Spinner
 };
 
-module.exports = UI;
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+// A type of promise-like that resolves synchronously and supports only one observer
+
+const _iteratorSymbol = /*#__PURE__*/ typeof Symbol !== "undefined" ? (Symbol.iterator || (Symbol.iterator = Symbol("Symbol.iterator"))) : "@@iterator";
+
+const _asyncIteratorSymbol = /*#__PURE__*/ typeof Symbol !== "undefined" ? (Symbol.asyncIterator || (Symbol.asyncIterator = Symbol("Symbol.asyncIterator"))) : "@@asyncIterator";
+
+// Asynchronously call a function and send errors to recovery continuation
+function _catch(body, recover) {
+	try {
+		var result = body();
+	} catch(e) {
+		return recover(e);
+	}
+	if (result && result.then) {
+		return result.then(void 0, recover);
+	}
+	return result;
+}
+
+function useCamera() {
+  var mediaRecorder = React.useRef();
+  var mount = React.useRef(true);
+  React.useEffect(function () {
+    return function () {
+      mount.current = false;
+      console.log('un-mount');
+    };
+  }, []);
+
+  var _useState = React.useState({
+    mediaStream: null,
+    mediaBlob: null,
+    devices: [],
+    log: []
+  }),
+      state = _useState[0],
+      setstate = _useState[1];
+
+  var getDevices = function getDevices(kind) {
+    try {
+      var _exit2 = false;
+
+      var _temp3 = function _temp3(_result2) {
+        return _exit2 ? _result2 : [];
+      };
+
+      var _temp4 = _catch(function () {
+        if (state.devices.length <= 0) {
+          return Promise.resolve(navigator.mediaDevices.enumerateDevices()).then(function (res) {
+            if (mount.current) {
+              setstate(_extends({}, state, {
+                devices: res
+              }));
+              _exit2 = true;
+              return res.filter(function (element) {
+                return element.kind === kind;
+              });
+            }
+          });
+        } else {
+          _exit2 = true;
+          return state.devices.filter(function (element) {
+            return element.kind === kind;
+          });
+        }
+      }, function (err) {
+        console.log(err);
+      });
+
+      return Promise.resolve(_temp4 && _temp4.then ? _temp4.then(_temp3) : _temp3(_temp4));
+    } catch (e) {
+      return Promise.reject(e);
+    }
+  };
+
+  var outputFormatVideos = [{
+    key: 'video/webm;codecs=vp8,opus',
+    value: 'WebM (.webm)'
+  }, {
+    key: 'video/mp4',
+    value: 'MPEG-4 (.mp4)'
+  }];
+
+  var getVideoSource = function getVideoSource() {
+    return Promise.resolve(getDevices('videoinput'));
+  };
+
+  var getAudioInputSource = function getAudioInputSource() {
+    return Promise.resolve(getDevices('audioinput'));
+  };
+
+  var getAudioOutputDestination = function getAudioOutputDestination() {
+    return Promise.resolve(getDevices('audiooutput'));
+  };
+
+  var power_off = 'Power OFF\n';
+  var power_on = 'Power ON\n';
+  var camera_off = 'Camera OFF!\n';
+  var camera_on = 'Camera ON!\n';
+  var recording = 'Recording!\n';
+  var not_recording = 'Not recording!\n';
+  var start_recording = 'Start recording\n';
+  var stop_recording = 'Stop recording\n';
+  var clear_video = 'Clear video\n';
+
+  var getLog = function getLog(text) {
+    var d = new Date();
+    var value = d.toTimeString().substr(0, 8) + " - " + text;
+    return [value].concat(state.log);
+  };
+
+  var validateOnCamera = function validateOnCamera() {
+    if (state.mediaStream) {
+      if (mount.current) {
+        setstate(_extends({}, state, {
+          log: getLog(camera_on)
+        }));
+      }
+
+      console.log(camera_on);
+      return true;
+    }
+
+    return false;
+  };
+
+  var validateOffCamera = function validateOffCamera() {
+    if (!state.mediaStream) {
+      if (mount.current) {
+        setstate(_extends({}, state, {
+          log: getLog(camera_off)
+        }));
+      }
+
+      console.log(camera_off);
+      return true;
+    }
+
+    return false;
+  };
+
+  var validateOnRecording = function validateOnRecording() {
+    if (mediaRecorder && mediaRecorder.current && mediaRecorder.current.state !== 'inactive') {
+      return true;
+    } else {
+      if (mount.current) {
+        setstate(_extends({}, state, {
+          log: getLog(not_recording)
+        }));
+      }
+
+      console.log(not_recording);
+      return false;
+    }
+  };
+
+  var validateOffRecording = function validateOffRecording() {
+    if (mediaRecorder && (!mediaRecorder.current || mediaRecorder.current.state === 'inactive')) {
+      return true;
+    } else {
+      if (mount.current) {
+        setstate(_extends({}, state, {
+          log: getLog(recording)
+        }));
+      }
+
+      console.log(recording);
+      return false;
+    }
+  };
+
+  var onCamera = function onCamera(requestedMedia) {
+    try {
+      var _exit4 = false;
+      var on = validateOnCamera();
+
+      var _temp6 = function () {
+        if (!on) {
+          return _catch(function () {
+            return Promise.resolve(navigator.mediaDevices.getUserMedia(requestedMedia)).then(function (stream) {
+              if (mount.current) {
+                setstate(_extends({}, state, {
+                  mediaBlob: null,
+                  mediaStream: stream,
+                  log: getLog(power_on)
+                }));
+              }
+
+              console.log(power_on);
+              _exit4 = true;
+              return true;
+            });
+          }, function (err) {
+            console.log(err);
+          });
+        }
+      }();
+
+      return Promise.resolve(_temp6 && _temp6.then ? _temp6.then(function (_result4) {
+        return _exit4 ? _result4 : false;
+      }) : _exit4 ? _temp6 : false);
+    } catch (e) {
+      return Promise.reject(e);
+    }
+  };
+
+  var offCamera = function offCamera() {
+    var off = validateOffCamera();
+
+    if (!off) {
+      try {
+        state.mediaStream.getTracks().forEach(function (track) {
+          track.stop();
+        });
+
+        if (mount.current) {
+          setstate(_extends({}, state, {
+            mediaStream: null,
+            log: getLog(power_off)
+          }));
+        }
+
+        console.log(power_off);
+        return true;
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
+    return false;
+  };
+
+  var startRecording = function startRecording() {
+    var off = validateOffCamera();
+
+    if (!off) {
+      var record = validateOffRecording();
+
+      if (record) {
+        mediaRecorder.current = new MediaRecorder(state.mediaStream);
+
+        mediaRecorder.current.onerror = function (e) {
+          console.log('error', e);
+        };
+
+        mediaRecorder.current.start();
+
+        if (mount.current) {
+          setstate(_extends({}, state, {
+            mediaBlob: null,
+            log: getLog(start_recording)
+          }));
+        }
+
+        console.log(start_recording);
+        return true;
+      }
+    }
+
+    return false;
+  };
+
+  var stopRecording = function stopRecording(outputFormat) {
+    var off = validateOffCamera();
+
+    if (!off) {
+      var record = validateOnRecording();
+
+      if (record) {
+        if (mediaRecorder.current.state !== 'inactive') {
+          mediaRecorder.current.stop();
+          state.mediaStream.current && state.mediaStream.current.getTracks().forEach(function (track) {
+            return track.stop();
+          });
+        }
+
+        mediaRecorder.current.ondataavailable = function (e) {
+          var outFile = outputFormat ? new Blob([e.data], {
+            type: outputFormat
+          }) : e.data;
+
+          if (mount.current) {
+            setstate(_extends({}, state, {
+              mediaBlob: outFile,
+              log: getLog(stop_recording)
+            }));
+          }
+        };
+
+        console.log(stop_recording);
+        return true;
+      }
+    }
+
+    return false;
+  };
+
+  var removeMediaBlob = function removeMediaBlob() {
+    if (mount.current) {
+      setstate(_extends({}, state, {
+        mediaBlob: null,
+        log: getLog(clear_video)
+      }));
+    }
+
+    console.log(clear_video);
+    return true;
+  };
+
+  return {
+    mediaStream: state.mediaStream,
+    startRecording: startRecording,
+    stopRecording: stopRecording,
+    onCamera: onCamera,
+    offCamera: offCamera,
+    removeMediaBlob: removeMediaBlob,
+    mediaBlob: state.mediaBlob,
+    getVideoSource: getVideoSource,
+    getAudioInputSource: getAudioInputSource,
+    getAudioOutputDestination: getAudioOutputDestination,
+    log: state.log,
+    outputFormatVideos: outputFormatVideos,
+    mount: mount,
+    validateOnCamera: validateOnCamera,
+    validateOffCamera: validateOffCamera,
+    validateOnRecording: validateOnRecording,
+    validateOffRecording: validateOffRecording
+  };
+}
+
+exports.CONSTANT = constant;
+exports.default = UI;
+exports.functions = functions;
+exports.useCamera = useCamera;
 //# sourceMappingURL=index.js.map
