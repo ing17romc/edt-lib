@@ -1,28 +1,47 @@
 @import './variables.scss';
 
 // backgroung color
-.bg-blue {
-    background-color: $blue-color !important;
+.bg-primary-1 {
+	background-color: $primary-color-1 !important;
 }
+.bg-primary-3 {
+	background-color: $primary-color-3 !important;
+}
+
 .bg-white {
-    background-color: $white-color !important;
+	background-color: $white-color !important;
 }
 .bg-light-gray {
-    background-color: $light-gray-color !important;
+	background-color: $light-gray-color !important;
+}
+.bg-gray {
+	background-color: $gray-color !important;
 }
 
 // font color
 .font-blue {
-    color: $blue-color !important;
+	color: $primary-color-1 !important;
+}
+.font-red {
+	color: $red-color !important;
+}
+.font-orange {
+	color: $orange-color !important;
+}
+.font-green {
+	color: $green-color !important;
+}
+.font-yellow {
+	color: $yellow-color !important;
 }
 .font-white {
-    color: $white-color !important;
+	color: $white-color !important;
 }
 
 .font-gray {
-    color: $dark-gray-color !important;
+	color: $dark-gray-color !important;
 }
 
 .font-bold {
-    font-weight: bold;
+	font-weight: bold;
 }

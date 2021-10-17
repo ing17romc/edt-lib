@@ -10,16 +10,16 @@ import { jsonToArray } from '../../utils/functions';
  */
 
 const Icon = ({ name, size = SIZE_CONTROL.MD }) => {
-
-    return <div className={`container-icon ${size}`} >
-        <div className='material-icons'>{name}</div>
-    </div>;
-
+	return (
+		<div className={`container-icon ${size}`}>
+			<div className='material-icons'>{name}</div>
+		</div>
+	);
 };
 
 Icon.propTypes = {
-    name: PropTypes.oneOf(ICONS).isRequired,
-    size: PropTypes.oneOf(jsonToArray(SIZE_CONTROL)),
+	name: PropTypes.oneOf(ICONS).isRequired,
+	size: PropTypes.oneOf(jsonToArray(SIZE_CONTROL)),
 };
 
 export default Icon;

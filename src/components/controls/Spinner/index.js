@@ -6,11 +6,11 @@ import React from 'react';
  * @returns Retorna el HTML del efecto cargando.
  */
 const Spinner = () => {
-    return (
-        <div className='container-load'>
-            <div className='loading'/>
-        </div>
-    )
-}
+	return (
+		<div className='container-load'>
+			<div className='loading' />
+		</div>
+	);
+};
 
-export default Spinner
+export default Spinner;

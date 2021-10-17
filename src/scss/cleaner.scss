@@ -2,13 +2,13 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 /* Remover valor por defecto de padding en etiquetas ul y ol con el atributo de clase */
 ul[class],
 ol[class] {
-  padding: 0;
+	padding: 0;
 }
 
 /* Remover valor por defecto de padding */
@@ -24,42 +24,42 @@ figure,
 blockquote,
 dl,
 dd {
-  margin: 0;
+	margin: 0;
 }
 
 /* Asignar valores por default a la raíz principal */
 html {
-  scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
 
 /* Asignar valores por default al cuerpo del documento */
 body {
-  min-height: 100vh;
-  text-rendering: optimizeSpeed;
-  line-height: 1.5;
+	min-height: 100vh;
+	text-rendering: optimizeSpeed;
+	line-height: 1.5;
 }
 
 /* Remover el estilo list-style a los elementos ul y ol con el atributo de clase */
 ul[class],
 ol[class] {
-  list-style: none;
+	list-style: none;
 }
 
 /* Predeterminar estilos para los elementos que no tienen una clase */
 a:not([class]) {
-  text-decoration-skip-ink: auto;
+	text-decoration-skip-ink: auto;
 }
 
 /* Predeterminar estilos para las imágenes */
 img,
 picture {
-  max-width: 100%;
-  display: block;
+	max-width: 100%;
+	display: block;
 }
 
 /* Predeterminar estilos para los artículos */
 article > * + * {
-  margin-top: 1em;
+	margin-top: 1em;
 }
 
 /* Heredar fuentes para los elementos de formulario(botones, entradas, áreas de texto y selectores) */
@@ -67,22 +67,22 @@ input,
 button,
 textarea,
 select {
-  font: inherit;
+	font: inherit;
 }
 
 /* Desenfocar imágenes cuando no tienen la propiedad alt */
 img:not([alt]) {
-  filter: blur(10px);
+	filter: blur(10px);
 }
 
 /* Remover todas las animaciones y transiciones */
 @media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+	* {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
 }
 
 /* Predeterminar estilos generales */
@@ -167,12 +167,12 @@ time,
 mark,
 audio,
 video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font-family: arial, verdana, sans-serif;
-  vertical-align: baseline;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font-family: arial, verdana, sans-serif;
+	vertical-align: baseline;
 }
 
 /* Reestablecer visualización para navegadores con versiones antiguas */
@@ -187,49 +187,49 @@ hgroup,
 menu,
 nav,
 section {
-  display: block;
+	display: block;
 }
 
 /* Predeterminar estilo al cuerpo del documento */
 body {
-  line-height: 1;
+	line-height: 1;
 }
 
 blockquote,
 q {
-  quotes: none;
+	quotes: none;
 }
 
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
-  content: none;
+	content: '';
+	content: none;
 }
 
 /* Predeterminar estilo a las tablas */
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
 input[type='search'] {
-  &::-webkit-search-decoration,
-  &::-webkit-search-cancel-button,
-  &::-webkit-search-results-button,
-  &::-webkit-search-results-decoration {
-    -webkit-appearance: none;
-  }
-  &:focus {
-    outline: none;
-  }
+	&::-webkit-search-decoration,
+	&::-webkit-search-cancel-button,
+	&::-webkit-search-results-button,
+	&::-webkit-search-results-decoration {
+		-webkit-appearance: none;
+	}
+	&:focus {
+		outline: none;
+	}
 }
 
 body {
-  &::-webkit-scrollbar {
-    display: none;
-  }
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+	&::-webkit-scrollbar {
+		display: none;
+	}
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
 }

@@ -34,14 +34,14 @@ $grid-secundary-width-cols: 1.73160173%;
 }
 
 @mixin grids($number) {
-    .start-#{$number} {
+	.start-#{$number} {
 		grid-column-start: $number;
-    }
+	}
 	.size-#{$number} {
 		grid-column-end: span $number;
-    }
+	}
 }
 
 @for $i from 1 through 20 {
-    @include grids($i);
+	@include grids($i);
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { SIZE_CONTROL, STYLE_CONTROL } from '../../utils/constant';
-import { jsonToArray, ternaryOperation } from '../../utils/functions';
+import { jsonToArray, ternaryOperation } from '../..//utils/functions';
 
 /**
  * @decription Component Button
@@ -13,29 +13,39 @@ import { jsonToArray, ternaryOperation } from '../../utils/functions';
  * @param type String value to style of button. the default value is 'primary'.
  * Values: primary, secundary.
  * @param size Larger or smaller button value. the default value is 'md'.
- * Values: lg, md, sm, xs. 
+ * Values: lg, md, sm, xs.
  * @returns Returns the code of an html element with the characteristics of the "Button".
  */
 
-const Button = ({ id, title, disabled, onClick, type = STYLE_CONTROL.PRIMARY, size = SIZE_CONTROL.MD }) => {
-
-    return <button
-        id={id}
-        className={`${type} ${size}`}
-        type={ternaryOperation(onClick, 'button', 'submit')}
-        onClick={e => { if (onClick) onClick(e) }}
-        disabled={disabled}>
-        {title}
-    </button>
+const Button = ({
+	id,
+	title,
+	disabled,
+	onClick,
+	type = STYLE_CONTROL.PRIMARY,
+	size = SIZE_CONTROL.MD,
+}) => {
+	return (
+		<button
+			id={id}
+			className={`${type} ${size}`}
+			type={ternaryOperation(onClick, 'button', 'submit')}
+			onClick={e => {
+				if (onClick) onClick(e);
+			}}
+			disabled={disabled}>
+			{title}
+		</button>
+	);
 };
 
 Button.propTypes = {
-    id: PropTypes.string,
-    title: PropTypes.string.isRequired,
-    disabled: PropTypes.bool,
-    onClick: PropTypes.func,
-    type: PropTypes.oneOf(jsonToArray(STYLE_CONTROL)),
-    size: PropTypes.oneOf(jsonToArray(SIZE_CONTROL)),
+	id: PropTypes.string,
+	title: PropTypes.string.isRequired,
+	disabled: PropTypes.bool,
+	onClick: PropTypes.func,
+	type: PropTypes.oneOf(jsonToArray(STYLE_CONTROL)),
+	size: PropTypes.oneOf(jsonToArray(SIZE_CONTROL)),
 };
 
 export default Button;

@@ -17,79 +17,79 @@ $border-radius: 4;
 $border-size: 1;
 
 button {
-    display: inline;
+	display: inline;
 
-    border-radius: calculateSizeVW($border-radius);
-    width: 100%;
-    cursor: pointer;
+	border-radius: calculateSizeVW($border-radius);
+	width: 100%;
+	cursor: pointer;
 
-    &:disabled {
-        opacity: $disabled-opacity
-    }
+	&:disabled {
+		opacity: $disabled-opacity;
+	}
 
-    &.primary {
-        background-color: $blue-color;
-        color: $white-color;
-        border: calculateSizeVW($border-size) solid $blue-color;
-    }
+	&.primary {
+		background-color: $primary-color-1;
+		color: $white-color;
+		border: calculateSizeVW($border-size) solid $primary-color-1;
+	}
 
-    &.secondary {
-        background-color: $white-color;
-        color: $blue-color;
-        border: calculateSizeVW($border-size) solid $blue-color;
-    }
+	&.secondary {
+		background-color: $white-color;
+		color: $primary-color-1;
+		border: calculateSizeVW($border-size) solid $primary-color-1;
+	}
 
-    &.lg {
-        height: calculateSizeVW($button-large);
-        font-size: calculateSizeVW($font-size-large);
-    }
+	&.lg {
+		height: calculateSizeVW($button-large);
+		font-size: calculateSizeVW($font-size-large);
+	}
 
-    &.md {
-        height: calculateSizeVW($button-normal);
-        font-size: calculateSizeVW($font-size-normal);
-    }
+	&.md {
+		height: calculateSizeVW($button-normal);
+		font-size: calculateSizeVW($font-size-normal);
+	}
 
-    &.sm {
-        height: calculateSizeVW($button-small);
-        font-size: calculateSizeVW($font-size-small);
-    }
+	&.sm {
+		height: calculateSizeVW($button-small);
+		font-size: calculateSizeVW($font-size-small);
+	}
 
-    &.xs {
-        height: calculateSizeVW($button-extra-small);
-        font-size: calculateSizeVW($font-size-extra-small);
-    }
+	&.xs {
+		height: calculateSizeVW($button-extra-small);
+		font-size: calculateSizeVW($font-size-extra-small);
+	}
 }
 
 @media screen and (min-width: calculateSizePX($min-height-screen)) and (hover: hover) and (pointer: fine) {
-    button {
-        border-radius: calculateSizePX($border-radius);
+	button {
+		border-radius: calculateSizePX($border-radius);
 
-        &.primary {
-            border: calculateSizePX($border-size) solid $blue-color;
-        }
+		&.primary {
+			border: calculateSizePX($border-size) solid $primary-color-1;
+		}
 
-        &.secondary {
-            border: calculateSizePX($border-size) solid $blue-color;
-        }
+		&.secondary {
+			border: calculateSizePX($border-size) solid $primary-color-1;
+		}
 
-        &.lg {
-            height: calculateSizePX($button-large);
-            font-size: calculateSizePX($font-size-large);
-        }
+		&.lg {
+			height: calculateSizePX($button-large);
+			font-size: calculateSizePX($font-size-large);
+		}
 
-        &.md {
-            height: calculateSizePX($button-normal);
-            font-size: calculateSizePX($font-size-normal);
-        }
+		&.md {
+			height: calculateSizePX($button-normal);
+			font-size: calculateSizePX($font-size-normal);
+		}
 
-        &.sm {
-            height: calculateSizePX($button-small);
-            font-size: calculateSizePX($font-size-small);
-        }
+		&.sm {
+			height: calculateSizePX($button-small);
+			font-size: calculateSizePX($font-size-small);
+		}
 
-        &.xs {
-            height: calculateSizePX($button-extra-small);
-            font-size: calculateSizePX($font-size-extra-small);
-        }
-    }
+		&.xs {
+			height: calculateSizePX($button-extra-small);
+			font-size: calculateSizePX($font-size-extra-small);
+		}
+	}
 }
