@@ -3,6 +3,525 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 var React = require('react');
 var React__default = _interopDefault(React);
 
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+// A type of promise-like that resolves synchronously and supports only one observer
+
+const _iteratorSymbol = /*#__PURE__*/ typeof Symbol !== "undefined" ? (Symbol.iterator || (Symbol.iterator = Symbol("Symbol.iterator"))) : "@@iterator";
+
+const _asyncIteratorSymbol = /*#__PURE__*/ typeof Symbol !== "undefined" ? (Symbol.asyncIterator || (Symbol.asyncIterator = Symbol("Symbol.asyncIterator"))) : "@@asyncIterator";
+
+// Asynchronously call a function and send errors to recovery continuation
+function _catch(body, recover) {
+	try {
+		var result = body();
+	} catch(e) {
+		return recover(e);
+	}
+	if (result && result.then) {
+		return result.then(void 0, recover);
+	}
+	return result;
+}
+
+function useCamera() {
+  var mediaRecorder = React.useRef();
+  var mount = React.useRef(true);
+  React.useEffect(function () {
+    return function () {
+      mount.current = false;
+      console.log('un-mount');
+    };
+  }, []);
+
+  var _useState = React.useState({
+    mediaStream: null,
+    mediaBlob: null,
+    devices: [],
+    log: []
+  }),
+      state = _useState[0],
+      setstate = _useState[1];
+
+  var getDevices = function getDevices(kind) {
+    try {
+      var _temp3 = function _temp3(_result2) {
+        return _exit2 ? _result2 : [];
+      };
+
+      var _exit2 = false;
+
+      var _temp4 = _catch(function () {
+        if (state.devices.length <= 0) {
+          return Promise.resolve(navigator.mediaDevices.enumerateDevices()).then(function (res) {
+            if (mount.current) {
+              setstate(_extends({}, state, {
+                devices: res
+              }));
+
+              var _res$filter2 = res.filter(function (element) {
+                return element.kind === kind;
+              });
+
+              _exit2 = true;
+              return _res$filter2;
+            }
+          });
+        } else {
+          var _state$devices$filter2 = state.devices.filter(function (element) {
+            return element.kind === kind;
+          });
+
+          _exit2 = true;
+          return _state$devices$filter2;
+        }
+      }, function (err) {
+        console.log(err);
+      });
+
+      return Promise.resolve(_temp4 && _temp4.then ? _temp4.then(_temp3) : _temp3(_temp4));
+    } catch (e) {
+      return Promise.reject(e);
+    }
+  };
+
+  var outputFormatVideos = [{
+    key: 'video/webm;codecs=vp8,opus',
+    value: 'WebM (.webm)'
+  }, {
+    key: 'video/mp4',
+    value: 'MPEG-4 (.mp4)'
+  }];
+
+  var getVideoSource = function getVideoSource() {
+    return Promise.resolve(getDevices('videoinput'));
+  };
+
+  var getAudioInputSource = function getAudioInputSource() {
+    return Promise.resolve(getDevices('audioinput'));
+  };
+
+  var getAudioOutputDestination = function getAudioOutputDestination() {
+    return Promise.resolve(getDevices('audiooutput'));
+  };
+
+  var POWER_OFF = 'Power OFF\n';
+  var POWER_ON = 'Power ON\n';
+  var CAMERA_OFF = 'Camera OFF!\n';
+  var CAMERA_ON = 'Camera ON!\n';
+  var RECORDING = 'Recording!\n';
+  var NOT_RECORDING = 'Not recording!\n';
+  var START_RECORDING = 'Start recording\n';
+  var STOP_RECORDING = 'Stop recording\n';
+  var CLEAR_VIDEO = 'Clear video\n';
+
+  var getLog = function getLog(text) {
+    var d = new Date();
+    var value = d.toTimeString().substr(0, 8) + " - " + text;
+    return [value].concat(state.log);
+  };
+
+  var validateOnCamera = function validateOnCamera() {
+    if (state.mediaStream) {
+      if (mount.current) {
+        setstate(_extends({}, state, {
+          log: getLog(CAMERA_ON)
+        }));
+      }
+
+      console.log(CAMERA_ON);
+      return true;
+    }
+
+    return false;
+  };
+
+  var validateOffCamera = function validateOffCamera() {
+    if (!state.mediaStream) {
+      if (mount.current) {
+        setstate(_extends({}, state, {
+          log: getLog(CAMERA_OFF)
+        }));
+      }
+
+      console.log(CAMERA_OFF);
+      return true;
+    }
+
+    return false;
+  };
+
+  var validateOnRecording = function validateOnRecording() {
+    if (mediaRecorder && mediaRecorder.current && mediaRecorder.current.state !== 'inactive') {
+      return true;
+    } else {
+      if (mount.current) {
+        setstate(_extends({}, state, {
+          log: getLog(NOT_RECORDING)
+        }));
+      }
+
+      console.log(NOT_RECORDING);
+      return false;
+    }
+  };
+
+  var validateOffRecording = function validateOffRecording() {
+    if (mediaRecorder && (!mediaRecorder.current || mediaRecorder.current.state === 'inactive')) {
+      return true;
+    } else {
+      if (mount.current) {
+        setstate(_extends({}, state, {
+          log: getLog(RECORDING)
+        }));
+      }
+
+      console.log(RECORDING);
+      return false;
+    }
+  };
+
+  var onCamera = function onCamera(requestedMedia) {
+    try {
+      var _exit4 = false;
+      var on = validateOnCamera();
+
+      var _temp6 = function () {
+        if (!on) {
+          return _catch(function () {
+            return Promise.resolve(navigator.mediaDevices.getUserMedia(requestedMedia)).then(function (stream) {
+              if (mount.current) {
+                setstate(_extends({}, state, {
+                  mediaBlob: null,
+                  mediaStream: stream,
+                  log: getLog(POWER_ON)
+                }));
+              }
+
+              console.log(POWER_ON);
+              _exit4 = true;
+              return true;
+            });
+          }, function (err) {
+            console.log(err);
+          });
+        }
+      }();
+
+      return Promise.resolve(_temp6 && _temp6.then ? _temp6.then(function (_result4) {
+        return _exit4 ? _result4 : false;
+      }) : _exit4 ? _temp6 : false);
+    } catch (e) {
+      return Promise.reject(e);
+    }
+  };
+
+  var offCamera = function offCamera() {
+    var off = validateOffCamera();
+
+    if (!off) {
+      try {
+        state.mediaStream.getTracks().forEach(function (track) {
+          track.stop();
+        });
+
+        if (mount.current) {
+          setstate(_extends({}, state, {
+            mediaStream: null,
+            log: getLog(POWER_OFF)
+          }));
+        }
+
+        console.log(POWER_OFF);
+        return true;
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
+    return false;
+  };
+
+  var startRecording = function startRecording() {
+    var off = validateOffCamera();
+
+    if (!off) {
+      var record = validateOffRecording();
+
+      if (record) {
+        mediaRecorder.current = new MediaRecorder(state.mediaStream);
+
+        mediaRecorder.current.onerror = function (e) {
+          console.log('error', e);
+        };
+
+        mediaRecorder.current.start();
+
+        if (mount.current) {
+          setstate(_extends({}, state, {
+            mediaBlob: null,
+            log: getLog(START_RECORDING)
+          }));
+        }
+
+        console.log(START_RECORDING);
+        return true;
+      }
+    }
+
+    return false;
+  };
+
+  var stopRecording = function stopRecording(outputFormat) {
+    var off = validateOffCamera();
+
+    if (!off) {
+      var record = validateOnRecording();
+
+      if (record) {
+        if (mediaRecorder.current.state !== 'inactive') {
+          mediaRecorder.current.stop();
+          state.mediaStream.current && state.mediaStream.current.getTracks().forEach(function (track) {
+            return track.stop();
+          });
+        }
+
+        mediaRecorder.current.ondataavailable = function (e) {
+          var outFile = outputFormat ? new Blob([e.data], {
+            type: outputFormat
+          }) : e.data;
+
+          if (mount.current) {
+            setstate(_extends({}, state, {
+              mediaBlob: outFile,
+              log: getLog(STOP_RECORDING)
+            }));
+          }
+        };
+
+        console.log(STOP_RECORDING);
+        return true;
+      }
+    }
+
+    return false;
+  };
+
+  var removeMediaBlob = function removeMediaBlob() {
+    if (mount.current) {
+      setstate(_extends({}, state, {
+        mediaBlob: null,
+        log: getLog(CLEAR_VIDEO)
+      }));
+    }
+
+    console.log(CLEAR_VIDEO);
+    return true;
+  };
+
+  return {
+    mediaStream: state.mediaStream,
+    startRecording: startRecording,
+    stopRecording: stopRecording,
+    onCamera: onCamera,
+    offCamera: offCamera,
+    removeMediaBlob: removeMediaBlob,
+    mediaBlob: state.mediaBlob,
+    getVideoSource: getVideoSource,
+    getAudioInputSource: getAudioInputSource,
+    getAudioOutputDestination: getAudioOutputDestination,
+    log: state.log,
+    outputFormatVideos: outputFormatVideos,
+    mount: mount,
+    validateOnCamera: validateOnCamera,
+    validateOffCamera: validateOffCamera,
+    validateOnRecording: validateOnRecording,
+    validateOffRecording: validateOffRecording
+  };
+}
+
+var TYPE_NOTIFICATION = {
+  ERROR: 'error',
+  WARNING: 'warning',
+  INFO: 'info',
+  SUCCESSFULL: 'successful'
+};
+var SIZE_CONTROL = {
+  LG: 'lg',
+  MD: 'md',
+  SM: 'sm',
+  XS: 'xs'
+};
+var STYLE_CONTROL = {
+  PRIMARY: 'primary',
+  SECONDARY: 'secondary'
+};
+var STYLE_STATUS_CONTROL = {
+  DISABLED: 'disabled',
+  READ_ONLY: 'readOnly',
+  REQUIRED: 'required'
+};
+var ACTION_ICONS = ['search', 'home', 'account_circle', 'settings', 'done', 'info', 'check_circle', 'delete', 'logout', 'description', 'lock', 'help', 'manage_accounts', 'filter_alt', 'event', 'login', 'list', 'lightbulb', 'autorenew', 'print', 'tab', 'zoom_in', 'zoom_out'];
+var ALERT_ICONS = ['add_alert', 'error', 'notification_important', 'warning'];
+var AUDIO_AND_VIDEO_ICONS = ['play_arrow', 'videocam', 'mic', 'volume_up', 'pause', 'volume_off', 'replay', 'skip_next', 'stop', 'movie', 'skip_previous', 'loop', 'fast_forward', 'mic_off', 'video_call', 'repeat', 'volume_mute', 'fast_rewind', 'volume_down', 'repeat_one'];
+var COMMUNICATION_ICONS = ['email', 'location_on', 'call', 'chat', 'list_alt', 'alternate_email', 'qr_code_2', 'message', 'sentiment_satisfied_alt', 'comment', 'live_help', 'rss_feed', 'import_export', 'mark_email_read', 'stay_current_portrait', 'duo', 'key', 'desktop_access_disabled'];
+var CONTENT_ICONS = ['add', 'send', 'content_copy', 'clear', 'mail', 'save', 'filter_list', 'remove', 'sort', 'inventory', 'create', 'flag', 'reply', 'push_pin', 'block', 'calculate', 'report', 'archive', 'select_all', 'content_paste_go'];
+var DIVICE_ICONS = ['password', 'quiz', 'storage', 'pin', 'bluetooth', 'access_time', 'sd_storage', 'restart_alt'];
+var EDITOR_ICONS = ['attach_money', 'mode_edit', 'format_list_bulleted', 'attach_file', 'edit_note', 'checklist', 'format_list_numbered', 'insert_photo', 'format_bold', 'insert_emoticon', 'table_rows', 'format_italic', 'format_align_left', 'format_underlined', 'format_align_center', 'format_align_right', 'format_align_justify'];
+var FILE_ICONS = ['file_download', 'file_upload', 'folder', 'grid_view', 'upload_file', 'cloud_upload', 'cloud_download', 'folder_open', 'cloud', 'create_new_folder'];
+var HARDWARE_ICONS = ['keyboard_arrow_down', 'smartphone', 'phone_iphone', 'keyboard_arrow_right', 'computer', 'desktop_windows', 'phone_android', 'keyboard_backspace', 'keyboard_arrow_up', 'keyboard_arrow_left', 'keyboard', 'headphones', 'tv', 'keyboard_return', 'headset_mic', 'mouse', 'keyboard_voice', 'tablet_mac', 'watch', 'keyboard_double_arrow_left', 'keyboard_double_arrow_right'];
+var IMAGE_ICONS = ['photo_camera', 'image', 'timer', 'camera', 'crop', 'broken_image', 'flip_camera_ios', 'movie_filter', 'crop_rotate'];
+var NAVIGATION_ICONS = ['close', 'menu', 'expand_more', 'expand_less', 'arrow_back', 'arrow_forward', 'chevron_right', 'chevron_left', 'arrow_drop_down', 'arrow_drop_up', 'first_page', 'last_page', 'campaign', 'apps', 'refresh', 'unfold_more', 'unfold_less', 'fullscreen_exit', 'fullscreen', 'more_vert', 'more_horiz'];
+var NOTIFICATION_ICONS = ['support_agent', 'wifi', 'sync', 'event_available', 'priority_high', 'event_note', 'sync_problem', 'vpn_lock', 'do_disturb', 'voice_chat'];
+var SOCIAL_ICONS = ['person', 'notifications', 'groups', 'group', 'share', 'person_add', 'public', 'notifications_active', 'whatsapp', 'woman', 'man', 'recycling', 'telegram', 'adobe', 'snapchat', 'apple', 'thumb_up_alt', 'thumb_down_alt', 'notifications_paused', 'tiktok'];
+var ICONS = ACTION_ICONS.concat(ALERT_ICONS).concat(AUDIO_AND_VIDEO_ICONS).concat(COMMUNICATION_ICONS).concat(CONTENT_ICONS).concat(DIVICE_ICONS).concat(EDITOR_ICONS).concat(FILE_ICONS).concat(HARDWARE_ICONS).concat(IMAGE_ICONS).concat(NAVIGATION_ICONS).concat(NOTIFICATION_ICONS).concat(SOCIAL_ICONS);
+var CONSTANT = {
+  TYPE_NOTIFICATION: TYPE_NOTIFICATION,
+  SIZE_CONTROL: SIZE_CONTROL,
+  STYLE_CONTROL: STYLE_CONTROL,
+  STYLE_STATUS_CONTROL: STYLE_STATUS_CONTROL,
+  ICONS: ICONS,
+  ACTION_ICONS: ACTION_ICONS,
+  ALERT_ICONS: ALERT_ICONS,
+  AUDIO_AND_VIDEO_ICONS: AUDIO_AND_VIDEO_ICONS,
+  COMMUNICATION_ICONS: COMMUNICATION_ICONS,
+  CONTENT_ICONS: CONTENT_ICONS,
+  DIVICE_ICONS: DIVICE_ICONS,
+  EDITOR_ICONS: EDITOR_ICONS,
+  FILE_ICONS: FILE_ICONS,
+  HARDWARE_ICONS: HARDWARE_ICONS,
+  IMAGE_ICONS: IMAGE_ICONS,
+  NAVIGATION_ICONS: NAVIGATION_ICONS,
+  NOTIFICATION_ICONS: NOTIFICATION_ICONS,
+  SOCIAL_ICONS: SOCIAL_ICONS
+};
+
+var jsonToArray = function jsonToArray(json) {
+  var result = [];
+
+  for (var i in json) {
+    result.push(json[i]);
+  }
+
+  return result;
+};
+var getOptionsSelector = function getOptionsSelector(json) {
+  var result = [];
+
+  for (var i in json) {
+    result.push({
+      key: json[i],
+      value: json[i]
+    });
+  }
+
+  return result;
+};
+var getValueInput = function getValueInput(e) {
+  if (e && e.target) {
+    if (e.target.tagName.toLowerCase() === 'input') {
+      if (e.target.type.toLowerCase() === 'checkbox') {
+        return {
+          key: e.target.name,
+          value: e.target.checked
+        };
+      } else if (e.target.type.toLowerCase() === 'radio') {
+        return {
+          key: e.target.name,
+          value: e.target.id
+        };
+      } else {
+        return {
+          key: e.target.name,
+          value: e.target.value
+        };
+      }
+    } else if (e.target.tagName.toLowerCase() === 'button') {
+      return {
+        key: e.target.id,
+        value: ''
+      };
+    } else if (e.target.tagName.toLowerCase() === 'textarea' || e.target.tagName.toLowerCase() === 'select') {
+      return {
+        key: e.target.id,
+        value: e.target.value
+      };
+    }
+  } else if (e) {
+    return {
+      key: e.id,
+      value: e.value
+    };
+  } else {
+    return null;
+  }
+};
+var getInitialValue = function getInitialValue(newValue, initialValue) {
+  if (newValue === undefined || newValue === null) {
+    return initialValue;
+  } else {
+    return newValue;
+  }
+};
+var ternaryOperation = function ternaryOperation(condicion, valorVerdadero, valorFalso) {
+  if (condicion) {
+    return valorVerdadero;
+  } else {
+    return valorFalso;
+  }
+};
+var onlyNumber = function onlyNumber(value) {
+  return getInitialValue(value, '').replace(/[^0-9]/g, '');
+};
+var onlyAlphanumericWithSpace = function onlyAlphanumericWithSpace(value) {
+  return getInitialValue(value, '').replace(/[^\wñÑáÁéÉíÍóÓúÚ\s]/g, '');
+};
+var onlyAlphanumericWithoutSpace = function onlyAlphanumericWithoutSpace(value) {
+  return getInitialValue(value, '').replace(/[\W]/g, '');
+};
+var lowerCaseText = function lowerCaseText(value) {
+  return getInitialValue(value, '').toLowerCase();
+};
+var upperCaseText = function upperCaseText(value) {
+  return getInitialValue(value, '').toUpperCase();
+};
+var capitalText = function capitalText(value) {
+  return getInitialValue(value, '').replace(/\w\S*/g, function (w) {
+    return w.replace(/^\w/, function (c) {
+      return c.toUpperCase();
+    });
+  });
+};
+var funtions = {
+  jsonToArray: jsonToArray,
+  getOptionsSelector: getOptionsSelector,
+  getValueInput: getValueInput,
+  getInitialValue: getInitialValue,
+  ternaryOperation: ternaryOperation,
+  onlyNumber: onlyNumber,
+  onlyAlphanumericWithSpace: onlyAlphanumericWithSpace,
+  onlyAlphanumericWithoutSpace: onlyAlphanumericWithoutSpace,
+  lowerCaseText: lowerCaseText,
+  upperCaseText: upperCaseText,
+  capitalText: capitalText
+};
+
 function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;
 }
@@ -335,12 +854,14 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 
 var ReactPropTypesSecret_1 = ReactPropTypesSecret;
 
+var has = Function.call.bind(Object.prototype.hasOwnProperty);
+
 var printWarning = function() {};
 
 if (process.env.NODE_ENV !== 'production') {
   var ReactPropTypesSecret$1 = ReactPropTypesSecret_1;
   var loggedTypeFailures = {};
-  var has = Function.call.bind(Object.prototype.hasOwnProperty);
+  var has$1 = has;
 
   printWarning = function(text) {
     var message = 'Warning: ' + text;
@@ -352,7 +873,7 @@ if (process.env.NODE_ENV !== 'production') {
       // This error was thrown as a convenience so that you can use this stack
       // to find the callsite that caused this warning to fire.
       throw new Error(message);
-    } catch (x) {}
+    } catch (x) { /**/ }
   };
 }
 
@@ -370,7 +891,7 @@ if (process.env.NODE_ENV !== 'production') {
 function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
   if (process.env.NODE_ENV !== 'production') {
     for (var typeSpecName in typeSpecs) {
-      if (has(typeSpecs, typeSpecName)) {
+      if (has$1(typeSpecs, typeSpecName)) {
         var error;
         // Prop type validation may throw. In case they do, we don't want to
         // fail the render phase where it didn't fail before. So we log it.
@@ -381,7 +902,8 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
           if (typeof typeSpecs[typeSpecName] !== 'function') {
             var err = Error(
               (componentName || 'React class') + ': ' + location + ' type `' + typeSpecName + '` is invalid; ' +
-              'it must be a function, usually from the `prop-types` package, but received `' + typeof typeSpecs[typeSpecName] + '`.'
+              'it must be a function, usually from the `prop-types` package, but received `' + typeof typeSpecs[typeSpecName] + '`.' +
+              'This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.'
             );
             err.name = 'Invariant Violation';
             throw err;
@@ -429,7 +951,6 @@ checkPropTypes.resetWarningCache = function() {
 
 var checkPropTypes_1 = checkPropTypes;
 
-var has$1 = Function.call.bind(Object.prototype.hasOwnProperty);
 var printWarning$1 = function() {};
 
 if (process.env.NODE_ENV !== 'production') {
@@ -530,6 +1051,7 @@ var factoryWithTypeCheckers = function(isValidElement, throwOnDirectAccess) {
   // Keep this list in sync with production version in `./factoryWithThrowingShims.js`.
   var ReactPropTypes = {
     array: createPrimitiveTypeChecker('array'),
+    bigint: createPrimitiveTypeChecker('bigint'),
     bool: createPrimitiveTypeChecker('boolean'),
     func: createPrimitiveTypeChecker('function'),
     number: createPrimitiveTypeChecker('number'),
@@ -575,8 +1097,9 @@ var factoryWithTypeCheckers = function(isValidElement, throwOnDirectAccess) {
    * is prohibitively expensive if they are created too often, such as what
    * happens in oneOfType() for any type before the one that matched.
    */
-  function PropTypeError(message) {
+  function PropTypeError(message, data) {
     this.message = message;
+    this.data = data && typeof data === 'object' ? data: {};
     this.stack = '';
   }
   // Make `instanceof Error` still work for returned errors.
@@ -611,7 +1134,7 @@ var factoryWithTypeCheckers = function(isValidElement, throwOnDirectAccess) {
           ) {
             printWarning$1(
               'You are manually calling a React.PropTypes validation ' +
-              'function for the `' + propFullName + '` prop on `' + componentName  + '`. This is deprecated ' +
+              'function for the `' + propFullName + '` prop on `' + componentName + '`. This is deprecated ' +
               'and will throw in the standalone `prop-types` package. ' +
               'You may be seeing this warning due to a third-party PropTypes ' +
               'library. See https://fb.me/react-warning-dont-call-proptypes ' + 'for details.'
@@ -650,7 +1173,10 @@ var factoryWithTypeCheckers = function(isValidElement, throwOnDirectAccess) {
         // 'of type `object`'.
         var preciseType = getPreciseType(propValue);
 
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + preciseType + '` supplied to `' + componentName + '`, expected ') + ('`' + expectedType + '`.'));
+        return new PropTypeError(
+          'Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + preciseType + '` supplied to `' + componentName + '`, expected ') + ('`' + expectedType + '`.'),
+          {expectedType: expectedType}
+        );
       }
       return null;
     }
@@ -764,7 +1290,7 @@ var factoryWithTypeCheckers = function(isValidElement, throwOnDirectAccess) {
         return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an object.'));
       }
       for (var key in propValue) {
-        if (has$1(propValue, key)) {
+        if (has(propValue, key)) {
           var error = typeChecker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret_1);
           if (error instanceof Error) {
             return error;
@@ -794,14 +1320,19 @@ var factoryWithTypeCheckers = function(isValidElement, throwOnDirectAccess) {
     }
 
     function validate(props, propName, componentName, location, propFullName) {
+      var expectedTypes = [];
       for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
         var checker = arrayOfTypeCheckers[i];
-        if (checker(props, propName, componentName, location, propFullName, ReactPropTypesSecret_1) == null) {
+        var checkerResult = checker(props, propName, componentName, location, propFullName, ReactPropTypesSecret_1);
+        if (checkerResult == null) {
           return null;
         }
+        if (checkerResult.data && has(checkerResult.data, 'expectedType')) {
+          expectedTypes.push(checkerResult.data.expectedType);
+        }
       }
-
-      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`.'));
+      var expectedTypesMessage = (expectedTypes.length > 0) ? ', expected one of type [' + expectedTypes.join(', ') + ']': '';
+      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`' + expectedTypesMessage + '.'));
     }
     return createChainableTypeChecker(validate);
   }
@@ -816,6 +1347,13 @@ var factoryWithTypeCheckers = function(isValidElement, throwOnDirectAccess) {
     return createChainableTypeChecker(validate);
   }
 
+  function invalidValidatorError(componentName, location, propFullName, key, type) {
+    return new PropTypeError(
+      (componentName || 'React class') + ': ' + location + ' type `' + propFullName + '.' + key + '` is invalid; ' +
+      'it must be a function, usually from the `prop-types` package, but received `' + type + '`.'
+    );
+  }
+
   function createShapeTypeChecker(shapeTypes) {
     function validate(props, propName, componentName, location, propFullName) {
       var propValue = props[propName];
@@ -825,8 +1363,8 @@ var factoryWithTypeCheckers = function(isValidElement, throwOnDirectAccess) {
       }
       for (var key in shapeTypes) {
         var checker = shapeTypes[key];
-        if (!checker) {
-          continue;
+        if (typeof checker !== 'function') {
+          return invalidValidatorError(componentName, location, propFullName, key, getPreciseType(checker));
         }
         var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret_1);
         if (error) {
@@ -845,16 +1383,18 @@ var factoryWithTypeCheckers = function(isValidElement, throwOnDirectAccess) {
       if (propType !== 'object') {
         return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
       }
-      // We need to check all keys in case some are required but missing from
-      // props.
+      // We need to check all keys in case some are required but missing from props.
       var allKeys = objectAssign({}, props[propName], shapeTypes);
       for (var key in allKeys) {
         var checker = shapeTypes[key];
+        if (has(shapeTypes, key) && typeof checker !== 'function') {
+          return invalidValidatorError(componentName, location, propFullName, key, getPreciseType(checker));
+        }
         if (!checker) {
           return new PropTypeError(
             'Invalid ' + location + ' `' + propFullName + '` key `' + key + '` supplied to `' + componentName + '`.' +
             '\nBad object: ' + JSON.stringify(props[propName], null, '  ') +
-            '\nValid keys: ' +  JSON.stringify(Object.keys(shapeTypes), null, '  ')
+            '\nValid keys: ' + JSON.stringify(Object.keys(shapeTypes), null, '  ')
           );
         }
         var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret_1);
@@ -1030,6 +1570,7 @@ var factoryWithThrowingShims = function() {
   // Keep this list in sync with production version in `./factoryWithTypeCheckers.js`.
   var ReactPropTypes = {
     array: shim,
+    bigint: shim,
     bool: shim,
     func: shim,
     number: shim,
@@ -1080,172 +1621,6 @@ if (process.env.NODE_ENV !== 'production') {
 }
 });
 
-var TYPE_NOTIFICATION = {
-  ERROR: 'error',
-  WARNING: 'warning',
-  INFO: 'info',
-  SUCCESSFULL: 'successful'
-};
-var SIZE_CONTROL = {
-  LG: 'lg',
-  MD: 'md',
-  SM: 'sm',
-  XS: 'xs'
-};
-var STYLE_CONTROL = {
-  PRIMARY: 'primary',
-  SECONDARY: 'secondary'
-};
-var STYLE_STATUS_CONTROL = {
-  DISABLED: 'disabled',
-  READ_ONLY: 'readOnly',
-  REQUIRED: 'required'
-};
-var ACTION_ICONS = ['search', 'home', 'account_circle', 'settings', 'done', 'info', 'check_circle', 'delete', 'logout', 'description', 'lock', 'help', 'manage_accounts', 'filter_alt', 'event', 'login', 'list', 'lightbulb', 'autorenew', 'print', 'tab', 'zoom_in', 'zoom_out'];
-var ALERT_ICONS = ['add_alert', 'error', 'notification_important', 'warning'];
-var AUDIO_AND_VIDEO_ICONS = ['play_arrow', 'videocam', 'mic', 'volume_up', 'pause', 'volume_off', 'replay', 'skip_next', 'stop', 'movie', 'skip_previous', 'loop', 'fast_forward', 'mic_off', 'video_call', 'repeat', 'volume_mute', 'fast_rewind', 'volume_down', 'repeat_one'];
-var COMMUNICATION_ICONS = ['email', 'location_on', 'call', 'chat', 'list_alt', 'alternate_email', 'qr_code_2', 'message', 'sentiment_satisfied_alt', 'comment', 'live_help', 'rss_feed', 'import_export', 'mark_email_read', 'stay_current_portrait', 'duo', 'key', 'desktop_access_disabled'];
-var CONTENT_ICONS = ['add', 'send', 'content_copy', 'clear', 'mail', 'save', 'filter_list', 'remove', 'sort', 'inventory', 'create', 'flag', 'reply', 'push_pin', 'block', 'calculate', 'report', 'archive', 'select_all', 'content_paste_go'];
-var DIVICE_ICONS = ['password', 'quiz', 'storage', 'pin', 'bluetooth', 'access_time', 'sd_storage', 'restart_alt'];
-var EDITOR_ICONS = ['attach_money', 'mode_edit', 'format_list_bulleted', 'attach_file', 'edit_note', 'checklist', 'format_list_numbered', 'insert_photo', 'format_bold', 'insert_emoticon', 'table_rows', 'format_italic', 'format_align_left', 'format_underlined', 'format_align_center', 'format_align_right', 'format_align_justify'];
-var FILE_ICONS = ['file_download', 'file_upload', 'folder', 'grid_view', 'upload_file', 'cloud_upload', 'cloud_download', 'folder_open', 'cloud', 'create_new_folder'];
-var HARDWARE_ICONS = ['keyboard_arrow_down', 'smartphone', 'phone_iphone', 'keyboard_arrow_right', 'computer', 'desktop_windows', 'phone_android', 'keyboard_backspace', 'keyboard_arrow_up', 'keyboard_arrow_left', 'keyboard', 'headphones', 'tv', 'keyboard_return', 'headset_mic', 'mouse', 'keyboard_voice', 'tablet_mac', 'watch', 'keyboard_double_arrow_left', 'keyboard_double_arrow_right'];
-var IMAGE_ICONS = ['photo_camera', 'image', 'timer', 'camera', 'crop', 'broken_image', 'flip_camera_ios', 'movie_filter', 'crop_rotate'];
-var NAVIGATION_ICONS = ['close', 'menu', 'expand_more', 'expand_less', 'arrow_back', 'arrow_forward', 'chevron_right', 'chevron_left', 'arrow_drop_down', 'arrow_drop_up', 'first_page', 'last_page', 'campaign', 'apps', 'refresh', 'unfold_more', 'unfold_less', 'fullscreen_exit', 'fullscreen', 'more_vert', 'more_horiz'];
-var NOTIFICATION_ICONS = ['support_agent', 'wifi', 'sync', 'event_available', 'priority_high', 'event_note', 'sync_problem', 'vpn_lock', 'do_disturb', 'voice_chat'];
-var SOCIAL_ICONS = ['person', 'notifications', 'groups', 'group', 'share', 'person_add', 'public', 'notifications_active', 'whatsapp', 'woman', 'man', 'recycling', 'telegram', 'adobe', 'snapchat', 'apple', 'thumb_up_alt', 'thumb_down_alt', 'notifications_paused', 'tiktok'];
-var ICONS = ACTION_ICONS.concat(ALERT_ICONS).concat(AUDIO_AND_VIDEO_ICONS).concat(COMMUNICATION_ICONS).concat(CONTENT_ICONS).concat(DIVICE_ICONS).concat(EDITOR_ICONS).concat(FILE_ICONS).concat(HARDWARE_ICONS).concat(IMAGE_ICONS).concat(NAVIGATION_ICONS).concat(NOTIFICATION_ICONS).concat(SOCIAL_ICONS);
-var CONSTANT = {
-  TYPE_NOTIFICATION: TYPE_NOTIFICATION,
-  SIZE_CONTROL: SIZE_CONTROL,
-  STYLE_CONTROL: STYLE_CONTROL,
-  STYLE_STATUS_CONTROL: STYLE_STATUS_CONTROL,
-  ICONS: ICONS,
-  ACTION_ICONS: ACTION_ICONS,
-  ALERT_ICONS: ALERT_ICONS,
-  AUDIO_AND_VIDEO_ICONS: AUDIO_AND_VIDEO_ICONS,
-  COMMUNICATION_ICONS: COMMUNICATION_ICONS,
-  CONTENT_ICONS: CONTENT_ICONS,
-  DIVICE_ICONS: DIVICE_ICONS,
-  EDITOR_ICONS: EDITOR_ICONS,
-  FILE_ICONS: FILE_ICONS,
-  HARDWARE_ICONS: HARDWARE_ICONS,
-  IMAGE_ICONS: IMAGE_ICONS,
-  NAVIGATION_ICONS: NAVIGATION_ICONS,
-  NOTIFICATION_ICONS: NOTIFICATION_ICONS,
-  SOCIAL_ICONS: SOCIAL_ICONS
-};
-
-var jsonToArray = function jsonToArray(json) {
-  var result = [];
-
-  for (var i in json) {
-    result.push(json[i]);
-  }
-
-  return result;
-};
-var getOptionsSelector = function getOptionsSelector(json) {
-  var result = [];
-
-  for (var i in json) {
-    result.push({
-      key: json[i],
-      value: json[i]
-    });
-  }
-
-  return result;
-};
-var getValueInput = function getValueInput(e) {
-  if (e && e.target) {
-    if (e.target.tagName.toLowerCase() === 'input') {
-      if (e.target.type.toLowerCase() === 'checkbox') {
-        return {
-          key: e.target.name,
-          value: e.target.checked
-        };
-      } else if (e.target.type.toLowerCase() === 'radio') {
-        return {
-          key: e.target.name,
-          value: e.target.id
-        };
-      } else {
-        return {
-          key: e.target.name,
-          value: e.target.value
-        };
-      }
-    } else if (e.target.tagName.toLowerCase() === 'button') {
-      return {
-        key: e.target.id,
-        value: ''
-      };
-    } else if (e.target.tagName.toLowerCase() === 'textarea' || e.target.tagName.toLowerCase() === 'select') {
-      return {
-        key: e.target.id,
-        value: e.target.value
-      };
-    }
-  } else if (e) {
-    return {
-      key: e.id,
-      value: e.value
-    };
-  } else {
-    return null;
-  }
-};
-var getInitialValue = function getInitialValue(newValue, initialValue) {
-  if (newValue === undefined || newValue === null) {
-    return initialValue;
-  } else {
-    return newValue;
-  }
-};
-var ternaryOperation = function ternaryOperation(condicion, valorVerdadero, valorFalso) {
-  if (condicion) {
-    return valorVerdadero;
-  } else {
-    return valorFalso;
-  }
-};
-var onlyNumber = function onlyNumber(value) {
-  return getInitialValue(value, '').replace(/[^0-9]/g, '');
-};
-var onlyAlphanumericWithSpace = function onlyAlphanumericWithSpace(value) {
-  return getInitialValue(value, '').replace(/[^\wñÑáÁéÉíÍóÓúÚ\s]/g, '');
-};
-var onlyAlphanumericWithoutSpace = function onlyAlphanumericWithoutSpace(value) {
-  return getInitialValue(value, '').replace(/[\W]/g, '');
-};
-var lowerCaseText = function lowerCaseText(value) {
-  return getInitialValue(value, '').toLowerCase();
-};
-var upperCaseText = function upperCaseText(value) {
-  return getInitialValue(value, '').toUpperCase();
-};
-var capitalText = function capitalText(value) {
-  return getInitialValue(value, '').replace(/\w\S*/g, function (w) {
-    return w.replace(/^\w/, function (c) {
-      return c.toUpperCase();
-    });
-  });
-};
-var funtions = {
-  jsonToArray: jsonToArray,
-  getOptionsSelector: getOptionsSelector,
-  getValueInput: getValueInput,
-  getInitialValue: getInitialValue,
-  ternaryOperation: ternaryOperation,
-  onlyNumber: onlyNumber,
-  onlyAlphanumericWithSpace: onlyAlphanumericWithSpace,
-  onlyAlphanumericWithoutSpace: onlyAlphanumericWithoutSpace,
-  lowerCaseText: lowerCaseText,
-  upperCaseText: upperCaseText,
-  capitalText: capitalText
-};
-
 var Button = function Button(_ref) {
   var id = _ref.id,
       title = _ref.title,
@@ -1260,7 +1635,7 @@ var Button = function Button(_ref) {
     className: type + " " + size,
     type: ternaryOperation(_onClick, 'button', 'submit'),
     onClick: function onClick(e) {
-      if (_onClick) _onClick(e);
+      if (!disabled && _onClick) _onClick(e);
     },
     disabled: disabled
   }, title);
@@ -1580,27 +1955,20 @@ TextBox.propTypes = {
 var Title = function Title(_ref) {
   var label = _ref.label,
       secundary = _ref.secundary;
-  var component;
 
-  if (secundary) {
-    component = /*#__PURE__*/React__default.createElement("div", {
-      className: "title"
-    }, /*#__PURE__*/React__default.createElement("h4", {
+  var getHeadings = function getHeadings(label, secundary) {
+    return secundary ? /*#__PURE__*/React__default.createElement("h4", {
       className: "font-bold"
-    }, label), /*#__PURE__*/React__default.createElement("div", {
-      className: "line"
-    }));
-  } else {
-    component = /*#__PURE__*/React__default.createElement("div", {
-      className: "title"
-    }, /*#__PURE__*/React__default.createElement("h2", {
+    }, label) : /*#__PURE__*/React__default.createElement("h2", {
       className: "font-bold"
-    }, label), /*#__PURE__*/React__default.createElement("div", {
-      className: "line"
-    }));
-  }
+    }, label);
+  };
 
-  return component;
+  return /*#__PURE__*/React__default.createElement("div", {
+    className: "title"
+  }, getHeadings(label, secundary), /*#__PURE__*/React__default.createElement("div", {
+    className: "line"
+  }));
 };
 
 Title.propTypes = {
@@ -1620,18 +1988,18 @@ var TextButton = function TextButton(_ref) {
     return "textButton " + type + " " + ternaryOperation(disabled, STYLE_STATUS_CONTROL.DISABLED, '');
   };
 
-  return /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement("button", {
+  return /*#__PURE__*/React__default.createElement("button", {
     className: style(),
     id: id,
     type: ternaryOperation(_onClick, 'button', 'submit'),
     name: id,
     disabled: disabled,
     onClick: function onClick(e) {
-      if (!disabled) {
+      if (!disabled && _onClick) {
         _onClick(e);
       }
     }
-  }, text));
+  }, text);
 };
 
 TextButton.propTypes = {
@@ -2348,7 +2716,7 @@ var ImageButton = function ImageButton(_ref) {
     name: id,
     disabled: disabled,
     onClick: function onClick(e) {
-      if (!disabled) {
+      if (!disabled && _onClick) {
         _onClick(e);
       }
     }
@@ -2389,394 +2757,26 @@ var UI = {
   Spinner: Spinner
 };
 
-function _extends() {
-  _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  return _extends.apply(this, arguments);
-}
-
-// A type of promise-like that resolves synchronously and supports only one observer
-
-const _iteratorSymbol = /*#__PURE__*/ typeof Symbol !== "undefined" ? (Symbol.iterator || (Symbol.iterator = Symbol("Symbol.iterator"))) : "@@iterator";
-
-const _asyncIteratorSymbol = /*#__PURE__*/ typeof Symbol !== "undefined" ? (Symbol.asyncIterator || (Symbol.asyncIterator = Symbol("Symbol.asyncIterator"))) : "@@asyncIterator";
-
-// Asynchronously call a function and send errors to recovery continuation
-function _catch(body, recover) {
-	try {
-		var result = body();
-	} catch(e) {
-		return recover(e);
-	}
-	if (result && result.then) {
-		return result.then(void 0, recover);
-	}
-	return result;
-}
-
-function useCamera() {
-  var mediaRecorder = React.useRef();
-  var mount = React.useRef(true);
-  React.useEffect(function () {
-    return function () {
-      mount.current = false;
-      console.log('un-mount');
-    };
-  }, []);
-
-  var _useState = React.useState({
-    mediaStream: null,
-    mediaBlob: null,
-    devices: [],
-    log: []
-  }),
-      state = _useState[0],
-      setstate = _useState[1];
-
-  var getDevices = function getDevices(kind) {
-    try {
-      var _exit2 = false;
-
-      var _temp3 = function _temp3(_result2) {
-        return _exit2 ? _result2 : [];
-      };
-
-      var _temp4 = _catch(function () {
-        if (state.devices.length <= 0) {
-          return Promise.resolve(navigator.mediaDevices.enumerateDevices()).then(function (res) {
-            if (mount.current) {
-              setstate(_extends({}, state, {
-                devices: res
-              }));
-              _exit2 = true;
-              return res.filter(function (element) {
-                return element.kind === kind;
-              });
-            }
-          });
-        } else {
-          _exit2 = true;
-          return state.devices.filter(function (element) {
-            return element.kind === kind;
-          });
-        }
-      }, function (err) {
-        console.log(err);
-      });
-
-      return Promise.resolve(_temp4 && _temp4.then ? _temp4.then(_temp3) : _temp3(_temp4));
-    } catch (e) {
-      return Promise.reject(e);
-    }
-  };
-
-  var outputFormatVideos = [{
-    key: 'video/webm;codecs=vp8,opus',
-    value: 'WebM (.webm)'
-  }, {
-    key: 'video/mp4',
-    value: 'MPEG-4 (.mp4)'
-  }];
-
-  var getVideoSource = function getVideoSource() {
-    return Promise.resolve(getDevices('videoinput'));
-  };
-
-  var getAudioInputSource = function getAudioInputSource() {
-    return Promise.resolve(getDevices('audioinput'));
-  };
-
-  var getAudioOutputDestination = function getAudioOutputDestination() {
-    return Promise.resolve(getDevices('audiooutput'));
-  };
-
-  var POWER_OFF = 'Power OFF\n';
-  var POWER_ON = 'Power ON\n';
-  var CAMERA_OFF = 'Camera OFF!\n';
-  var CAMERA_ON = 'Camera ON!\n';
-  var RECORDING = 'Recording!\n';
-  var NOT_RECORDING = 'Not recording!\n';
-  var START_RECORDING = 'Start recording\n';
-  var STOP_RECORDING = 'Stop recording\n';
-  var CLEAR_VIDEO = 'Clear video\n';
-
-  var getLog = function getLog(text) {
-    var d = new Date();
-    var value = d.toTimeString().substr(0, 8) + " - " + text;
-    return [value].concat(state.log);
-  };
-
-  var validateOnCamera = function validateOnCamera() {
-    if (state.mediaStream) {
-      if (mount.current) {
-        setstate(_extends({}, state, {
-          log: getLog(CAMERA_ON)
-        }));
-      }
-
-      console.log(CAMERA_ON);
-      return true;
-    }
-
-    return false;
-  };
-
-  var validateOffCamera = function validateOffCamera() {
-    if (!state.mediaStream) {
-      if (mount.current) {
-        setstate(_extends({}, state, {
-          log: getLog(CAMERA_OFF)
-        }));
-      }
-
-      console.log(CAMERA_OFF);
-      return true;
-    }
-
-    return false;
-  };
-
-  var validateOnRecording = function validateOnRecording() {
-    if (mediaRecorder && mediaRecorder.current && mediaRecorder.current.state !== 'inactive') {
-      return true;
-    } else {
-      if (mount.current) {
-        setstate(_extends({}, state, {
-          log: getLog(NOT_RECORDING)
-        }));
-      }
-
-      console.log(NOT_RECORDING);
-      return false;
-    }
-  };
-
-  var validateOffRecording = function validateOffRecording() {
-    if (mediaRecorder && (!mediaRecorder.current || mediaRecorder.current.state === 'inactive')) {
-      return true;
-    } else {
-      if (mount.current) {
-        setstate(_extends({}, state, {
-          log: getLog(RECORDING)
-        }));
-      }
-
-      console.log(RECORDING);
-      return false;
-    }
-  };
-
-  var onCamera = function onCamera(requestedMedia) {
-    try {
-      var _exit4 = false;
-      var on = validateOnCamera();
-
-      var _temp6 = function () {
-        if (!on) {
-          return _catch(function () {
-            return Promise.resolve(navigator.mediaDevices.getUserMedia(requestedMedia)).then(function (stream) {
-              if (mount.current) {
-                setstate(_extends({}, state, {
-                  mediaBlob: null,
-                  mediaStream: stream,
-                  log: getLog(POWER_ON)
-                }));
-              }
-
-              console.log(POWER_ON);
-              _exit4 = true;
-              return true;
-            });
-          }, function (err) {
-            console.log(err);
-          });
-        }
-      }();
-
-      return Promise.resolve(_temp6 && _temp6.then ? _temp6.then(function (_result4) {
-        return _exit4 ? _result4 : false;
-      }) : _exit4 ? _temp6 : false);
-    } catch (e) {
-      return Promise.reject(e);
-    }
-  };
-
-  var offCamera = function offCamera() {
-    var off = validateOffCamera();
-
-    if (!off) {
-      try {
-        state.mediaStream.getTracks().forEach(function (track) {
-          track.stop();
-        });
-
-        if (mount.current) {
-          setstate(_extends({}, state, {
-            mediaStream: null,
-            log: getLog(POWER_OFF)
-          }));
-        }
-
-        console.log(POWER_OFF);
-        return true;
-      } catch (err) {
-        console.log(err);
-      }
-    }
-
-    return false;
-  };
-
-  var startRecording = function startRecording() {
-    var off = validateOffCamera();
-
-    if (!off) {
-      var record = validateOffRecording();
-
-      if (record) {
-        mediaRecorder.current = new MediaRecorder(state.mediaStream);
-
-        mediaRecorder.current.onerror = function (e) {
-          console.log('error', e);
-        };
-
-        mediaRecorder.current.start();
-
-        if (mount.current) {
-          setstate(_extends({}, state, {
-            mediaBlob: null,
-            log: getLog(START_RECORDING)
-          }));
-        }
-
-        console.log(START_RECORDING);
-        return true;
-      }
-    }
-
-    return false;
-  };
-
-  var stopRecording = function stopRecording(outputFormat) {
-    var off = validateOffCamera();
-
-    if (!off) {
-      var record = validateOnRecording();
-
-      if (record) {
-        if (mediaRecorder.current.state !== 'inactive') {
-          mediaRecorder.current.stop();
-          state.mediaStream.current && state.mediaStream.current.getTracks().forEach(function (track) {
-            return track.stop();
-          });
-        }
-
-        mediaRecorder.current.ondataavailable = function (e) {
-          var outFile = outputFormat ? new Blob([e.data], {
-            type: outputFormat
-          }) : e.data;
-
-          if (mount.current) {
-            setstate(_extends({}, state, {
-              mediaBlob: outFile,
-              log: getLog(STOP_RECORDING)
-            }));
-          }
-        };
-
-        console.log(STOP_RECORDING);
-        return true;
-      }
-    }
-
-    return false;
-  };
-
-  var removeMediaBlob = function removeMediaBlob() {
-    if (mount.current) {
-      setstate(_extends({}, state, {
-        mediaBlob: null,
-        log: getLog(CLEAR_VIDEO)
-      }));
-    }
-
-    console.log(CLEAR_VIDEO);
-    return true;
-  };
-
-  return {
-    mediaStream: state.mediaStream,
-    startRecording: startRecording,
-    stopRecording: stopRecording,
-    onCamera: onCamera,
-    offCamera: offCamera,
-    removeMediaBlob: removeMediaBlob,
-    mediaBlob: state.mediaBlob,
-    getVideoSource: getVideoSource,
-    getAudioInputSource: getAudioInputSource,
-    getAudioOutputDestination: getAudioOutputDestination,
-    log: state.log,
-    outputFormatVideos: outputFormatVideos,
-    mount: mount,
-    validateOnCamera: validateOnCamera,
-    validateOffCamera: validateOffCamera,
-    validateOnRecording: validateOnRecording,
-    validateOffRecording: validateOffRecording
-  };
-}
-
-var Button$1 = UI.Button;
-var CheckButton$1 = UI.CheckButton;
-var RadioButton$1 = UI.RadioButton;
-var Selector$1 = UI.Selector;
-var Spinner$1 = UI.Spinner;
-var TextBox$1 = UI.TextBox;
-var Title$1 = UI.Title;
-var TextButton$1 = UI.TextButton;
-var TextArea$1 = UI.TextArea;
-var NavBar$1 = UI.NavBar;
-var DatePicker$1 = UI.DatePicker;
-var Modal$1 = UI.Modal;
-var ModalNotifications$1 = UI.ModalNotifications;
-var ModalHttpMessage$1 = UI.ModalHttpMessage;
-var ModalViewerPDF$1 = UI.ModalViewerPDF;
-var Icon$1 = UI.Icon;
-var Menu$1 = UI.Menu;
-var Option$1 = UI.Option;
-var ImageButton$1 = UI.ImageButton;
-
-exports.Button = Button$1;
+exports.Button = Button;
 exports.CONSTANT = CONSTANT;
-exports.CheckButton = CheckButton$1;
-exports.DatePicker = DatePicker$1;
-exports.Icon = Icon$1;
-exports.ImageButton = ImageButton$1;
-exports.Menu = Menu$1;
-exports.Modal = Modal$1;
-exports.ModalHttpMessage = ModalHttpMessage$1;
-exports.ModalNotifications = ModalNotifications$1;
-exports.ModalViewerPDF = ModalViewerPDF$1;
-exports.NavBar = NavBar$1;
-exports.Option = Option$1;
-exports.RadioButton = RadioButton$1;
-exports.Selector = Selector$1;
-exports.Spinner = Spinner$1;
-exports.TextArea = TextArea$1;
-exports.TextBox = TextBox$1;
-exports.TextButton = TextButton$1;
-exports.Title = Title$1;
+exports.CheckButton = CheckButton;
+exports.DatePicker = DatePicker;
+exports.Icon = Icon;
+exports.ImageButton = ImageButton;
+exports.Menu = Menu;
+exports.Modal = Modal;
+exports.ModalHttpMessage = ModalHttpMessage;
+exports.ModalNotifications = ModalNotifications;
+exports.ModalViewerPDF = ModalViewerPDF;
+exports.NavBar = NavBar;
+exports.Option = Option;
+exports.RadioButton = RadioButton;
+exports.Selector = Selector;
+exports.Spinner = Spinner;
+exports.TextArea = TextArea;
+exports.TextBox = TextBox;
+exports.TextButton = TextButton;
+exports.Title = Title;
 exports.default = UI;
 exports.functions = funtions;
 exports.useCamera = useCamera;

@@ -10,25 +10,19 @@ import PropTypes from 'prop-types';
  **/
 
 const Title = ({ label, secundary }) => {
-	let component;
-
-	if (secundary) {
-		component = (
-			<div className='title'>
-				<h4 className='font-bold'>{label}</h4>
-				<div className='line' />
-			</div>
+	const getHeadings = (label, secundary) =>
+		secundary ? (
+			<h4 className='font-bold'>{label}</h4>
+		) : (
+			<h2 className='font-bold'>{label}</h2>
 		);
-	} else {
-		component = (
-			<div className='title'>
-				<h2 className='font-bold'>{label}</h2>
-				<div className='line' />
-			</div>
-		);
-	}
 
-	return component;
+	return (
+		<div className='title'>
+			{getHeadings(label, secundary)}
+			<div className='line' />
+		</div>
+	);
 };
 
 Title.propTypes = {

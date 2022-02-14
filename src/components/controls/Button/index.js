@@ -31,7 +31,7 @@ const Button = ({
 			className={`${type} ${size}`}
 			type={ternaryOperation(onClick, 'button', 'submit')}
 			onClick={e => {
-				if (onClick) onClick(e);
+				if (!disabled && onClick) onClick(e);
 			}}
 			disabled={disabled}>
 			{title}

@@ -42,7 +42,7 @@ const ImageButton = ({
 				name={id}
 				disabled={disabled}
 				onClick={e => {
-					if (!disabled) {
+					if (!disabled && onClick) {
 						onClick(e);
 					}
 				}}>

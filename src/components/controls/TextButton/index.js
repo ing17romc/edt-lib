@@ -31,21 +31,19 @@ const TextButton = ({
 	};
 
 	return (
-		<div>
-			<button
-				className={style()}
-				id={id}
-				type={ternaryOperation(onClick, 'button', 'submit')}
-				name={id}
-				disabled={disabled}
-				onClick={e => {
-					if (!disabled) {
-						onClick(e);
-					}
-				}}>
-				{text}
-			</button>
-		</div>
+		<button
+			className={style()}
+			id={id}
+			type={ternaryOperation(onClick, 'button', 'submit')}
+			name={id}
+			disabled={disabled}
+			onClick={e => {
+				if (!disabled && onClick) {
+					onClick(e);
+				}
+			}}>
+			{text}
+		</button>
 	);
 };
 
