@@ -10,8 +10,8 @@ const componentDefaultProps = {
 	label: TITLE,
 };
 
-describe('Test Title Component', () => {
-	test('Title is primary', async () => {
+describe('Title Component', () => {
+	test('Should be type primary', async () => {
 		const { container } = render(<Component {...componentDefaultProps} />);
 		// screen.debug();
 		const text = screen.getByText(TITLE);
@@ -20,7 +20,7 @@ describe('Test Title Component', () => {
 		expect(h2).toBeInTheDocument();
 	});
 
-	test('Title is secundary', async () => {
+	test('Should be type secundary', async () => {
 		const { container } = render(
 			<Component {...componentDefaultProps} secundary={true} />
 		);

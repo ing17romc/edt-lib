@@ -5,9 +5,15 @@
         "jest": true
     },
     "extends": [
-        "plugin:react/recommended",
+        "react-app",
+        "react-app/jest",
         "standard",
-        "prettier"
+        "prettier",
+        // news
+        "plugin:react/recommended",
+        "plugin:testing-library/recommended",
+        "plugin:testing-library/react",
+        "plugin:jest-dom/recommended"
     ],
     "parserOptions": {
         "ecmaFeatures": {
@@ -18,7 +24,10 @@
     },
     "plugins": [
         "react",
-        "prettier"
+        "prettier",
+        // news
+        "testing-library",
+        "jest-dom"
     ],
     "rules": {
         "prettier/prettier": "error"

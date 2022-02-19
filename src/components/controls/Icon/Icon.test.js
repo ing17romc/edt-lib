@@ -6,8 +6,8 @@ afterEach(cleanup);
 
 const CLASS_NAME = 'container-icon';
 
-describe('Test Icon Component', () => {
-	test('Renders correctly', async () => {
+describe('Icon Component', () => {
+	test('Should render correctly', async () => {
 		const { container } = render(<Component name='add' />);
 		expect(container.firstChild).toHaveClass(CLASS_NAME);
 	});

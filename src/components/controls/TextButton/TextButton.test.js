@@ -16,62 +16,67 @@ const formDefaultProps = {
 	'data-testid': 'form',
 };
 
-describe('Test TextButton Component', () => {
-	test('Button: Will call click when DISABLED', async () => {
-		render(
-			<Component
-				{...componentDefaultProps}
-				onClick={handleEvent}
-				disabled={true}
-			/>
-		);
-		// screen.debug();
-		const button = screen.getByRole('button');
-		await fireEvent.click(button);
-		expect(button).toBeInTheDocument();
-		expect(button.getAttribute('type')).toBe('button');
-		expect(button).toBeDisabled();
-		expect(handleEvent).not.toHaveBeenCalled();
-	});
+describe('TextButton Component', () => {
+	describe('Tests when the component is BUTTON', () => {
+		test('Should not click when the component is DISABLED', async () => {
+			render(
+				<Component
+					{...componentDefaultProps}
+					onClick={handleEvent}
+					disabled={true}
+				/>
+			);
+			// screen.debug();
+			const button = screen.getByRole('button');
+			await fireEvent.click(button);
+			expect(button).toBeInTheDocument();
+			expect(button.getAttribute('type')).toBe('button');
+			expect(button).toBeDisabled();
+			expect(handleEvent).not.toHaveBeenCalled();
+		});
 
-	test('Button: Will call click when ENABLED', async () => {
-		render(<Component {...componentDefaultProps} onClick={handleEvent} />);
-		// screen.debug();
-		const button = screen.getByRole('button');
-		await fireEvent.click(button);
-		expect(button).toBeInTheDocument();
-		expect(button.getAttribute('type')).toBe('button');
-		expect(button).not.toBeDisabled();
-		expect(handleEvent).toHaveBeenCalledTimes(1);
+		test('Should click when the component is ENABLED', async () => {
+			render(
+				<Component {...componentDefaultProps} onClick={handleEvent} />
+			);
+			// screen.debug();
+			const button = screen.getByRole('button');
+			await fireEvent.click(button);
+			expect(button).toBeInTheDocument();
+			expect(button.getAttribute('type')).toBe('button');
+			expect(button).not.toBeDisabled();
+			expect(handleEvent).toHaveBeenCalledTimes(1);
+		});
 	});
+	describe('Tests when the component is SUBMIT', () => {
+		test('Should not click when the component is DISABLED', async () => {
+			render(
+				<form {...formDefaultProps}>
+					<Component {...componentDefaultProps} disabled={true} />
+				</form>
+			);
+			// screen.debug();
+			const submitDisable = screen.getByRole('button');
+			await fireEvent.click(submitDisable);
+			expect(submitDisable).toBeInTheDocument();
+			expect(submitDisable.getAttribute('type')).toBe('submit');
+			expect(submitDisable).toBeDisabled();
+			expect(onSubmit).not.toHaveBeenCalled();
+		});
 
-	test('Submit: Will call click when DISABLED', async () => {
-		render(
-			<form {...formDefaultProps}>
-				<Component {...componentDefaultProps} disabled={true} />
-			</form>
-		);
-		// screen.debug();
-		const submitDisable = screen.getByRole('button');
-		await fireEvent.click(submitDisable);
-		expect(submitDisable).toBeInTheDocument();
-		expect(submitDisable.getAttribute('type')).toBe('submit');
-		expect(submitDisable).toBeDisabled();
-		expect(onSubmit).not.toHaveBeenCalled();
-	});
-
-	test('Submit: Will call click when ENABLED', async () => {
-		render(
-			<form {...formDefaultProps}>
-				<Component {...componentDefaultProps} />
-			</form>
-		);
-		// screen.debug();
-		const submit = screen.getByRole('button');
-		await fireEvent.click(submit);
-		expect(submit).toBeInTheDocument();
-		expect(submit.getAttribute('type')).toBe('submit');
-		expect(submit).not.toBeDisabled();
-		expect(onSubmit).toHaveBeenCalledTimes(1);
+		test('Should click when the component is ENABLED', async () => {
+			render(
+				<form {...formDefaultProps}>
+					<Component {...componentDefaultProps} />
+				</form>
+			);
+			// screen.debug();
+			const submit = screen.getByRole('button');
+			await fireEvent.click(submit);
+			expect(submit).toBeInTheDocument();
+			expect(submit.getAttribute('type')).toBe('submit');
+			expect(submit).not.toBeDisabled();
+			expect(onSubmit).toHaveBeenCalledTimes(1);
+		});
 	});
 });

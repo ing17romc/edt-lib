@@ -6,8 +6,8 @@ afterEach(cleanup);
 
 const CLASS_NAME = 'container-load';
 
-describe('Test Spinner Component', () => {
-	test('Renders correctly', async () => {
+describe('Spinner Component', () => {
+	test('Should render correctly', async () => {
 		const { container } = render(<Component />);
 		// expect(container.firstChild.classList.contains(CLASS_NAME)).toBe(true);
 		expect(container.firstChild).toHaveClass(CLASS_NAME);
