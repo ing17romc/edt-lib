@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { STYLE_CONTROL, STYLE_STATUS_CONTROL } from '../../utils/constant';
-import { ternaryOperation, jsonToArray } from '../../utils/functions';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { STYLE_CONTROL, STYLE_STATUS_CONTROL } from '../../utils/constant'
+import { ternaryOperation, jsonToArray } from '../../utils/functions'
 
 /**
  * @decription Component Button
@@ -20,15 +20,15 @@ const TextButton = ({
 	text,
 	disabled,
 	onClick,
-	type = STYLE_CONTROL.PRIMARY,
+	type = STYLE_CONTROL.PRIMARY
 }) => {
 	const style = () => {
 		return `textButton ${type} ${ternaryOperation(
 			disabled,
 			STYLE_STATUS_CONTROL.DISABLED,
 			''
-		)}`;
-	};
+		)}`
+	}
 
 	return (
 		<button
@@ -39,20 +39,20 @@ const TextButton = ({
 			disabled={disabled}
 			onClick={e => {
 				if (!disabled && onClick) {
-					onClick(e);
+					onClick(e)
 				}
 			}}>
 			{text}
 		</button>
-	);
-};
+	)
+}
 
 TextButton.propTypes = {
 	id: PropTypes.string.isRequired,
 	text: PropTypes.string.isRequired,
 	disabled: PropTypes.bool,
 	onClick: PropTypes.func,
-	type: PropTypes.oneOf(jsonToArray(STYLE_CONTROL)),
-};
+	type: PropTypes.oneOf(jsonToArray(STYLE_CONTROL))
+}
 
-export default TextButton;
+export default TextButton

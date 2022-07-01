@@ -1,13 +1,13 @@
-import React from 'react';
-import Modal from '../Modal';
-import Title from '../Title';
-import PropTypes from 'prop-types';
+import React from 'react'
+import Modal from '../Modal'
+import Title from '../Title'
+import PropTypes from 'prop-types'
 
 const propTypes = {
 	showModal: PropTypes.bool,
 	eventModal: PropTypes.func,
-	pdf: PropTypes.string.isRequired,
-};
+	pdf: PropTypes.string.isRequired
+}
 
 const ModalViewerPDF = ({ pdf, showModal, eventModal }) => {
 	return (
@@ -30,9 +30,9 @@ const ModalViewerPDF = ({ pdf, showModal, eventModal }) => {
 				</div>
 			</div>
 		</Modal>
-	);
-};
+	)
+}
 
-ModalViewerPDF.propTypes = propTypes;
+ModalViewerPDF.propTypes = propTypes
 
-export default ModalViewerPDF;
+export default ModalViewerPDF

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 /**
  * @decription Función que retorna el efecto de cargando.
@@ -10,7 +10,7 @@ const Spinner = () => {
 		<div className='container-load'>
 			<div className='loading' />
 		</div>
-	);
-};
+	)
+}
 
-export default Spinner;
+export default Spinner

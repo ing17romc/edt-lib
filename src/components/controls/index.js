@@ -1,22 +1,22 @@
-import Button from './Button';
-import CheckButton from './CheckButton';
-import RadioButton from './RadioButton';
-import Selector from './Selector';
-import Spinner from './Spinner';
-import TextBox from './TextBox';
-import Title from './Title';
-import TextButton from './TextButton';
-import TextArea from './TextArea';
-import NavBar from './NavBar';
-import DatePicker from './DatePicker';
-import Modal from './Modal';
-import ModalNotifications from './ModalNotifications';
-import ModalHttpMessage from './ModalHttpMessage';
-import ModalViewerPDF from './ModalViewerPDF';
-import Icon from './Icon';
-import Menu from './Menu';
-import Option from './Option';
-import ImageButton from './ImageButton';
+import Button from './Button'
+import CheckButton from './CheckButton'
+import RadioButton from './RadioButton'
+import Selector from './Selector'
+import Spinner from './Spinner'
+import TextBox from './TextBox'
+import Title from './Title'
+import TextButton from './TextButton'
+import TextArea from './TextArea'
+import NavBar from './NavBar'
+import DatePicker from './DatePicker'
+import Modal from './Modal'
+import ModalNotifications from './ModalNotifications'
+import ModalHttpMessage from './ModalHttpMessage'
+import ModalViewerPDF from './ModalViewerPDF'
+import Icon from './Icon'
+import Menu from './Menu'
+import Option from './Option'
+import ImageButton from './ImageButton'
 
 const UI = {
 	Button,
@@ -37,7 +37,7 @@ const UI = {
 	Option,
 	Menu,
 	ImageButton,
-	Spinner,
-};
+	Spinner
+}
 
-export default UI;
+export default UI

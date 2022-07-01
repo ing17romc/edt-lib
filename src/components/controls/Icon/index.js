@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { SIZE_CONTROL, ICONS } from '../../utils/constant';
-import { jsonToArray } from '../../utils/functions';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { SIZE_CONTROL, ICONS } from '../../utils/constant'
+import { jsonToArray } from '../../utils/functions'
 
 /**
  * @decription Icon Component
@@ -14,12 +14,12 @@ const Icon = ({ name, size = SIZE_CONTROL.MD }) => {
 		<div className={`container-icon ${size}`}>
 			<div className='material-icons'>{name}</div>
 		</div>
-	);
-};
+	)
+}
 
 Icon.propTypes = {
 	name: PropTypes.oneOf(ICONS).isRequired,
-	size: PropTypes.oneOf(jsonToArray(SIZE_CONTROL)),
-};
+	size: PropTypes.oneOf(jsonToArray(SIZE_CONTROL))
+}
 
-export default Icon;
+export default Icon

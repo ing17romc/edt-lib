@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { STYLE_STATUS_CONTROL } from '../../utils/constant';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { STYLE_STATUS_CONTROL } from '../../utils/constant'
 
 /**
  * @decription Component CheckButton
@@ -23,19 +23,19 @@ const CheckButton = ({
 	readOnly,
 	checked,
 	eventChange,
-	ref = null,
+	ref = null
 }) => {
 	const style = () => {
 		if (disabled) {
-			return STYLE_STATUS_CONTROL.DISABLED;
+			return STYLE_STATUS_CONTROL.DISABLED
 		} else if (readOnly) {
-			return STYLE_STATUS_CONTROL.READ_ONLY;
+			return STYLE_STATUS_CONTROL.READ_ONLY
 		} else if (required && !checked) {
-			return STYLE_STATUS_CONTROL.REQUIRED;
+			return STYLE_STATUS_CONTROL.REQUIRED
 		} else {
-			return '';
+			return ''
 		}
-	};
+	}
 
 	return (
 		<div className={`checkbutton ${style()}`}>
@@ -48,15 +48,15 @@ const CheckButton = ({
 				checked={checked}
 				onChange={e => {
 					if (!readOnly) {
-						eventChange(e);
+						eventChange(e)
 					}
 				}}
 				ref={ref}
 			/>
 			<label htmlFor={id}>{label}</label>
 		</div>
-	);
-};
+	)
+}
 
 CheckButton.propTypes = {
 	id: PropTypes.string.isRequired,
@@ -66,7 +66,7 @@ CheckButton.propTypes = {
 	readOnly: PropTypes.bool,
 	checked: PropTypes.bool.isRequired,
 	eventChange: PropTypes.func.isRequired,
-	ref: PropTypes.object,
-};
+	ref: PropTypes.object
+}
 
-export default CheckButton;
+export default CheckButton

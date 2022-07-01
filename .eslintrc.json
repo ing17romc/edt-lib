@@ -5,31 +5,33 @@
         "jest": true
     },
     "extends": [
-        "react-app",
-        "react-app/jest",
-        "standard",
-        "prettier",
+        // "react-app",
+        // "react-app/jest",
+        // "prettier",
         // news
         "plugin:react/recommended",
-        "plugin:testing-library/recommended",
-        "plugin:testing-library/react",
-        "plugin:jest-dom/recommended"
+        // "plugin:testing-library/recommended",
+        // "plugin:testing-library/react",
+        // "plugin:jest-dom/recommended",
+        "standard"
     ],
     "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 12,
-        "sourceType": "module"
+        // "ecmaFeatures": {
+            // "jsx": true
+        // },
+        // "sourceType": "module",
+        "ecmaVersion": 12
     },
     "plugins": [
-        "react",
-        "prettier",
+        "react"
+        // "prettier",
         // news
-        "testing-library",
-        "jest-dom"
+        // "testing-library"
+        // "jest-dom"
     ],
     "rules": {
-        "prettier/prettier": "error"
+        // "prettier/prettier": "error"
+        "indent": [2, "tab"],
+        "no-tabs": 0
     }
 }

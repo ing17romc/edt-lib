@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { STYLE_STATUS_CONTROL } from '../../utils/constant';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { STYLE_STATUS_CONTROL } from '../../utils/constant'
 
 /**
  * @decription Component RadioButton
@@ -25,19 +25,19 @@ const RadioButton = ({
 	readOnly,
 	value,
 	eventChange,
-	ref = null,
+	ref = null
 }) => {
 	const style = () => {
 		if (disabled) {
-			return STYLE_STATUS_CONTROL.DISABLED;
+			return STYLE_STATUS_CONTROL.DISABLED
 		} else if (readOnly) {
-			return STYLE_STATUS_CONTROL.READ_ONLY;
+			return STYLE_STATUS_CONTROL.READ_ONLY
 		} else if (required && !value) {
-			return STYLE_STATUS_CONTROL.REQUIRED;
+			return STYLE_STATUS_CONTROL.REQUIRED
 		} else {
-			return '';
+			return ''
 		}
-	};
+	}
 
 	return (
 		<div className={`radiobutton ${style()}`}>
@@ -51,15 +51,15 @@ const RadioButton = ({
 				checked={id === value}
 				onChange={e => {
 					if (!readOnly) {
-						eventChange(e);
+						eventChange(e)
 					}
 				}}
 				ref={ref}
 			/>
 			<label htmlFor={id}>{label}</label>
 		</div>
-	);
-};
+	)
+}
 
 RadioButton.propTypes = {
 	id: PropTypes.string.isRequired,
@@ -70,7 +70,7 @@ RadioButton.propTypes = {
 	readOnly: PropTypes.bool,
 	value: PropTypes.string,
 	eventChange: PropTypes.func.isRequired,
-	ref: PropTypes.object,
-};
+	ref: PropTypes.object
+}
 
-export default RadioButton;
+export default RadioButton

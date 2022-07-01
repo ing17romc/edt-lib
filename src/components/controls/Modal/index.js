@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 
 /**
  * @decription Component Button
@@ -11,15 +11,15 @@ import PropTypes from 'prop-types';
  **/
 
 const Modal = ({ show, eventModal, children }) => {
-	const [state, setState] = useState(show);
+	const [state, setState] = useState(show)
 
 	const closeModal = e => {
-		eventModal(e);
-	};
+		eventModal(e)
+	}
 
 	useEffect(() => {
-		setState(show);
-	}, [show]);
+		setState(show)
+	}, [show])
 
 	const modalRender = () => (
 		<div className='modal'>
@@ -35,15 +35,15 @@ const Modal = ({ show, eventModal, children }) => {
 				<div className='modal-body '>{children}</div>
 			</div>
 		</div>
-	);
+	)
 
-	return !state ? null : modalRender();
-};
+	return !state ? null : modalRender()
+}
 
 Modal.propTypes = {
 	eventModal: PropTypes.func.isRequired,
 	show: PropTypes.bool.isRequired,
-	children: PropTypes.node,
-};
+	children: PropTypes.node
+}
 
-export default Modal;
+export default Modal

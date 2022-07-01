@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { STYLE_STATUS_CONTROL } from '../../utils/constant';
-import { getInitialValue } from '../../utils/functions';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { STYLE_STATUS_CONTROL } from '../../utils/constant'
+import { getInitialValue } from '../../utils/functions'
 
 /**
  * @decription Component Selector
@@ -28,25 +28,25 @@ const Selector = ({
 	readOnly,
 	eventChange,
 	options = [],
-	ref = null,
+	ref = null
 }) => {
 	const onChange = e => {
 		if (eventChange && !disabled) {
-			eventChange(e);
+			eventChange(e)
 		}
-	};
+	}
 
 	const style = () => {
 		if (disabled) {
-			return STYLE_STATUS_CONTROL.DISABLED;
+			return STYLE_STATUS_CONTROL.DISABLED
 		} else if (readOnly) {
-			return STYLE_STATUS_CONTROL.READ_ONLY;
+			return STYLE_STATUS_CONTROL.READ_ONLY
 		} else if (required && !value) {
-			return STYLE_STATUS_CONTROL.REQUIRED;
+			return STYLE_STATUS_CONTROL.REQUIRED
 		} else {
-			return '';
+			return ''
 		}
-	};
+	}
 
 	return (
 		<div className={'control-container '}>
@@ -71,8 +71,8 @@ const Selector = ({
 				<span htmlFor={id}>{titleBottom}</span>
 			</div>
 		</div>
-	);
-};
+	)
+}
 
 Selector.propTypes = {
 	id: PropTypes.string.isRequired,
@@ -86,10 +86,10 @@ Selector.propTypes = {
 	options: PropTypes.arrayOf(
 		PropTypes.shape({
 			value: PropTypes.any,
-			key: PropTypes.string,
+			key: PropTypes.string
 		})
 	),
-	ref: PropTypes.object,
-};
+	ref: PropTypes.object
+}
 
-export default Selector;
+export default Selector

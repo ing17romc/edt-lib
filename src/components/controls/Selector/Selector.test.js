@@ -1,4 +1,4 @@
 
 describe('Selector Component', () => {
-	test.todo('Should ...');
-});
+	test.todo('Should ...')
+})

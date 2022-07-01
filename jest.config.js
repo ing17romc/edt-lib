@@ -14,10 +14,10 @@ const config = {
 			branches: 90,
 			functions: 90,
 			lines: 90,
-			statements: -10,
-		},
+			statements: -10
+		}
 	},
-	moduleDirectories: ['node_modules', 'src'],
-};
+	moduleDirectories: ['node_modules', 'src']
+}
 
-module.exports = config;
+module.exports = config

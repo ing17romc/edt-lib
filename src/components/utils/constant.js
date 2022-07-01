@@ -2,26 +2,26 @@ export const TYPE_NOTIFICATION = {
 	ERROR: 'error',
 	WARNING: 'warning',
 	INFO: 'info',
-	SUCCESSFULL: 'successful',
-};
+	SUCCESSFULL: 'successful'
+}
 
 export const SIZE_CONTROL = {
 	LG: 'lg',
 	MD: 'md',
 	SM: 'sm',
-	XS: 'xs',
-};
+	XS: 'xs'
+}
 
 export const STYLE_CONTROL = {
 	PRIMARY: 'primary',
-	SECONDARY: 'secondary',
-};
+	SECONDARY: 'secondary'
+}
 
 export const STYLE_STATUS_CONTROL = {
 	DISABLED: 'disabled',
 	READ_ONLY: 'readOnly',
-	REQUIRED: 'required',
-};
+	REQUIRED: 'required'
+}
 
 export const ACTION_ICONS = [
 	'search',
@@ -46,15 +46,15 @@ export const ACTION_ICONS = [
 	'print',
 	'tab',
 	'zoom_in',
-	'zoom_out',
-];
+	'zoom_out'
+]
 
 export const ALERT_ICONS = [
 	'add_alert',
 	'error',
 	'notification_important',
-	'warning',
-];
+	'warning'
+]
 
 export const AUDIO_AND_VIDEO_ICONS = [
 	'play_arrow',
@@ -77,8 +77,8 @@ export const AUDIO_AND_VIDEO_ICONS = [
 	'volume_mute',
 	'fast_rewind',
 	'volume_down',
-	'repeat_one',
-];
+	'repeat_one'
+]
 
 export const COMMUNICATION_ICONS = [
 	'email',
@@ -99,8 +99,8 @@ export const COMMUNICATION_ICONS = [
 	'stay_current_portrait',
 	'duo',
 	'key',
-	'desktop_access_disabled',
-];
+	'desktop_access_disabled'
+]
 
 export const CONTENT_ICONS = [
 	'add',
@@ -123,8 +123,8 @@ export const CONTENT_ICONS = [
 	'report',
 	'archive',
 	'select_all',
-	'content_paste_go',
-];
+	'content_paste_go'
+]
 
 export const DIVICE_ICONS = [
 	'password',
@@ -134,8 +134,8 @@ export const DIVICE_ICONS = [
 	'bluetooth',
 	'access_time',
 	'sd_storage',
-	'restart_alt',
-];
+	'restart_alt'
+]
 
 export const EDITOR_ICONS = [
 	'attach_money',
@@ -155,8 +155,8 @@ export const EDITOR_ICONS = [
 	'format_underlined',
 	'format_align_center',
 	'format_align_right',
-	'format_align_justify',
-];
+	'format_align_justify'
+]
 
 export const FILE_ICONS = [
 	'file_download',
@@ -168,8 +168,8 @@ export const FILE_ICONS = [
 	'cloud_download',
 	'folder_open',
 	'cloud',
-	'create_new_folder',
-];
+	'create_new_folder'
+]
 
 export const HARDWARE_ICONS = [
 	'keyboard_arrow_down',
@@ -193,8 +193,8 @@ export const HARDWARE_ICONS = [
 	'tablet_mac',
 	'watch',
 	'keyboard_double_arrow_left',
-	'keyboard_double_arrow_right',
-];
+	'keyboard_double_arrow_right'
+]
 
 export const IMAGE_ICONS = [
 	'photo_camera',
@@ -205,8 +205,8 @@ export const IMAGE_ICONS = [
 	'broken_image',
 	'flip_camera_ios',
 	'movie_filter',
-	'crop_rotate',
-];
+	'crop_rotate'
+]
 
 export const NAVIGATION_ICONS = [
 	'close',
@@ -230,8 +230,8 @@ export const NAVIGATION_ICONS = [
 	'fullscreen_exit',
 	'fullscreen',
 	'more_vert',
-	'more_horiz',
-];
+	'more_horiz'
+]
 
 export const NOTIFICATION_ICONS = [
 	'support_agent',
@@ -243,8 +243,8 @@ export const NOTIFICATION_ICONS = [
 	'sync_problem',
 	'vpn_lock',
 	'do_disturb',
-	'voice_chat',
-];
+	'voice_chat'
+]
 
 export const SOCIAL_ICONS = [
 	'person',
@@ -267,8 +267,8 @@ export const SOCIAL_ICONS = [
 	'thumb_up_alt',
 	'thumb_down_alt',
 	'notifications_paused',
-	'tiktok',
-];
+	'tiktok'
+]
 
 export const ICONS = ACTION_ICONS.concat(ALERT_ICONS)
 	.concat(AUDIO_AND_VIDEO_ICONS)
@@ -281,7 +281,7 @@ export const ICONS = ACTION_ICONS.concat(ALERT_ICONS)
 	.concat(IMAGE_ICONS)
 	.concat(NAVIGATION_ICONS)
 	.concat(NOTIFICATION_ICONS)
-	.concat(SOCIAL_ICONS);
+	.concat(SOCIAL_ICONS)
 
 const CONSTANT = {
 	TYPE_NOTIFICATION,
@@ -302,7 +302,7 @@ const CONSTANT = {
 	IMAGE_ICONS,
 	NAVIGATION_ICONS,
 	NOTIFICATION_ICONS,
-	SOCIAL_ICONS,
-};
+	SOCIAL_ICONS
+}
 
-export default CONSTANT;
+export default CONSTANT

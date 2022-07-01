@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Modal from '../Modal';
-import Title from '../Title';
-import Button from '../Button';
-import { TYPE_NOTIFICATION } from '../../utils/constant';
-import { jsonToArray } from '../../utils/functions';
+import React from 'react'
+import PropTypes from 'prop-types'
+import Modal from '../Modal'
+import Title from '../Title'
+import Button from '../Button'
+import { TYPE_NOTIFICATION } from '../../utils/constant'
+import { jsonToArray } from '../../utils/functions'
 
 /**
  * @decription ModalNotifications Component
@@ -19,22 +19,22 @@ const ModalNotifications = ({
 	type = TYPE_NOTIFICATION.INFO,
 	eventContinue,
 	showModal,
-	eventModal,
+	eventModal
 }) => {
 	const getText = () => {
 		switch (type) {
-			case TYPE_NOTIFICATION.ERROR:
-				return 'X';
-			case TYPE_NOTIFICATION.WARNING:
-				return '!';
-			case TYPE_NOTIFICATION.INFO:
-				return 'i';
-			case TYPE_NOTIFICATION.SUCCESSFULL:
-				return '✔';
-			default:
-				return '';
+		case TYPE_NOTIFICATION.ERROR:
+			return 'X'
+		case TYPE_NOTIFICATION.WARNING:
+			return '!'
+		case TYPE_NOTIFICATION.INFO:
+			return 'i'
+		case TYPE_NOTIFICATION.SUCCESSFULL:
+			return '✔'
+		default:
+			return ''
 		}
-	};
+	}
 
 	return (
 		<Modal show={showModal} eventModal={e => eventModal(e)}>
@@ -68,8 +68,8 @@ const ModalNotifications = ({
 				</div>
 			</div>
 		</Modal>
-	);
-};
+	)
+}
 
 ModalNotifications.propTypes = {
 	showModal: PropTypes.bool.isRequired,
@@ -78,7 +78,7 @@ ModalNotifications.propTypes = {
 	title: PropTypes.string.isRequired,
 	message: PropTypes.string.isRequired,
 	details: PropTypes.string,
-	eventContinue: PropTypes.func,
-};
+	eventContinue: PropTypes.func
+}
 
-export default ModalNotifications;
+export default ModalNotifications

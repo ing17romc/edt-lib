@@ -1,4 +1,4 @@
 
 describe('RadioButton Component', () => {
-	test.todo('Should ...');
-});
+	test.todo('Should ...')
+})

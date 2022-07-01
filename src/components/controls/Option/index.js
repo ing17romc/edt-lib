@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { ICONS } from '../../utils/constant';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { ICONS } from '../../utils/constant'
 
 /**
  * @decription Option the a menu Component
@@ -15,14 +15,14 @@ const Option = ({ label, path, icon, getCurrentPath }) => {
 			<hr />
 			<p> {label} </p>
 		</div>
-	);
-};
+	)
+}
 
 Option.propTypes = {
 	label: PropTypes.string.isRequired,
 	path: PropTypes.string.isRequired,
 	icon: PropTypes.oneOf(ICONS).isRequired,
-	getCurrentPath: PropTypes.func.isRequired,
-};
+	getCurrentPath: PropTypes.func.isRequired
+}
 
-export default Option;
+export default Option

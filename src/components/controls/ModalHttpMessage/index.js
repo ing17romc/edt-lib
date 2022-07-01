@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Modal from '../Modal';
-import Title from '../Title';
-import TextArea from '../TextArea';
+import React from 'react'
+import PropTypes from 'prop-types'
+import Modal from '../Modal'
+import Title from '../Title'
+import TextArea from '../TextArea'
 
 /**
  * @decription ModalHttpMessage Component
@@ -16,24 +16,24 @@ const ModalHttpMessage = ({
 	code,
 	title,
 	message,
-	details,
+	details
 }) => {
 	const style = codeHttp => {
 		switch (true) {
-			case codeHttp < 200:
-				return 'code-one-hundred';
-			case codeHttp < 300:
-				return 'code-two-hundred';
-			case codeHttp < 400:
-				return 'code-three-hundred';
-			case codeHttp < 500:
-				return 'code-four-hundred';
-			case codeHttp < 600:
-				return 'code-five-hundred';
-			default:
-				return '';
+		case codeHttp < 200:
+			return 'code-one-hundred'
+		case codeHttp < 300:
+			return 'code-two-hundred'
+		case codeHttp < 400:
+			return 'code-three-hundred'
+		case codeHttp < 500:
+			return 'code-four-hundred'
+		case codeHttp < 600:
+			return 'code-five-hundred'
+		default:
+			return ''
 		}
-	};
+	}
 
 	return (
 		<Modal show={showModal} eventModal={e => eventModal(e)}>
@@ -72,8 +72,8 @@ const ModalHttpMessage = ({
 				</div>
 			</div>
 		</Modal>
-	);
-};
+	)
+}
 
 ModalHttpMessage.propTypes = {
 	showModal: PropTypes.bool.isRequired,
@@ -81,7 +81,7 @@ ModalHttpMessage.propTypes = {
 	code: PropTypes.number,
 	title: PropTypes.string.isRequired,
 	message: PropTypes.string.isRequired,
-	details: PropTypes.string,
-};
+	details: PropTypes.string
+}
 
-export default ModalHttpMessage;
+export default ModalHttpMessage

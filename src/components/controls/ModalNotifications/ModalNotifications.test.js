@@ -1,4 +1,4 @@
 
 describe('ModalNotifications Component', () => {
-	test.todo('Should ...');
-});
+	test.todo('Should ...')
+})

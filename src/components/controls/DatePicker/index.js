@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { ternaryOperation } from '../../utils/functions';
-import { STYLE_STATUS_CONTROL } from '../../utils/constant';
+import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
+import { ternaryOperation } from '../../utils/functions'
+import { STYLE_STATUS_CONTROL } from '../../utils/constant'
 
 /**
  * @decription DatePicker Component
@@ -17,41 +17,41 @@ const DatePicker = ({
 	disabled,
 	readOnly,
 	required,
-	ref = null,
+	ref = null
 }) => {
-	let strDay = '';
-	let strMonth = '';
-	let strYear = '';
+	let strDay = ''
+	let strMonth = ''
+	let strYear = ''
 
 	if (Date.parse(value)) {
-		const _value = new Date(value);
-		strDay = _value.getDate().toString();
-		strMonth = _value.getMonth().toString();
-		strYear = _value.getFullYear().toString();
+		const _value = new Date(value)
+		strDay = _value.getDate().toString()
+		strMonth = _value.getMonth().toString()
+		strYear = _value.getFullYear().toString()
 	}
 
-	const [day, setDay] = useState(strDay);
-	const [month, setMonth] = useState(strMonth);
-	const [year, setYear] = useState(strYear);
-	const [days, setDays] = useState([]);
+	const [day, setDay] = useState(strDay)
+	const [month, setMonth] = useState(strMonth)
+	const [year, setYear] = useState(strYear)
+	const [days, setDays] = useState([])
 
-	const dateformat = (_month, _day, _year) => `${_month}/${_day}/${_year}`;
+	const dateformat = (_month, _day, _year) => `${_month}/${_day}/${_year}`
 
 	const onChangeDay = e => {
-		setDay(e.target.value);
-		const strNewDate = dateformat(month, e.target.value, year);
-		updateDate(strNewDate);
-	};
+		setDay(e.target.value)
+		const strNewDate = dateformat(month, e.target.value, year)
+		updateDate(strNewDate)
+	}
 	const onChangeMonth = e => {
-		setMonth(e.target.value);
-		const strNewDate = dateformat(e.target.value, day, year);
-		updateDate(strNewDate);
-	};
+		setMonth(e.target.value)
+		const strNewDate = dateformat(e.target.value, day, year)
+		updateDate(strNewDate)
+	}
 	const onChangeYear = e => {
-		setYear(e.target.value);
-		const strNewDate = dateformat(month, day, e.target.value);
-		updateDate(strNewDate);
-	};
+		setYear(e.target.value)
+		const strNewDate = dateformat(month, day, e.target.value)
+		updateDate(strNewDate)
+	}
 	const updateDate = strNewDate => {
 		if (
 			Date.parse(strNewDate) &&
@@ -59,46 +59,46 @@ const DatePicker = ({
 			!strNewDate.endsWith('/') &&
 			!strNewDate.includes('//')
 		) {
-			eventChange({ id: id, value: strNewDate });
+			eventChange({ id: id, value: strNewDate })
 		} else {
-			eventChange({ id: id, value: '' });
+			eventChange({ id: id, value: '' })
 		}
-	};
+	}
 
-	const ID_DAY = `day_${id}`;
-	const ID_MONTH = `month_${id}`;
-	const ID_YEAR = `year_${id}`;
+	const ID_DAY = `day_${id}`
+	const ID_MONTH = `month_${id}`
+	const ID_YEAR = `year_${id}`
 
-	const titleDay = 'Día';
-	const titleMonth = 'Mes';
-	const titleYear = 'Año';
+	const titleDay = 'Día'
+	const titleMonth = 'Mes'
+	const titleYear = 'Año'
 
 	const controlStyle = ternaryOperation(
 		disabled,
 		STYLE_STATUS_CONTROL.DISABLED,
 		''
-	);
+	)
 
 	const style = _value => {
 		if (disabled) {
-			return STYLE_STATUS_CONTROL.DISABLED;
+			return STYLE_STATUS_CONTROL.DISABLED
 		} else if (readOnly) {
-			return STYLE_STATUS_CONTROL.READ_ONLY;
+			return STYLE_STATUS_CONTROL.READ_ONLY
 		} else if (required && !_value) {
-			return STYLE_STATUS_CONTROL.REQUIRED;
+			return STYLE_STATUS_CONTROL.REQUIRED
 		} else {
-			return '';
+			return ''
 		}
-	};
+	}
 
 	const values = (min = 1, max = 12) => {
-		const array = [];
+		const array = []
 
 		for (let i = min; i <= max; i++) {
-			array.push(i.toString());
+			array.push(i.toString())
 		}
-		return array;
-	};
+		return array
+	}
 
 	useEffect(() => {
 		const isLeapYear = _year => {
@@ -106,23 +106,23 @@ const DatePicker = ({
 				_year % 400 === 0,
 				true,
 				ternaryOperation(_year % 100 === 0, false, _year % 4 === 0)
-			);
-		};
+			)
+		}
 
-		let endDay = 31;
+		let endDay = 31
 		if (year && isLeapYear(parseInt(year)) && month === '2') {
-			endDay = 29;
+			endDay = 29
 		} else if (month === '2') {
-			endDay = 28;
+			endDay = 28
 		} else if (['4', '6', '9', '11'].includes(month)) {
-			endDay = 30;
+			endDay = 30
 		}
 		if (day && parseInt(day) > endDay) {
-			setDay('');
+			setDay('')
 		}
 
-		setDays(values(1, endDay));
-	}, [month, year, day]);
+		setDays(values(1, endDay))
+	}, [month, year, day])
 
 	return (
 		<div className={'control-container  '}>
@@ -198,8 +198,8 @@ const DatePicker = ({
 				</div>
 			</div>
 		</div>
-	);
-};
+	)
+}
 
 DatePicker.propTypes = {
 	id: PropTypes.string.isRequired,
@@ -209,7 +209,7 @@ DatePicker.propTypes = {
 	readOnly: PropTypes.bool,
 	required: PropTypes.bool,
 	title: PropTypes.string,
-	ref: PropTypes.object,
-};
+	ref: PropTypes.object
+}
 
-export default DatePicker;
+export default DatePicker

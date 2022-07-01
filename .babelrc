@@ -1,5 +1,5 @@
 {
-    // "plugins": ["@babel/syntax-dynamic-import"],
-    "plugins": ["@babel/transform-runtime"],
+    "plugins": ["@babel/syntax-dynamic-import"], // To Build
+    // "plugins": ["@babel/transform-runtime"], // To Test
     "presets": ["@babel/preset-env", "@babel/preset-react"]
 }

@@ -1,4 +1,4 @@
 
 describe('NavBar Component', () => {
-	test.todo('Should ...');
-});
+	test.todo('Should ...')
+})

@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { STYLE_STATUS_CONTROL } from '../../utils/constant';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { STYLE_STATUS_CONTROL } from '../../utils/constant'
 
 /**
  * @decription TextArea Component
@@ -23,36 +23,36 @@ const TextArea = ({
 	eventBlur,
 	eventKeyDown,
 	ref = null,
-	rows = 2,
+	rows = 2
 }) => {
 	const onChange = e => {
-		if (eventChange && !disabled) eventChange(e);
-	};
+		if (eventChange && !disabled) eventChange(e)
+	}
 
 	const onFocus = e => {
-		if (eventFocus && !disabled && !readOnly) eventFocus(e);
-	};
+		if (eventFocus && !disabled && !readOnly) eventFocus(e)
+	}
 
 	const onBlur = e => {
-		if (eventBlur && !disabled && !readOnly) eventBlur(e);
-	};
+		if (eventBlur && !disabled && !readOnly) eventBlur(e)
+	}
 
 	const onKeyDown = e => {
-		if (e.key === 'Enter') e.preventDefault();
-		else if (eventKeyDown && !disabled && !readOnly) eventKeyDown(e);
-	};
+		if (e.key === 'Enter') e.preventDefault()
+		else if (eventKeyDown && !disabled && !readOnly) eventKeyDown(e)
+	}
 
 	const style = () => {
 		if (disabled) {
-			return STYLE_STATUS_CONTROL.DISABLED;
+			return STYLE_STATUS_CONTROL.DISABLED
 		} else if (readOnly) {
-			return STYLE_STATUS_CONTROL.READ_ONLY;
+			return STYLE_STATUS_CONTROL.READ_ONLY
 		} else if (required && !value) {
-			return STYLE_STATUS_CONTROL.REQUIRED;
+			return STYLE_STATUS_CONTROL.REQUIRED
 		} else {
-			return '';
+			return ''
 		}
-	};
+	}
 
 	return (
 		<div className={'control-container '}>
@@ -69,10 +69,10 @@ const TextArea = ({
 					onBlur={e => onBlur(e)}
 					readOnly={readOnly}
 					onPaste={e => {
-						if (noPaste) e.preventDefault();
+						if (noPaste) e.preventDefault()
 					}}
 					onCopy={e => {
-						if (noCopy) e.preventDefault();
+						if (noCopy) e.preventDefault()
 					}}
 					disabled={disabled}
 					required={required}
@@ -81,8 +81,8 @@ const TextArea = ({
 				/>
 			</div>
 		</div>
-	);
-};
+	)
+}
 
 TextArea.propTypes = {
 	id: PropTypes.string.isRequired,
@@ -99,7 +99,7 @@ TextArea.propTypes = {
 	noCopy: PropTypes.bool,
 	noPaste: PropTypes.bool,
 	rows: PropTypes.number,
-	ref: PropTypes.object,
-};
+	ref: PropTypes.object
+}
 
-export default TextArea;
+export default TextArea

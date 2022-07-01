@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 /**
  * @decription NavBar Component
@@ -8,14 +8,14 @@ import PropTypes from 'prop-types';
  */
 
 const NavBar = ({ leftOptions, rightOptions, correntPath, getCurrentPath }) => {
-	const renderOption = (index, path, name) => (
+	 const renderOption = (index, path, name) => (
 		<label
 			key={index}
 			className={path === correntPath ? 'active' : ''}
 			onClick={() => getCurrentPath(path)}>
 			{name}
 		</label>
-	);
+	)
 
 	return (
 		<div>
@@ -47,24 +47,24 @@ const NavBar = ({ leftOptions, rightOptions, correntPath, getCurrentPath }) => {
 			</div>
 			<div className='nav-bar-margin-bootom ' />
 		</div>
-	);
-};
+	)
+}
 
 NavBar.propTypes = {
 	leftOptions: PropTypes.arrayOf(
 		PropTypes.shape({
 			path: PropTypes.string.isRequired,
-			name: PropTypes.string.isRequired,
+			name: PropTypes.string.isRequired
 		})
 	),
 	rightOptions: PropTypes.arrayOf(
 		PropTypes.shape({
 			path: PropTypes.string.isRequired,
-			name: PropTypes.string.isRequired,
+			name: PropTypes.string.isRequired
 		})
 	),
 	correntPath: PropTypes.string.isRequired,
-	getCurrentPath: PropTypes.func.isRequired,
-};
+	getCurrentPath: PropTypes.func.isRequired
+}
 
-export default NavBar;
+export default NavBar

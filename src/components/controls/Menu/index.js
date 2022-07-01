@@ -1,6 +1,6 @@
-import React from 'react';
-import Option from '../Option';
-import PropTypes from 'prop-types';
+import React from 'react'
+import Option from '../Option'
+import PropTypes from 'prop-types'
 
 /**
  * @decription Menu Component
@@ -24,18 +24,18 @@ const Menu = ({ options, getCurrentPath }) => {
 				))}
 			</div>
 		</div>
-	);
-};
+	)
+}
 
 Menu.propTypes = {
 	options: PropTypes.arrayOf(
 		PropTypes.shape({
 			path: PropTypes.string.isRequired,
 			name: PropTypes.string.isRequired,
-			icon: PropTypes.string.isRequired,
+			icon: PropTypes.string.isRequired
 		})
 	),
-	getCurrentPath: PropTypes.func.isRequired,
-};
+	getCurrentPath: PropTypes.func.isRequired
+}
 
-export default Menu;
+export default Menu
