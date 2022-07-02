@@ -11,7 +11,7 @@
     "build": "microbundle-crl --no-compress --format modern,cjs",
     "test": "jest --watchAll",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook -o docs-build"
   },
   "dependencies": {
     "node-sass": "^6.0.1",
