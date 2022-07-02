@@ -7,11 +7,13 @@
   "source": "src/index.js",
   "author": "",
   "license": "ISC",
+  "homepage": "http://ing17romc.github.io/edt-lib/",
   "scripts": {
     "build": "microbundle-crl --no-compress --format modern,cjs",
     "test": "jest --watchAll",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook -o docs-build"
+    "build-storybook": "build-storybook",
+    "deploy-storybook": "storybook-to-ghpages"
   },
   "dependencies": {
     "node-sass": "^6.0.1",
