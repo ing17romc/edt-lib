@@ -1,5 +1,5 @@
 import React from 'react'
-import { ID, TEXT, DISABLED, SIZE, ON_CLICK, ICON } from '../../../../.storybook/constants'
+import { ID, TITLE, DISABLED, SIZE, ON_CLICK, ICON } from '../../../../.storybook/constants'
 
 import ImageButton from '.'
 
@@ -12,12 +12,12 @@ const Template = (args) => <ImageButton {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-	id: 'imgbtn',
+	id: 'id_imagebutton',
 	text: 'ImageButton'
 }
 Default.argTypes = {
 	id: ID,
-	text: TEXT,
+	title: TITLE,
 	disabled: DISABLED,
 	size: SIZE,
 	icon: ICON,

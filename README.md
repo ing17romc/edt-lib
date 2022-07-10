@@ -1,15 +1,5 @@
-# 🚀 Welcome to your new awesome project!
 
-This project has been created using **webpack-cli**, you can now run
-
+Your site is published at 
 ```
-npm run build
+https://ing17romc.github.io/edt-lib/
 ```
-
-or
-
-```
-yarn build
-```
-
-to bundle your application

@@ -4,8 +4,10 @@ import { SIZE_CONTROL, ICONS } from '../../utils/constant'
 import { jsonToArray } from '../../utils/functions'
 
 /**
- * @decription Icon Component
  * @author Rafael Orlando Márquez Cedeño
+ *
+ * @decription Icon Component
+ *
  * @returns Returns the code of an html element with the characteristics of the 'Icon'.
  */
 

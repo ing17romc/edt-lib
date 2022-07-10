@@ -4,14 +4,10 @@ import { STYLE_CONTROL, STYLE_STATUS_CONTROL } from '../../utils/constant'
 import { ternaryOperation, jsonToArray } from '../../utils/functions'
 
 /**
- * @decription Component Button
  * @author Rafael Orlando Márquez Cedeño
- * @param id Text to specify a unique.
- * @param text Text to display in the component.
- * @param disabled Boolean value to show the component with disabled style (by default it is false).
- * @param type String value to style of button. the default value is 'primary'.
- * Values: primary, secundary.
- * @param onClick Function that is executed when the button's onClick event is fired.
+ *
+ * @decription Component Button
+ *
  * @returns Returns the code of an html element with the characteristics of the 'Button'.
  */
 

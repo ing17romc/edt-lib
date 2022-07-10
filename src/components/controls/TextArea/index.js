@@ -3,8 +3,10 @@ import PropTypes from 'prop-types'
 import { STYLE_STATUS_CONTROL } from '../../utils/constant'
 
 /**
- * @decription TextArea Component
  * @author Rafael Orlando Márquez Cedeño
+ *
+ * @decription TextArea Component
+ *
  * @returns Returns the code of an html element with the characteristics of the 'TextArea'.
  */
 

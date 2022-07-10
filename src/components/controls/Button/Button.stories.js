@@ -12,7 +12,7 @@ const Template = (args) => <Button {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-	id: 'btn',
+	id: 'id_button',
 	title: 'Button'
 }
 Default.argTypes = {

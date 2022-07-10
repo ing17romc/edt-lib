@@ -4,8 +4,10 @@ import { SIZE_CONTROL, STYLE_CONTROL } from '../../utils/constant'
 import { jsonToArray, ternaryOperation } from '../../utils/functions'
 
 /**
- * @decription Component Button
  * @author Rafael Orlando Márquez Cedeño
+ *
+ * @decription Component Button
+ *
  * @returns Returns the code of an html element with the characteristics of the "Button".
  */
 

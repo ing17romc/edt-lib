@@ -3,23 +3,10 @@ import PropTypes from 'prop-types'
 import { STYLE_STATUS_CONTROL } from '../../utils/constant'
 
 /**
- * @decription Component TextBox
  * @author Rafael Orlando Márquez Cedeño
- * @param id Text to specify a unique.
- * @param titleTop Text to component top title.
- * @param placeholder Text to component placeholder.
- * @param titleBottom Text to component bottom title.
- * @param value Value handled by the component
- * @param disabled Boolean value to show the component with disabled style (by default it is false).
- * @param required Boolean value to show the component with required style (by default it is false).
- * @param readOnly Boolean value to show the component read only (by default it is false).
- * @param noPaste Boolean value to allow paste value (by default it is false).
- * @param noCopy Boolean value to allow copy value (by default it is false).
- * @param size number value to maximum character length (by default it is 200).
- * @param eventChange Function that will be invoked when there is a change.
- * @param eventFocus Function that will be invoked when the component is focused.
- * @param eventBlur Function that will be invoked when the component is out of focus.
- * @param eventKeyDown Function that will be invoked when the key is down.
+ *
+ * @decription Component TextBox
+ *
  * @returns Returns the code of an html element with the characteristics of the 'TextBox'.
  **/
 

@@ -3,32 +3,143 @@ import { jsonToArray } from '../src/components/utils/functions'
 
 const SIZE_OPTIONS = jsonToArray(SIZE_CONTROL)
 
+
+export const SIZE_TEXT_BOX = {
+    defaultValue: 200,
+    description: 'Number value to maximum character length.',
+    control: { type: 'number' }
+}
+export const ROWS_TEXT_AREA = {
+    defaultValue: 2,
+    description: 'Number value to pecifies the visible height of a text area, in lines.',
+    control: { type: 'number' }
+}
+export const REF = {
+    defaultValue: null,
+    description: 'Access DOM nodes directly within React.',
+    table: {
+        type: { 
+            summary: 'object'
+        },
+        defaultValue: { summary: 'null' }
+      }
+}
+
+
+
+const STRING = {
+    defaultValue: '',
+    control: { type: 'text' },
+    table: {
+        type: { 
+            summary: 'text'
+        },
+        defaultValue: { summary: '' }
+      }
+    
+}
 export const ID = {
-    description: 'Text to specify a unique.',
-    control: { type: 'text' }
+    ...STRING,
+    description: 'Text to specify a unique.'
 }
 export const TITLE = {
-    description: 'Text to display in the component.',
-    control: { type: 'text' }
+    ...STRING,
+    description: 'Text to display in the component.'
 }
 export const TEXT = {
-    description: 'Text to display in the component.',
-    control: { type: 'text' }
+    ...STRING,
+    description: 'Text to display in the component.'
 }
-export const DISABLED = {
-    description: 'Boolean value to show the component with disabled style.',
+export const LABEL = {
+    ...STRING,
+    description: 'Text to display in the component.'
+}
+export const TITLE_TOP = {
+    ...STRING,
+    description: 'Text to component top title.'
+}
+export const PLACEHOLDER = {
+    ...STRING,
+    description:  'Text to component placeholder.'
+}
+export const TITLE_BOTTOM = {
+    ...STRING,
+    description: 'Text to component bottom title.'
+}
+export const TEXT_VALUE = {
+    ...STRING,
+    description: 'Value handled by the component.'
+}
+
+
+
+const BOOLEAN = {
+    description: '',
     control: 'boolean',
     defaultValue: false,
     table: {
         defaultValue: { summary: false }
       },
 }
-export const ON_CLICK = {
-    description: "Function that is executed when the button's onClick event is fired.",
-    control: { type: 'func' },
-    defaultValue: {},
-    action: 'clicked'
+export const DISABLED= {
+    ...BOOLEAN,
+    description: 'Boolean value to show the component with disabled style.'
 }
+export const REQUIRED= {
+    ...BOOLEAN,
+    description: 'Boolean value to show the component with required style.',
+}
+export const READ_ONLY= {
+    ...BOOLEAN,
+    description: 'Boolean value to show the component read only.',
+}
+export const NO_PASTE= {
+    ...BOOLEAN,
+    description: 'Boolean value to allow paste value.',
+}
+export const NO_COPY= {
+    ...BOOLEAN,
+    description: 'Boolean value to allow copy value.',
+}
+export const SECUNDARY_TITLE= {
+    ...BOOLEAN,
+    description: 'Boolean value to show the component with secundary title.',
+}
+
+
+
+const EVENT = {
+    control: { type: 'func' },
+    action: 'event_occurred',
+    table: {
+        type: { 
+            summary: 'func'
+        },
+        defaultValue: { summary: 'undefined' }
+      }
+}
+export const ON_CLICK = {
+    ...EVENT,
+    description: 'Function that is executed when the onClick event fires. To use the Button Component within a form the onClick property must not be defined.'
+}
+export const EVENT_CHANGE = {
+    ...EVENT,
+    description: 'Function that will be invoked when there is a change.'
+}
+export const EVENT_FOCUS = {
+    ...EVENT,
+    description: 'Function that will be invoked when the component is focused.'
+}
+export const EVENT_BLUR = {
+    ...EVENT,
+    description: 'Function that will be invoked when the component is out of focus.'
+}
+export const EVENT_KEY_DOWN = {
+    ...EVENT,
+    description: 'Function that will be invoked when the key is down.'
+}
+
+
 
 export const SIZE = {
     description: 'Larger or smaller button value.',
@@ -42,7 +153,6 @@ export const SIZE = {
     options: jsonToArray(SIZE_CONTROL),
     control: { type: 'inline-radio' }
 }
-
 export const TYPE = {
     description: 'String value to style of button.',
     defaultValue: STYLE_CONTROL.PRIMARY,
@@ -56,9 +166,8 @@ export const TYPE = {
     options: jsonToArray(STYLE_CONTROL),
     control: { type: 'inline-radio' }
 }
-
 export const ICON = {
-    description: 'none',
+    description: 'String value for the icon name',
     defaultValue: ICONS[0],
     table: {
         type: { 
@@ -68,17 +177,3 @@ export const ICON = {
     options: ICONS,
     control: { type: 'select' }
 }
-
-const CONSTANT = {
-    ID,
-    TITLE,
-    TEXT,
-    DISABLED,
-    ON_CLICK,
-    SIZE,
-    TYPE,
-    ICON
-}
-
-
-export default CONSTANT

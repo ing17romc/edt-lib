@@ -1,9 +1,11 @@
 import React from 'react'
 
 /**
- * @decription Función que retorna el efecto de cargando.
  * @author Rafael Orlando Márquez Cedeño
- * @returns Retorna el HTML del efecto cargando.
+ *
+ * @decription Function that returns the effect of loading.
+ *
+ * @returns Returns the HTML of the loading effect.
  */
 const Spinner = () => {
 	return (

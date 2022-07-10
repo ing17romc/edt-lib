@@ -8,7 +8,7 @@ import PropTypes from 'prop-types'
  */
 
 const NavBar = ({ leftOptions, rightOptions, correntPath, getCurrentPath }) => {
-	 const renderOption = (index, path, name) => (
+	const renderOption = (index, path, name) => (
 		<label
 			key={index}
 			className={path === correntPath ? 'active' : ''}
