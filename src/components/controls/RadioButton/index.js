@@ -3,8 +3,6 @@ import PropTypes from 'prop-types'
 import { STYLE_STATUS_CONTROL } from '../../utils/constant'
 
 /**
- * @decription Component RadioButton
- *
  * @author Rafael Orlando Márquez Cedeño
  *
  * @returns Returns the code of an html element with the characteristics of the 'RadioButton'.

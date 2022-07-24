@@ -4,8 +4,6 @@ import { STYLE_CONTROL, STYLE_STATUS_CONTROL } from '../../utils/constant'
 import { ternaryOperation, jsonToArray } from '../../utils/functions'
 
 /**
- * @author Rafael Orlando Márquez Cedeño
- *
  * @decription Component Button
  *
  * @returns Returns the code of an html element with the characteristics of the 'Button'.

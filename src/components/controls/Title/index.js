@@ -2,8 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 /**
- * @author Rafael Orlando Márquez Cedeño
- *
  * @decription Component Title
  *
  * @returns Returns the code of an html element with the characteristics of the 'Title'.

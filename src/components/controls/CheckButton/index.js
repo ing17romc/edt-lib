@@ -5,10 +5,6 @@ import { STYLE_STATUS_CONTROL } from '../../utils/constant'
 /**
  * @decription Component CheckButton
  *
- * @author Rafael Orlando Márquez Cedeño
- *
- * @param checked Boolean value to show the component with checked style (by default it is false).
- *
  * @returns Returns the code of an html element with the characteristics of the 'CheckButton'.
  */
 

@@ -4,8 +4,6 @@ import { ternaryOperation } from '../../utils/functions'
 import { STYLE_STATUS_CONTROL } from '../../utils/constant'
 
 /**
- * @decription DatePicker Component
- *
  * @author Rafael Orlando Márquez Cedeño
  *
  * @returns Returns the code of an html element with the characteristics of the 'DatePicker'.

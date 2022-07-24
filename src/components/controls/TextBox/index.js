@@ -3,8 +3,6 @@ import PropTypes from 'prop-types'
 import { STYLE_STATUS_CONTROL } from '../../utils/constant'
 
 /**
- * @author Rafael Orlando Márquez Cedeño
- *
  * @decription Component TextBox
  *
  * @returns Returns the code of an html element with the characteristics of the 'TextBox'.
