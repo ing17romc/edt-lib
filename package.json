@@ -1,6 +1,6 @@
 {
   "name": "edt-lib",
-  "version": "1.2.3",
+  "version": "1.2.14",
   "description": "",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
@@ -13,8 +13,9 @@
     "test": "jest --watchAll",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook -s public -o docs",
-    "publish": "npm run build & npm run build-storybook & git add package.json & git add docs/ & git commit -m 'new publish' & git push & npm publish"
-
+    "pub": "npm run pub:npm && npm run pub:github",
+    "pub:npm": "npm run build && npm publish",
+    "pub:github": "npm run build-storybook && git add package.json && git add docs/ && git commit -m 'new publish' && git push"
   },
   "dependencies": {
     "node-sass": "^6.0.1",
