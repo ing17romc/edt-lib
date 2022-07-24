@@ -12,7 +12,9 @@
     "build": "microbundle-crl --no-compress --format modern,cjs",
     "test": "jest --watchAll",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook -s public -o docs"
+    "build-storybook": "build-storybook -s public -o docs",
+    "publish": "npm run build & npm run build-storybook & git add docs/ & git commit -m 'new publish' & git push & npm publish"
+
   },
   "dependencies": {
     "node-sass": "^6.0.1",
