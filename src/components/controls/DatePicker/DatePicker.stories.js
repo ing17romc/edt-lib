@@ -2,32 +2,24 @@ import React, { useState } from 'react'
 import { getValueInput } from '../../utils/functions.js'
 import {
 	ID,
-	TITLE_TOP,
-	PLACEHOLDER,
-	TITLE_BOTTOM,
+	TITLE,
 	TEXT_VALUE,
 	DISABLED,
 	REQUIRED,
 	READ_ONLY,
-	NO_PASTE,
-	NO_COPY,
 	EVENT_CHANGE,
-	EVENT_FOCUS,
-	EVENT_BLUR,
-	EVENT_KEY_DOWN,
-	SIZE_TEXT_BOX,
 	REF
 } from '../../../../.storybook/constants'
-import TextBox from '.'
+import DatePicker from '.'
 
 export default {
-	title: 'Components/TextBox',
-	component: TextBox
+	title: 'Components/DatePicker',
+	component: DatePicker
 }
 
 const Template = (args) => {
 	const [state, setstate] = useState({
-		textbox: args.value ?? ''
+		datepicker: args.value ?? ''
 	})
 
 	const onInputChange = e => {
@@ -40,8 +32,8 @@ const Template = (args) => {
 		}
 	}
 
-	return <TextBox {...args }
-		value={state.textbox}
+	return <DatePicker {...args }
+		value={state.datepicker}
 		eventChange={e => onInputChange(e)}
 	/>
 }
@@ -49,27 +41,17 @@ const Template = (args) => {
 export const Default = Template.bind({})
 
 Default.args = {
-	id: 'textbox',
-	titleTop: 'Top title',
-	placeholder: 'Placeholder',
-	titleBottom: 'Bottom title',
-	value: 'This is a example'
+	id: 'datepicker',
+	title: 'Date',
+	value: new Date().toString()
 }
 Default.argTypes = {
 	id: ID,
-	titleTop: TITLE_TOP,
-	placeholder: PLACEHOLDER,
-	titleBottom: TITLE_BOTTOM,
+	title: TITLE,
 	value: TEXT_VALUE,
 	disabled: DISABLED,
 	required: REQUIRED,
 	readOnly: READ_ONLY,
-	noPaste: NO_PASTE,
-	noCopy: NO_COPY,
 	eventChange: EVENT_CHANGE,
-	eventFocus: EVENT_FOCUS,
-	eventBlur: EVENT_BLUR,
-	eventKeyDown: EVENT_KEY_DOWN,
-	size: SIZE_TEXT_BOX,
 	ref: REF
 }

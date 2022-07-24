@@ -1,5 +1,5 @@
 import React from 'react'
-import { ID, TITLE, DISABLED, SIZE, ON_CLICK, ICON } from '../../../../.storybook/constants'
+import { ID, TEXT_IMAGEN_BUTTON, DISABLED, SIZE, ON_CLICK, ICON } from '../../../../.storybook/constants'
 
 import ImageButton from '.'
 
@@ -17,7 +17,7 @@ Default.args = {
 }
 Default.argTypes = {
 	id: ID,
-	title: TITLE,
+	text: TEXT_IMAGEN_BUTTON,
 	disabled: DISABLED,
 	size: SIZE,
 	icon: ICON,

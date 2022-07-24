@@ -2,32 +2,24 @@ import React, { useState } from 'react'
 import { getValueInput } from '../../utils/functions.js'
 import {
 	ID,
-	TITLE_TOP,
-	PLACEHOLDER,
-	TITLE_BOTTOM,
-	TEXT_VALUE,
+	LABEL,
 	DISABLED,
 	REQUIRED,
 	READ_ONLY,
-	NO_PASTE,
-	NO_COPY,
+	CHECKED,
 	EVENT_CHANGE,
-	EVENT_FOCUS,
-	EVENT_BLUR,
-	EVENT_KEY_DOWN,
-	SIZE_TEXT_BOX,
 	REF
 } from '../../../../.storybook/constants'
-import TextBox from '.'
+import CheckButton from '.'
 
 export default {
-	title: 'Components/TextBox',
-	component: TextBox
+	title: 'Components/CheckButton',
+	component: CheckButton
 }
 
 const Template = (args) => {
 	const [state, setstate] = useState({
-		textbox: args.value ?? ''
+		checkbutton: false
 	})
 
 	const onInputChange = e => {
@@ -40,8 +32,8 @@ const Template = (args) => {
 		}
 	}
 
-	return <TextBox {...args }
-		value={state.textbox}
+	return <CheckButton {...args }
+		checked={state.checkbutton}
 		eventChange={e => onInputChange(e)}
 	/>
 }
@@ -49,27 +41,16 @@ const Template = (args) => {
 export const Default = Template.bind({})
 
 Default.args = {
-	id: 'textbox',
-	titleTop: 'Top title',
-	placeholder: 'Placeholder',
-	titleBottom: 'Bottom title',
-	value: 'This is a example'
+	id: 'checkbutton',
+	label: 'One'
 }
 Default.argTypes = {
 	id: ID,
-	titleTop: TITLE_TOP,
-	placeholder: PLACEHOLDER,
-	titleBottom: TITLE_BOTTOM,
-	value: TEXT_VALUE,
+	label: LABEL,
 	disabled: DISABLED,
 	required: REQUIRED,
 	readOnly: READ_ONLY,
-	noPaste: NO_PASTE,
-	noCopy: NO_COPY,
+	checked: CHECKED,
 	eventChange: EVENT_CHANGE,
-	eventFocus: EVENT_FOCUS,
-	eventBlur: EVENT_BLUR,
-	eventKeyDown: EVENT_KEY_DOWN,
-	size: SIZE_TEXT_BOX,
 	ref: REF
 }

@@ -1,32 +1,27 @@
 import React, { useState } from 'react'
 import { getValueInput } from '../../utils/functions.js'
 import {
-	ID,
-	TITLE,
-	PLACEHOLDER,
-	TEXT_VALUE,
+	ID_RADIO_BUTTON,
+	LABEL,
 	DISABLED,
 	REQUIRED,
 	READ_ONLY,
-	NO_PASTE,
-	NO_COPY,
+	NAME_RADIO_BUTTON,
+	VALUE_RADIO_BUTTON,
 	EVENT_CHANGE,
-	EVENT_FOCUS,
-	EVENT_BLUR,
-	EVENT_KEY_DOWN,
-	ROWS_TEXT_AREA,
+
 	REF
 } from '../../../../.storybook/constants'
-import TextArea from '.'
+import RadioButton from '.'
 
 export default {
-	title: 'Components/TextArea',
-	component: TextArea
+	title: 'Components/RadioButton',
+	component: RadioButton
 }
 
 const Template = (args) => {
 	const [state, setstate] = useState({
-		textarea: args.value ?? ''
+		radioButton: ''
 	})
 
 	const onInputChange = e => {
@@ -39,34 +34,35 @@ const Template = (args) => {
 		}
 	}
 
-	return <TextArea {...args }
-		value={state.textarea}
-		eventChange={e => onInputChange(e)}
-	/>
+	return <div>
+		<RadioButton {...args }
+			id='rb1'
+			label='One'
+			value={state.radioButton}
+			eventChange={e => onInputChange(e)}
+		/>
+		<RadioButton {...args }
+			id='rb2'
+			label='Two'
+			value={state.radioButton}
+			eventChange={e => onInputChange(e)}
+		/>
+	</div>
 }
 
 export const Default = Template.bind({})
 
 Default.args = {
-	id: 'textarea',
-	title: 'Title',
-	placeholder: 'Placeholder',
-	value: 'This is a example'
+	name: 'radioButton'
 }
 Default.argTypes = {
-	id: ID,
-	title: TITLE,
-	placeholder: PLACEHOLDER,
-	value: TEXT_VALUE,
+	id: ID_RADIO_BUTTON,
+	name: NAME_RADIO_BUTTON,
+	value: VALUE_RADIO_BUTTON,
+	label: LABEL,
 	disabled: DISABLED,
 	required: REQUIRED,
 	readOnly: READ_ONLY,
-	noPaste: NO_PASTE,
-	noCopy: NO_COPY,
 	eventChange: EVENT_CHANGE,
-	eventFocus: EVENT_FOCUS,
-	eventBlur: EVENT_BLUR,
-	eventKeyDown: EVENT_KEY_DOWN,
-	rows: ROWS_TEXT_AREA,
 	ref: REF
 }

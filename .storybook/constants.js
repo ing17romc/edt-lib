@@ -44,7 +44,7 @@ export const ID = {
 }
 export const TITLE = {
     ...STRING,
-    description: 'Text to display in the component.'
+    description: 'Title to display in the component.'
 }
 export const TEXT = {
     ...STRING,
@@ -52,7 +52,7 @@ export const TEXT = {
 }
 export const LABEL = {
     ...STRING,
-    description: 'Text to display in the component.'
+    description: 'Label to display in the component.'
 }
 export const TITLE_TOP = {
     ...STRING,
@@ -70,7 +70,22 @@ export const TEXT_VALUE = {
     ...STRING,
     description: 'Value handled by the component.'
 }
-
+export const TEXT_IMAGEN_BUTTON = {
+    ...STRING,
+    description: 'Text to display in the component when you mouse over the element'
+}
+export const ID_RADIO_BUTTON = {
+    ...STRING,
+    description: 'Text to specify only one. for this component the id will be used as the value that is selected in a group of RadioButtons'
+}
+export const NAME_RADIO_BUTTON = {
+    ...STRING,
+    description: 'Text to specify the name of component. to group a set of RadioButtons this attribute must be used.'
+}
+export const VALUE_RADIO_BUTTON = {
+    ...STRING,
+    description: 'Value handled by the component. to select the radio button the value must be equal to the same as the id attribute.'
+}
 
 
 const BOOLEAN = {
@@ -105,7 +120,16 @@ export const SECUNDARY_TITLE= {
     ...BOOLEAN,
     description: 'Boolean value to show the component with secundary title.',
 }
+export const CHECKED= {
+    ...BOOLEAN,
+    description: 'Boolean value to show the component with checked style (by default it is false).',
+}
 
+
+
+export const OPTIONES_SELECTOR= {
+    description: 'List of options the component.',
+}
 
 
 const EVENT = {

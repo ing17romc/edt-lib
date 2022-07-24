@@ -4,15 +4,9 @@ import { STYLE_STATUS_CONTROL } from '../../utils/constant'
 
 /**
  * @decription Component RadioButton
+ *
  * @author Rafael Orlando Márquez Cedeño
- * @param id Text to specify a unique.
- * @param name Text to specify the name of component.
- * @param label Text to display in the component.
- * @param disabled Boolean value to show the component with disabled style (by default it is false).
- * @param required Boolean value to show the component with required style (by default it is false).
- * @param readOnly Boolean value to show the component read only (by default it is false).
- * @param value Value handled by the component
- * @param eventChange Function that will be invoked when there is a change.
+ *
  * @returns Returns the code of an html element with the characteristics of the 'RadioButton'.
  **/
 

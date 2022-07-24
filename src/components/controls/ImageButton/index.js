@@ -9,8 +9,6 @@ import { ternaryOperation, jsonToArray } from '../../utils/functions'
 import Icon from '../Icon'
 
 /**
- * @author Rafael Orlando Márquez Cedeño
- *
  * @decription Component ImageButton
  *
  * @returns Returns the code of an html element with the characteristics of the 'ImageButton'.

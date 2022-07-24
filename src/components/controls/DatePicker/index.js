@@ -5,7 +5,9 @@ import { STYLE_STATUS_CONTROL } from '../../utils/constant'
 
 /**
  * @decription DatePicker Component
+ *
  * @author Rafael Orlando Márquez Cedeño
+ *
  * @returns Returns the code of an html element with the characteristics of the 'DatePicker'.
  */
 
@@ -69,9 +71,9 @@ const DatePicker = ({
 	const ID_MONTH = `month_${id}`
 	const ID_YEAR = `year_${id}`
 
-	const titleDay = 'Día'
-	const titleMonth = 'Mes'
-	const titleYear = 'Año'
+	const titleDay = 'Day'
+	const titleMonth = 'Month'
+	const titleYear = 'Year'
 
 	const controlStyle = ternaryOperation(
 		disabled,
