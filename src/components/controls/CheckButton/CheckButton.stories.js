@@ -10,6 +10,8 @@ import {
 	EVENT_CHANGE,
 	REF
 } from '../../../../.storybook/constants'
+import { CHECK_BUTTON_PROPS as PROPS } from '../../../../.storybook/props'
+
 import CheckButton from '.'
 
 export default {
@@ -19,7 +21,7 @@ export default {
 
 const Template = (args) => {
 	const [state, setstate] = useState({
-		checkbutton: false
+		checkbutton: !!args.value
 	})
 
 	const onInputChange = e => {
@@ -41,9 +43,11 @@ const Template = (args) => {
 export const Default = Template.bind({})
 
 Default.args = {
-	id: 'checkbutton',
-	label: 'One'
+	id: PROPS.ID,
+	label: PROPS.LABEL,
+	value: PROPS.VALUE
 }
+
 Default.argTypes = {
 	id: ID,
 	label: LABEL,

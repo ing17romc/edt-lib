@@ -12,27 +12,13 @@ import {
 	EVENT_CHANGE,
 	REF
 } from '../../../../.storybook/constants'
+import { SELECTOR_PROPS as PROPS } from '../../../../.storybook/props'
 import Selector from '.'
 
 export default {
 	title: 'Components/Selector',
 	component: Selector
 }
-
-const options = [
-	{
-		value: 'Select...',
-		key: ''
-	},
-	{
-		value: 'One',
-		key: 'one'
-	},
-	{
-		value: 'Two',
-		key: 'two'
-	}
-]
 
 const Template = (args) => {
 	const [state, setstate] = useState({
@@ -58,12 +44,13 @@ const Template = (args) => {
 export const Default = Template.bind({})
 
 Default.args = {
-	id: 'selector',
-	titleTop: 'Top title',
-	titleBottom: 'Bottom title',
-	value: '',
-	options
+	id: PROPS.ID,
+	titleTop: PROPS.TITLE_TOP,
+	titleBottom: PROPS.TITLE_BOTTOM,
+	value: PROPS.VALUE,
+	options: PROPS.OPTIONS
 }
+
 Default.argTypes = {
 	id: ID,
 	titleTop: TITLE_TOP,

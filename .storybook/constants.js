@@ -124,6 +124,10 @@ export const CHECKED= {
     ...BOOLEAN,
     description: 'Boolean value to show the component with checked style (by default it is false).',
 }
+export const SHOW= {
+    ...BOOLEAN,
+    description: 'Boolean value to show the component (by default it is false).',
+}
 
 
 

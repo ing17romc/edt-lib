@@ -17,6 +17,7 @@ import {
 	ROWS_TEXT_AREA,
 	REF
 } from '../../../../.storybook/constants'
+import { TEXT_AREA_PROPS as PROPS } from '../../../../.storybook/props'
 import TextArea from '.'
 
 export default {
@@ -48,11 +49,12 @@ const Template = (args) => {
 export const Default = Template.bind({})
 
 Default.args = {
-	id: 'textarea',
-	title: 'Title',
-	placeholder: 'Placeholder',
-	value: 'This is a example'
+	id: PROPS.ID,
+	title: PROPS.TITLE,
+	placeholder: PROPS.PLACEHOLDER,
+	value: PROPS.VALUE
 }
+
 Default.argTypes = {
 	id: ID,
 	title: TITLE,

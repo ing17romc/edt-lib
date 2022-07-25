@@ -18,6 +18,7 @@ import {
 	SIZE_TEXT_BOX,
 	REF
 } from '../../../../.storybook/constants'
+import { TEXT_BOX_PROPS as PROPS } from '../../../../.storybook/props'
 import TextBox from '.'
 
 export default {
@@ -49,11 +50,11 @@ const Template = (args) => {
 export const Default = Template.bind({})
 
 Default.args = {
-	id: 'textbox',
-	titleTop: 'Top title',
-	placeholder: 'Placeholder',
-	titleBottom: 'Bottom title',
-	value: 'This is a example'
+	id: PROPS.ID,
+	titleTop: PROPS.TITLE_TOP,
+	titleBottom: PROPS.TITLE_BOTTOM,
+	placeholder: PROPS.PLACEHOLDER,
+	value: PROPS.VALUE
 }
 Default.argTypes = {
 	id: ID,

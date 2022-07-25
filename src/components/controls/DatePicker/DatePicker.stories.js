@@ -10,6 +10,7 @@ import {
 	EVENT_CHANGE,
 	REF
 } from '../../../../.storybook/constants'
+import { DATE_PICKER_PROPS as PROPS } from '../../../../.storybook/props'
 import DatePicker from '.'
 
 export default {
@@ -41,10 +42,11 @@ const Template = (args) => {
 export const Default = Template.bind({})
 
 Default.args = {
-	id: 'datepicker',
-	title: 'Date',
-	value: new Date().toString()
+	id: PROPS.ID,
+	title: PROPS.TITLE,
+	value: PROPS.VALUE
 }
+
 Default.argTypes = {
 	id: ID,
 	title: TITLE,

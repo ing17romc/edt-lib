@@ -9,9 +9,9 @@ import {
 	NAME_RADIO_BUTTON,
 	VALUE_RADIO_BUTTON,
 	EVENT_CHANGE,
-
 	REF
 } from '../../../../.storybook/constants'
+import { RADIO_BUTTON_PROPS as PROPS } from '../../../../.storybook/props'
 import RadioButton from '.'
 
 export default {
@@ -21,7 +21,7 @@ export default {
 
 const Template = (args) => {
 	const [state, setstate] = useState({
-		radioButton: ''
+		radioButton: args.value ?? ''
 	})
 
 	const onInputChange = e => {
@@ -36,14 +36,14 @@ const Template = (args) => {
 
 	return <div>
 		<RadioButton {...args }
-			id='rb1'
-			label='One'
+			id={PROPS.OPTIONS.ONE.ID}
+			label={PROPS.OPTIONS.ONE.LABEL}
 			value={state.radioButton}
 			eventChange={e => onInputChange(e)}
 		/>
 		<RadioButton {...args }
-			id='rb2'
-			label='Two'
+			id={PROPS.OPTIONS.TWO.ID}
+			label={PROPS.OPTIONS.TWO.LABEL}
 			value={state.radioButton}
 			eventChange={e => onInputChange(e)}
 		/>
@@ -53,8 +53,10 @@ const Template = (args) => {
 export const Default = Template.bind({})
 
 Default.args = {
-	name: 'radioButton'
+	name: PROPS.NAME,
+	value: PROPS.VALUE
 }
+
 Default.argTypes = {
 	id: ID_RADIO_BUTTON,
 	name: NAME_RADIO_BUTTON,
