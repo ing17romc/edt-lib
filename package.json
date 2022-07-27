@@ -9,6 +9,7 @@
   "license": "ISC",
   "homepage": "http://ing17romc.github.io/edt-lib/",
   "scripts": {
+    "clean": "rm package-lock.json && rm -rf node_modules && npm i",
     "build": "microbundle-crl --no-compress --format modern,cjs",
     "test": "jest --watchAll",
     "storybook": "start-storybook -p 6006",
