@@ -23,13 +23,12 @@
     "pub:github": "npm run build-storybook && git add package.json && git add docs/ && git commit -m 'new publish' && git push"
   },
   "dependencies": {
-    "node-sass": "^7.0.1",
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "sass": "^1.54.0"
   },
   "devDependencies": {
     "@babel/core": "^7.18.9",
     "@babel/eslint-parser": "^7.18.9",
-    "@babel/plugin-transform-runtime": "^7.18.9",
     "@storybook/addon-actions": "^6.5.9",
     "@storybook/addon-essentials": "^6.5.9",
     "@storybook/addon-interactions": "^6.5.9",
@@ -44,9 +43,7 @@
     "@testing-library/user-event": "^14.3.0",
     "babel-jest": "26.6.0",
     "babel-loader": "^8.2.5",
-    "css-loader": "^6.7.1",
     "eslint": "^8.20.0",
-    "eslint-config": "^0.3.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
