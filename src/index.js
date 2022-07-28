@@ -44,26 +44,4 @@ const UI = {
 	Spinner
 }
 
-export { useCamera, functions, CONSTANT }
-export {
-	Button,
-	CheckButton,
-	RadioButton,
-	Selector,
-	TextBox,
-	Title,
-	TextButton,
-	TextArea,
-	DatePicker,
-	Modal,
-	ModalNotifications,
-	ModalHttpMessage,
-	ModalViewerPDF,
-	Icon,
-	NavBar,
-	Option,
-	Menu,
-	ImageButton,
-	Spinner
-}
-export default UI
+export { UI, useCamera, functions, CONSTANT }

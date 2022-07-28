@@ -42,7 +42,7 @@
 @for $i from 1 through 60 {
 	$number: $i * 5;
 
-	@include padding($number, calculateSizeVW($number/2));
+	@include padding($number, calculateSizeVW(calc($number/2)));
 	@include line-height($i, calculateSizeVW($i));
 }
 .center {
@@ -103,7 +103,7 @@ body {
 	@for $i from 1 through 60 {
 		$number: $i * 5;
 
-		@include padding($number, calculateSizePX($number/2));
+		@include padding($number, calculateSizePX(calc($number/2)));
 		@include line-height($i, calculateSizePX($i));
 	}
 	.container-body {
