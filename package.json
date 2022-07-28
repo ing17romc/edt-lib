@@ -1,11 +1,11 @@
 {
   "name": "edt-lib",
-  "version": "1.2.18",
-  "description": "",
+  "version": "1.2.20",
+  "description": "Front-end library, rebuilt for React",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.js",
-  "author": "",
+  "author": "ing romc",
   "license": "ISC",
   "homepage": "http://ing17romc.github.io/edt-lib/",
   "repository": {
@@ -45,7 +45,6 @@
     "babel-loader": "^8.2.5",
     "eslint": "^8.20.0",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jest-dom": "^4.0.2",
     "eslint-plugin-node": "^11.1.0",
