@@ -11,11 +11,11 @@ import {
 	REF
 } from '../../../../.storybook/constants'
 import { DATE_PICKER_PROPS as PROPS } from '../../../../.storybook/props'
-import DatePicker from '.'
+import Component from '.'
 
 export default {
-	title: 'Components/DatePicker',
-	component: DatePicker
+	title: 'Controls/Inputs',
+	component: Component
 }
 
 const Template = (args) => {
@@ -33,21 +33,21 @@ const Template = (args) => {
 		}
 	}
 
-	return <DatePicker {...args }
+	return <Component {...args }
 		value={state.datepicker}
 		eventChange={e => onInputChange(e)}
 	/>
 }
 
-export const Default = Template.bind({})
+export const DatePicker = Template.bind({})
 
-Default.args = {
+DatePicker.args = {
 	id: PROPS.ID,
 	title: PROPS.TITLE,
 	value: PROPS.VALUE
 }
 
-Default.argTypes = {
+DatePicker.argTypes = {
 	id: ID,
 	title: TITLE,
 	value: TEXT_VALUE,

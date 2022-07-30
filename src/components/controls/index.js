@@ -15,7 +15,6 @@ import ModalHttpMessage from './ModalHttpMessage'
 import ModalViewerPDF from './ModalViewerPDF'
 import Icon from './Icon'
 import Menu from './Menu'
-import Option from './Option'
 import ImageButton from './ImageButton'
 
 const UI = {
@@ -34,7 +33,6 @@ const UI = {
 	ModalViewerPDF,
 	Icon,
 	NavBar,
-	Option,
 	Menu,
 	ImageButton,
 	Spinner

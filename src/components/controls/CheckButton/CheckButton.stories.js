@@ -11,12 +11,11 @@ import {
 	REF
 } from '../../../../.storybook/constants'
 import { CHECK_BUTTON_PROPS as PROPS } from '../../../../.storybook/props'
-
-import CheckButton from '.'
+import Component from '.'
 
 export default {
-	title: 'Components/CheckButton',
-	component: CheckButton
+	title: 'Controls/Inputs',
+	component: Component
 }
 
 const Template = (args) => {
@@ -34,21 +33,21 @@ const Template = (args) => {
 		}
 	}
 
-	return <CheckButton {...args }
+	return <Component {...args }
 		checked={state.checkbutton}
 		eventChange={e => onInputChange(e)}
 	/>
 }
 
-export const Default = Template.bind({})
+export const CheckButton = Template.bind({})
 
-Default.args = {
+CheckButton.args = {
 	id: PROPS.ID,
 	label: PROPS.LABEL,
 	value: PROPS.VALUE
 }
 
-Default.argTypes = {
+CheckButton.argTypes = {
 	id: ID,
 	label: LABEL,
 	disabled: DISABLED,

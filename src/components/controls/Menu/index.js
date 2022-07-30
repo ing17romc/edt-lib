@@ -1,5 +1,4 @@
 import React from 'react'
-import Option from '../Option'
 import PropTypes from 'prop-types'
 
 /**
@@ -14,12 +13,11 @@ const Menu = ({ options, getCurrentPath }) => {
 			<div className='grid-primary'>
 				{options.map((element, index) => (
 					<div key={index} className=' size-3 padding-v-30 '>
-						<Option
-							label={element.name}
-							path={element.path}
-							icon={element.icon}
-							getCurrentPath={path => getCurrentPath(path)}
-						/>
+						<div className='container-option ' onClick={() => getCurrentPath(element.path)}>
+							<div className='material-icons'>{element.icon}</div>
+							<hr />
+							<p> {element.name} </p>
+						</div>
 					</div>
 				))}
 			</div>

@@ -1,17 +1,18 @@
 import React from 'react'
 import { SIZE, ICON } from '../../../../.storybook/constants'
 
-import Icon from '.'
+import Component from '.'
 
 export default {
 	title: 'Components/Icon',
-	component: Icon
+	component: Component
 }
 
-const Template = (args) => <Icon {...args} />
+const Template = (args) => <Component {...args} />
 
-export const Default = Template.bind({})
-Default.argTypes = {
+export const Icon = Template.bind({})
+
+Icon.argTypes = {
 	size: SIZE,
 	name: ICON
 }

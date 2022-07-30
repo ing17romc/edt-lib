@@ -19,11 +19,11 @@ import {
 	REF
 } from '../../../../.storybook/constants'
 import { TEXT_BOX_PROPS as PROPS } from '../../../../.storybook/props'
-import TextBox from '.'
+import Component from '.'
 
 export default {
-	title: 'Components/TextBox',
-	component: TextBox
+	title: 'Controls/Inputs',
+	component: Component
 }
 
 const Template = (args) => {
@@ -41,22 +41,22 @@ const Template = (args) => {
 		}
 	}
 
-	return <TextBox {...args }
+	return <Component {...args }
 		value={state.textbox}
 		eventChange={e => onInputChange(e)}
 	/>
 }
 
-export const Default = Template.bind({})
+export const TextBox = Template.bind({})
 
-Default.args = {
+TextBox.args = {
 	id: PROPS.ID,
 	titleTop: PROPS.TITLE_TOP,
 	titleBottom: PROPS.TITLE_BOTTOM,
 	placeholder: PROPS.PLACEHOLDER,
 	value: PROPS.VALUE
 }
-Default.argTypes = {
+TextBox.argTypes = {
 	id: ID,
 	titleTop: TITLE_TOP,
 	placeholder: PLACEHOLDER,

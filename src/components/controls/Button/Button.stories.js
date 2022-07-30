@@ -2,23 +2,23 @@ import React from 'react'
 import { ID, TITLE, DISABLED, SIZE, TYPE, ON_CLICK } from '../../../../.storybook/constants'
 import { BUTTON_PROPS as PROPS } from '../../../../.storybook/props'
 
-import Button from '.'
+import Component from '.'
 
 export default {
-	title: 'Components/Button',
-	component: Button
+	title: 'Controls/Buttons',
+	component: Component
 }
 
-const Template = (args) => <Button {...args} />
+const Template = (args) => <Component {...args} />
 
-export const Default = Template.bind({})
+export const Button = Template.bind({})
 
-Default.args = {
+Button.args = {
 	id: PROPS.ID,
 	title: PROPS.TITLE
 }
 
-Default.argTypes = {
+Button.argTypes = {
 	id: ID,
 	title: TITLE,
 	disabled: DISABLED,

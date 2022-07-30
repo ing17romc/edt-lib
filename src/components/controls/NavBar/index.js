@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 /**
  * @decription NavBar Component
- * @author Rafael Orlando Márquez Cedeño
+ *
  * @returns Returns the code of an html element with the characteristics of the 'Main Menu'.
  */
 

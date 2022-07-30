@@ -18,11 +18,11 @@ import {
 	REF
 } from '../../../../.storybook/constants'
 import { TEXT_AREA_PROPS as PROPS } from '../../../../.storybook/props'
-import TextArea from '.'
+import Component from '.'
 
 export default {
-	title: 'Components/TextArea',
-	component: TextArea
+	title: 'Controls/Inputs',
+	component: Component
 }
 
 const Template = (args) => {
@@ -40,22 +40,22 @@ const Template = (args) => {
 		}
 	}
 
-	return <TextArea {...args }
+	return <Component {...args }
 		value={state.textarea}
 		eventChange={e => onInputChange(e)}
 	/>
 }
 
-export const Default = Template.bind({})
+export const TextArea = Template.bind({})
 
-Default.args = {
+TextArea.args = {
 	id: PROPS.ID,
 	title: PROPS.TITLE,
 	placeholder: PROPS.PLACEHOLDER,
 	value: PROPS.VALUE
 }
 
-Default.argTypes = {
+TextArea.argTypes = {
 	id: ID,
 	title: TITLE,
 	placeholder: PLACEHOLDER,

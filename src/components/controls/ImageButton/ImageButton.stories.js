@@ -2,23 +2,23 @@ import React from 'react'
 import { ID, TEXT_IMAGEN_BUTTON, DISABLED, SIZE, ON_CLICK, ICON } from '../../../../.storybook/constants'
 import { IMAGE_BUTTON_PROPS as PROPS } from '../../../../.storybook/props'
 
-import ImageButton from '.'
+import Component from '.'
 
 export default {
-	title: 'Components/ImageButton',
-	component: ImageButton
+	title: 'Controls/Buttons',
+	component: Component
 }
 
-const Template = (args) => <ImageButton {...args} />
+const Template = (args) => <Component {...args} />
 
-export const Default = Template.bind({})
+export const ImageButton = Template.bind({})
 
-Default.args = {
+ImageButton.args = {
 	id: PROPS.ID,
 	text: PROPS.TEXT
 }
 
-Default.argTypes = {
+ImageButton.argTypes = {
 	id: ID,
 	text: TEXT_IMAGEN_BUTTON,
 	disabled: DISABLED,

@@ -13,11 +13,11 @@ import {
 	REF
 } from '../../../../.storybook/constants'
 import { SELECTOR_PROPS as PROPS } from '../../../../.storybook/props'
-import Selector from '.'
+import Component from '.'
 
 export default {
-	title: 'Components/Selector',
-	component: Selector
+	title: 'Controls/Inputs',
+	component: Component
 }
 
 const Template = (args) => {
@@ -35,15 +35,15 @@ const Template = (args) => {
 		}
 	}
 
-	return <Selector {...args }
+	return <Component {...args }
 		value={state.selector}
 		eventChange={e => onInputChange(e)}
 	/>
 }
 
-export const Default = Template.bind({})
+export const Selector = Template.bind({})
 
-Default.args = {
+Selector.args = {
 	id: PROPS.ID,
 	titleTop: PROPS.TITLE_TOP,
 	titleBottom: PROPS.TITLE_BOTTOM,
@@ -51,7 +51,7 @@ Default.args = {
 	options: PROPS.OPTIONS
 }
 
-Default.argTypes = {
+Selector.argTypes = {
 	id: ID,
 	titleTop: TITLE_TOP,
 	titleBottom: TITLE_BOTTOM,

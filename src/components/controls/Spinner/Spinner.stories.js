@@ -2,20 +2,20 @@ import React from 'react'
 import { SHOW } from '../../../../.storybook/constants'
 import { SPINNER_PROPS as PROPS } from '../../../../.storybook/props'
 
-import Spinner from '.'
+import Component from '.'
 
 export default {
 	title: 'Components/Spinner',
-	component: Spinner
+	component: Component
 }
 
-const Template = (args) => <Spinner {...args} />
+const Template = (args) => <Component {...args} />
 
-export const Default = Template.bind({})
+export const Spinner = Template.bind({})
 
-Default.args = {
+Spinner.args = {
 	show: PROPS.SHOW
 }
-Default.argTypes = {
+Spinner.argTypes = {
 	show: SHOW
 }
