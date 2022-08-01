@@ -74,3 +74,24 @@ export const TITLE_PROPS = {
     LABEL: 'Title',
     SECUNDARY: false
 }
+export const MODAL_PROPS = {
+    SHOW: true
+}
+export const MODAL_VIEWER_PDF_PROPS = {
+    SHOW: true,
+    PDF: 'http://www.africau.edu/images/default/sample.pdf'
+}
+export const MODAL_HTTP_MESSAGE_PROPS = {
+    SHOW: true,
+    CODE: 404,
+    TITLE: 'Title of the http request (Ex: Not Found)',
+	DETAILS: 'Detail of the http request',
+	MESSAGE: 'Http request message'
+}
+export const MODAL_NOTIFICATION_PROPS = {
+    SHOW: true,
+    TYPE: 'info',
+    TITLE: 'Title of notification',
+    DETAILS: 'Detail of notification',
+	MESSAGE: 'Message of notification'
+}

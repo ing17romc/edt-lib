@@ -1,4 +1,4 @@
-import { SIZE_CONTROL, STYLE_CONTROL, ICONS } from '../src/components/utils/constant'
+import { SIZE_CONTROL, STYLE_CONTROL, ICONS, TYPE_NOTIFICATION } from '../src/components/utils/constant'
 import { jsonToArray } from '../src/components/utils/functions'
 
 const SIZE_OPTIONS = jsonToArray(SIZE_CONTROL)
@@ -14,6 +14,13 @@ export const ROWS_TEXT_AREA = {
     description: 'Number value to pecifies the visible height of a text area, in lines.',
     control: { type: 'number' }
 }
+
+export const CHILDREN = {
+	description: 'Content the modal. This content can be: 1) Components; 2) Elements like paragraphs, div, headers (H2,H3,etc); 3) Texts; 4) JavaScript Expressions as Templete Strings; 5) Operations; 6) Functions; 7) Etc',
+	control: { type: 'node' }
+}
+
+
 export const REF = {
     defaultValue: null,
     description: 'Access DOM nodes directly within React.',
@@ -83,6 +90,10 @@ export const NAME_RADIO_BUTTON = {
     description: 'Text to specify the name of component. to group a set of RadioButtons this attribute must be used.'
 }
 export const VALUE_RADIO_BUTTON = {
+    ...STRING,
+    description: 'Value handled by the component. to select the radio button the value must be equal to the same as the id attribute.'
+}
+export const PDF_MODAL_VIEWER_PDF = {
     ...STRING,
     description: 'Value handled by the component. to select the radio button the value must be equal to the same as the id attribute.'
 }
@@ -166,6 +177,10 @@ export const EVENT_KEY_DOWN = {
     ...EVENT,
     description: 'Function that will be invoked when the key is down.'
 }
+export const EVENT_MODAL = {
+    ...EVENT,
+    description: 'Function that is executed to close or open the Modal.'
+}
 
 
 
@@ -204,4 +219,56 @@ export const ICON = {
     },
     options: ICONS,
     control: { type: 'select' }
+}
+
+// SPECIFIC COMPONENTS
+
+export const MODAL_HTTP_MESSAGE = {
+    HTTP_CODE: {
+        description: 'Indicate whether a specific HTTP request has been successfully completed.',
+        control: { type: 'number' }
+    },
+    TITLE: {
+        ...STRING,
+        description: 'String to specify title of request http.'
+    },
+    DETAILS: {
+        ...STRING,
+        description: 'String to specify details of request http.'
+    },
+    MESSAGE: {
+        ...STRING,
+        description: 'String to specify message of request http.'
+    }
+}
+export const MODAL_NOTIFICATION = {
+    TITLE: {
+        ...STRING,
+        description: 'String to specify title of notification.'
+    },
+    DETAILS: {
+        ...STRING,
+        description: 'String to specify details of notification.'
+    },
+    MESSAGE: {
+        ...STRING,
+        description: 'String to specify message of notification.'
+    },
+    TYPE: {
+        description: 'String to specify the type.',
+        defaultValue: "info",
+        table: {
+            type: { 
+                summary: 'string'
+            },
+            defaultValue: { summary: "info" },
+            options:  { summary: TYPE_NOTIFICATION },
+        },
+        options: jsonToArray(TYPE_NOTIFICATION),
+        control: { type: 'inline-radio' }
+    },
+    EVENT_CONTINUE: {
+        ...EVENT,
+        description: 'Function that is executed when the onClick event fires.'
+    }
 }

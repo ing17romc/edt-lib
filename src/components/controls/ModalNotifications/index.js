@@ -7,8 +7,8 @@ import { TYPE_NOTIFICATION } from '../../utils/constant'
 import { jsonToArray } from '../../utils/functions'
 
 /**
- * @decription ModalNotifications Component
- * @author Rafael Orlando Márquez Cedeño
+ * @decription Component ModalNotifications
+ *
  * @returns Returns the code of an html element with the characteristics of the 'ModalNotifications'.
  */
 
@@ -18,7 +18,7 @@ const ModalNotifications = ({
 	details,
 	type = TYPE_NOTIFICATION.INFO,
 	eventContinue,
-	showModal,
+	show,
 	eventModal
 }) => {
 	const getText = () => {
@@ -37,7 +37,7 @@ const ModalNotifications = ({
 	}
 
 	return (
-		<Modal show={showModal} eventModal={e => eventModal(e)}>
+		<Modal show={show} eventModal={e => eventModal(e)}>
 			<div className='body-generic-notifications '>
 				<div className='grid-primary'>
 					<div className='start-1 size-12 '>
@@ -72,7 +72,7 @@ const ModalNotifications = ({
 }
 
 ModalNotifications.propTypes = {
-	showModal: PropTypes.bool.isRequired,
+	show: PropTypes.bool.isRequired,
 	eventModal: PropTypes.func,
 	type: PropTypes.oneOf(jsonToArray(TYPE_NOTIFICATION)),
 	title: PropTypes.string.isRequired,

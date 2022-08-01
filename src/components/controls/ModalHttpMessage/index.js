@@ -5,13 +5,13 @@ import Title from '../Title'
 import TextArea from '../TextArea'
 
 /**
- * @decription ModalHttpMessage Component
- * @author Rafael Orlando Márquez Cedeño
+ * @decription Component ModalHttpMessage
+ *
  * @returns Returns the code of an html element with the characteristics of the 'ModalHttpMessage'.
  */
 
 const ModalHttpMessage = ({
-	showModal,
+	show,
 	eventModal,
 	code,
 	title,
@@ -36,7 +36,7 @@ const ModalHttpMessage = ({
 	}
 
 	return (
-		<Modal show={showModal} eventModal={e => eventModal(e)}>
+		<Modal show={show} eventModal={e => eventModal(e)}>
 			<div className='body-generic-http-message'>
 				<div className=' grid-primary'>
 					<div className='start-1 size-12 '>
@@ -76,7 +76,7 @@ const ModalHttpMessage = ({
 }
 
 ModalHttpMessage.propTypes = {
-	showModal: PropTypes.bool.isRequired,
+	show: PropTypes.bool.isRequired,
 	eventModal: PropTypes.func,
 	code: PropTypes.number,
 	title: PropTypes.string.isRequired,

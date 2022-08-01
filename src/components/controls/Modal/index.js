@@ -2,11 +2,8 @@ import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 
 /**
- * @decription Component Button
- * @author Rafael Orlando Márquez Cedeño
- * @param show Boolean value to show the Modal
- * @param eventModal Function that is executed to close or open the Modal
- * @param children Content the modal
+ * @decription Component Modal
+ *
  * @returns Returns the code of an html element with the characteristics of the 'Modal'.
  **/
 

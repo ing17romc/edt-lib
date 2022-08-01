@@ -3,15 +3,15 @@ import Modal from '../Modal'
 import Title from '../Title'
 import PropTypes from 'prop-types'
 
-const propTypes = {
-	showModal: PropTypes.bool,
-	eventModal: PropTypes.func,
-	pdf: PropTypes.string.isRequired
-}
+/**
+ * @decription Component ModalViewerPDF
+ *
+ * @returns Returns the code of an html element with the characteristics of the 'ModalViewerPDF'.
+ */
 
-const ModalViewerPDF = ({ pdf, showModal, eventModal }) => {
+const ModalViewerPDF = ({ pdf, show, eventModal }) => {
 	return (
-		<Modal show={showModal} eventModal={e => eventModal(e)}>
+		<Modal show={show} eventModal={e => eventModal(e)}>
 			<div className='body-viewer-pdf'>
 				<div className='grid-primary'>
 					<div className='start-1 size-12 '>
@@ -33,6 +33,10 @@ const ModalViewerPDF = ({ pdf, showModal, eventModal }) => {
 	)
 }
 
-ModalViewerPDF.propTypes = propTypes
+ModalViewerPDF.propTypes = {
+	show: PropTypes.bool,
+	eventModal: PropTypes.func,
+	pdf: PropTypes.string.isRequired
+}
 
 export default ModalViewerPDF
