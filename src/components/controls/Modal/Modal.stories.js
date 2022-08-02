@@ -1,6 +1,6 @@
 import React from 'react'
-import { SHOW, EVENT_MODAL, CHILDREN } from '../../../../.storybook/constants'
-import { MODAL_PROPS as PROPS } from '../../../../.storybook/props'
+import { MODAL as DESC } from '../../../../.storybook/argTypes'
+import { MODAL as PROPS } from '../../../../.storybook/props'
 
 import Component from '.'
 
@@ -23,7 +23,7 @@ Modal.args = {
 	show: PROPS.SHOW
 }
 Modal.argTypes = {
-	show: SHOW,
-	eventModal: EVENT_MODAL,
-	children: CHILDREN
+	show: DESC.SHOW,
+	eventModal: DESC.EVENT_MODAL,
+	children: DESC.CHILDREN
 }

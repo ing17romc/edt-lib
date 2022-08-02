@@ -1,6 +1,6 @@
 import React from 'react'
-import { SHOW, EVENT_MODAL, MODAL_HTTP_MESSAGE } from '../../../../.storybook/constants'
-import { MODAL_HTTP_MESSAGE_PROPS as PROPS } from '../../../../.storybook/props'
+import { MODAL_HTTP_MESSAGE as DESC } from '../../../../.storybook/argTypes'
+import { MODAL_HTTP_MESSAGE as PROPS } from '../../../../.storybook/props'
 
 import Component from '.'
 
@@ -23,10 +23,10 @@ ModalHttpMessage.args = {
 	message: PROPS.MESSAGE
 }
 ModalHttpMessage.argTypes = {
-	show: SHOW,
-	code: MODAL_HTTP_MESSAGE.HTTP_CODE,
-	title: MODAL_HTTP_MESSAGE.TITLE,
-	details: MODAL_HTTP_MESSAGE.DETAILS,
-	message: MODAL_HTTP_MESSAGE.MESSAGE,
-	eventModal: EVENT_MODAL
+	show: DESC.SHOW,
+	code: DESC.HTTP_CODE,
+	title: DESC.TITLE,
+	details: DESC.DETAILS,
+	message: DESC.MESSAGE,
+	eventModal: DESC.EVENT_MODAL
 }

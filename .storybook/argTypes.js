@@ -4,35 +4,6 @@ import { jsonToArray } from '../src/components/utils/functions'
 const SIZE_OPTIONS = jsonToArray(SIZE_CONTROL)
 
 
-export const SIZE_TEXT_BOX = {
-    defaultValue: 200,
-    description: 'Number value to maximum character length.',
-    control: { type: 'number' }
-}
-export const ROWS_TEXT_AREA = {
-    defaultValue: 2,
-    description: 'Number value to pecifies the visible height of a text area, in lines.',
-    control: { type: 'number' }
-}
-
-export const CHILDREN = {
-	description: 'Content the modal. This content can be: 1) Components; 2) Elements like paragraphs, div, headers (H2,H3,etc); 3) Texts; 4) JavaScript Expressions as Templete Strings; 5) Operations; 6) Functions; 7) Etc',
-	control: { type: 'node' }
-}
-
-
-export const REF = {
-    defaultValue: null,
-    description: 'Access DOM nodes directly within React.',
-    table: {
-        type: { 
-            summary: 'object'
-        },
-        defaultValue: { summary: 'null' }
-      }
-}
-
-
 
 const STRING = {
     defaultValue: '',
@@ -45,58 +16,39 @@ const STRING = {
       }
     
 }
-export const ID = {
+const ID = {
     ...STRING,
     description: 'Text to specify a unique.'
 }
-export const TITLE = {
+const TITLE = {
     ...STRING,
     description: 'Title to display in the component.'
 }
-export const TEXT = {
+const TEXT = {
     ...STRING,
     description: 'Text to display in the component.'
 }
-export const LABEL = {
+const LABEL = {
     ...STRING,
     description: 'Label to display in the component.'
 }
-export const TITLE_TOP = {
+const TITLE_TOP = {
     ...STRING,
     description: 'Text to component top title.'
 }
-export const PLACEHOLDER = {
+const PLACEHOLDER = {
     ...STRING,
     description:  'Text to component placeholder.'
 }
-export const TITLE_BOTTOM = {
+const TITLE_BOTTOM = {
     ...STRING,
     description: 'Text to component bottom title.'
 }
-export const TEXT_VALUE = {
+const TEXT_VALUE = {
     ...STRING,
     description: 'Value handled by the component.'
 }
-export const TEXT_IMAGEN_BUTTON = {
-    ...STRING,
-    description: 'Text to display in the component when you mouse over the element'
-}
-export const ID_RADIO_BUTTON = {
-    ...STRING,
-    description: 'Text to specify only one. for this component the id will be used as the value that is selected in a group of RadioButtons'
-}
-export const NAME_RADIO_BUTTON = {
-    ...STRING,
-    description: 'Text to specify the name of component. to group a set of RadioButtons this attribute must be used.'
-}
-export const VALUE_RADIO_BUTTON = {
-    ...STRING,
-    description: 'Value handled by the component. to select the radio button the value must be equal to the same as the id attribute.'
-}
-export const PDF_MODAL_VIEWER_PDF = {
-    ...STRING,
-    description: 'Value handled by the component. to select the radio button the value must be equal to the same as the id attribute.'
-}
+
 
 
 const BOOLEAN = {
@@ -107,44 +59,31 @@ const BOOLEAN = {
         defaultValue: { summary: false }
       },
 }
-export const DISABLED= {
+const DISABLED= {
     ...BOOLEAN,
     description: 'Boolean value to show the component with disabled style.'
 }
-export const REQUIRED= {
+const REQUIRED= {
     ...BOOLEAN,
     description: 'Boolean value to show the component with required style.',
 }
-export const READ_ONLY= {
+const READ_ONLY= {
     ...BOOLEAN,
     description: 'Boolean value to show the component read only.',
 }
-export const NO_PASTE= {
+const NO_PASTE= {
     ...BOOLEAN,
     description: 'Boolean value to allow paste value.',
 }
-export const NO_COPY= {
+const NO_COPY= {
     ...BOOLEAN,
     description: 'Boolean value to allow copy value.',
 }
-export const SECUNDARY_TITLE= {
-    ...BOOLEAN,
-    description: 'Boolean value to show the component with secundary title.',
-}
-export const CHECKED= {
-    ...BOOLEAN,
-    description: 'Boolean value to show the component with checked style (by default it is false).',
-}
-export const SHOW= {
+const SHOW= {
     ...BOOLEAN,
     description: 'Boolean value to show the component (by default it is false).',
 }
 
-
-
-export const OPTIONES_SELECTOR= {
-    description: 'List of options the component.',
-}
 
 
 const EVENT = {
@@ -157,34 +96,34 @@ const EVENT = {
         defaultValue: { summary: 'undefined' }
       }
 }
-export const ON_CLICK = {
+const ON_CLICK = {
     ...EVENT,
     description: 'Function that is executed when the onClick event fires. To use the Button Component within a form the onClick property must not be defined.'
 }
-export const EVENT_CHANGE = {
+const EVENT_CHANGE = {
     ...EVENT,
     description: 'Function that will be invoked when there is a change.'
 }
-export const EVENT_FOCUS = {
+const EVENT_FOCUS = {
     ...EVENT,
     description: 'Function that will be invoked when the component is focused.'
 }
-export const EVENT_BLUR = {
+const EVENT_BLUR = {
     ...EVENT,
     description: 'Function that will be invoked when the component is out of focus.'
 }
-export const EVENT_KEY_DOWN = {
+const EVENT_KEY_DOWN = {
     ...EVENT,
     description: 'Function that will be invoked when the key is down.'
 }
-export const EVENT_MODAL = {
+const EVENT_MODAL = {
     ...EVENT,
     description: 'Function that is executed to close or open the Modal.'
 }
 
 
 
-export const SIZE = {
+const SIZE = {
     description: 'Larger or smaller button value.',
     defaultValue: SIZE_CONTROL.MD,
     table: {
@@ -196,7 +135,7 @@ export const SIZE = {
     options: jsonToArray(SIZE_CONTROL),
     control: { type: 'inline-radio' }
 }
-export const TYPE = {
+const TYPE = {
     description: 'String value to style of button.',
     defaultValue: STYLE_CONTROL.PRIMARY,
     table: {
@@ -209,21 +148,85 @@ export const TYPE = {
     options: jsonToArray(STYLE_CONTROL),
     control: { type: 'inline-radio' }
 }
-export const ICON = {
-    description: 'String value for the icon name',
-    defaultValue: ICONS[0],
+const REF = {
+    defaultValue: null,
+    description: 'Access DOM nodes directly within React.',
     table: {
         type: { 
-            summary: 'string'
+            summary: 'object'
         },
-    },
-    options: ICONS,
-    control: { type: 'select' }
+        defaultValue: { summary: 'null' }
+      }
 }
 
-// SPECIFIC COMPONENTS
 
+// SPECIFIC COMPONENTS
+export const BUTTON = {
+    ID,
+    TITLE,
+    DISABLED,
+    SIZE,
+    TYPE,
+    ON_CLICK
+}
+export const CHECK_BUTTON = {
+	ID,
+	LABEL,
+	DISABLED,
+	REQUIRED,
+	READ_ONLY,
+	EVENT_CHANGE,
+	REF,
+    CHECKED: {
+        ...BOOLEAN,
+        description: 'Boolean value to show the component with checked style (by default it is false).',
+    },
+}
+export const DATE_PICKER = {
+	ID,
+	TITLE,
+	VALUE: TEXT_VALUE,
+	DISABLED,
+	REQUIRED,
+	READ_ONLY,
+	EVENT_CHANGE,
+	REF
+}
+export const ICON = {
+    SIZE,
+	ICON: {
+        description: 'String value for the icon name',
+        defaultValue: ICONS[0],
+        table: {
+            type: { 
+                summary: 'string'
+            },
+        },
+        options: ICONS,
+        control: { type: 'select' }
+    }
+}
+export const IMAGE_BUTTON = {
+    ID,  
+    DISABLED, 
+    ON_CLICK,
+    TEXT: {
+        ...STRING,
+        description: 'Text to display in the component when you mouse over the element'
+    },
+    ...ICON
+}
+export const MODAL = {
+    SHOW,
+    EVENT_MODAL,
+    CHILDREN: {
+        description: 'Content the modal. This content can be: 1) Components; 2) Elements like paragraphs, div, headers (H2,H3,etc); 3) Texts; 4) JavaScript Expressions as Templete Strings; 5) Operations; 6) Functions; 7) Etc',
+        control: { type: 'node' }
+    }
+}
 export const MODAL_HTTP_MESSAGE = {
+    SHOW,
+    EVENT_MODAL,
     HTTP_CODE: {
         description: 'Indicate whether a specific HTTP request has been successfully completed.',
         control: { type: 'number' }
@@ -242,6 +245,8 @@ export const MODAL_HTTP_MESSAGE = {
     }
 }
 export const MODAL_NOTIFICATION = {
+    SHOW,
+    EVENT_MODAL,
     TITLE: {
         ...STRING,
         description: 'String to specify title of notification.'
@@ -270,5 +275,107 @@ export const MODAL_NOTIFICATION = {
     EVENT_CONTINUE: {
         ...EVENT,
         description: 'Function that is executed when the onClick event fires.'
+    }
+}
+export const MODAL_VIEWER_PDF = {
+    SHOW,
+    EVENT_MODAL,
+    PDF: {
+        ...STRING,
+        description: 'Value handled by the component. to select the radio button the value must be equal to the same as the id attribute.'
+    }
+}
+export const RADIO_BUTTON = {
+    ID: {
+        ...STRING,
+        description: 'Text to specify only one. for this component the id will be used as the value that is selected in a group of RadioButtons'
+    },
+    NAME: {
+        ...STRING,
+        description: 'Text to specify the name of component. to group a set of RadioButtons this attribute must be used.'
+    },
+    VALUE: {
+        ...STRING,
+        description: 'Value handled by the component. to select the radio button the value must be equal to the same as the id attribute.'
+    },
+	LABEL,
+	DISABLED,
+	REQUIRED,
+	READ_ONLY,
+	EVENT_CHANGE,
+	REF
+}
+export const SELECTOR = {
+	ID,
+	TITLE_TOP,
+	TITLE_BOTTOM,
+	VALUE: TEXT_VALUE,
+	DISABLED,
+	REQUIRED,
+	READ_ONLY,
+	EVENT_CHANGE,
+	REF,
+    OPTIONS: {
+        description: 'List of options the component.',
+    }
+}
+export const SPINNER = {
+    SHOW
+}
+export const TEXT_AREA = {
+	ID,
+	TITLE,
+	PLACEHOLDER,
+	VALUE: TEXT_VALUE,
+	DISABLED,
+	REQUIRED,
+	READ_ONLY,
+	NO_PASTE,
+	NO_COPY,
+	EVENT_CHANGE,
+	EVENT_FOCUS,
+	EVENT_BLUR,
+	EVENT_KEY_DOWN,
+	REF,
+    ROWS: {
+        defaultValue: 2,
+        description: 'Number value to pecifies the visible height of a text area, in lines.',
+        control: { type: 'number' }
+    }
+}
+export const TEXT_BOX = {
+	ID,
+	TITLE_TOP,
+	PLACEHOLDER,
+	TITLE_BOTTOM,
+	VALUE: TEXT_VALUE,
+	DISABLED,
+	REQUIRED,
+	READ_ONLY,
+	NO_PASTE,
+	NO_COPY,
+	EVENT_CHANGE,
+	EVENT_FOCUS,
+	EVENT_BLUR,
+	EVENT_KEY_DOWN,
+	SIZE: {
+        defaultValue: 200,
+        description: 'Number value to maximum character length.',
+        control: { type: 'number' }
+    },
+	REF
+}
+export const TEXT_BUTTON = {
+    ID, 
+    TEXT, 
+    DISABLED, 
+    TYPE, 
+    ON_CLICK 
+}
+export const TITLE_COMPONENT = {
+    LABEL,
+    SECUNDARY: {
+        ...BOOLEAN,
+        description: 'Boolean value to show the component with secundary title.',
     }
 }

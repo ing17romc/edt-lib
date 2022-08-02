@@ -1,6 +1,6 @@
 import React from 'react'
-import { ID, TEXT, DISABLED, TYPE, ON_CLICK } from '../../../../.storybook/constants'
-import { TEXT_BUTTON_PROPS as PROPS } from '../../../../.storybook/props'
+import { TEXT_BUTTON as DESC } from '../../../../.storybook/argTypes'
+import { TEXT_BUTTON as PROPS } from '../../../../.storybook/props'
 import Component from '.'
 
 export default {
@@ -18,9 +18,9 @@ TextButton.args = {
 }
 
 TextButton.argTypes = {
-	id: ID,
-	text: TEXT,
-	disabled: DISABLED,
-	type: TYPE,
-	onClick: ON_CLICK
+	id: DESC.ID,
+	text: DESC.TEXT,
+	disabled: DESC.DISABLED,
+	type: DESC.TYPE,
+	onClick: DESC.ON_CLICK
 }

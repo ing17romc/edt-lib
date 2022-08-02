@@ -1,17 +1,7 @@
 import React, { useState } from 'react'
 import { getValueInput } from '../../utils/functions.js'
-import {
-	ID_RADIO_BUTTON,
-	LABEL,
-	DISABLED,
-	REQUIRED,
-	READ_ONLY,
-	NAME_RADIO_BUTTON,
-	VALUE_RADIO_BUTTON,
-	EVENT_CHANGE,
-	REF
-} from '../../../../.storybook/constants'
-import { RADIO_BUTTON_PROPS as PROPS } from '../../../../.storybook/props'
+import { RADIO_BUTTON as DESC } from '../../../../.storybook/argTypes'
+import { RADIO_BUTTON as PROPS } from '../../../../.storybook/props'
 import Component from '.'
 
 export default {
@@ -58,13 +48,13 @@ RadioButton.args = {
 }
 
 RadioButton.argTypes = {
-	id: ID_RADIO_BUTTON,
-	name: NAME_RADIO_BUTTON,
-	value: VALUE_RADIO_BUTTON,
-	label: LABEL,
-	disabled: DISABLED,
-	required: REQUIRED,
-	readOnly: READ_ONLY,
-	eventChange: EVENT_CHANGE,
-	ref: REF
+	id: DESC.ID,
+	name: DESC.NAME,
+	value: DESC.VALUE,
+	label: DESC.LABEL,
+	disabled: DESC.DISABLED,
+	required: DESC.REQUIRED,
+	readOnly: DESC.READ_ONLY,
+	eventChange: DESC.EVENT_CHANGE,
+	ref: DESC.REF
 }

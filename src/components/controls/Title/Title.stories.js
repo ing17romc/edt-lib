@@ -1,7 +1,7 @@
 import React from 'react'
 import Component from '.'
-import { LABEL, SECUNDARY_TITLE } from '../../../../.storybook/constants'
-import { TITLE_PROPS as PROPS } from '../../../../.storybook/props'
+import { TITLE_COMPONENT as DESC } from '../../../../.storybook/argTypes'
+import { TITLE as PROPS } from '../../../../.storybook/props'
 
 export default {
 	title: 'Components/Title',
@@ -18,6 +18,6 @@ Title.args = {
 }
 
 Title.argTypes = {
-	label: LABEL,
-	secundary: SECUNDARY_TITLE
+	label: DESC.LABEL,
+	secundary: DESC.SECUNDARY
 }

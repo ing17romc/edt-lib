@@ -1,18 +1,7 @@
 import React, { useState } from 'react'
 import { getValueInput } from '../../utils/functions.js'
-import {
-	ID,
-	TITLE_TOP,
-	TITLE_BOTTOM,
-	TEXT_VALUE,
-	DISABLED,
-	REQUIRED,
-	READ_ONLY,
-	OPTIONES_SELECTOR,
-	EVENT_CHANGE,
-	REF
-} from '../../../../.storybook/constants'
-import { SELECTOR_PROPS as PROPS } from '../../../../.storybook/props'
+import { SELECTOR as DESC } from '../../../../.storybook/argTypes'
+import { SELECTOR as PROPS } from '../../../../.storybook/props'
 import Component from '.'
 
 export default {
@@ -52,14 +41,14 @@ Selector.args = {
 }
 
 Selector.argTypes = {
-	id: ID,
-	titleTop: TITLE_TOP,
-	titleBottom: TITLE_BOTTOM,
-	value: TEXT_VALUE,
-	disabled: DISABLED,
-	required: REQUIRED,
-	readOnly: READ_ONLY,
-	eventChange: EVENT_CHANGE,
-	options: OPTIONES_SELECTOR,
-	ref: REF
+	id: DESC.ID,
+	titleTop: DESC.TITLE_TOP,
+	titleBottom: DESC.TITLE_BOTTOM,
+	value: DESC.VALUE,
+	disabled: DESC.DISABLED,
+	required: DESC.REQUIRED,
+	readOnly: DESC.READ_ONLY,
+	eventChange: DESC.EVENT_CHANGE,
+	options: DESC.OPTIONS,
+	ref: DESC.REF
 }

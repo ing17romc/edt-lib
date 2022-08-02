@@ -1,6 +1,6 @@
 import React from 'react'
-import { ID, TEXT_IMAGEN_BUTTON, DISABLED, SIZE, ON_CLICK, ICON } from '../../../../.storybook/constants'
-import { IMAGE_BUTTON_PROPS as PROPS } from '../../../../.storybook/props'
+import { IMAGE_BUTTON as DESC } from '../../../../.storybook/argTypes'
+import { IMAGE_BUTTON as PROPS } from '../../../../.storybook/props'
 
 import Component from '.'
 
@@ -19,10 +19,10 @@ ImageButton.args = {
 }
 
 ImageButton.argTypes = {
-	id: ID,
-	text: TEXT_IMAGEN_BUTTON,
-	disabled: DISABLED,
-	size: SIZE,
-	icon: ICON,
-	onClick: ON_CLICK
+	id: DESC.ID,
+	text: DESC.TEXT,
+	disabled: DESC.DISABLED,
+	size: DESC.SIZE,
+	icon: DESC.ICON,
+	onClick: DESC.ON_CLICK
 }

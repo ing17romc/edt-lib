@@ -1,6 +1,6 @@
 import React from 'react'
-import { ID, TITLE, DISABLED, SIZE, TYPE, ON_CLICK } from '../../../../.storybook/constants'
-import { BUTTON_PROPS as PROPS } from '../../../../.storybook/props'
+import { BUTTON as DESC } from '../../../../.storybook/argTypes'
+import { BUTTON as PROPS } from '../../../../.storybook/props'
 
 import Component from '.'
 
@@ -19,10 +19,10 @@ Button.args = {
 }
 
 Button.argTypes = {
-	id: ID,
-	title: TITLE,
-	disabled: DISABLED,
-	size: SIZE,
-	type: TYPE,
-	onClick: ON_CLICK
+	id: DESC.ID,
+	title: DESC.TITLE,
+	disabled: DESC.DISABLED,
+	size: DESC.SIZE,
+	type: DESC.TYPE,
+	onClick: DESC.ON_CLICK
 }

@@ -1,16 +1,7 @@
 import React, { useState } from 'react'
 import { getValueInput } from '../../utils/functions.js'
-import {
-	ID,
-	TITLE,
-	TEXT_VALUE,
-	DISABLED,
-	REQUIRED,
-	READ_ONLY,
-	EVENT_CHANGE,
-	REF
-} from '../../../../.storybook/constants'
-import { DATE_PICKER_PROPS as PROPS } from '../../../../.storybook/props'
+import { DATE_PICKER as DESC } from '../../../../.storybook/argTypes'
+import { DATE_PICKER as PROPS } from '../../../../.storybook/props'
 import Component from '.'
 
 export default {
@@ -48,12 +39,12 @@ DatePicker.args = {
 }
 
 DatePicker.argTypes = {
-	id: ID,
-	title: TITLE,
-	value: TEXT_VALUE,
-	disabled: DISABLED,
-	required: REQUIRED,
-	readOnly: READ_ONLY,
-	eventChange: EVENT_CHANGE,
-	ref: REF
+	id: DESC.ID,
+	title: DESC.TITLE,
+	value: DESC.VALUE,
+	disabled: DESC.DISABLED,
+	required: DESC.REQUIRED,
+	readOnly: DESC.READ_ONLY,
+	eventChange: DESC.EVENT_CHANGE,
+	ref: DESC.REF
 }

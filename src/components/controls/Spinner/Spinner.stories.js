@@ -1,6 +1,6 @@
 import React from 'react'
-import { SHOW } from '../../../../.storybook/constants'
-import { SPINNER_PROPS as PROPS } from '../../../../.storybook/props'
+import { SPINNER as DESC } from '../../../../.storybook/argTypes'
+import { SPINNER as PROPS } from '../../../../.storybook/props'
 
 import Component from '.'
 
@@ -17,5 +17,5 @@ Spinner.args = {
 	show: PROPS.SHOW
 }
 Spinner.argTypes = {
-	show: SHOW
+	show: DESC.SHOW
 }

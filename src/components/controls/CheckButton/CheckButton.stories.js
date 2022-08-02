@@ -1,16 +1,7 @@
 import React, { useState } from 'react'
 import { getValueInput } from '../../utils/functions.js'
-import {
-	ID,
-	LABEL,
-	DISABLED,
-	REQUIRED,
-	READ_ONLY,
-	CHECKED,
-	EVENT_CHANGE,
-	REF
-} from '../../../../.storybook/constants'
-import { CHECK_BUTTON_PROPS as PROPS } from '../../../../.storybook/props'
+import { CHECK_BUTTON as DESC } from '../../../../.storybook/argTypes'
+import { CHECK_BUTTON as PROPS } from '../../../../.storybook/props'
 import Component from '.'
 
 export default {
@@ -44,16 +35,16 @@ export const CheckButton = Template.bind({})
 CheckButton.args = {
 	id: PROPS.ID,
 	label: PROPS.LABEL,
-	value: PROPS.VALUE
+	checked: PROPS.CHECKED
 }
 
 CheckButton.argTypes = {
-	id: ID,
-	label: LABEL,
-	disabled: DISABLED,
-	required: REQUIRED,
-	readOnly: READ_ONLY,
-	checked: CHECKED,
-	eventChange: EVENT_CHANGE,
-	ref: REF
+	id: DESC.ID,
+	label: DESC.LABEL,
+	disabled: DESC.DISABLED,
+	required: DESC.REQUIRED,
+	readOnly: DESC.READ_ONLY,
+	checked: DESC.CHECKED,
+	eventChange: DESC.EVENT_CHANGE,
+	ref: DESC.REF
 }

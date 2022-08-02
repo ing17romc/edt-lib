@@ -1,5 +1,5 @@
 import React from 'react'
-import { SIZE, ICON } from '../../../../.storybook/constants'
+import { ICON as DESC } from '../../../../.storybook/argTypes'
 
 import Component from '.'
 
@@ -13,6 +13,6 @@ const Template = (args) => <Component {...args} />
 export const Icon = Template.bind({})
 
 Icon.argTypes = {
-	size: SIZE,
-	name: ICON
+	size: DESC.SIZE,
+	name: DESC.ICON
 }

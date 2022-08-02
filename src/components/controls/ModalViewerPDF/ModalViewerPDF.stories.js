@@ -1,6 +1,6 @@
 import React from 'react'
-import { SHOW, EVENT_MODAL, PDF_MODAL_VIEWER_PDF } from '../../../../.storybook/constants'
-import { MODAL_VIEWER_PDF_PROPS as PROPS } from '../../../../.storybook/props'
+import { MODAL_VIEWER_PDF as DESC } from '../../../../.storybook/argTypes'
+import { MODAL_VIEWER_PDF as PROPS } from '../../../../.storybook/props'
 
 import Component from '.'
 
@@ -20,7 +20,7 @@ ModalViewerPDF.args = {
 	pdf: PROPS.PDF
 }
 ModalViewerPDF.argTypes = {
-	show: SHOW,
-	eventModal: EVENT_MODAL,
-	pdf: PDF_MODAL_VIEWER_PDF
+	show: DESC.SHOW,
+	eventModal: DESC.EVENT_MODAL,
+	pdf: DESC.PDF
 }

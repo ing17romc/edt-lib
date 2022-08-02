@@ -1,6 +1,6 @@
 import React from 'react'
-import { SHOW, EVENT_MODAL, MODAL_NOTIFICATION } from '../../../../.storybook/constants'
-import { MODAL_NOTIFICATION_PROPS as PROPS } from '../../../../.storybook/props'
+import { MODAL_NOTIFICATION as DESC } from '../../../../.storybook/argTypes'
+import { MODAL_NOTIFICATION as PROPS } from '../../../../.storybook/props'
 
 import Component from '.'
 
@@ -23,12 +23,12 @@ ModalNotifications.args = {
 	type: PROPS.TYPE
 }
 ModalNotifications.argTypes = {
-	show: SHOW,
-	eventModal: EVENT_MODAL,
-	eventContinue: MODAL_NOTIFICATION.EVENT_CONTINUE,
-	type: MODAL_NOTIFICATION.TYPE,
-	title: MODAL_NOTIFICATION.TITLE,
-	details: MODAL_NOTIFICATION.DETAILS,
-	message: MODAL_NOTIFICATION.MESSAGE
+	show: DESC.SHOW,
+	eventModal: DESC.EVENT_MODAL,
+	eventContinue: DESC.EVENT_CONTINUE,
+	type: DESC.TYPE,
+	title: DESC.TITLE,
+	details: DESC.DETAILS,
+	message: DESC.MESSAGE
 
 }
