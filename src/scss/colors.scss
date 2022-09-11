@@ -2,46 +2,54 @@
 
 // backgroung color
 .bg-primary-1 {
-	background-color: $primary-color-1 !important;
+	background-color: $primary-color-1  !important;
 }
+
+.bg-primary-2 {
+	background-color: $primary-color-2  !important;
+}
+
 .bg-primary-3 {
-	background-color: $primary-color-3 !important;
+	background-color: $primary-color-3  !important;
 }
 
 .bg-white {
-	background-color: $white-color !important;
+	background-color: $white-color  !important;
 }
+
 .bg-light-gray {
-	background-color: $light-gray-color !important;
+	background-color: $light-gray-color  !important;
 }
+
 .bg-gray {
-	background-color: $gray-color !important;
+	background-color: $gray-color  !important;
 }
 
 // font color
 .font-blue {
-	color: $primary-color-1 !important;
+	color: $primary-color-1  !important;
 }
+
 .font-red {
-	color: $red-color !important;
+	color: $red-color  !important;
 }
+
 .font-orange {
-	color: $orange-color !important;
+	color: $orange-color  !important;
 }
+
 .font-green {
-	color: $green-color !important;
+	color: $green-color  !important;
 }
+
 .font-yellow {
-	color: $yellow-color !important;
+	color: $yellow-color  !important;
 }
+
 .font-white {
-	color: $white-color !important;
+	color: $white-color  !important;
 }
 
 .font-gray {
-	color: $dark-gray-color !important;
-}
-
-.font-bold {
-	font-weight: bold;
+	color: $dark-gray-color  !important;
 }

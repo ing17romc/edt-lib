@@ -78,13 +78,14 @@ $label-line-height: 18;
 		-ms-transform: rotate(35deg);
 		transform: rotate(35deg);
 	}
+
 	&.required {
-		& > label {
+		&>label {
 			color: $red-color;
 		}
 
-		& > input[type='checkbox']:before,
-		& > input[type='checkbox']:checked:before {
+		&>input[type='checkbox']:before,
+		&>input[type='checkbox']:checked:before {
 			border: calculateSizeVW($border) solid $red-color;
 		}
 	}
@@ -118,9 +119,11 @@ $label-line-height: 18;
 			border-right: solid calculateSizePX($border-2) $white-color;
 			margin-top: calculateSizePX($border-2);
 		}
+
 		&.required {
-			& > input[type='checkbox']:before,
-			& > input[type='checkbox']:checked:before {
+
+			&>input[type='checkbox']:before,
+			&>input[type='checkbox']:checked:before {
 				border: calculateSizePX($border) solid $red-color;
 			}
 		}

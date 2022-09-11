@@ -11,10 +11,10 @@ const Title = ({ label, secundary }) => {
 	const getHeadings = (label, secundary) =>
 		secundary
 			? (
-				<h4 className='font-bold'>{label}</h4>
+				<h4 className='strong'>{label}</h4>
 			)
 			: (
-				<h2 className='font-bold'>{label}</h2>
+				<h2 className='strong'>{label}</h2>
 			)
 
 	return (

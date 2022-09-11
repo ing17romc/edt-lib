@@ -45,28 +45,33 @@
 	@include padding($number, calculateSizeVW(calc($number/2)));
 	@include line-height($i, calculateSizeVW($i));
 }
+
 .center {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
 }
+
 .center-horizontal {
 	display: flex;
 	justify-content: center;
 	text-align: center;
 }
+
 .center-vertical {
 	display: flex;
 	justify-content: normal;
 	align-items: center;
 	text-align: center;
 }
+
 .hide {
 	visibility: hidden;
 }
 
 $min-height: 600;
+
 .container-body {
 	height: auto;
 	min-height: calculateSizeVW($min-height);
@@ -83,18 +88,15 @@ body {
 	background-color: $primary-color-2;
 	color: $black-color;
 	font-size: calculateSizeVW($fs-18);
+	font-family:$font-family;
 }
 
 .little-hand {
 	cursor: pointer;
 }
 
-.line-spacing {
-	line-height: normal;
-}
-.strong {
-	font-weight: bold;
-}
+
+
 @media only screen and (min-width: calculateSizePX($min-height-screen)) {
 	.main-container {
 		max-width: calculateSizePX($min-height-screen);
@@ -106,11 +108,12 @@ body {
 		@include padding($number, calculateSizePX(calc($number/2)));
 		@include line-height($i, calculateSizePX($i));
 	}
+
 	.container-body {
 		min-height: calculateSizePX($min-height);
 	}
+
 	body {
-		color: $black-color;
 		font-size: calculateSizePX($fs-18);
 	}
 }

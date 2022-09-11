@@ -8,7 +8,7 @@ $height-control: 40;
 $letter-spacing: -0.25;
 $margin-bottom: 4;
 $padding: 5;
-$border-radio:5;
+$border-radio: 5;
 
 
 
@@ -21,6 +21,7 @@ $border-radio:5;
 		color: $black-color;
 		font-size: calculateSizeVW($font-size-control);
 	}
+
 	& select,
 	& input {
 		border-radius: calculateSizeVW($border-radio);
@@ -32,8 +33,7 @@ $border-radio:5;
 
 		width: 100%;
 		height: calculateSizeVW($height-control);
-		padding: 0px calculateSizeVW($padding) calculateSizeVW($padding)
-			calculateSizeVW($padding);
+		padding: 0px calculateSizeVW($padding) calculateSizeVW($padding) calculateSizeVW($padding);
 		margin-bottom: calculateSizeVW($margin-bottom);
 		letter-spacing: calculateSizeVW($letter-spacing);
 		font-size: calculateSizeVW($font-size);
@@ -43,18 +43,21 @@ $border-radio:5;
 		&:focus {
 			outline: none;
 		}
+
 		&::placeholder {
 			font-size: calculateSizeVW($font-size);
 			color: $gray-color;
 			opacity: 1;
 		}
-		& > option {
+
+		&>option {
 			font-size: calculateSizeVW($font-size);
 			color: $black-color;
 			background-color: $white-color;
 			opacity: 1;
 		}
 	}
+
 	& textarea {
 		display: block;
 		resize: none;
@@ -71,6 +74,7 @@ $border-radio:5;
 		&:focus {
 			outline: none;
 		}
+
 		&::placeholder {
 			font-size: calculateSizeVW($font-size);
 			color: $gray-color;
@@ -81,13 +85,16 @@ $border-radio:5;
 	& .disabled {
 		opacity: $disabled-opacity;
 	}
+
 	& .required {
 		& span {
 			color: $red-color;
 		}
+
 		& select,
 		& input {
 			border: calculateSizeVW($border) solid $red-color;
+
 			&::placeholder {
 				opacity: $disabled-opacity;
 				color: $red-color;
@@ -97,6 +104,7 @@ $border-radio:5;
 		& textarea {
 			border: calculateSizeVW($border) solid $red-color;
 			color: $red-color;
+
 			&::placeholder {
 				opacity: $disabled-opacity;
 				color: $red-color;
@@ -108,13 +116,15 @@ $border-radio:5;
 		& span {
 			color: $black-color;
 		}
+
 		& select {
 			color: $black-color;
 
 			&::placeholder {
 				color: $black-color;
 			}
-			& > option {
+
+			&>option {
 				color: $black-color;
 			}
 		}
@@ -140,13 +150,13 @@ input[type='search']::-webkit-search-results-decoration {
 			min-height: calculateSizePX($min-height-span);
 			font-size: calculateSizePX($font-size-control);
 		}
+
 		& select,
 		& input {
 			border-radius: calculateSizePX($border-radio);
 			border: calculateSizePX($border) solid $black-color;
 			height: calculateSizePX($height-control);
-			padding: 0px calculateSizePX($padding) calculateSizePX($padding)
-				calculateSizePX($padding);
+			padding: 0px calculateSizePX($padding) calculateSizePX($padding) calculateSizePX($padding);
 			margin-bottom: calculateSizePX($margin-bottom);
 			letter-spacing: calculateSizePX($letter-spacing);
 			font-size: calculateSizePX($font-size);
@@ -154,10 +164,12 @@ input[type='search']::-webkit-search-results-decoration {
 			&::placeholder {
 				font-size: calculateSizePX($font-size);
 			}
-			& > option {
+
+			&>option {
 				font-size: calculateSizePX($font-size);
 			}
 		}
+
 		& textarea {
 			border-radius: calculateSizePX($border-radio);
 			border: calculateSizePX($border) solid $black-color;
@@ -172,6 +184,7 @@ input[type='search']::-webkit-search-results-decoration {
 		}
 
 		& .required {
+
 			& select,
 			& input {
 				border: calculateSizePX($border) solid $red-color;

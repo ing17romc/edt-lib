@@ -11,13 +11,13 @@ $label-padding-left: 28;
 $label-line-height: 18;
 
 .radiobutton {
-	&.required > label {
+	&.required>label {
 		color: $red-color;
 	}
 
 	&.required {
 		input[type='radio'] {
-			& + label {
+			&+label {
 				&:before {
 					border: calculateSizeVW($border) solid $red-color;
 				}
@@ -28,7 +28,7 @@ $label-line-height: 18;
 	input[type='radio'] {
 		display: none;
 
-		& + label {
+		&+label {
 			font-size: calculateSizeVW($font-size-control);
 			position: relative;
 			height: calculateSizeVW($label-height);
@@ -63,11 +63,11 @@ $label-line-height: 18;
 		}
 	}
 
-	input[type='radio']:not(:checked) + label:after {
+	input[type='radio']:not(:checked)+label:after {
 		display: none;
 	}
 
-	input[type='radio']:checked + label:after {
+	input[type='radio']:checked+label:after {
 		display: block;
 	}
 }
@@ -76,7 +76,7 @@ $label-line-height: 18;
 	.radiobutton {
 		&.required {
 			input[type='radio'] {
-				& + label {
+				&+label {
 					&:before {
 						border: calculateSizePX($border) solid $red-color;
 					}
@@ -85,7 +85,7 @@ $label-line-height: 18;
 		}
 
 		input[type='radio'] {
-			& + label {
+			&+label {
 				font-size: calculateSizePX($font-size-control);
 				height: calculateSizePX($label-height);
 				padding-top: calculateSizePX($label-padding-top);

@@ -22,7 +22,7 @@ $grid-secundary-width-cols: 1.73160173%;
 	display: inline !important;
 }
 
-.grid-primary > .grid-secondary {
+.grid-primary>.grid-secondary {
 	display: grid !important;
 	width: 100%;
 	padding-left: $grid-secundary-padding-v;
@@ -37,6 +37,7 @@ $grid-secundary-width-cols: 1.73160173%;
 	.start-#{$number} {
 		grid-column-start: $number;
 	}
+
 	.size-#{$number} {
 		grid-column-end: span $number;
 	}

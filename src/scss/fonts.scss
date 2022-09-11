@@ -4,12 +4,15 @@
 h1 {
 	font-size: calculateSizeVW($fs-36);
 }
+
 h2 {
 	font-size: calculateSizeVW($fs-30);
 }
+
 h3 {
 	font-size: calculateSizeVW($fs-26);
 }
+
 h4 {
 	font-size: calculateSizeVW($fs-24);
 }
@@ -18,45 +21,72 @@ h4 {
 	display: inline;
 	font-size: calculateSizeVW($fs-22);
 }
+
 .font-20 {
 	display: inline;
 	font-size: calculateSizeVW($fs-20);
 }
+
 .font-18 {
 	display: inline;
 	font-size: calculateSizeVW($fs-18);
 }
+
 .font-16 {
 	display: inline;
 	font-size: calculateSizeVW($fs-16);
 }
+
 .font-14 {
 	display: inline;
 	font-size: calculateSizeVW($fs-14);
 }
+
 .font-12 {
 	display: inline;
 	font-size: calculateSizeVW($fs-12);
 }
+
 .font-10 {
 	display: inline;
 	font-size: calculateSizeVW($fs-10);
 }
+
 .font-8 {
 	display: inline;
 	font-size: calculateSizeVW($fs-8);
+}
+
+.line-spacing {
+	line-height: normal;
+}
+.line-spacing-simple {
+	line-height: 1.5;
+}
+.line-spacing-doble {
+	line-height: 2;
+}
+.line-spacing-triple {
+	line-height: 2.5;
+}
+
+.strong {
+	font-weight: bold;
 }
 
 @media screen and (min-width: calculateSizePX($min-height-screen)) and (hover: hover) and (pointer: fine) {
 	h1 {
 		font-size: calculateSizePX($fs-36);
 	}
+
 	h2 {
 		font-size: calculateSizePX($fs-30);
 	}
+
 	h3 {
 		font-size: calculateSizePX($fs-26);
 	}
+
 	h4 {
 		font-size: calculateSizePX($fs-24);
 	}
@@ -65,30 +95,37 @@ h4 {
 		display: inline;
 		font-size: calculateSizePX($fs-22);
 	}
+
 	.font-20 {
 		display: inline;
 		font-size: calculateSizePX($fs-20);
 	}
+
 	.font-18 {
 		display: inline;
 		font-size: calculateSizePX($fs-18);
 	}
+
 	.font-16 {
 		display: inline;
 		font-size: calculateSizePX($fs-16);
 	}
+
 	.font-14 {
 		display: inline;
 		font-size: calculateSizePX($fs-14);
 	}
+
 	.font-12 {
 		display: inline;
 		font-size: calculateSizePX($fs-12);
 	}
+
 	.font-10 {
 		display: inline;
 		font-size: calculateSizePX($fs-10);
 	}
+
 	.font-8 {
 		display: inline;
 		font-size: calculateSizePX($fs-8);

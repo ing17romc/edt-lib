@@ -14,18 +14,22 @@ $column-width: 8;
 		grid-column-end: 4;
 		grid-row: 1;
 	}
+
 	.day {
 		grid-column: 1;
 		grid-row: 2;
 	}
+
 	.month {
 		grid-column: 2;
 		grid-row: 2;
 	}
+
 	.year {
 		grid-column: 3;
 		grid-row: 2;
 	}
+
 	& input {
 		text-align: center;
 	}
