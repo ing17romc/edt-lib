@@ -71,6 +71,6 @@
   "files": [
     "dist",
     "src/scss",
-    "jsconfig.json"
+    "index.scss"
   ]
 }

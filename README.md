@@ -20,7 +20,7 @@ npm run test
 ```
 npm run storybook
 ```
-## Publish to npm and release to GITHUB
+## Publish to NPM and release to Github
 ```
 npm run pub
 ```
