@@ -1,5 +1,5 @@
 import React from 'react'
-import { UI } from '../../'
+import { UI } from '../../../'
 import PropTypes from 'prop-types'
 const getStatus = (value) => <strong className={value ? 'font-blue' : 'font-red'}>{value ? 'Active' : 'Inactive'}</strong>
 

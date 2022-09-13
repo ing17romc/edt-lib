@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { CIVIL_STATUS } from '../data'
-import { UI, functions } from '../../'
+import { UI, functions } from '../../../'
 
 const Form = () => {
 	const { getValueInput } = functions

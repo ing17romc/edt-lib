@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { httpCodes } from '../data'
-import { UI, functions, CONSTANT } from '../../'
+import { UI, functions, CONSTANT } from '../../../'
 
 const Modales = () => {
 	const { TYPE_NOTIFICATION } = CONSTANT

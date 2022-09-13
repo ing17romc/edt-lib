@@ -1,6 +1,6 @@
 import React from 'react'
 import { OPTIONS, LEFT_OPTIONS, RIGHT_OPTIONS } from '../data'
-import { UI } from '../../'
+import { UI } from '../../../'
 
 function App () {
 	return (

@@ -4,7 +4,7 @@
   "description": "Front-end library, rebuilt for React",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
-  "source": "src/index.js",
+  "source": "index.js",
   "author": "ing romc",
   "license": "ISC",
   "homepage": "http://ing17romc.github.io/edt-lib/",
@@ -54,8 +54,7 @@
     "microbundle-crl": "^0.13.11",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
-    "storybook-addon-sass-postcss": "^0.1.3",
-    "storybook-readme": "^5.0.9"
+    "storybook-addon-sass-postcss": "^0.1.3"
   },
   "browserslist": {
     "production": [
