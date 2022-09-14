@@ -8,6 +8,9 @@ http://ing17romc.github.io/edt-lib/
 ## Repository
 https://github.com/ing17romc/edt-lib/
 
+## NPM
+https://www.npmjs.com/package/edt-lib
+
 ## Install
 ```
 npm i
