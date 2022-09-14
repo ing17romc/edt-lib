@@ -1,6 +1,6 @@
 {
   "name": "edt-lib",
-  "version": "1.2.30",
+  "version": "1.2.31",
   "description": "Front-end library, rebuilt for React",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
