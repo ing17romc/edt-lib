@@ -18,19 +18,19 @@ const getP = (style) => <>
 	<span className={style}>
 		{ style }
 	</span>
-	{' <span className="' + style + '"></span>'}
+	{` <span className="${style}"></span>`}
 	<hr></hr>
 </>
 
 const getSpan = (style) => <>
 	<span style={dot} className={style}></span>
-	{' <span className="' + style + '"></span>'}
+	{` <span className="${style}"></span>`}
 	<hr></hr>
 </>
 
 const getVariablesColor = (style) => <>
 	<span style={dot} className={style}></span>
-	{' $' + style }
+	{` $${style}` }
 	<hr></hr>
 </>
 

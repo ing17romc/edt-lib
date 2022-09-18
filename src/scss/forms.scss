@@ -27,7 +27,7 @@ $border-radio: 5;
 		border-radius: calculateSizeVW($border-radio);
 		border: calculateSizeVW($border) solid $black-color;
 
-		border: none;
+		// border: none;
 		text-align: left;
 		opacity: 1;
 
