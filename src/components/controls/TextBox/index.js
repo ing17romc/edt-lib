@@ -15,6 +15,7 @@ const TextBox = ({
 	titleBottom,
 	value,
 	required,
+	isPasswrord,
 	disabled,
 	readOnly,
 	noPaste,
@@ -60,7 +61,7 @@ const TextBox = ({
 			<div className={style()}>
 				<span htmlFor={id}>{titleTop}</span>
 				<input
-					type='search'
+					type={isPasswrord ? 'password' : 'search'}
 					id={id}
 					name={id}
 					value={value}
@@ -98,6 +99,7 @@ TextBox.propTypes = {
 	value: PropTypes.string.isRequired,
 	disabled: PropTypes.bool,
 	required: PropTypes.bool,
+	isPasswrord: PropTypes.bool,
 
 	eventChange: PropTypes.func.isRequired,
 	eventFocus: PropTypes.func,

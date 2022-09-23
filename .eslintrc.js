@@ -20,6 +20,8 @@ module.exports = {
 	],
 	rules: {
 		indent: [2, 'tab'],
-		'no-tabs': 0
+		'no-tabs': 0,
+		'prefer-template': 'error',
+		'no-useless-concat': 'error'
 	}
 }
