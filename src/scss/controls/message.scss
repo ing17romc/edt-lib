@@ -1,0 +1,45 @@
+@import '../variables.scss';
+@import '../functions.scss';
+
+$padding: 15;
+$margin-bottom: 20;
+$border-radius: 4;
+
+.message {
+    padding: calculateSizeVW($padding);
+    margin-bottom: calculateSizeVW($margin-bottom);
+    border: 1px solid transparent;
+    border-radius: calculateSizeVW($border-radius);
+
+    &.message-danger {
+        color: #a94442;
+        background-color: #f2dede;
+        border-color: #ebccd1;
+    }
+
+    &.message-warning {
+        color: #8a6d3b;
+        background-color: #fcf8e3;
+        border-color: #faebcc;
+    }
+
+    &.message-success {
+        color: #3c763d;
+        background-color: #dff0d8;
+        border-color: #d6e9c6;
+    }
+
+    &.message-info {
+        color: #31708f;
+        background-color: #d9edf7;
+        border-color: #bce8f1;
+    }
+}
+
+@media only screen and (min-width: calculateSizePX($min-height-screen)) {
+	.message {
+        padding: calculateSizePX($padding);
+        margin-bottom: calculateSizePX($margin-bottom);
+        border-radius: calculateSizePX($border-radius);	
+    }
+}

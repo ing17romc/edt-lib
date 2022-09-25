@@ -3,7 +3,7 @@ import React from 'react'
 import Component from '.'
 
 export default {
-	title: 'Building/Message',
+	title: 'Static/Message',
 	component: Component
 }
 

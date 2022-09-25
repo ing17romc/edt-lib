@@ -6,10 +6,10 @@ import React from 'react'
  * @returns TO DO
  */
 
-const getH = number => '<h' + number + '></h' + number + '>'
+const getH = number => `<h${number}></h${number}>`
 const getP = (style, text) => <>
 	<p className={style}>
-		{'<p className="' + style + '">' + (text || '') + '</p>'}
+		{`<p className="${style}">${text || ''}</p>`}
 	</p>
 	<hr></hr>
 </>
