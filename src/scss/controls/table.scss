@@ -6,6 +6,7 @@ $padding: 10;
 table {
 	width: 100%;
 	background-color: $white-color;
+	box-shadow: $shadow-flat;
 
 	& tr {
 		text-align: justify;

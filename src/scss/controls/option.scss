@@ -34,6 +34,10 @@ $border-hr: 1;
 	& p {
 		padding: 3%;
 	}
+	&:hover {
+		box-shadow: $shadow-elevated;
+	}
+	box-shadow: $shadow-flat;
 }
 
 @media only screen and (min-width: calculateSizePX($min-height-screen)) {
