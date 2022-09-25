@@ -33,6 +33,10 @@
 	opacity: $disabled-opacity;
 }
 
+.elevated {
+	box-shadow: $shadow-flat;
+}
+
 @mixin line-height($number, $size) {
 	.line-height-#{$number} {
 		line-height: $size;

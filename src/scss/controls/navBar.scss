@@ -8,10 +8,12 @@ $height: 78;
 .container-nav-bar-father {
 	z-index: 10;
 	position: fixed;
+	
 
 	.container-nav-bar {
 		position: fixed;
 		width: 100%;
+		box-shadow: $shadow-flat;
 
 		.topnav {
 			background-color: $primary-color-1;
