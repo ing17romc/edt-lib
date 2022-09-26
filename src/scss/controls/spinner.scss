@@ -7,7 +7,6 @@ $color-three: $dark-blue-color;
 $bg-spinner: $black-color;
 
 $size-loading: 150;
-$margin-loading: 300;
 $border-loading: 2.5;
 
 $position-sm: 5;
@@ -24,7 +23,18 @@ div.container-load {
 
 	background: transparentize($color: $color-one, $amount: 0.8);
 
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+
 	.loading {
+
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+	
+
 		overflow: hidden;
 		display: block;
 		position: relative;
@@ -32,7 +42,6 @@ div.container-load {
 		height: calculateSizeVW($size-loading);
 		top: 0;
 		left: 0;
-		margin: calculateSizeVW($margin-loading) auto;
 		border-radius: 50%;
 		border-width: calculateSizeVW($border-loading);
 		border-style: solid;
@@ -93,7 +102,6 @@ div.container-load {
 		.loading {
 			width: calculateSizePX($size-loading);
 			height: calculateSizePX($size-loading);
-			margin: calculateSizePX($margin-loading) auto;
 			border-width: calculateSizePX($border-loading);
 		}
 
