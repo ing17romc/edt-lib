@@ -1,7 +1,106 @@
-import React from 'react'
-import { UI } from '../../../'
+import React, { useState } from 'react'
+import { UI, functions } from '../../../'
+import Pagination from '../../../src/components/controls/Pagination' // FIXE THIS
 import PropTypes from 'prop-types'
 const getStatus = (value) => <strong className={value ? 'font-blue' : 'font-red'}>{value ? 'Active' : 'Inactive'}</strong>
+
+const TableWithPagination = ({ dataTable }) => {
+	const { getValueInput } = functions
+	const [state, setstate] = useState({
+		page: 1,
+		pages: 3
+	})
+
+	console.log(UI)
+
+	const getSlides = (acc, cur, slidesPerView) => {
+		if (!Array.isArray(acc) || !Array.isArray(cur) || !slidesPerView) { return [] }
+
+		if (cur.length) {
+			acc.push(cur.slice(0, slidesPerView))
+			getSlides(acc, cur.slice(slidesPerView, cur.length), slidesPerView)
+		}
+		return acc
+	}
+
+	const pages = getSlides([], dataTable, state.pages)
+
+	const getIndex = pages.length < state.page ? 0 : state.page - 1
+
+	const onInputChange = e => {
+		const object = getValueInput(e)
+		if (e) {
+			setstate({
+				...state,
+				[object.key]: object.value,
+				page: 1
+			})
+		}
+	}
+
+	return (
+		<>
+			<div className='container-body'>
+				<div className='grid-primary '>
+					<div className='start-1 size-12 padding-v-20'>
+						<UI.Title label='Example tables' />
+					</div>
+
+					<div className='start-1  padding-v-20' />
+					<div className='grid-secondary '>
+						<div className='start-1 size-16 padding-v-20 center-vertical'>
+							<h4>Table with pagination</h4>
+						</div>
+						<div className=' size-4 padding-v-20'>
+							<UI.Selector
+								id='pages'
+								value={state.pages}
+								options={[
+									{ key: 1, value: '1' },
+									{ key: 2, value: '2' },
+									{ key: 3, value: '3' }
+								]}
+								eventChange={e => onInputChange(e)}
+								titleTop='Number item by page'
+							/>
+						</div>
+
+						<div className='start-1 size-20 padding-v-20 '>
+							<div className='bg-white padding-h-30 padding-v-30'>
+								<table>
+									<tbody>
+										<tr>
+											<th>Name</th>
+											<th>UserName</th>
+											<th>Status</th>
+										</tr>
+										{pages[getIndex].map((element, index) => (
+											<tr key={index}>
+												<td>{element.name}</td>
+												<td>{element.userName}</td>
+												<td>{getStatus(element.status)}</td>
+											</tr>
+										))}
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+						<div className='start-1 size-20 padding-v-20 center'>
+							<Pagination
+								totalCount= {pages.length}
+								currentPage= {state.page}
+								onPageChange= {currentPage => setstate({ ...state, page: currentPage })}
+							/>
+						</div>
+					</div>
+
+					<div className='start-1  padding-v-20' />
+				</div>
+			</div>
+		</>
+	)
+}
 
 const TableDefault = ({ dataTable }) => {
 	return (
@@ -193,7 +292,7 @@ const TableWithIcon = ({ dataTable }) => {
 													<UI.ImageButton
 														text='Edit'
 														icon="edit"
-														id={'edit_' + index}
+														id={`edit_${index}`}
 														size="md"
 														onClick={() =>
 															alert('clic!!!')
@@ -204,7 +303,7 @@ const TableWithIcon = ({ dataTable }) => {
 													<UI.ImageButton
 														text='Delete'
 														icon="delete"
-														id={'delete_' + index}
+														id={`delete_${index}`}
 														size="md"
 														onClick={() =>
 															alert('clic!!!')
@@ -226,6 +325,9 @@ const TableWithIcon = ({ dataTable }) => {
 	)
 }
 
+TableWithPagination.propTypes = {
+	dataTable: PropTypes.array
+}
 TableDefault.propTypes = {
 	dataTable: PropTypes.array
 }
@@ -239,4 +341,4 @@ TableWithIcon.propTypes = {
 	dataTable: PropTypes.array
 }
 
-export { TableDefault, TableActiveRow, TableWithButton, TableWithIcon }
+export { TableWithPagination, TableDefault, TableActiveRow, TableWithButton, TableWithIcon }

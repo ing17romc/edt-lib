@@ -2,12 +2,32 @@ export const DATA_TABLE = [
 	{
 		name: 'Rafael',
 		userName: 'rmarquez',
+		status: 0
+	},
+	{
+		name: 'Silvino',
+		userName: 'smarquez',
+		status: 1
+	},
+	{
+		name: 'Miranda',
+		userName: 'mmarquez',
+		status: 1
+	},
+	{
+		name: 'Miriam',
+		userName: 'mhernandez',
+		status: 1
+	},
+	{
+		name: 'Alejandro',
+		userName: 'amarquez',
 		status: 1
 	},
 	{
 		name: 'Orlando',
 		userName: 'ocedeno',
-		status: 1
+		status: 0
 	},
 	{
 		name: 'Sara',

@@ -1,12 +1,11 @@
 @import '../variables.scss';
 @import '../functions.scss';
 
-$padding: 20;
+$padding: 22;
 
 table {
 	width: 100%;
 	background-color: $white-color;
-	box-shadow: $shadow-flat;
 
 	& tr {
 		text-align: justify;

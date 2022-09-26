@@ -16,6 +16,7 @@ import ModalViewerPDF from './ModalViewerPDF'
 import Icon from './Icon'
 import Menu from './Menu'
 import ImageButton from './ImageButton'
+import Pagination from './Pagination'
 
 const UI = {
 	Button,
@@ -35,6 +36,7 @@ const UI = {
 	NavBar,
 	Menu,
 	ImageButton,
+	Pagination,
 	Spinner
 }
 
