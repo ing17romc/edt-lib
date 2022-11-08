@@ -1,30 +1,36 @@
 @import '../variables.scss';
 @import '../functions.scss';
 
-$padding: 22;
+$padding: 8;
 
 table {
 	width: 100%;
+	display: block;
 	background-color: $white-color;
 
-	& tr {
-		text-align: justify;
-		padding: calculateSizeVW($padding);
+	& tbody {
+		display: block;
 
-		& th {
-			border-bottom: 2px solid $primary-color-1;
-			padding: calculateSizeVW($padding);
-		}
+		& tr {
+			text-align: justify;
+			//padding: calculateSizeVW($padding);
 
-		& td {
-			border-top: 1px solid $primary-color-1;
-			padding: calculateSizeVW($padding);
-		}
+			& th {
+				border-bottom: 2px solid $primary-color-1;
+				padding: calculateSizeVW($padding);
+			}
 
-		&.active {
-			&:hover {
-				background-color: $light-gray-color;
-				cursor: pointer;
+			& td {
+				border-top: 1px solid $primary-color-1;
+				padding: calculateSizeVW($padding);
+				vertical-align: top;
+			}
+
+			&.active {
+				&:hover {
+					background-color: $light-gray-color;
+					cursor: pointer;
+				}
 			}
 		}
 	}
@@ -32,17 +38,19 @@ table {
 
 @media screen and (min-width: calculateSizePX($min-height-screen)) and (hover: hover) and (pointer: fine) {
 	table {
-		& tr {
-			padding: calculateSizePX($padding);
+		& tbody {
+			& tr {
+				//padding: calculateSizePX($padding);
 
-			& th {
-				border-bottom: 2px solid $primary-color-1;
-				padding: calculateSizePX($padding);
-			}
+				& th {
+					border-bottom: 2px solid $primary-color-1;
+					padding: calculateSizePX($padding);
+				}
 
-			& td {
-				border-top: 1px solid $primary-color-1;
-				padding: calculateSizePX($padding);
+				& td {
+					border-top: 1px solid $primary-color-1;
+					padding: calculateSizePX($padding);
+				}
 			}
 		}
 	}
