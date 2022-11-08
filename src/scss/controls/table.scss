@@ -1,19 +1,19 @@
 @import '../variables.scss';
 @import '../functions.scss';
 
-$padding: 8;
+$padding: 12;
 
 table {
 	width: 100%;
 	display: block;
 	background-color: $white-color;
+	overflow-x: scroll;
 
 	& tbody {
-		display: block;
 
 		& tr {
 			text-align: justify;
-			//padding: calculateSizeVW($padding);
+			padding: calculateSizeVW($padding);
 
 			& th {
 				border-bottom: 2px solid $primary-color-1;
@@ -40,7 +40,7 @@ table {
 	table {
 		& tbody {
 			& tr {
-				//padding: calculateSizePX($padding);
+				padding: calculateSizePX($padding);
 
 				& th {
 					border-bottom: 2px solid $primary-color-1;
