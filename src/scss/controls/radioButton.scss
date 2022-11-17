@@ -72,7 +72,7 @@ $label-line-height: 18;
 	}
 }
 
-@media screen and (min-width: calculateSizePX($min-height-screen)) and (hover: hover) and (pointer: fine) {
+@media screen and (min-width: calculateSizePX($min-with-screen)) and (hover: hover) and (pointer: fine) {
 	.radiobutton {
 		&.required {
 			input[type='radio'] {

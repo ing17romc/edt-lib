@@ -37,10 +37,10 @@ $border-radius: 4;
     }
 }
 
-@media only screen and (min-width: calculateSizePX($min-height-screen)) {
-	.message {
+@media only screen and (min-width: calculateSizePX($min-with-screen)) {
+    .message {
         padding: calculateSizePX($padding);
         margin-bottom: calculateSizePX($margin-bottom);
-        border-radius: calculateSizePX($border-radius);	
+        border-radius: calculateSizePX($border-radius);
     }
 }

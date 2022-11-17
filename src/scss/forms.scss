@@ -144,7 +144,7 @@ input[type='search']::-webkit-search-results-decoration {
 	-webkit-appearance: none;
 }
 
-@media only screen and (min-width: calculateSizePX($min-height-screen)) {
+@media only screen and (min-width: calculateSizePX($min-with-screen)) {
 	.control-container {
 		span {
 			min-height: calculateSizePX($min-height-span);

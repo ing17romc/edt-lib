@@ -83,7 +83,7 @@ $min-height: 600;
 
 .main-container {
 	width: auto;
-	max-width: calculateSizeVW($min-height-screen);
+	max-width: calculateSizeVW($min-with-screen);
 	margin: 0 auto;
 	min-height: 100vh;
 }
@@ -92,7 +92,7 @@ body {
 	background-color: $primary-color-2;
 	color: $black-color;
 	font-size: calculateSizeVW($fs-18);
-	font-family:$font-family;
+	font-family: $font-family;
 }
 
 .little-hand {
@@ -101,9 +101,9 @@ body {
 
 
 
-@media only screen and (min-width: calculateSizePX($min-height-screen)) {
+@media only screen and (min-width: calculateSizePX($min-with-screen)) {
 	.main-container {
-		max-width: calculateSizePX($min-height-screen);
+		max-width: calculateSizePX($min-with-screen);
 	}
 
 	@for $i from 1 through 60 {

@@ -75,7 +75,7 @@ $min-width: 32;
   }
 }
 
-@media only screen and (min-width: calculateSizePX($min-height-screen)) {
+@media only screen and (min-width: calculateSizePX($min-with-screen)) {
   .pagination-container {
     .pagination-item {
       padding: 0 calculateSizeVW($padding);

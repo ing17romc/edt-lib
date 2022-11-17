@@ -60,7 +60,7 @@ button {
 	}
 }
 
-@media screen and (min-width: calculateSizePX($min-height-screen)) and (hover: hover) and (pointer: fine) {
+@media screen and (min-width: calculateSizePX($min-with-screen)) and (hover: hover) and (pointer: fine) {
 	button {
 		border-radius: calculateSizePX($border-radius);
 

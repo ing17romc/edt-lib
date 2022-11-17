@@ -32,7 +32,7 @@ $line-height: 18;
 	}
 }
 
-@media only screen and (min-width: calculateSizePX($min-height-screen)) {
+@media only screen and (min-width: calculateSizePX($min-with-screen)) {
 	.textButton {
 		padding: calculateSizePX($padding-v) calculateSizePX($padding-h);
 		line-height: calculateSizePX($line-height);

@@ -60,12 +60,15 @@ h4 {
 .line-spacing {
 	line-height: normal;
 }
+
 .line-spacing-simple {
 	line-height: 1.5;
 }
+
 .line-spacing-doble {
 	line-height: 2;
 }
+
 .line-spacing-triple {
 	line-height: 2.5;
 }
@@ -74,7 +77,7 @@ h4 {
 	font-weight: bold;
 }
 
-@media screen and (min-width: calculateSizePX($min-height-screen)) and (hover: hover) and (pointer: fine) {
+@media screen and (min-width: calculateSizePX($min-with-screen)) and (hover: hover) and (pointer: fine) {
 	h1 {
 		font-size: calculateSizePX($fs-36);
 	}

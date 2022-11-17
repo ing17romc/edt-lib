@@ -33,7 +33,7 @@ div.container-load {
 		justify-content: center;
 		align-items: center;
 		text-align: center;
-	
+
 
 		overflow: hidden;
 		display: block;
@@ -97,7 +97,7 @@ div.container-load {
 	}
 }
 
-@media screen and (min-width: calculateSizePX($min-height-screen)) and (hover: hover) and (pointer: fine) {
+@media screen and (min-width: calculateSizePX($min-with-screen)) and (hover: hover) and (pointer: fine) {
 	div.container-load {
 		.loading {
 			width: calculateSizePX($size-loading);

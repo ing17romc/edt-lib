@@ -35,7 +35,7 @@ $column-width: 8;
 	}
 }
 
-@media only screen and (min-width: calculateSizePX($min-height-screen)) {
+@media only screen and (min-width: calculateSizePX($min-with-screen)) {
 	.container-date {
 		grid-column-gap: calculateSizePX($column-width);
 	}
