@@ -46,3 +46,20 @@ $border: 7;
 		}
 	}
 }
+
+
+@media screen and (max-width: calculateSizePX($max-with-screen)) and (hover: hover) and (pointer: fine) {
+	// * $size-mobile
+	// calculateSizeVW
+
+	.body-generic-notifications {
+		width: calculateSizeVW($width * $size-mobile);
+
+		& .circle {
+			width: calculateSizeVW($size * $size-mobile);
+			height: calculateSizeVW($size * $size-mobile);
+			border: calculateSizeVW($border * $size-mobile) solid $white-color;
+			border-style: double;
+		}
+	}
+}

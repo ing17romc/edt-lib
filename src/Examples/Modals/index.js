@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { httpCodes } from '../data'
-import { UI, functions, CONSTANT } from '../../../'
+import CONSTANT from '../../../src/components/utils/constant'
+import functions from '../../../src/components/utils/functions'
+import UI from '../../../src/components/controls'
 
 const Modales = () => {
 	const { TYPE_NOTIFICATION } = CONSTANT
@@ -37,7 +39,7 @@ const Modales = () => {
 					</div>
 
 					<div className='grid-secondary  padding-v-40'>
-						<div className='start-1 size-7 padding-v-10'>
+						<div className='start-1 size-9 padding-v-10'>
 							<UI.Selector
 								id='typeNotification'
 								titleTop='Tipos de notificación'
@@ -47,7 +49,7 @@ const Modales = () => {
 							/>
 						</div>
 
-						<div className='size-7 padding-v-10'>
+						<div className='size-9 padding-v-10'>
 							<UI.Selector
 								id='httpCode'
 								titleTop='Codigos http'
@@ -57,7 +59,7 @@ const Modales = () => {
 							/>
 						</div>
 
-						<div className='start-1 size-7 padding-v-10'>
+						<div className='start-1 size-9 padding-v-10'>
 							<UI.Button
 								title='Mostrar modal de notificaciones'
 								type='secondary'
@@ -70,7 +72,7 @@ const Modales = () => {
 								}}
 							/>
 						</div>
-						<div className=' size-7 padding-v-10'>
+						<div className=' size-9 padding-v-10'>
 							<UI.Button
 								title='Mostrar modal respuesta http'
 								type='secondary'
@@ -86,7 +88,7 @@ const Modales = () => {
 								onClick={() => setModal(!modal)}
 							/>
 						</div>
-						<div className='start-1 size-20 padding-v-10'>
+						<div className='start-1 size-24 padding-v-10'>
 							<UI.TextButton
 								id='btnModalViewerPDF'
 								text=' Mostrar visor de PDF '

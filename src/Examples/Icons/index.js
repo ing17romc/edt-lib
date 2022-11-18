@@ -1,5 +1,6 @@
 import React from 'react'
-import { UI, CONSTANT } from '../../../'
+import CONSTANT from '../../../src/components/utils/constant'
+import UI from '../../../src/components/controls'
 
 const Icons = () => {
 	const {

@@ -78,12 +78,28 @@ $min-width: 32;
 @media only screen and (min-width: calculateSizePX($min-with-screen)) {
   .pagination-container {
     .pagination-item {
-      padding: 0 calculateSizeVW($padding);
-      height: calculateSizeVW($height);
-      margin: auto calculateSizeVW($margin);
-      border-radius: calculateSizeVW($border-radius);
-      font-size: calculateSizeVW($font-size);
-      min-width: calculateSizeVW($min-width);
+      padding: 0 calculateSizePX($padding);
+      height: calculateSizePX($height);
+      margin: auto calculateSizePX($margin);
+      border-radius: calculateSizePX($border-radius);
+      font-size: calculateSizePX($font-size);
+      min-width: calculateSizePX($min-width);
+    }
+  }
+}
+
+
+@media screen and (max-width: calculateSizePX($max-with-screen)) and (hover: hover) and (pointer: fine) {
+	// * $size-mobile
+	// calculateSizeVW
+  .pagination-container {
+    .pagination-item {
+      padding: 0 calculateSizeVW($padding * $size-mobile);
+      height: calculateSizeVW($height * $size-mobile);
+      margin: auto calculateSizeVW($margin * $size-mobile);
+      border-radius: calculateSizeVW($border-radius * $size-mobile);
+      font-size: calculateSizeVW($font-size * $size-mobile);
+      min-width: calculateSizeVW($min-width * $size-mobile);
     }
   }
 }

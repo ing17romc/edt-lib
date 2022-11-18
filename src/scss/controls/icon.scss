@@ -46,3 +46,25 @@ $size-xs: 24;
 		}
 	}
 }
+
+@media screen and (max-width: calculateSizePX($max-with-screen)) and (hover: hover) and (pointer: fine) {
+	// * $size-mobile
+	// calculateSizeVW
+	.container-icon {
+		&.lg>.material-icons {
+			font-size: calculateSizeVW($size-lg * $size-mobile);
+		}
+
+		&.md>.material-icons {
+			font-size: calculateSizeVW($size-md * $size-mobile);
+		}
+
+		&.sm>.material-icons {
+			font-size: calculateSizeVW($size-sm * $size-mobile);
+		}
+
+		&.xs>.material-icons {
+			font-size: calculateSizeVW($size-xs * $size-mobile);
+		}
+	}
+}

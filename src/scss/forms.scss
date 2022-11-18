@@ -196,3 +196,58 @@ input[type='search']::-webkit-search-results-decoration {
 		}
 	}
 }
+
+@media screen and (max-width: calculateSizePX($max-with-screen)) and (hover: hover) and (pointer: fine) {
+	// * $size-mobile
+	// calculateSizeVW
+	.control-container {
+		span {
+			min-height: calculateSizeVW($min-height-span * $size-mobile);
+			font-size: calculateSizeVW($font-size-control * $size-mobile);
+		}
+
+		& select,
+		& input {
+			border-radius: calculateSizeVW($border-radio * $size-mobile);
+			border: calculateSizeVW($border * $size-mobile) solid $black-color;
+			height: calculateSizeVW($height-control * $size-mobile);
+			padding: 0px calculateSizeVW($padding * $size-mobile) calculateSizeVW($padding * $size-mobile) calculateSizeVW($padding * $size-mobile);
+			margin-bottom: calculateSizeVW($margin-bottom * $size-mobile);
+			letter-spacing: calculateSizeVW($letter-spacing * $size-mobile);
+			font-size: calculateSizeVW($font-size * $size-mobile);
+
+			&::placeholder {
+				font-size: calculateSizeVW($font-size * $size-mobile);
+			}
+
+			&>option {
+				font-size: calculateSizeVW($font-size * $size-mobile);
+			}
+		}
+
+		& textarea {
+			border-radius: calculateSizeVW($border-radio * $size-mobile);
+			border: calculateSizeVW($border * $size-mobile) solid $black-color;
+			padding: calculateSizeVW($padding * $size-mobile);
+			margin-bottom: calculateSizeVW($margin-bottom * $size-mobile);
+			letter-spacing: calculateSizeVW($letter-spacing * $size-mobile);
+			font-size: calculateSizeVW($font-size * $size-mobile);
+
+			&::placeholder {
+				font-size: calculateSizeVW($font-size * $size-mobile);
+			}
+		}
+
+		& .required {
+
+			& select,
+			& input {
+				border: calculateSizeVW($border * $size-mobile) solid $red-color;
+			}
+
+			& textarea {
+				border: calculateSizeVW($border * $size-mobile) solid $red-color;
+			}
+		}
+	}
+}

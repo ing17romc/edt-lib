@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { CIVIL_STATUS } from '../data'
-import { UI, functions } from '../../../'
+import functions from '../../../src/components/utils/functions'
+import UI from '../../../src/components/controls'
 
 const Form = () => {
 	const { getValueInput } = functions
@@ -47,11 +48,11 @@ const Form = () => {
 						</div>
 
 						<div className='grid-secondary'>
-							<div className='start-1 size-5 padding-v-20'>
+							<div className='start-1 size-9 padding-v-20'>
 								<h4>Datos Personales</h4>
 							</div>
 
-							<div className='start-13 size-3 padding-v-20'>
+							<div className='start-11 size-5 padding-v-20'>
 								<UI.CheckButton
 									id='disabled'
 									label='disabled'
@@ -59,7 +60,7 @@ const Form = () => {
 									checked={state.disabled}
 								/>
 							</div>
-							<div className='size-3 padding-v-20'>
+							<div className='size-5 padding-v-20'>
 								<UI.CheckButton
 									id='readOnly'
 									label='readOnly'
@@ -67,7 +68,7 @@ const Form = () => {
 									checked={state.readOnly}
 								/>
 							</div>
-							<div className='size-2 padding-v-20'>
+							<div className='size-4 padding-v-20'>
 								<UI.CheckButton
 									id='required'
 									label='required'
@@ -76,10 +77,10 @@ const Form = () => {
 								/>
 							</div>
 
-							<div className='start-1 size-2 padding-v-20'>
+							<div className='start-1 size-3 padding-v-20'>
 								Genero
 							</div>
-							<div className='size-3 padding-v-20'>
+							<div className='size-5 padding-v-20'>
 								<UI.RadioButton
 									id='man'
 									name='gender'
@@ -91,48 +92,13 @@ const Form = () => {
 									readOnly={state.readOnly}
 								/>
 							</div>
-							<div className='size-3 padding-v-20'>
+							<div className='size-4 padding-v-20'>
 								<UI.RadioButton
 									id='woman'
 									name='gender'
 									value={state.gender}
 									label='Mujer'
 									eventChange={e => onInputChange(e)}
-									disabled={state.disabled}
-									required={state.required}
-									readOnly={state.readOnly}
-								/>
-							</div>
-
-							<div className='start-1 size-7 padding-v-20'>
-								<UI.TextBox
-									id='name'
-									value={state.name}
-									eventChange={e => onInputChange(e)}
-									titleBottom='Nombres'
-									disabled={state.disabled}
-									required={state.required}
-									readOnly={state.readOnly}
-								/>
-							</div>
-							<div className='size-7 padding-v-20'>
-								<UI.TextBox
-									id='lastName'
-									value={state.lastName}
-									eventChange={e => onInputChange(e)}
-									titleBottom='Apellidos'
-									disabled={state.disabled}
-									required={state.required}
-									readOnly={state.readOnly}
-								/>
-							</div>
-
-							<div className='size-6 padding-v-20'>
-								<UI.DatePicker
-									id='birthDate'
-									value={state.birthDate}
-									eventChange={e => onInputChange(e)}
-									title='Fecha de Nacimiento'
 									disabled={state.disabled}
 									required={state.required}
 									readOnly={state.readOnly}
@@ -164,7 +130,42 @@ const Form = () => {
 								/>
 							</div>
 
-							<div className='start-1 size-20 padding-v-20'>
+							<div className='size-10 padding-v-20'>
+								<UI.DatePicker
+									id='birthDate'
+									value={state.birthDate}
+									eventChange={e => onInputChange(e)}
+									title='Fecha de Nacimiento'
+									disabled={state.disabled}
+									required={state.required}
+									readOnly={state.readOnly}
+								/>
+							</div>
+
+							<div className='start-1 size-12 padding-v-20'>
+								<UI.TextBox
+									id='name'
+									value={state.name}
+									eventChange={e => onInputChange(e)}
+									titleBottom='Nombres'
+									disabled={state.disabled}
+									required={state.required}
+									readOnly={state.readOnly}
+								/>
+							</div>
+							<div className='size-12 padding-v-20'>
+								<UI.TextBox
+									id='lastName'
+									value={state.lastName}
+									eventChange={e => onInputChange(e)}
+									titleBottom='Apellidos'
+									disabled={state.disabled}
+									required={state.required}
+									readOnly={state.readOnly}
+								/>
+							</div>
+
+							<div className='start-1 size-24 padding-v-20'>
 								<UI.TextArea
 									rows={4}
 									id='description'
@@ -188,7 +189,7 @@ const Form = () => {
 									readOnly={state.readOnly}
 								/>
 							</div>
-							<div className='size-6 padding-v-20'>
+							<div className='size-9 padding-v-20'>
 								<UI.TextButton
 									id='btnNoticePrivacy'
 									text='Aviso de privacidad '
@@ -204,7 +205,7 @@ const Form = () => {
 					</div>
 				</div>
 				<div className='grid-primary padding-v-10'>
-					<div className='start-9 size-2 padding-v-10'>
+					<div className='start-7 size-3 padding-v-10'>
 						<UI.Button
 							title='Cargando'
 							type='secondary'
@@ -212,7 +213,7 @@ const Form = () => {
 							disabled={state.disabled}
 						/>
 					</div>
-					<div className='size-2 padding-v-10'>
+					<div className='size-3 padding-v-10'>
 						<UI.Button
 							title='Continue'
 							type='primary'

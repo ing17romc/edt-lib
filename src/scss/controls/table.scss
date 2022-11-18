@@ -55,3 +55,25 @@ table {
 		}
 	}
 }
+
+@media screen and (max-width: calculateSizePX($max-with-screen)) and (hover: hover) and (pointer: fine) {
+	// * $size-mobile
+	// calculateSizeVW
+	table {
+		& tbody {
+			& tr {
+				padding: calculateSizeVW($padding * $size-mobile);
+
+				& th {
+					border-bottom: 2px solid $primary-color-1;
+					padding: calculateSizeVW($padding * $size-mobile);
+				}
+
+				& td {
+					border-top: 1px solid $primary-color-1;
+					padding: calculateSizeVW($padding * $size-mobile);
+				}
+			}
+		}
+	}
+}

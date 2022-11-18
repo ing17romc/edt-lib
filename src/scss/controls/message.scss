@@ -44,3 +44,12 @@ $border-radius: 4;
         border-radius: calculateSizePX($border-radius);
     }
 }
+
+
+@media screen and (max-width: calculateSizePX($max-with-screen)) and (hover: hover) and (pointer: fine) {
+    .message {
+        padding: calculateSizeVW($padding * $size-mobile);
+        margin-bottom: calculateSizeVW($margin-bottom * $size-mobile);
+        border-radius: calculateSizeVW($border-radius * $size-mobile);
+    }
+}

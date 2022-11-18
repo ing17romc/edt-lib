@@ -40,3 +40,11 @@ $column-width: 8;
 		grid-column-gap: calculateSizePX($column-width);
 	}
 }
+
+@media screen and (max-width: calculateSizePX($max-with-screen)) and (hover: hover) and (pointer: fine) {
+	// * $size-mobile
+	// calculateSizeVW
+	.container-date {
+		grid-column-gap: calculateSizeVW($column-width * $size-mobile);
+	}
+}

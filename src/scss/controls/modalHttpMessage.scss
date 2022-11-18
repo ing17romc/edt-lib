@@ -32,3 +32,11 @@ $width: 600;
 		width: calculateSizePX($width);
 	}
 }
+
+@media screen and (max-width: calculateSizePX($max-with-screen)) and (hover: hover) and (pointer: fine) {
+	// * $size-mobile
+	// calculateSizeVW
+	.body-generic-http-message {
+		width: calculateSizeVW($width * $size-mobile);
+	}
+}

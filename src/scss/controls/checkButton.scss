@@ -129,3 +129,44 @@ $label-line-height: 18;
 		}
 	}
 }
+
+@media screen and (max-width: calculateSizePX($max-with-screen)) and (hover: hover) and (pointer: fine) {
+	// * $size-mobile
+	// calculateSizeVW
+	.checkbutton {
+		& label {
+			font-size: calculateSizeVW($font-size-control * $size-mobile);
+			height: calculateSizeVW($label-height * $size-mobile);
+			padding-top: calculateSizeVW($label-padding-top * $size-mobile);
+			padding-left: calculateSizeVW($label-padding-left * $size-mobile);
+			line-height: calculateSizeVW($label-line-height * $size-mobile);
+		}
+
+		& input[type='checkbox'] {
+			width: calculateSizeVW($size-md * $size-mobile);
+			height: calculateSizeVW($size-md * $size-mobile);
+		}
+
+		& input[type='checkbox']:before {
+			border: calculateSizeVW($border * $size-mobile) solid $black-color;
+		}
+
+		& input[type='checkbox']:checked:before {
+			border: calculateSizeVW($border * $size-mobile) solid $black-color;
+		}
+
+		& input[type='checkbox']:checked:after {
+			border-bottom: solid calculateSizeVW($border-2 * $size-mobile) $white-color;
+			border-right: solid calculateSizeVW($border-2 * $size-mobile) $white-color;
+			margin-top: calculateSizeVW($border-2 * $size-mobile);
+		}
+
+		&.required {
+
+			&>input[type='checkbox']:before,
+			&>input[type='checkbox']:checked:before {
+				border: calculateSizeVW($border * $size-mobile) solid $red-color;
+			}
+		}
+	}
+}

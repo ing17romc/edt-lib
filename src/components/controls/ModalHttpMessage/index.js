@@ -43,11 +43,11 @@ const ModalHttpMessage = ({
 						<Title label='Mensaje HTTP' secundary={true} />
 					</div>
 					<div className=' grid-secondary padding-v-50'>
-						<div className='center start-1 size-20   '>
+						<div className='center start-1 size-24   '>
 							<h1 className={style(code)}>{code} </h1>
 						</div>
 
-						<div className='center start-1 size-20  padding-v-10  '>
+						<div className='center start-1 size-24  padding-v-10  '>
 							<h4 className={style(code)}>{title}</h4>
 						</div>
 					</div>

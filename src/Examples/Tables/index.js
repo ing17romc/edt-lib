@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { UI, functions } from '../../../'
-import Pagination from '../../../src/components/controls/Pagination' // FIXE THIS
+import functions from '../../../src/components/utils/functions'
+import UI from '../../../src/components/controls'
 import PropTypes from 'prop-types'
 const getStatus = (value) => <strong className={value ? 'font-blue' : 'font-red'}>{value ? 'Active' : 'Inactive'}</strong>
 
@@ -51,7 +51,7 @@ const TableWithPagination = ({ dataTable }) => {
 						<div className='start-1 size-16 padding-v-20 center-vertical'>
 							<h4>Table with pagination</h4>
 						</div>
-						<div className=' size-4 padding-v-20'>
+						<div className=' size-8 padding-v-20'>
 							<UI.Selector
 								id='pages'
 								value={state.pages}
@@ -65,7 +65,7 @@ const TableWithPagination = ({ dataTable }) => {
 							/>
 						</div>
 
-						<div className='start-1 size-20 padding-v-20 '>
+						<div className='start-1 size-24 padding-v-20 '>
 							<div className='bg-white padding-h-30 padding-v-30'>
 								<table>
 									<tbody>
@@ -86,8 +86,8 @@ const TableWithPagination = ({ dataTable }) => {
 							</div>
 						</div>
 
-						<div className='start-1 size-20 padding-v-20 center'>
-							<Pagination
+						<div className='start-1 size-24 padding-v-20 center'>
+							<UI.Pagination
 								totalCount= {pages.length}
 								currentPage= {state.page}
 								onPageChange= {currentPage => setstate({ ...state, page: currentPage })}
@@ -113,10 +113,10 @@ const TableDefault = ({ dataTable }) => {
 
 					<div className='start-1  padding-v-20' />
 					<div className='grid-secondary '>
-						<div className='start-1 size-20 padding-v-20'>
+						<div className='start-1 size-24 padding-v-20'>
 							<h4>Table default</h4>
 						</div>
-						<div className='start-1 size-20 padding-v-20 '>
+						<div className='start-1 size-24 padding-v-20 '>
 							<div className='bg-white padding-h-30 padding-v-30'>
 								<table>
 									<tbody>
@@ -156,10 +156,10 @@ const TableActiveRow = ({ dataTable }) => {
 
 					<div className='start-1  padding-v-20' />
 					<div className='grid-secondary  '>
-						<div className='start-1 size-20 padding-v-20'>
+						<div className='start-1 size-24 padding-v-20'>
 							<h4>Table active row </h4>
 						</div>
-						<div className='start-1 size-20 padding-v-20 '>
+						<div className='start-1 size-24 padding-v-20 '>
 							<div className='bg-white padding-h-30 padding-v-30'>
 								<table>
 									<tbody>
@@ -204,10 +204,10 @@ const TableWithButton = ({ dataTable }) => {
 
 					<div className='start-1  padding-v-20' />
 					<div className='grid-secondary  '>
-						<div className='start-1 size-20 padding-v-20'>
+						<div className='start-1 size-24 padding-v-20'>
 							<h4>Table with button </h4>
 						</div>
-						<div className='start-1 size-20 padding-v-20 '>
+						<div className='start-1 size-24 padding-v-20 '>
 							<div className='bg-white padding-h-30 padding-v-30'>
 								<table>
 									<tbody>
@@ -269,10 +269,10 @@ const TableWithIcon = ({ dataTable }) => {
 
 					<div className='start-1  padding-v-20' />
 					<div className='grid-secondary  '>
-						<div className='start-1 size-20 padding-v-20'>
+						<div className='start-1 size-24 padding-v-20'>
 							<h4>Table with icon </h4>
 						</div>
-						<div className='start-1 size-20 padding-v-20 '>
+						<div className='start-1 size-24 padding-v-20 '>
 							<div className='bg-white padding-h-30 padding-v-30'>
 								<table>
 									<tbody>

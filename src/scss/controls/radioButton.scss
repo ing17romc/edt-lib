@@ -108,3 +108,43 @@ $label-line-height: 18;
 		}
 	}
 }
+
+
+@media screen and (max-width: calculateSizePX($max-with-screen)) and (hover: hover) and (pointer: fine) {
+	// * $size-mobile
+	// calculateSizeVW
+	.radiobutton {
+		&.required {
+			input[type='radio'] {
+				&+label {
+					&:before {
+						border: calculateSizeVW($border * $size-mobile) solid $red-color;
+					}
+				}
+			}
+		}
+
+		input[type='radio'] {
+			&+label {
+				font-size: calculateSizeVW($font-size-control * $size-mobile);
+				height: calculateSizeVW($label-height * $size-mobile);
+				padding-top: calculateSizeVW($label-padding-top * $size-mobile);
+				padding-left: calculateSizeVW($label-padding-left * $size-mobile);
+				line-height: calculateSizeVW($label-line-height * $size-mobile);
+
+				&:before {
+					width: calculateSizeVW($size-md * $size-mobile);
+					height: calculateSizeVW($size-md * $size-mobile);
+					border: calculateSizeVW($border * $size-mobile) solid $black-color;
+				}
+
+				&:after {
+					width: calculateSizeVW($size-sm * $size-mobile);
+					height: calculateSizeVW($size-sm * $size-mobile);
+					top: calculateSizeVW($size-after * $size-mobile);
+					left: calculateSizeVW($size-after * $size-mobile);
+				}
+			}
+		}
+	}
+}

@@ -24,3 +24,9 @@ $margin-v: 0;
 		margin: calculateSizePX($margin-v) calculateSizePX($margin-h);
 	}
 }
+
+@media screen and (max-width: calculateSizePX($max-with-screen)) and (hover: hover) and (pointer: fine) {
+	.imageButton {
+		margin: calculateSizeVW($margin-v * $size-mobile) calculateSizeVW($margin-h * $size-mobile);
+	}
+}

@@ -121,3 +121,9 @@ body {
 		font-size: calculateSizePX($fs-18);
 	}
 }
+
+@media screen and (max-width: calculateSizePX($max-with-screen)) and (hover: hover) and (pointer: fine) {
+	body {
+		font-size: calculateSizeVW($fs-18 * $size-mobile);
+	}
+}

@@ -46,3 +46,18 @@ $line-height: 18;
 		}
 	}
 }
+
+@media screen and (max-width: calculateSizePX($max-with-screen)) and (hover: hover) and (pointer: fine) {
+	.textButton {
+		padding: calculateSizeVW($padding-v * $size-mobile) calculateSizeVW($padding-h * $size-mobile);
+		line-height: calculateSizeVW($line-height * $size-mobile);
+
+		&.primary {
+			border: calculateSizeVW($border-size * $size-mobile) solid $primary-color-1;
+		}
+
+		&.secundary {
+			border: calculateSizeVW($border-size * $size-mobile) solid $primary-color-1;
+		}
+	}
+}

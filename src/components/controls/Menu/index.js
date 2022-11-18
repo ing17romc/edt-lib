@@ -12,7 +12,7 @@ const Menu = ({ options, getCurrentPath }) => {
 		<div className='container-body'>
 			<div className='grid-primary'>
 				{options.map((element, index) => (
-					<div key={index} className=' size-3 padding-v-30 '>
+					<div key={index} className=' size-4 padding-v-30 '>
 						<div className='container-option ' onClick={() => getCurrentPath(element.path)}>
 							<div className='material-icons'>{element.icon}</div>
 							<hr />
