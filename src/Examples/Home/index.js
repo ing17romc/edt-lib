@@ -4,10 +4,14 @@ import UI from '../../../src/components/controls'
 
 function App () {
 	return (
-		<div className='main-container bg-primary-3'>
-			<UI.NavBar leftOptions={LEFT_OPTIONS} rightOptions={RIGHT_OPTIONS} correntPath={LEFT_OPTIONS[0].path} getCurrentPath={e => console.log(e)}/>
+		<UI.Layaout
+			leftOptions={LEFT_OPTIONS}
+			rightOptions={RIGHT_OPTIONS}
+			currentPath={LEFT_OPTIONS[0].path}
+			getCurrentPath={e => console.log(e)}
+			footer={<p>footer</p>}>
 			<UI.Menu options={OPTIONS} getCurrentPath={e => console.log(e)}/>
-		</div>
+		</UI.Layaout>
 	)
 }
 

@@ -17,6 +17,7 @@ import Icon from './Icon'
 import Menu from './Menu'
 import ImageButton from './ImageButton'
 import Pagination from './Pagination'
+import Layaout from './Layaout'
 
 const UI = {
 	Button,
@@ -37,7 +38,8 @@ const UI = {
 	Menu,
 	ImageButton,
 	Pagination,
-	Spinner
+	Spinner,
+	Layaout
 }
 
 export default UI

@@ -7,11 +7,11 @@ import PropTypes from 'prop-types'
  * @returns Returns the code of an html element with the characteristics of the 'Main Menu'.
  */
 
-const NavBar = ({ leftOptions, rightOptions, correntPath, getCurrentPath }) => {
+const NavBar = ({ leftOptions, rightOptions, currentPath, getCurrentPath }) => {
 	const renderOption = (index, path, name) => (
 		<label
 			key={index}
-			className={path === correntPath ? 'active' : ''}
+			className={path === currentPath ? 'active' : ''}
 			onClick={() => getCurrentPath(path)}>
 			{name}
 		</label>
@@ -63,7 +63,7 @@ NavBar.propTypes = {
 			name: PropTypes.string.isRequired
 		})
 	),
-	correntPath: PropTypes.string.isRequired,
+	currentPath: PropTypes.string.isRequired,
 	getCurrentPath: PropTypes.func.isRequired
 }
 

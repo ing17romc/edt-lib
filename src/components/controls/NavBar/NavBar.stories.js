@@ -20,7 +20,7 @@ export const NavBar = Template.bind({})
 NavBar.args = {
 	leftOptions,
 	rightOptions,
-	correntPath: '/'
+	currentPath: '/'
 }
 
 NavBar.argTypes = {
