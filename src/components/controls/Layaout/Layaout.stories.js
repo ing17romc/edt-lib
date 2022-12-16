@@ -17,7 +17,7 @@ const getCurrentPath = path => alert(path)
 Layaout.args = {
 	leftOptions,
 	rightOptions,
-	children: <h1>Content</h1>,
+	children: <div className='padding-h-40'><h1>Content</h1></div>,
 	footer: <p>Footer</p>,
 	getCurrentPath,
 	currentPath: '/'

@@ -3,7 +3,7 @@
 
 $padding-v: 24;
 $padding-h: 18;
-$height: 40;
+$height: 60;
 $margin-bottom: 20;
 
 .container-nav-bar {
@@ -62,7 +62,7 @@ $margin-bottom: 20;
 	.container-nav-bar {
 		height: calculateSizeVW($height * $size-mobile);
 		margin-bottom: calculateSizeVW($margin-bottom * $size-mobile);
-		height: calculateSizePX($height);
+		height: calculateSizeVW($height * $size-mobile);
 
 		.topnav label {
 			padding: calculateSizeVW($padding-v * $size-mobile) calculateSizeVW($padding-h * $size-mobile);
