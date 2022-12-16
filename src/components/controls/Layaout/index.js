@@ -11,7 +11,9 @@ const Layaout = ({ leftOptions, rightOptions, footer, children, getCurrentPath, 
 			rightOptions={rightOptions}
 			getCurrentPath={getCurrentPath}
 		/>
-		{children}
+		<div className='main-container'>
+			{children}
+		</div>
 		<Footer>
 			{ footer }
 		</Footer>
