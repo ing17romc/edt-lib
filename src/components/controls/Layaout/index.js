@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 
 const Layaout = ({ leftOptions, rightOptions, footer, children, getCurrentPath, currentPath }) => {
 	return <div>
-		<div className='main-container bg-white'>
+		<div className='page-container bg-white'>
 			<NavBar
 				leftOptions={leftOptions}
 				rightOptions={rightOptions}
