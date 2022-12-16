@@ -1,14 +1,16 @@
 @import '../variables.scss';
 @import '../functions.scss';
 
-$padding: 15;
+$padding: 20;
 
 .footer {
+    width: auto;
+	max-width: calculateSizeVW($min-with-screen);
+    min-height: 5vh;
     padding: calculateSizeVW($padding);
-    margin-bottom: calculateSizeVW($margin-bottom);
     border-top: 1px solid transparent;
-    width: 100%;
     text-align: center;
+    margin: 0 auto;
 
     color: $light-blue-color;
     background-color: $light-gray-color;
@@ -18,11 +20,13 @@ $padding: 15;
 @media only screen and (min-width: calculateSizePX($min-with-screen)) {
     .footer {
         padding: calculateSizePX($padding);
+        max-width: calculateSizePX($min-with-screen);
     }
 }
 
 @media screen and (max-width: calculateSizePX($max-with-screen)) and (hover: hover) and (pointer: fine) {
     .footer {
         padding: calculateSizeVW($padding * $size-mobile);
+        max-width: calculateSizePX($min-with-screen);
     }
 }
