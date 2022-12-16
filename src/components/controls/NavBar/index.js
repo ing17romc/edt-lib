@@ -63,8 +63,8 @@ NavBar.propTypes = {
 			name: PropTypes.string.isRequired
 		})
 	),
-	currentPath: PropTypes.string.isRequired,
-	getCurrentPath: PropTypes.func.isRequired
+	currentPath: PropTypes.string,
+	getCurrentPath: PropTypes.func
 }
 
 export default NavBar
