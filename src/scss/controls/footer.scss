@@ -11,8 +11,8 @@ $padding: 15;
     text-align: center;
 
     color: $light-blue-color;
-    background-color: #d9edf7;
-    border-color: #bce8f1;
+    background-color: $light-gray-color;
+    border-color: $gray-color;
 }
 
 @media only screen and (min-width: calculateSizePX($min-with-screen)) {
