@@ -12,7 +12,7 @@ const Layaout = ({ leftOptions, rightOptions, footer, children, getCurrentPath, 
 				rightOptions={rightOptions}
 				getCurrentPath={getCurrentPath}
 			/>
-			<div className='pagexd-container'>
+			<div>
 				{children}
 			</div>
 

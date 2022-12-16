@@ -2,11 +2,13 @@
 @import '../functions.scss';
 
 $padding: 20;
+$height: 48;
 
 .footer {
     width: auto;
 	max-width: calculateSizeVW($min-with-screen);
-    min-height: 5vh;
+    height: auto;
+    min-height: calculateSizeVW($height);
     padding: calculateSizeVW($padding);
     border-top: 1px solid transparent;
     text-align: center;
@@ -21,6 +23,7 @@ $padding: 20;
     .footer {
         padding: calculateSizePX($padding);
         max-width: calculateSizePX($min-with-screen);
+        min-height: calculateSizePX($height);
     }
 }
 
