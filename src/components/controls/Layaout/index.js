@@ -5,21 +5,22 @@ import Footer from '../Footer'
 import PropTypes from 'prop-types'
 
 const Layaout = ({ leftOptions, rightOptions, footer, children, getCurrentPath, currentPath }) => {
-	return <><div className='main-container bg-white'>
-		<NavBar
-			leftOptions={leftOptions}
-			rightOptions={rightOptions}
-			getCurrentPath={getCurrentPath}
-		/>
-		<div className='pagexd-container'>
-			{children}
-		</div>
+	return <div>
+		<div className='main-container bg-white'>
+			<NavBar
+				leftOptions={leftOptions}
+				rightOptions={rightOptions}
+				getCurrentPath={getCurrentPath}
+			/>
+			<div className='pagexd-container'>
+				{children}
+			</div>
 
+		</div>
+		<Footer>
+			{ footer }
+		</Footer>
 	</div>
-	<Footer>
-		{ footer }
-	</Footer>
-	</>
 }
 
 Layaout.propTypes = {
