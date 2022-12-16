@@ -24,21 +24,25 @@ const NavBar = ({ leftOptions, rightOptions, currentPath, getCurrentPath }) => {
 					<form className='grid-primary padding-v-0'>
 						<div className='start-1 size-12'>
 							<div className='topnav font-22'>
-								{leftOptions.map((element, index) =>
-									renderOption(
-										index,
-										element.path,
-										element.name
-									)
-								)}
-								<div className='topnav-right'>
-									{rightOptions.map((element, index) =>
+								{leftOptions && leftOptions.length > 0
+									? leftOptions.map((element, index) =>
 										renderOption(
 											index,
 											element.path,
 											element.name
 										)
-									)}
+									)
+									: <>&nbsp;</>}
+								<div className='topnav-right'>
+									{rightOptions && rightOptions.length > 0
+										? rightOptions.map((element, index) =>
+											renderOption(
+												index,
+												element.path,
+												element.name
+											)
+										)
+										: <>&nbsp;</>}
 								</div>
 							</div>
 						</div>
@@ -64,7 +68,7 @@ NavBar.propTypes = {
 		})
 	),
 	currentPath: PropTypes.string,
-	getCurrentPath: PropTypes.func
+	getCurrentPath: PropTypes.func.isRequired
 }
 
 export default NavBar

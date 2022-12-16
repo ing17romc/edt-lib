@@ -15,12 +15,15 @@ const leftOptions = [
 ]
 const rightOptions = [{ path: '/options', name: 'Option 3' }]
 
+const getCurrentPath = path => alert(path)
+
 export const NavBar = Template.bind({})
 
 NavBar.args = {
 	leftOptions,
 	rightOptions,
-	currentPath: '/'
+	currentPath: '/',
+	getCurrentPath
 }
 
 NavBar.argTypes = {

@@ -13,6 +13,8 @@ export const Menu = Template.bind({})
 
 const APP_ICON_DEFAULT = 'list'
 
+const getCurrentPath = path => alert(path)
+
 const options = [
 	{ path: '/options', name: 'Option 1', icon: APP_ICON_DEFAULT },
 	{ path: '/options', name: 'Option 2', icon: APP_ICON_DEFAULT },
@@ -22,7 +24,7 @@ const options = [
 	{ path: '/options', name: 'Option 6', icon: APP_ICON_DEFAULT }
 ]
 
-Menu.args = { options }
+Menu.args = { options, getCurrentPath }
 
 Menu.argTypes = {
 
