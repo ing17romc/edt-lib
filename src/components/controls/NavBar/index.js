@@ -19,9 +19,9 @@ const NavBar = ({ leftOptions, rightOptions, currentPath, getCurrentPath }) => {
 
 	return (
 		<div>
-			<div className=' container-nav-bar-father '>
+			<div className=''>
 				<div className='container-nav-bar bg-primary-1'>
-					<form className='grid-primary padding-v-0'>
+					<form className='grid-primary padding-v-50'>
 						<div className='start-1 size-12'>
 							<div className='topnav font-22'>
 								{leftOptions && leftOptions.length > 0
@@ -33,23 +33,24 @@ const NavBar = ({ leftOptions, rightOptions, currentPath, getCurrentPath }) => {
 										)
 									)
 									: <>&nbsp;</>}
-								<div className='topnav-right'>
-									{rightOptions && rightOptions.length > 0
-										? rightOptions.map((element, index) =>
-											renderOption(
-												index,
-												element.path,
-												element.name
-											)
+							</div>
+							<div className='topnav font-22 topnav-right'>
+								{rightOptions && rightOptions.length > 0
+									? rightOptions.map((element, index) =>
+										renderOption(
+											index,
+											element.path,
+											element.name
 										)
-										: <>&nbsp;</>}
-								</div>
+									)
+									: <>&nbsp;</>}
 							</div>
 						</div>
+
 					</form>
 				</div>
 			</div>
-			<div className='nav-bar-margin-bootom ' />
+
 		</div>
 	)
 }

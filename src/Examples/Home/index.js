@@ -11,7 +11,7 @@ function App () {
 			rightOptions={RIGHT_OPTIONS}
 			currentPath={LEFT_OPTIONS[0].path}
 			getCurrentPath={getCurrentPath}
-			footer={<p>footer</p>}>
+			footer={<p>Footer</p>}>
 			<UI.Menu options={OPTIONS} getCurrentPath={getCurrentPath}/>
 		</UI.Layaout>
 	)
