@@ -66,7 +66,7 @@ const TableWithPagination = ({ dataTable }) => {
 						</div>
 
 						<div className='start-1 size-24 padding-v-20 '>
-							<div className='bg-white padding-h-30 padding-v-30'>
+							<div className='bg-gray padding-h-30 padding-v-30'>
 								<table>
 									<tbody>
 										<tr>
@@ -117,16 +117,34 @@ const TableDefault = ({ dataTable }) => {
 							<h4>Table default</h4>
 						</div>
 						<div className='start-1 size-24 padding-v-20 '>
-							<div className='bg-white padding-h-30 padding-v-30'>
+							<div className='bg-gray padding-h-30 padding-v-30'>
 								<table>
 									<tbody>
 										<tr>
 											<th>Name</th>
 											<th>UserName</th>
 											<th>Status</th>
+											<th>Name</th>
+											<th>UserName</th>
+											<th>Status</th>
+											<th>Name</th>
+											<th>UserName</th>
+											<th>Status</th>
+											<th>Name</th>
+											<th>UserName</th>
+											<th>Status</th>
 										</tr>
 										{dataTable.map((element, index) => (
 											<tr key={index}>
+												<td>{element.name}</td>
+												<td>{element.userName}</td>
+												<td>{getStatus(element.status)}</td>
+												<td>{element.name}</td>
+												<td>{element.userName}</td>
+												<td>{getStatus(element.status)}</td>
+												<td>{element.name}</td>
+												<td>{element.userName}</td>
+												<td>{getStatus(element.status)}</td>
 												<td>{element.name}</td>
 												<td>{element.userName}</td>
 												<td>{getStatus(element.status)}</td>
@@ -160,7 +178,7 @@ const TableActiveRow = ({ dataTable }) => {
 							<h4>Table active row </h4>
 						</div>
 						<div className='start-1 size-24 padding-v-20 '>
-							<div className='bg-white padding-h-30 padding-v-30'>
+							<div className='bg-gray padding-h-30 padding-v-30'>
 								<table>
 									<tbody>
 										<tr>
@@ -208,7 +226,7 @@ const TableWithButton = ({ dataTable }) => {
 							<h4>Table with button </h4>
 						</div>
 						<div className='start-1 size-24 padding-v-20 '>
-							<div className='bg-white padding-h-30 padding-v-30'>
+							<div className='bg-gray padding-h-30 padding-v-30'>
 								<table>
 									<tbody>
 										<tr>
@@ -273,7 +291,7 @@ const TableWithIcon = ({ dataTable }) => {
 							<h4>Table with icon </h4>
 						</div>
 						<div className='start-1 size-24 padding-v-20 '>
-							<div className='bg-white padding-h-30 padding-v-30'>
+							<div className='bg-gray padding-h-30 padding-v-30'>
 								<table>
 									<tbody>
 										<tr>

@@ -7,10 +7,11 @@ table {
 	width: 100%;
 	display: block;
 	background-color: $white-color;
-	overflow-x: scroll;
+	overflow-x: auto;
+	padding: calculateSizeVW($padding);
 
 	& tbody {
-
+		padding: calculateSizeVW($padding);
 		& tr {
 			text-align: justify;
 			padding: calculateSizeVW($padding);
@@ -38,7 +39,10 @@ table {
 
 @media screen and (min-width: calculateSizePX($min-with-screen)) and (hover: hover) and (pointer: fine) {
 	table {
+		padding: calculateSizePX($padding);
 		& tbody {
+			padding: calculateSizePX($padding);
+
 			& tr {
 				padding: calculateSizePX($padding);
 
@@ -60,7 +64,9 @@ table {
 	// * $size-mobile
 	// calculateSizeVW
 	table {
+		padding: calculateSizeVW($padding * $size-mobile);
 		& tbody {
+			padding: calculateSizeVW($padding * $size-mobile);
 			& tr {
 				padding: calculateSizeVW($padding * $size-mobile);
 
