@@ -21,9 +21,7 @@ $top: 23;
 	}
 }
 
-@media screen and (min-width: calculateSizePX($min-with-screen)),
-(hover: none),
-(pointer: coarse) {
+@media screen and (min-width: calculateSizePX($min-with-screen)) {
 	.title {
 		.line {
 			margin-left: calculateSizePX($margin-left);
@@ -34,8 +32,7 @@ $top: 23;
 	}
 }
 
-@media screen and (max-width: calculateSizePX($max-with-screen)),
-(hover: none),
+@media (hover: none),
 (pointer: coarse) {
 	.title {
 		.line {

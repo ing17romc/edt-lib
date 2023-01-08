@@ -144,9 +144,7 @@ input[type='search']::-webkit-search-results-decoration {
 	-webkit-appearance: none;
 }
 
-@media screen and (min-width: calculateSizePX($min-with-screen)),
-(hover: none),
-(pointer: coarse) {
+@media screen and (min-width: calculateSizePX($min-with-screen)) {
 	.control-container {
 		span {
 			min-height: calculateSizePX($min-height-span);
@@ -199,7 +197,7 @@ input[type='search']::-webkit-search-results-decoration {
 	}
 }
 
-@media screen and (max-width: calculateSizePX($max-with-screen)),
+@media 
 (hover: none),
 (pointer: coarse) {
 

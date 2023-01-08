@@ -91,9 +91,7 @@ $label-line-height: 18;
 	}
 }
 
-@media screen and (min-width: calculateSizePX($min-with-screen)),
-(hover: none),
-(pointer: coarse) {
+@media screen and (min-width: calculateSizePX($min-with-screen)) {
 	.checkbutton {
 		& label {
 			font-size: calculateSizePX($font-size-control);
@@ -132,7 +130,7 @@ $label-line-height: 18;
 	}
 }
 
-@media screen and (max-width: calculateSizePX($max-with-screen)),
+@media 
 (hover: none),
 (pointer: coarse) {
 

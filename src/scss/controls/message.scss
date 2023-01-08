@@ -37,9 +37,7 @@ $border-radius: 4;
     }
 }
 
-@media screen and (min-width: calculateSizePX($min-with-screen)),
-(hover: none),
-(pointer: coarse) {
+@media screen and (min-width: calculateSizePX($min-with-screen)) {
     .message {
         padding: calculateSizePX($padding);
         margin-bottom: calculateSizePX($margin-bottom);
@@ -48,7 +46,7 @@ $border-radius: 4;
 }
 
 
-@media screen and (max-width: calculateSizePX($max-with-screen)),
+@media 
 (hover: none),
 (pointer: coarse) {
     .message {

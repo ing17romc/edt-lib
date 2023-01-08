@@ -19,9 +19,7 @@ $height: 50;
     border-color: $gray-color;
 }
 
-@media screen and (min-width: calculateSizePX($min-with-screen)),
-(hover: none),
-(pointer: coarse) {
+@media screen and (min-width: calculateSizePX($min-with-screen)) {
     .footer {
         padding: calculateSizePX($padding);
         max-width: calculateSizePX($min-with-screen);
@@ -29,7 +27,7 @@ $height: 50;
     }
 }
 
-@media screen and (max-width: calculateSizePX($max-with-screen)),
+@media 
 (hover: none),
 (pointer: coarse) {
     .footer {

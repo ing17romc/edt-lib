@@ -18,39 +18,33 @@ const NavBar = ({ leftOptions, rightOptions, currentPath, getCurrentPath }) => {
 	)
 
 	return (
-		<div>
-			<div className=''>
-				<div className='container-nav-bar bg-primary-1'>
-					<form className='grid-primary padding-v-50'>
-						<div className='start-1 size-12'>
-							<div className='topnav font-22'>
-								{leftOptions && leftOptions.length > 0
-									? leftOptions.map((element, index) =>
-										renderOption(
-											index,
-											element.path,
-											element.name
-										)
-									)
-									: <>&nbsp;</>}
-							</div>
-							<div className='topnav font-22 topnav-right'>
-								{rightOptions && rightOptions.length > 0
-									? rightOptions.map((element, index) =>
-										renderOption(
-											index,
-											element.path,
-											element.name
-										)
-									)
-									: <>&nbsp;</>}
-							</div>
-						</div>
-
-					</form>
+		<div className='container-nav-bar bg-primary-1'>
+			<form className='grid-primary'>
+				<div className='start-1 size-12'>
+					<div className='topnav font-22'>
+						{leftOptions && leftOptions.length > 0
+							? leftOptions.map((element, index) =>
+								renderOption(
+									index,
+									element.path,
+									element.name
+								)
+							)
+							: <>&nbsp;</>}
+					</div>
+					<div className='topnav font-22 topnav-right'>
+						{rightOptions && rightOptions.length > 0
+							? rightOptions.map((element, index) =>
+								renderOption(
+									index,
+									element.path,
+									element.name
+								)
+							)
+							: <>&nbsp;</>}
+					</div>
 				</div>
-			</div>
-
+			</form>
 		</div>
 	)
 }

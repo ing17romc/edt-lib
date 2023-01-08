@@ -75,9 +75,7 @@ $min-width: 32;
   }
 }
 
-@media screen and (min-width: calculateSizePX($min-with-screen)),
-(hover: none),
-(pointer: coarse) {
+@media screen and (min-width: calculateSizePX($min-with-screen)) {
   .pagination-container {
     .pagination-item {
       padding: 0 calculateSizePX($padding);
@@ -91,7 +89,7 @@ $min-width: 32;
 }
 
 
-@media screen and (max-width: calculateSizePX($max-with-screen)),
+@media 
 (hover: none),
 (pointer: coarse) {
 

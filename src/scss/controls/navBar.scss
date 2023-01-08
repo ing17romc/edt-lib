@@ -5,6 +5,7 @@ $padding-v: 24;
 $padding-h: 18;
 $height: 60;
 $margin-bottom: 20;
+$padding: 20;
 
 .container-nav-bar {
 	width: auto;
@@ -13,9 +14,9 @@ $margin-bottom: 20;
 	min-height: calculateSizeVW($height);
 	margin-bottom: calculateSizeVW($margin-bottom);
 	box-shadow: $shadow-flat;
-
-	height: auto;
 	min-height: calculateSizeVW($height);
+	padding-top: calculateSizeVW($padding);
+	padding-bottom: calculateSizeVW($padding);
 
 
 	.topnav {
@@ -46,13 +47,19 @@ $margin-bottom: 20;
 	}
 }
 
-@media screen and (min-width: calculateSizePX($min-with-screen)),
-(hover: none),
-(pointer: coarse) {
+@media screen and (min-width: calculateSizePX($min-with-screen)) {
 	.container-nav-bar {
 		height: calculateSizePX($height);
 		margin-bottom: calculateSizePX($margin-bottom);
-		height: calculateSizePX($height);
+		padding-top: calculateSizePX($padding);
+		padding-bottom: calculateSizePX($padding);
+
+		max-width: calculateSizePX($min-with-screen);
+		min-height: calculateSizePX($height);
+		margin-bottom: calculateSizePX($margin-bottom);
+		min-height: calculateSizePX($height);
+		padding-top: calculateSizePX($padding);
+		padding-bottom: calculateSizePX($padding);
 
 		.topnav label {
 			padding: calculateSizePX($padding-v) calculateSizePX($padding-h);
@@ -60,13 +67,12 @@ $margin-bottom: 20;
 	}
 }
 
-@media screen and (max-width: calculateSizePX($max-with-screen)),
+@media 
 (hover: none),
 (pointer: coarse) {
 	.container-nav-bar {
-		height: calculateSizeVW($height * $size-mobile);
+		// height: calculateSizeVW($height * $size-mobile);
 		margin-bottom: calculateSizeVW($margin-bottom * $size-mobile);
-		height: calculateSizeVW($height * $size-mobile);
 
 		.topnav label {
 			padding: calculateSizeVW($padding-v * $size-mobile) calculateSizeVW($padding-h * $size-mobile);

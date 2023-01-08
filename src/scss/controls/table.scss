@@ -41,9 +41,7 @@ table {
 	}
 }
 
-@media screen and (min-width: calculateSizePX($min-with-screen)),
-(hover: none),
-(pointer: coarse) {
+@media screen and (min-width: calculateSizePX($min-with-screen)) {
 	table {
 		padding: calculateSizePX($padding);
 
@@ -67,7 +65,7 @@ table {
 	}
 }
 
-@media screen and (max-width: calculateSizePX($max-with-screen)),
+@media 
 (hover: none),
 (pointer: coarse) {
 

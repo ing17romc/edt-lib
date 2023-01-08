@@ -32,9 +32,7 @@ $line-height: 18;
 	}
 }
 
-@media screen and (min-width: calculateSizePX($min-with-screen)),
-(hover: none),
-(pointer: coarse) {
+@media screen and (min-width: calculateSizePX($min-with-screen)) {
 	.textButton {
 		padding: calculateSizePX($padding-v) calculateSizePX($padding-h);
 		line-height: calculateSizePX($line-height);
@@ -49,7 +47,7 @@ $line-height: 18;
 	}
 }
 
-@media screen and (max-width: calculateSizePX($max-with-screen)),
+@media 
 (hover: none),
 (pointer: coarse) {
 	.textButton {

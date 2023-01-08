@@ -42,9 +42,7 @@ $border-hr: 1;
 	box-shadow: $shadow-flat;
 }
 
-@media screen and (min-width: calculateSizePX($min-with-screen)),
-(hover: none),
-(pointer: coarse) {
+@media screen and (min-width: calculateSizePX($min-with-screen)) {
 	.container-option {
 		border: calculateSizePX($border-container) solid $primary-color-1;
 		height: calculateSizePX($size-container);
@@ -60,7 +58,7 @@ $border-hr: 1;
 	}
 }
 
-@media screen and (max-width: calculateSizePX($max-with-screen)),
+@media 
 (hover: none),
 (pointer: coarse) {
 

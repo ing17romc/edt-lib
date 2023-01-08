@@ -2,8 +2,8 @@
 @import '../functions.scss';
 
 $height-viewer: 750;
-$width-viewer: 700;
-$height-pdf: $height-viewer - 80;
+$width-viewer: 850;
+$height-pdf: $height-viewer - 150;
 $width-pdf: $width-viewer - 50;
 
 .body-viewer-pdf {
@@ -21,9 +21,7 @@ $width-pdf: $width-viewer - 50;
 	}
 }
 
-@media screen and (min-width: calculateSizePX($min-with-screen)),
-(hover: none),
-(pointer: coarse) {
+@media screen and (min-width: calculateSizePX($min-with-screen)) {
 	.body-viewer-pdf {
 		height: calculateSizePX($height-viewer);
 		width: calculateSizePX($width-viewer);

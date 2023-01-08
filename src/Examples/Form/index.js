@@ -52,7 +52,7 @@ const Form = () => {
 								<h4>Datos Personales</h4>
 							</div>
 
-							<div className='start-11 size-5 padding-v-20'>
+							<div className='start-13 size-4 padding-v-20'>
 								<UI.CheckButton
 									id='disabled'
 									label='disabled'
@@ -60,7 +60,7 @@ const Form = () => {
 									checked={state.disabled}
 								/>
 							</div>
-							<div className='size-5 padding-v-20'>
+							<div className='size-4 padding-v-20'>
 								<UI.CheckButton
 									id='readOnly'
 									label='readOnly'
@@ -105,7 +105,7 @@ const Form = () => {
 								/>
 							</div>
 
-							<div className='start-1 size-7 padding-v-20'>
+							<div className='start-1 size-6 padding-v-20'>
 								<UI.Selector
 									id='civilStatus'
 									value={state.civilStatus}
@@ -118,7 +118,7 @@ const Form = () => {
 								/>
 							</div>
 
-							<div className='size-7 padding-v-20'>
+							<div className='size-6 padding-v-20'>
 								<UI.TextBox
 									id='dni'
 									value={state.dni}
@@ -130,7 +130,7 @@ const Form = () => {
 								/>
 							</div>
 
-							<div className='size-10 padding-v-20'>
+							<div className='size-12 padding-v-20'>
 								<UI.DatePicker
 									id='birthDate'
 									value={state.birthDate}
@@ -189,7 +189,7 @@ const Form = () => {
 									readOnly={state.readOnly}
 								/>
 							</div>
-							<div className='size-9 padding-v-20'>
+							<div className='size-11 padding-v-20'>
 								<UI.TextButton
 									id='btnNoticePrivacy'
 									text='Aviso de privacidad '

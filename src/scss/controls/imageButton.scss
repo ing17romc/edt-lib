@@ -19,15 +19,13 @@ $margin-v: 0;
 	}
 }
 
-@media screen and (min-width: calculateSizePX($min-with-screen)),
-(hover: none),
-(pointer: coarse) {
+@media screen and (min-width: calculateSizePX($min-with-screen)) {
 	.imageButton {
 		margin: calculateSizePX($margin-v) calculateSizePX($margin-h);
 	}
 }
 
-@media screen and (max-width: calculateSizePX($max-with-screen)),
+@media 
 (hover: none),
 (pointer: coarse) {
 	.imageButton {

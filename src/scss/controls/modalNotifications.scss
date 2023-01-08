@@ -1,7 +1,7 @@
 @import '../variables.scss';
 @import '../functions.scss';
 
-$width: 550;
+$width: 850;
 $size: 80;
 $border: 7;
 
@@ -34,9 +34,7 @@ $border: 7;
 	}
 }
 
-@media screen and (min-width: calculateSizePX($min-with-screen)),
-(hover: none),
-(pointer: coarse) {
+@media screen and (min-width: calculateSizePX($min-with-screen)) {
 	.body-generic-notifications {
 		width: calculateSizePX($width);
 
@@ -50,19 +48,19 @@ $border: 7;
 }
 
 
-@media screen and (max-width: calculateSizePX($max-with-screen)),
+@media 
 (hover: none),
 (pointer: coarse) {
 	// * $size-mobile
 	// calculateSizeVW
 
 	.body-generic-notifications {
-		width: calculateSizeVW($width * $size-mobile);
+		// width: calculateSizeVW($width * $size-mobile);
 
 		& .circle {
-			width: calculateSizeVW($size * $size-mobile);
-			height: calculateSizeVW($size * $size-mobile);
-			border: calculateSizeVW($border * $size-mobile) solid $white-color;
+			//width: calculateSizeVW($size * $size-mobile);
+			//height: calculateSizeVW($size * $size-mobile);
+			//border: calculateSizeVW($border * $size-mobile) solid $white-color;
 			border-style: double;
 		}
 	}

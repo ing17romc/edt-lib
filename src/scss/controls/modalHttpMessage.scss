@@ -1,7 +1,7 @@
 @import '../variables.scss';
 @import '../functions.scss';
 
-$width: 600;
+$width: 850;
 
 .body-generic-http-message {
 	width: calculateSizeVW($width);
@@ -27,21 +27,19 @@ $width: 600;
 	}
 }
 
-@media screen and (min-width: calculateSizePX($min-with-screen)),
-(hover: none),
-(pointer: coarse) {
+@media screen and (min-width: calculateSizePX($min-with-screen)) {
 	.body-generic-http-message {
 		width: calculateSizePX($width);
 	}
 }
 
-@media screen and (max-width: calculateSizePX($max-with-screen)),
+@media 
 (hover: none),
 (pointer: coarse) {
 
 	// * $size-mobile
 	// calculateSizeVW
 	.body-generic-http-message {
-		width: calculateSizeVW($width * $size-mobile);
+		// width: calculateSizeVW($width * $size-mobile);
 	}
 }

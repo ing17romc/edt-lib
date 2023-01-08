@@ -39,7 +39,7 @@ const Modales = () => {
 					</div>
 
 					<div className='grid-secondary  padding-v-40'>
-						<div className='start-1 size-9 padding-v-10'>
+						<div className='start-1 size-12 padding-v-10'>
 							<UI.Selector
 								id='typeNotification'
 								titleTop='Tipos de notificación'
@@ -49,7 +49,7 @@ const Modales = () => {
 							/>
 						</div>
 
-						<div className='size-9 padding-v-10'>
+						<div className='size-12 padding-v-10'>
 							<UI.Selector
 								id='httpCode'
 								titleTop='Codigos http'
@@ -59,7 +59,17 @@ const Modales = () => {
 							/>
 						</div>
 
-						<div className='start-1 size-9 padding-v-10'>
+						<div className=' size-6 padding-v-10'>
+							<UI.Button
+								title='Mostrar modal respuesta http'
+								type='secondary'
+								onClick={() =>
+									setModalHttpMessage(!modalHttpMessage)
+								}
+							/>
+						</div>
+
+						<div className='size-6 padding-v-10'>
 							<UI.Button
 								title='Mostrar modal de notificaciones'
 								type='secondary'
@@ -72,15 +82,7 @@ const Modales = () => {
 								}}
 							/>
 						</div>
-						<div className=' size-9 padding-v-10'>
-							<UI.Button
-								title='Mostrar modal respuesta http'
-								type='secondary'
-								onClick={() =>
-									setModalHttpMessage(!modalHttpMessage)
-								}
-							/>
-						</div>
+
 						<div className=' size-6 padding-v-10'>
 							<UI.Button
 								title='Mostrar Generico'
@@ -88,10 +90,11 @@ const Modales = () => {
 								onClick={() => setModal(!modal)}
 							/>
 						</div>
-						<div className='start-1 size-24 padding-v-10'>
-							<UI.TextButton
+						<div className=' size-6 padding-v-10'>
+							<UI.Button
 								id='btnModalViewerPDF'
-								text=' Mostrar visor de PDF '
+								title=' Mostrar visor de PDF '
+								type='secondary'
 								onClick={() =>
 									setModalViewerPDF(!modalViewerPDF)
 								}
