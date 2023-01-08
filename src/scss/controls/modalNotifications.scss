@@ -34,7 +34,9 @@ $border: 7;
 	}
 }
 
-@media only screen and (min-width: calculateSizePX($min-with-screen)) {
+@media screen and (min-width: calculateSizePX($min-with-screen)),
+(hover: none),
+(pointer: coarse) {
 	.body-generic-notifications {
 		width: calculateSizePX($width);
 
@@ -48,7 +50,9 @@ $border: 7;
 }
 
 
-@media screen and (max-width: calculateSizePX($max-with-screen)) and (hover: hover) and (pointer: fine) {
+@media screen and (max-width: calculateSizePX($max-with-screen)),
+(hover: none),
+(pointer: coarse) {
 	// * $size-mobile
 	// calculateSizeVW
 

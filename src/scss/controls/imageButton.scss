@@ -19,13 +19,17 @@ $margin-v: 0;
 	}
 }
 
-@media only screen and (min-width: calculateSizePX($min-with-screen)) {
+@media screen and (min-width: calculateSizePX($min-with-screen)),
+(hover: none),
+(pointer: coarse) {
 	.imageButton {
 		margin: calculateSizePX($margin-v) calculateSizePX($margin-h);
 	}
 }
 
-@media screen and (max-width: calculateSizePX($max-with-screen)) and (hover: hover) and (pointer: fine) {
+@media screen and (max-width: calculateSizePX($max-with-screen)),
+(hover: none),
+(pointer: coarse) {
 	.imageButton {
 		margin: calculateSizeVW($margin-v * $size-mobile) calculateSizeVW($margin-h * $size-mobile);
 	}

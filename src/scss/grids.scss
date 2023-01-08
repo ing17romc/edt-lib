@@ -13,7 +13,7 @@ $grid-secundary-column-gap: 1%;
 
 	@if ($number > $max ) {
 		$value: $number - $max
-	} 
+	}
 
 	.start-#{$number} {
 		grid-column-start: $value;
@@ -61,17 +61,22 @@ $grid-secundary-column-gap: 1%;
 	}
 }
 
-@media only screen and (max-width: $max-with-screen) {	
+@media screen and (max-width: $max-with-screen),
+(hover: none),
+(pointer: coarse) {
 	.grid-primary {
 		grid-template-columns: repeat(6, 1fr);
+
 		@for $i from 1 through 12 {
 			@include grids($i, 6);
 		}
 
 	}
+
 	.grid-primary>.grid-secondary {
 		grid-template-columns: repeat(12, 1fr);
 		grid-column-end: span 6 !important;
+
 		@for $i from 1 through 24 {
 			@include grids($i, 12);
 		}

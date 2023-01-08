@@ -21,7 +21,9 @@ $width-pdf: $width-viewer - 50;
 	}
 }
 
-@media only screen and (min-width: calculateSizePX($min-with-screen)) {
+@media screen and (min-width: calculateSizePX($min-with-screen)),
+(hover: none),
+(pointer: coarse) {
 	.body-viewer-pdf {
 		height: calculateSizePX($height-viewer);
 		width: calculateSizePX($width-viewer);

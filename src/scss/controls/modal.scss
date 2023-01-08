@@ -46,4 +46,6 @@
 	display: block;
 }
 
-@media only screen and (min-width: calculateSizePX($min-with-screen)) {}
+@media screen and (min-width: calculateSizePX($min-with-screen)),
+(hover: none),
+(pointer: coarse) {}

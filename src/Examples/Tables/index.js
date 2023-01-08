@@ -118,7 +118,7 @@ const TableDefault = ({ dataTable }) => {
 						</div>
 						<div className='start-1 size-24 padding-v-20 '>
 							<div className='bg-gray padding-h-30 padding-v-30'>
-								<table>
+								<table className="big-table">
 									<tbody>
 										<tr>
 											<th>Name</th>
@@ -182,9 +182,9 @@ const TableActiveRow = ({ dataTable }) => {
 								<table>
 									<tbody>
 										<tr>
-											<th>Name</th>
-											<th>UserName</th>
-											<th>Status</th>
+											<th style={{ width: '40%' }}>Name</th>
+											<th style={{ width: '40%' }}>UserName</th>
+											<th style={{ width: '20%' }}>Status</th>
 										</tr>
 										{dataTable.map((element, index) => (
 											<tr
