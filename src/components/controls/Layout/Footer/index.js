@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const Footer = ({ children }) => {
-	return <div className="footer">{ children }</div>
+	return <div className="layout__footer">{ children }</div>
 }
 
 Footer.propTypes = {

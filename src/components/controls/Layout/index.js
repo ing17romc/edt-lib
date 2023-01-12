@@ -1,28 +1,28 @@
 
 import React from 'react'
-import NavBar from '../NavBar'
-import Footer from '../Footer'
+import NavBar from './NavBar'
+import Footer from './Footer'
 import PropTypes from 'prop-types'
 
-const Layaout = ({ leftOptions, rightOptions, footer, children, getCurrentPath, currentPath }) => {
+const Layout = ({ leftOptions, rightOptions, footer, children, getCurrentPath, currentPath }) => {
 	return <div>
-		<div className='main-container bg-white'>
+		<div className='layout bg-white'>
 			<NavBar
 				leftOptions={leftOptions}
 				rightOptions={rightOptions}
 				getCurrentPath={getCurrentPath}
 			/>
-			<div>
+			<div className='layout__content'>
 				{children}
 			</div>
+			<Footer>
+				{ footer }
+			</Footer>
 		</div>
-		<Footer>
-			{ footer }
-		</Footer>
 	</div>
 }
 
-Layaout.propTypes = {
+Layout.propTypes = {
 	children: PropTypes.node.isRequired,
 	footer: PropTypes.node.isRequired,
 	leftOptions: PropTypes.arrayOf(
@@ -41,4 +41,4 @@ Layaout.propTypes = {
 	getCurrentPath: PropTypes.func.isRequired
 }
 
-export default Layaout
+export default Layout

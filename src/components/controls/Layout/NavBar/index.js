@@ -18,7 +18,7 @@ const NavBar = ({ leftOptions, rightOptions, currentPath, getCurrentPath }) => {
 	)
 
 	return (
-		<div className='container-nav-bar bg-primary-1'>
+		<div className='layout__nav-bar bg-primary-1'>
 			<form className='grid-primary'>
 				<div className='start-1 size-12'>
 					<div className='topnav font-22'>

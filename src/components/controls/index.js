@@ -7,7 +7,6 @@ import TextBox from './TextBox'
 import Title from './Title'
 import TextButton from './TextButton'
 import TextArea from './TextArea'
-import NavBar from './NavBar'
 import DatePicker from './DatePicker'
 import Modal from './Modal'
 import ModalNotifications from './ModalNotifications'
@@ -17,7 +16,7 @@ import Icon from './Icon'
 import Menu from './Menu'
 import ImageButton from './ImageButton'
 import Pagination from './Pagination'
-import Layaout from './Layaout'
+import Layout from './Layout'
 
 const UI = {
 	Button,
@@ -34,12 +33,11 @@ const UI = {
 	ModalHttpMessage,
 	ModalViewerPDF,
 	Icon,
-	NavBar,
 	Menu,
 	ImageButton,
 	Pagination,
 	Spinner,
-	Layaout
+	Layout
 }
 
 export default UI

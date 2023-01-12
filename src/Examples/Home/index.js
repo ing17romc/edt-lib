@@ -6,14 +6,14 @@ const getCurrentPath = path => alert(path)
 
 function App () {
 	return (
-		<UI.Layaout
+		<UI.Layout
 			leftOptions={LEFT_OPTIONS}
 			rightOptions={RIGHT_OPTIONS}
 			currentPath={LEFT_OPTIONS[0].path}
 			getCurrentPath={getCurrentPath}
 			footer={<p>Footer</p>}>
 			<UI.Menu options={OPTIONS} getCurrentPath={getCurrentPath}/>
-		</UI.Layaout>
+		</UI.Layout>
 	)
 }
 
