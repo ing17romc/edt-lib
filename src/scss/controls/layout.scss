@@ -2,9 +2,9 @@
 @import '../functions.scss';
 
 $padding-footer: 20;
-$h-footer: 8vh;
-$h-nav-bar: 8vh;
-$h-content: 100vh - $h-footer - $h-nav-bar;
+$h-footer: 60;
+$h-nav-bar: 60;
+// $h-content: 600;
 
 .layout {
     width: auto;
@@ -13,7 +13,7 @@ $h-content: 100vh - $h-footer - $h-nav-bar;
 
     &__nav-bar {
         width: 100%;
-        height: $h-nav-bar;
+        min-height: calculateSizeVW($h-nav-bar);
         max-width: calculateSizeVW($min-with-screen);
         margin-bottom: calculateSizeVW($margin-bottom);
         box-shadow: $shadow-flat;
@@ -49,12 +49,13 @@ $h-content: 100vh - $h-footer - $h-nav-bar;
     }
 
     &__content {
-        height: $h-content;
+        // min-height: 100vh;
+        // border: 1px solid red;
     }
 
     &__footer {
         width: 100%;
-        height: $h-footer;
+        min-height: calculateSizeVW($h-footer);
         padding: calculateSizeVW($padding-footer);
         border-top: 1px solid transparent;
         text-align: center;
@@ -73,6 +74,7 @@ $h-content: 100vh - $h-footer - $h-nav-bar;
         max-width: calculateSizePX($min-with-screen);
 
         &__nav-bar {
+            min-height: calculateSizePX($h-nav-bar);
             margin-bottom: calculateSizePX($margin-bottom);
             max-width: calculateSizePX($min-with-screen);
             padding-top: calculateSizePX($padding);
@@ -83,7 +85,12 @@ $h-content: 100vh - $h-footer - $h-nav-bar;
             }
         }
 
+        &__content {
+            // min-height: calculateSizePX($h-content);
+        }
+
         &__footer {
+            min-height: calculateSizePX($h-footer);
             padding: calculateSizePX($padding-footer);
         }
     }
@@ -93,6 +100,7 @@ $h-content: 100vh - $h-footer - $h-nav-bar;
 (pointer: coarse) {
     .layout {
         &__nav-bar {
+            min-height: calculateSizeVW($h-nav-bar * $size-mobile);
             margin-bottom: calculateSizeVW($margin-bottom * $size-mobile);
             max-width: calculateSizeVW($min-with-screen * $size-mobile);
             padding-top: calculateSizeVW($padding * $size-mobile);
@@ -103,8 +111,12 @@ $h-content: 100vh - $h-footer - $h-nav-bar;
             }
         }
 
+        &__content {
+            // min-height: 600;
+        }
 
         &__footer {
+            min-height: calculateSizeVW($h-footer * $size-mobile);
             padding: calculateSizeVW($padding-footer * $size-mobile);
         }
     }
