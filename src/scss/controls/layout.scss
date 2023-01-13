@@ -1,10 +1,14 @@
 @import '../variables.scss';
 @import '../functions.scss';
 
+$margin-bottom: 20;
 $padding-footer: 20;
 $h-footer: 60;
 $h-nav-bar: 60;
-// $h-content: 600;
+$padding: 20;
+$padding-label: 8;
+$min-h: 600;
+
 
 .layout {
     width: auto;
@@ -27,7 +31,8 @@ $h-nav-bar: 60;
         .topnav label {
             color: $white-color;
             text-align: center;
-            padding: calculateSizeVW($padding-v) calculateSizeVW($padding-h);
+            padding-left: calculateSizeVW($padding-label);
+            padding-right: calculateSizeVW($padding-label);
             text-decoration: none;
             cursor: pointer;
             opacity: 0.6;
@@ -49,8 +54,8 @@ $h-nav-bar: 60;
     }
 
     &__content {
+        min-height: calculateSizeVW($min-h);
         height: 100vh;
-        // border: 1px solid red;
     }
 
     &__footer {
@@ -81,12 +86,13 @@ $h-nav-bar: 60;
             padding-bottom: calculateSizePX($padding);
 
             .topnav label {
-                padding: calculateSizePX($padding-v) calculateSizePX($padding-h);
+                padding-left: calculateSizePX($padding-label);
+                padding-right: calculateSizePX($padding-label);
             }
         }
 
         &__content {
-            // min-height: calculateSizePX($h-content);
+            min-height: calculateSizePX($min-h);
         }
 
         &__footer {
@@ -107,12 +113,12 @@ $h-nav-bar: 60;
             padding-bottom: calculateSizeVW($padding * $size-mobile);
 
             .topnav label {
-                padding: calculateSizeVW($padding-v * $size-mobile) calculateSizeVW($padding-h * $size-mobile);
-            }
+                padding-left: calculateSizeVW($padding-label);
+                padding-right: calculateSizeVW($padding-label);            }
         }
 
         &__content {
-            // min-height: 600;
+            height: auto;
         }
 
         &__footer {
