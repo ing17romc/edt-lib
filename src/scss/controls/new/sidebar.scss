@@ -1,0 +1,67 @@
+@import '../../variables.scss';
+@import '../../functions.scss';
+
+$font-size: 20;
+$padding-top: 16;
+$size: 160;
+$padding-h: 6;
+$padding-w: 16;
+
+
+.sidebar {
+    float: left;
+    height: 100vh;
+    //height: 100%;
+    width: auto; //calculateSizeVW($size);
+    // position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: calculateSizeVW($padding-top);
+    
+}
+
+.sidebar label {
+    padding: calculateSizeVW($padding-h) calculateSizeVW($padding-w);
+    text-decoration: none;
+    font-size: calculateSizeVW($font-size);
+    color: #818181;
+    display: block;
+    cursor: pointer;
+}
+
+.sidebar label:hover {
+    color: #f1f1f1;
+}
+
+.main {
+    margin-left:  calculateSizeVW($size);
+    /* Same as the width of the sidenav */
+    padding: 0px 10px;
+}
+
+@media screen and (min-width: calculateSizePX($min-with-screen)) {
+    .sidebar {
+        padding-top: calculateSizePX($padding-top);
+    }
+    
+    .sidebar label {
+        padding: calculateSizePX($padding-h) calculateSizePX($padding-w);
+        font-size: calculateSizePX($font-size);
+    }
+}
+
+@media 
+(hover: none),
+(pointer: coarse) {
+    .sidebar {
+        padding-top: calculateSizePX($padding-top * $size-mobile);
+    }
+    
+    .sidebar label {
+        padding: calculateSizeVW($padding-h * $size-mobile) calculateSizeVW($padding-w * $size-mobile);
+        font-size: calculateSizeVW($font-size * $size-mobile);
+    }
+}

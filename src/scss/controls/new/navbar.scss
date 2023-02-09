@@ -1,0 +1,49 @@
+@import '../../variables.scss';
+@import '../../functions.scss';
+
+$font-size: 20;
+$padding-h: 14;
+$padding-w: 16;
+
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+}
+
+.topnav label {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: calculateSizeVW($padding-h) calculateSizeVW($padding-w);
+    text-decoration: none;
+    font-size: calculateSizeVW($font-size);
+    cursor: pointer;
+}
+
+.topnav label:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Create a right-aligned (split) link inside the navigation bar */
+.topnav label.split {
+    float: right;
+    background-color: #04AA6D;
+    color: white;
+}
+
+@media screen and (min-width: calculateSizePX($min-with-screen)) {
+    .topnav label {
+        padding: calculateSizePX($padding-h) calculateSizePX($padding-w);
+        font-size: calculateSizePX($font-size);
+    }
+}
+
+@media 
+(hover: none),
+(pointer: coarse) {
+    .topnav label {
+        padding: calculateSizeVW($padding-h * $size-mobile) calculateSizeVW($padding-w * $size-mobile);
+        font-size: calculateSizeVW($font-size * $size-mobile);
+    }
+}

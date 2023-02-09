@@ -1,6 +1,6 @@
-$min-with-screen: 1025;
+$min-with-screen: 1500;
 $max-with-screen: 600;
-$size-mobile: 2.0;
+$size-mobile: 2.5;
 
 @function calculateSizePX($unidad: 1) {
 	@return $unidad * 1px;
