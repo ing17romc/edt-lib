@@ -17,7 +17,7 @@ import Menu from './Menu'
 import ImageButton from './ImageButton'
 import Pagination from './Pagination'
 import Layout from './Layout'
-import LayoutV2 from './LayoutV2'
+import LayoutV2 from './Layout_v2'
 
 const UI = {
 	Button,

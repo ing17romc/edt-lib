@@ -2,7 +2,7 @@ import React from 'react'
 import NavBar from './NavBar'
 import SideBar from './SideBar'
 
-const index = ({ sideOptions, leftOptions, rightOptions, children, getCurrentPath }) => {
+const LayoutV2 = ({ sideOptions, leftOptions, rightOptions, children, getCurrentPath }) => {
 	return <div>
 		<NavBar
 			leftOptions={leftOptions}
@@ -19,4 +19,4 @@ const index = ({ sideOptions, leftOptions, rightOptions, children, getCurrentPat
 	</div>
 }
 
-export default index
+export default LayoutV2
