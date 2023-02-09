@@ -2,13 +2,13 @@ import React from 'react'
 import Component from '.'
 
 export default {
-	title: 'Components/LayoutV2',
+	title: 'Components/Layout',
 	component: Component
 }
 
 const Template = (args) => <Component {...args} />
 
-export const Layout = Template.bind({})
+export const LayoutV2 = Template.bind({})
 
 const leftOptions = [{ path: '/', name: 'Home' }]
 const rightOptions = [{ path: '/exit', name: 'Exit' }]
@@ -19,7 +19,7 @@ const sideOptions = [
 ]
 const getCurrentPath = path => alert(path)
 
-Layout.args = {
+LayoutV2.args = {
 	leftOptions,
 	rightOptions,
 	sideOptions,

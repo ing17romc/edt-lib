@@ -9,4 +9,4 @@ export default {
 
 const Template = () => <Component />
 
-export const Home = Template.bind({})
+export const HomeV2 = Template.bind({})
