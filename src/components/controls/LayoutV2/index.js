@@ -14,7 +14,7 @@ const LayoutV2 = ({ sideOptions, leftOptions, rightOptions, children, getCurrent
 			options={sideOptions}
 			getCurrentPath={getCurrentPath}
 		></SideBar>
-		<div className='padding-v-60' style={{ display: 'flow-root' }}>
+		<div className=' bg-white padding-v-60' style={{ display: 'flow-root' }}>
 			{children}
 		</div>
 	</div>
