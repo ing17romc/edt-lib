@@ -77,17 +77,17 @@
 $min-height: 600;
 
 .container-body {
-	height: auto;
+	height: 100vh;
 	min-height: calculateSizeVW($min-height);
 }
 
-.main-container {
+/*.main-container {
 	width: auto;
 	max-width: calculateSizeVW($min-with-screen);
 	margin: 0 auto;
 	min-height: 100vh;
 }
-
+*/
 body {
 	background-color: $primary-color-2;
 	color: $black-color;
@@ -104,9 +104,10 @@ body {
 @media screen and (min-width: calculateSizePX($min-with-screen)), 
 (hover: none),
 (pointer: coarse) {
+	/*
 	.main-container {
 		max-width: calculateSizePX($min-with-screen);
-	}
+	}*/
 
 	@for $i from 1 through 60 {
 		$number: $i * 5;
