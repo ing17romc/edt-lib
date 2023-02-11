@@ -5,15 +5,15 @@ import SideBar from './SideBar'
 
 const LayoutV2 = ({ sideOptions, leftOptions, rightOptions, children, getCurrentPath }) => {
 	return <div>
+		<SideBar
+			options={sideOptions}
+			getCurrentPath={getCurrentPath}
+		></SideBar>
 		<NavBar
 			leftOptions={leftOptions}
 			rightOptions={rightOptions}
 			getCurrentPath={getCurrentPath}
 		></NavBar>
-		<SideBar
-			options={sideOptions}
-			getCurrentPath={getCurrentPath}
-		></SideBar>
 		<div className=' bg-white padding-v-60' style={{ display: 'flow-root' }}>
 			{children}
 		</div>
