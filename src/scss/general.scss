@@ -77,8 +77,8 @@
 $min-height: 600;
 
 .container-body {
-	height: 100vh;
-	min-height: calculateSizeVW($min-height);
+	height: auto;
+	min-height: 100vh;
 }
 
 .main-container {
