@@ -89,9 +89,9 @@ $min-height: 600;
 }
 
 body {
-	background-color: #111;
+	background-color: $sidebar-color;
 	color: $black-color;
-	font-size: calculateSizeVW($fs-18);
+	font-size: calculateSizeVW($fs-16);
 	font-family: $font-family;
 }
 
@@ -121,7 +121,7 @@ body {
 	}
 
 	body {
-		font-size: calculateSizePX($fs-18);
+		font-size: calculateSizePX($fs-16);
 	}
 }
 

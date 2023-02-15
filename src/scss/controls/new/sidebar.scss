@@ -1,7 +1,7 @@
 @import '../../variables.scss';
 @import '../../functions.scss';
 
-$font-size: 20;
+$font-size: $fs-24;
 $padding-top: 16;
 $size: 160;
 $padding-h: 6;
@@ -18,7 +18,7 @@ $padding-w: 16;
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #111;
+    background-color: $sidebar-color;
     overflow-x: hidden;
     padding-top: calculateSizeVW($padding-top);
     
