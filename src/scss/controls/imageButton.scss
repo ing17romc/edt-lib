@@ -32,7 +32,7 @@ $margin-v: 0;
 	}
 }
 
-@media (orientation: portrait) {
+@media (orientation: landscape) {
 	.imageButton {
 		margin: calculateSizeVW($margin-v * $size-mobile-h) calculateSizeVW($margin-h * $size-mobile-h);
 	}

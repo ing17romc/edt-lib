@@ -173,7 +173,7 @@ $label-line-height: 18;
 	}
 }
 
-@media (orientation: portrait) {
+@media (orientation: landscape) {
 	.checkbutton {
 		& label {
 			font-size: calculateSizeVW($font-size-control * $size-mobile-h);

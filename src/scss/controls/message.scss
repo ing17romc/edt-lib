@@ -54,7 +54,7 @@ $border-radius: 4;
     }
 }
 
-@media (orientation: portrait) {
+@media (orientation: landscape) {
     .message {
         padding: calculateSizeVW($padding * $size-mobile-h);
         margin-bottom: calculateSizeVW($margin-bottom * $size-mobile-h);

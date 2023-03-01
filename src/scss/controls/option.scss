@@ -78,7 +78,7 @@ $border-hr: 1;
 	}
 }
 
-@media (orientation: portrait) {
+@media (orientation: landscape) {
 	.container-option {
 		border: calculateSizeVW($border-container * $size-mobile-h) solid $primary-color-1;
 		height: calculateSizeVW($size-container * $size-mobile-h);

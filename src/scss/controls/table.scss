@@ -93,7 +93,7 @@ table {
 	}
 }
 
-@media (orientation: portrait) {
+@media (orientation: landscape) {
 	table {
 		padding: calculateSizeVW($padding * $size-mobile-h);
 

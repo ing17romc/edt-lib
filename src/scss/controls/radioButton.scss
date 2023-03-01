@@ -151,7 +151,7 @@ $label-line-height: 18;
 	}
 }
 
-@media (orientation: portrait) {
+@media (orientation: landscape) {
 	.radiobutton {
 		&.required {
 			input[type='radio'] {

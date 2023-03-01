@@ -127,12 +127,23 @@ body {
 
 @media (hover: none),
 (pointer: coarse) {
+	.container-body {
+		height: auto;
+		min-height: 100vh;
+	}
+
+	.main-container {
+		width: auto;
+		margin: 0 auto;
+		min-height: 100vh;
+	}
+
 	body {
 		font-size: calculateSizeVW($fs-18 * $size-mobile);
 	}
 }
 
-@media (orientation: portrait) {
+@media (orientation: landscape) {
 	body {
 		font-size: calculateSizeVW($fs-18 * $size-mobile-h);
 	}

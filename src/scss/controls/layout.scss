@@ -129,7 +129,7 @@ $min-h: 600;
     }
 }
 
-@media (orientation: portrait) {
+@media (orientation: landscape) {
     .layout {
         &__nav-bar {
             min-height: calculateSizeVW($h-nav-bar * $size-mobile-h);

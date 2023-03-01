@@ -131,7 +131,7 @@ button {
 }
 
 
-@media (orientation: portrait) {
+@media (orientation: landscape) {
 
 	button {
 		border-radius: calculateSizeVW($border-radius * $size-mobile-h);

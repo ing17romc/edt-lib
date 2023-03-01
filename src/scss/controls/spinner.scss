@@ -154,7 +154,7 @@ div.container-load {
 	}
 }
 
-@media (orientation: portrait) {
+@media (orientation: landscape) {
 	div.container-load {
 		.loading {
 			width: calculateSizeVW($size-loading * $size-mobile-h);

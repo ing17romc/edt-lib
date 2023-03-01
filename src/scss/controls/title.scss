@@ -44,7 +44,7 @@ $top: 23;
 	}
 }
 
-@media (orientation: portrait) {
+@media (orientation: landscape) {
 	.title {
 		.line {
 			margin-left: calculateSizeVW($margin-left * $size-mobile-h);

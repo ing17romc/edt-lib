@@ -63,7 +63,7 @@ $line-height: 18;
 	}
 }
 
-@media (orientation: portrait) {
+@media (orientation: landscape) {
 	.textButton {
 		padding: calculateSizeVW($padding-v * $size-mobile-h) calculateSizeVW($padding-h * $size-mobile-h);
 		line-height: calculateSizeVW($line-height * $size-mobile-h);
