@@ -197,8 +197,7 @@ input[type='search']::-webkit-search-results-decoration {
 	}
 }
 
-@media 
-(hover: none),
+@media (hover: none),
 (pointer: coarse) {
 
 	// * $size-mobile
@@ -256,7 +255,7 @@ input[type='search']::-webkit-search-results-decoration {
 }
 
 
-@media (orientation: landscape) {
+@media (orientation: portrait) {
 	.control-container {
 		span {
 			min-height: calculateSizeVW($min-height-span * $size-mobile-h);

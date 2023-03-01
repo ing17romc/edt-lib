@@ -114,7 +114,8 @@ $min-h: 600;
 
             .topnav label {
                 padding-left: calculateSizeVW($padding-label);
-                padding-right: calculateSizeVW($padding-label);            }
+                padding-right: calculateSizeVW($padding-label);
+            }
         }
 
         &__content {
@@ -128,7 +129,7 @@ $min-h: 600;
     }
 }
 
-@media (orientation: landscape) {
+@media (orientation: portrait) {
     .layout {
         &__nav-bar {
             min-height: calculateSizeVW($h-nav-bar * $size-mobile-h);
@@ -139,7 +140,8 @@ $min-h: 600;
 
             .topnav label {
                 padding-left: calculateSizeVW($padding-label);
-                padding-right: calculateSizeVW($padding-label);            }
+                padding-right: calculateSizeVW($padding-label);
+            }
         }
 
         &__content {

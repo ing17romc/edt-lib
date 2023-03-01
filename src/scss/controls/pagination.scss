@@ -89,8 +89,7 @@ $min-width: 32;
 }
 
 
-@media 
-(hover: none),
+@media (hover: none),
 (pointer: coarse) {
 
   // * $size-mobile
@@ -108,7 +107,7 @@ $min-width: 32;
 }
 
 
-@media (orientation: landscape) {
+@media (orientation: portrait) {
   .pagination-container {
     .pagination-item {
       padding: 0 calculateSizeVW($padding * $size-mobile-h);

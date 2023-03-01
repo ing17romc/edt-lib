@@ -101,10 +101,10 @@ body {
 
 
 
-@media screen and (min-width: calculateSizePX($min-with-screen)), 
+@media screen and (min-width: calculateSizePX($min-with-screen)),
 (hover: none),
 (pointer: coarse) {
-	
+
 	.main-container {
 		max-width: calculateSizePX($min-with-screen);
 	}
@@ -125,15 +125,14 @@ body {
 	}
 }
 
-@media 
-(hover: none),
+@media (hover: none),
 (pointer: coarse) {
 	body {
 		font-size: calculateSizeVW($fs-18 * $size-mobile);
 	}
 }
 
-@media (orientation: landscape) {
+@media (orientation: portrait) {
 	body {
 		font-size: calculateSizeVW($fs-18 * $size-mobile-h);
 	}

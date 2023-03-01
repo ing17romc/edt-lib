@@ -110,8 +110,7 @@ $label-line-height: 18;
 }
 
 
-@media 
-(hover: none),
+@media (hover: none),
 (pointer: coarse) {
 
 	// * $size-mobile
@@ -152,7 +151,7 @@ $label-line-height: 18;
 	}
 }
 
-@media (orientation: landscape) {
+@media (orientation: portrait) {
 	.radiobutton {
 		&.required {
 			input[type='radio'] {

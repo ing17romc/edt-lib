@@ -25,15 +25,14 @@ $margin-v: 0;
 	}
 }
 
-@media 
-(hover: none),
+@media (hover: none),
 (pointer: coarse) {
 	.imageButton {
 		margin: calculateSizeVW($margin-v * $size-mobile) calculateSizeVW($margin-h * $size-mobile);
 	}
 }
 
-@media (orientation: landscape) {
+@media (orientation: portrait) {
 	.imageButton {
 		margin: calculateSizeVW($margin-v * $size-mobile-h) calculateSizeVW($margin-h * $size-mobile-h);
 	}

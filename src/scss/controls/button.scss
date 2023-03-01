@@ -94,8 +94,7 @@ button {
 	}
 }
 
-@media 
-(hover: none),
+@media (hover: none),
 (pointer: coarse) {
 
 	button {
@@ -132,7 +131,7 @@ button {
 }
 
 
-@media (orientation: landscape) {
+@media (orientation: portrait) {
 
 	button {
 		border-radius: calculateSizeVW($border-radius * $size-mobile-h);

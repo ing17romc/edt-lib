@@ -41,8 +41,7 @@ $column-width: 8;
 	}
 }
 
-@media 
-(hover: none),
+@media (hover: none),
 (pointer: coarse) {
 
 	// * $size-mobile
@@ -52,7 +51,7 @@ $column-width: 8;
 	}
 }
 
-@media (orientation: landscape) {
+@media (orientation: portrait) {
 	.container-date {
 		grid-column-gap: calculateSizeVW($column-width * $size-mobile-h);
 	}

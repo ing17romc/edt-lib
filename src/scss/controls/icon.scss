@@ -47,8 +47,7 @@ $size-xs: 24;
 	}
 }
 
-@media 
-(hover: none),
+@media (hover: none),
 (pointer: coarse) {
 
 	// * $size-mobile
@@ -72,7 +71,7 @@ $size-xs: 24;
 	}
 }
 
-@media (orientation: landscape) {
+@media (orientation: portrait) {
 	.container-icon {
 		&.lg>.material-icons {
 			font-size: calculateSizeVW($size-lg * $size-mobile-h);

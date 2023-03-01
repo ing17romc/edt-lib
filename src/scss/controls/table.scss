@@ -65,8 +65,7 @@ table {
 	}
 }
 
-@media 
-(hover: none),
+@media (hover: none),
 (pointer: coarse) {
 
 	// * $size-mobile
@@ -94,7 +93,7 @@ table {
 	}
 }
 
-@media (orientation: landscape) {
+@media (orientation: portrait) {
 	table {
 		padding: calculateSizeVW($padding * $size-mobile-h);
 
