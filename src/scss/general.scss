@@ -101,8 +101,7 @@ body {
 
 
 
-@media screen and (min-width: calculateSizePX($min-with-screen)), (hover: none),
-(pointer: coarse) {
+@media screen and (min-width: calculateSizePX($min-with-screen)) {
 
 	.main-container {
 		max-width: calculateSizePX($min-with-screen);
@@ -116,7 +115,7 @@ body {
 	}
 
 	.container-body {
-		min-height: calculateSizePX($min-height);
+		// min-height: calculateSizePX($min-height);
 	}
 
 	body {
