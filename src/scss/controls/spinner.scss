@@ -154,7 +154,8 @@ div.container-load {
 	}
 }
 
-@media (orientation: landscape) {
+@media (hover: none),
+(pointer: coarse) {
 	div.container-load {
 		.loading {
 			width: calculateSizeVW($size-loading * $size-mobile-h);

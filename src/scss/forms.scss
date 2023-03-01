@@ -255,7 +255,8 @@ input[type='search']::-webkit-search-results-decoration {
 }
 
 
-@media (orientation: landscape) {
+@media (hover: none),
+(pointer: coarse) {
 	.control-container {
 		span {
 			min-height: calculateSizeVW($min-height-span * $size-mobile-h);

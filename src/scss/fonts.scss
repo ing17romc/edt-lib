@@ -77,8 +77,7 @@ h4 {
 	font-weight: bold;
 }
 
-@media screen and (min-width: calculateSizePX($min-with-screen)),
-(hover: none),
+@media screen and (min-width: calculateSizePX($min-with-screen)), (hover: none),
 (pointer: coarse) {
 	h1 {
 		font-size: calculateSizePX($fs-36);
@@ -200,7 +199,8 @@ h4 {
 	}
 }
 
-@media (orientation: landscape) {
+@media (hover: none),
+(pointer: coarse) {
 
 	// * $size-mobile
 	// calculateSizeVW

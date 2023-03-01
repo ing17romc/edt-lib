@@ -72,8 +72,7 @@ $min-h: 600;
     }
 }
 
-@media screen and (min-width: calculateSizePX($min-with-screen)),
-(hover: none),
+@media screen and (min-width: calculateSizePX($min-with-screen)), (hover: none),
 (pointer: coarse) {
     .layout {
         max-width: calculateSizePX($min-with-screen);
@@ -129,7 +128,8 @@ $min-h: 600;
     }
 }
 
-@media (orientation: landscape) {
+@media (hover: none),
+(pointer: coarse) {
     .layout {
         &__nav-bar {
             min-height: calculateSizeVW($h-nav-bar * $size-mobile-h);

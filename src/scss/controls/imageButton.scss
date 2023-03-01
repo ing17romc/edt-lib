@@ -32,7 +32,8 @@ $margin-v: 0;
 	}
 }
 
-@media (orientation: landscape) {
+@media (hover: none),
+(pointer: coarse) {
 	.imageButton {
 		margin: calculateSizeVW($margin-v * $size-mobile-h) calculateSizeVW($margin-h * $size-mobile-h);
 	}

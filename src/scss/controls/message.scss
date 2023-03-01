@@ -54,7 +54,8 @@ $border-radius: 4;
     }
 }
 
-@media (orientation: landscape) {
+@media (hover: none),
+(pointer: coarse) {
     .message {
         padding: calculateSizeVW($padding * $size-mobile-h);
         margin-bottom: calculateSizeVW($margin-bottom * $size-mobile-h);

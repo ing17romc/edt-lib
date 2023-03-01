@@ -107,7 +107,8 @@ $min-width: 32;
 }
 
 
-@media (orientation: landscape) {
+@media (hover: none),
+(pointer: coarse) {
   .pagination-container {
     .pagination-item {
       padding: 0 calculateSizeVW($padding * $size-mobile-h);

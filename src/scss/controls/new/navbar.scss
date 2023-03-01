@@ -39,8 +39,7 @@ $padding-w: 16;
     }
 }
 
-@media 
-(hover: none),
+@media (hover: none),
 (pointer: coarse) {
     .topnav label {
         padding: calculateSizeVW($padding-h * $size-mobile) calculateSizeVW($padding-w * $size-mobile);
@@ -48,7 +47,8 @@ $padding-w: 16;
     }
 }
 
-@media (orientation: landscape) {
+@media (hover: none),
+(pointer: coarse) {
     .topnav label {
         padding: calculateSizeVW($padding-h * $size-mobile-h) calculateSizeVW($padding-w * $size-mobile-h);
         font-size: calculateSizeVW($font-size * $size-mobile-h);

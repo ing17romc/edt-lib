@@ -10,8 +10,8 @@ $padding-w: 16;
 
 .sidebar {
     float: left;
-	height: auto;
-	min-height: 100vh;
+    height: auto;
+    min-height: 100vh;
     //height: 100%;
     width: auto; //calculateSizeVW($size);
     // position: fixed;
@@ -21,7 +21,7 @@ $padding-w: 16;
     background-color: $sidebar-color;
     overflow-x: hidden;
     padding-top: calculateSizeVW($padding-top);
-    
+
 }
 
 .sidebar label {
@@ -38,7 +38,7 @@ $padding-w: 16;
 }
 
 .main {
-    margin-left:  calculateSizeVW($size);
+    margin-left: calculateSizeVW($size);
     /* Same as the width of the sidenav */
     padding: 0px 10px;
 }
@@ -47,31 +47,31 @@ $padding-w: 16;
     .sidebar {
         padding-top: calculateSizePX($padding-top);
     }
-    
+
     .sidebar label {
         padding: calculateSizePX($padding-h) calculateSizePX($padding-w);
         font-size: calculateSizePX($font-size);
     }
 }
 
-@media 
-(hover: none),
+@media (hover: none),
 (pointer: coarse) {
     .sidebar {
         padding-top: calculateSizePX($padding-top * $size-mobile);
     }
-    
+
     .sidebar label {
         padding: calculateSizeVW($padding-h * $size-mobile) calculateSizeVW($padding-w * $size-mobile);
         font-size: calculateSizeVW($font-size * $size-mobile);
     }
 }
 
-@media (orientation: landscape) {
+@media (hover: none),
+(pointer: coarse) {
     .sidebar {
         padding-top: calculateSizePX($padding-top * $size-mobile-h);
     }
-    
+
     .sidebar label {
         padding: calculateSizeVW($padding-h * $size-mobile-h) calculateSizeVW($padding-w * $size-mobile-h);
         font-size: calculateSizeVW($font-size * $size-mobile-h);

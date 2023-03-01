@@ -93,7 +93,8 @@ table {
 	}
 }
 
-@media (orientation: landscape) {
+@media (hover: none),
+(pointer: coarse) {
 	table {
 		padding: calculateSizeVW($padding * $size-mobile-h);
 

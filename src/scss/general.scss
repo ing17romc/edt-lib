@@ -101,8 +101,7 @@ body {
 
 
 
-@media screen and (min-width: calculateSizePX($min-with-screen)),
-(hover: none),
+@media screen and (min-width: calculateSizePX($min-with-screen)), (hover: none),
 (pointer: coarse) {
 
 	.main-container {
@@ -143,7 +142,8 @@ body {
 	}
 }
 
-@media (orientation: landscape) {
+@media (hover: none),
+(pointer: coarse) {
 	body {
 		font-size: calculateSizeVW($fs-18 * $size-mobile-h);
 	}

@@ -78,7 +78,8 @@ $border-hr: 1;
 	}
 }
 
-@media (orientation: landscape) {
+@media (hover: none),
+(pointer: coarse) {
 	.container-option {
 		border: calculateSizeVW($border-container * $size-mobile-h) solid $primary-color-1;
 		height: calculateSizeVW($size-container * $size-mobile-h);

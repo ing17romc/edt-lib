@@ -63,7 +63,8 @@ $line-height: 18;
 	}
 }
 
-@media (orientation: landscape) {
+@media (hover: none),
+(pointer: coarse) {
 	.textButton {
 		padding: calculateSizeVW($padding-v * $size-mobile-h) calculateSizeVW($padding-h * $size-mobile-h);
 		line-height: calculateSizeVW($line-height * $size-mobile-h);

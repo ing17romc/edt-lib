@@ -44,7 +44,8 @@ $top: 23;
 	}
 }
 
-@media (orientation: landscape) {
+@media (hover: none),
+(pointer: coarse) {
 	.title {
 		.line {
 			margin-left: calculateSizeVW($margin-left * $size-mobile-h);
