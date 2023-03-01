@@ -151,3 +151,40 @@ $label-line-height: 18;
 		}
 	}
 }
+
+@media (orientation: landscape) {
+	.radiobutton {
+		&.required {
+			input[type='radio'] {
+				&+label {
+					&:before {
+						border: calculateSizeVW($border * $size-mobile-h) solid $red-color;
+					}
+				}
+			}
+		}
+
+		input[type='radio'] {
+			&+label {
+				font-size: calculateSizeVW($font-size-control * $size-mobile-h);
+				height: calculateSizeVW($label-height * $size-mobile-h);
+				padding-top: calculateSizeVW($label-padding-top * $size-mobile-h);
+				padding-left: calculateSizeVW($label-padding-left * $size-mobile-h);
+				line-height: calculateSizeVW($label-line-height * $size-mobile-h);
+
+				&:before {
+					width: calculateSizeVW($size-md * $size-mobile-h);
+					height: calculateSizeVW($size-md * $size-mobile-h);
+					border: calculateSizeVW($border * $size-mobile-h) solid $black-color;
+				}
+
+				&:after {
+					width: calculateSizeVW($size-sm * $size-mobile-h);
+					height: calculateSizeVW($size-sm * $size-mobile-h);
+					top: calculateSizeVW($size-after * $size-mobile-h);
+					left: calculateSizeVW($size-after * $size-mobile-h);
+				}
+			}
+		}
+	}
+}

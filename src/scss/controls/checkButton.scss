@@ -173,3 +173,42 @@ $label-line-height: 18;
 		}
 	}
 }
+
+@media (orientation: landscape) {
+	.checkbutton {
+		& label {
+			font-size: calculateSizeVW($font-size-control * $size-mobile-h);
+			height: calculateSizeVW($label-height * $size-mobile-h);
+			padding-top: calculateSizeVW($label-padding-top * $size-mobile-h);
+			padding-left: calculateSizeVW($label-padding-left * $size-mobile-h);
+			line-height: calculateSizeVW($label-line-height * $size-mobile-h);
+		}
+
+		& input[type='checkbox'] {
+			width: calculateSizeVW($size-md * $size-mobile-h);
+			height: calculateSizeVW($size-md * $size-mobile-h);
+		}
+
+		& input[type='checkbox']:before {
+			border: calculateSizeVW($border * $size-mobile-h) solid $black-color;
+		}
+
+		& input[type='checkbox']:checked:before {
+			border: calculateSizeVW($border * $size-mobile-h) solid $black-color;
+		}
+
+		& input[type='checkbox']:checked:after {
+			border-bottom: solid calculateSizeVW($border-2 * $size-mobile-h) $white-color;
+			border-right: solid calculateSizeVW($border-2 * $size-mobile-h) $white-color;
+			margin-top: calculateSizeVW($border-2 * $size-mobile-h);
+		}
+
+		&.required {
+
+			&>input[type='checkbox']:before,
+			&>input[type='checkbox']:checked:before {
+				border: calculateSizeVW($border * $size-mobile-h) solid $red-color;
+			}
+		}
+	}
+}

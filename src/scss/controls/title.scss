@@ -43,3 +43,14 @@ $top: 23;
 		}
 	}
 }
+
+@media (orientation: landscape) {
+	.title {
+		.line {
+			margin-left: calculateSizeVW($margin-left * $size-mobile-h);
+			margin-top: calculateSizeVW($margin-top * $size-mobile-h);
+			height: calculateSizeVW($height * $size-mobile-h);
+			top: calculateSizeVW($top * $size-mobile-h);
+		}
+	}
+}

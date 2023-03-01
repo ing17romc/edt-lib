@@ -93,3 +93,27 @@ table {
 		}
 	}
 }
+
+@media (orientation: landscape) {
+	table {
+		padding: calculateSizeVW($padding * $size-mobile-h);
+
+		& tbody {
+			padding: calculateSizeVW($padding * $size-mobile-h);
+
+			& tr {
+				padding: calculateSizeVW($padding * $size-mobile-h);
+
+				& th {
+					border-bottom: 2px solid $primary-color-1;
+					padding: calculateSizeVW($padding * $size-mobile-h);
+				}
+
+				& td {
+					border-top: 1px solid $primary-color-1;
+					padding: calculateSizeVW($padding * $size-mobile-h);
+				}
+			}
+		}
+	}
+}

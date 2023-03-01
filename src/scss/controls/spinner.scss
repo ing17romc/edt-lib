@@ -154,3 +154,31 @@ div.container-load {
 		}
 	}
 }
+
+@media (orientation: landscape) {
+	div.container-load {
+		.loading {
+			width: calculateSizeVW($size-loading * $size-mobile-h);
+			height: calculateSizeVW($size-loading * $size-mobile-h);
+			border-width: calculateSizeVW($border-loading * $size-mobile-h);
+		}
+
+		.loading:before {
+			top: calculateSizeVW($position-sm * $size-mobile-h);
+			left: calculateSizeVW($position-sm * $size-mobile-h);
+			right: calculateSizeVW($position-sm * $size-mobile-h);
+			bottom: calculateSizeVW($position-sm * $size-mobile-h);
+			border: calculateSizeVW($border-loading * $size-mobile-h) solid transparent;
+			border-top-color: $color-two;
+		}
+
+		.loading:after {
+			top: calculateSizeVW($position-md * $size-mobile-h);
+			left: calculateSizeVW($position-md * $size-mobile-h);
+			right: calculateSizeVW($position-md * $size-mobile-h);
+			bottom: calculateSizeVW($position-md * $size-mobile-h);
+			border: calculateSizeVW($border-loading * $size-mobile-h) solid transparent;
+			border-top-color: $bg-spinner;
+		}
+	}
+}

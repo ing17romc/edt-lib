@@ -132,3 +132,9 @@ body {
 		font-size: calculateSizeVW($fs-18 * $size-mobile);
 	}
 }
+
+@media (orientation: landscape) {
+	body {
+		font-size: calculateSizeVW($fs-18 * $size-mobile-h);
+	}
+}

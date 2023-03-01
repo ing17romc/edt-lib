@@ -71,3 +71,23 @@ $size-xs: 24;
 		}
 	}
 }
+
+@media (orientation: landscape) {
+	.container-icon {
+		&.lg>.material-icons {
+			font-size: calculateSizeVW($size-lg * $size-mobile-h);
+		}
+
+		&.md>.material-icons {
+			font-size: calculateSizeVW($size-md * $size-mobile-h);
+		}
+
+		&.sm>.material-icons {
+			font-size: calculateSizeVW($size-sm * $size-mobile-h);
+		}
+
+		&.xs>.material-icons {
+			font-size: calculateSizeVW($size-xs * $size-mobile-h);
+		}
+	}
+}

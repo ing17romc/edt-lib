@@ -63,3 +63,18 @@ $line-height: 18;
 		}
 	}
 }
+
+@media (orientation: landscape) {
+	.textButton {
+		padding: calculateSizeVW($padding-v * $size-mobile-h) calculateSizeVW($padding-h * $size-mobile-h);
+		line-height: calculateSizeVW($line-height * $size-mobile-h);
+
+		&.primary {
+			border: calculateSizeVW($border-size * $size-mobile-h) solid $primary-color-1;
+		}
+
+		&.secundary {
+			border: calculateSizeVW($border-size * $size-mobile-h) solid $primary-color-1;
+		}
+	}
+}

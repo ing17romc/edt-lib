@@ -127,3 +127,28 @@ $min-h: 600;
         }
     }
 }
+
+@media (orientation: landscape) {
+    .layout {
+        &__nav-bar {
+            min-height: calculateSizeVW($h-nav-bar * $size-mobile-h);
+            margin-bottom: calculateSizeVW($margin-bottom * $size-mobile-h);
+            max-width: calculateSizeVW($min-with-screen * $size-mobile-h);
+            padding-top: calculateSizeVW($padding * $size-mobile-h);
+            padding-bottom: calculateSizeVW($padding * $size-mobile-h);
+
+            .topnav label {
+                padding-left: calculateSizeVW($padding-label);
+                padding-right: calculateSizeVW($padding-label);            }
+        }
+
+        &__content {
+            height: auto;
+        }
+
+        &__footer {
+            min-height: calculateSizeVW($h-footer * $size-mobile-h);
+            padding: calculateSizeVW($padding-footer * $size-mobile-h);
+        }
+    }
+}

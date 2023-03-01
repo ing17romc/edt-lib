@@ -142,7 +142,7 @@ h4 {
 (hover: none),
 (pointer: coarse) {
 
-	// * $size-mobile
+	// * $size-mobile-h
 	// calculateSizeVW
 	h1 {
 		font-size: calculateSizeVW($fs-36 * $size-mobile);
@@ -198,5 +198,66 @@ h4 {
 	.font-8 {
 		display: inline;
 		font-size: calculateSizeVW($fs-8 * $size-mobile);
+	}
+}
+
+@media (orientation: landscape) {
+
+	// * $size-mobile
+	// calculateSizeVW
+	h1 {
+		font-size: calculateSizeVW($fs-36 * $size-mobile-h);
+	}
+
+	h2 {
+		font-size: calculateSizeVW($fs-30 * $size-mobile-h);
+	}
+
+	h3 {
+		font-size: calculateSizeVW($fs-26 * $size-mobile-h);
+	}
+
+	h4 {
+		font-size: calculateSizeVW($fs-24 * $size-mobile-h);
+	}
+
+	.font-22 {
+		display: inline;
+		font-size: calculateSizeVW($fs-22 * $size-mobile-h);
+	}
+
+	.font-20 {
+		display: inline;
+		font-size: calculateSizeVW($fs-20 * $size-mobile-h);
+	}
+
+	.font-18 {
+		display: inline;
+		font-size: calculateSizeVW($fs-18 * $size-mobile-h);
+	}
+
+	.font-16 {
+		display: inline;
+		font-size: calculateSizeVW($fs-16 * $size-mobile-h);
+	}
+
+	.font-14 {
+		display: inline;
+		font-size: calculateSizeVW($fs-14 * $size-mobile-h);
+	}
+
+	.font-12 {
+		display: inline;
+		font-size: calculateSizeVW($fs-12 * $size-mobile-h);
+	}
+
+	.font-10 {
+		display: inline;
+		font-size: calculateSizeVW($fs-10 * $size-mobile-h);
+	}
+
+	.font-8 {
+		display: inline;
+		font-size: calculateSizeVW($fs-8 * $size-mobile-h);
 	}
 }

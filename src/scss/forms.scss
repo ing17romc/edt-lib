@@ -254,3 +254,57 @@ input[type='search']::-webkit-search-results-decoration {
 		}
 	}
 }
+
+
+@media (orientation: landscape) {
+	.control-container {
+		span {
+			min-height: calculateSizeVW($min-height-span * $size-mobile-h);
+			font-size: calculateSizeVW($font-size-control * $size-mobile-h);
+		}
+
+		& select,
+		& input {
+			border-radius: calculateSizeVW($border-radio * $size-mobile-h);
+			border: calculateSizeVW($border * $size-mobile-h) solid $black-color;
+			height: calculateSizeVW($height-control * $size-mobile-h);
+			padding: 0px calculateSizeVW($padding * $size-mobile-h) calculateSizeVW($padding * $size-mobile-h) calculateSizeVW($padding * $size-mobile-h);
+			margin-bottom: calculateSizeVW($margin-bottom * $size-mobile-h);
+			letter-spacing: calculateSizeVW($letter-spacing * $size-mobile-h);
+			font-size: calculateSizeVW($font-size * $size-mobile-h);
+
+			&::placeholder {
+				font-size: calculateSizeVW($font-size * $size-mobile-h);
+			}
+
+			&>option {
+				font-size: calculateSizeVW($font-size * $size-mobile-h);
+			}
+		}
+
+		& textarea {
+			border-radius: calculateSizeVW($border-radio * $size-mobile-h);
+			border: calculateSizeVW($border * $size-mobile-h) solid $black-color;
+			padding: calculateSizeVW($padding * $size-mobile-h);
+			margin-bottom: calculateSizeVW($margin-bottom * $size-mobile-h);
+			letter-spacing: calculateSizeVW($letter-spacing * $size-mobile-h);
+			font-size: calculateSizeVW($font-size * $size-mobile-h);
+
+			&::placeholder {
+				font-size: calculateSizeVW($font-size * $size-mobile-h);
+			}
+		}
+
+		& .required {
+
+			& select,
+			& input {
+				border: calculateSizeVW($border * $size-mobile-h) solid $red-color;
+			}
+
+			& textarea {
+				border: calculateSizeVW($border * $size-mobile-h) solid $red-color;
+			}
+		}
+	}
+}

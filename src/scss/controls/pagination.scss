@@ -106,3 +106,17 @@ $min-width: 32;
     }
   }
 }
+
+
+@media (orientation: landscape) {
+  .pagination-container {
+    .pagination-item {
+      padding: 0 calculateSizeVW($padding * $size-mobile-h);
+      height: calculateSizeVW($height * $size-mobile-h);
+      margin: auto calculateSizeVW($margin * $size-mobile-h);
+      border-radius: calculateSizeVW($border-radius * $size-mobile-h);
+      font-size: calculateSizeVW($font-size * $size-mobile-h);
+      min-width: calculateSizeVW($min-width * $size-mobile-h);
+    }
+  }
+}

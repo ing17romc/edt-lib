@@ -130,3 +130,39 @@ button {
 		}
 	}
 }
+
+
+@media (orientation: landscape) {
+
+	button {
+		border-radius: calculateSizeVW($border-radius * $size-mobile-h);
+
+		&.primary {
+			border: calculateSizeVW($border-size * $size-mobile-h) solid $primary-color-1;
+		}
+
+		&.secondary {
+			border: calculateSizeVW($border-size * $size-mobile-h) solid $primary-color-1;
+		}
+
+		&.lg {
+			height: calculateSizeVW($button-large * $size-mobile-h);
+			font-size: calculateSizeVW($font-size-large * $size-mobile-h);
+		}
+
+		&.md {
+			height: calculateSizeVW($button-normal * $size-mobile-h);
+			font-size: calculateSizeVW($font-size-normal * $size-mobile-h);
+		}
+
+		&.sm {
+			height: calculateSizeVW($button-small * $size-mobile-h);
+			font-size: calculateSizeVW($font-size-small * $size-mobile-h);
+		}
+
+		&.xs {
+			height: calculateSizeVW($button-extra-small * $size-mobile-h);
+			font-size: calculateSizeVW($font-size-extra-small * $size-mobile-h);
+		}
+	}
+}
