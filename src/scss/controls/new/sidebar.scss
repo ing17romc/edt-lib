@@ -66,3 +66,14 @@ $padding-w: 16;
         font-size: calculateSizeVW($font-size * $size-mobile);
     }
 }
+
+@media (orientation: landscape) {
+    .sidebar {
+        padding-top: calculateSizePX($padding-top * $size-mobile-h);
+    }
+    
+    .sidebar label {
+        padding: calculateSizeVW($padding-h * $size-mobile-h) calculateSizeVW($padding-w * $size-mobile-h);
+        font-size: calculateSizeVW($font-size * $size-mobile-h);
+    }
+}
