@@ -24,5 +24,6 @@ LayoutV2.args = {
 	rightOptions,
 	sideOptions,
 	children: <div className='padding-h-40'><h1>Content</h1></div>,
-	getCurrentPath
+	getCurrentPath,
+	showSideBar: true
 }

@@ -3,12 +3,15 @@ import PropTypes from 'prop-types'
 import NavBar from './NavBar'
 import SideBar from './SideBar'
 
-const LayoutV2 = ({ sideOptions, leftOptions, rightOptions, children, getCurrentPath }) => {
+const LayoutV2 = ({ sideOptions, leftOptions, rightOptions, children, getCurrentPath, showSideBar }) => {
 	return <div>
-		<SideBar
-			options={sideOptions}
-			getCurrentPath={getCurrentPath}
-		></SideBar>
+		{ showSideBar
+			? <SideBar
+				options={sideOptions}
+				getCurrentPath={getCurrentPath}
+			></SideBar>
+			: <></>
+		}
 		<NavBar
 			leftOptions={leftOptions}
 			rightOptions={rightOptions}
@@ -40,7 +43,8 @@ LayoutV2.propTypes = {
 			name: PropTypes.string.isRequired
 		})
 	),
-	getCurrentPath: PropTypes.func.isRequired
+	getCurrentPath: PropTypes.func.isRequired,
+	showSideBar: PropTypes.bool
 }
 
 export default LayoutV2
