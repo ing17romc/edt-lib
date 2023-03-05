@@ -10,7 +10,7 @@ const LayoutV2 = ({ sideOptions, leftOptions, rightOptions, children, getCurrent
 				options={sideOptions}
 				getCurrentPath={getCurrentPath}
 			></SideBar>
-			: <></>
+			: <div></div>
 		}
 		<NavBar
 			leftOptions={leftOptions}
