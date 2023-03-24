@@ -1,35 +1,45 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import ImageButton from '../../ImageButton'
 
 const NavBar = ({ leftOptions, rightOptions, getCurrentPath }) => {
-	const renderOption = (index, path, name, isRight) => (
-		<label
-			key={index}
-			className={isRight ? 'split' : ''}
-			onClick={() => getCurrentPath(path)}>
-			{name}
-		</label>
-	)
+	const renderOption = ({ index, path, name, icon, isRight }) => {
+		console.log({ index, path, name, icon })
+		if (icon) {
+			return <div key={index} className={isRight ? 'container-navbar split' : 'container-navbar'}>
+				<ImageButton id={`id_${index.toString()}`} text={name} onClick={() => getCurrentPath(path)} icon={icon}/>
+			</div>
+		} else {
+			return <label
+				key={index}
+				className={isRight ? 'split' : ''}
+				onClick={() => getCurrentPath(path)}>
+				{name}
+			</label>
+		}
+	}
 
 	return <div className="topnav">
 		{leftOptions && leftOptions.length > 0
 			? leftOptions.map((element, index) =>
-				renderOption(
+				renderOption({
 					index,
-					element.path,
-					element.name,
-					false
-				)
+					path: element.path,
+					name: element.name,
+					icon: element.icon,
+					isRight: false
+				})
 			)
 			: <>&nbsp;</>}
 		{rightOptions && rightOptions.length > 0
 			? rightOptions.map((element, index) =>
-				renderOption(
+				renderOption({
 					index,
-					element.path,
-					element.name,
-					true
-				)
+					path: element.path,
+					name: element.name,
+					icon: element.icon,
+					isRight: true
+				})
 			)
 			: <>&nbsp;</>}
 	</div>
@@ -38,12 +48,14 @@ const NavBar = ({ leftOptions, rightOptions, getCurrentPath }) => {
 NavBar.propTypes = {
 	leftOptions: PropTypes.arrayOf(
 		PropTypes.shape({
+			icon: PropTypes.string,
 			path: PropTypes.string.isRequired,
 			name: PropTypes.string.isRequired
 		})
 	),
 	rightOptions: PropTypes.arrayOf(
 		PropTypes.shape({
+			icon: PropTypes.string,
 			path: PropTypes.string.isRequired,
 			name: PropTypes.string.isRequired
 		})

@@ -5,6 +5,11 @@ import SideBar from './SideBar'
 
 const LayoutV2 = ({ sideOptions, leftOptions, rightOptions, children, getCurrentPath, showSideBar }) => {
 	return <div>
+		<NavBar
+			leftOptions={leftOptions}
+			rightOptions={rightOptions}
+			getCurrentPath={getCurrentPath}
+		></NavBar>
 		{ showSideBar
 			? <SideBar
 				options={sideOptions}
@@ -12,11 +17,6 @@ const LayoutV2 = ({ sideOptions, leftOptions, rightOptions, children, getCurrent
 			></SideBar>
 			: <div></div>
 		}
-		<NavBar
-			leftOptions={leftOptions}
-			rightOptions={rightOptions}
-			getCurrentPath={getCurrentPath}
-		></NavBar>
 		<div className=' bg-white padding-v-60' style={{ display: 'flow-root' }}>
 			{children}
 		</div>
@@ -27,18 +27,21 @@ LayoutV2.propTypes = {
 	children: PropTypes.node.isRequired,
 	leftOptions: PropTypes.arrayOf(
 		PropTypes.shape({
+			icon: PropTypes.string,
 			path: PropTypes.string.isRequired,
 			name: PropTypes.string.isRequired
 		})
 	),
 	rightOptions: PropTypes.arrayOf(
 		PropTypes.shape({
+			icon: PropTypes.string,
 			path: PropTypes.string.isRequired,
 			name: PropTypes.string.isRequired
 		})
 	),
 	sideOptions: PropTypes.arrayOf(
 		PropTypes.shape({
+			icon: PropTypes.string,
 			path: PropTypes.string.isRequired,
 			name: PropTypes.string.isRequired
 		})

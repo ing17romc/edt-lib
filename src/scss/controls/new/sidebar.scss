@@ -29,7 +29,7 @@ $padding-w: 16;
     text-decoration: none;
     font-size: calculateSizeVW($font-size);
     color: #818181;
-    display: block;
+    display: flex;
     cursor: pointer;
 }
 

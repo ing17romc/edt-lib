@@ -10,10 +10,10 @@ const Template = (args) => <Component {...args} />
 
 export const LayoutV2 = Template.bind({})
 
-const leftOptions = [{ path: '/', name: 'Home' }]
-const rightOptions = [{ path: '/exit', name: 'Exit' }]
+const leftOptions = [{ path: '/', name: 'Home', icon: 'menu' }]
+const rightOptions = [{ path: '/exit', name: 'Exit', icon: 'logout' }]
 const sideOptions = [
-	{ path: '/option1', name: 'Option 1' },
+	{ path: '/option1', name: 'Option 1', icon: 'chevron_right' },
 	{ path: '/option2', name: 'Option 2' },
 	{ path: '/option3', name: 'Option 3' }
 ]
