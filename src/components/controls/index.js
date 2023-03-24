@@ -18,6 +18,7 @@ import ImageButton from './ImageButton'
 import Pagination from './Pagination'
 import Layout from './Layout'
 import LayoutV2 from './LayoutV2'
+import Breadcrumb from './Breadcrumb'
 
 const UI = {
 	Button,
@@ -39,7 +40,8 @@ const UI = {
 	Pagination,
 	Spinner,
 	Layout,
-	LayoutV2
+	LayoutV2,
+	Breadcrumb
 }
 
 export default UI
