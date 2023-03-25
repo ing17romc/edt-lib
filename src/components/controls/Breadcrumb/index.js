@@ -6,9 +6,9 @@ import PropTypes from 'prop-types'
  *
  * @returns TO DO
  */
-const Breadcrumb = ({ options }) => <div>
+const Breadcrumb = ({ options, getCurrentPath }) => <div>
 	<ul className="breadcrumb">
-		{options.map((element, index) => <li key={index} ><a href={element.url}>{element.text}</a></li>)}
+		{options.map((element, index) => <li key={index} ><a onClick={() => getCurrentPath(element.url)}>{element.text}</a></li>)}
 	</ul>
 </div>
 
