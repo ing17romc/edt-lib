@@ -17,9 +17,14 @@ const sideOptions = [
 	{ path: '/option2', name: 'Option 2' },
 	{ path: '/option3', name: 'Option 3' }
 ]
+const breadcrumbOptions = [
+	{ url: '#', text: 'Option 1' },
+	{ url: '#', text: 'Option 2' }
+]
 const getCurrentPath = path => alert(path)
 
 LayoutV2.args = {
+	breadcrumbOptions,
 	leftOptions,
 	rightOptions,
 	sideOptions,

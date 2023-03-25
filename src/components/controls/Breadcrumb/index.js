@@ -6,9 +6,11 @@ import PropTypes from 'prop-types'
  *
  * @returns TO DO
  */
-const Breadcrumb = ({ options }) => <ul className="breadcrumb">
-	{options.map((element, index) => <li key={index} ><a href={element.url}>{element.text}</a></li>)}
-</ul>
+const Breadcrumb = ({ options }) => <div>
+	<ul className="breadcrumb">
+		{options.map((element, index) => <li key={index} ><a href={element.url}>{element.text}</a></li>)}
+	</ul>
+</div>
 
 Breadcrumb.propTypes = {
 	options: PropTypes.arrayOf(
