@@ -17,6 +17,7 @@ ul.breadcrumb {
 ul.breadcrumb li {
   display: inline;
   font-size: calculateSizeVW($font-size-normal);
+  cursor:pointer;
 }
 
 /* Add a slash symbol (/) before/behind each list item */
