@@ -1,6 +1,5 @@
 import React from 'react';
 import { TextButtonProps } from './types';
-import { ternaryOperation } from '../../utils/functions';
 
 /**
  * Componente TextButton que muestra un botón de texto con diferentes estilos.

@@ -22,9 +22,9 @@ const Form = () => {
 
 	const [loading, setloading] = useState(false)
 
-	const onInputChange = e => {
-		const object = getValueInput(e)
-		if (e) {
+	const onInputChange = () => {
+		const object = getValueInput()
+		if (object) {
 			setstate({
 				...state,
 				[object.key]: object.value
@@ -32,8 +32,7 @@ const Form = () => {
 		}
 	}
 
-	const handleSubmit = e => {
-		e.preventDefault()
+	const handleSubmit = () => {
 		alert('Form submitted ')
 	}
 
@@ -56,7 +55,7 @@ const Form = () => {
 								<UI.CheckButton
 									id='disabled'
 									label='disabled'
-									eventChange={e => onInputChange(e)}
+									eventChange={onInputChange}
 									checked={state.disabled}
 								/>
 							</div>
@@ -64,7 +63,7 @@ const Form = () => {
 								<UI.CheckButton
 									id='readOnly'
 									label='readOnly'
-									eventChange={e => onInputChange(e)}
+									eventChange={onInputChange}
 									checked={state.readOnly}
 								/>
 							</div>
@@ -72,7 +71,7 @@ const Form = () => {
 								<UI.CheckButton
 									id='required'
 									label='required'
-									eventChange={e => onInputChange(e)}
+									eventChange={onInputChange}
 									checked={state.required}
 								/>
 							</div>
@@ -86,7 +85,7 @@ const Form = () => {
 									name='gender'
 									value={state.gender}
 									label='Hombre'
-									eventChange={e => onInputChange(e)}
+									eventChange={onInputChange}
 									disabled={state.disabled}
 									required={state.required}
 									readOnly={state.readOnly}
@@ -98,7 +97,7 @@ const Form = () => {
 									name='gender'
 									value={state.gender}
 									label='Mujer'
-									eventChange={e => onInputChange(e)}
+									eventChange={onInputChange}
 									disabled={state.disabled}
 									required={state.required}
 									readOnly={state.readOnly}
@@ -110,7 +109,7 @@ const Form = () => {
 									id='civilStatus'
 									value={state.civilStatus}
 									options={CIVIL_STATUS}
-									eventChange={e => onInputChange(e)}
+									eventChange={onInputChange}
 									titleBottom='Estado civil'
 									disabled={state.disabled}
 									required={state.required}
@@ -122,7 +121,7 @@ const Form = () => {
 								<UI.TextBox
 									id='dni'
 									value={state.dni}
-									eventChange={e => onInputChange(e)}
+									eventChange={onInputChange}
 									titleBottom='Doc. Identificación'
 									disabled={state.disabled}
 									required={state.required}
@@ -134,7 +133,7 @@ const Form = () => {
 								<UI.DatePicker
 									id='birthDate'
 									value={state.birthDate}
-									eventChange={e => onInputChange(e)}
+									eventChange={onInputChange}
 									title='Fecha de Nacimiento'
 									disabled={state.disabled}
 									required={state.required}
@@ -146,7 +145,7 @@ const Form = () => {
 								<UI.TextBox
 									id='name'
 									value={state.name}
-									eventChange={e => onInputChange(e)}
+									eventChange={onInputChange}
 									titleBottom='Nombres'
 									disabled={state.disabled}
 									required={state.required}
@@ -157,7 +156,7 @@ const Form = () => {
 								<UI.TextBox
 									id='lastName'
 									value={state.lastName}
-									eventChange={e => onInputChange(e)}
+									eventChange={onInputChange}
 									titleBottom='Apellidos'
 									disabled={state.disabled}
 									required={state.required}
@@ -172,7 +171,7 @@ const Form = () => {
 									value={state.description}
 									placeholder='Escriba aquí'
 									title='Dirección'
-									eventChange={e => onInputChange(e)}
+									eventChange={onInputChange}
 									disabled={state.disabled}
 									required={state.required}
 									readOnly={state.readOnly}
@@ -182,7 +181,7 @@ const Form = () => {
 							<div className='start-1 size-1 padding-v-20 center'>
 								<UI.CheckButton
 									id='noticePrivacy'
-									eventChange={e => onInputChange(e)}
+									eventChange={onInputChange}
 									checked={state.noticePrivacy}
 									disabled={state.disabled}
 									required={state.required}
@@ -193,7 +192,7 @@ const Form = () => {
 								<UI.TextButton
 									id='btnNoticePrivacy'
 									text='Aviso de privacidad '
-									onClick={e =>
+									onClick={() =>
 										alert('clic Aviso privacidad')
 									}
 									disabled={state.disabled}
@@ -209,7 +208,7 @@ const Form = () => {
 						<UI.Button
 							title='Cargando'
 							type='secondary'
-							onClick={e => setloading(true)}
+							onClick={() => setloading(true)}
 							disabled={state.disabled}
 						/>
 					</div>

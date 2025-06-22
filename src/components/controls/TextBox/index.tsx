@@ -1,5 +1,5 @@
-import React, { forwardRef, Ref } from 'react';
-import { STYLE_STATUS_CONTROL } from '../../utils/constant';
+import React, { forwardRef } from 'react';
+
 import { TextBoxProps } from './types';
 
 

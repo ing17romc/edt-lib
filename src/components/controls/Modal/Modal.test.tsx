@@ -55,7 +55,8 @@ describe('Modal Component', () => {
     const closeButtons = screen.getAllByRole('button', { name: /cerrar modal/i });
     const closeButton = closeButtons.find(btn => btn.classList.contains('modal-close-button'));
     expect(closeButton).toBeInTheDocument();
-    fireEvent.click(closeButton!);
+    if (!closeButton) throw new Error('closeButton not found');
+    fireEvent.click(closeButton);
     expect(mockEventModal).toHaveBeenCalledTimes(1);
   });
 
@@ -73,7 +74,8 @@ describe('Modal Component', () => {
     const overlayButton = screen.getAllByRole('button', { name: /cerrar modal/i })
       .find(btn => btn.classList.contains('modal-overlay'));
     expect(overlayButton).toBeInTheDocument();
-    fireEvent.click(overlayButton!);
+    if (!overlayButton) throw new Error('overlayButton not found');
+    fireEvent.click(overlayButton);
     expect(mockEventModal).toHaveBeenCalledTimes(1);
   });
 

@@ -1,6 +1,5 @@
-import React, { forwardRef, Ref } from 'react';
+import React, { forwardRef } from 'react';
 import { STYLE_STATUS_CONTROL } from '../../utils/constant';
-import { getInitialValue } from '../../utils/functions';
 import { SelectorProps } from './types';
 
 /**

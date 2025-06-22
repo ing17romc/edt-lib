@@ -1,4 +1,4 @@
-import React, { forwardRef, Ref } from 'react';
+import React, { forwardRef } from 'react';
 import { STYLE_STATUS_CONTROL } from '../../utils/constant';
 import { TextAreaProps } from './types';
 

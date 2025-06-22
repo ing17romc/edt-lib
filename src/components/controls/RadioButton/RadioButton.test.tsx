@@ -110,8 +110,6 @@ describe('RadioButton Component', () => {
       <RadioButton {...mockProps} />
     );
 
-    const radio = screen.getByRole('radio');
-    // Buscar el label explícitamente en el DOM
     const { container } = render(<RadioButton {...mockProps} />);
     const label = container.querySelector(`label[for="${mockId}"]`);
     expect(label).toBeInTheDocument();

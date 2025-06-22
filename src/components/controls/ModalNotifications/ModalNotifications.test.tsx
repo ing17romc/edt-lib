@@ -93,7 +93,8 @@ describe('ModalNotifications Component', () => {
     const closeButtons = screen.getAllByRole('button', { name: /cerrar modal/i });
     const closeButton = closeButtons.find(btn => btn.classList.contains('modal-close-button'));
     expect(closeButton).toBeInTheDocument();
-    fireEvent.click(closeButton!);
+    if (!closeButton) throw new Error('closeButton not found');
+    fireEvent.click(closeButton);
     expect(mockEventModal).toHaveBeenCalledTimes(1);
   });
 
