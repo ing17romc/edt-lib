@@ -11,7 +11,7 @@ import { MenuProps } from './types';
  * @returns {JSX.Element} Elemento nav con el menú de navegación
  */
 
-export const Menu: React.FC<MenuProps> = ({ options, getCurrentPath }) => (
+ const Menu: React.FC<MenuProps> = ({ options, getCurrentPath }) => (
   <nav role="navigation" aria-label="Menú principal">
     <div className="grid-primary">
       {options.map((option, index) => (
@@ -34,4 +34,4 @@ export const Menu: React.FC<MenuProps> = ({ options, getCurrentPath }) => (
   </nav>
 );
 
-
+export default Menu;

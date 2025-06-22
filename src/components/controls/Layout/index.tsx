@@ -1,25 +1,23 @@
-import React from 'react'
-import NavBar from './NavBar'
-import Footer from './Footer'
+import React from 'react';
+import NavBar from './NavBar';
+import Footer from './Footer';
+import type { LayoutProps } from './types';
 
 /**
- * Componente Layout principal
+ * Layout Component principal
  *
- * @param {Object} props
- * @param {Array} props.leftOptions - Opciones del menú izquierdo
- * @param {Array} props.rightOptions - Opciones del menú derecho
- * @param {ReactNode} props.footer - Contenido del footer
- * @param {ReactNode} props.children - Contenido principal
- * @param {Function} props.getCurrentPath - Función para manejar cambio de ruta
- * @returns {JSX.Element} Componente Layout
+ * Componente de layout general que estructura la aplicación con barra de navegación, contenido principal y footer.
+ * Permite configurar menús izquierdo y derecho, así como el contenido principal y el pie de página.
+ *
+ * @param {LayoutProps} props - Propiedades del componente Layout.
+ * @param {LayoutMenuOption[]} props.leftOptions - Opciones del menú izquierdo.
+ * @param {LayoutMenuOption[]} props.rightOptions - Opciones del menú derecho.
+ * @param {React.ReactNode} props.footer - Contenido del footer.
+ * @param {React.ReactNode} props.children - Contenido principal.
+ * @param {(path: string) => void} props.getCurrentPath - Función callback para manejar el cambio de ruta.
+ * @returns {JSX.Element} Estructura de layout general con navegación, contenido y footer.
  */
-export const Layout: React.FC<{
-  leftOptions: Array<{ path: string; name: string; icon: string }>,
-  rightOptions: Array<{ path: string; name: string; icon: string }>,
-  footer: React.ReactNode,
-  children: React.ReactNode,
-  getCurrentPath: (path: string) => void
-}> = ({ leftOptions, rightOptions, footer, children, getCurrentPath }) => (
+export const Layout: React.FC<LayoutProps> = ({ leftOptions, rightOptions, footer, children, getCurrentPath }) => (
   <div role="main">
     <div className='layout bg-white'>
       <NavBar

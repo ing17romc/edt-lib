@@ -11,7 +11,6 @@ import DatePicker from './DatePicker'
 import Modal from './Modal'
 import ModalNotifications from './ModalNotifications'
 import ModalHttpMessage from './ModalHttpMessage'
-import ModalViewerPDF from './ModalViewerPDF'
 import Icon from './Icon'
 import Menu from './Menu'
 import ImageButton from './ImageButton'
@@ -33,7 +32,6 @@ const UI = {
 	Modal,
 	ModalNotifications,
 	ModalHttpMessage,
-	ModalViewerPDF,
 	Icon,
 	Menu,
 	ImageButton,

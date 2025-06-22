@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { Menu } from './index';
+import Menu from './index';
 
 describe('Menu Component', () => {
   const mockOptions = [

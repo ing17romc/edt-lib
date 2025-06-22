@@ -1,21 +1,21 @@
-import React from 'react'
-
 /**
- * Componente de barra de navegación
+/**
+ * NavBar Component (Layout)
  *
- * @param {Object} props
- * @param {Array} props.leftOptions - Opciones del menú izquierdo
- * @param {Array} props.rightOptions - Opciones del menú derecho
- * @param {string} props.currentPath - Ruta actual
- * @param {Function} props.getCurrentPath - Función para manejar cambio de ruta
- * @returns {JSX.Element} Componente de barra de navegación
+ * Barra de navegación principal para la estructura de layout.
+ * Permite mostrar enlaces a la izquierda y derecha, y resalta la ruta actual.
+ *
+ * @param {LayoutNavBarProps} props - Propiedades del componente NavBar.
+ * @param {LayoutNavBarOption[]} props.leftOptions - Opciones del menú izquierdo.
+ * @param {LayoutNavBarOption[]} props.rightOptions - Opciones del menú derecho.
+ * @param {string} props.currentPath - Ruta actualmente activa.
+ * @param {(path: string) => void} props.getCurrentPath - Función callback para manejar el cambio de ruta.
+ * @returns {JSX.Element} Un elemento de barra de navegación con opciones a la izquierda y derecha y resaltado de la ruta actual.
  */
-const NavBar: React.FC<{
-  leftOptions: Array<{ path: string; name: string }>,
-  rightOptions: Array<{ path: string; name: string }>,
-  currentPath: string,
-  getCurrentPath: (path: string) => void
-}> = ({ leftOptions, rightOptions, currentPath, getCurrentPath }) => {
+import React from 'react';
+import type { LayoutNavBarProps } from './types';
+
+const NavBar: React.FC<LayoutNavBarProps> = ({ leftOptions, rightOptions, currentPath, getCurrentPath }) => {
   const renderOption = (index: number, path: string, name: string) => (
     <button
       type="button"
@@ -27,7 +27,7 @@ const NavBar: React.FC<{
     >
       {name}
     </button>
-  )
+  );
 
   return (
     <nav className='layout__nav-bar bg-primary-1' aria-label="Navegación principal">
