@@ -44,15 +44,16 @@ const Pagination: React.FC<PaginationProps> = ({ totalCount, currentPage = 1, on
 
   return (
     <ul className={classnames('pagination-container', className)}>
-      <li
-        className={classnames('pagination-item', {
-          disabled: currentPage === 1,
-        })}
-        onClick={onPrevious}
-        aria-disabled={currentPage === 1}
-        tabIndex={currentPage === 1 ? -1 : 0}
-      >
-        <div className="arrow left" />
+      <li className={classnames('pagination-item', { disabled: currentPage === 1 })}>
+        <button
+          type="button"
+          className="arrow-btn left"
+          onClick={onPrevious}
+          disabled={currentPage === 1}
+          aria-label="Página anterior"
+        >
+          <div className="arrow left" />
+        </button>
       </li>
       {paginationRange.map(pageNumber => (
         <li
@@ -60,22 +61,29 @@ const Pagination: React.FC<PaginationProps> = ({ totalCount, currentPage = 1, on
           className={classnames('pagination-item', {
             selected: pageNumber === currentPage,
           })}
-          onClick={() => onPageChange(pageNumber)}
-          aria-current={pageNumber === currentPage ? 'page' : undefined}
-          tabIndex={0}
         >
-          {pageNumber}
+          <button
+            type="button"
+            className="page-btn"
+            onClick={() => onPageChange(pageNumber)}
+            aria-current={pageNumber === currentPage ? 'page' : undefined}
+            aria-label={`Ir a la página ${pageNumber}`}
+            disabled={pageNumber === currentPage}
+          >
+            {pageNumber}
+          </button>
         </li>
       ))}
-      <li
-        className={classnames('pagination-item', {
-          disabled: currentPage === lastPage,
-        })}
-        onClick={onNext}
-        aria-disabled={currentPage === lastPage}
-        tabIndex={currentPage === lastPage ? -1 : 0}
-      >
-        <div className="arrow right" />
+      <li className={classnames('pagination-item', { disabled: currentPage === lastPage })}>
+        <button
+          type="button"
+          className="arrow-btn right"
+          onClick={onNext}
+          disabled={currentPage === lastPage}
+          aria-label="Página siguiente"
+        >
+          <div className="arrow right" />
+        </button>
       </li>
     </ul>
   );

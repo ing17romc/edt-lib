@@ -32,10 +32,8 @@ describe('Pagination Component', () => {
   test('debe deshabilitar el botón "anterior" en la primera página', () => {
     render(<Pagination totalCount={10} currentPage={1} onPageChange={onPageChangeMock} />);
 
-    const previousButton = screen.getAllByRole('listitem')[0];
-    expect(previousButton).toHaveClass('disabled');
-    expect(previousButton).toHaveAttribute('aria-disabled', 'true');
-
+    const previousButton = screen.getAllByRole('button')[0];
+    expect(previousButton).toBeDisabled();
     fireEvent.click(previousButton);
     expect(onPageChangeMock).not.toHaveBeenCalled();
   });
@@ -43,26 +41,26 @@ describe('Pagination Component', () => {
   test('debe deshabilitar el botón "siguiente" en la última página', () => {
     render(<Pagination totalCount={10} currentPage={10} onPageChange={onPageChangeMock} />);
 
-    const nextButton = screen.getAllByRole('listitem').pop();
-    expect(nextButton).toHaveClass('disabled');
-    expect(nextButton).toHaveAttribute('aria-disabled', 'true');
-
-    fireEvent.click(nextButton as Element);
+    const buttons = screen.getAllByRole('button');
+    const nextButton = buttons[buttons.length - 1];
+    expect(nextButton).toBeDisabled();
+    fireEvent.click(nextButton);
     expect(onPageChangeMock).not.toHaveBeenCalled();
   });
 
   test('debe llamar a onPageChange al hacer clic en "siguiente"', () => {
     render(<Pagination totalCount={10} currentPage={5} onPageChange={onPageChangeMock} />);
 
-    const nextButton = screen.getAllByRole('listitem').pop();
-    fireEvent.click(nextButton as Element);
+    const buttons = screen.getAllByRole('button');
+    const nextButton = buttons[buttons.length - 1];
+    fireEvent.click(nextButton);
     expect(onPageChangeMock).toHaveBeenCalledWith(6);
   });
 
   test('debe llamar a onPageChange al hacer clic en "anterior"', () => {
     render(<Pagination totalCount={10} currentPage={5} onPageChange={onPageChangeMock} />);
 
-    const previousButton = screen.getAllByRole('listitem')[0];
+    const previousButton = screen.getAllByRole('button')[0];
     fireEvent.click(previousButton);
     expect(onPageChangeMock).toHaveBeenCalledWith(4);
   });

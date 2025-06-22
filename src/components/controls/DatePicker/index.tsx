@@ -59,7 +59,7 @@ const DatePicker = ({
 
   const onChangeDay = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const newDay = e.target.value;
-    setDay(prevDay => {
+    setDay(() => {
       const updatedDay = newDay;
       if (month && updatedDay && year) {
         const strNewDate = dateformat(month, updatedDay, year);
@@ -71,7 +71,7 @@ const DatePicker = ({
 
   const onChangeMonth = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const newMonth = e.target.value;
-    setMonth(prevMonth => {
+    setMonth(() => {
       const updatedMonth = newMonth;
       if (updatedMonth && day && year) {
         const strNewDate = dateformat(updatedMonth, day, year);
@@ -83,7 +83,7 @@ const DatePicker = ({
 
   const onChangeYear = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const newYear = e.target.value;
-    setYear(prevYear => {
+    setYear(() => {
       const updatedYear = newYear;
       if (month && day && updatedYear) {
         const strNewDate = dateformat(month, day, updatedYear);

@@ -92,7 +92,7 @@ describe('Menu Component', () => {
     const gridElement = container.querySelector('.grid-primary');
     expect(gridElement).toBeInTheDocument();
 
-    mockOptions.forEach((_, index) => {
+    mockOptions.forEach(() => {
       const optionContainer = container.querySelector('.size-3.padding-v-30');
       expect(optionContainer).toBeInTheDocument();
     });

@@ -30,12 +30,16 @@ const Modal: React.FC<ModalProps> = ({ show, eventModal, children }) => {
       aria-labelledby="modal-title"
       className="modal"
       tabIndex={-1}
-      onClick={(e) => {
-        if (e.currentTarget === e.target) {
-          closeModal(e);
-        }
-      }}
     >
+      <button 
+        type="button" 
+        className="modal-overlay" 
+        onClick={closeModal} 
+        aria-label="Cerrar modal"
+        tabIndex={0}
+      >
+        <span className="visually-hidden">Cerrar modal</span>
+      </button>
       <div className="modal-content">
         <div className="modal-container">
           <div className="padding-v-20 padding-h-20">

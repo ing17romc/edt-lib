@@ -51,8 +51,11 @@ describe('Modal Component', () => {
       </Modal>
     );
 
-    const closeButton = screen.getByRole('button', { name: /cerrar modal/i });
-    fireEvent.click(closeButton);
+    // Selecciona el botón de cerrar por clase
+    const closeButtons = screen.getAllByRole('button', { name: /cerrar modal/i });
+    const closeButton = closeButtons.find(btn => btn.classList.contains('modal-close-button'));
+    expect(closeButton).toBeInTheDocument();
+    fireEvent.click(closeButton!);
     expect(mockEventModal).toHaveBeenCalledTimes(1);
   });
 
@@ -66,8 +69,11 @@ describe('Modal Component', () => {
       </Modal>
     );
 
-    const modal = screen.getByRole('dialog');
-    fireEvent.click(modal);
+    // Selecciona el botón overlay
+    const overlayButton = screen.getAllByRole('button', { name: /cerrar modal/i })
+      .find(btn => btn.classList.contains('modal-overlay'));
+    expect(overlayButton).toBeInTheDocument();
+    fireEvent.click(overlayButton!);
     expect(mockEventModal).toHaveBeenCalledTimes(1);
   });
 
@@ -85,7 +91,10 @@ describe('Modal Component', () => {
     expect(modal).toHaveAttribute('aria-modal', 'true');
     expect(modal).toHaveAttribute('aria-labelledby', 'modal-title');
 
-    const closeButton = screen.getByRole('button');
+    const closeButtons = screen.getAllByRole('button');
+    // Busca el botón de cerrar por aria-label
+    const closeButton = closeButtons.find(btn => btn.getAttribute('aria-label') === 'Cerrar modal');
+    expect(closeButton).toBeInTheDocument();
     expect(closeButton).toHaveAttribute('aria-label', 'Cerrar modal');
   });
 

@@ -11,7 +11,6 @@ import Footer from './Footer'
  * @param {ReactNode} props.footer - Contenido del footer
  * @param {ReactNode} props.children - Contenido principal
  * @param {Function} props.getCurrentPath - Función para manejar cambio de ruta
- * @param {string} props.currentPath - Ruta actual
  * @returns {JSX.Element} Componente Layout
  */
 export const Layout: React.FC<{
@@ -19,9 +18,8 @@ export const Layout: React.FC<{
   rightOptions: Array<{ path: string; name: string; icon: string }>,
   footer: React.ReactNode,
   children: React.ReactNode,
-  getCurrentPath: (path: string) => void,
-  currentPath: string
-}> = ({ leftOptions, rightOptions, footer, children, getCurrentPath, currentPath }) => (
+  getCurrentPath: (path: string) => void
+}> = ({ leftOptions, rightOptions, footer, children, getCurrentPath }) => (
   <div role="main">
     <div className='layout bg-white'>
       <NavBar

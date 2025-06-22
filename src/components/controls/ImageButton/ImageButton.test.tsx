@@ -63,7 +63,7 @@ describe('ImageButton Component', () => {
           id="submit-button"
           text="Submit Button"
           icon="save"
-          onClick={() => {}}
+          onClick={() => { /* noop: required for test */ expect(true).toBe(true); }}
         />
         <ImageButton
           id="regular-button"

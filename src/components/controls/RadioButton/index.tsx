@@ -53,7 +53,7 @@ const RadioButton: React.FC<RadioButtonProps> = forwardRef<HTMLInputElement, Rad
           type="radio"
           id={id}
           name={name}
-          required={!disabled && required && !value}
+          required={required && !disabled}
           disabled={disabled}
           value={value}
           checked={id === value}
@@ -64,9 +64,7 @@ const RadioButton: React.FC<RadioButtonProps> = forwardRef<HTMLInputElement, Rad
           }}
           ref={ref}
           aria-label={label}
-          aria-required={required}
           aria-disabled={disabled}
-          aria-readonly={readOnly}
           {...props}
         />
         <label htmlFor={id}>

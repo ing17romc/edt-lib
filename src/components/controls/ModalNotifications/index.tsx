@@ -76,7 +76,7 @@ const ModalNotifications: React.FC<Omit<ModalNotificationsProps, 'eventContinue'
           <Button
             title='Continuar'
             type='PRIMARY'
-            onClick={eventContinue as any}
+            onClick={eventContinue as unknown}
           />
         </div>
       </div>

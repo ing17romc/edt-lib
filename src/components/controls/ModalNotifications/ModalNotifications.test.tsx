@@ -90,8 +90,10 @@ describe('ModalNotifications Component', () => {
       <ModalNotifications {...mockProps} />
     );
 
-    const closeButton = screen.getByRole('button', { name: /cerrar modal/i });
-    fireEvent.click(closeButton);
+    const closeButtons = screen.getAllByRole('button', { name: /cerrar modal/i });
+    const closeButton = closeButtons.find(btn => btn.classList.contains('modal-close-button'));
+    expect(closeButton).toBeInTheDocument();
+    fireEvent.click(closeButton!);
     expect(mockEventModal).toHaveBeenCalledTimes(1);
   });
 
