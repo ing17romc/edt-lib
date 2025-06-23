@@ -1,23 +1,32 @@
-import React, { useState } from 'react'
-import { httpCodes } from '../data'
-import CONSTANT from '../../../src/components/utils/constant'
-import functions from '../../../src/components/utils/functions'
-import UI from '../../../src/components/controls'
+import React, { useState } from 'react';
+import { httpCodes } from '../data';
+import CONSTANT from '../../../src/components/utils/constant';
+import functions from '../../../src/components/utils/functions';
+import UI from '../../../src/components/controls';
+import type { ModalesState, ModalesProps } from './types';
 
-const Modales = () => {
+/**
+ * Modales
+ *
+ * Componente de ejemplo que muestra el uso de diferentes tipos de modales personalizados.
+ * Permite visualizar y probar modales de notificación, mensajes HTTP y visor de PDF.
+ *
+ * @param {ModalesProps} props - Propiedades del componente (actualmente no recibe props)
+ * @returns {JSX.Element} Vista interactiva para probar modales personalizados
+ */
+const Modales: React.FC<ModalesProps> = () => {
 	const { TYPE_NOTIFICATION } = CONSTANT
 	const { getValueInput, getOptionsSelector } = functions
 
-	const [state, setstate] = useState({
+	const [state, setstate] = useState<ModalesState>({
 		typeNotification: 'info',
 		httpCode: 404,
 		pdf: 'http://www.africau.edu/images/default/sample.pdf'
 	})
 
-	const onInputChange = e => {
+	const onInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
 		const object = getValueInput(e)
-		console.log(object)
-		if (e) {
+		if (e && object) {
 			setstate({
 				...state,
 				[object.key]: object.value
@@ -28,14 +37,13 @@ const Modales = () => {
 	const [modal, setModal] = useState(false)
 	const [modalNotifications, setModalNotifications] = useState(false)
 	const [modalHttpMessage, setModalHttpMessage] = useState(false)
-	const [modalViewerPDF, setModalViewerPDF] = useState(false)
 
 	return (
 		<>
 			<div className='container-body'>
 				<div className='grid-primary '>
 					<div className='start-1 size-12 padding-v-20'>
-						<UI.Title label='Ejemplos modales' />
+						<UI.Title title="Ejemplos modales">Ejemplos modales</UI.Title>
 					</div>
 
 					<div className='grid-secondary  padding-v-40'>
@@ -103,12 +111,6 @@ const Modales = () => {
 					</div>
 				</div>
 			</div>
-
-			<UI.ModalViewerPDF
-				show={modalViewerPDF}
-				eventModal={() => setModalViewerPDF(!modalViewerPDF)}
-				pdf={state.pdf}
-			/>
 
 			<UI.Modal show={modal} eventModal={() => setModal(!modal)}>
 				<div className='padding-v-40 padding-h-40'>
