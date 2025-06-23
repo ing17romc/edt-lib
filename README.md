@@ -1,34 +1,95 @@
 
-# Description
-UI component library developed in ReactJS
+# edt-lib
 
-## Homepage
-http://ing17romc.github.io/edt-lib/
+**UI component library for React 19 + TypeScript.**  
+Incluye componentes reutilizables y accesibles para aplicaciones modernas.
 
-## Repository
-https://github.com/ing17romc/edt-lib/
+---
 
-## NPM
-https://www.npmjs.com/package/edt-lib
+## 📦 Instalación
 
-## Install
+```sh
+npm install edt-lib
 ```
-npm i
+
+---
+
+## 🚀 Uso básico
+
+```tsx
+import { Title } from 'edt-lib';
+
+function App() {
+  return <Title level={1}>¡Hola, mundo!</Title>;
+}
 ```
-## Tests
-```
-npm run test
-```
-## Stories rendering
-```
+
+---
+
+## 📚 Documentación Visual
+
+Consulta la documentación interactiva y ejemplos en vivo en:  
+👉 [Storybook: http://ing17romc.github.io/edt-lib/](http://ing17romc.github.io/edt-lib/)
+
+---
+
+## 🧑‍💻 Desarrollo local
+
+Clona el repositorio y ejecuta:
+
+```sh
+npm install
 npm run storybook
 ```
-## Publish to NPM and release to Github
 
-> Need to commit and push all the changes to github and then change the version in the package.js before running the following command
+---
+
+## 🧪 Tests
+
+```sh
+npm run test
 ```
-npm run pub
+
+---
+
+## 🚢 Publicar en NPM
+
+1. Aumenta la versión en `package.json`.
+2. Compila el paquete si es necesario (`npm run build`).
+3. Publica:
+   ```sh
+   npm publish --access public
+   ```
+
+---
+
+## 🌐 Deploy de Storybook (demo visual)
+
+```sh
+npm run build-storybook
+npm run deploy-storybook
 ```
+Esto publicará la documentación en GitHub Pages:  
+[http://ing17romc.github.io/edt-lib/](http://ing17romc.github.io/edt-lib/)
+
+---
+
+## 📦 Repositorio
+
+- [GitHub](https://github.com/ing17romc/edt-lib/)
+- [NPM](https://www.npmjs.com/package/edt-lib)
+
+---
+
+## 📝 Changelog
+
+Consulta cambios y releases en [CHANGELOG.md](./CHANGELOG.md).
+
+---
+
+## License
+
+ISC
 
 # How to use
 
