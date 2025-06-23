@@ -4,6 +4,8 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+- **817790f 2025-06-22** docs: actualiza README con guía profesional para NPM y Storybook
+- **819cd2a 2025-06-22** chore: Storybook 8.x funcionando con React 19 y Vite, stories para Title, ajustes de dependencias y config estable. Agregado deploy automatizado a GitHub Pages.
 - **74186c3 2025-06-22** fix: all React component tests passing and lint clean; improved Home, TableWithIcon, and test imports for React 19/TypeScript 5
 - **9fa074c 2025-06-22** refactor: componentes estáticos compatibles con React 19, tipado estricto y tests robustos. Lint limpio.
 - **8fca8fb 2025-06-22** fix: limpieza de lint, eliminación de imports no usados y corrección de errores de ESLint y TypeScript en Layout, NavBar, SideBar y Content

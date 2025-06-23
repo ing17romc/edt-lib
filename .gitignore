@@ -27,3 +27,8 @@ yarn-error.log*
 
 # .vscode
 .eslintcache
+
+# storybook
+/storybook-static
+
+
