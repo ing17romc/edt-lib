@@ -4,7 +4,6 @@
   "description": "Front-end library, rebuilt for React",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
-  "source": "index.js",
   "author": "ing romc",
   "license": "ISC",
   "homepage": "http://ing17romc.github.io/edt-lib/",
@@ -14,12 +13,13 @@
   },
   "scripts": {
     "clean": "rm package-lock.json && rm -rf node_modules && npm i",
+    "clean-f": "rm package-lock.json && rm -rf node_modules && npm i --force",
     "build": "babel src --out-dir dist --extensions .js,.jsx,.ts,.tsx",
     "test": "jest",
     "lint": "eslint . --ext .ts,.tsx",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "deploy-storybook": "gh-pages -d storybook-static"
+    "sb": "storybook dev -p 6006",
+    "b-sb": "storybook build",
+    "d-sb": "gh-pages -d storybook-static"
   },
   "dependencies": {
     "classnames": "^2.5.0",
