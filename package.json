@@ -19,7 +19,7 @@
     "lint": "eslint . --ext .ts,.tsx",
     "sb": "storybook dev -p 6006",
     "build-sb": "storybook build",
-    "deploy-sb": "npm run build-sb && gh-pages -d storybook-static",
+    "deploy-sb": "rm -rf .gh-pages && npm run build-sb && gh-pages -d storybook-static",
     "prepublish-lib": "npm run build",
     "publish-lib": "npm publish",
     "release-lib": "npm version patch && npm run build && npm publish"
