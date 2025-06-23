@@ -1,6 +1,6 @@
 {
   "name": "edt-lib",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Front-end library, rebuilt for React",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
@@ -18,8 +18,11 @@
     "test": "jest",
     "lint": "eslint . --ext .ts,.tsx",
     "sb": "storybook dev -p 6006",
-    "b-sb": "storybook build",
-    "d-sb": "gh-pages -d storybook-static"
+    "build-sb": "storybook build",
+    "deploy-sb": "npm run build-sb && gh-pages -d storybook-static",
+    "prepublish-lib": "npm run build",
+    "publish-lib": "npm publish",
+    "release-lib": "npm version patch && npm run build && npm publish"
   },
   "dependencies": {
     "classnames": "^2.5.0",

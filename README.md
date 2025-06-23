@@ -6,11 +6,44 @@ Incluye componentes reutilizables y accesibles para aplicaciones modernas.
 
 ---
 
-## 📦 Instalación
+## Instalación
 
-```sh
+Puedes instalar la librería usando npm:
+
+```bash
 npm install edt-lib
 ```
+
+O usando yarn:
+
+```bash
+yarn add edt-lib
+```
+
+---
+
+## Publicar en npm
+
+Asegúrate de tener permisos para publicar el paquete en npm y haber actualizado la versión en `package.json` si es necesario.
+
+1. Compila el paquete y publícalo con:
+   ```bash
+   npm run publish-lib
+   ```
+   O para incrementar el patch, compilar y publicar automáticamente:
+   ```bash
+   npm run release-lib
+   ```
+
+---
+
+## Desplegar Storybook en GitHub Pages
+
+1. Construye y despliega Storybook ejecutando:
+   ```bash
+   npm run deploy-sb
+   ```
+   Esto generará el build y lo publicará en GitHub Pages usando la rama gh-pages.
 
 ---
 

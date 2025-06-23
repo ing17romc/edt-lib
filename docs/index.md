@@ -54,6 +54,24 @@ console.log(resultado);
 4. Haz push a la rama: `git push origin mi-feature`
 5. Abre un Pull Request.
 
+## Publicar en npm
+
+- Para publicar una nueva versión en npm:
+  ```bash
+  npm run publish-lib
+  ```
+- Para incrementar el patch, compilar y publicar automáticamente:
+  ```bash
+  npm run release-lib
+  ```
+
+## Desplegar Storybook en GitHub Pages
+
+- Para construir y desplegar Storybook:
+  ```bash
+  npm run deploy-sb
+  ```
+
 ## Contacto
 
 Para dudas o sugerencias, abre un issue en GitHub o contacta al mantenedor principal.
