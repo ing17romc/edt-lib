@@ -12,4 +12,9 @@ module.exports = {
   docs: {
     autodocs: true
   }
+  ,
+  viteFinal: (config) => {
+    config.base = '/edt-lib/';
+    return config;
+  }
 };
