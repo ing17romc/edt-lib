@@ -4,6 +4,8 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+- **1600fdd 2025-06-23** chore(storybook): configura base path para deploy en GitHub Pages
+
 - **666e9b2 2025-06-23** docs: actualiza instrucciones de publicación npm y Storybook en README y docs/index.md
 
 - **817790f 2025-06-22** docs: actualiza README con guía profesional para NPM y Storybook
