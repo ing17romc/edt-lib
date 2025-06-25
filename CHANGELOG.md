@@ -4,6 +4,13 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+- **a5f56d6 2025-06-25** fix: Update component tests and fix layout props
+  - Fixed Layout component to properly pass currentPath to NavBar
+  - Updated test files with correct imports and assertions
+  - Added missing data files for Home and HomeV2 components
+  - Reorganized Button component tests into __tests__ directory
+  - Added Button component stories
+
 - **80f1adf 2025-06-25** refactor: reorganiza el componente Form y añade historias de Storybook
   - Movido archivo de prueba a la carpeta `__tests__`
   - Añadido archivo `mocks.ts` para datos de prueba
