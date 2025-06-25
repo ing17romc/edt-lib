@@ -4,6 +4,13 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+- **965ae8a 2025-06-25** refactor: reorganiza archivos de prueba y añade historias de Storybook para componentes Color y Message
+  - Movidos archivos de prueba a carpetas `__tests__`
+  - Añadidos archivos `mocks.ts` para datos de prueba
+  - Creadas historias de Storybook con documentación
+  - Mejorados tipos TypeScript y cobertura de pruebas
+  - Corregidos problemas de linting
+
 - **94e8512 2025-06-23** chore: limpia .gitignore, elimina public/index.html y asegura deploy correcto de Storybook a gh-pages
 
 - **1600fdd 2025-06-23** chore(storybook): configura base path para deploy en GitHub Pages
