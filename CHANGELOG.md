@@ -4,6 +4,12 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+- **30ec24b 2025-06-25** fix: update TextButton stories and fix type error in disabled prop
+  - Fixed type error in TextButton stories by updating defaultValue.summary to be a string
+  - Reorganized test files into `__tests__` directories
+  - Updated component stories for better documentation
+  - Improved type safety in component props
+
 - **a5f56d6 2025-06-25** fix: Update component tests and fix layout props
   - Fixed Layout component to properly pass currentPath to NavBar
   - Updated test files with correct imports and assertions
