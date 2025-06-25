@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import CheckButton from './index';
+import CheckButton from '../index';
 
 describe('CheckButton Component', () => {
   const mockOnChange = jest.fn();

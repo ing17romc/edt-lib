@@ -1,57 +1,40 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import ImageButton from './index';
+import ImageButton from '../index';
+import { defaultProps, disabledProps, clickableProps } from './mocks';
 
 describe('ImageButton Component', () => {
   test('renders with correct icon and text', () => {
-    render(
-      <ImageButton
-        id="test-button"
-        text="Test Button"
-        icon="add"
-        size="MD"
-      />
-    );
+    render(<ImageButton {...defaultProps} />);
 
-    const button = screen.getByRole('button', { name: /test button/i });
+    const button = screen.getByRole('button', { name: defaultProps.text });
     expect(button).toBeInTheDocument();
-    expect(button).toHaveAttribute('id', 'test-button');
-    expect(button).toHaveAttribute('name', 'test-button');
+    expect(button).toHaveAttribute('id', defaultProps.id);
+    expect(button).toHaveAttribute('name', defaultProps.id);
 
-    const icon = screen.getByText('add');
+    const icon = screen.getByText(defaultProps.icon);
     expect(icon).toBeInTheDocument();
   });
 
   test('calls onClick when clicked and not disabled', () => {
-    const mockOnClick = jest.fn();
-    render(
-      <ImageButton
-        id="clickable-button"
-        text="Clickable Button"
-        icon="edit"
-        onClick={mockOnClick}
-      />
-    );
+    render(<ImageButton {...clickableProps} />);
 
-    const button = screen.getByRole('button', { name: /clickable button/i });
+    const button = screen.getByRole('button', { name: clickableProps.text });
     fireEvent.click(button);
-    expect(mockOnClick).toHaveBeenCalledTimes(1);
+    expect(clickableProps.onClick).toHaveBeenCalledTimes(1);
   });
 
   test('does not call onClick when disabled', () => {
     const mockOnClick = jest.fn();
     render(
       <ImageButton
-        id="disabled-button"
-        text="Disabled Button"
-        icon="delete"
-        disabled
+        {...disabledProps}
         onClick={mockOnClick}
       />
     );
 
-    const button = screen.getByRole('button', { name: /disabled button/i });
+    const button = screen.getByRole('button', { name: disabledProps.text });
     fireEvent.click(button);
     expect(mockOnClick).not.toHaveBeenCalled();
   });

@@ -1,32 +1,32 @@
-import React from 'react';
-import { CheckButtonProps } from './types';
+import React, { forwardRef } from 'react';
+import type { CheckButtonProps, CheckButtonComponent } from './types';
 
 /**
- * Componente CheckButton que proporciona un checkbox estilizado y accesible.
- * Permite controlar el estado de verificación y manejar diferentes estados de UI.
- * 
- * @param {CheckButtonProps} props - Propiedades del componente
- * @param {string} props.id - ID único para el checkbox
- * @param {string} props.label - Texto que se mostrará junto al checkbox
- * @param {boolean} [props.required=false] - Si el checkbox es requerido
- * @param {boolean} [props.disabled=false] - Si el checkbox está deshabilitado
- * @param {boolean} [props.readOnly=false] - Si el checkbox está en modo solo lectura
- * @param {boolean} [props.checked=false] - Estado de verificación inicial
- * @param {(e: React.ChangeEvent) => void} props.eventChange - Función que se ejecuta al cambiar el estado
- * @param {React.ForwardedRef} [props.ref] - Referencia al elemento input
- * @returns {JSX.Element} Elemento div con checkbox y label estilizados
+ * CheckButton component that provides a styled and accessible checkbox input.
+ * Allows controlling the checked state and handles different UI states.
+ *
+ * @component
+ * @example
+ * ```tsx
+ * <CheckButton
+ *   id="terms"
+ *   label="I agree to the terms and conditions"
+ *   required={true}
+ *   checked={isChecked}
+ *   eventChange={(e) => setIsChecked(e.target.checked)}
+ * />
+ * ```
  */
-
-const CheckButton = ({
+const CheckButton = forwardRef<HTMLInputElement, Omit<CheckButtonProps, 'ref'>>(({
   id,
   label,
   required = false,
   disabled = false,
   readOnly = false,
   checked = false,
+  className = '',
   eventChange,
-  ref
-}: CheckButtonProps) => {
+}, ref) => {
   const getStyle = () => {
     if (disabled) {
       return 'disabled';
@@ -39,7 +39,12 @@ const CheckButton = ({
   };
 
   return (
-    <div className={`checkbutton ${getStyle()}`} role="group" aria-label={label}>
+    <div 
+      className={`checkbutton ${getStyle()} ${className}`.trim()} 
+      role="group" 
+      aria-label={label}
+      data-testid={`checkbutton-${id}`}
+    >
       <input
         type="checkbox"
         id={id}
@@ -47,12 +52,13 @@ const CheckButton = ({
         required={!disabled && required && !checked}
         disabled={disabled}
         checked={checked}
+        readOnly={readOnly}
+        ref={ref}
         onChange={(e) => {
           if (!readOnly) {
             eventChange(e);
           }
         }}
-        ref={ref}
         aria-checked={checked}
         aria-disabled={disabled}
         aria-readonly={readOnly}
@@ -62,6 +68,8 @@ const CheckButton = ({
       </label>
     </div>
   );
-};
+});
 
-export default CheckButton;
+CheckButton.displayName = 'CheckButton';
+
+export default CheckButton as CheckButtonComponent;

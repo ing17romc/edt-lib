@@ -17,7 +17,7 @@
     "build": "babel src --out-dir dist --extensions .js,.jsx,.ts,.tsx",
     "test": "jest",
     "lint": "eslint . --ext .ts,.tsx",
-    "sb": "storybook dev -p 6006",
+    "sb": "npm run build-sb && storybook dev -p 6006",
     "build-sb": "storybook build",
     "deploy-sb": "rm -rf .gh-pages && npm run build-sb && gh-pages -d storybook-static",
     "prepublish-lib": "npm run build",
