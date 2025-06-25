@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import { STYLE_STATUS_CONTROL } from '../../utils/constant';
-import { RadioButtonProps } from './types';
+import type { RadioButtonProps, RadioButtonComponent } from './types';
 
 /**
  * Componente RadioButton que proporciona un botón de radio con múltiples opciones de configuración.
@@ -77,4 +77,11 @@ const RadioButton: React.FC<RadioButtonProps> = forwardRef<HTMLInputElement, Rad
 
 RadioButton.displayName = 'RadioButton';
 
-export default RadioButton;
+// Export the component with proper typing
+const TypedRadioButton = RadioButton as RadioButtonComponent;
+
+// Export the component as default
+export default TypedRadioButton;
+
+// Export the types
+export type { RadioButtonProps, RadioButtonComponent } from './types';
