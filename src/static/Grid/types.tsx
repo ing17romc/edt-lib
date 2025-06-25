@@ -1,9 +1,27 @@
-/**
- * Tipos y contratos para el componente Grid.
- */
+import React from 'react';
 
 /**
- * Props para el componente Grid.
- * Actualmente no recibe props, pero se deja la interfaz para futuras extensiones.
+ * Props for the Grid component.
+ * 
+ * @remarks
+ * Currently, the Grid component doesn't accept any props, but this interface is defined
+ * for future extensibility and to maintain consistency with the codebase.
+ * 
+ * @public
  */
-export type GridProps = Record<string, never>;
+export interface GridProps {
+  /**
+   * Optional custom class name for the grid container
+   */
+  className?: string;
+  
+  /**
+   * Optional inline styles for the grid container
+   */
+  style?: React.CSSProperties;
+}
+
+/**
+ * Type that represents the Grid component
+ */
+export type GridComponent = React.FC<GridProps>;

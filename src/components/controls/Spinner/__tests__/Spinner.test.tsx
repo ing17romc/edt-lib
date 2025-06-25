@@ -1,13 +1,12 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Spinner from './index';
+import Spinner from '..';
+import { mockSpinnerProps, mockSpinnerHiddenProps } from './mocks';
 
 describe('Spinner Component', () => {
   test('renders spinner when show is true', () => {
-    render(
-      <Spinner show={true} />
-    );
+    render(<Spinner {...mockSpinnerProps} />);
 
     const container = screen.getByRole('status');
     expect(container).toBeInTheDocument();
@@ -15,18 +14,14 @@ describe('Spinner Component', () => {
   });
 
   test('does not render spinner when show is false', () => {
-    render(
-      <Spinner show={false} />
-    );
+    render(<Spinner {...mockSpinnerHiddenProps} />);
 
     const container = screen.queryByRole('status');
     expect(container).not.toBeInTheDocument();
   });
 
   test('has correct container class when hidden', () => {
-    render(
-      <Spinner show={false} />
-    );
+    render(<Spinner {...mockSpinnerHiddenProps} />);
 
     const container = screen.getByTestId('spinner-container');
     expect(container).toHaveClass('container-load');
@@ -34,9 +29,7 @@ describe('Spinner Component', () => {
   });
 
   test('has correct container class when visible', () => {
-    render(
-      <Spinner show={true} />
-    );
+    render(<Spinner {...mockSpinnerProps} />);
 
     const container = screen.getByTestId('spinner-container');
     expect(container).toHaveClass('container-load');
