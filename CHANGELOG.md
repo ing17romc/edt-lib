@@ -4,6 +4,13 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+- **80f1adf 2025-06-25** refactor: reorganiza el componente Form y añade historias de Storybook
+  - Movido archivo de prueba a la carpeta `__tests__`
+  - Añadido archivo `mocks.ts` para datos de prueba
+  - Creada documentación en Storybook
+  - Mejorada la cobertura de pruebas
+  - Actualizados los tipos TypeScript
+
 - **965ae8a 2025-06-25** refactor: reorganiza archivos de prueba y añade historias de Storybook para componentes Color y Message
   - Movidos archivos de prueba a carpetas `__tests__`
   - Añadidos archivos `mocks.ts` para datos de prueba
