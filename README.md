@@ -55,24 +55,21 @@ yarn add edt-lib
 
 Asegúrate de tener permisos para publicar el paquete en npm y haber actualizado la versión en `package.json` si es necesario.
 
-1. Compila el paquete y publícalo con:
+1. Para incrementar el patch, compilar y publicar automáticamente:
    ```bash
-   npm run publish-lib
+   npm run publish-npm
    ```
-   O para incrementar el patch, compilar y publicar automáticamente:
-   ```bash
-   npm run release-lib
-   ```
+   Este comando actualizará automáticamente la versión (patch), construirá el paquete y lo publicará en el registro público de npm.
 
 ---
 
 ## Desplegar Storybook en GitHub Pages
 
-1. Construye y despliega Storybook ejecutando:
+1. Para construir y desplegar Storybook en GitHub Pages, ejecuta:
    ```bash
-   npm run deploy-sb
+   npm run release-sb
    ```
-   Esto generará el build y lo publicará en GitHub Pages usando la rama gh-pages.
+   Este comando construirá la aplicación, creará una carpeta `.gh-pages` y desplegará el contenido en la rama `gh-pages` de tu repositorio.
 
 ---
 
@@ -97,7 +94,47 @@ Consulta la documentación interactiva y ejemplos en vivo en:
 
 ## 🧑‍💻 Desarrollo local
 
-Clona el repositorio y ejecuta:
+Clona el repositorio y ejecuta los siguientes comandos:
+
+1. Instala las dependencias:
+   ```bash
+   npm install
+   ```
+
+2. Inicia Storybook para desarrollo:
+   ```bash
+   npm run sb
+   ```
+   Esto construirá los componentes y abrirá Storybook en http://localhost:6006
+
+3. Para ejecutar los tests:
+   ```bash
+   npm test
+   ```
+
+4. Para limpiar y reinstalar dependencias (útil en caso de problemas):
+   ```bash
+   npm run clean
+   ```
+
+5. Para construir los componentes para producción:
+   ```bash
+   npm run build
+   ```
+
+---
+
+## 📦 Scripts disponibles
+
+- `clean`: Limpia las dependencias y las reinstala
+- `build`: Construye los componentes para producción
+- `test`: Ejecuta las pruebas unitarias
+- `lint`: Ejecuta el linter
+- `sb`: Inicia Storybook en modo desarrollo
+- `release-sb`: Despliega Storybook en GitHub Pages
+- `publish-npm`: Publica una nueva versión en npm
+
+---
 
 ```sh
 npm install
