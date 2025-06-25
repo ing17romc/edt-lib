@@ -1,20 +1,15 @@
 import React from 'react';
-
-interface TitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
-  level?: 1 | 2 | 3 | 4 | 5 | 6;
-  className?: string;
-  style?: React.CSSProperties;
-  children: React.ReactNode;
-}
+import { TitleProps, TitleLevel, HeadingTag } from './types';
 
 const Title: React.FC<TitleProps> = ({
-  level = 1,
+  level = 1 as TitleLevel,
   className = '',
   style,
   children,
   ...rest
 }) => {
-  const HeadingTag = `h${level}` as 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  const HeadingTag = `h${level}` as HeadingTag;
+  
   return (
     <div>
       {React.createElement(
