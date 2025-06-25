@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Spinner from './index';
-import { SpinnerProps } from './types';
 
 /**
  * Componente Spinner que muestra un indicador de carga.

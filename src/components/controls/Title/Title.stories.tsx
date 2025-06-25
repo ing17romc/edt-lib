@@ -115,7 +115,7 @@ export const FullyCustomized: Story = {
 };
 
 export const Niveles: Story = {
-  render: (args) => (
+  render: () => (
     <>
       <Title level={1}>Título h1</Title>
       <Title level={2}>Título h2</Title>

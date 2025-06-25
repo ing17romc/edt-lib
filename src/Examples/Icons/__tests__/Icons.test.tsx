@@ -1,7 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import Icons from './index';
+import Icons from '../index';
 
 describe('Icons', () => {
   it('renderiza el título principal y categorías de íconos', () => {
