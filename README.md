@@ -4,6 +4,35 @@
 **UI component library for React 19 + TypeScript.**  
 Incluye componentes reutilizables y accesibles para aplicaciones modernas.
 
+## 📦 Dependencias
+
+### Material Icons
+
+La biblioteca utiliza [Material Icons](https://fonts.google.com/icons) para los iconos. Asegúrate de incluir el siguiente enlace en el `<head>` de tu aplicación:
+
+```html
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+```
+
+O si estás usando un framework como Next.js, puedes agregarlo en el archivo `_document.js` o `_app.js`:
+
+```jsx
+import Head from 'next/head';
+
+function MyApp({ Component, pageProps }) {
+  return (
+    <>
+      <Head>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet" />
+      </Head>
+      <Component {...pageProps} />
+    </>
+  );
+}
+
+export default MyApp;
+```
+
 ---
 
 ## Instalación

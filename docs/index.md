@@ -31,12 +31,30 @@ yarn add edt-lib
 
 ## Uso básico
 
-```js
-import { ejemploFuncion } from 'edt-lib';
+### Requisitos previos
 
-// Ejemplo de uso
-const resultado = ejemploFuncion(parametros);
-console.log(resultado);
+La biblioteca utiliza [Material Icons](https://fonts.google.com/icons) para los iconos. Asegúrate de incluir el siguiente enlace en el `<head>` de tu aplicación:
+
+```html
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+```
+
+### Ejemplo básico
+
+```jsx
+import React from 'react';
+import { Button } from 'edt-lib';
+
+function App() {
+  return (
+    <div>
+      <h1>Mi Aplicación</h1>
+      <Button>Botón con ícono</Button>
+    </div>
+  );
+}
+
+export default App;
 ```
 
 ## Estructura del proyecto
