@@ -1,7 +1,8 @@
 import '@testing-library/jest-dom';
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Color from './index';
+import Color from '../index';
+import { mockColorClasses } from './mocks';
 
 describe('Color', () => {
   it('renderiza los títulos principales', () => {
@@ -13,9 +14,13 @@ describe('Color', () => {
 
   it('renderiza algunos ejemplos de color', () => {
     render(<Color />);
-    expect(screen.getByText('font-blue')).toBeInTheDocument();
-    expect(screen.getByText('font-red')).toBeInTheDocument();
-    expect(screen.getByText('font-gray')).toBeInTheDocument();
+    
+    // Check font colors
+    mockColorClasses.fontColors.forEach(color => {
+      expect(screen.getByText(color)).toBeInTheDocument();
+    });
+
+    // Check for SCSS variable example
     expect(screen.getByText((content) => /\$black-color/.test(content))).toBeInTheDocument();
   });
 });
