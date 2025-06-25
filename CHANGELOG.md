@@ -4,6 +4,14 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+- **dcf527e 2025-06-25** fix: Update TextArea and TextBox components with proper event handling and tests
+  - Fixed TextArea and TextBox components to properly handle Enter key events
+  - Added comprehensive test coverage for event handling
+  - Reorganized test files into `__test__` and `__tests__` directories
+  - Added Storybook stories for both components
+  - Improved type safety in component props
+
+
 - **30ec24b 2025-06-25** fix: update TextButton stories and fix type error in disabled prop
   - Fixed type error in TextButton stories by updating defaultValue.summary to be a string
   - Reorganized test files into `__tests__` directories
