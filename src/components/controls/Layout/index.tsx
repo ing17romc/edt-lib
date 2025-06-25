@@ -17,13 +17,14 @@ import type { LayoutProps } from './types';
  * @param {(path: string) => void} props.getCurrentPath - Función callback para manejar el cambio de ruta.
  * @returns {JSX.Element} Estructura de layout general con navegación, contenido y footer.
  */
-export const Layout: React.FC<LayoutProps> = ({ leftOptions, rightOptions, footer, children, getCurrentPath }) => (
+export const Layout: React.FC<LayoutProps> = ({ leftOptions, rightOptions, footer, children, getCurrentPath, currentPath }) => (
   <div role="main">
     <div className='layout bg-white'>
       <NavBar
         leftOptions={leftOptions}
         rightOptions={rightOptions}
         getCurrentPath={getCurrentPath}
+        currentPath={currentPath}
       />
       <div className='layout__content' role="region" aria-label="Contenido principal">
         {children}

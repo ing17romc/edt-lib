@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Button from './index';
+import Button from '../index';
 
 describe('Button Component', () => {
   const mockOnClick = jest.fn();

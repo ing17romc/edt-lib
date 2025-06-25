@@ -1,8 +1,8 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import TableDefault from './index';
-import type { TableRowData } from './types';
+import TableDefault from "../index";
+import type { TableRowData } from "../types";
 
 const mockData: TableRowData[] = [
   { name: 'John', userName: 'john123', status: true },

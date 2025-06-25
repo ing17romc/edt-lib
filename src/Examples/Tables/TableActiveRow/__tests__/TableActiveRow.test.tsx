@@ -1,8 +1,12 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { render, screen, fireEvent } from '@testing-library/react';
-import TableActiveRow from './index';
-import type { TableRowData } from './types';
+import TableActiveRow from "../index";
+import type { TableRowData } from "../types";
+
+// Mock the global alert function
+const mockAlert = jest.fn();
+global.alert = mockAlert;
 
 const mockData: TableRowData[] = [
   { name: 'John', userName: 'john123', status: true },
@@ -25,13 +29,28 @@ describe('TableActiveRow', () => {
     expect(screen.getByText('jane456')).toBeInTheDocument();
   });
 
-  it('permite hacer click en una fila (simulación)', () => {
+  it('calls alert when a row is clicked', () => {
     render(<TableActiveRow dataTable={mockData} />);
     const row = screen.getByText('john123').closest('tr');
+    
+    expect(row).toBeInTheDocument();
+    
     if (row) {
       fireEvent.click(row);
-      // Aquí podrías agregar un mock de alert o similar si se implementa interacción real
+      expect(mockAlert).toHaveBeenCalledWith('clic!!!');
+      expect(mockAlert).toHaveBeenCalledTimes(1);
     }
-    expect(row).toBeInTheDocument();
+  });
+
+  it('renders the correct status for each row', () => {
+    render(<TableActiveRow dataTable={mockData} />);
+    
+    // Check active status
+    const activeRow = screen.getByText('john123').closest('tr');
+    expect(activeRow).toHaveTextContent('Active');
+    
+    // Check inactive status
+    const inactiveRow = screen.getByText('jane456').closest('tr');
+    expect(inactiveRow).toHaveTextContent('Inactive');
   });
 });

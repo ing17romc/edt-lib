@@ -13,6 +13,8 @@ export interface LayoutProps {
   leftOptions: LayoutMenuOption[];
   /** Opciones del menú derecho */
   rightOptions: LayoutMenuOption[];
+  /** Ruta actual activa */
+  currentPath: string;
   /** Contenido del footer */
   footer: React.ReactNode;
   /** Contenido principal */

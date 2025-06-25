@@ -1,7 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { render, screen, fireEvent } from '@testing-library/react';
-import Modales from './index';
+import Modales from "../index";
 
 describe('Modales', () => {
   it('renderiza el título principal y botones de modales', () => {

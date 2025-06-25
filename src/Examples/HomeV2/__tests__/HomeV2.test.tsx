@@ -1,7 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { render, screen, fireEvent } from '@testing-library/react';
-import HomeV2 from './index';
+import HomeV2 from "../index";
 import { OPTIONS, LEFT_OPTIONS, RIGHT_OPTIONS } from '../data';
 
 describe('HomeV2', () => {
