@@ -66,7 +66,8 @@ const TextBox: React.FC<TextBoxProps> = forwardRef<HTMLInputElement, TextBoxProp
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
       if (e.key === 'Enter') {
         e.preventDefault();
-      } else if (eventKeyDown && !disabled && !readOnly) {
+      }
+      if (eventKeyDown && !disabled && !readOnly) {
         eventKeyDown(e);
       }
     };
