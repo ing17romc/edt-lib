@@ -4,6 +4,13 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+- **c3652c9 2025-06-25** refactor: Reorganize RadioButton component and add Storybook stories
+  - Moved tests to dedicated `__test__` directory
+  - Added comprehensive Storybook stories for all component states
+  - Improved type definitions and documentation
+  - Centralized test mocks in a separate file
+  - Enhanced component exports for better type safety
+
 - **dcf527e 2025-06-25** fix: Update TextArea and TextBox components with proper event handling and tests
   - Fixed TextArea and TextBox components to properly handle Enter key events
   - Added comprehensive test coverage for event handling
