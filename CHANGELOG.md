@@ -4,6 +4,15 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+- **26ddd9a 2025-06-26** refactor: Reorganize DatePicker component and tests
+  - Moved tests to dedicated `__test__` directory
+  - Added comprehensive Storybook stories with interactive examples
+  - Created mocks for tests to improve maintainability
+  - Enhanced test coverage for DatePicker functionality
+  - Fixed TypeScript and linting issues
+
+- **712e676 2025-06-26** refactor: Reorganize Modal component and add Storybook stories
+
 - **712e676 2025-06-26** refactor: Reorganize Modal component and add Storybook stories
   - Moved tests to dedicated `__test__` directory
   - Added comprehensive Storybook stories with interactive examples
