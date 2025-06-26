@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import ReactDOM from 'react-dom';
 import { ModalProps } from './types';
 
 /**
@@ -61,7 +62,7 @@ const Modal: React.FC<ModalProps> = ({ show, eventModal, children }) => {
     </div>
   );
 
-  return state ? modalRender() : null;
+  return state ? ReactDOM.createPortal(modalRender(), document.body) : null;
 };
 
 export default Modal
