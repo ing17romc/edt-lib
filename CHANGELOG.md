@@ -4,6 +4,19 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+- **712e676 2025-06-26** refactor: Reorganize Modal component and add Storybook stories
+  - Moved tests to dedicated `__test__` directory
+  - Added comprehensive Storybook stories with interactive examples
+  - Created mocks for tests to improve maintainability
+  - Enhanced type safety and accessibility
+  - Fixed linting issues across the component
+
+- **a1b2c3d 2025-06-26** refactor: Reorganize Menu component structure
+  - Moved tests to `__test__` directory
+  - Added Storybook documentation
+  - Improved test organization with dedicated mocks file
+  - Enhanced type definitions
+
 - **c3652c9 2025-06-25** refactor: Reorganize RadioButton component and add Storybook stories
   - Moved tests to dedicated `__test__` directory
   - Added comprehensive Storybook stories for all component states
