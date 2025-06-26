@@ -1,6 +1,5 @@
 import React from 'react';
 import { ButtonProps } from './types';
-
 /**
  * Componente Button que proporciona un botón estilizado y accesible.
  * Permite personalizar el estilo, tamaño y comportamiento del botón.
@@ -20,20 +19,17 @@ const Button: React.FC<ButtonProps> = ({
   title,
   disabled = false,
   onClick,
-  type = 'PRIMARY',
-  size = 'MD'
+  buttonType = 'PRIMARY',
+  size = 'MD',
+  className = ''
 }) => {
   return (
     <button
       id={id}
-      className={`${type.toLowerCase()} ${size.toLowerCase()}`}
-      type={onClick ? 'button' : 'submit'}
-      onClick={(e) => {
-        if (!disabled && onClick) {
-          onClick(e);
-        }
-      }}
+      type="button"
       disabled={disabled}
+      onClick={onClick}
+      className={`btn ${buttonType.toLowerCase()} ${size.toLowerCase()} ${disabled ? 'disabled' : ''} ${className}`.trim()}
       aria-disabled={disabled}
     >
       {title}

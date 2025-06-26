@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, FC } from 'react';
 import ReactDOM from 'react-dom';
 import { ModalProps } from './types';
 
@@ -13,7 +13,8 @@ import { ModalProps } from './types';
  * @returns {JSX.Element | null} Elemento modal o null si no está visible
  */
 
-const Modal: React.FC<ModalProps> = ({ show, eventModal, children }) => {
+// Define the component with proper typing
+const ModalComponent: FC<ModalProps> = ({ show, eventModal, children }) => {
   const [state, setState] = useState(show);
 
   const closeModal = (e: React.MouseEvent) => {
@@ -65,5 +66,7 @@ const Modal: React.FC<ModalProps> = ({ show, eventModal, children }) => {
   return state ? ReactDOM.createPortal(modalRender(), document.body) : null;
 };
 
-export default Modal
+// Export the component as both named and default export
+export { ModalComponent as Modal };
+export default ModalComponent;
 

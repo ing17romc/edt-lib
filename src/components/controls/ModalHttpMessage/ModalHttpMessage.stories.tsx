@@ -3,7 +3,6 @@ import { useState } from 'react';
 import Button from '../Button';
 import ModalHttpMessage from './index';
 import { httpStatusTestCases } from './__tests__/mocks';
-import { ButtonProps } from '../Button/types';
 
 const meta: Meta<typeof ModalHttpMessage> = {
   title: 'Feedback/ModalHttpMessage',

@@ -1,12 +1,17 @@
 import { ReactEventHandler } from 'react';
+import { SIZE_CONTROL, STYLE_CONTROL } from '../../utils/constant';
 
-export interface ButtonProps {
+type SizeType = keyof typeof SIZE_CONTROL;
+type StyleType = keyof typeof STYLE_CONTROL;
+
+export interface ButtonProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
   id?: string;
   title: string;
   disabled?: boolean;
   onClick?: ReactEventHandler<HTMLButtonElement>;
-  type?: 'PRIMARY' | 'SECONDARY' | 'DANGER' | 'SUCCESS' | 'WARNING' | 'INFO';
-  size?: 'SM' | 'MD' | 'LG';
+  buttonType?: Uppercase<StyleType>;
+  size?: Uppercase<SizeType>;
+  className?: string;
 }
 
 export type ButtonComponent = React.FC<ButtonProps>;

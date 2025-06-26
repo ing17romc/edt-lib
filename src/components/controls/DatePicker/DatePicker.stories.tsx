@@ -45,7 +45,7 @@ const meta: Meta<typeof DatePicker> = {
 
 export default meta;
 
-type Story = StoryObj<typeof DatePicker>;
+type Story = StoryObj<Omit<DatePickerProps, 'eventChange' | 'value'>>;
 
 // Default story
 const DatePickerWithState = (args: Omit<DatePickerProps, 'eventChange' | 'value'>) => {
@@ -53,7 +53,6 @@ const DatePickerWithState = (args: Omit<DatePickerProps, 'eventChange' | 'value'
   
   const handleDateChange = (value: string) => {
     setDate(value);
-    args.eventChange?.(value);
   };
 
   return (
@@ -70,13 +69,22 @@ const DatePickerWithState = (args: Omit<DatePickerProps, 'eventChange' | 'value'
   );
 };
 
+// Base args for all stories
+const baseArgs = {
+  id: 'date-picker',
+  title: 'Select a Date',
+  value: '',
+  disabled: false,
+  readOnly: false,
+  required: false
+};
+
 // Default story
 export const Default: Story = {
   render: (args) => <DatePickerWithState {...args} />,
   args: {
-    id: 'default-date-picker',
-    title: 'Select a Date',
-    value: '',
+    ...baseArgs,
+    id: 'default-date-picker'
   },
 };
 
@@ -84,9 +92,9 @@ export const Default: Story = {
 export const WithInitialValue: Story = {
   render: (args) => <DatePickerWithState {...args} />,
   args: {
+    ...baseArgs,
     id: 'with-initial-value',
     title: 'Birth Date',
-    value: '5/15/1990',
   },
 };
 
@@ -94,9 +102,9 @@ export const WithInitialValue: Story = {
 export const Disabled: Story = {
   render: (args) => <DatePickerWithState {...args} />,
   args: {
+    ...baseArgs,
     id: 'disabled-date-picker',
     title: 'Disabled Date Picker',
-    value: '1/1/2023',
     disabled: true,
   },
 };
@@ -105,9 +113,9 @@ export const Disabled: Story = {
 export const ReadOnly: Story = {
   render: (args) => <DatePickerWithState {...args} />,
   args: {
+    ...baseArgs,
     id: 'readonly-date-picker',
     title: 'Read Only Date',
-    value: '12/25/2023',
     readOnly: true,
   },
 };
@@ -116,9 +124,9 @@ export const ReadOnly: Story = {
 export const Required: Story = {
   render: (args) => <DatePickerWithState {...args} />,
   args: {
+    ...baseArgs,
     id: 'required-date-picker',
     title: 'Appointment Date',
-    value: '',
     required: true,
   },
 };
@@ -126,32 +134,33 @@ export const Required: Story = {
 // With Custom Date Range
 export const WithCustomDateRange: Story = {
   render: (args) => {
-    const [date, setDate] = useState('');
-    
-    const handleDateChange = (value: string) => {
-      setDate(value);
-      args.eventChange?.(value);
+    // Create a proper component to use hooks
+    const DateRangePicker = () => {
+      const [date, setDate] = useState('');
+      
+      const handleDateChange = (value: string) => {
+        setDate(value);
+      };
+
+      return (
+        <div style={{ width: '300px' }}>
+          <p style={{ fontSize: '0.875rem', marginBottom: '1rem' }}>
+            This example shows a date picker with a custom date range (2000-2030).
+          </p>
+          <DatePicker 
+            {...args}
+            value={date}
+            eventChange={handleDateChange}
+          />
+        </div>
+      );
     };
 
-    return (
-      <div style={{ width: '300px' }}>
-        <p style={{ fontSize: '0.875rem', marginBottom: '1rem' }}>
-          This example shows a date picker with a custom date range (2000-2030).
-        </p>
-        <DatePicker 
-          {...restArgs} 
-          value={date}
-          eventChange={handleDateChange}
-        />
-        <div style={{ marginTop: '1rem', fontSize: '0.875rem' }}>
-          <strong>Selected Date:</strong> {date || 'None'}
-        </div>
-      </div>
-    );
+    return <DateRangePicker />;
   },
   args: {
+    ...baseArgs,
     id: 'custom-range-date-picker',
-    title: 'Custom Date Range',
-    value: '',
+    title: 'Custom Date Range'
   },
 };

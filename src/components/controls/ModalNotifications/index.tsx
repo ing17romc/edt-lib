@@ -1,5 +1,5 @@
 import React from 'react';
-import { ModalNotificationsProps } from './types';
+import { ModalNotificationsProps, NotificationType, ModalNotificationsComponent } from './types';
 import Modal from '../Modal';
 import Title from '../Title';
 import Button from '../Button';
@@ -19,13 +19,7 @@ import Button from '../Button';
  * @returns {JSX.Element} Elemento modal con notificación
  */
 
-// Extend the component props to handle both event types
-type ExtendedModalNotificationsProps = Omit<ModalNotificationsProps, 'eventContinue' | 'eventModal'> & {
-  eventContinue: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-  eventModal: (e: React.MouseEvent<Element, MouseEvent>) => void;
-};
-
-const ModalNotifications: React.FC<ModalNotificationsProps> = ({
+export const ModalNotifications: React.FC<ModalNotificationsProps> = ({
   title,
   message,
   details,
@@ -88,7 +82,7 @@ const ModalNotifications: React.FC<ModalNotificationsProps> = ({
         <div className='padding-v-20 start-9 size-4'>
           <Button
             title='Continuar'
-            type='PRIMARY'
+            buttonType='PRIMARY'
             onClick={handleContinue}
           />
         </div>
@@ -97,6 +91,5 @@ const ModalNotifications: React.FC<ModalNotificationsProps> = ({
   )
 }
 
-// Export the component as both named and default export
-export { ModalNotifications };
+// Export the component as default
 export default ModalNotifications;

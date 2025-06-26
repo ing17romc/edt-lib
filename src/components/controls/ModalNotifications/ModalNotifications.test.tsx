@@ -1,7 +1,7 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, cleanup, act } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import ModalNotifications from '../index';
+import ModalNotifications from '.';
 
 // Define the notification type for testing
 type NotificationType = 'ERROR' | 'WARNING' | 'INFO' | 'SUCCESSFULL';
@@ -45,96 +45,113 @@ describe('ModalNotifications Component', () => {
     details: 'Detalles adicionales',
   };
 
-  test('renders modal with notification', () => {
-    const { container, getAllByText, getByRole } = render(
-      <ModalNotifications {...mockProps} />
-    );
+  test('renders modal with notification', async () => {
+    await act(async () => {
+      render(<ModalNotifications {...mockProps} />);
+    });
 
-    const modal = getByRole('dialog');
+    // Since the modal is rendered in a portal, we need to query document.body
+    const modal = screen.getByRole('dialog');
     expect(modal).toBeInTheDocument();
 
-    // Buscar el título por texto (ahora Title usa children)
-    const titleElement = container.querySelector('h1');
+    // Check for title
+    const titleElement = document.querySelector('.modal-title h1');
     expect(titleElement).toBeInTheDocument();
     expect(titleElement).toHaveTextContent(mockProps.title);
 
-    // Puede haber más de un elemento con el mismo texto, así que usamos getAllByText
-    expect(getAllByText(mockProps.message).length).toBeGreaterThan(0);
-    expect(getAllByText(mockProps.details).length).toBeGreaterThan(0);
+    // Check for message and details
+    const messageElements = screen.getAllByText(mockProps.message);
+    expect(messageElements.length).toBeGreaterThan(0);
+    
+    const detailsElements = screen.getAllByText(mockProps.details);
+    expect(detailsElements.length).toBeGreaterThan(0);
 
-    const iconElement = container.querySelector('.circle.info.center h1');
+    // Check for icon
+    const iconElement = document.querySelector('.circle.info.center h1');
+    expect(iconElement).toBeInTheDocument();
     expect(iconElement).toHaveAttribute('aria-label', 'Icono de info');
   });
 
-  test('renders different notification types', () => {
-    notificationTypeTestCases.forEach(({ type, className, icon }) => {
-      const { container } = render(
-        <ModalNotifications
-          {...mockProps}
-          type={type}
-        />
-      );
+  test('renders different notification types', async () => {
+    for (const { type, className, icon } of notificationTypeTestCases) {
+      await act(async () => {
+        render(
+          <ModalNotifications
+            {...mockProps}
+            type={type}
+          />
+        );
+      });
 
-      const circleElement = container.querySelector(`.${className.replace(/ /g, '.')}`);
+      const circleElement = document.querySelector(`.${className.replace(/ /g, '.')}`);
       expect(circleElement).toBeInTheDocument();
 
       const iconElement = screen.getByText(icon);
       expect(iconElement).toBeInTheDocument();
       expect(iconElement).toHaveAttribute('aria-label', `Icono de ${type.toLowerCase()}`);
-    });
+      
+      // Clean up after each test case
+      cleanup();
+    }
   });
 
-  test('renders without details when not provided', () => {
-    render(
-      <ModalNotifications
-        {...mockProps}
-        details={undefined}
-      />
-    );
+  test('renders without details when not provided', async () => {
+    await act(async () => {
+      render(
+        <ModalNotifications
+          {...mockProps}
+          details={undefined}
+        />
+      );
+    });
 
     const detailsElement = screen.queryByText(mockProps.details);
     expect(detailsElement).not.toBeInTheDocument();
   });
 
-  test('calls eventContinue when continue button is clicked', () => {
-    render(
-      <ModalNotifications {...mockProps} />
-    );
+  test('calls eventContinue when continue button is clicked', async () => {
+    await act(async () => {
+      render(<ModalNotifications {...mockProps} />);
+    });
 
     const continueButton = screen.getByRole('button', { name: /continuar/i });
-    fireEvent.click(continueButton);
+    await act(async () => {
+      fireEvent.click(continueButton);
+    });
     expect(mockEventContinue).toHaveBeenCalledTimes(1);
   });
 
-  test('calls eventModal when close button is clicked', () => {
-    render(
-      <ModalNotifications {...mockProps} />
-    );
+  test('calls eventModal when close button is clicked', async () => {
+    await act(async () => {
+      render(<ModalNotifications {...mockProps} />);
+    });
 
-    const closeButtons = screen.getAllByRole('button', { name: /cerrar modal/i });
-    const closeButton = closeButtons.find(btn => btn.classList.contains('modal-close-button'));
+    // Find the close button in the portal
+    const closeButton = document.querySelector('.modal-close-button');
     expect(closeButton).toBeInTheDocument();
+    
     if (!closeButton) throw new Error('closeButton not found');
-    fireEvent.click(closeButton);
+    
+    await act(async () => {
+      fireEvent.click(closeButton);
+    });
+    
     expect(mockEventModal).toHaveBeenCalledTimes(1);
   });
 
-  test('has correct grid structure', () => {
-    render(
-      <ModalNotifications {...mockProps} />
-    );
+  test('has correct grid structure', async () => {
+    await act(async () => {
+      render(<ModalNotifications {...mockProps} />);
+    });
 
-    const { container } = render(
-      <ModalNotifications {...mockProps} />
-    );
-
-    const gridPrimary = container.querySelector('.grid-primary');
+    // Check for grid structure in the portal
+    const gridPrimary = document.querySelector('.grid-primary');
     expect(gridPrimary).toBeInTheDocument();
 
-    const titleContainer = container.querySelector('.start-1.size-12');
+    const titleContainer = document.querySelector('.start-1.size-12');
     expect(titleContainer).toBeInTheDocument();
 
-    const contentContainer = container.querySelector('.center.start-1.size-12.padding-v-40');
+    const contentContainer = document.querySelector('.center.start-1.size-12.padding-v-40');
     expect(contentContainer).toBeInTheDocument();
   });
 });
