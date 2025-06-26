@@ -1,9 +1,9 @@
-export interface ModalProps {
+interface ModalProps {
   show: boolean;
-  eventModal: (e: React.MouseEvent) => void;
+  eventModal: (e: React.MouseEvent<Element, MouseEvent> | React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   children: React.ReactNode;
 }
 
-export type ModalComponent = React.FC<ModalProps>;
+type ModalComponent = React.FC<ModalProps>;
 
 export type { ModalProps, ModalComponent };

@@ -1,19 +1,13 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import  ModalHttpMessage  from './index';
+import ModalHttpMessage from '../index';
+import { mockProps, httpStatusTestCases, resetMocks } from './mocks';
 
 describe('ModalHttpMessage Component', () => {
-  const mockEventModal = jest.fn();
-
-  const mockProps = {
-    show: true,
-    eventModal: mockEventModal,
-    code: 200,
-    title: 'Éxito',
-    message: 'Operación completada con éxito',
-    details: 'Detalles adicionales de la operación'
-  };
+  afterEach(() => {
+    resetMocks();
+  });
 
   test('renders modal with HTTP message', () => {
     render(
@@ -26,31 +20,23 @@ describe('ModalHttpMessage Component', () => {
     const titleElement = screen.getByText('Mensaje HTTP');
     expect(titleElement).toBeInTheDocument();
 
-    const codeElement = screen.getByText('200');
+    const codeElement = screen.getByText(mockProps.code.toString());
     expect(codeElement).toBeInTheDocument();
     expect(codeElement).toHaveClass('code-two-hundred');
 
     const messageElement = screen.getByText(mockProps.message);
     expect(messageElement).toBeInTheDocument();
 
-    const detailsElement = screen.getByText(mockProps.details);
+    const detailsElement = screen.getByText(mockProps.details as string);
     expect(detailsElement).toBeInTheDocument();
   });
 
   test('renders with different HTTP status codes', () => {
-    const testCases = [
-      { code: 199, className: 'code-one-hundred' },
-      { code: 200, className: 'code-two-hundred' },
-      { code: 300, className: 'code-three-hundred' },
-      { code: 400, className: 'code-four-hundred' },
-      { code: 500, className: 'code-five-hundred' }
-    ];
-
-    testCases.forEach(({ code, className }) => {
+    httpStatusTestCases.forEach(({ code, className }) => {
       render(
         <ModalHttpMessage
           show={true}
-          eventModal={mockEventModal}
+          eventModal={mockProps.eventModal}
           code={code}
           title={`Status ${code}`}
           message={`Message for status ${code}`}
@@ -67,9 +53,9 @@ describe('ModalHttpMessage Component', () => {
     render(
       <ModalHttpMessage
         show={true}
-        eventModal={mockEventModal}
-        code={200}
-        title="Éxito"
+        eventModal={mockProps.eventModal}
+        code={mockProps.code}
+        title={mockProps.title}
         message="Operación completada"
       />
     );

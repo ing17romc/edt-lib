@@ -1,31 +1,22 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Selector from './index';
+import Selector from '../index';
+import {
+  mockId,
+  mockTitleTop,
+  mockTitleBottom,
+  mockOptions,
+  mockProps
+} from './mocks';
 
 describe('Selector Component', () => {
-  const mockId = 'test-selector';
-  const mockTitleTop = 'Título superior';
-  const mockTitleBottom = 'Título inferior';
-  const mockValue = 'option2';
-  const mockOptions = [
-    { value: 'option1', label: 'Opción 1' },
-    { value: 'option2', label: 'Opción 2' },
-    { value: 'option3', label: 'Opción 3' }
-  ];
-
-  const mockProps = {
-    id: mockId,
-    titleTop: mockTitleTop,
-    titleBottom: mockTitleBottom,
-    value: mockValue,
-    options: mockOptions
-  };
 
   test('renders with required props', () => {
     render(
       <Selector
         id={mockId}
+        value=""
         options={mockOptions}
       />
     );

@@ -1,36 +1,35 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Pagination from './index';
+import Pagination from '..'; // This imports from index.tsx in the parent directory
+import { onPageChangeMock, testProps, resetMocks } from './mocks';
 
 describe('Pagination Component', () => {
-  const onPageChangeMock = jest.fn();
-
   afterEach(() => {
-    jest.clearAllMocks();
+    resetMocks();
   });
 
-  test('debe renderizar la paginación correctamente', () => {
-    render(<Pagination totalCount={10} currentPage={1} onPageChange={onPageChangeMock} />);
+  test('renders pagination correctly', () => {
+    render(<Pagination {...testProps} />);
 
     const paginationContainer = screen.getByRole('list');
     expect(paginationContainer).toBeInTheDocument();
 
     const pageItems = screen.getAllByRole('listitem');
-    // 10 páginas + 2 flechas de navegación
+    // 10 pages + 2 navigation arrows
     expect(pageItems).toHaveLength(12);
   });
 
-  test('debe llamar a onPageChange con el número de página correcto al hacer clic', () => {
-    render(<Pagination totalCount={10} currentPage={3} onPageChange={onPageChangeMock} />);
+  test('calls onPageChange with correct page number on click', () => {
+    render(<Pagination {...testProps} currentPage={3} />);
 
     const page5 = screen.getByText('5');
     fireEvent.click(page5);
     expect(onPageChangeMock).toHaveBeenCalledWith(5);
   });
 
-  test('debe deshabilitar el botón "anterior" en la primera página', () => {
-    render(<Pagination totalCount={10} currentPage={1} onPageChange={onPageChangeMock} />);
+  test('disables previous button on first page', () => {
+    render(<Pagination {...testProps} currentPage={1} />);
 
     const previousButton = screen.getAllByRole('button')[0];
     expect(previousButton).toBeDisabled();
@@ -38,8 +37,8 @@ describe('Pagination Component', () => {
     expect(onPageChangeMock).not.toHaveBeenCalled();
   });
 
-  test('debe deshabilitar el botón "siguiente" en la última página', () => {
-    render(<Pagination totalCount={10} currentPage={10} onPageChange={onPageChangeMock} />);
+  test('disables next button on last page', () => {
+    render(<Pagination {...testProps} currentPage={10} />);
 
     const buttons = screen.getAllByRole('button');
     const nextButton = buttons[buttons.length - 1];
@@ -48,8 +47,8 @@ describe('Pagination Component', () => {
     expect(onPageChangeMock).not.toHaveBeenCalled();
   });
 
-  test('debe llamar a onPageChange al hacer clic en "siguiente"', () => {
-    render(<Pagination totalCount={10} currentPage={5} onPageChange={onPageChangeMock} />);
+  test('calls onPageChange when clicking next', () => {
+    render(<Pagination {...testProps} currentPage={5} />);
 
     const buttons = screen.getAllByRole('button');
     const nextButton = buttons[buttons.length - 1];
@@ -57,16 +56,16 @@ describe('Pagination Component', () => {
     expect(onPageChangeMock).toHaveBeenCalledWith(6);
   });
 
-  test('debe llamar a onPageChange al hacer clic en "anterior"', () => {
-    render(<Pagination totalCount={10} currentPage={5} onPageChange={onPageChangeMock} />);
+  test('calls onPageChange when clicking previous', () => {
+    render(<Pagination {...testProps} currentPage={5} />);
 
     const previousButton = screen.getAllByRole('button')[0];
     fireEvent.click(previousButton);
     expect(onPageChangeMock).toHaveBeenCalledWith(4);
   });
 
-  test('no debe renderizar si totalCount es menor que 2', () => {
-    const { container } = render(<Pagination totalCount={1} currentPage={1} onPageChange={onPageChangeMock} />);
+  test('does not render when totalCount is less than 2', () => {
+    const { container } = render(<Pagination {...testProps} totalCount={1} />);
     expect(container.firstChild).toBeNull();
   });
 });

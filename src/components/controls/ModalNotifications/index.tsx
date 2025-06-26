@@ -19,10 +19,13 @@ import Button from '../Button';
  * @returns {JSX.Element} Elemento modal con notificación
  */
 
-const ModalNotifications: React.FC<Omit<ModalNotificationsProps, 'eventContinue' | 'eventModal'> & {
-  eventContinue: (e: React.MouseEvent<Element, MouseEvent>) => void;
+// Extend the component props to handle both event types
+type ExtendedModalNotificationsProps = Omit<ModalNotificationsProps, 'eventContinue' | 'eventModal'> & {
+  eventContinue: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   eventModal: (e: React.MouseEvent<Element, MouseEvent>) => void;
-}> = ({
+};
+
+const ModalNotifications: React.FC<ModalNotificationsProps> = ({
   title,
   message,
   details,
@@ -31,6 +34,10 @@ const ModalNotifications: React.FC<Omit<ModalNotificationsProps, 'eventContinue'
   show,
   eventModal
 }) => {
+  // Handle the continue button click
+  const handleContinue = (e: React.MouseEvent<HTMLButtonElement>) => {
+    eventContinue(e);
+  };
   const getNotificationIcon = () => {
     switch (type) {
       case 'ERROR':
@@ -47,7 +54,13 @@ const ModalNotifications: React.FC<Omit<ModalNotificationsProps, 'eventContinue'
   };
 
   return (
-    <Modal show={show} eventModal={eventModal}>
+    <Modal 
+      show={show} 
+      eventModal={(e) => {
+        // Convert the event to the expected type for the modal
+        eventModal(e as unknown as React.MouseEvent<HTMLButtonElement>);
+      }}
+    >
       <div className="body-generic-notifications">
         <div className="grid-primary">
           <div className="start-1 size-12">
@@ -76,7 +89,7 @@ const ModalNotifications: React.FC<Omit<ModalNotificationsProps, 'eventContinue'
           <Button
             title='Continuar'
             type='PRIMARY'
-            onClick={eventContinue as unknown}
+            onClick={handleContinue}
           />
         </div>
       </div>
@@ -84,4 +97,6 @@ const ModalNotifications: React.FC<Omit<ModalNotificationsProps, 'eventContinue'
   )
 }
 
-export default ModalNotifications
+// Export the component as both named and default export
+export { ModalNotifications };
+export default ModalNotifications;

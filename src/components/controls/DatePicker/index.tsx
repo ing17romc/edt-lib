@@ -176,4 +176,6 @@ const DatePicker = ({
   );
 };
 
+// Export the component as both named and default export
+export { DatePicker };
 export default DatePicker
