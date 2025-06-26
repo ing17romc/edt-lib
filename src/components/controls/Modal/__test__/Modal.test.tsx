@@ -1,14 +1,13 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Modal from './index';
+import Modal from '../index';
+import { mockEventModal, mockChildren, withTitleChildren } from './mocks';
 
 describe('Modal Component', () => {
-  const mockEventModal = jest.fn();
   beforeEach(() => {
     mockEventModal.mockClear();
   });
-  const mockChildren = <div>Test Content</div>;
 
   test('renders modal when show is true', () => {
     render(

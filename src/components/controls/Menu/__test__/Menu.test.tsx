@@ -1,24 +1,10 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Menu from './index';
+import Menu from '../index';
+import { mockOptions, mockGetCurrentPath } from './mocks';
 
 describe('Menu Component', () => {
-  const mockOptions = [
-    {
-      path: '/home',
-      icon: 'home',
-      name: 'Inicio'
-    },
-    {
-      path: '/profile',
-      icon: 'person',
-      name: 'Perfil'
-    }
-  ];
-
-  const mockGetCurrentPath = jest.fn();
-
   test('renders menu with all options', () => {
     render(
       <Menu
