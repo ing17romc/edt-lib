@@ -4,6 +4,11 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+- **019981b 2025-06-26** fix: improve Modal component with React Portal
+  - Use ReactDOM.createPortal to render modal outside the normal DOM hierarchy
+  - Ensure proper z-index and stacking context
+  - Fix potential overflow issues in parent containers
+
 - **26ddd9a 2025-06-26** refactor: Reorganize DatePicker component and tests
   - Moved tests to dedicated `__test__` directory
   - Added comprehensive Storybook stories with interactive examples
