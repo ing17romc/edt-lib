@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Button from '.';
-import { STYLE_CONTROL, SIZE_CONTROL } from '../../utils/constant';
+import { ControlStyle, ControlSize } from '../../utils/constant';
 
 // Meta information for the component
 const meta: Meta<typeof Button> = {
@@ -22,14 +22,14 @@ const meta: Meta<typeof Button> = {
     buttonType: {
       control: {
         type: 'select',
-        options: Object.values(STYLE_CONTROL).map(style => style.toUpperCase()),
+        options: Object.values(ControlStyle),
       },
       description: 'The style variant of the button',
     },
     size: {
       control: {
         type: 'select',
-        options: Object.values(SIZE_CONTROL).map(size => size.toUpperCase()),
+        options: Object.values(ControlSize),
       },
       description: 'The size of the button',
     },
@@ -51,8 +51,8 @@ type Story = StoryObj<typeof Button>;
 export const Primary: Story = {
   args: {
     title: 'Primary Button',
-    buttonType: 'PRIMARY',
-    size: 'MD',
+    buttonType: 'primary',
+    size: 'md',
   },
 };
 
@@ -60,8 +60,8 @@ export const Primary: Story = {
 export const Secondary: Story = {
   args: {
     title: 'Secondary Button',
-    buttonType: 'SECONDARY',
-    size: 'MD',
+    buttonType: 'secondary',
+    size: 'md',
   },
 };
 
@@ -69,8 +69,8 @@ export const Secondary: Story = {
 export const Large: Story = {
   args: {
     title: 'Large Button',
-    buttonType: 'PRIMARY',
-    size: 'LG',
+    buttonType: 'primary',
+    size: 'lg',
   },
 };
 
@@ -78,8 +78,8 @@ export const Large: Story = {
 export const Medium: Story = {
   args: {
     title: 'Medium Button',
-    buttonType: 'PRIMARY',
-    size: 'MD',
+    buttonType: 'primary',
+    size: 'md',
   },
 };
 
@@ -87,8 +87,8 @@ export const Medium: Story = {
 export const Small: Story = {
   args: {
     title: 'Small Button',
-    buttonType: 'PRIMARY',
-    size: 'SM',
+    buttonType: 'primary',
+    size: 'sm',
   },
 };
 
@@ -96,8 +96,8 @@ export const Small: Story = {
 export const ExtraSmall: Story = {
   args: {
     title: 'XS Button',
-    buttonType: 'PRIMARY',
-    size: 'XS',
+    buttonType: 'primary',
+    size: 'xs',
   },
 };
 
@@ -105,8 +105,8 @@ export const ExtraSmall: Story = {
 export const WithClickHandler: Story = {
   args: {
     title: 'Click Me',
-    buttonType: 'PRIMARY',
-    size: 'MD',
+    buttonType: 'primary',
+    size: 'md',
     onClick: () => console.log('Button clicked!'),
   },
 };
@@ -115,8 +115,8 @@ export const WithClickHandler: Story = {
 export const Disabled: Story = {
   args: {
     title: 'Disabled Button',
-    buttonType: 'PRIMARY',
-    size: 'MD',
+    buttonType: 'primary',
+    size: 'md',
     disabled: true,
   },
 };

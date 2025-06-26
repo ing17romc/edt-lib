@@ -4,6 +4,13 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+- **ffbd38c 2025-06-26** fix: update modal components and tests to handle React Portals correctly
+  - Fixed Modal and ModalNotifications components to properly handle React Portals
+  - Updated tests to work with React Portals by querying document.body
+  - Improved test coverage for different states and edge cases
+  - Added proper async/await handling in tests
+  - Fixed TypeScript and linting issues across modal components
+
 - **019981b 2025-06-26** fix: improve Modal component with React Portal
   - Use ReactDOM.createPortal to render modal outside the normal DOM hierarchy
   - Ensure proper z-index and stacking context

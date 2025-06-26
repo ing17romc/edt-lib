@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { STYLE_STATUS_CONTROL } from '../../utils/constant';
+import { ControlStatus } from '../../utils/constant';
 import type { RadioButtonProps, RadioButtonComponent } from './types';
 
 /**
@@ -36,13 +36,13 @@ const RadioButton: React.FC<RadioButtonProps> = forwardRef<HTMLInputElement, Rad
   ) => {
     const getRadioButtonStyle = () => {
       if (disabled) {
-        return STYLE_STATUS_CONTROL.DISABLED;
+        return ControlStatus.DISABLED;
       }
       if (readOnly) {
-        return STYLE_STATUS_CONTROL.READ_ONLY;
+        return ControlStatus.READ_ONLY;
       }
       if (required && !value) {
-        return STYLE_STATUS_CONTROL.REQUIRED;
+        return ControlStatus.REQUIRED;
       }
       return '';
     };

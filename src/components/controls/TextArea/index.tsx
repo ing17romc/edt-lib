@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { STYLE_STATUS_CONTROL } from '../../utils/constant';
+import { ControlStatus } from '../../utils/constant';
 import { TextAreaProps } from './types';
 
 /**
@@ -82,7 +82,7 @@ const TextArea: React.FC<TextAreaProps> = forwardRef<HTMLTextAreaElement, TextAr
               name={id}
               value={value}
               placeholder={placeholder}
-              className={disabled ? STYLE_STATUS_CONTROL.DISABLED : readOnly ? STYLE_STATUS_CONTROL.READ_ONLY : ''}
+              className={disabled ? ControlStatus.DISABLED : readOnly ? ControlStatus.READ_ONLY : ''}
               disabled={disabled}
               readOnly={readOnly}
               onChange={(e) => {

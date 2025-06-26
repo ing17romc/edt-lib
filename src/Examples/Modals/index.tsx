@@ -15,7 +15,7 @@ import type { ModalesState, ModalesProps } from './types';
  * @returns {JSX.Element} Vista interactiva para probar modales personalizados
  */
 const Modales: React.FC<ModalesProps> = () => {
-	const { TYPE_NOTIFICATION } = CONSTANT
+	const { NotificationType } = CONSTANT
 	const { getValueInput, getOptionsSelector } = functions
 
 	const [state, setstate] = useState<ModalesState>({
@@ -52,7 +52,7 @@ const Modales: React.FC<ModalesProps> = () => {
 								id='typeNotification'
 								titleTop='Tipos de notificación'
 								value={state.typeNotification}
-								options={getOptionsSelector(TYPE_NOTIFICATION)}
+								options={getOptionsSelector(NotificationType)}
 								eventChange={e => onInputChange(e)}
 							/>
 						</div>

@@ -64,7 +64,7 @@ describe('Selector Component', () => {
     const select = screen.getByRole('combobox');
     expect(select).toBeDisabled();
     expect(select).toHaveAttribute('aria-disabled', 'true');
-    expect(select).toHaveClass('DISABLED');
+    expect(select).toHaveClass('disabled');
   });
 
   test('handles read-only state', () => {
@@ -78,7 +78,7 @@ describe('Selector Component', () => {
     const select = screen.getByRole('combobox');
     expect(select).toBeDisabled();
     expect(select).toHaveAttribute('aria-readonly', 'true');
-    expect(select).toHaveClass('READ_ONLY');
+    expect(select).toHaveClass('read-only');
   });
 
   test('handles required state', () => {

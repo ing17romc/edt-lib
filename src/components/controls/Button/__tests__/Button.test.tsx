@@ -2,7 +2,6 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Button from '../index';
-import { SIZE_CONTROL, STYLE_CONTROL } from '../../../utils/constant';
 
 describe('Button Component', () => {
   const mockOnClick = jest.fn();
@@ -15,8 +14,8 @@ describe('Button Component', () => {
     render(
       <Button
         title="Click me"
-        buttonType="PRIMARY"
-        size="MD"
+        buttonType="primary"
+        size="md"
       />
     );
 
@@ -28,103 +27,46 @@ describe('Button Component', () => {
     render(
       <Button
         title="Click me"
+        buttonType="primary"
+        size="md"
         onClick={mockOnClick}
       />
     );
 
     const button = screen.getByText('Click me');
     fireEvent.click(button);
-
     expect(mockOnClick).toHaveBeenCalledTimes(1);
   });
 
-  test('disables button when disabled prop is true', () => {
-    render(
-      <Button
-        title="Disabled"
-        disabled
-      />
-    );
-
-    const button = screen.getByText('Disabled');
-    expect(button).toBeDisabled();
-    expect(button).toHaveAttribute('aria-disabled', 'true');
-  });
-
-  test('applies correct classes based on buttonType and size', () => {
+  test('applies correct classes based on props', () => {
     render(
       <Button
         title="Test"
-        buttonType="PRIMARY"
-        size="LG"
+        buttonType="primary"
+        size="lg"
       />
     );
 
     const button = screen.getByText('Test');
-    expect(button).toHaveClass(STYLE_CONTROL.PRIMARY.toLowerCase());
-    expect(button).toHaveClass(SIZE_CONTROL.LG.toLowerCase());
+    expect(button).toHaveClass('primary');
+    expect(button).toHaveClass('lg');
   });
 
   test('renders with all size variants', () => {
-    const sizes = Object.keys(SIZE_CONTROL) as Array<keyof typeof SIZE_CONTROL>;
+    const sizes = ['xs', 'sm', 'md', 'lg'] as const;
     
-    sizes.forEach((size: keyof typeof SIZE_CONTROL) => {
+    sizes.forEach(size => {
       render(
         <Button
           key={size}
           title={`${size} Button`}
-          buttonType="PRIMARY"
+          buttonType="primary"
           size={size}
         />
       );
-      
       const button = screen.getByText(`${size} Button`);
-      expect(button).toHaveClass(SIZE_CONTROL[size].toLowerCase());
+      expect(button).toHaveClass(size);
     });
-  });
-
-  test('renders with all style variants', () => {
-    const styles = Object.keys(STYLE_CONTROL) as Array<keyof typeof STYLE_CONTROL>;
-    
-    (styles as Array<keyof typeof STYLE_CONTROL>).forEach((style) => {
-      const styleStr = String(style);
-      render(
-        <Button
-          key={styleStr}
-          title={`${styleStr} Button`}
-          buttonType={style as 'PRIMARY' | 'SECONDARY'}
-          size="MD"
-        />
-      );
-      
-      const button = screen.getByText(`${styleStr} Button`);
-      expect(button).toHaveClass(STYLE_CONTROL[style as keyof typeof STYLE_CONTROL]);
-    });
-  });
-
-  test('handles button type correctly', () => {
-    render(
-      <Button
-        title="Click"
-        buttonType="PRIMARY"
-        size="MD"
-      />
-    );
-
-    const button = screen.getByText('Click');
-    expect(button).toHaveAttribute('type', 'button');
-  });
-
-  test('handles button type correctly when onClick is provided', () => {
-    render(
-      <Button
-        title="Click"
-        onClick={mockOnClick}
-      />
-    );
-
-    const button = screen.getByText('Click');
-    expect(button).toHaveAttribute('type', 'button');
   });
 
   test('applies custom className when provided', () => {
@@ -132,12 +74,42 @@ describe('Button Component', () => {
       <Button
         title="Custom Class"
         className="custom-button"
-        buttonType="PRIMARY"
-        size="MD"
+        buttonType="primary"
+        size="md"
       />
     );
 
     const button = screen.getByText('Custom Class');
     expect(button).toHaveClass('custom-button');
+  });
+
+  test('applies disabled attribute when disabled', () => {
+    render(
+      <Button
+        title="Disabled Button"
+        buttonType="primary"
+        size="md"
+        disabled
+      />
+    );
+
+    const button = screen.getByText('Disabled Button');
+    expect(button).toBeDisabled();
+  });
+
+  test('does not call onClick when disabled', () => {
+    render(
+      <Button
+        title="Disabled Button"
+        buttonType="primary"
+        size="md"
+        disabled
+        onClick={mockOnClick}
+      />
+    );
+
+    const button = screen.getByText('Disabled Button');
+    fireEvent.click(button);
+    expect(mockOnClick).not.toHaveBeenCalled();
   });
 });

@@ -14,7 +14,7 @@ import UI from '../../../src/components/controls';
  */
 const Icons: React.FC = () => {
 	const {
-		SIZE_CONTROL,
+		ControlSize,
 		ACTION_ICONS,
 		ALERT_ICONS,
 		AUDIO_AND_VIDEO_ICONS,
@@ -61,27 +61,27 @@ const Icons: React.FC = () => {
               <h4>Size</h4>
             </div>
             <div className=' start-1 size-5 padding-v-10'>
-              <UI.Icon name={'person'} size={SIZE_CONTROL.LG} />
+              <UI.Icon name={'person'} size={ControlSize.LG} />
               <p>
-                {'person'} - {SIZE_CONTROL.LG}
+                {'person'} - {ControlSize.LG}
               </p>
             </div>
             <div className='  size-5 padding-v-10'>
-              <UI.Icon name={'person'} size={SIZE_CONTROL.MD} />
+              <UI.Icon name={'person'} size={ControlSize.MD} />
               <p>
-                {'person'} - {SIZE_CONTROL.MD}
+                {'person'} - {ControlSize.MD}
               </p>
             </div>
             <div className='  size-5 padding-v-10'>
-              <UI.Icon name={'person'} size={SIZE_CONTROL.SM} />
+              <UI.Icon name={'person'} size={ControlSize.SM} />
               <p>
-                {'person'} - {SIZE_CONTROL.SM}
+                {'person'} - {ControlSize.SM}
               </p>
             </div>
             <div className='  size-5 padding-v-10'>
-              <UI.Icon name={'person'} size={SIZE_CONTROL.XS} />
+              <UI.Icon name={'person'} size={ControlSize.XS} />
               <p>
-                {'person'} - {SIZE_CONTROL.XS}
+                {'person'} - {ControlSize.XS}
               </p>
             </div>
           </div>

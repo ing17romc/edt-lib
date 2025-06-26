@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { STYLE_STATUS_CONTROL } from '../../utils/constant';
+import { ControlStatus } from '../../utils/constant';
 import { SelectorProps } from './types';
 
 /**
@@ -44,13 +44,13 @@ const Selector: React.FC<SelectorProps> = forwardRef<HTMLSelectElement, Selector
 
     const getSelectStyle = (): ControlStatus => {
       if (disabled) {
-        return STYLE_STATUS_CONTROL.DISABLED;
+        return ControlStatus.DISABLED;
       }
       if (readOnly) {
-        return STYLE_STATUS_CONTROL.READ_ONLY;
+        return ControlStatus.READ_ONLY;
       }
       if (required && !value) {
-        return STYLE_STATUS_CONTROL.REQUIRED;
+        return ControlStatus.REQUIRED;
       }
       return '';
     };

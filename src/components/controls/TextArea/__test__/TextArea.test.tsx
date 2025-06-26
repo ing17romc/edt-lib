@@ -80,7 +80,7 @@ describe('TextArea Component', () => {
     const textarea = screen.getByRole('textbox');
     expect(textarea).toBeDisabled();
     expect(textarea).toHaveAttribute('aria-disabled', 'true');
-    expect(textarea).toHaveClass('DISABLED');
+    expect(textarea).toHaveClass('disabled');
   });
 
   test('renders read-only state correctly', () => {
@@ -88,7 +88,7 @@ describe('TextArea Component', () => {
     const textarea = screen.getByRole('textbox');
     expect(textarea).toHaveAttribute('readonly');
     expect(textarea).toHaveAttribute('aria-readonly', 'true');
-    expect(textarea).toHaveClass('READ_ONLY');
+    expect(textarea).toHaveClass('read-only');
   });
 
   test('renders required state correctly', () => {

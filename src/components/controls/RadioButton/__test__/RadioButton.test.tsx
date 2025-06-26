@@ -45,14 +45,14 @@ describe('RadioButton Component', () => {
     const radio = screen.getByRole('radio');
     expect(radio).toBeDisabled();
     expect(radio).toHaveAttribute('aria-disabled', 'true');
-    expect(radio.parentElement).toHaveClass('DISABLED');
+    expect(radio.parentElement).toHaveClass('disabled');
   });
 
   test('handles read-only state', () => {
     render(<RadioButton {...readOnlyProps} />);
 
     const radio = screen.getByRole('radio');
-    expect(radio.parentElement).toHaveClass('READ_ONLY');
+    expect(radio.parentElement).toHaveClass('read-only');
   });
 
   test('handles required state', () => {

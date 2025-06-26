@@ -1,5 +1,7 @@
 import React from 'react';
 import { ButtonProps } from './types';
+import { ControlStyle, ControlSize } from '../../utils/constant';
+
 /**
  * Componente Button que proporciona un botón estilizado y accesible.
  * Permite personalizar el estilo, tamaño y comportamiento del botón.
@@ -19,8 +21,8 @@ const Button: React.FC<ButtonProps> = ({
   title,
   disabled = false,
   onClick,
-  buttonType = 'PRIMARY',
-  size = 'MD',
+  buttonType = ControlStyle.PRIMARY,
+  size = ControlSize.MD,
   className = ''
 }) => {
   return (

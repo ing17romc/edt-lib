@@ -1,26 +1,26 @@
-export const TYPE_NOTIFICATION = {
-	ERROR: 'error',
-	WARNING: 'warning',
-	INFO: 'info',
-	SUCCESSFULL: 'successful'
+export enum NotificationType {
+  ERROR = 'error',
+  WARNING = 'warning',
+  INFO = 'info',
+  SUCCESSFUL = 'successful'
 }
 
-export const SIZE_CONTROL = {
-	LG: 'lg',
-	MD: 'md',
-	SM: 'sm',
-	XS: 'xs'
+export enum ControlSize {
+  XS = 'xs',
+  SM = 'sm',
+  MD = 'md',
+  LG = 'lg'
 }
 
-export const STYLE_CONTROL = {
-	PRIMARY: 'primary',
-	SECONDARY: 'secondary'
+export enum ControlStyle {
+  PRIMARY = 'primary',
+  SECONDARY = 'secondary'
 }
 
-export const STYLE_STATUS_CONTROL = {
-	DISABLED: 'DISABLED',
-	READ_ONLY: 'READ_ONLY',
-	REQUIRED: 'required'
+export enum ControlStatus {
+  DISABLED = 'disabled',
+  READ_ONLY = 'read-only',
+  REQUIRED = 'required'
 }
 
 export const ACTION_ICONS = [
@@ -284,25 +284,26 @@ export const ICONS = ACTION_ICONS.concat(ALERT_ICONS)
 	.concat(SOCIAL_ICONS)
 
 const CONSTANT = {
-	TYPE_NOTIFICATION,
-	SIZE_CONTROL,
-	STYLE_CONTROL,
-	STYLE_STATUS_CONTROL,
-
-	ICONS,
-	ACTION_ICONS,
-	ALERT_ICONS,
-	AUDIO_AND_VIDEO_ICONS,
-	COMMUNICATION_ICONS,
-	CONTENT_ICONS,
-	DIVICE_ICONS,
-	EDITOR_ICONS,
-	FILE_ICONS,
-	HARDWARE_ICONS,
-	IMAGE_ICONS,
-	NAVIGATION_ICONS,
-	NOTIFICATION_ICONS,
-	SOCIAL_ICONS
+  // Enums
+  NotificationType,
+  ControlSize,
+  ControlStyle,
+  ControlStatus,
+  // Arrays de iconos
+  ICONS,
+  ACTION_ICONS,
+  ALERT_ICONS,
+  AUDIO_AND_VIDEO_ICONS,
+  COMMUNICATION_ICONS,
+  CONTENT_ICONS,
+  DIVICE_ICONS,
+  EDITOR_ICONS,
+  FILE_ICONS,
+  HARDWARE_ICONS,
+  IMAGE_ICONS,
+  NAVIGATION_ICONS,
+  NOTIFICATION_ICONS,
+  SOCIAL_ICONS
 }
 
 export default CONSTANT
