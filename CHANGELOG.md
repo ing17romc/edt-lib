@@ -4,6 +4,12 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+- **0415417 2025-06-28** fix: Corregir tipos de íconos y pruebas relacionadas
+  - Actualizado el componente Icon para manejar correctamente los tipos de íconos
+  - Corregido el error de tipo 'includes' en la verificación de íconos
+  - Actualizadas las pruebas unitarias para reflejar los cambios en los tipos
+  - Mejorada la documentación de los componentes afectados
+
 - **ffbd38c 2025-06-26** fix: update modal components and tests to handle React Portals correctly
   - Fixed Modal and ModalNotifications components to properly handle React Portals
   - Updated tests to work with React Portals by querying document.body
