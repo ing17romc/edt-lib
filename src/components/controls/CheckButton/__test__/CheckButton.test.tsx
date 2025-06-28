@@ -2,6 +2,8 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import CheckButton from '../index';
+import { ControlStatus } from '../../../utils/enums';
+
 
 describe('CheckButton Component', () => {
   const mockOnChange = jest.fn();
@@ -105,8 +107,8 @@ describe('CheckButton Component', () => {
     const containers = screen.getAllByRole('group');
     const container = containers[0];
     expect(container).toHaveClass('checkbutton');
-    expect(container).not.toHaveClass('disabled');
-    expect(container).not.toHaveClass('read-only');
+    expect(container).not.toHaveClass(ControlStatus.DISABLED);
+    expect(container).not.toHaveClass(ControlStatus.READ_ONLY);
 
     // Test disabled state
     render(
@@ -119,7 +121,7 @@ describe('CheckButton Component', () => {
     );
     // Ahora hay dos grupos, el segundo es el disabled
     const containersAfter = screen.getAllByRole('group');
-    expect(containersAfter[1]).toHaveClass('disabled');
+    expect(containersAfter[1]).toHaveClass(ControlStatus.DISABLED);
   });
 
   test('forwards ref correctly', () => {

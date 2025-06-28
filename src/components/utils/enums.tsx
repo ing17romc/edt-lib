@@ -20,5 +20,6 @@ export enum ControlStyle {
 export enum ControlStatus {
   DISABLED = 'disabled',
   READ_ONLY = 'read-only',
-  REQUIRED = 'required'
+  REQUIRED = 'required',
+  NONE = ''
 }

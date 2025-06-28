@@ -1,5 +1,6 @@
 import React, { forwardRef } from 'react';
 import type { CheckButtonProps, CheckButtonComponent } from './types';
+import { ControlStatus } from '../../utils/enums';
 
 /**
  * CheckButton component that provides a styled and accessible checkbox input.
@@ -29,13 +30,13 @@ const CheckButton = forwardRef<HTMLInputElement, Omit<CheckButtonProps, 'ref'>>(
 }, ref) => {
   const getStyle = () => {
     if (disabled) {
-      return 'disabled';
+      return ControlStatus.DISABLED;
     } else if (readOnly) {
-      return 'read-only';
+      return ControlStatus.READ_ONLY;
     } else if (required && !checked) {
-      return 'required';
+      return ControlStatus.REQUIRED;
     }
-    return '';
+    return ControlStatus.NONE;
   };
 
   return (
