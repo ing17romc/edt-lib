@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Icon from './index';
-import { IconName } from './types';
+import { ControlSize } from '../../utils/enums';
+import { ALL_ICONS } from '../../utils/IconTypes';
 
 /**
  * Componente Icon que muestra un ícono de Material Icons.
@@ -22,10 +23,7 @@ const meta: Meta<typeof Icon> = {
     name: {
       description: 'Nombre del ícono a mostrar',
       control: 'select',
-      options: [
-        'add', 'remove', 'edit', 'delete', 'search', 
-        'save', 'cancel', 'check', 'warning', 'info', 'help', 'close'
-      ] as IconName[],
+      options: Object.values(ALL_ICONS),
       table: {
         type: { summary: 'IconName' },
       },
@@ -33,10 +31,10 @@ const meta: Meta<typeof Icon> = {
     size: {
       description: 'Tamaño del ícono',
       control: 'select',
-      options: ['SM', 'MD', 'LG'],
+      options: Object.values(ControlSize),
       table: {
         type: { summary: 'IconSize' },
-        defaultValue: { summary: 'MD' },
+        defaultValue: { summary: ControlSize.MD },
       },
     },
   },
@@ -48,15 +46,15 @@ type Story = StoryObj<typeof Icon>;
 
 export const Default: Story = {
   args: {
-    name: 'add',
-    size: 'MD',
+    name: ALL_ICONS.ADD,
+    size: ControlSize.MD,
   },
 };
 
 export const Small: Story = {
   args: {
-    name: 'search',
-    size: 'SM',
+    name: ALL_ICONS.SEARCH,
+    size: ControlSize.SM,
   },
   parameters: {
     docs: {
@@ -69,8 +67,8 @@ export const Small: Story = {
 
 export const Large: Story = {
   args: {
-    name: 'info',
-    size: 'LG',
+    name: ALL_ICONS.INFO,
+    size: ControlSize.LG,
   },
   parameters: {
     docs: {
@@ -82,15 +80,12 @@ export const Large: Story = {
 };
 
 // Story para mostrar todos los íconos disponibles
-export const AllIcons: Story = {
+export const All_Icons: Story = {
   render: () => (
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: '20px' }}>
-      {[
-        'add', 'remove', 'edit', 'delete', 'search',
-        'save', 'cancel', 'check', 'warning', 'info', 'help', 'close'
-      ].map((icon) => (
+      {Object.values(ALL_ICONS).map((icon) => (
         <div key={icon} style={{ textAlign: 'center', padding: '10px' }}>
-          <Icon name={icon as IconName} size="MD" />
+          <Icon name={icon} size={ControlSize.MD} />
           <div style={{ marginTop: '8px', fontSize: '12px' }}>{icon}</div>
         </div>
       ))}

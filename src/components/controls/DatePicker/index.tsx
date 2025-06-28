@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { DatePickerProps } from './types';
+import { ControlStatus } from '../../utils/enums';
 
 /**
  * Componente DatePicker que proporciona un selector de fecha personalizado.
@@ -101,11 +102,11 @@ const DatePicker = ({
 
   const getStyle = () => {
     if (disabled) {
-      return 'disabled';
+      return ControlStatus.DISABLED;
     } else if (readOnly) {
-      return 'read-only';
+      return ControlStatus.READ_ONLY;
     } else if (required && (!value || value === '0/0/0')) {
-      return 'required';
+      return ControlStatus.REQUIRED;
     }
     return '';
   };

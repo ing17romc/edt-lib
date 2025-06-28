@@ -1,20 +1,22 @@
 import { IconProps } from '../types';
+import { ControlSize } from '../../../utils/enums';
+import { ALL_ICONS } from '../../../utils/IconTypes';
 
 export const mockIconProps: IconProps = {
-  name: 'add',
-  size: 'MD'
+  name: ALL_ICONS.ADD,
+  size: ControlSize.MD
 };
 
 export const mockIconSmallProps: IconProps = {
-  name: 'search',
-  size: 'SM'
+  name: ALL_ICONS.SEARCH,
+  size: ControlSize.SM
 };
 
 export const mockIconLargeProps: IconProps = {
-  name: 'info',
-  size: 'LG'
+  name: ALL_ICONS.INFO,
+  size: ControlSize.LG
 };
 
 export const mockIconDefaultSize: IconProps = {
-  name: 'edit'
+  name: ALL_ICONS.EDIT
 };

@@ -1,5 +1,7 @@
 import React from 'react';
 import { IconProps } from './types';
+import { ControlSize } from '../../utils/enums';
+import { ALL_ICONS } from '../../utils/IconTypes';
 
 /**
  * Componente Icon que muestra un ícono de Material Icons.
@@ -7,17 +9,13 @@ import { IconProps } from './types';
  * 
  * @param {IconProps} props - Propiedades del componente
  * @param {IconName} props.name - Nombre del ícono a mostrar (requerido)
- * @param {IconSize} [props.size='MD'] - Tamaño del ícono (SM, MD, LG)
+ * @param {ControlSize} [props.size='MD'] - Tamaño del ícono (SM, MD, LG)
  * @returns {JSX.Element} Elemento div con el ícono especificado
  */
 
-const VALID_ICONS = [
-  'add', 'search', 'edit', 'delete', 'info'
-  // Agrega aquí los nombres válidos que uses en tu app
-];
 
-const Icon: React.FC<IconProps> = ({ name, size = 'MD' }) => {
-  if (!VALID_ICONS.includes(name)) return null;
+const Icon: React.FC<IconProps> = ({ name, size = ControlSize.MD }) => {
+  if (!Object.values(ALL_ICONS).includes(name)) return null;
   return (
     <div className={`container-icon ${size.toLowerCase()}`} role="img" aria-label={name}>
       <div className='material-icons'>{name}</div>

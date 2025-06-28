@@ -1,7 +1,22 @@
 import React from 'react';
-import CONSTANT from '../../../src/components/utils/constant';
 import { ControlSize } from '../../../src/components/utils/enums';
 import UI from '../../../src/components/controls';
+import { 
+  ActionIcons,
+  AlertIcons,
+  AudioAndVideoIcons,
+  CommunicationIcons,
+  ContentIcons,
+  DeviceIcons,
+  EditorIcons,
+  FileIcons,
+  HardwareIcons,
+  ImageIcons,
+  NavigationIcons,
+  NotificationIcons,
+  SocialIcons,
+  type AllIconsType
+ } from '../../../src/components/utils/IconTypes';
 
 
 /**
@@ -14,21 +29,7 @@ import UI from '../../../src/components/controls';
  * @returns {JSX.Element} Vista de galería de íconos categorizados
  */
 const Icons: React.FC = () => {
-	const {
-		ACTION_ICONS,
-		ALERT_ICONS,
-		AUDIO_AND_VIDEO_ICONS,
-		COMMUNICATION_ICONS,
-		CONTENT_ICONS,
-		DIVICE_ICONS,
-		EDITOR_ICONS,
-		FILE_ICONS,
-		HARDWARE_ICONS,
-		IMAGE_ICONS,
-		NAVIGATION_ICONS,
-		NOTIFICATION_ICONS,
-		SOCIAL_ICONS,
-	} = CONSTANT;
+
 
   const returnHtml = (category: string, items: string[]): JSX.Element => {
     return (
@@ -38,9 +39,9 @@ const Icons: React.FC = () => {
             <h4>{category}</h4>
           </div>
           {items.map((element, index) => (
-            <div key={index} className=' size-5 padding-v-20 '>
-              <UI.Icon name={element} />
-              <p>{element} </p>
+            <div key={index} className='size-5 padding-v-20'>
+              <UI.Icon name={element as AllIconsType} />
+              <p>{element}</p>
             </div>
           ))}
         </div>
@@ -60,45 +61,45 @@ const Icons: React.FC = () => {
             <div className='start-1 size-20 padding-v-20'>
               <h4>Size</h4>
             </div>
-            <div className=' start-1 size-5 padding-v-10'>
-              <UI.Icon name={'person'} size={ControlSize.LG} />
+            <div className='start-1 size-5 padding-v-10'>
+              <UI.Icon name={SocialIcons.PERSON} size={ControlSize.LG} />
               <p>
-                {'person'} - {ControlSize.LG}
+                {SocialIcons.PERSON} - {ControlSize.LG}
               </p>
             </div>
-            <div className='  size-5 padding-v-10'>
-              <UI.Icon name={'person'} size={ControlSize.MD} />
+            <div className='size-5 padding-v-10'>
+              <UI.Icon name={SocialIcons.PERSON} size={ControlSize.MD} />
               <p>
-                {'person'} - {ControlSize.MD}
+                {SocialIcons.PERSON} - {ControlSize.MD}
               </p>
             </div>
-            <div className='  size-5 padding-v-10'>
-              <UI.Icon name={'person'} size={ControlSize.SM} />
+            <div className='size-5 padding-v-10'>
+              <UI.Icon name={SocialIcons.PERSON} size={ControlSize.SM} />
               <p>
-                {'person'} - {ControlSize.SM}
+                {SocialIcons.PERSON} - {ControlSize.SM}
               </p>
             </div>
-            <div className='  size-5 padding-v-10'>
-              <UI.Icon name={'person'} size={ControlSize.XS} />
+            <div className='size-5 padding-v-10'>
+              <UI.Icon name={SocialIcons.PERSON} size={ControlSize.XS} />
               <p>
-                {'person'} - {ControlSize.XS}
+                {SocialIcons.PERSON} - {ControlSize.XS}
               </p>
             </div>
           </div>
           <div className='start-1  padding-v-20' />
-          {returnHtml('Action', ACTION_ICONS)}
-          {returnHtml('Alert', ALERT_ICONS)}
-          {returnHtml('Audio and Video', AUDIO_AND_VIDEO_ICONS)}
-          {returnHtml('Communication', COMMUNICATION_ICONS)}
-          {returnHtml('Content', CONTENT_ICONS)}
-          {returnHtml('Device', DIVICE_ICONS)}
-          {returnHtml('Editor', EDITOR_ICONS)}
-          {returnHtml('File', FILE_ICONS)}
-          {returnHtml('Hardware', HARDWARE_ICONS)}
-          {returnHtml('Image', IMAGE_ICONS)}
-          {returnHtml('Navigation', NAVIGATION_ICONS)}
-          {returnHtml('Notification', NOTIFICATION_ICONS)}
-          {returnHtml('Social', SOCIAL_ICONS)}
+          {returnHtml('Action', Object.values(ActionIcons))}
+          {returnHtml('Alert', Object.values(AlertIcons))}
+          {returnHtml('Audio and Video', Object.values(AudioAndVideoIcons))}
+          {returnHtml('Communication', Object.values(CommunicationIcons))}
+          {returnHtml('Content', Object.values(ContentIcons))}
+          {returnHtml('Device', Object.values(DeviceIcons))}
+          {returnHtml('Editor', Object.values(EditorIcons))}
+          {returnHtml('File', Object.values(FileIcons))}
+          {returnHtml('Hardware', Object.values(HardwareIcons))}
+          {returnHtml('Image', Object.values(ImageIcons))}
+          {returnHtml('Navigation', Object.values(NavigationIcons))}
+          {returnHtml('Notification', Object.values(NotificationIcons))}
+          {returnHtml('Social', Object.values(SocialIcons))}
         </div>
       </div>
     </>

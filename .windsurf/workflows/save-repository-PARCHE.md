@@ -6,7 +6,7 @@ Realiza los siguientes pasos:
 
 Haz un commit y un push con los últimos cambios.
 Actualiza el archivo changelog.md con la información correspondiente.
-Incrementa la versión minor en el archivo package.json.
+Incrementa la versión PARCHE en el archivo package.json.
 Realiza un nuevo commit y push con estos cambios.
 Publica los cambios de Storybook ejecutando el comando:
 npm run release-sb

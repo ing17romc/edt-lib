@@ -1,29 +1,6 @@
 import React from 'react';
-
-/**
- * Tamaños disponibles para el componente Icon
- * - SM: Pequeño (Small)
- * - MD: Mediano (Medium) - Valor por defecto
- * - LG: Grande (Large)
- */
-export type IconSize = 'SM' | 'MD' | 'LG';
-
-/**
- * Nombres de íconos disponibles en la aplicación
- */
-export type IconName =
-  | 'add'      // Ícono de agregar
-  | 'remove'   // Ícono de remover
-  | 'edit'     // Ícono de editar
-  | 'delete'   // Ícono de eliminar
-  | 'search'   // Ícono de búsqueda
-  | 'save'     // Ícono de guardar
-  | 'cancel'   // Ícono de cancelar
-  | 'check'    // Ícono de verificación
-  | 'warning'  // Ícono de advertencia
-  | 'info'     // Ícono de información
-  | 'help'     // Ícono de ayuda
-  | 'close';   // Ícono de cerrar
+import { ControlSize } from '../../utils/enums';
+import { AllIconsType } from '../../utils/IconTypes';
 
 /**
  * Propiedades del componente Icon
@@ -33,13 +10,13 @@ export interface IconProps {
    * Nombre del ícono a mostrar
    * @required
    */
-  name: IconName;
+  name: AllIconsType | null;
   
   /**
    * Tamaño del ícono
    * @default 'MD'
    */
-  size?: IconSize;
+  size?: ControlSize;
 }
 
 /**
