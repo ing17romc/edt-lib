@@ -4,6 +4,11 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+- **09814fb 2025-06-28** refactor: move component styles to their respective folders
+  - Movidos los estilos SCSS a las carpetas de sus respectivos componentes
+  - Actualizadas las rutas de importación en los componentes afectados
+  - Mejorada la organización del código al agrupar los estilos con sus componentes
+
 - **0415417 2025-06-28** fix: Corregir tipos de íconos y pruebas relacionadas
   - Actualizado el componente Icon para manejar correctamente los tipos de íconos
   - Corregido el error de tipo 'includes' en la verificación de íconos
