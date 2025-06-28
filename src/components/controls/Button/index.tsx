@@ -1,6 +1,6 @@
 import React from 'react';
 import { ButtonProps } from './types';
-import { ControlStyle, ControlSize } from '../../utils/constant';
+import { ControlStyle, ControlSize } from '../../utils/enums';
 
 /**
  * Componente Button que proporciona un botón estilizado y accesible.
@@ -11,8 +11,8 @@ import { ControlStyle, ControlSize } from '../../utils/constant';
  * @param {string} [props.id] - ID único para el botón
  * @param {boolean} [props.disabled=false] - Si el botón está deshabilitado
  * @param {(e: React.MouseEvent) => void} [props.onClick] - Función que se ejecuta al hacer clic
- * @param {'PRIMARY' | 'SECONDARY' | 'DANGER' | 'SUCCESS' | 'WARNING' | 'INFO'} [props.type='PRIMARY'] - Estilo del botón
- * @param {'SM' | 'MD' | 'LG'} [props.size='MD'] - Tamaño del botón
+ * @param {ControlStyle} [props.buttonType=ControlStyle.PRIMARY] - Estilo del botón (PRIMARY o SECONDARY)
+ * @param {ControlSize} [props.size=ControlSize.MD] - Tamaño del botón (XS, SM, MD o LG)
  * @returns {JSX.Element} Elemento button con estilos y comportamiento personalizados
  */
 

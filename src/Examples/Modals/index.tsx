@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { httpCodes } from '../data';
-import CONSTANT from '../../../src/components/utils/constant';
+import { NotificationType } from '../../../src/components/utils/enums';
 import functions from '../../../src/components/utils/functions';
 import UI from '../../../src/components/controls';
-import type { ModalesState, ModalesProps } from './types';
+import type { ModalesState } from './types';
 
 /**
  * Modales
@@ -15,7 +15,6 @@ import type { ModalesState, ModalesProps } from './types';
  * @returns {JSX.Element} Vista interactiva para probar modales personalizados
  */
 const Modales: React.FC<ModalesProps> = () => {
-	const { NotificationType } = CONSTANT
 	const { getValueInput, getOptionsSelector } = functions
 
 	const [state, setstate] = useState<ModalesState>({

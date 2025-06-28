@@ -1,5 +1,6 @@
 import React from 'react';
 import CONSTANT from '../../../src/components/utils/constant';
+import { ControlSize } from '../../../src/components/utils/enums';
 import UI from '../../../src/components/controls';
 
 
@@ -14,7 +15,6 @@ import UI from '../../../src/components/controls';
  */
 const Icons: React.FC = () => {
 	const {
-		ControlSize,
 		ACTION_ICONS,
 		ALERT_ICONS,
 		AUDIO_AND_VIDEO_ICONS,

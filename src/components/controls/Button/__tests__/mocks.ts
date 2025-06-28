@@ -1,11 +1,12 @@
 import { ButtonProps } from '../types';
+import { ControlSize, ControlStyle } from '../../../utils/enums';
 
 export const mockOnClick = jest.fn();
 
 export const defaultProps: ButtonProps = {
   title: 'Click me',
-  type: 'PRIMARY',
-  size: 'MD',
+  buttonType: ControlStyle.PRIMARY,
+  size: ControlSize.MD,
 };
 
 export const disabledButtonProps: ButtonProps = {
@@ -15,15 +16,15 @@ export const disabledButtonProps: ButtonProps = {
 
 export const secondaryButtonProps: ButtonProps = {
   title: 'Secondary',
-  type: 'SECONDARY',
+  buttonType: ControlStyle.SECONDARY,
 };
 
 export const smallButtonProps: ButtonProps = {
   title: 'Small Button',
-  size: 'SM',
+  size: ControlSize.SM,
 };
 
 export const largeButtonProps: ButtonProps = {
   title: 'Large Button',
-  size: 'LG',
+  size: ControlSize.LG,
 };

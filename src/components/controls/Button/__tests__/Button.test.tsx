@@ -2,6 +2,7 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Button from '../index';
+import { ControlSize, ControlStyle } from '../../../utils/enums';
 
 describe('Button Component', () => {
   const mockOnClick = jest.fn();
@@ -14,8 +15,8 @@ describe('Button Component', () => {
     render(
       <Button
         title="Click me"
-        buttonType="primary"
-        size="md"
+        buttonType={ControlStyle.PRIMARY}
+        size={ControlSize.MD}
       />
     );
 
@@ -27,8 +28,8 @@ describe('Button Component', () => {
     render(
       <Button
         title="Click me"
-        buttonType="primary"
-        size="md"
+        buttonType={ControlStyle.PRIMARY}
+        size={ControlSize.MD}
         onClick={mockOnClick}
       />
     );
@@ -42,25 +43,25 @@ describe('Button Component', () => {
     render(
       <Button
         title="Test"
-        buttonType="primary"
-        size="lg"
+        buttonType={ControlStyle.PRIMARY}
+        size={ControlSize.LG}
       />
     );
 
     const button = screen.getByText('Test');
-    expect(button).toHaveClass('primary');
-    expect(button).toHaveClass('lg');
+    expect(button).toHaveClass(ControlStyle.PRIMARY);
+    expect(button).toHaveClass(ControlSize.LG);
   });
 
   test('renders with all size variants', () => {
-    const sizes = ['xs', 'sm', 'md', 'lg'] as const;
+    const sizes = Object.values(ControlSize);
     
     sizes.forEach(size => {
       render(
         <Button
           key={size}
           title={`${size} Button`}
-          buttonType="primary"
+          buttonType={ControlStyle.PRIMARY}
           size={size}
         />
       );
@@ -74,8 +75,8 @@ describe('Button Component', () => {
       <Button
         title="Custom Class"
         className="custom-button"
-        buttonType="primary"
-        size="md"
+        buttonType={ControlStyle.PRIMARY}
+        size={ControlSize.MD}
       />
     );
 
@@ -87,8 +88,8 @@ describe('Button Component', () => {
     render(
       <Button
         title="Disabled Button"
-        buttonType="primary"
-        size="md"
+        buttonType={ControlStyle.PRIMARY}
+        size={ControlSize.MD}
         disabled
       />
     );
@@ -101,8 +102,8 @@ describe('Button Component', () => {
     render(
       <Button
         title="Disabled Button"
-        buttonType="primary"
-        size="md"
+        buttonType={ControlStyle.PRIMARY}
+        size={ControlSize.MD}
         disabled
         onClick={mockOnClick}
       />

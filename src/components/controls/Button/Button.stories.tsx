@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Button from '.';
-import { ControlStyle, ControlSize } from '../../utils/constant';
+import { ControlStyle, ControlSize } from '../../utils/enums';
 
 // Meta information for the component
 const meta: Meta<typeof Button> = {

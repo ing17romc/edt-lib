@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { ControlStatus } from '../../utils/constant';
+import { ControlStatus } from '../../utils/enums';
 import { TextAreaProps } from './types';
 
 /**

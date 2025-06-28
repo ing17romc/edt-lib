@@ -1,16 +1,13 @@
 import { ReactEventHandler } from 'react';
-import { ControlSize, ControlStyle } from '../../utils/constant';
-
-type SizeType = 'sm' | 'md' | 'lg' | 'xs';
-type StyleType = 'primary' | 'secondary';
+import { ControlSize, ControlStyle } from '../../utils/enums';
 
 export interface ButtonProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
   id?: string;
   title: string;
   disabled?: boolean;
   onClick?: ReactEventHandler<HTMLButtonElement>;
-  buttonType?: StyleType;
-  size?: SizeType;
+  buttonType?: ControlStyle;
+  size?: ControlSize;
   className?: string;
 }
 
