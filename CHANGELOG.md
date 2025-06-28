@@ -4,6 +4,11 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+- **2c7794b 2025-06-28** feat: Actualización de componentes CheckButton y enums
+  - Mejoras en la implementación del componente CheckButton
+  - Actualización de tipos y enums relacionados
+  - Mejoras en las pruebas unitarias
+
 - **ffbd38c 2025-06-26** fix: update modal components and tests to handle React Portals correctly
   - Fixed Modal and ModalNotifications components to properly handle React Portals
   - Updated tests to work with React Portals by querying document.body
