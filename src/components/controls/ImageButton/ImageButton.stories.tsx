@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 import ImageButton from '.';
-import { IconName } from '../Icon/types';
+import { ALL_ICONS } from '../../utils/IconTypes';
+import { ControlSize } from '../../utils/enums';
 
 export default {
   title: 'Controls/ImageButton',
@@ -32,11 +33,7 @@ export default {
     },
     icon: {
       control: 'select',
-      options: [
-        'add', 'remove', 'edit', 'delete', 'search',
-        'save', 'cancel', 'check', 'warning', 'info',
-        'help', 'close'
-      ] as IconName[],
+      options: Object.values(ALL_ICONS),
       description: 'Icon to display on the button',
       table: {
         type: { summary: 'IconName' },
@@ -45,11 +42,11 @@ export default {
     },
     size: {
       control: 'select',
-      options: ['SM', 'MD', 'LG', 'XL'],
+      options: Object.values(ControlSize),
       description: 'Size of the button and icon',
       table: {
         type: { summary: 'IconSize' },
-        defaultValue: { summary: 'MD' },
+        defaultValue: { summary: ControlSize.MD },
       },
     },
     disabled: {
@@ -77,8 +74,8 @@ export const Default: Story = {
   args: {
     id: 'default-button',
     text: 'Click me',
-    icon: 'add' as IconName,
-    size: 'MD',
+    icon: ALL_ICONS.ADD,
+    size: ControlSize.MD,
     disabled: false,
   },
 };
@@ -97,7 +94,7 @@ export const Large: Story = {
     ...Default.args,
     id: 'large-button',
     text: 'Large Button',
-    size: 'LG',
+    size: ControlSize.LG,
   },
 };
 
@@ -106,6 +103,6 @@ export const WithCustomIcon: Story = {
     ...Default.args,
     id: 'custom-icon-button',
     text: 'Settings',
-    icon: 'settings' as IconName,
+    icon: ALL_ICONS.SETTINGS,
   },
 };

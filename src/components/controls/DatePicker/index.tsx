@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { DatePickerProps } from './types';
 import { ControlStatus } from '../../utils/enums';
+import './styles/DatePicker.scss';
 
 /**
  * Componente DatePicker que proporciona un selector de fecha personalizado.

@@ -3,6 +3,8 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import ImageButton from '../index';
 import { defaultProps, disabledProps, clickableProps } from './mocks';
+import { ALL_ICONS } from '../../../utils/IconTypes';
+import { ControlSize } from '../../../utils/enums'; 
 
 describe('ImageButton Component', () => {
   test('renders with correct icon and text', () => {
@@ -45,13 +47,13 @@ describe('ImageButton Component', () => {
         <ImageButton
           id="submit-button"
           text="Submit Button"
-          icon="save"
+          icon={ALL_ICONS.SAVE}
           onClick={() => { /* noop: required for test */ expect(true).toBe(true); }}
         />
         <ImageButton
           id="regular-button"
           text="Regular Button"
-          icon="cancel"
+          icon={ALL_ICONS.CANCEL}
         />
       </>
     );
@@ -69,12 +71,12 @@ describe('ImageButton Component', () => {
         <ImageButton
           id="enabled-button"
           text="Enabled Button"
-          icon="search"
+          icon={ALL_ICONS.SEARCH}
         />
         <ImageButton
           id="disabled-button"
           text="Disabled Button"
-          icon="info"
+          icon={ALL_ICONS.INFO}
           disabled
         />
       </>

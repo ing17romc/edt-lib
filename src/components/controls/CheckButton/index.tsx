@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
 import type { CheckButtonProps, CheckButtonComponent } from './types';
 import { ControlStatus } from '../../utils/enums';
+import './styles/CheckButton.scss';
 
 /**
  * CheckButton component that provides a styled and accessible checkbox input.

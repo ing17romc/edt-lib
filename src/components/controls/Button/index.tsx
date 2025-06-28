@@ -1,6 +1,7 @@
 import React from 'react';
 import { ButtonProps } from './types';
 import { ControlStyle, ControlSize } from '../../utils/enums';
+import './styles/Button.scss';
 
 /**
  * Componente Button que proporciona un botón estilizado y accesible.

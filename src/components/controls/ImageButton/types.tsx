@@ -1,12 +1,13 @@
-import { IconName, IconSize } from '../Icon/types';
+import { ControlSize } from '../../utils/enums';
+import { AllIconsType } from '../../utils/IconTypes';
 
 export type ButtonType = 'button' | 'submit';
 
 export interface ImageButtonProps {
   id: string;
   text: string;
-  icon: IconName;
-  size?: IconSize;
+  icon: AllIconsType;
+  size?: ControlSize;
   disabled?: boolean;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }

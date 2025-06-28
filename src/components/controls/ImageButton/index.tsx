@@ -1,6 +1,8 @@
 import React from 'react';
 import { ImageButtonProps } from './types';
 import Icon from '../Icon';
+import { ControlStatus, ControlSize } from '../../utils/enums';
+import './styles/ImageButton.scss';
 
 /**
  * Componente ImageButton que muestra un botón con un ícono.
@@ -20,12 +22,12 @@ const ImageButton: React.FC<ImageButtonProps> = ({
   id,
   text,
   icon,
-  size = 'MD',
+  size = ControlSize.MD,
   disabled = false,
   onClick
 }) => {
   const getStyle = () => {
-    return `imageButton ${disabled ? 'disabled' : ''}`;
+    return `imageButton ${disabled ? ControlStatus.DISABLED : ''}`;
   };
 
   const getButtonType = () => {

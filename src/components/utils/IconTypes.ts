@@ -101,7 +101,8 @@ export enum ContentIcons {
   ARCHIVE = 'archive',
   SELECT_ALL = 'select_all',
   CONTENT_PASTE_GO = 'content_paste_go',
-  EDIT = 'edit'
+  EDIT = 'edit',
+  CANCEL = 'cancel'
 }
 
 export enum DeviceIcons {

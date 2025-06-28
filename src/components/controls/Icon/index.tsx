@@ -2,6 +2,7 @@ import React from 'react';
 import { IconProps } from './types';
 import { ControlSize } from '../../utils/enums';
 import { ALL_ICONS } from '../../utils/IconTypes';
+import './styles/Icon.scss';
 
 /**
  * Componente Icon que muestra un ícono de Material Icons.

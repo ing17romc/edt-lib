@@ -3,10 +3,6 @@ import Icon from './index';
 import { ControlSize } from '../../utils/enums';
 import { ALL_ICONS } from '../../utils/IconTypes';
 
-/**
- * Componente Icon que muestra un ícono de Material Icons.
- * Proporciona una interfaz consistente para mostrar íconos en la aplicación.
- */
 const meta: Meta<typeof Icon> = {
   title: 'Controls/Icon',
   component: Icon,
