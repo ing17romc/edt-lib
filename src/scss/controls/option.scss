@@ -1,5 +1,5 @@
-@import '../variables.scss';
-@import '../functions.scss';
+@use '../variables.scss';
+@use '../functions.scss';
 
 $size-container: 160;
 $border-container: 1;
@@ -7,7 +7,7 @@ $size-img: 70;
 $border-hr: 1;
 
 .container-option {
-	background-color: $white-color;
+	background-color: variables.$white-color;
 	cursor: pointer;
 	margin: auto auto;
 	display: block;
@@ -16,8 +16,8 @@ $border-hr: 1;
 	height: calculateSizeVW($size-container);
 	width: calculateSizeVW($size-container);
 	text-decoration: none;
-	color: $primary-color-1;
-	border: calculateSizeVW($border-container) solid $primary-color-1;
+	color: variables.$primary-color-1;
+	border: calculateSizeVW($border-container) solid variables.$primary-color-1;
 	text-align: center;
 
 	& .material-icons {
@@ -27,7 +27,7 @@ $border-hr: 1;
 
 	& hr {
 		margin: auto auto;
-		border: calculateSizeVW($border-hr) $gray-color solid;
+		border: calculateSizeVW($border-hr) variables.$gray-color solid;
 		margin: 4%;
 	}
 
@@ -36,15 +36,15 @@ $border-hr: 1;
 	}
 
 	&:hover {
-		box-shadow: $shadow-elevated;
+		box-shadow: variables.$shadow-elevated;
 	}
 
-	box-shadow: $shadow-flat;
+	box-shadow: variables.$shadow-flat;
 }
 
-@media screen and (min-width: calculateSizePX($min-with-screen)) {
+@media screen and (min-width: calculateSizePX(functions.$min-with-screen)) {
 	.container-option {
-		border: calculateSizePX($border-container) solid $primary-color-1;
+		border: calculateSizePX($border-container) solid variables.$primary-color-1;
 		height: calculateSizePX($size-container);
 		width: calculateSizePX($size-container);
 
@@ -53,7 +53,7 @@ $border-hr: 1;
 		}
 
 		& hr {
-			border: calculateSizePX($border-hr) $gray-color solid;
+			border: calculateSizePX($border-hr) variables.$gray-color solid;
 		}
 	}
 }
@@ -61,19 +61,19 @@ $border-hr: 1;
 @media (hover: none),
 (pointer: coarse) {
 
-	// * $size-mobile
+	// * functions.$size-mobile
 	// calculateSizeVW
 	.container-option {
-		border: calculateSizeVW($border-container * $size-mobile) solid $primary-color-1;
-		height: calculateSizeVW($size-container * $size-mobile);
-		width: calculateSizeVW($size-container * $size-mobile);
+		border: calculateSizeVW($border-container * functions.$size-mobile) solid variables.$primary-color-1;
+		height: calculateSizeVW($size-container * functions.$size-mobile);
+		width: calculateSizeVW($size-container * functions.$size-mobile);
 
 		& .material-icons {
-			font-size: calculateSizeVW($size-img * $size-mobile);
+			font-size: calculateSizeVW($size-img * functions.$size-mobile);
 		}
 
 		& hr {
-			border: calculateSizeVW($border-hr * $size-mobile) $gray-color solid;
+			border: calculateSizeVW($border-hr * functions.$size-mobile) variables.$gray-color solid;
 		}
 	}
 }
@@ -81,16 +81,16 @@ $border-hr: 1;
 @media (hover: none),
 (pointer: coarse) {
 	.container-option {
-		border: calculateSizeVW($border-container * $size-mobile-h) solid $primary-color-1;
-		height: calculateSizeVW($size-container * $size-mobile-h);
-		width: calculateSizeVW($size-container * $size-mobile-h);
+		border: calculateSizeVW($border-container * functions.$size-mobile-h) solid variables.$primary-color-1;
+		height: calculateSizeVW($size-container * functions.$size-mobile-h);
+		width: calculateSizeVW($size-container * functions.$size-mobile-h);
 
 		& .material-icons {
-			font-size: calculateSizeVW($size-img * $size-mobile-h);
+			font-size: calculateSizeVW($size-img * functions.$size-mobile-h);
 		}
 
 		& hr {
-			border: calculateSizeVW($border-hr * $size-mobile-h) $gray-color solid;
+			border: calculateSizeVW($border-hr * functions.$size-mobile-h) variables.$gray-color solid;
 		}
 	}
 }

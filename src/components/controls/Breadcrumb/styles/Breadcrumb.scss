@@ -1,10 +1,11 @@
-@import '../../../../scss/variables.scss';
-@import '../../../../scss/functions.scss';
+@use 'sass:color';
+@use '../../../../scss/variables.scss';
+@use '../../../../scss/functions.scss';
 
 $padding: 8;
 $padding-v: 10;
 $padding-h: 16;
-$font-size-normal: $fs-18;
+$font-size-normal: variables.$fs-18;
 $transition-speed: 0.2s;
 
 /* Contenedor principal del breadcrumb */
@@ -30,25 +31,25 @@ $transition-speed: 0.2s;
     content: "/";
     display: inline-block;
     padding: 0 calculateSizeVW($padding);
-    color: $gray-600;
+    color: variables.$gray-600;
   }
   
   /* Estilos para el enlace */
   a {
-    color: $primary-color;
+    color: variables.$primary-color-1;
     text-decoration: none;
     transition: color $transition-speed ease-in-out;
     
     &:hover, 
     &:focus {
-      color: darken($primary-color, 10%);
+      color: color.adjust(variables.$primary-color-1, $lightness: -10%);
       text-decoration: underline;
     }
   }
   
   /* Estilo para el elemento activo (último elemento) */
   &.active {
-    color: $gray-600;
+    color: variables.$gray-600;
     pointer-events: none;
     
     a {
@@ -60,7 +61,7 @@ $transition-speed: 0.2s;
 }
 
 /* Estilos para pantallas más grandes */
-@media screen and (min-width: calculateSizePX($min-with-screen)) {
+@media screen and (min-width: calculateSizePX(functions.$min-with-screen)) {
   .breadcrumb {
     padding: calculateSizePX($padding-v) calculateSizePX($padding-h);
     font-size: calculateSizePX($font-size-normal);

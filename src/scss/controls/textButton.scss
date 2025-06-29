@@ -1,5 +1,5 @@
-@import '../variables.scss';
-@import '../functions.scss';
+@use '../variables.scss';
+@use '../functions.scss';
 
 $padding-h: 8;
 $padding-v: 5;
@@ -16,33 +16,33 @@ $line-height: 18;
 	cursor: pointer;
 
 	&.disabled {
-		opacity: $disabled-opacity;
+		opacity: variables.$disabled-opacity;
 	}
 
 	&.primary {
-		background-color: $primary-color-1;
-		color: $white-color;
-		border: calculateSizeVW($border-size) solid $primary-color-1;
+		background-color: variables.$primary-color-1;
+		color: variables.$white-color;
+		border: calculateSizeVW($border-size) solid variables.$primary-color-1;
 	}
 
 	&.secundary {
-		background-color: $white-color;
-		color: $primary-color-1;
-		border: calculateSizeVW($border-size) solid $primary-color-1;
+		background-color: variables.$white-color;
+		color: variables.$primary-color-1;
+		border: calculateSizeVW($border-size) solid variables.$primary-color-1;
 	}
 }
 
-@media screen and (min-width: calculateSizePX($min-with-screen)) {
+@media screen and (min-width: calculateSizePX(functions.$min-with-screen)) {
 	.textButton {
 		padding: calculateSizePX($padding-v) calculateSizePX($padding-h);
 		line-height: calculateSizePX($line-height);
 
 		&.primary {
-			border: calculateSizePX($border-size) solid $primary-color-1;
+			border: calculateSizePX($border-size) solid variables.$primary-color-1;
 		}
 
 		&.secundary {
-			border: calculateSizePX($border-size) solid $primary-color-1;
+			border: calculateSizePX($border-size) solid variables.$primary-color-1;
 		}
 	}
 }
@@ -50,15 +50,15 @@ $line-height: 18;
 @media (hover: none),
 (pointer: coarse) {
 	.textButton {
-		padding: calculateSizeVW($padding-v * $size-mobile) calculateSizeVW($padding-h * $size-mobile);
-		line-height: calculateSizeVW($line-height * $size-mobile);
+		padding: calculateSizeVW($padding-v * functions.$size-mobile) calculateSizeVW($padding-h * functions.$size-mobile);
+		line-height: calculateSizeVW($line-height * functions.$size-mobile);
 
 		&.primary {
-			border: calculateSizeVW($border-size * $size-mobile) solid $primary-color-1;
+			border: calculateSizeVW($border-size * functions.$size-mobile) solid variables.$primary-color-1;
 		}
 
 		&.secundary {
-			border: calculateSizeVW($border-size * $size-mobile) solid $primary-color-1;
+			border: calculateSizeVW($border-size * functions.$size-mobile) solid variables.$primary-color-1;
 		}
 	}
 }
@@ -66,15 +66,15 @@ $line-height: 18;
 @media (hover: none),
 (pointer: coarse) {
 	.textButton {
-		padding: calculateSizeVW($padding-v * $size-mobile-h) calculateSizeVW($padding-h * $size-mobile-h);
-		line-height: calculateSizeVW($line-height * $size-mobile-h);
+		padding: calculateSizeVW($padding-v * functions.$size-mobile-h) calculateSizeVW($padding-h * functions.$size-mobile-h);
+		line-height: calculateSizeVW($line-height * functions.$size-mobile-h);
 
 		&.primary {
-			border: calculateSizeVW($border-size * $size-mobile-h) solid $primary-color-1;
+			border: calculateSizeVW($border-size * functions.$size-mobile-h) solid variables.$primary-color-1;
 		}
 
 		&.secundary {
-			border: calculateSizeVW($border-size * $size-mobile-h) solid $primary-color-1;
+			border: calculateSizeVW($border-size * functions.$size-mobile-h) solid variables.$primary-color-1;
 		}
 	}
 }

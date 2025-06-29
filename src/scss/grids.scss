@@ -1,5 +1,5 @@
-@import './variables.scss';
-@import './functions.scss';
+@use './variables.scss';
+@use './functions.scss';
 
 $grid-primary-padding-v: 3%;
 $grid-primary-column-gap: 1.5%;
@@ -61,7 +61,7 @@ $grid-secundary-column-gap: 1%;
 	}
 }
 
-@media screen and (max-width: $max-with-screen),
+@media screen and (max-width: functions.$max-with-screen),
 (hover: none),
 (pointer: coarse) {
 	.grid-primary {

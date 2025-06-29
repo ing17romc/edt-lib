@@ -1,5 +1,5 @@
-@import '../../../../scss/variables.scss';
-@import '../../../../scss/functions.scss';
+@use '../../../../scss/variables.scss';
+@use '../../../../scss/functions.scss';
 
 $size-lg: 48;
 $size-md: 36;
@@ -8,7 +8,7 @@ $size-xs: 24;
 
 .container-icon {
 	display: inline-block;
-	color: $primary-color-1;
+	color: variables.$primary-color-1;
 
 	&.lg>.material-icons {
 		font-size: calculateSizeVW($size-lg);
@@ -27,7 +27,7 @@ $size-xs: 24;
 	}
 }
 
-@media screen and (min-width: calculateSizePX($min-with-screen)) {
+@media screen and (min-width: calculateSizePX(functions.$min-with-screen)) {
 	.container-icon {
 		&.lg>.material-icons {
 			font-size: calculateSizePX($size-lg);
@@ -50,23 +50,23 @@ $size-xs: 24;
 @media (hover: none),
 (pointer: coarse) {
 
-	// * $size-mobile
+	// * functions.$size-mobile
 	// calculateSizeVW
 	.container-icon {
 		&.lg>.material-icons {
-			font-size: calculateSizeVW($size-lg * $size-mobile);
+			font-size: calculateSizeVW($size-lg * functions.$size-mobile);
 		}
 
 		&.md>.material-icons {
-			font-size: calculateSizeVW($size-md * $size-mobile);
+			font-size: calculateSizeVW($size-md * functions.$size-mobile);
 		}
 
 		&.sm>.material-icons {
-			font-size: calculateSizeVW($size-sm * $size-mobile);
+			font-size: calculateSizeVW($size-sm * functions.$size-mobile);
 		}
 
 		&.xs>.material-icons {
-			font-size: calculateSizeVW($size-xs * $size-mobile);
+			font-size: calculateSizeVW($size-xs * functions.$size-mobile);
 		}
 	}
 }
@@ -75,19 +75,19 @@ $size-xs: 24;
 (pointer: coarse) {
 	.container-icon {
 		&.lg>.material-icons {
-			font-size: calculateSizeVW($size-lg * $size-mobile-h);
+			font-size: calculateSizeVW($size-lg * functions.$size-mobile-h);
 		}
 
 		&.md>.material-icons {
-			font-size: calculateSizeVW($size-md * $size-mobile-h);
+			font-size: calculateSizeVW($size-md * functions.$size-mobile-h);
 		}
 
 		&.sm>.material-icons {
-			font-size: calculateSizeVW($size-sm * $size-mobile-h);
+			font-size: calculateSizeVW($size-sm * functions.$size-mobile-h);
 		}
 
 		&.xs>.material-icons {
-			font-size: calculateSizeVW($size-xs * $size-mobile-h);
+			font-size: calculateSizeVW($size-xs * functions.$size-mobile-h);
 		}
 	}
 }

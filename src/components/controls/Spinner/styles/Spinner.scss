@@ -1,10 +1,12 @@
-@import '../../../../scss/variables.scss';
-@import '../../../../scss/functions.scss';
 
-$color-one: $light-blue-color;
-$color-two: $primary-color-1;
-$color-three: $dark-blue-color;
-$bg-spinner: $black-color;
+@use 'sass:color';
+@use '../../../../scss/variables.scss';
+@use '../../../../scss/functions.scss';
+
+$color-one: variables.$light-blue-color;
+$color-two: variables.$primary-color-1;
+$color-three: variables.$dark-blue-color;
+$bg-spinner: variables.$black-color;
 
 $size-loading: 150;
 $border-loading: 2.5;
@@ -20,7 +22,7 @@ div.container-load {
   height: 100%;
   top: 0;
   left: 0;
-  background: transparentize($color: $color-one, $amount: 0.8);
+  background: color.adjust($color: $color-one, $alpha: 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -89,7 +91,7 @@ div.container-load {
 }
 
 /* Media queries para diferentes tamaños de pantalla */
-@media screen and (min-width: calculateSizePX($min-with-screen)) {
+@media screen and (min-width: calculateSizePX(functions.$min-with-screen)) {
   div.container-load {
     .loading {
       width: calculateSizePX($size-loading);

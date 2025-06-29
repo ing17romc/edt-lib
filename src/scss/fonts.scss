@@ -1,60 +1,60 @@
-@import './variables.scss';
-@import './functions.scss';
+@use './variables.scss';
+@use './functions.scss';
 
 h1 {
-	font-size: calculateSizeVW($fs-36);
+	font-size: calculateSizeVW(variables.$fs-36);
 }
 
 h2 {
-	font-size: calculateSizeVW($fs-30);
+	font-size: calculateSizeVW(variables.$fs-30);
 }
 
 h3 {
-	font-size: calculateSizeVW($fs-26);
+	font-size: calculateSizeVW(variables.$fs-26);
 }
 
 h4 {
-	font-size: calculateSizeVW($fs-24);
+	font-size: calculateSizeVW(variables.$fs-24);
 }
 
 .font-22 {
 	display: inline;
-	font-size: calculateSizeVW($fs-22);
+	font-size: calculateSizeVW(variables.$fs-22);
 }
 
 .font-20 {
 	display: inline;
-	font-size: calculateSizeVW($fs-20);
+	font-size: calculateSizeVW(variables.$fs-20);
 }
 
 .font-18 {
 	display: inline;
-	font-size: calculateSizeVW($fs-18);
+	font-size: calculateSizeVW(variables.$fs-18);
 }
 
 .font-16 {
 	display: inline;
-	font-size: calculateSizeVW($fs-16);
+	font-size: calculateSizeVW(variables.$fs-16);
 }
 
 .font-14 {
 	display: inline;
-	font-size: calculateSizeVW($fs-14);
+	font-size: calculateSizeVW(variables.$fs-14);
 }
 
 .font-12 {
 	display: inline;
-	font-size: calculateSizeVW($fs-12);
+	font-size: calculateSizeVW(variables.$fs-12);
 }
 
 .font-10 {
 	display: inline;
-	font-size: calculateSizeVW($fs-10);
+	font-size: calculateSizeVW(variables.$fs-10);
 }
 
 .font-8 {
 	display: inline;
-	font-size: calculateSizeVW($fs-8);
+	font-size: calculateSizeVW(variables.$fs-8);
 }
 
 .line-spacing {
@@ -77,62 +77,62 @@ h4 {
 	font-weight: bold;
 }
 
-@media screen and (min-width: calculateSizePX($min-with-screen)), (hover: none),
+@media screen and (min-width: calculateSizePX(functions.$min-with-screen)), (hover: none),
 (pointer: coarse) {
 	h1 {
-		font-size: calculateSizePX($fs-36);
+		font-size: calculateSizePX(variables.$fs-36);
 	}
 
 	h2 {
-		font-size: calculateSizePX($fs-30);
+		font-size: calculateSizePX(variables.$fs-30);
 	}
 
 	h3 {
-		font-size: calculateSizePX($fs-26);
+		font-size: calculateSizePX(variables.$fs-26);
 	}
 
 	h4 {
-		font-size: calculateSizePX($fs-24);
+		font-size: calculateSizePX(variables.$fs-24);
 	}
 
 	.font-22 {
 		display: inline;
-		font-size: calculateSizePX($fs-22);
+		font-size: calculateSizePX(variables.$fs-22);
 	}
 
 	.font-20 {
 		display: inline;
-		font-size: calculateSizePX($fs-20);
+		font-size: calculateSizePX(variables.$fs-20);
 	}
 
 	.font-18 {
 		display: inline;
-		font-size: calculateSizePX($fs-18);
+		font-size: calculateSizePX(variables.$fs-18);
 	}
 
 	.font-16 {
 		display: inline;
-		font-size: calculateSizePX($fs-16);
+		font-size: calculateSizePX(variables.$fs-16);
 	}
 
 	.font-14 {
 		display: inline;
-		font-size: calculateSizePX($fs-14);
+		font-size: calculateSizePX(variables.$fs-14);
 	}
 
 	.font-12 {
 		display: inline;
-		font-size: calculateSizePX($fs-12);
+		font-size: calculateSizePX(variables.$fs-12);
 	}
 
 	.font-10 {
 		display: inline;
-		font-size: calculateSizePX($fs-10);
+		font-size: calculateSizePX(variables.$fs-10);
 	}
 
 	.font-8 {
 		display: inline;
-		font-size: calculateSizePX($fs-8);
+		font-size: calculateSizePX(variables.$fs-8);
 	}
 }
 
@@ -140,123 +140,123 @@ h4 {
 @media (hover: none),
 (pointer: coarse) {
 
-	// * $size-mobile-h
+	// * functions.$size-mobile-h
 	// calculateSizeVW
 	h1 {
-		font-size: calculateSizeVW($fs-36 * $size-mobile);
+		font-size: calculateSizeVW(variables.$fs-36 * functions.$size-mobile);
 	}
 
 	h2 {
-		font-size: calculateSizeVW($fs-30 * $size-mobile);
+		font-size: calculateSizeVW(variables.$fs-30 * functions.$size-mobile);
 	}
 
 	h3 {
-		font-size: calculateSizeVW($fs-26 * $size-mobile);
+		font-size: calculateSizeVW(variables.$fs-26 * functions.$size-mobile);
 	}
 
 	h4 {
-		font-size: calculateSizeVW($fs-24 * $size-mobile);
+		font-size: calculateSizeVW(variables.$fs-24 * functions.$size-mobile);
 	}
 
 	.font-22 {
 		display: inline;
-		font-size: calculateSizeVW($fs-22 * $size-mobile);
+		font-size: calculateSizeVW(variables.$fs-22 * functions.$size-mobile);
 	}
 
 	.font-20 {
 		display: inline;
-		font-size: calculateSizeVW($fs-20 * $size-mobile);
+		font-size: calculateSizeVW(variables.$fs-20 * functions.$size-mobile);
 	}
 
 	.font-18 {
 		display: inline;
-		font-size: calculateSizeVW($fs-18 * $size-mobile);
+		font-size: calculateSizeVW(variables.$fs-18 * functions.$size-mobile);
 	}
 
 	.font-16 {
 		display: inline;
-		font-size: calculateSizeVW($fs-16 * $size-mobile);
+		font-size: calculateSizeVW(variables.$fs-16 * functions.$size-mobile);
 	}
 
 	.font-14 {
 		display: inline;
-		font-size: calculateSizeVW($fs-14 * $size-mobile);
+		font-size: calculateSizeVW(variables.$fs-14 * functions.$size-mobile);
 	}
 
 	.font-12 {
 		display: inline;
-		font-size: calculateSizeVW($fs-12 * $size-mobile);
+		font-size: calculateSizeVW(variables.$fs-12 * functions.$size-mobile);
 	}
 
 	.font-10 {
 		display: inline;
-		font-size: calculateSizeVW($fs-10 * $size-mobile);
+		font-size: calculateSizeVW(variables.$fs-10 * functions.$size-mobile);
 	}
 
 	.font-8 {
 		display: inline;
-		font-size: calculateSizeVW($fs-8 * $size-mobile);
+		font-size: calculateSizeVW(variables.$fs-8 * functions.$size-mobile);
 	}
 }
 
 @media (hover: none),
 (pointer: coarse) {
 
-	// * $size-mobile
+	// * functions.$size-mobile
 	// calculateSizeVW
 	h1 {
-		font-size: calculateSizeVW($fs-36 * $size-mobile-h);
+		font-size: calculateSizeVW(variables.$fs-36 * functions.$size-mobile-h);
 	}
 
 	h2 {
-		font-size: calculateSizeVW($fs-30 * $size-mobile-h);
+		font-size: calculateSizeVW(variables.$fs-30 * functions.$size-mobile-h);
 	}
 
 	h3 {
-		font-size: calculateSizeVW($fs-26 * $size-mobile-h);
+		font-size: calculateSizeVW(variables.$fs-26 * functions.$size-mobile-h);
 	}
 
 	h4 {
-		font-size: calculateSizeVW($fs-24 * $size-mobile-h);
+		font-size: calculateSizeVW(variables.$fs-24 * functions.$size-mobile-h);
 	}
 
 	.font-22 {
 		display: inline;
-		font-size: calculateSizeVW($fs-22 * $size-mobile-h);
+		font-size: calculateSizeVW(variables.$fs-22 * functions.$size-mobile-h);
 	}
 
 	.font-20 {
 		display: inline;
-		font-size: calculateSizeVW($fs-20 * $size-mobile-h);
+		font-size: calculateSizeVW(variables.$fs-20 * functions.$size-mobile-h);
 	}
 
 	.font-18 {
 		display: inline;
-		font-size: calculateSizeVW($fs-18 * $size-mobile-h);
+		font-size: calculateSizeVW(variables.$fs-18 * functions.$size-mobile-h);
 	}
 
 	.font-16 {
 		display: inline;
-		font-size: calculateSizeVW($fs-16 * $size-mobile-h);
+		font-size: calculateSizeVW(variables.$fs-16 * functions.$size-mobile-h);
 	}
 
 	.font-14 {
 		display: inline;
-		font-size: calculateSizeVW($fs-14 * $size-mobile-h);
+		font-size: calculateSizeVW(variables.$fs-14 * functions.$size-mobile-h);
 	}
 
 	.font-12 {
 		display: inline;
-		font-size: calculateSizeVW($fs-12 * $size-mobile-h);
+		font-size: calculateSizeVW(variables.$fs-12 * functions.$size-mobile-h);
 	}
 
 	.font-10 {
 		display: inline;
-		font-size: calculateSizeVW($fs-10 * $size-mobile-h);
+		font-size: calculateSizeVW(variables.$fs-10 * functions.$size-mobile-h);
 	}
 
 	.font-8 {
 		display: inline;
-		font-size: calculateSizeVW($fs-8 * $size-mobile-h);
+		font-size: calculateSizeVW(variables.$fs-8 * functions.$size-mobile-h);
 	}
 }

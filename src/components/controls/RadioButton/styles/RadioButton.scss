@@ -1,5 +1,6 @@
-@import '../../../../scss/variables.scss';
-@import '../../../../scss/functions.scss';
+@use "sass:math";
+@use '../../../../scss/variables.scss';
+@use '../../../../scss/functions.scss';
 
 $border: 1;
 $size-md: 18;
@@ -20,14 +21,14 @@ $transition-speed: 0.2s;
   user-select: none;
   
   &.required > label {
-    color: $red-color;
+    color: variables.$red-color;
   }
 
   &.required {
     input[type='radio'] {
       & + label {
         &::before {
-          border: calculateSizeVW($border) solid $red-color;
+          border: calculateSizeVW($border) solid variables.$red-color;
         }
       }
     }
@@ -41,7 +42,7 @@ $transition-speed: 0.2s;
     width: 0;
 
     & + label {
-      font-size: calculateSizeVW($font-size-control);
+      font-size: calculateSizeVW(variables.$font-size-control);
       position: relative;
       height: calculateSizeVW($label-height);
       padding-top: calculateSizeVW($label-padding-top);
@@ -60,30 +61,30 @@ $transition-speed: 0.2s;
         transform: translateY(-50%);
         width: calculateSizeVW($size-md);
         height: calculateSizeVW($size-md);
-        border: calculateSizeVW($border) solid $black-color;
+        border: calculateSizeVW($border) solid variables.$black-color;
         border-radius: 50%;
-        background-color: $white-color;
+        background-color: variables.$white-color;
         transition: all $transition-speed ease;
       }
 
       &::after {
         content: '';
         position: absolute;
-        left: calculateSizeVW(($size-md - $size-after) / 2);
+        left: calculateSizeVW(math.div($size-md - $size-after, 2));
         top: 50%;
         transform: translateY(-50%) scale(0);
         width: calculateSizeVW($size-after);
         height: calculateSizeVW($size-after);
         border-radius: 50%;
-        background-color: $white-color;
+        background-color: variables.$white-color;
         transition: all $transition-speed ease;
       }
     }
 
     &:checked + label {
       &::before {
-        background-color: $primary-color;
-        border-color: $primary-color;
+        background-color: variables.$primary-color-1;
+        border-color: variables.$primary-color-1;
       }
       
       &::after {
@@ -96,20 +97,20 @@ $transition-speed: 0.2s;
       cursor: not-allowed;
       
       &::before {
-        background-color: $gray-200;
-        border-color: $gray-400;
+        background-color: variables.$gray-200;
+        border-color: variables.$gray-400;
       }
     }
 
     &:focus + label::before {
-      box-shadow: 0 0 0 2px rgba($primary-color, 0.3);
+      box-shadow: 0 0 0 2px rgba(variables.$primary-color-1, 0.3);
     }
   }
 
   /* Estilos para pantallas más grandes */
-  @media screen and (min-width: calculateSizePX($min-with-screen)) {
+  @media screen and (min-width: calculateSizePX(functions.$min-with-screen)) {
     input[type='radio'] + label {
-      font-size: calculateSizePX($font-size-control);
+      font-size: calculateSizePX(variables.$font-size-control);
       height: calculateSizePX($label-height);
       padding-top: calculateSizePX($label-padding-top);
       padding-left: calculateSizePX($label-padding-left);
@@ -122,7 +123,7 @@ $transition-speed: 0.2s;
       }
 
       &::after {
-        left: calculateSizePX(($size-md - $size-after) / 2);
+        left: calculateSizePX(math.div($size-md - $size-after, 2));
         width: calculateSizePX($size-after);
         height: calculateSizePX($size-after);
       }
@@ -132,7 +133,7 @@ $transition-speed: 0.2s;
   /* Estilos para dispositivos móviles */
   @media (hover: none), (pointer: coarse) {
     input[type='radio'] + label {
-      font-size: calculateSizeVW($font-size-control * 0.9);
+      font-size: calculateSizeVW(variables.$font-size-control * 0.9);
       padding-left: calculateSizeVW($label-padding-left * 0.9);
       
       &::before {
@@ -141,7 +142,7 @@ $transition-speed: 0.2s;
       }
       
       &::after {
-        left: calculateSizeVW(($size-md * 0.9 - $size-after * 0.9) / 2);
+        left: calculateSizeVW(math.div($size-md * 0.9 - $size-after * 0.9, 2));
         width: calculateSizeVW($size-after * 0.9);
         height: calculateSizeVW($size-after * 0.9);
       }

@@ -2,7 +2,7 @@
 export const mockColorClasses = {
   fontColors: ['font-blue', 'font-red', 'font-gray'],
   backgroundColors: ['bg-blue', 'bg-red', 'bg-gray'],
-  scssVariables: ['$black-color', '$white-color', '$primary-color']
+  scssVariables: ['variables.$black-color', 'variables.$white-color', '$primary-color']
 };
 
 // Mock for the color utility functions

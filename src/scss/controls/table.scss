@@ -1,11 +1,11 @@
-@import '../variables.scss';
-@import '../functions.scss';
+@use '../variables.scss';
+@use '../functions.scss';
 
 $padding: 12;
 
 table {
 	width: 100%;
-	background-color: $white-color;
+	background-color: variables.$white-color;
 	overflow-x: auto;
 	padding: calculateSizeVW($padding);
 
@@ -21,19 +21,19 @@ table {
 			padding: calculateSizeVW($padding);
 
 			& th {
-				border-bottom: 2px solid $primary-color-1;
+				border-bottom: 2px solid variables.$primary-color-1;
 				padding: calculateSizeVW($padding);
 			}
 
 			& td {
-				border-top: 1px solid $primary-color-1;
+				border-top: 1px solid variables.$primary-color-1;
 				padding: calculateSizeVW($padding);
 				vertical-align: top;
 			}
 
 			&.active {
 				&:hover {
-					background-color: $light-gray-color;
+					background-color: variables.$light-gray-color;
 					cursor: pointer;
 				}
 			}
@@ -41,7 +41,7 @@ table {
 	}
 }
 
-@media screen and (min-width: calculateSizePX($min-with-screen)) {
+@media screen and (min-width: calculateSizePX(functions.$min-with-screen)) {
 	table {
 		padding: calculateSizePX($padding);
 
@@ -52,12 +52,12 @@ table {
 				padding: calculateSizePX($padding);
 
 				& th {
-					border-bottom: 2px solid $primary-color-1;
+					border-bottom: 2px solid variables.$primary-color-1;
 					padding: calculateSizePX($padding);
 				}
 
 				& td {
-					border-top: 1px solid $primary-color-1;
+					border-top: 1px solid variables.$primary-color-1;
 					padding: calculateSizePX($padding);
 				}
 			}
@@ -68,25 +68,25 @@ table {
 @media (hover: none),
 (pointer: coarse) {
 
-	// * $size-mobile
+	// * functions.$size-mobile
 	// calculateSizeVW
 	table {
-		padding: calculateSizeVW($padding * $size-mobile);
+		padding: calculateSizeVW($padding * functions.$size-mobile);
 
 		& tbody {
-			padding: calculateSizeVW($padding * $size-mobile);
+			padding: calculateSizeVW($padding * functions.$size-mobile);
 
 			& tr {
-				padding: calculateSizeVW($padding * $size-mobile);
+				padding: calculateSizeVW($padding * functions.$size-mobile);
 
 				& th {
-					border-bottom: 2px solid $primary-color-1;
-					padding: calculateSizeVW($padding * $size-mobile);
+					border-bottom: 2px solid variables.$primary-color-1;
+					padding: calculateSizeVW($padding * functions.$size-mobile);
 				}
 
 				& td {
-					border-top: 1px solid $primary-color-1;
-					padding: calculateSizeVW($padding * $size-mobile);
+					border-top: 1px solid variables.$primary-color-1;
+					padding: calculateSizeVW($padding * functions.$size-mobile);
 				}
 			}
 		}
@@ -96,22 +96,22 @@ table {
 @media (hover: none),
 (pointer: coarse) {
 	table {
-		padding: calculateSizeVW($padding * $size-mobile-h);
+		padding: calculateSizeVW($padding * functions.$size-mobile-h);
 
 		& tbody {
-			padding: calculateSizeVW($padding * $size-mobile-h);
+			padding: calculateSizeVW($padding * functions.$size-mobile-h);
 
 			& tr {
-				padding: calculateSizeVW($padding * $size-mobile-h);
+				padding: calculateSizeVW($padding * functions.$size-mobile-h);
 
 				& th {
-					border-bottom: 2px solid $primary-color-1;
-					padding: calculateSizeVW($padding * $size-mobile-h);
+					border-bottom: 2px solid variables.$primary-color-1;
+					padding: calculateSizeVW($padding * functions.$size-mobile-h);
 				}
 
 				& td {
-					border-top: 1px solid $primary-color-1;
-					padding: calculateSizeVW($padding * $size-mobile-h);
+					border-top: 1px solid variables.$primary-color-1;
+					padding: calculateSizeVW($padding * functions.$size-mobile-h);
 				}
 			}
 		}

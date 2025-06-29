@@ -1,55 +1,55 @@
-@import './variables.scss';
+@use './variables.scss';
 
 // backgroung color
 .bg-primary-1 {
-	background-color: $primary-color-1  !important;
+	background-color: variables.$primary-color-1  !important;
 }
 
 .bg-primary-2 {
-	background-color: $primary-color-2  !important;
+	background-color: variables.$primary-color-2  !important;
 }
 
 .bg-primary-3 {
-	background-color: $primary-color-3  !important;
+	background-color: variables.$primary-color-3  !important;
 }
 
 .bg-white {
-	background-color: $white-color  !important;
+	background-color: variables.$white-color  !important;
 }
 
 .bg-light-gray {
-	background-color: $light-gray-color  !important;
+	background-color: variables.$light-gray-color  !important;
 }
 
 .bg-gray {
-	background-color: $gray-color  !important;
+	background-color: variables.$gray-color  !important;
 }
 
 // font color
 .font-blue {
-	color: $primary-color-1  !important;
+	color: variables.$primary-color-1  !important;
 }
 
 .font-red {
-	color: $red-color  !important;
+	color: variables.$red-color  !important;
 }
 
 .font-orange {
-	color: $orange-color  !important;
+	color: variables.$orange-color  !important;
 }
 
 .font-green {
-	color: $green-color  !important;
+	color: variables.$green-color  !important;
 }
 
 .font-yellow {
-	color: $yellow-color  !important;
+	color: variables.$yellow-color  !important;
 }
 
 .font-white {
-	color: $white-color  !important;
+	color: variables.$white-color  !important;
 }
 
 .font-gray {
-	color: $dark-gray-color  !important;
+	color: variables.$dark-gray-color  !important;
 }

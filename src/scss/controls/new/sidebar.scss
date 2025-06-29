@@ -1,7 +1,7 @@
-@import '../../variables.scss';
-@import '../../functions.scss';
+@use '../../variables.scss';
+@use '../../functions.scss';
 
-$font-size: $fs-24;
+$font-size: variables.$fs-24;
 $padding-top: 16;
 $size: 160;
 $padding-h: 6;
@@ -18,7 +18,7 @@ $padding-w: 16;
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: $sidebar-color;
+    background-color: variables.$sidebar-color;
     overflow-x: hidden;
     padding-top: calculateSizeVW($padding-top);
 
@@ -43,7 +43,7 @@ $padding-w: 16;
     padding: 0px 10px;
 }
 
-@media screen and (min-width: calculateSizePX($min-with-screen)) {
+@media screen and (min-width: calculateSizePX(functions.$min-with-screen)) {
     .sidebar {
         padding-top: calculateSizePX($padding-top);
     }
@@ -57,23 +57,23 @@ $padding-w: 16;
 @media (hover: none),
 (pointer: coarse) {
     .sidebar {
-        padding-top: calculateSizePX($padding-top * $size-mobile);
+        padding-top: calculateSizePX($padding-top * functions.$size-mobile);
     }
 
     .sidebar label {
-        padding: calculateSizeVW($padding-h * $size-mobile) calculateSizeVW($padding-w * $size-mobile);
-        font-size: calculateSizeVW($font-size * $size-mobile);
+        padding: calculateSizeVW($padding-h * functions.$size-mobile) calculateSizeVW($padding-w * functions.$size-mobile);
+        font-size: calculateSizeVW($font-size * functions.$size-mobile);
     }
 }
 
 @media (hover: none),
 (pointer: coarse) {
     .sidebar {
-        padding-top: calculateSizePX($padding-top * $size-mobile-h);
+        padding-top: calculateSizePX($padding-top * functions.$size-mobile-h);
     }
 
     .sidebar label {
-        padding: calculateSizeVW($padding-h * $size-mobile-h) calculateSizeVW($padding-w * $size-mobile-h);
-        font-size: calculateSizeVW($font-size * $size-mobile-h);
+        padding: calculateSizeVW($padding-h * functions.$size-mobile-h) calculateSizeVW($padding-w * functions.$size-mobile-h);
+        font-size: calculateSizeVW($font-size * functions.$size-mobile-h);
     }
 }

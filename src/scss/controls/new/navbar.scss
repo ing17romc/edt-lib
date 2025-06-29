@@ -1,7 +1,7 @@
-@import '../../variables.scss';
-@import '../../functions.scss';
+@use '../../variables.scss';
+@use '../../functions.scss';
 
-$font-size: $fs-24;
+$font-size: variables.$fs-24;
 $padding-h: 14;
 $padding-w: 16;
 
@@ -55,7 +55,7 @@ $padding-w: 16;
     color: white;
 }
 
-@media screen and (min-width: calculateSizePX($min-with-screen)) {
+@media screen and (min-width: calculateSizePX(functions.$min-with-screen)) {
     .topnav label {
         padding: calculateSizePX($padding-h) calculateSizePX($padding-w);
         font-size: calculateSizePX($font-size);
@@ -69,23 +69,23 @@ $padding-w: 16;
 @media (hover: none),
 (pointer: coarse) {
     .topnav label {
-        padding: calculateSizeVW($padding-h * $size-mobile) calculateSizeVW($padding-w * $size-mobile);
-        font-size: calculateSizeVW($font-size * $size-mobile);
+        padding: calculateSizeVW($padding-h * functions.$size-mobile) calculateSizeVW($padding-w * functions.$size-mobile);
+        font-size: calculateSizeVW($font-size * functions.$size-mobile);
     }
     .topnav .container-navbar  {
-        padding: calculateSizeVW($padding-h * $size-mobile) calculateSizeVW($padding-w * $size-mobile);
-        font-size: calculateSizeVW($font-size * $size-mobile);
+        padding: calculateSizeVW($padding-h * functions.$size-mobile) calculateSizeVW($padding-w * functions.$size-mobile);
+        font-size: calculateSizeVW($font-size * functions.$size-mobile);
     }
 }
 
 @media (hover: none),
 (pointer: coarse) {
     .topnav label {
-        padding: calculateSizeVW($padding-h * $size-mobile-h) calculateSizeVW($padding-w * $size-mobile-h);
-        font-size: calculateSizeVW($font-size * $size-mobile-h);
+        padding: calculateSizeVW($padding-h * functions.$size-mobile-h) calculateSizeVW($padding-w * functions.$size-mobile-h);
+        font-size: calculateSizeVW($font-size * functions.$size-mobile-h);
     }
     .topnav .container-navbar  {
-        padding: calculateSizeVW($padding-h * $size-mobile-h) calculateSizeVW($padding-w * $size-mobile-h);
-        font-size: calculateSizeVW($font-size * $size-mobile-h);
+        padding: calculateSizeVW($padding-h * functions.$size-mobile-h) calculateSizeVW($padding-w * functions.$size-mobile-h);
+        font-size: calculateSizeVW($font-size * functions.$size-mobile-h);
     }
 }

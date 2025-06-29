@@ -1,16 +1,16 @@
 @use 'sass:math';
-@import './cleaner.scss';
-@import './grids.scss';
-@import './general.scss';
-@import './forms.scss';
-@import './fonts.scss';
-@import './colors.scss';
+@use './cleaner.scss';
+@use './grids.scss';
+@use './general.scss';
+@use './forms.scss';
+@use './fonts.scss';
+@use './colors.scss';
 
-@import './controls/option.scss';
-@import './controls/table.scss';
-@import './controls/message.scss';
-@import './controls/layout.scss';
+@use './controls/option.scss';
+@use './controls/table.scss';
+@use './controls/message.scss';
+@use './controls/layout.scss';
 
-@import './controls/new/layout.scss';
-@import './controls/new/navbar.scss';
-@import './controls/new/sidebar.scss';
+// @use './controls/new/layout.scss';
+@use './controls/new/navbar.scss';
+@use './controls/new/sidebar.scss';

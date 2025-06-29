@@ -1,5 +1,5 @@
-@import '../variables.scss';
-@import '../functions.scss';
+@use '../variables.scss';
+@use '../functions.scss';
 
 $padding: 15;
 $margin-bottom: 20;
@@ -13,31 +13,31 @@ $border-radius: 4;
     width: 100%;
 
     &.message-danger {
-        color: $red-color;
+        color: variables.$red-color;
         background-color: #f2dede;
         border-color: #ebccd1;
     }
 
     &.message-warning {
-        color: $orange-color;
+        color: variables.$orange-color;
         background-color: #fcf8e3;
         border-color: #faebcc;
     }
 
     &.message-success {
-        color: $green-color;
+        color: variables.$green-color;
         background-color: #dff0d8;
         border-color: #d6e9c6;
     }
 
     &.message-info {
-        color: $light-blue-color;
+        color: variables.$light-blue-color;
         background-color: #d9edf7;
         border-color: #bce8f1;
     }
 }
 
-@media screen and (min-width: calculateSizePX($min-with-screen)) {
+@media screen and (min-width: calculateSizePX(functions.$min-with-screen)) {
     .message {
         padding: calculateSizePX($padding);
         margin-bottom: calculateSizePX($margin-bottom);
@@ -48,17 +48,17 @@ $border-radius: 4;
 @media (hover: none),
 (pointer: coarse) {
     .message {
-        padding: calculateSizeVW($padding * $size-mobile);
-        margin-bottom: calculateSizeVW($margin-bottom * $size-mobile);
-        border-radius: calculateSizeVW($border-radius * $size-mobile);
+        padding: calculateSizeVW($padding * functions.$size-mobile);
+        margin-bottom: calculateSizeVW($margin-bottom * functions.$size-mobile);
+        border-radius: calculateSizeVW($border-radius * functions.$size-mobile);
     }
 }
 
 @media (hover: none),
 (pointer: coarse) {
     .message {
-        padding: calculateSizeVW($padding * $size-mobile-h);
-        margin-bottom: calculateSizeVW($margin-bottom * $size-mobile-h);
-        border-radius: calculateSizeVW($border-radius * $size-mobile-h);
+        padding: calculateSizeVW($padding * functions.$size-mobile-h);
+        margin-bottom: calculateSizeVW($margin-bottom * functions.$size-mobile-h);
+        border-radius: calculateSizeVW($border-radius * functions.$size-mobile-h);
     }
 }

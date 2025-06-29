@@ -1,5 +1,5 @@
-@import './functions.scss';
-@import './variables.scss';
+@use './functions.scss';
+@use './variables.scss';
 
 @mixin padding($number, $size) {
 	.padding-v-#{$number} {
@@ -30,11 +30,11 @@
 }
 
 .disabled {
-	opacity: $disabled-opacity;
+	opacity: variables.$disabled-opacity;
 }
 
 .elevated {
-	box-shadow: $shadow-flat;
+	box-shadow: variables.$shadow-flat;
 }
 
 @mixin line-height($number, $size) {
@@ -83,16 +83,16 @@ $min-height: 600;
 
 .main-container {
 	width: auto;
-	max-width: calculateSizeVW($min-with-screen);
+	max-width: calculateSizeVW(functions.$min-with-screen);
 	margin: 0 auto;
 	min-height: 100vh;
 }
 
 body {
-	background-color: $sidebar-color;
-	color: $black-color;
-	font-size: calculateSizeVW($fs-16);
-	font-family: $font-family;
+	background-color: variables.$sidebar-color;
+	color: variables.$black-color;
+	font-size: calculateSizeVW(variables.$fs-16);
+	font-family: variables.$font-family;
 }
 
 .little-hand {
@@ -101,10 +101,10 @@ body {
 
 
 
-@media screen and (min-width: calculateSizePX($min-with-screen)) {
+@media screen and (min-width: calculateSizePX(functions.$min-with-screen)) {
 
 	.main-container {
-		max-width: calculateSizePX($min-with-screen);
+		max-width: calculateSizePX(functions.$min-with-screen);
 	}
 
 	@for $i from 1 through 60 {
@@ -119,7 +119,7 @@ body {
 	}
 
 	body {
-		font-size: calculateSizePX($fs-16);
+		font-size: calculateSizePX(variables.$fs-16);
 	}
 }
 
@@ -137,13 +137,13 @@ body {
 	}
 
 	body {
-		font-size: calculateSizeVW($fs-18 * $size-mobile);
+		font-size: calculateSizeVW(variables.$fs-18 * functions.$size-mobile);
 	}
 }
 
 @media (hover: none),
 (pointer: coarse) {
 	body {
-		font-size: calculateSizeVW($fs-18 * $size-mobile-h);
+		font-size: calculateSizeVW(variables.$fs-18 * functions.$size-mobile-h);
 	}
 }

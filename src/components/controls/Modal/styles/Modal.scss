@@ -1,5 +1,5 @@
-@import '../../../../scss/variables.scss';
-@import '../../../../scss/functions.scss';
+@use '../../../../scss/variables.scss';
+@use '../../../../scss/functions.scss';
 
 .modal {
   display: block;
@@ -63,6 +63,6 @@
   }
 }
 
-@media screen and (min-width: calculateSizePX($min-with-screen)) {
+@media screen and (min-width: calculateSizePX(functions.$min-with-screen)) {
   /* Add responsive styles here if needed */
 }

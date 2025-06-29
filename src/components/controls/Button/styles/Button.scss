@@ -1,17 +1,17 @@
-@import '../../../../scss/variables.scss';
-@import '../../../../scss/functions.scss';
+@use '../../../../scss/variables.scss';
+@use '../../../../scss/functions.scss';
 
 $button-large: 48;
-$font-size-large: $fs-24;
+$font-size-large: variables.$fs-24;
 
 $button-normal: 42;
-$font-size-normal: $fs-18;
+$font-size-normal: variables.$fs-18;
 
 $button-small: 36;
-$font-size-small: $fs-14;
+$font-size-small: variables.$fs-14;
 
 $button-extra-small: 30;
-$font-size-extra-small: $fs-12;
+$font-size-extra-small: variables.$fs-12;
 
 $border-radius: 4;
 $border-size: 1;
@@ -24,19 +24,19 @@ button {
 	cursor: pointer;
 
 	&:disabled {
-		opacity: $disabled-opacity;
+		opacity: variables.$disabled-opacity;
 	}
 
 	&.primary {
-		background-color: $primary-color-1;
-		color: $white-color;
-		border: calculateSizeVW($border-size) solid $primary-color-1;
+		background-color: variables.$primary-color-1;
+		color: variables.$white-color;
+		border: calculateSizeVW($border-size) solid variables.$primary-color-1;
 	}
 
 	&.secondary {
-		background-color: $white-color;
-		color: $primary-color-1;
-		border: calculateSizeVW($border-size) solid $primary-color-1;
+		background-color: variables.$white-color;
+		color: variables.$primary-color-1;
+		border: calculateSizeVW($border-size) solid variables.$primary-color-1;
 	}
 
 	&.lg {
@@ -60,16 +60,16 @@ button {
 	}
 }
 
-@media screen and (min-width: calculateSizePX($min-with-screen)) {
+@media screen and (min-width: calculateSizePX(functions.$min-with-screen)) {
 	button {
 		border-radius: calculateSizePX($border-radius);
 
 		&.primary {
-			border: calculateSizePX($border-size) solid $primary-color-1;
+			border: calculateSizePX($border-size) solid variables.$primary-color-1;
 		}
 
 		&.secondary {
-			border: calculateSizePX($border-size) solid $primary-color-1;
+			border: calculateSizePX($border-size) solid variables.$primary-color-1;
 		}
 
 		&.lg {
@@ -98,34 +98,34 @@ button {
 (pointer: coarse) {
 
 	button {
-		border-radius: calculateSizeVW($border-radius * $size-mobile);
+		border-radius: calculateSizeVW($border-radius * functions.$size-mobile);
 
 		&.primary {
-			border: calculateSizeVW($border-size * $size-mobile) solid $primary-color-1;
+			border: calculateSizeVW($border-size * functions.$size-mobile) solid variables.$primary-color-1;
 		}
 
 		&.secondary {
-			border: calculateSizeVW($border-size * $size-mobile) solid $primary-color-1;
+			border: calculateSizeVW($border-size * functions.$size-mobile) solid variables.$primary-color-1;
 		}
 
 		&.lg {
-			height: calculateSizeVW($button-large * $size-mobile);
-			font-size: calculateSizeVW($font-size-large * $size-mobile);
+			height: calculateSizeVW($button-large * functions.$size-mobile);
+			font-size: calculateSizeVW($font-size-large * functions.$size-mobile);
 		}
 
 		&.md {
-			height: calculateSizeVW($button-normal * $size-mobile);
-			font-size: calculateSizeVW($font-size-normal * $size-mobile);
+			height: calculateSizeVW($button-normal * functions.$size-mobile);
+			font-size: calculateSizeVW($font-size-normal * functions.$size-mobile);
 		}
 
 		&.sm {
-			height: calculateSizeVW($button-small * $size-mobile);
-			font-size: calculateSizeVW($font-size-small * $size-mobile);
+			height: calculateSizeVW($button-small * functions.$size-mobile);
+			font-size: calculateSizeVW($font-size-small * functions.$size-mobile);
 		}
 
 		&.xs {
-			height: calculateSizeVW($button-extra-small * $size-mobile);
-			font-size: calculateSizeVW($font-size-extra-small * $size-mobile);
+			height: calculateSizeVW($button-extra-small * functions.$size-mobile);
+			font-size: calculateSizeVW($font-size-extra-small * functions.$size-mobile);
 		}
 	}
 }
@@ -135,34 +135,34 @@ button {
 (pointer: coarse) {
 
 	button {
-		border-radius: calculateSizeVW($border-radius * $size-mobile-h);
+		border-radius: calculateSizeVW($border-radius * functions.$size-mobile-h);
 
 		&.primary {
-			border: calculateSizeVW($border-size * $size-mobile-h) solid $primary-color-1;
+			border: calculateSizeVW($border-size * functions.$size-mobile-h) solid variables.$primary-color-1;
 		}
 
 		&.secondary {
-			border: calculateSizeVW($border-size * $size-mobile-h) solid $primary-color-1;
+			border: calculateSizeVW($border-size * functions.$size-mobile-h) solid variables.$primary-color-1;
 		}
 
 		&.lg {
-			height: calculateSizeVW($button-large * $size-mobile-h);
-			font-size: calculateSizeVW($font-size-large * $size-mobile-h);
+			height: calculateSizeVW($button-large * functions.$size-mobile-h);
+			font-size: calculateSizeVW($font-size-large * functions.$size-mobile-h);
 		}
 
 		&.md {
-			height: calculateSizeVW($button-normal * $size-mobile-h);
-			font-size: calculateSizeVW($font-size-normal * $size-mobile-h);
+			height: calculateSizeVW($button-normal * functions.$size-mobile-h);
+			font-size: calculateSizeVW($font-size-normal * functions.$size-mobile-h);
 		}
 
 		&.sm {
-			height: calculateSizeVW($button-small * $size-mobile-h);
-			font-size: calculateSizeVW($font-size-small * $size-mobile-h);
+			height: calculateSizeVW($button-small * functions.$size-mobile-h);
+			font-size: calculateSizeVW($font-size-small * functions.$size-mobile-h);
 		}
 
 		&.xs {
-			height: calculateSizeVW($button-extra-small * $size-mobile-h);
-			font-size: calculateSizeVW($font-size-extra-small * $size-mobile-h);
+			height: calculateSizeVW($button-extra-small * functions.$size-mobile-h);
+			font-size: calculateSizeVW($font-size-extra-small * functions.$size-mobile-h);
 		}
 	}
 }

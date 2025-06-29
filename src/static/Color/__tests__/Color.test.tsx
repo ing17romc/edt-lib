@@ -21,6 +21,6 @@ describe('Color', () => {
     });
 
     // Check for SCSS variable example
-    expect(screen.getByText((content) => /\$black-color/.test(content))).toBeInTheDocument();
+    expect(screen.getByText(/\$black-color/)).toBeInTheDocument();
   });
 });
