@@ -127,15 +127,7 @@ const Modales: React.FC<ModalesProps> = () => {
 				eventContinue={() => setModalNotifications(!modalNotifications)}
 			/>
 
-			<UI.ModalHttpMessage
-				show={modalHttpMessage}
-				eventModal={() => setModalHttpMessage(!modalHttpMessage)}
-				code={parseInt(state.httpCode)}
-				title={'Not Found'}
-				details='This class of status code is intended for situations in which the error seems to have been caused by the client. Except when responding to a HEAD request, the server should include an entity containing an explanation of the error situation, and whether it is a temporary or permanent condition. These status codes are applicable to any request method. User agents should display any included entity to the user.'
-				message='The requested resource could not be found but may be available in the future. Subsequent requests by the client are permissible.'
-				eventContinue={() => setModalHttpMessage(!modalHttpMessage)}
-			/>
+
 		</>
 	)
 }
