@@ -4,6 +4,13 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+- **2025-06-29** feat: Actualización de estilos y configuración de linting
+  - Actualizado componente Button con nuevos estilos en SCSS
+  - Configurado Stylelint para validación de estilos SCSS
+  - Corregido uso de funciones obsoletas de Sass
+  - Mejorada la consistencia en los estilos de los componentes
+  - Actualizadas dependencias relacionadas con el procesamiento de estilos
+
 - **2025-06-29** feat: Implementación del componente Card
   - Creado componente Card con variantes: elevated, outlined y filled
   - Añadidas historias de Storybook con documentación interactiva
