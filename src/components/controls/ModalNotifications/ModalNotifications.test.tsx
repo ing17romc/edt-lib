@@ -55,7 +55,7 @@ describe('ModalNotifications Component', () => {
     expect(modal).toBeInTheDocument();
 
     // Check for title
-    const titleElement = document.querySelector('.modal-title h1');
+    const titleElement = document.querySelector('.modal-body h1');
     expect(titleElement).toBeInTheDocument();
     expect(titleElement).toHaveTextContent(mockProps.title);
 

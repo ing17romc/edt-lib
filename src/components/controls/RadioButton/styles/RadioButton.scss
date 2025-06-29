@@ -1,0 +1,150 @@
+@import '../../../../scss/variables.scss';
+@import '../../../../scss/functions.scss';
+
+$border: 1;
+$size-md: 18;
+$size-sm: 14;
+$size-after: 2;
+$label-height: 18;
+$label-padding-top: 1;
+$label-padding-left: 28;
+$label-line-height: 18;
+$transition-speed: 0.2s;
+
+.radiobutton {
+  position: relative;
+  margin-bottom: 0.5rem;
+  display: inline-flex;
+  align-items: flex-start;
+  cursor: pointer;
+  user-select: none;
+  
+  &.required > label {
+    color: $red-color;
+  }
+
+  &.required {
+    input[type='radio'] {
+      & + label {
+        &::before {
+          border: calculateSizeVW($border) solid $red-color;
+        }
+      }
+    }
+  }
+
+  input[type='radio'] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+
+    & + label {
+      font-size: calculateSizeVW($font-size-control);
+      position: relative;
+      height: calculateSizeVW($label-height);
+      padding-top: calculateSizeVW($label-padding-top);
+      padding-left: calculateSizeVW($label-padding-left);
+      cursor: pointer;
+      line-height: calculateSizeVW($label-line-height);
+      display: inline-flex;
+      align-items: center;
+      transition: color $transition-speed ease;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: calculateSizeVW($size-md);
+        height: calculateSizeVW($size-md);
+        border: calculateSizeVW($border) solid $black-color;
+        border-radius: 50%;
+        background-color: $white-color;
+        transition: all $transition-speed ease;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: calculateSizeVW(($size-md - $size-after) / 2);
+        top: 50%;
+        transform: translateY(-50%) scale(0);
+        width: calculateSizeVW($size-after);
+        height: calculateSizeVW($size-after);
+        border-radius: 50%;
+        background-color: $white-color;
+        transition: all $transition-speed ease;
+      }
+    }
+
+    &:checked + label {
+      &::before {
+        background-color: $primary-color;
+        border-color: $primary-color;
+      }
+      
+      &::after {
+        transform: translateY(-50%) scale(1);
+      }
+    }
+
+    &:disabled + label {
+      opacity: 0.6;
+      cursor: not-allowed;
+      
+      &::before {
+        background-color: $gray-200;
+        border-color: $gray-400;
+      }
+    }
+
+    &:focus + label::before {
+      box-shadow: 0 0 0 2px rgba($primary-color, 0.3);
+    }
+  }
+
+  /* Estilos para pantallas más grandes */
+  @media screen and (min-width: calculateSizePX($min-with-screen)) {
+    input[type='radio'] + label {
+      font-size: calculateSizePX($font-size-control);
+      height: calculateSizePX($label-height);
+      padding-top: calculateSizePX($label-padding-top);
+      padding-left: calculateSizePX($label-padding-left);
+      line-height: calculateSizePX($label-line-height);
+
+      &::before {
+        width: calculateSizePX($size-md);
+        height: calculateSizePX($size-md);
+        border-width: calculateSizePX($border);
+      }
+
+      &::after {
+        left: calculateSizePX(($size-md - $size-after) / 2);
+        width: calculateSizePX($size-after);
+        height: calculateSizePX($size-after);
+      }
+    }
+  }
+
+  /* Estilos para dispositivos móviles */
+  @media (hover: none), (pointer: coarse) {
+    input[type='radio'] + label {
+      font-size: calculateSizeVW($font-size-control * 0.9);
+      padding-left: calculateSizeVW($label-padding-left * 0.9);
+      
+      &::before {
+        width: calculateSizeVW($size-md * 0.9);
+        height: calculateSizeVW($size-md * 0.9);
+      }
+      
+      &::after {
+        left: calculateSizeVW(($size-md * 0.9 - $size-after * 0.9) / 2);
+        width: calculateSizeVW($size-after * 0.9);
+        height: calculateSizeVW($size-after * 0.9);
+      }
+    }
+  }
+}

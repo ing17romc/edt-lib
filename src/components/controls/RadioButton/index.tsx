@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
 import { ControlStatus } from '../../utils/enums';
 import type { RadioButtonProps, RadioButtonComponent } from './types';
+import './styles/RadioButton.scss';
 
 /**
  * Componente RadioButton que proporciona un botón de radio con múltiples opciones de configuración.

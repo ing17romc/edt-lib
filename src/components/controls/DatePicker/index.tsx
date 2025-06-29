@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { DatePickerProps } from './types';
 import { ControlStatus } from '../../utils/enums';
+import { ternaryOperation } from '../../utils/functions';
 import './styles/DatePicker.scss';
 
 /**
@@ -101,78 +102,99 @@ const DatePicker = ({
     }
   };
 
-  const getStyle = () => {
+
+	const controlStyle = ternaryOperation(
+		disabled,
+		ControlStatus.DISABLED,
+		''
+	)
+
+  const getStyle = (_value: string) => {
     if (disabled) {
       return ControlStatus.DISABLED;
     } else if (readOnly) {
       return ControlStatus.READ_ONLY;
-    } else if (required && (!value || value === '0/0/0')) {
+    } else if (required && !_value) {
       return ControlStatus.REQUIRED;
     }
     return '';
   };
 
   return (
-    <div className={`date-picker ${getStyle()}`} role="group" aria-label={title}>
-      <label htmlFor={id}>{title}</label>
-      <div className="date-picker-container">
-        <select
-          id={id}
-          name={id}
-          value={month}
-          onChange={onChangeMonth}
-          disabled={disabled}
-          required={!disabled && required}
-          aria-label="Mes"
-          ref={ref}
-          aria-disabled={disabled}
-          aria-readonly={readOnly}
-        >
-          <option value="">Mes</option>
-          {[
-            'Enero', 'Febrero', 'Marzo', 'Abril',
-            'Mayo', 'Junio', 'Julio', 'Agosto',
-            'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
-          ].map((monthName, index) => (
-            <option key={index} value={index.toString()}>
-              {monthName}
-            </option>
-          ))}
-        </select>
-
-        <select
-          value={day}
-          onChange={onChangeDay}
-          disabled={disabled}
-          required={!disabled && required}
-          aria-label="Día"
-          aria-disabled={disabled}
-          aria-readonly={readOnly}
-        >
-          <option value="">Día</option>
-          {days.map((d) => (
-            <option key={d} value={d.toString()}>
-              {d}
-            </option>
-          ))}
-        </select>
-
-        <select
-          value={year}
-          onChange={onChangeYear}
-          disabled={disabled}
-          required={!disabled && required}
-          aria-label="Año"
-          aria-disabled={disabled}
-          aria-readonly={readOnly}
-        >
-          <option value="">Año</option>
-          {years.map((y) => (
-            <option key={y} value={y.toString()}>
-              {y}
-            </option>
-          ))}
-        </select>
+    <div className={'control-container  '}>
+      <div className={`container-date ${controlStyle}`} role="group" aria-label={title}>
+        <div className={`title ${controlStyle}`}>
+          <label htmlFor={id}>{title}</label>
+        </div>
+        <div className="date-picker-container">
+          <div className='month'>
+            <div className={getStyle(month)}>
+              <select
+                id={id}
+                name={id}
+                value={month}
+                onChange={onChangeMonth}
+                disabled={disabled}
+                required={!disabled && required}
+                aria-label="Mes"
+                ref={ref}
+                aria-disabled={disabled}
+                aria-readonly={readOnly}
+              >
+                <option value="">Mes</option>
+                {[
+                  'Enero', 'Febrero', 'Marzo', 'Abril',
+                  'Mayo', 'Junio', 'Julio', 'Agosto',
+                  'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+                ].map((monthName, index) => (
+                  <option key={index} value={index.toString()}>
+                    {monthName}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+          <div className='day'>
+            <div className={getStyle(day)}>
+              <select
+                value={day}
+                onChange={onChangeDay}
+                disabled={disabled}
+                required={!disabled && required}
+                aria-label="Día"
+                aria-disabled={disabled}
+                aria-readonly={readOnly}
+              >
+                <option value="">Día</option>
+                {days.map((d) => (
+                  <option key={d} value={d.toString()}>
+                    {d}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+          <div className='year'>
+            <div className={getStyle(year)}>
+              <select
+                value={year}
+                onChange={onChangeYear}
+                disabled={disabled}
+                required={!disabled && required}
+                aria-label="Año"
+                aria-disabled={disabled}
+                aria-readonly={readOnly}
+              >
+                <option value="">Año</option>
+                {years.map((y) => (
+                  <option key={y} value={y.toString()}>
+                    {y}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

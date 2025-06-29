@@ -3,6 +3,8 @@ import { ModalNotificationsProps, NotificationType, ModalNotificationsComponent 
 import Modal from '../Modal';
 import Title from '../Title';
 import Button from '../Button';
+import './styles/ModalNotifications.scss';
+import { ControlStyle } from '../../utils/enums';
 
 /**
  * Componente ModalNotifications que muestra notificaciones modales.
@@ -82,7 +84,7 @@ export const ModalNotifications: React.FC<ModalNotificationsProps> = ({
         <div className='padding-v-20 start-9 size-4'>
           <Button
             title='Continuar'
-            buttonType='PRIMARY'
+            buttonType={ControlStyle.PRIMARY}
             onClick={handleContinue}
           />
         </div>

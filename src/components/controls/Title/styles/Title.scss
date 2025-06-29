@@ -1,0 +1,45 @@
+@import '../../../../scss/variables.scss';
+@import '../../../../scss/functions.scss';
+
+$margin-left: 12;
+$margin-top: 19;
+$height: 4;
+$top: 23;
+
+.title {
+  display: flex;
+  width: 100%;
+
+  .line {
+    flex: 1 1 auto;
+    background-color: $black-color;
+    width: max-content;
+    margin-left: calculateSizeVW($margin-left);
+    margin-top: calculateSizeVW($margin-top);
+    height: calculateSizeVW($height);
+    top: calculateSizeVW($top);
+  }
+}
+
+@media screen and (min-width: calculateSizePX($min-with-screen)) {
+  .title {
+    .line {
+      margin-left: calculateSizePX($margin-left);
+      margin-top: calculateSizePX($margin-top);
+      height: calculateSizePX($height);
+      top: calculateSizePX($top);
+    }
+  }
+}
+
+@media (hover: none),
+(pointer: coarse) {
+  .title {
+    .line {
+      margin-left: calculateSizeVW($margin-left * $size-mobile);
+      margin-top: calculateSizeVW($margin-top * $size-mobile);
+      height: calculateSizeVW($height * $size-mobile);
+      top: calculateSizeVW($top * $size-mobile);
+    }
+  }
+}

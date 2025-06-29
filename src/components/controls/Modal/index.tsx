@@ -1,6 +1,7 @@
 import React, { useEffect, useState, FC } from 'react';
 import ReactDOM from 'react-dom';
 import { ModalProps } from './types';
+import './styles/Modal.scss';
 
 /**
  * Componente Modal que proporciona una ventana modal accesible.
@@ -26,38 +27,28 @@ const ModalComponent: FC<ModalProps> = ({ show, eventModal, children }) => {
   }, [show]);
 
   const modalRender = () => (
-    <div 
-      role="dialog" 
-      aria-modal="true" 
+    <div
+      role="dialog"
+      aria-modal="true"
       aria-labelledby="modal-title"
       className="modal"
       tabIndex={-1}
     >
-      <button 
-        type="button" 
-        className="modal-overlay" 
-        onClick={closeModal} 
-        aria-label="Cerrar modal"
-        tabIndex={0}
-      >
-        <span className="visually-hidden">Cerrar modal</span>
-      </button>
       <div className="modal-content">
         <div className="modal-container">
           <div className="padding-v-20 padding-h-20">
-            <button 
-              type="button" 
-              className="modal-close-button" 
+            <button
+              className="modal-close-button"
               onClick={e => { e.stopPropagation(); closeModal(e); }}
               aria-label="Cerrar modal"
               tabIndex={0}
             >
               X
             </button>
-            <div id="modal-title" className="modal-title">
-              {children}
-            </div>
           </div>
+        </div>
+        <div id="modal-body" className="modal-body">
+          {children}
         </div>
       </div>
     </div>

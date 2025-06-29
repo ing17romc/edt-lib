@@ -1,6 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import { PaginationProps } from './types';
+import './styles/Pagination.scss';
 
 /**
  * @name Pagination

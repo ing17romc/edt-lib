@@ -1,5 +1,5 @@
-@import '../variables.scss';
-@import '../functions.scss';
+@import '../../../../scss/variables.scss';
+@import '../../../../scss/functions.scss';
 
 $padding: 12;
 $height: 32;
@@ -8,10 +8,13 @@ $border-radius: 16;
 $font-size: 13;
 $min-width: 32;
 
-
 .pagination-container {
   display: flex;
   list-style-type: none;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
 
   .pagination-item {
     padding: 0 calculateSizeVW($padding);
@@ -22,27 +25,33 @@ $min-width: 32;
     display: flex;
     box-sizing: border-box;
     align-items: center;
+    justify-content: center;
     letter-spacing: 0.01071em;
     border-radius: calculateSizeVW($border-radius);
     line-height: 1.43;
     font-size: calculateSizeVW($font-size);
     min-width: calculateSizeVW($min-width);
+    transition: background-color 0.2s ease-in-out;
 
-    &:hover {
+    &:hover:not(.disabled) {
       background-color: rgba(0, 0, 0, 0.04);
       cursor: pointer;
     }
 
     &.selected {
       background-color: rgba(0, 0, 0, 0.08);
+      font-weight: bold;
+    }
+
+    &.disabled {
+      pointer-events: none;
+      opacity: 0.5;
     }
 
     .arrow {
       &::before {
         position: relative;
-        /* top: 3pt; Uncomment this to lower the icons as requested in comments*/
         content: '';
-        /* By using an em scale, the arrows will size with the font */
         display: inline-block;
         width: 0.4em;
         height: 0.4em;
@@ -51,30 +60,27 @@ $min-width: 32;
       }
 
       &.left {
-        transform: rotate(-135deg) translate(-50%);
+        transform: rotate(-135deg);
       }
 
       &.right {
         transform: rotate(45deg);
       }
     }
+  }
 
-    &.disabled {
-      pointer-events: none;
-
-      .arrow::before {
-        border-right: 0.12em solid rgba(0, 0, 0, 0.43);
-        border-top: 0.12em solid rgba(0, 0, 0, 0.43);
-      }
-
-      &:hover {
-        background-color: transparent;
-        cursor: default;
-      }
-    }
+  .pagination-dots {
+    height: calculateSizeVW($height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 calculateSizeVW($margin);
+    font-size: calculateSizeVW($font-size);
+    color: rgba(0, 0, 0, 0.87);
   }
 }
 
+/* Estilos para pantallas más grandes */
 @media screen and (min-width: calculateSizePX($min-with-screen)) {
   .pagination-container {
     .pagination-item {
@@ -85,38 +91,32 @@ $min-width: 32;
       font-size: calculateSizePX($font-size);
       min-width: calculateSizePX($min-width);
     }
-  }
-}
 
-
-@media (hover: none),
-(pointer: coarse) {
-
-  // * $size-mobile
-  // calculateSizeVW
-  .pagination-container {
-    .pagination-item {
-      padding: 0 calculateSizeVW($padding * $size-mobile);
-      height: calculateSizeVW($height * $size-mobile);
-      margin: auto calculateSizeVW($margin * $size-mobile);
-      border-radius: calculateSizeVW($border-radius * $size-mobile);
-      font-size: calculateSizeVW($font-size * $size-mobile);
-      min-width: calculateSizeVW($min-width * $size-mobile);
+    .pagination-dots {
+      height: calculateSizePX($height);
+      margin: 0 calculateSizePX($margin);
+      font-size: calculateSizePX($font-size);
     }
   }
 }
 
-
-@media (hover: none),
-(pointer: coarse) {
+/* Estilos para dispositivos móviles */
+@media (hover: none), (pointer: coarse) {
   .pagination-container {
+    flex-wrap: wrap;
+    padding: 0.5rem;
+    
     .pagination-item {
-      padding: 0 calculateSizeVW($padding * $size-mobile-h);
-      height: calculateSizeVW($height * $size-mobile-h);
-      margin: auto calculateSizeVW($margin * $size-mobile-h);
-      border-radius: calculateSizeVW($border-radius * $size-mobile-h);
-      font-size: calculateSizeVW($font-size * $size-mobile-h);
-      min-width: calculateSizeVW($min-width * $size-mobile-h);
+      margin: 0.25rem;
+      padding: 0 0.75rem;
+      height: 2.5rem;
+      min-width: 2.5rem;
+      font-size: 0.9rem;
+    }
+    
+    .pagination-dots {
+      height: 2.5rem;
+      margin: 0 0.25rem;
     }
   }
 }

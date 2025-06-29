@@ -1,5 +1,6 @@
 import React from 'react';
 import { TitleProps, TitleLevel, HeadingTag } from './types';
+import './styles/Title.scss';
 
 const Title: React.FC<TitleProps> = ({
   level = 1 as TitleLevel,

@@ -19,7 +19,7 @@ describe('ModalHttpMessage Component', () => {
     expect(modal).toBeInTheDocument();
 
     // Check for title
-    const titleElement = document.querySelector('.modal-title h4');
+    const titleElement = document.querySelector('.modal-body h4');
     expect(titleElement).toBeInTheDocument();
     expect(titleElement).toHaveTextContent('Mensaje HTTP');
 

@@ -1,0 +1,121 @@
+@import '../../../../scss/variables.scss';
+@import '../../../../scss/functions.scss';
+
+$width: 850;
+$size: 80;
+$border: 7;
+$transition-speed: 0.3s;
+
+.body-generic-notifications {
+  width: calculateSizeVW($width);
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: $white-color;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  transition: all $transition-speed ease;
+
+  .notification-icon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calculateSizeVW($size);
+    height: calculateSizeVW($size);
+    border-radius: 50%;
+    border: calculateSizeVW($border) solid $white-color;
+    border-style: double;
+    color: $white-color;
+    font-size: calculateSizeVW($size * 0.5);
+    transition: all $transition-speed ease;
+
+    &.error {
+      background-color: $red-color;
+      box-shadow: 0 0 0 5px rgba($red-color, 0.2);
+    }
+
+    &.warning {
+      background-color: $orange-color;
+      box-shadow: 0 0 0 5px rgba($orange-color, 0.2);
+    }
+
+    &.successful {
+      background-color: $green-color;
+      box-shadow: 0 0 0 5px rgba($green-color, 0.2);
+    }
+
+    &.info {
+      background-color: $light-blue-color;
+      box-shadow: 0 0 0 5px rgba($light-blue-color, 0.2);
+    }
+  }
+
+
+  .notification-content {
+    h3 {
+      margin: 0 0 1rem 0;
+      font-size: 1.5rem;
+      color: $gray-800;
+    }
+
+    p {
+      margin: 0 0 1.5rem 0;
+      color: $gray-600;
+      line-height: 1.5;
+    }
+  }
+
+  .notification-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+}
+
+/* Media queries para pantallas más grandes */
+@media screen and (min-width: calculateSizePX($min-with-screen)) {
+  .body-generic-notifications {
+    width: calculateSizePX($width);
+    padding: 2.5rem;
+
+    .circle {
+      width: calculateSizePX($size);
+      height: calculateSizePX($size);
+      border-width: calculateSizePX($border);
+      font-size: calculateSizePX($size * 0.5);
+    }
+  }
+}
+
+/* Media queries para dispositivos móviles */
+@media (hover: none),
+(pointer: coarse) {
+  .body-generic-notifications {
+    width: 95%;
+    padding: 1.5rem;
+    
+    .circle {
+      width: calculateSizeVW($size * 1.2);
+      height: calculateSizeVW($size * 1.2);
+      font-size: calculateSizeVW($size * 0.6);
+    }
+    
+    .notification-content {
+      h3 {
+        font-size: 1.25rem;
+      }
+      
+      p {
+        font-size: 0.95rem;
+      }
+    }
+  }
+}

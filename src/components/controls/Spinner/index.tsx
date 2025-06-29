@@ -1,5 +1,6 @@
 import React from 'react';
 import { SpinnerProps } from './types';
+import './styles/Spinner.scss';
 
 /**
  * Componente Spinner que muestra un indicador de carga.

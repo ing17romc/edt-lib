@@ -2,6 +2,7 @@ import React, { useState, useCallback } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import Modal from './index';
 import Button from '../Button';
+import { ControlStyle } from '../../utils/enums';
 
 const meta: Meta<typeof Modal> = {
   title: 'Controls/Modal',
@@ -39,7 +40,7 @@ const ModalWithState = (args: Omit<React.ComponentProps<typeof Modal>, 'show' | 
   return (
     <>
       <Button 
-        text="Open Modal" 
+        title="Open Modal" 
         onClick={handleOpen} 
       />
       <Modal 
@@ -76,15 +77,14 @@ export const WithCustomContent: Story = {
           <p>This modal has custom styling and content.</p>
           <div style={{ marginTop: '20px', display: 'flex', justifyContent: 'flex-end' }}>
             <Button 
-              text="Close" 
+              title="Close" 
               onClick={handleClose}
               style={{ marginRight: '10px' }}
-              variant="secondary"
+              buttonType={ControlStyle.SECONDARY}
             />
             <Button 
-              text="Confirm" 
+              title="Confirm" 
               onClick={handleConfirm}
-              variant="primary"
             />
           </div>
         </div>
@@ -132,15 +132,12 @@ export const WithForm: Story = {
             </div>
             <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px' }}>
               <Button 
-                type="button"
-                text="Cancel" 
+                buttonType={ControlStyle.SECONDARY}
+                title="Cancel" 
                 onClick={handleCancel}
-                variant="secondary"
               />
               <Button 
-                type="submit"
-                text="Send" 
-                variant="primary"
+                title="Send" 
               />
             </div>
           </form>

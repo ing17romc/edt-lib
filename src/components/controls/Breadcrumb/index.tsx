@@ -1,5 +1,6 @@
 import React from 'react';
 import { BreadcrumbProps } from './types';
+import './styles/Breadcrumb.scss';
 
 /**
  * Componente Breadcrumb que muestra la ruta de navegación actual en la aplicación.

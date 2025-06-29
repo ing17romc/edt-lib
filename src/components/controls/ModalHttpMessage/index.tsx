@@ -3,6 +3,7 @@ import { ModalHttpMessageProps } from './types';
 import Modal from '../Modal';
 import Title from '../Title';
 import TextArea from '../TextArea';
+import './styles/ModalHttpMessage.scss';
 
 /**
  * Componente ModalHttpMessage que muestra un modal con mensajes HTTP.

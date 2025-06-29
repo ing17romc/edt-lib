@@ -103,7 +103,7 @@ describe('Modal Component', () => {
     );
 
     const overlayButton = screen.getAllByRole('button', { name: /cerrar modal/i })
-      .find(btn => btn.classList.contains('modal-overlay'));
+      .find(btn => btn.classList.contains('modal-close-button'));
     expect(overlayButton).toBeInTheDocument();
     if (!overlayButton) throw new Error('overlayButton not found');
     fireEvent.click(overlayButton);
@@ -133,7 +133,7 @@ describe('Modal Component', () => {
     expect(closeButton).toHaveAttribute('aria-label', 'Cerrar modal');
     
     // Also verify the overlay button
-    const overlayButton = document.querySelector('.modal-overlay');
+    const overlayButton = document.querySelector('.modal-close-button');
     expect(overlayButton).toBeInTheDocument();
     expect(overlayButton).toHaveAttribute('aria-label', 'Cerrar modal');
   });
@@ -160,17 +160,19 @@ describe('Modal Component', () => {
     const modalContainer = document.querySelector('.modal-container');
     expect(modalContainer).toBeInTheDocument();
 
-    // Get the close button by its class
-    const closeButton = document.querySelector('.modal-close-button');
+    // Verificar el botón de cierre
+    const closeButton = screen.getByRole('button', { name: /cerrar modal/i });
     expect(closeButton).toBeInTheDocument();
     expect(closeButton).toHaveTextContent('X');
-    
-    // Also verify the overlay button
-    const overlayButton = document.querySelector('.modal-overlay');
-    expect(overlayButton).toBeInTheDocument();
-    expect(overlayButton).toContainHTML('<span class="visually-hidden">Cerrar modal</span>');
+    expect(closeButton).toHaveClass('modal-close-button');
+    expect(closeButton).toHaveAttribute('tabindex', '0');
+    expect(closeButton).toHaveAttribute('aria-label', 'Cerrar modal');
 
-    const title = document.querySelector('.modal-title');
+    // Verificar el título y el contenido del modal
+    const title = document.querySelector('.modal-body');
     expect(title).toBeInTheDocument();
+    
+    // Verificar que el contenido del modal se renderice correctamente
+    expect(screen.getByText('Test Content')).toBeInTheDocument();
   });
 });

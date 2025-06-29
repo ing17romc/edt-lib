@@ -12,7 +12,7 @@ import { MenuProps } from './types';
  */
 
  const Menu: React.FC<MenuProps> = ({ options, getCurrentPath }) => (
-  <nav role="navigation" aria-label="Menú principal">
+  <nav role="navigation" aria-label="Menú principal" className='container-body'>
     <div className="grid-primary">
       {options.map((option, index) => (
         <div key={index} className="size-3 padding-v-30">
