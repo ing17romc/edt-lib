@@ -4,6 +4,13 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+- **2025-06-29** feat: Implementación del componente Card
+  - Creado componente Card con variantes: elevated, outlined y filled
+  - Añadidas historias de Storybook con documentación interactiva
+  - Implementados tests unitarios con React Testing Library
+  - Añadidos estilos CSS personalizables con variables CSS
+  - Mejorada la accesibilidad con soporte para teclado y ARIA
+
 - **3bfa360 2025-06-28** refactor: Eliminación de componentes no utilizados y limpieza de código
   - Eliminados componentes obsoletos: Form, HomeV2, Breadcrumb, DatePicker, LayoutV2, Menu, ModalHttpMessage
   - Movidos componentes a carpeta ToDo para futura implementación
