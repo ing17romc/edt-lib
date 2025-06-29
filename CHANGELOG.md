@@ -4,6 +4,12 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+- **e6b7f77 2025-06-28** refactor: Actualización de estilos SCSS y corrección de pruebas
+  - Migración de `@import` a `@use` en archivos SCSS
+  - Corrección de referencias a variables SCSS con namespaces
+  - Actualización de pruebas para reflejar cambios en los estilos
+  - Mejora en la organización de estilos por componentes
+
 - **09814fb 2025-06-28** refactor: move component styles to their respective folders
   - Movidos los estilos SCSS a las carpetas de sus respectivos componentes
   - Actualizadas las rutas de importación en los componentes afectados
