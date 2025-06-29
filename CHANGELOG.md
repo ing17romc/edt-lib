@@ -4,6 +4,12 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+- **3bfa360 2025-06-28** refactor: Eliminación de componentes no utilizados y limpieza de código
+  - Eliminados componentes obsoletos: Form, HomeV2, Breadcrumb, DatePicker, LayoutV2, Menu, ModalHttpMessage
+  - Movidos componentes a carpeta ToDo para futura implementación
+  - Limpieza de imports y código no utilizado
+  - Actualización de dependencias y configuración de TypeScript
+
 - **e6b7f77 2025-06-28** refactor: Actualización de estilos SCSS y corrección de pruebas
   - Migración de `@import` a `@use` en archivos SCSS
   - Corrección de referencias a variables SCSS con namespaces
