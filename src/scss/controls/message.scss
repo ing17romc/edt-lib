@@ -1,15 +1,15 @@
-@use '../variables.scss';
-@use '../functions.scss';
+@use '../variables';
+@use '../functions';
 
 $padding: 15;
 $margin-bottom: 20;
 $border-radius: 4;
 
 .message {
-    padding: calculateSizeVW($padding);
-    margin-bottom: calculateSizeVW($margin-bottom);
+    padding: calculatesizevw($padding);
+    margin-bottom: calculatesizevw($margin-bottom);
     border: 1px solid transparent;
-    border-radius: calculateSizeVW($border-radius);
+    border-radius: calculatesizevw($border-radius);
     width: 100%;
 
     &.message-danger {
@@ -39,9 +39,9 @@ $border-radius: 4;
 
 @media screen and (min-width: calculateSizePX(functions.$min-with-screen)) {
     .message {
-        padding: calculateSizePX($padding);
-        margin-bottom: calculateSizePX($margin-bottom);
-        border-radius: calculateSizePX($border-radius);
+        padding: calculatesizepx($padding);
+        margin-bottom: calculatesizepx($margin-bottom);
+        border-radius: calculatesizepx($border-radius);
     }
 }
 

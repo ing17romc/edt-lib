@@ -1,5 +1,5 @@
-@use './variables.scss';
-@use './functions.scss';
+@use './variables';
+@use './functions';
 
 h1 {
 	font-size: calculateSizeVW(variables.$fs-36);
@@ -139,7 +139,6 @@ h4 {
 
 @media (hover: none),
 (pointer: coarse) {
-
 	// * functions.$size-mobile-h
 	// calculateSizeVW
 	h1 {
@@ -201,7 +200,6 @@ h4 {
 
 @media (hover: none),
 (pointer: coarse) {
-
 	// * functions.$size-mobile
 	// calculateSizeVW
 	h1 {

@@ -1,5 +1,5 @@
-@use '../../../../scss/variables.scss';
-@use '../../../../scss/functions.scss';
+@use '../../../../scss/variables';
+@use '../../../../scss/functions';
 
 $size-md: 18;
 $border: 1;
@@ -18,11 +18,11 @@ $label-line-height: 18;
 	& label {
 		font-size: calculateSizeVW(variables.$font-size-control);
 		position: initial;
-		height: calculateSizeVW($label-height);
-		padding-top: calculateSizeVW($label-padding-top);
-		padding-left: calculateSizeVW($label-padding-left);
+		height: calculatesizevw($label-height);
+		padding-top: calculatesizevw($label-padding-top);
+		padding-left: calculatesizevw($label-padding-left);
 		cursor: pointer;
-		line-height: calculateSizeVW($label-line-height);
+		line-height: calculatesizevw($label-line-height);
 		display: inline-block;
 		color: variables.$black-color;
 	}
@@ -30,13 +30,13 @@ $label-line-height: 18;
 	& input[type='checkbox'] {
 		position: relative;
 		cursor: pointer;
-		width: calculateSizeVW($size-md);
-		height: calculateSizeVW($size-md);
-		margin: 0px;
-		-moz-appearance: initial;
+		width: calculatesizevw($size-md);
+		height: calculatesizevw($size-md);
+		margin: 0;
+		appearance: initial;
 	}
 
-	& input[type='checkbox']:before {
+	& input[type='checkbox']::before {
 		content: '';
 		display: block;
 		position: absolute;
@@ -49,7 +49,7 @@ $label-line-height: 18;
 		opacity: 1;
 	}
 
-	& input[type='checkbox']:checked:before {
+	& input[type='checkbox']:checked::before {
 		content: '';
 		display: block;
 		position: absolute;
@@ -62,7 +62,7 @@ $label-line-height: 18;
 		opacity: 1;
 	}
 
-	& input[type='checkbox']:checked:after {
+	& input[type='checkbox']:checked::after {
 		content: '';
 		width: 30%;
 		height: 60%;
@@ -70,12 +70,9 @@ $label-line-height: 18;
 		border-bottom: solid calculateSizeVW($border-2) variables.$white-color;
 		border-right: solid calculateSizeVW($border-2) variables.$white-color;
 		display: block;
-		margin-top: calculateSizeVW($border-2);
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: auto;
-		-webkit-transform: rotate(35deg);
-		-ms-transform: rotate(35deg);
+		margin: calculatesizevw($border-2) auto auto;
+		transform: rotate(35deg);
+		transform: rotate(35deg);
 		transform: rotate(35deg);
 	}
 
@@ -84,8 +81,8 @@ $label-line-height: 18;
 			color: variables.$red-color;
 		}
 
-		&>input[type='checkbox']:before,
-		&>input[type='checkbox']:checked:before {
+		&>input[type='checkbox']::before,
+		&>input[type='checkbox']:checked::before {
 			border: calculateSizeVW($border) solid variables.$red-color;
 		}
 	}
@@ -95,35 +92,34 @@ $label-line-height: 18;
 	.checkbutton {
 		& label {
 			font-size: calculateSizePX(variables.$font-size-control);
-			height: calculateSizePX($label-height);
-			padding-top: calculateSizePX($label-padding-top);
-			padding-left: calculateSizePX($label-padding-left);
-			line-height: calculateSizePX($label-line-height);
+			height: calculatesizepx($label-height);
+			padding-top: calculatesizepx($label-padding-top);
+			padding-left: calculatesizepx($label-padding-left);
+			line-height: calculatesizepx($label-line-height);
 		}
 
 		& input[type='checkbox'] {
-			width: calculateSizePX($size-md);
-			height: calculateSizePX($size-md);
+			width: calculatesizepx($size-md);
+			height: calculatesizepx($size-md);
 		}
 
-		& input[type='checkbox']:before {
+		& input[type='checkbox']::before {
 			border: calculateSizePX($border) solid variables.$black-color;
 		}
 
-		& input[type='checkbox']:checked:before {
+		& input[type='checkbox']:checked::before {
 			border: calculateSizePX($border) solid variables.$black-color;
 		}
 
-		& input[type='checkbox']:checked:after {
+		& input[type='checkbox']:checked::after {
 			border-bottom: solid calculateSizePX($border-2) variables.$white-color;
 			border-right: solid calculateSizePX($border-2) variables.$white-color;
-			margin-top: calculateSizePX($border-2);
+			margin-top: calculatesizepx($border-2);
 		}
 
 		&.required {
-
-			&>input[type='checkbox']:before,
-			&>input[type='checkbox']:checked:before {
+			&>input[type='checkbox']::before,
+			&>input[type='checkbox']:checked::before {
 				border: calculateSizePX($border) solid variables.$red-color;
 			}
 		}
@@ -132,7 +128,6 @@ $label-line-height: 18;
 
 @media (hover: none),
 (pointer: coarse) {
-
 	// * functions.$size-mobile
 	// calculateSizeVW
 	.checkbutton {
@@ -149,24 +144,23 @@ $label-line-height: 18;
 			height: calculateSizeVW($size-md * functions.$size-mobile);
 		}
 
-		& input[type='checkbox']:before {
+		& input[type='checkbox']::before {
 			border: calculateSizeVW($border * functions.$size-mobile) solid variables.$black-color;
 		}
 
-		& input[type='checkbox']:checked:before {
+		& input[type='checkbox']:checked::before {
 			border: calculateSizeVW($border * functions.$size-mobile) solid variables.$black-color;
 		}
 
-		& input[type='checkbox']:checked:after {
+		& input[type='checkbox']:checked::after {
 			border-bottom: solid calculateSizeVW($border-2 * functions.$size-mobile) variables.$white-color;
 			border-right: solid calculateSizeVW($border-2 * functions.$size-mobile) variables.$white-color;
 			margin-top: calculateSizeVW($border-2 * functions.$size-mobile);
 		}
 
 		&.required {
-
-			&>input[type='checkbox']:before,
-			&>input[type='checkbox']:checked:before {
+			&>input[type='checkbox']::before,
+			&>input[type='checkbox']:checked::before {
 				border: calculateSizeVW($border * functions.$size-mobile) solid variables.$red-color;
 			}
 		}
@@ -189,24 +183,23 @@ $label-line-height: 18;
 			height: calculateSizeVW($size-md * functions.$size-mobile-h);
 		}
 
-		& input[type='checkbox']:before {
+		& input[type='checkbox']::before {
 			border: calculateSizeVW($border * functions.$size-mobile-h) solid variables.$black-color;
 		}
 
-		& input[type='checkbox']:checked:before {
+		& input[type='checkbox']:checked::before {
 			border: calculateSizeVW($border * functions.$size-mobile-h) solid variables.$black-color;
 		}
 
-		& input[type='checkbox']:checked:after {
+		& input[type='checkbox']:checked::after {
 			border-bottom: solid calculateSizeVW($border-2 * functions.$size-mobile-h) variables.$white-color;
 			border-right: solid calculateSizeVW($border-2 * functions.$size-mobile-h) variables.$white-color;
 			margin-top: calculateSizeVW($border-2 * functions.$size-mobile-h);
 		}
 
 		&.required {
-
-			&>input[type='checkbox']:before,
-			&>input[type='checkbox']:checked:before {
+			&>input[type='checkbox']::before,
+			&>input[type='checkbox']:checked::before {
 				border: calculateSizeVW($border * functions.$size-mobile-h) solid variables.$red-color;
 			}
 		}

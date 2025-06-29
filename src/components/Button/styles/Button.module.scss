@@ -1,0 +1,172 @@
+@use 'sass:color';
+@use 'sass:map';
+@use '../../../styles/variables' as *;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-family: inherit;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+  line-height: 1.5;
+  
+  &:disabled,
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: 0.6;
+    box-shadow: none;
+  }
+  
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba($primary-color, 0.5);
+  }
+  
+  // Sizes
+  &--small {
+    padding: map.get($button-padding, small);
+    font-size: map.get($button-font-sizes, small);
+    min-height: map.get($button-heights, small);
+  }
+  
+  &--medium {
+    padding: map.get($button-padding, medium);
+    font-size: map.get($button-font-sizes, medium);
+    min-height: map.get($button-heights, medium);
+  }
+  
+  &--large {
+    padding: map.get($button-padding, large);
+    font-size: map.get($button-font-sizes, large);
+    min-height: map.get($button-heights, large);
+  }
+  
+  // Variants
+  &--primary {
+    background-color: $primary-color;
+    color: white;
+    
+    &:hover:not(:disabled) {
+      background-color: $primary-hover;
+    }
+    
+    &:active:not(:disabled) {
+      background-color: $primary-active;
+    }
+  }
+  
+  &--secondary {
+    background-color: white;
+    color: $primary-color;
+    border-color: $border-color;
+    
+    &:hover:not(:disabled) {
+      background-color: color.adjust(white, $lightness: -5%);
+    }
+    
+    &:active:not(:disabled) {
+      background-color: color.adjust(white, $lightness: -10%);
+    }
+  }
+  
+  &--tertiary {
+    background-color: transparent;
+    color: $primary-color;
+    
+    &:hover:not(:disabled) {
+      background-color: rgba($primary-color, 0.1);
+    }
+    
+    &:active:not(:disabled) {
+      background-color: rgba($primary-color, 0.2);
+    }
+  }
+  
+  &--danger {
+    background-color: $danger-color;
+    color: white;
+    
+    &:hover:not(:disabled) {
+      background-color: color.adjust($danger-color, $lightness: -10%);
+    }
+    
+    &:active:not(:disabled) {
+      background-color: color.adjust($danger-color, $lightness: -15%);
+    }
+  }
+  
+  &--success {
+    background-color: $success-color;
+    color: white;
+    
+    &:hover:not(:disabled) {
+      background-color: color.adjust($success-color, $lightness: -10%);
+    }
+    
+    &:active:not(:disabled) {
+      background-color: color.adjust($success-color, $lightness: -15%);
+    }
+  }
+  
+  &--warning {
+    background-color: $warning-color;
+    color: $text-color;
+    
+    &:hover:not(:disabled) {
+      background-color: color.adjust($warning-color, $lightness: -10%);
+    }
+    
+    &:active:not(:disabled) {
+      background-color: color.adjust($warning-color, $lightness: -15%);
+    }
+  }
+  
+  // Modifiers
+  &--fullWidth {
+    width: 100%;
+    display: flex;
+  }
+  
+  &--loading {
+    color: transparent;
+    position: relative;
+    pointer-events: none;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      width: 1.5em;
+      height: 1.5em;
+      border: 2px solid currentcolor;
+      border-radius: 50%;
+      border-top-color: transparent;
+      animation: spin 0.8s linear infinite;
+    }
+    
+    &.button--small::after {
+      width: 1em;
+      height: 1em;
+    }
+    
+    &.button--large::after {
+      width: 1.75em;
+      height: 1.75em;
+    }
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

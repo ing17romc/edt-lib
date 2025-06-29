@@ -1,5 +1,5 @@
-@use '../variables.scss';
-@use '../functions.scss';
+@use '../variables';
+@use '../functions';
 
 $padding: 12;
 
@@ -7,27 +7,27 @@ table {
 	width: 100%;
 	background-color: variables.$white-color;
 	overflow-x: auto;
-	padding: calculateSizeVW($padding);
+	padding: calculatesizevw($padding);
 
 	&.big-table {
 		display: block;
 	}
 
 	& tbody {
-		padding: calculateSizeVW($padding);
+		padding: calculatesizevw($padding);
 
 		& tr {
 			text-align: justify;
-			padding: calculateSizeVW($padding);
+			padding: calculatesizevw($padding);
 
 			& th {
 				border-bottom: 2px solid variables.$primary-color-1;
-				padding: calculateSizeVW($padding);
+				padding: calculatesizevw($padding);
 			}
 
 			& td {
 				border-top: 1px solid variables.$primary-color-1;
-				padding: calculateSizeVW($padding);
+				padding: calculatesizevw($padding);
 				vertical-align: top;
 			}
 
@@ -43,22 +43,22 @@ table {
 
 @media screen and (min-width: calculateSizePX(functions.$min-with-screen)) {
 	table {
-		padding: calculateSizePX($padding);
+		padding: calculatesizepx($padding);
 
 		& tbody {
-			padding: calculateSizePX($padding);
+			padding: calculatesizepx($padding);
 
 			& tr {
-				padding: calculateSizePX($padding);
+				padding: calculatesizepx($padding);
 
 				& th {
 					border-bottom: 2px solid variables.$primary-color-1;
-					padding: calculateSizePX($padding);
+					padding: calculatesizepx($padding);
 				}
 
 				& td {
 					border-top: 1px solid variables.$primary-color-1;
-					padding: calculateSizePX($padding);
+					padding: calculatesizepx($padding);
 				}
 			}
 		}
@@ -67,7 +67,6 @@ table {
 
 @media (hover: none),
 (pointer: coarse) {
-
 	// * functions.$size-mobile
 	// calculateSizeVW
 	table {

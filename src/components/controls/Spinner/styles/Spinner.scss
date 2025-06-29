@@ -1,16 +1,14 @@
 
 @use 'sass:color';
-@use '../../../../scss/variables.scss';
-@use '../../../../scss/functions.scss';
+@use '../../../../scss/variables';
+@use '../../../../scss/functions';
 
 $color-one: variables.$light-blue-color;
 $color-two: variables.$primary-color-1;
 $color-three: variables.$dark-blue-color;
 $bg-spinner: variables.$black-color;
-
 $size-loading: 150;
 $border-loading: 2.5;
-
 $position-sm: 5;
 $position-md: 15;
 
@@ -35,40 +33,34 @@ div.container-load {
     overflow: hidden;
     display: block;
     position: relative;
-    width: calculateSizeVW($size-loading);
-    height: calculateSizeVW($size-loading);
+    width: calculatesizevw($size-loading);
+    height: calculatesizevw($size-loading);
     top: 0;
     left: 0;
     border-radius: 50%;
-    border-width: calculateSizeVW($border-loading);
+    border-width: calculatesizevw($border-loading);
     border-style: solid;
     border-color: transparent;
     border-top-color: $color-three;
     animation: spin 2s linear infinite;
     
-    &:before, &:after {
+    &::before, &::after {
       content: '';
       position: absolute;
       border-radius: 50%;
-      border-width: calculateSizeVW($border-loading);
+      border-width: calculatesizevw($border-loading);
       border-style: solid;
       border-color: transparent;
     }
     
-    &:before {
-      top: calculateSizeVW($position-sm);
-      left: calculateSizeVW($position-sm);
-      right: calculateSizeVW($position-sm);
-      bottom: calculateSizeVW($position-sm);
+    &::before {
+      inset: calculatesizevw($position-sm);
       border-top-color: $color-two;
       animation: spin 3s linear infinite;
     }
     
-    &:after {
-      top: calculateSizeVW($position-md);
-      left: calculateSizeVW($position-md);
-      right: calculateSizeVW($position-md);
-      bottom: calculateSizeVW($position-md);
+    &::after {
+      inset: calculatesizevw($position-md);
       border-top-color: $color-one;
       animation: spin 1.5s linear infinite;
     }
@@ -94,26 +86,20 @@ div.container-load {
 @media screen and (min-width: calculateSizePX(functions.$min-with-screen)) {
   div.container-load {
     .loading {
-      width: calculateSizePX($size-loading);
-      height: calculateSizePX($size-loading);
-      border-width: calculateSizePX($border-loading);
+      width: calculatesizepx($size-loading);
+      height: calculatesizepx($size-loading);
+      border-width: calculatesizepx($border-loading);
       
-      &:before, &:after {
-        border-width: calculateSizePX($border-loading);
+      &::before, &::after {
+        border-width: calculatesizepx($border-loading);
       }
       
-      &:before {
-        top: calculateSizePX($position-sm);
-        left: calculateSizePX($position-sm);
-        right: calculateSizePX($position-sm);
-        bottom: calculateSizePX($position-sm);
+      &::before {
+        inset: calculatesizepx($position-sm);
       }
       
-      &:after {
-        top: calculateSizePX($position-md);
-        left: calculateSizePX($position-md);
-        right: calculateSizePX($position-md);
-        bottom: calculateSizePX($position-md);
+      &::after {
+        inset: calculatesizepx($position-md);
       }
     }
   }
@@ -123,26 +109,20 @@ div.container-load {
 @media (hover: none), (pointer: coarse) {
   div.container-load {
     .loading {
-      width: calculateSizeVW($size-loading * 0.7);
-      height: calculateSizeVW($size-loading * 0.7);
-      border-width: calculateSizeVW($border-loading * 0.7);
+      width: calculatesizevw($size-loading * 0.7);
+      height: calculatesizevw($size-loading * 0.7);
+      border-width: calculatesizevw($border-loading * 0.7);
       
-      &:before, &:after {
-        border-width: calculateSizeVW($border-loading * 0.7);
+      &::before, &::after {
+        border-width: calculatesizevw($border-loading * 0.7);
       }
       
-      &:before {
-        top: calculateSizeVW($position-sm * 0.7);
-        left: calculateSizeVW($position-sm * 0.7);
-        right: calculateSizeVW($position-sm * 0.7);
-        bottom: calculateSizeVW($position-sm * 0.7);
+      &::before {
+        inset: calculatesizevw($position-sm * 0.7);
       }
       
-      &:after {
-        top: calculateSizeVW($position-md * 0.7);
-        left: calculateSizeVW($position-md * 0.7);
-        right: calculateSizeVW($position-md * 0.7);
-        bottom: calculateSizeVW($position-md * 0.7);
+      &::after {
+        inset: calculatesizevw($position-md * 0.7);
       }
     }
   }

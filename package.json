@@ -15,7 +15,9 @@
     "clean": "rm package-lock.json && rm -rf node_modules && npm i --force",
     "build": "babel src --out-dir dist --extensions .js,.jsx,.ts,.tsx",
     "test": "jest",
-    "lint": "eslint . --ext .ts,.tsx",
+    "lint:js": "eslint . --ext .ts,.tsx  --fix",
+    "lint:scss": "stylelint \"src/**/*.scss\" --fix",
+    "lint": "npm run lint:js && npm run lint:scss",
     "sb": "npm run build && storybook build && storybook dev -p 6006",
     "release-sb": "npm run build && rm -rf .gh-pages && storybook build && gh-pages -d storybook-static",
     "publish-npm": "npm version patch && npm run build && npm publish --access public"
@@ -57,6 +59,8 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^30.0.2",
+    "stylelint": "^16.21.0",
+    "stylelint-config-standard-scss": "^15.0.1",
     "ts-jest": "^29.4.0",
     "typescript": "^5.3.3"
   },

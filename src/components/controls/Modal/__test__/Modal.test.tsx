@@ -10,7 +10,7 @@ describe('Modal Component', () => {
   });
 
   test('renders modal when show is true', () => {
-    const { container } = render(
+    render(
       <Modal
         show={true}
         eventModal={mockEventModal}

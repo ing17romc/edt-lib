@@ -1,5 +1,5 @@
-@use '../variables.scss';
-@use '../functions.scss';
+@use '../variables';
+@use '../functions';
 
 $margin-bottom: 20;
 $padding-footer: 20;
@@ -17,12 +17,12 @@ $min-h: 600;
 
     &__nav-bar {
         width: 100%;
-        min-height: calculateSizeVW($h-nav-bar);
+        min-height: calculatesizevw($h-nav-bar);
         max-width: calculateSizeVW(functions.$min-with-screen);
-        margin-bottom: calculateSizeVW($margin-bottom);
+        margin-bottom: calculatesizevw($margin-bottom);
         box-shadow: variables.$shadow-flat;
-        padding-top: calculateSizeVW($padding);
-        padding-bottom: calculateSizeVW($padding);
+        padding-top: calculatesizevw($padding);
+        padding-bottom: calculatesizevw($padding);
 
         .topnav {
             background-color: variables.$primary-color-1;
@@ -31,8 +31,8 @@ $min-h: 600;
         .topnav label {
             color: variables.$white-color;
             text-align: center;
-            padding-left: calculateSizeVW($padding-label);
-            padding-right: calculateSizeVW($padding-label);
+            padding-left: calculatesizevw($padding-label);
+            padding-right: calculatesizevw($padding-label);
             text-decoration: none;
             cursor: pointer;
             opacity: 0.6;
@@ -54,18 +54,17 @@ $min-h: 600;
     }
 
     &__content {
-        min-height: calculateSizeVW($min-h);
+        min-height: calculatesizevw($min-h);
         height: 100vh;
     }
 
     &__footer {
         width: 100%;
-        min-height: calculateSizeVW($h-footer);
-        padding: calculateSizeVW($padding-footer);
+        min-height: calculatesizevw($h-footer);
+        padding: calculatesizevw($padding-footer);
         border-top: 1px solid transparent;
         text-align: center;
         margin: 0 auto;
-
         color: variables.$light-blue-color;
         background-color: variables.$light-gray-color;
         border-color: variables.$gray-color;
@@ -78,25 +77,25 @@ $min-h: 600;
         max-width: calculateSizePX(functions.$min-with-screen);
 
         &__nav-bar {
-            min-height: calculateSizePX($h-nav-bar);
-            margin-bottom: calculateSizePX($margin-bottom);
+            min-height: calculatesizepx($h-nav-bar);
+            margin-bottom: calculatesizepx($margin-bottom);
             max-width: calculateSizePX(functions.$min-with-screen);
-            padding-top: calculateSizePX($padding);
-            padding-bottom: calculateSizePX($padding);
+            padding-top: calculatesizepx($padding);
+            padding-bottom: calculatesizepx($padding);
 
             .topnav label {
-                padding-left: calculateSizePX($padding-label);
-                padding-right: calculateSizePX($padding-label);
+                padding-left: calculatesizepx($padding-label);
+                padding-right: calculatesizepx($padding-label);
             }
         }
 
         &__content {
-            min-height: calculateSizePX($min-h);
+            min-height: calculatesizepx($min-h);
         }
 
         &__footer {
-            min-height: calculateSizePX($h-footer);
-            padding: calculateSizePX($padding-footer);
+            min-height: calculatesizepx($h-footer);
+            padding: calculatesizepx($padding-footer);
         }
     }
 }
@@ -112,8 +111,8 @@ $min-h: 600;
             padding-bottom: calculateSizeVW($padding * functions.$size-mobile);
 
             .topnav label {
-                padding-left: calculateSizeVW($padding-label);
-                padding-right: calculateSizeVW($padding-label);
+                padding-left: calculatesizevw($padding-label);
+                padding-right: calculatesizevw($padding-label);
             }
         }
 
@@ -139,8 +138,8 @@ $min-h: 600;
             padding-bottom: calculateSizeVW($padding * functions.$size-mobile-h);
 
             .topnav label {
-                padding-left: calculateSizeVW($padding-label);
-                padding-right: calculateSizeVW($padding-label);
+                padding-left: calculatesizevw($padding-label);
+                padding-right: calculatesizevw($padding-label);
             }
         }
 

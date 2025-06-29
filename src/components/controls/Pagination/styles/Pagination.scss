@@ -1,5 +1,5 @@
-@use '../../../../scss/variables.scss';
-@use '../../../../scss/functions.scss';
+@use '../../../../scss/variables';
+@use '../../../../scss/functions';
 
 $padding: 12;
 $height: 32;
@@ -17,29 +17,29 @@ $min-width: 32;
   margin: 1rem 0;
 
   .pagination-item {
-    padding: 0 calculateSizeVW($padding);
-    height: calculateSizeVW($height);
+    padding: 0 calculatesizevw($padding);
+    height: calculatesizevw($height);
     text-align: center;
-    margin: auto calculateSizeVW($margin);
-    color: rgba(0, 0, 0, 0.87);
+    margin: auto calculatesizevw($margin);
+    color: rgb(0 0 0 / 87%);
     display: flex;
     box-sizing: border-box;
     align-items: center;
     justify-content: center;
     letter-spacing: 0.01071em;
-    border-radius: calculateSizeVW($border-radius);
+    border-radius: calculatesizevw($border-radius);
     line-height: 1.43;
-    font-size: calculateSizeVW($font-size);
-    min-width: calculateSizeVW($min-width);
+    font-size: calculatesizevw($font-size);
+    min-width: calculatesizevw($min-width);
     transition: background-color 0.2s ease-in-out;
 
     &:hover:not(.disabled) {
-      background-color: rgba(0, 0, 0, 0.04);
+      background-color: rgb(0 0 0 / 4%);
       cursor: pointer;
     }
 
     &.selected {
-      background-color: rgba(0, 0, 0, 0.08);
+      background-color: rgb(0 0 0 / 8%);
       font-weight: bold;
     }
 
@@ -55,8 +55,8 @@ $min-width: 32;
         display: inline-block;
         width: 0.4em;
         height: 0.4em;
-        border-right: 0.12em solid rgba(0, 0, 0, 0.87);
-        border-top: 0.12em solid rgba(0, 0, 0, 0.87);
+        border-right: 0.12em solid rgb(0 0 0 / 87%);
+        border-top: 0.12em solid rgb(0 0 0 / 87%);
       }
 
       &.left {
@@ -70,13 +70,13 @@ $min-width: 32;
   }
 
   .pagination-dots {
-    height: calculateSizeVW($height);
+    height: calculatesizevw($height);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 calculateSizeVW($margin);
-    font-size: calculateSizeVW($font-size);
-    color: rgba(0, 0, 0, 0.87);
+    margin: 0 calculatesizevw($margin);
+    font-size: calculatesizevw($font-size);
+    color: rgb(0 0 0 / 87%);
   }
 }
 
@@ -84,18 +84,18 @@ $min-width: 32;
 @media screen and (min-width: calculateSizePX(functions.$min-with-screen)) {
   .pagination-container {
     .pagination-item {
-      padding: 0 calculateSizePX($padding);
-      height: calculateSizePX($height);
-      margin: auto calculateSizePX($margin);
-      border-radius: calculateSizePX($border-radius);
-      font-size: calculateSizePX($font-size);
-      min-width: calculateSizePX($min-width);
+      padding: 0 calculatesizepx($padding);
+      height: calculatesizepx($height);
+      margin: auto calculatesizepx($margin);
+      border-radius: calculatesizepx($border-radius);
+      font-size: calculatesizepx($font-size);
+      min-width: calculatesizepx($min-width);
     }
 
     .pagination-dots {
-      height: calculateSizePX($height);
-      margin: 0 calculateSizePX($margin);
-      font-size: calculateSizePX($font-size);
+      height: calculatesizepx($height);
+      margin: 0 calculatesizepx($margin);
+      font-size: calculatesizepx($font-size);
     }
   }
 }

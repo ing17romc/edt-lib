@@ -23,16 +23,23 @@ describe('TextBox Component', () => {
     render(<TextBox {...mockFullProps} />);
     
     // Verificar títulos
-    expect(screen.getByText(mockFullProps.titleTop!)).toBeInTheDocument();
-    expect(screen.getByText(mockFullProps.titleBottom!)).toBeInTheDocument();
+    if (mockFullProps.titleTop) {
+      expect(screen.getByText(mockFullProps.titleTop)).toBeInTheDocument();
+    }
+    if (mockFullProps.titleBottom) {
+      expect(screen.getByText(mockFullProps.titleBottom)).toBeInTheDocument();
+    }
     
     // Verificar placeholder
-    const input = screen.getByPlaceholderText(mockFullProps.placeholder!);
+    const placeholder = mockFullProps.placeholder || '';
+    const input = screen.getByPlaceholderText(placeholder);
     expect(input).toBeInTheDocument();
     
     // Verificar atributos
     expect(input).toHaveAttribute('required');
-    expect(input).toHaveStyle(`width: ${mockFullProps.size}px`);
+    if (mockFullProps.size) {
+      expect(input).toHaveStyle(`width: ${mockFullProps.size}px`);
+    }
   });
 
   test('handles events correctly', () => {
@@ -94,7 +101,8 @@ describe('TextBox Component', () => {
         value="No se puede copiar" 
       />
     );
-    const input = container.querySelector('input')!;
+    const input = container.querySelector('input');
+    if (!input) throw new Error('Input element not found');
     
     // Crear un evento de copia real
     const copyEvent = new Event('copy', { bubbles: true });
@@ -116,7 +124,8 @@ describe('TextBox Component', () => {
         value=""
       />
     );
-    const input = container.querySelector('input')!;
+    const input = container.querySelector('input');
+    if (!input) throw new Error('Input element not found');
     
     // Crear un evento de pegado real
     const pasteEvent = new Event('paste', { bubbles: true });

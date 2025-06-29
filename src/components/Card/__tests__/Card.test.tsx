@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen, fireEvent, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { Card, CardVariant } from '..';
-import { mockCardProps, mockClickableCard, mockCardWithoutImage } from './mocks';
+import { mockCardProps, mockCardWithoutImage } from './mocks';
 
 // Mock del módulo SCSS
 jest.mock('../styles/Card.module.scss', () => ({
@@ -42,11 +42,15 @@ describe('Card Component', () => {
   it('renderiza correctamente con todas las props', () => {
     render(<Card {...mockCardProps} />);
     
-    expect(screen.getByText(mockCardProps.title!)).toBeInTheDocument();
-    expect(screen.getByText(mockCardProps.subtitle!)).toBeInTheDocument();
-    expect(screen.getByText(mockCardProps.children as string)).toBeInTheDocument();
+    if (mockCardProps.title) {
+      expect(screen.getByText(mockCardProps.title)).toBeInTheDocument();
+    }
+    if (mockCardProps.subtitle) {
+      expect(screen.getByText(mockCardProps.subtitle)).toBeInTheDocument();
+    }
+    expect(screen.getByText(String(mockCardProps.children))).toBeInTheDocument();
     
-    const image = screen.getByAltText(mockCardProps.imageAlt!);
+    const image = screen.getByAltText(mockCardProps.imageAlt || '');
     expect(image).toHaveAttribute('src', mockCardProps.imageUrl);
   });
 
@@ -54,7 +58,9 @@ describe('Card Component', () => {
     render(<Card {...mockCardWithoutImage} />);
     
     expect(screen.queryByRole('img')).not.toBeInTheDocument();
-    expect(screen.getByText(mockCardWithoutImage.title!)).toBeInTheDocument();
+    if (mockCardWithoutImage.title) {
+      expect(screen.getByText(mockCardWithoutImage.title)).toBeInTheDocument();
+    }
   });
 
   it('aplica la variante de estilo correcta', () => {

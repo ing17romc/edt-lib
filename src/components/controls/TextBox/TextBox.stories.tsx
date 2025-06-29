@@ -1,7 +1,5 @@
-import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import TextBox from './index';
-import { TextBoxProps } from './types';
 
 const meta: Meta<typeof TextBox> = {
   title: 'Controls/TextBox',

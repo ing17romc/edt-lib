@@ -3,9 +3,6 @@ import { render, screen, fireEvent, cleanup, act } from '@testing-library/react'
 import '@testing-library/jest-dom';
 import ModalNotifications from '.';
 
-// Define the notification type for testing
-type NotificationType = 'ERROR' | 'WARNING' | 'INFO' | 'SUCCESSFULL';
-
 // Mock data for testing
 const mockEventModal = jest.fn();
 const mockEventContinue = jest.fn();

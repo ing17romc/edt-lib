@@ -1,5 +1,5 @@
 import React from 'react';
-import { ModalNotificationsProps, NotificationType, ModalNotificationsComponent } from './types';
+import { ModalNotificationsProps } from './types';
 import Modal from '../Modal';
 import Title from '../Title';
 import Button from '../Button';

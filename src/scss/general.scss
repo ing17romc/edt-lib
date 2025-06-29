@@ -1,5 +1,5 @@
-@use './functions.scss';
-@use './variables.scss';
+@use './functions';
+@use './variables';
 
 @mixin padding($number, $size) {
 	.padding-v-#{$number} {
@@ -102,7 +102,6 @@ body {
 
 
 @media screen and (min-width: calculateSizePX(functions.$min-with-screen)) {
-
 	.main-container {
 		max-width: calculateSizePX(functions.$min-with-screen);
 	}

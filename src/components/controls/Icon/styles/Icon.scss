@@ -1,5 +1,5 @@
-@use '../../../../scss/variables.scss';
-@use '../../../../scss/functions.scss';
+@use '../../../../scss/variables';
+@use '../../../../scss/functions';
 
 $size-lg: 48;
 $size-md: 36;
@@ -11,45 +11,44 @@ $size-xs: 24;
 	color: variables.$primary-color-1;
 
 	&.lg>.material-icons {
-		font-size: calculateSizeVW($size-lg);
+		font-size: calculatesizevw($size-lg);
 	}
 
 	&.md>.material-icons {
-		font-size: calculateSizeVW($size-md);
+		font-size: calculatesizevw($size-md);
 	}
 
 	&.sm>.material-icons {
-		font-size: calculateSizeVW($size-sm);
+		font-size: calculatesizevw($size-sm);
 	}
 
 	&.xs>.material-icons {
-		font-size: calculateSizeVW($size-xs);
+		font-size: calculatesizevw($size-xs);
 	}
 }
 
 @media screen and (min-width: calculateSizePX(functions.$min-with-screen)) {
 	.container-icon {
 		&.lg>.material-icons {
-			font-size: calculateSizePX($size-lg);
+			font-size: calculatesizepx($size-lg);
 		}
 
 		&.md>.material-icons {
-			font-size: calculateSizePX($size-md);
+			font-size: calculatesizepx($size-md);
 		}
 
 		&.sm>.material-icons {
-			font-size: calculateSizePX($size-sm);
+			font-size: calculatesizepx($size-sm);
 		}
 
 		&.xs>.material-icons {
-			font-size: calculateSizePX($size-xs);
+			font-size: calculatesizepx($size-xs);
 		}
 	}
 }
 
 @media (hover: none),
 (pointer: coarse) {
-
 	// * functions.$size-mobile
 	// calculateSizeVW
 	.container-icon {

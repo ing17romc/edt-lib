@@ -1,5 +1,5 @@
-@use '../../../../scss/variables.scss';
-@use '../../../../scss/functions.scss';
+@use '../../../../scss/variables';
+@use '../../../../scss/functions';
 
 $width: 850;
 $size: 80;
@@ -7,13 +7,13 @@ $border: 7;
 $transition-speed: 0.3s;
 
 .body-generic-notifications {
-  width: calculateSizeVW($width);
+  width: calculatesizevw($width);
   max-width: 90%;
   margin: 0 auto;
   padding: 2rem;
   background-color: variables.$white-color;
   border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 20px rgb(0 0 0 / 15%);
   text-align: center;
   transition: all $transition-speed ease;
 
@@ -27,13 +27,13 @@ $transition-speed: 0.3s;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: calculateSizeVW($size);
-    height: calculateSizeVW($size);
+    width: calculatesizevw($size);
+    height: calculatesizevw($size);
     border-radius: 50%;
     border: calculateSizeVW($border) solid variables.$white-color;
     border-style: double;
     color: variables.$white-color;
-    font-size: calculateSizeVW($size * 0.5);
+    font-size: calculatesizevw($size * 0.5);
     transition: all $transition-speed ease;
 
     &.error {
@@ -60,13 +60,13 @@ $transition-speed: 0.3s;
 
   .notification-content {
     h3 {
-      margin: 0 0 1rem 0;
+      margin: 0 0 1rem;
       font-size: 1.5rem;
       color: variables.$gray-800;
     }
 
     p {
-      margin: 0 0 1.5rem 0;
+      margin: 0 0 1.5rem;
       color: variables.$gray-600;
       line-height: 1.5;
     }
@@ -83,14 +83,14 @@ $transition-speed: 0.3s;
 /* Media queries para pantallas más grandes */
 @media screen and (min-width: calculateSizePX(functions.$min-with-screen)) {
   .body-generic-notifications {
-    width: calculateSizePX($width);
+    width: calculatesizepx($width);
     padding: 2.5rem;
 
     .circle {
-      width: calculateSizePX($size);
-      height: calculateSizePX($size);
-      border-width: calculateSizePX($border);
-      font-size: calculateSizePX($size * 0.5);
+      width: calculatesizepx($size);
+      height: calculatesizepx($size);
+      border-width: calculatesizepx($border);
+      font-size: calculatesizepx($size * 0.5);
     }
   }
 }
@@ -103,9 +103,9 @@ $transition-speed: 0.3s;
     padding: 1.5rem;
     
     .circle {
-      width: calculateSizeVW($size * 1.2);
-      height: calculateSizeVW($size * 1.2);
-      font-size: calculateSizeVW($size * 0.6);
+      width: calculatesizevw($size * 1.2);
+      height: calculatesizevw($size * 1.2);
+      font-size: calculatesizevw($size * 0.6);
     }
     
     .notification-content {

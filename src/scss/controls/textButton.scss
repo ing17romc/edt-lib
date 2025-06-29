@@ -1,5 +1,5 @@
-@use '../variables.scss';
-@use '../functions.scss';
+@use '../variables';
+@use '../functions';
 
 $padding-h: 8;
 $padding-v: 5;
@@ -8,10 +8,10 @@ $line-height: 18;
 .textButton {
 	display: block;
 	text-decoration: none;
-	padding: calculateSizeVW($padding-v) calculateSizeVW($padding-h);
+	padding: calculatesizevw($padding-v) calculatesizevw($padding-h);
 	text-align: left;
-	letter-spacing: 0px;
-	line-height: calculateSizeVW($line-height);
+	letter-spacing: 0;
+	line-height: calculatesizevw($line-height);
 	opacity: 1;
 	cursor: pointer;
 
@@ -34,8 +34,8 @@ $line-height: 18;
 
 @media screen and (min-width: calculateSizePX(functions.$min-with-screen)) {
 	.textButton {
-		padding: calculateSizePX($padding-v) calculateSizePX($padding-h);
-		line-height: calculateSizePX($line-height);
+		padding: calculatesizepx($padding-v) calculatesizepx($padding-h);
+		line-height: calculatesizepx($line-height);
 
 		&.primary {
 			border: calculateSizePX($border-size) solid variables.$primary-color-1;

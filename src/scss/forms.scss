@@ -1,5 +1,5 @@
-@use './variables.scss';
-@use './functions.scss';
+@use './variables';
+@use './functions';
 
 $border: 1;
 $min-height-span: 20;
@@ -16,7 +16,7 @@ $border-radio: 5;
 	display: block;
 
 	span {
-		min-height: calculateSizeVW($min-height-span);
+		min-height: calculatesizevw($min-height-span);
 		display: block;
 		color: variables.$black-color;
 		font-size: calculateSizeVW(variables.$font-size-control);
@@ -24,20 +24,18 @@ $border-radio: 5;
 
 	& select,
 	& input {
-		border-radius: calculateSizeVW($border-radio);
+		border-radius: calculatesizevw($border-radio);
 		border: calculateSizeVW($border) solid variables.$black-color;
 
 		// border: none;
 		text-align: left;
 		opacity: 1;
-
 		width: 100%;
-		height: calculateSizeVW($height-control);
-		padding: 0px calculateSizeVW($padding) calculateSizeVW($padding) calculateSizeVW($padding);
-		margin-bottom: calculateSizeVW($margin-bottom);
-		letter-spacing: calculateSizeVW($letter-spacing);
-		font-size: calculateSizeVW($font-size);
-
+		height: calculatesizevw($height-control);
+		padding: 0 calculatesizevw($padding) calculatesizevw($padding);
+		margin-bottom: calculatesizevw($margin-bottom);
+		letter-spacing: calculatesizevw($letter-spacing);
+		font-size: calculatesizevw($font-size);
 		background-color: variables.$white-color;
 
 		&:focus {
@@ -45,13 +43,13 @@ $border-radio: 5;
 		}
 
 		&::placeholder {
-			font-size: calculateSizeVW($font-size);
+			font-size: calculatesizevw($font-size);
 			color: variables.$gray-color;
 			opacity: 1;
 		}
 
 		&>option {
-			font-size: calculateSizeVW($font-size);
+			font-size: calculatesizevw($font-size);
 			color: variables.$black-color;
 			background-color: variables.$white-color;
 			opacity: 1;
@@ -62,21 +60,21 @@ $border-radio: 5;
 		display: block;
 		resize: none;
 		background-color: variables.$white-color;
-		border-radius: calculateSizeVW($border-radio);
+		border-radius: calculatesizevw($border-radio);
 		border: calculateSizeVW($border) solid variables.$black-color;
 		overflow-y: auto;
 		width: 100%;
-		padding: calculateSizeVW($padding);
-		margin-bottom: calculateSizeVW($margin-bottom);
-		letter-spacing: calculateSizeVW($letter-spacing);
-		font-size: calculateSizeVW($font-size);
+		padding: calculatesizevw($padding);
+		margin-bottom: calculatesizevw($margin-bottom);
+		letter-spacing: calculatesizevw($letter-spacing);
+		font-size: calculatesizevw($font-size);
 
 		&:focus {
 			outline: none;
 		}
 
 		&::placeholder {
-			font-size: calculateSizeVW($font-size);
+			font-size: calculatesizevw($font-size);
 			color: variables.$gray-color;
 			opacity: 1;
 		}
@@ -133,7 +131,7 @@ $border-radio: 5;
 
 input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {
-	-webkit-appearance: none;
+	appearance: none;
 	margin: 0;
 }
 
@@ -141,50 +139,49 @@ input[type='search']::-webkit-search-decoration,
 input[type='search']::-webkit-search-cancel-button,
 input[type='search']::-webkit-search-results-button,
 input[type='search']::-webkit-search-results-decoration {
-	-webkit-appearance: none;
+	appearance: none;
 }
 
 @media screen and (min-width: calculateSizePX(functions.$min-with-screen)) {
 	.control-container {
 		span {
-			min-height: calculateSizePX($min-height-span);
+			min-height: calculatesizepx($min-height-span);
 			font-size: calculateSizePX(variables.$font-size-control);
 		}
 
 		& select,
 		& input {
-			border-radius: calculateSizePX($border-radio);
+			border-radius: calculatesizepx($border-radio);
 			border: calculateSizePX($border) solid variables.$black-color;
-			height: calculateSizePX($height-control);
-			padding: 0px calculateSizePX($padding) calculateSizePX($padding) calculateSizePX($padding);
-			margin-bottom: calculateSizePX($margin-bottom);
-			letter-spacing: calculateSizePX($letter-spacing);
-			font-size: calculateSizePX($font-size);
+			height: calculatesizepx($height-control);
+			padding: 0 calculatesizepx($padding) calculatesizepx($padding);
+			margin-bottom: calculatesizepx($margin-bottom);
+			letter-spacing: calculatesizepx($letter-spacing);
+			font-size: calculatesizepx($font-size);
 
 			&::placeholder {
-				font-size: calculateSizePX($font-size);
+				font-size: calculatesizepx($font-size);
 			}
 
 			&>option {
-				font-size: calculateSizePX($font-size);
+				font-size: calculatesizepx($font-size);
 			}
 		}
 
 		& textarea {
-			border-radius: calculateSizePX($border-radio);
+			border-radius: calculatesizepx($border-radio);
 			border: calculateSizePX($border) solid variables.$black-color;
-			padding: calculateSizePX($padding);
-			margin-bottom: calculateSizePX($margin-bottom);
-			letter-spacing: calculateSizePX($letter-spacing);
-			font-size: calculateSizePX($font-size);
+			padding: calculatesizepx($padding);
+			margin-bottom: calculatesizepx($margin-bottom);
+			letter-spacing: calculatesizepx($letter-spacing);
+			font-size: calculatesizepx($font-size);
 
 			&::placeholder {
-				font-size: calculateSizePX($font-size);
+				font-size: calculatesizepx($font-size);
 			}
 		}
 
 		& .required {
-
 			& select,
 			& input {
 				border: calculateSizePX($border) solid variables.$red-color;
@@ -199,7 +196,6 @@ input[type='search']::-webkit-search-results-decoration {
 
 @media (hover: none),
 (pointer: coarse) {
-
 	// * functions.$size-mobile
 	// calculateSizeVW
 	.control-container {
@@ -213,7 +209,7 @@ input[type='search']::-webkit-search-results-decoration {
 			border-radius: calculateSizeVW($border-radio * functions.$size-mobile);
 			border: calculateSizeVW($border * functions.$size-mobile) solid variables.$black-color;
 			height: calculateSizeVW($height-control * functions.$size-mobile);
-			padding: 0px calculateSizeVW($padding * functions.$size-mobile) calculateSizeVW($padding * functions.$size-mobile) calculateSizeVW($padding * functions.$size-mobile);
+			padding: 0 calculateSizeVW($padding * functions.$size-mobile) calculateSizeVW($padding * functions.$size-mobile) calculateSizeVW($padding * functions.$size-mobile);
 			margin-bottom: calculateSizeVW($margin-bottom * functions.$size-mobile);
 			letter-spacing: calculateSizeVW($letter-spacing * functions.$size-mobile);
 			font-size: calculateSizeVW($font-size * functions.$size-mobile);
@@ -241,7 +237,6 @@ input[type='search']::-webkit-search-results-decoration {
 		}
 
 		& .required {
-
 			& select,
 			& input {
 				border: calculateSizeVW($border * functions.$size-mobile) solid variables.$red-color;
@@ -268,7 +263,7 @@ input[type='search']::-webkit-search-results-decoration {
 			border-radius: calculateSizeVW($border-radio * functions.$size-mobile-h);
 			border: calculateSizeVW($border * functions.$size-mobile-h) solid variables.$black-color;
 			height: calculateSizeVW($height-control * functions.$size-mobile-h);
-			padding: 0px calculateSizeVW($padding * functions.$size-mobile-h) calculateSizeVW($padding * functions.$size-mobile-h) calculateSizeVW($padding * functions.$size-mobile-h);
+			padding: 0 calculateSizeVW($padding * functions.$size-mobile-h) calculateSizeVW($padding * functions.$size-mobile-h) calculateSizeVW($padding * functions.$size-mobile-h);
 			margin-bottom: calculateSizeVW($margin-bottom * functions.$size-mobile-h);
 			letter-spacing: calculateSizeVW($letter-spacing * functions.$size-mobile-h);
 			font-size: calculateSizeVW($font-size * functions.$size-mobile-h);
@@ -296,7 +291,6 @@ input[type='search']::-webkit-search-results-decoration {
 		}
 
 		& .required {
-
 			& select,
 			& input {
 				border: calculateSizeVW($border * functions.$size-mobile-h) solid variables.$red-color;

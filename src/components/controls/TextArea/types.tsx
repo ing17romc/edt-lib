@@ -44,7 +44,7 @@ export interface TextAreaProps {
   /** Ref to the underlying textarea element */
   ref?: Ref<HTMLTextAreaElement>;
   /** Additional HTML attributes */
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 /**

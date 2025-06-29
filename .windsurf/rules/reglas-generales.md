@@ -8,7 +8,7 @@ Prompt generales del proyecto
 📁 Estructura dela carpeta del componentes 
 	• Todos los componentes deben seguir una estructura de carpetas archivos consistente. Ejemplo:
 
-📁 Componente/
+📁 src/components/Componente/
 ├── tests/
 │   ├── Componente.test.tsx
 │   └── mocks.tsx
@@ -54,3 +54,4 @@ Prompt generales del proyecto
 
 OTROS
 	• No instalar dependencias de terceros
+	• Simpre cumplir con esta 

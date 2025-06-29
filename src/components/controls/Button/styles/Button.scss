@@ -1,25 +1,20 @@
-@use '../../../../scss/variables.scss';
-@use '../../../../scss/functions.scss';
+@use '../../../../scss/variables';
+@use '../../../../scss/functions';
 
 $button-large: 48;
 $font-size-large: variables.$fs-24;
-
 $button-normal: 42;
 $font-size-normal: variables.$fs-18;
-
 $button-small: 36;
 $font-size-small: variables.$fs-14;
-
 $button-extra-small: 30;
 $font-size-extra-small: variables.$fs-12;
-
 $border-radius: 4;
 $border-size: 1;
 
 button {
 	display: inline;
-
-	border-radius: calculateSizeVW($border-radius);
+	border-radius: calculatesizevw($border-radius);
 	width: 100%;
 	cursor: pointer;
 
@@ -40,29 +35,29 @@ button {
 	}
 
 	&.lg {
-		height: calculateSizeVW($button-large);
-		font-size: calculateSizeVW($font-size-large);
+		height: calculatesizevw($button-large);
+		font-size: calculatesizevw($font-size-large);
 	}
 
 	&.md {
-		height: calculateSizeVW($button-normal);
-		font-size: calculateSizeVW($font-size-normal);
+		height: calculatesizevw($button-normal);
+		font-size: calculatesizevw($font-size-normal);
 	}
 
 	&.sm {
-		height: calculateSizeVW($button-small);
-		font-size: calculateSizeVW($font-size-small);
+		height: calculatesizevw($button-small);
+		font-size: calculatesizevw($font-size-small);
 	}
 
 	&.xs {
-		height: calculateSizeVW($button-extra-small);
-		font-size: calculateSizeVW($font-size-extra-small);
+		height: calculatesizevw($button-extra-small);
+		font-size: calculatesizevw($font-size-extra-small);
 	}
 }
 
 @media screen and (min-width: calculateSizePX(functions.$min-with-screen)) {
 	button {
-		border-radius: calculateSizePX($border-radius);
+		border-radius: calculatesizepx($border-radius);
 
 		&.primary {
 			border: calculateSizePX($border-size) solid variables.$primary-color-1;
@@ -73,30 +68,29 @@ button {
 		}
 
 		&.lg {
-			height: calculateSizePX($button-large);
-			font-size: calculateSizePX($font-size-large);
+			height: calculatesizepx($button-large);
+			font-size: calculatesizepx($font-size-large);
 		}
 
 		&.md {
-			height: calculateSizePX($button-normal);
-			font-size: calculateSizePX($font-size-normal);
+			height: calculatesizepx($button-normal);
+			font-size: calculatesizepx($font-size-normal);
 		}
 
 		&.sm {
-			height: calculateSizePX($button-small);
-			font-size: calculateSizePX($font-size-small);
+			height: calculatesizepx($button-small);
+			font-size: calculatesizepx($font-size-small);
 		}
 
 		&.xs {
-			height: calculateSizePX($button-extra-small);
-			font-size: calculateSizePX($font-size-extra-small);
+			height: calculatesizepx($button-extra-small);
+			font-size: calculatesizepx($font-size-extra-small);
 		}
 	}
 }
 
 @media (hover: none),
 (pointer: coarse) {
-
 	button {
 		border-radius: calculateSizeVW($border-radius * functions.$size-mobile);
 
@@ -133,7 +127,6 @@ button {
 
 @media (hover: none),
 (pointer: coarse) {
-
 	button {
 		border-radius: calculateSizeVW($border-radius * functions.$size-mobile-h);
 

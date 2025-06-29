@@ -1,6 +1,6 @@
 @use "sass:math";
-@use '../../../../scss/variables.scss';
-@use '../../../../scss/functions.scss';
+@use '../../../../scss/variables';
+@use '../../../../scss/functions';
 
 $border: 1;
 $size-md: 18;
@@ -44,11 +44,11 @@ $transition-speed: 0.2s;
     & + label {
       font-size: calculateSizeVW(variables.$font-size-control);
       position: relative;
-      height: calculateSizeVW($label-height);
-      padding-top: calculateSizeVW($label-padding-top);
-      padding-left: calculateSizeVW($label-padding-left);
+      height: calculatesizevw($label-height);
+      padding-top: calculatesizevw($label-padding-top);
+      padding-left: calculatesizevw($label-padding-left);
       cursor: pointer;
-      line-height: calculateSizeVW($label-line-height);
+      line-height: calculatesizevw($label-line-height);
       display: inline-flex;
       align-items: center;
       transition: color $transition-speed ease;
@@ -59,8 +59,8 @@ $transition-speed: 0.2s;
         left: 0;
         top: 50%;
         transform: translateY(-50%);
-        width: calculateSizeVW($size-md);
-        height: calculateSizeVW($size-md);
+        width: calculatesizevw($size-md);
+        height: calculatesizevw($size-md);
         border: calculateSizeVW($border) solid variables.$black-color;
         border-radius: 50%;
         background-color: variables.$white-color;
@@ -73,8 +73,8 @@ $transition-speed: 0.2s;
         left: calculateSizeVW(math.div($size-md - $size-after, 2));
         top: 50%;
         transform: translateY(-50%) scale(0);
-        width: calculateSizeVW($size-after);
-        height: calculateSizeVW($size-after);
+        width: calculatesizevw($size-after);
+        height: calculatesizevw($size-after);
         border-radius: 50%;
         background-color: variables.$white-color;
         transition: all $transition-speed ease;
@@ -111,21 +111,21 @@ $transition-speed: 0.2s;
   @media screen and (min-width: calculateSizePX(functions.$min-with-screen)) {
     input[type='radio'] + label {
       font-size: calculateSizePX(variables.$font-size-control);
-      height: calculateSizePX($label-height);
-      padding-top: calculateSizePX($label-padding-top);
-      padding-left: calculateSizePX($label-padding-left);
-      line-height: calculateSizePX($label-line-height);
+      height: calculatesizepx($label-height);
+      padding-top: calculatesizepx($label-padding-top);
+      padding-left: calculatesizepx($label-padding-left);
+      line-height: calculatesizepx($label-line-height);
 
       &::before {
-        width: calculateSizePX($size-md);
-        height: calculateSizePX($size-md);
-        border-width: calculateSizePX($border);
+        width: calculatesizepx($size-md);
+        height: calculatesizepx($size-md);
+        border-width: calculatesizepx($border);
       }
 
       &::after {
         left: calculateSizePX(math.div($size-md - $size-after, 2));
-        width: calculateSizePX($size-after);
-        height: calculateSizePX($size-after);
+        width: calculatesizepx($size-after);
+        height: calculatesizepx($size-after);
       }
     }
   }
@@ -134,17 +134,17 @@ $transition-speed: 0.2s;
   @media (hover: none), (pointer: coarse) {
     input[type='radio'] + label {
       font-size: calculateSizeVW(variables.$font-size-control * 0.9);
-      padding-left: calculateSizeVW($label-padding-left * 0.9);
+      padding-left: calculatesizevw($label-padding-left * 0.9);
       
       &::before {
-        width: calculateSizeVW($size-md * 0.9);
-        height: calculateSizeVW($size-md * 0.9);
+        width: calculatesizevw($size-md * 0.9);
+        height: calculatesizevw($size-md * 0.9);
       }
       
       &::after {
         left: calculateSizeVW(math.div($size-md * 0.9 - $size-after * 0.9, 2));
-        width: calculateSizeVW($size-after * 0.9);
-        height: calculateSizeVW($size-after * 0.9);
+        width: calculatesizevw($size-after * 0.9);
+        height: calculatesizevw($size-after * 0.9);
       }
     }
   }

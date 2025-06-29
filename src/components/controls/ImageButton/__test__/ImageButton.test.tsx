@@ -4,7 +4,6 @@ import '@testing-library/jest-dom';
 import ImageButton from '../index';
 import { defaultProps, disabledProps, clickableProps } from './mocks';
 import { ALL_ICONS } from '../../../utils/IconTypes';
-import { ControlSize } from '../../../utils/enums'; 
 
 describe('ImageButton Component', () => {
   test('renders with correct icon and text', () => {

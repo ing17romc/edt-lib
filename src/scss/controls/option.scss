@@ -1,5 +1,5 @@
-@use '../variables.scss';
-@use '../functions.scss';
+@use '../variables';
+@use '../functions';
 
 $size-container: 160;
 $border-container: 1;
@@ -9,24 +9,23 @@ $border-hr: 1;
 .container-option {
 	background-color: variables.$white-color;
 	cursor: pointer;
-	margin: auto auto;
+	margin: auto;
 	display: block;
 	padding: 3%;
 	border-radius: 10%;
-	height: calculateSizeVW($size-container);
-	width: calculateSizeVW($size-container);
+	height: calculatesizevw($size-container);
+	width: calculatesizevw($size-container);
 	text-decoration: none;
 	color: variables.$primary-color-1;
 	border: calculateSizeVW($border-container) solid variables.$primary-color-1;
 	text-align: center;
 
 	& .material-icons {
-		margin: auto auto;
-		font-size: calculateSizeVW($size-img);
+		margin: auto;
+		font-size: calculatesizevw($size-img);
 	}
 
 	& hr {
-		margin: auto auto;
 		border: calculateSizeVW($border-hr) variables.$gray-color solid;
 		margin: 4%;
 	}
@@ -45,11 +44,11 @@ $border-hr: 1;
 @media screen and (min-width: calculateSizePX(functions.$min-with-screen)) {
 	.container-option {
 		border: calculateSizePX($border-container) solid variables.$primary-color-1;
-		height: calculateSizePX($size-container);
-		width: calculateSizePX($size-container);
+		height: calculatesizepx($size-container);
+		width: calculatesizepx($size-container);
 
 		& .material-icons {
-			font-size: calculateSizePX($size-img);
+			font-size: calculatesizepx($size-img);
 		}
 
 		& hr {
@@ -60,7 +59,6 @@ $border-hr: 1;
 
 @media (hover: none),
 (pointer: coarse) {
-
 	// * functions.$size-mobile
 	// calculateSizeVW
 	.container-option {

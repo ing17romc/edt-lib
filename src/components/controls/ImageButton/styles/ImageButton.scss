@@ -1,5 +1,5 @@
-@use '../../../../scss/variables.scss';
-@use '../../../../scss/functions.scss';
+@use '../../../../scss/variables';
+@use '../../../../scss/functions';
 
 $margin-h: 0;
 $margin-v: 0;
@@ -7,11 +7,11 @@ $margin-v: 0;
 .imageButton {
 	display: inline-block;
 	text-decoration: none;
-	margin: calculateSizeVW($margin-v) calculateSizeVW($margin-h);
+	margin: calculatesizevw($margin-v) calculatesizevw($margin-h);
 	opacity: 1;
 	cursor: pointer;
 	width: auto;
-	border: 0px;
+	border: 0;
 	background-color: transparent;
 
 	&.disabled {
@@ -21,7 +21,7 @@ $margin-v: 0;
 
 @media screen and (min-width: calculateSizePX(functions.$min-with-screen)) {
 	.imageButton {
-		margin: calculateSizePX($margin-v) calculateSizePX($margin-h);
+		margin: calculatesizepx($margin-v) calculatesizepx($margin-h);
 	}
 }
 

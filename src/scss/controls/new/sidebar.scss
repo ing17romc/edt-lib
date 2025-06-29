@@ -1,5 +1,5 @@
-@use '../../variables.scss';
-@use '../../functions.scss';
+@use '../../variables';
+@use '../../functions';
 
 $font-size: variables.$fs-24;
 $padding-top: 16;
@@ -12,22 +12,23 @@ $padding-w: 16;
     float: left;
     height: auto;
     min-height: 100vh;
-    //height: 100%;
-    width: auto; //calculateSizeVW($size);
+
+    // height: 100%;
+    width: auto; // calculateSizeVW($size);
     // position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
     background-color: variables.$sidebar-color;
     overflow-x: hidden;
-    padding-top: calculateSizeVW($padding-top);
+    padding-top: calculatesizevw($padding-top);
 
 }
 
 .sidebar label {
-    padding: calculateSizeVW($padding-h) calculateSizeVW($padding-w);
+    padding: calculatesizevw($padding-h) calculatesizevw($padding-w);
     text-decoration: none;
-    font-size: calculateSizeVW($font-size);
+    font-size: calculatesizevw($font-size);
     color: #818181;
     display: flex;
     cursor: pointer;
@@ -38,19 +39,20 @@ $padding-w: 16;
 }
 
 .main {
-    margin-left: calculateSizeVW($size);
+    margin-left: calculatesizevw($size);
+
     /* Same as the width of the sidenav */
-    padding: 0px 10px;
+    padding: 0 10px;
 }
 
 @media screen and (min-width: calculateSizePX(functions.$min-with-screen)) {
     .sidebar {
-        padding-top: calculateSizePX($padding-top);
+        padding-top: calculatesizepx($padding-top);
     }
 
     .sidebar label {
-        padding: calculateSizePX($padding-h) calculateSizePX($padding-w);
-        font-size: calculateSizePX($font-size);
+        padding: calculatesizepx($padding-h) calculatesizepx($padding-w);
+        font-size: calculatesizepx($font-size);
     }
 }
 

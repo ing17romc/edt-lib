@@ -1,9 +1,8 @@
-@use './variables.scss';
-@use './functions.scss';
+@use './variables';
+@use './functions';
 
 $grid-primary-padding-v: 3%;
 $grid-primary-column-gap: 1.5%;
-
 
 $grid-secundary-padding-v: 2%;
 $grid-secundary-column-gap: 1%;
@@ -11,7 +10,7 @@ $grid-secundary-column-gap: 1%;
 @mixin grids($number, $max) {
 	$value: $number;
 
-	@if ($number > $max ) {
+	@if $number > $max  {
 		$value: $number - $max
 	}
 
@@ -51,10 +50,8 @@ $grid-secundary-column-gap: 1%;
 	padding-left: $grid-secundary-padding-v;
 	padding-right: $grid-secundary-padding-v;
 	grid-template-columns: repeat(24, 1fr);
-
 	grid-column-gap: $grid-secundary-column-gap;
-	grid-column-start: 1 !important;
-	grid-column-end: span 12 !important;
+	grid-column: 1 / span 12 !important;
 
 	@for $i from 1 through 24 {
 		@include grids($i, 24);

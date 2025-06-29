@@ -25,17 +25,26 @@ describe('TextArea Component', () => {
     render(<TextArea {...mockFullProps} />);
     
     // Check titles
-    expect(screen.getByText(mockFullProps.titleTop!)).toBeInTheDocument();
-    expect(screen.getByText(mockFullProps.titleBottom!)).toBeInTheDocument();
+    if (mockFullProps.titleTop) {
+      expect(screen.getByText(mockFullProps.titleTop)).toBeInTheDocument();
+    }
+    if (mockFullProps.titleBottom) {
+      expect(screen.getByText(mockFullProps.titleBottom)).toBeInTheDocument();
+    }
     
     // Check placeholder
-    const textarea = screen.getByPlaceholderText(mockFullProps.placeholder!);
+    const placeholder = mockFullProps.placeholder || '';
+    const textarea = screen.getByPlaceholderText(placeholder);
     expect(textarea).toBeInTheDocument();
     
     // Check attributes
     expect(textarea).toHaveAttribute('required');
-    expect(textarea).toHaveAttribute('rows', mockFullProps.rows!.toString());
-    expect(textarea).toHaveAttribute('maxLength', mockFullProps.size!.toString());
+    if (mockFullProps.rows) {
+      expect(textarea).toHaveAttribute('rows', mockFullProps.rows.toString());
+    }
+    if (mockFullProps.size) {
+      expect(textarea).toHaveAttribute('maxLength', mockFullProps.size.toString());
+    }
   });
 
   test('handles events correctly', () => {
