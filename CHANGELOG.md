@@ -4,6 +4,12 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+- **2025-06-30** feat: Agregar componente Icon
+  - Nuevo componente de icono con soporte para múltiples tamaños y variantes
+  - Incluye documentación en Storybook y pruebas unitarias
+  - Soporte para colores personalizados y herencia de colores
+  - Integración con el sistema de diseño existente
+
 - **2025-06-30** fix: Corregir variables SCSS en componentes
   - Actualizadas importaciones de variables SCSS para usar `as *`
   - Corregidas referencias a variables no definidas en CheckButton, TextArea y TextButton
