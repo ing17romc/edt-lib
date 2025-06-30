@@ -4,6 +4,13 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+- **2025-06-30** fix: Corregir errores de linting y configuración de pruebas
+  - Corregidos errores de linting en archivos SCSS
+  - Actualizada configuración de Jest para soportar @testing-library/jest-dom
+  - Añadido archivo setupTests.ts para configuración global de pruebas
+  - Mejorada la cobertura de pruebas del componente CheckButton
+  - Corregidos problemas de tipos en los componentes
+
 - **2025-06-29** feat: Actualización de estilos y configuración de linting
   - Actualizado componente Button con nuevos estilos en SCSS
   - Configurado Stylelint para validación de estilos SCSS
