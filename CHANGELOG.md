@@ -4,6 +4,13 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+- **2025-06-30** feat: Agregado componente Title
+  - Nuevo componente Title con soporte para diferentes niveles de encabezado (h1-h6)
+  - Incluye estilos personalizables mediante módulos SCSS
+  - Documentación completa en Storybook con diferentes ejemplos de uso
+  - Pruebas unitarias implementadas para garantizar la calidad
+
+- **2025-06-30** feat: Agregar componente Spinner y actualizar IconButton
 - **2025-06-30** feat: Agregar componente Spinner y actualizar IconButton
   - Nuevo componente Spinner con soporte para múltiples tamaños y variantes
   - Actualizado el componente IconButton para usar el sistema de iconos existente
