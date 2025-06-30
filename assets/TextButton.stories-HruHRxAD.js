@@ -1,4 +1,4 @@
-import{j as e}from"./jsx-runtime-D_zvdyIk.js";import{b as M,a as R}from"./index-BMoSAYAF.js";import"./index-D4lIrffr.js";import"./index-Bckx9Gcf.js";const $="_textButton_qsi6j_1",G="_disabled_qsi6j_38",H="_loading_qsi6j_91",O="_spin_qsi6j_1",Y="_fullWidth_qsi6j_123",o={textButton:$,"size-small":"_size-small_qsi6j_20","size-medium":"_size-medium_qsi6j_25","size-large":"_size-large_qsi6j_30","color-primary":"_color-primary_qsi6j_35",disabled:G,"color-secondary":"_color-secondary_qsi6j_44","color-error":"_color-error_qsi6j_53","color-success":"_color-success_qsi6j_62","color-warning":"_color-warning_qsi6j_71","underline-hover":"_underline-hover_qsi6j_80","underline-always":"_underline-always_qsi6j_83",loading:H,spin:O,fullWidth:Y},a=({children:c,className:N="",size:p="medium",color:V="primary",underline:A="hover",disabled:m=!1,loading:d=!1,fullWidth:u=!1,...P})=>{const U=[o.textButton,o[`size-${p}`],o[`color-${V}`],o[`underline-${A}`],m?o.disabled:"",d?o.loading:"",u?o.fullWidth:"",N].filter(Boolean).join(" "),E={...d&&{color:"transparent"},...u&&{width:"100%"}};return e.jsx(M,{className:U,style:E,disabled:m||d,variant:R.PRIMARY,size:p,fullWidth:u,loading:d,...P,children:c})};a.__docgenInfo={description:`Componente de botón de texto que extiende la funcionalidad del componente Button.
+import{j as e}from"./jsx-runtime-D_zvdyIk.js";import{b as M,a as R}from"./index-BMoSAYAF.js";import"./index-D4lIrffr.js";import"./index-Bckx9Gcf.js";const $="_textButton_10142_51",G="_disabled_10142_88",H="_loading_10142_141",O="_spin_10142_1",Y="_fullWidth_10142_173",o={textButton:$,"size-small":"_size-small_10142_70","size-medium":"_size-medium_10142_75","size-large":"_size-large_10142_80","color-primary":"_color-primary_10142_85",disabled:G,"color-secondary":"_color-secondary_10142_94","color-error":"_color-error_10142_103","color-success":"_color-success_10142_112","color-warning":"_color-warning_10142_121","underline-hover":"_underline-hover_10142_130","underline-always":"_underline-always_10142_133",loading:H,spin:O,fullWidth:Y},a=({children:c,className:N="",size:p="medium",color:V="primary",underline:A="hover",disabled:m=!1,loading:d=!1,fullWidth:u=!1,...P})=>{const U=[o.textButton,o[`size-${p}`],o[`color-${V}`],o[`underline-${A}`],m?o.disabled:"",d?o.loading:"",u?o.fullWidth:"",N].filter(Boolean).join(" "),E={...d&&{color:"transparent"},...u&&{width:"100%"}};return e.jsx(M,{className:U,style:E,disabled:m||d,variant:R.PRIMARY,size:p,fullWidth:u,loading:d,...P,children:c})};a.__docgenInfo={description:`Componente de botón de texto que extiende la funcionalidad del componente Button.
 Diseñado para acciones secundarias o menos prominentes que los botones regulares.`,methods:[],displayName:"TextButton",props:{size:{required:!1,tsType:{name:"union",raw:"'small' | 'medium' | 'large'",elements:[{name:"literal",value:"'small'"},{name:"literal",value:"'medium'"},{name:"literal",value:"'large'"}]},description:`Tamaño del botón de texto
 @default 'medium'`,defaultValue:{value:"'medium'",computed:!1}},fullWidth:{required:!1,tsType:{name:"boolean"},description:`Si es true, el botón ocupa todo el ancho disponible
 @default false`,defaultValue:{value:"false",computed:!1}},disabled:{required:!1,tsType:{name:"boolean"},description:`Si es true, muestra el botón en estado de deshabilitado
@@ -13,7 +13,7 @@ Diseñado para acciones secundarias o menos prominentes que los botones regulare
     <TextButton size="small">Pequeño</TextButton>
     <TextButton size="medium">Mediano</TextButton>
     <TextButton size="large">Grande</TextButton>
-  </div>`,...(v=(b=s.parameters)==null?void 0:b.docs)==null?void 0:v.source}}};var T,j,q;n.parameters={...n.parameters,docs:{...(T=n.parameters)==null?void 0:T.docs,source:{originalSource:`() => <div style={{
+  </div>`,...(v=(b=s.parameters)==null?void 0:b.docs)==null?void 0:v.source}}};var T,S,j;n.parameters={...n.parameters,docs:{...(T=n.parameters)==null?void 0:T.docs,source:{originalSource:`() => <div style={{
   display: 'flex',
   gap: '16px',
   alignItems: 'center',
@@ -25,7 +25,7 @@ Diseñado para acciones secundarias o menos prominentes que los botones regulare
     <TextButton color="success">Éxito</TextButton>
     <TextButton color="warning">Advertencia</TextButton>
     <TextButton color="inherit">Heredado</TextButton>
-  </div>`,...(q=(j=n.parameters)==null?void 0:j.docs)==null?void 0:q.source}}};var S,w,z;l.parameters={...l.parameters,docs:{...(S=l.parameters)==null?void 0:S.docs,source:{originalSource:`() => <div style={{
+  </div>`,...(j=(S=n.parameters)==null?void 0:S.docs)==null?void 0:j.source}}};var w,z,I;l.parameters={...l.parameters,docs:{...(w=l.parameters)==null?void 0:w.docs,source:{originalSource:`() => <div style={{
   display: 'flex',
   gap: '16px',
   alignItems: 'center',
@@ -35,7 +35,7 @@ Diseñado para acciones secundarias o menos prominentes que los botones regulare
     <TextButton disabled>Deshabilitado</TextButton>
     <TextButton loading>Cargando</TextButton>
     <TextButton fullWidth>Ancho completo</TextButton>
-  </div>`,...(z=(w=l.parameters)==null?void 0:w.docs)==null?void 0:z.source}}};var I,C,W;i.parameters={...i.parameters,docs:{...(I=i.parameters)==null?void 0:I.docs,source:{originalSource:`() => <div style={{
+  </div>`,...(I=(z=l.parameters)==null?void 0:z.docs)==null?void 0:I.source}}};var q,C,W;i.parameters={...i.parameters,docs:{...(q=i.parameters)==null?void 0:q.docs,source:{originalSource:`() => <div style={{
   display: 'flex',
   gap: '16px',
   alignItems: 'center'
