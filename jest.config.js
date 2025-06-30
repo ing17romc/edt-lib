@@ -8,4 +8,5 @@ module.exports = {
     '^.+\\.(js|jsx|ts|tsx)$': 'babel-jest',
   },
   testMatch: ['**/*.test.tsx'],
+  setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
 }

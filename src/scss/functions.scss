@@ -3,10 +3,10 @@ $max-with-screen: 600;
 $size-mobile: 2.5;
 $size-mobile-h: 1.8;
 
-@function calculateSizePX($unidad: 1) {
+@function calculate-size-px($unidad: 1) {
 	@return $unidad * 1px;
 }
 
-@function calculateSizeVW($pixeles: 1, $resolucion: functions.$min-with-screen - 1) {
+@function calculate-size-vw($pixeles: 1, $resolucion: functions.$min-with-screen - 1) {
 	@return calc(($pixeles * 100) / $resolucion * 1vw);
 }

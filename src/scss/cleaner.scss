@@ -5,21 +5,21 @@
 	box-sizing: border-box;
 }
 
-/* Remover valor por defecto de padding en etiquetas ul y ol con el atributo de clase */
+/* Remover valor por defecto de padding y margen en elementos de lista */
 ul[class],
 ol[class] {
 	padding: 0;
+	margin: 0;
+	list-style: none;
 }
 
-/* Remover valor por defecto de padding */
+/* Remover valor por defecto de margen */
 body,
 h1,
 h2,
 h3,
 h4,
 p,
-ul[class],
-ol[class],
 figure,
 blockquote,
 dl,
@@ -37,12 +37,14 @@ body {
 	min-height: 100vh;
 	text-rendering: optimizespeed;
 	line-height: 1.5;
-}
+	
+	/* Ocultar barras de desplazamiento */
+	&::-webkit-scrollbar {
+		display: none;
+	}
 
-/* Remover el estilo list-style a los elementos ul y ol con el atributo de clase */
-ul[class],
-ol[class] {
-	list-style: none;
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
 }
 
 /* Predeterminar estilos para los elementos que no tienen una clase */
@@ -171,8 +173,6 @@ video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-
-	// font-family: arial, verdana, sans-serif;
 	vertical-align: baseline;
 }
 
@@ -189,11 +189,6 @@ menu,
 nav,
 section {
 	display: block;
-}
-
-/* Predeterminar estilo al cuerpo del documento */
-body {
-	line-height: 1;
 }
 
 blockquote,
@@ -228,15 +223,4 @@ input[type='search'] {
 	}
 }
 
-body {
-	&::-webkit-scrollbar {
-		display: none;
-	}
-
-	-ms-overflow-style: none;
-
-	/* IE and Edge */
-	scrollbar-width: none;
-
-	/* Firefox */
-}
+/* Los estilos de body se han movido a la definición principal */

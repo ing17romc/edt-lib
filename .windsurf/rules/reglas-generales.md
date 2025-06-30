@@ -2,56 +2,70 @@
 trigger: always_on
 ---
 
-Prompt generales del proyecto
+# 🛠️ Prompt General del Proyecto
 
+## 📁 Estructura de Carpeta de los Componentes
 
-📁 Estructura dela carpeta del componentes 
-	• Todos los componentes deben seguir una estructura de carpetas archivos consistente. Ejemplo:
+Todos los componentes deben seguir una estructura de carpetas y archivos coherente. Ejemplo:
 
-📁 src/components/Componente/
+```
+📁 src/components/NombreDelComponente/
 ├── tests/
-│   ├── Componente.test.tsx
+│   ├── NombreDelComponente.test.tsx
 │   └── mocks.tsx
 ├── stories/
-│   ├── Componente.stories.tsx
+│   ├── NombreDelComponente.stories.tsx
 │   └── mocks.tsx
 ├── styles/
-│   └── Componente.scss
+│   └── NombreDelComponente.scss
 ├── index.tsx
 └── types.tsx
+```
 
-	• El código debe ser limpio, simple y fácilmente reutilizable.
+- El código debe ser limpio, simple y fácilmente reutilizable.
 
+---
 
-🧩 Composición del Componente
-	• La descripción del componente y de sus parámetros (props) debe mantener un formato unificado en toda la base de código.
+## 🧩 Composición del Componente
 
+- La descripción del componente y de sus propiedades (`props`) debe seguir un formato consistente en toda la base de código.
 
-🎨 Estilos
-	• Aplicar un estilo visual coherente entre todos los componentes.
-	• Por ejemplo, si se define que los componentes usan tonos azules, todos deben respetar esa misma paleta de colores.
-	• Crear archivos de estilos para organizar las paletas de colores, tamaños y fuente de texto, etc general en esta ruta “src/styles”para reutilizarlos en todos los componentes
+---
 
+## 🎨 Estilos
 
-📐 Types
+- Mantener coherencia visual entre todos los componentes.
+- Si se define una paleta de colores (por ejemplo, tonos azules), todos los componentes deben respetarla.
+- Centralizar estilos globales como colores, tamaños de fuente y tipografías en la carpeta `src/styles/` para que puedan ser reutilizados.
 
-	• Utilizar enums en lugar de constantes cuando sea posible.
-	• Centralizar los types, enums e interfaces propios del componente en su archivo types.ts.
-	• Si existe algún type, enum o interface que sea reutilizable entre múltiples componentes, debe moverse a la carpeta global src/types/.
+---
 
+## 📐 Tipado
 
-🧪 Tests
-	• Para los tests unitarios, se debe crear un archivo mocks.tsx donde se definan los props y configuraciones necesarias para los casos de prueba.
-	• Los test unitarios deben ser sencillos 
-	• Usar los valores de los enums tanto en los archivos de tests como en los mocks para reutilizar los valores
+- Usar `enums` en lugar de constantes siempre que sea posible.
+- Agrupar `types`, `enums` e `interfaces` específicos del componente en su archivo `types.ts`.
+- Si algún tipo es reutilizable entre varios componentes, moverlo a la carpeta global `src/types/`.
 
+---
 
-📚 Storybook
-	• Toda la documentación visual debe mantener un estilo uniforme entre los componentes, tanto en estructura como en presentación.
-	• Usar los valores de los enums tanto en los archivos de stories como en los mocks para reutilizar los valores
-	• Los Storybook deben ser sencillos 
-	• Para los Storybook, se debe crear un archivo mocks.tsx donde se definan los props y configuraciones necesarias.
+## 🧪 Pruebas (Tests)
 
-OTROS
-	• No instalar dependencias de terceros
-	• Simpre cumplir con esta 
+- Los tests unitarios deben ser simples y fáciles de entender.
+- Crear un archivo `mocks.tsx` con las props y configuraciones necesarias para los casos de prueba.
+- Reutilizar los valores definidos en los `enums` dentro de los archivos de test y de mocks.
+
+---
+
+## 📚 Storybook
+
+- La documentación visual debe tener un estilo uniforme en todos los componentes.
+- Reutilizar los valores de los `enums` tanto en los archivos de `stories` como en los `mocks`.
+- Los `stories` deben ser simples y directos.
+- Crear un archivo `mocks.tsx` en la carpeta `stories` con las configuraciones necesarias para los props.
+
+---
+
+## 🚫 Reglas Generales
+
+- No se deben instalar dependencias de terceros.
+- El código no debe generar *warnings* ni errores de *lint*, ni en archivos `.scss` ni `.ts/.tsx`.

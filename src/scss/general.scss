@@ -46,8 +46,8 @@
 @for $i from 1 through 60 {
 	$number: $i * 5;
 
-	@include padding($number, calculateSizeVW(calc($number/2)));
-	@include line-height($i, calculateSizeVW($i));
+	@include padding($number, calculate-size-vw(calc($number / 2)));
+	@include line-height($i, calculate-size-vw($i));
 }
 
 .center {
@@ -83,7 +83,7 @@ $min-height: 600;
 
 .main-container {
 	width: auto;
-	max-width: calculateSizeVW(functions.$min-with-screen);
+	max-width: calculate-size-vw(functions.$min-with-screen);
 	margin: 0 auto;
 	min-height: 100vh;
 }
@@ -91,7 +91,7 @@ $min-height: 600;
 body {
 	background-color: variables.$sidebar-color;
 	color: variables.$black-color;
-	font-size: calculateSizeVW(variables.$fs-16);
+	font-size: calculate-size-vw(variables.$fs-16);
 	font-family: variables.$font-family;
 }
 
@@ -101,24 +101,22 @@ body {
 
 
 
-@media screen and (min-width: calculateSizePX(functions.$min-with-screen)) {
+@media screen and (min-width: calculate-size-px(functions.$min-with-screen)) {
 	.main-container {
-		max-width: calculateSizePX(functions.$min-with-screen);
+		max-width: calculate-size-px(functions.$min-with-screen);
 	}
 
 	@for $i from 1 through 60 {
 		$number: $i * 5;
 
-		@include padding($number, calculateSizePX(calc($number/2)));
-		@include line-height($i, calculateSizePX($i));
+		@include padding($number, calculate-size-px(calc($number / 2)));
+		@include line-height($i, calculate-size-px($i));
 	}
 
-	.container-body {
-		// min-height: calculateSizePX($min-height);
-	}
+
 
 	body {
-		font-size: calculateSizePX(variables.$fs-16);
+		font-size: calculate-size-px(variables.$fs-16);
 	}
 }
 
@@ -136,13 +134,13 @@ body {
 	}
 
 	body {
-		font-size: calculateSizeVW(variables.$fs-18 * functions.$size-mobile);
+		font-size: calculate-size-vw(variables.$fs-18 * functions.$size-mobile);
 	}
 }
 
 @media (hover: none),
 (pointer: coarse) {
 	body {
-		font-size: calculateSizeVW(variables.$fs-18 * functions.$size-mobile-h);
+		font-size: calculate-size-vw(variables.$fs-18 * functions.$size-mobile-h);
 	}
 }
