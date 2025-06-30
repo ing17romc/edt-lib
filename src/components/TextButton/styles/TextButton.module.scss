@@ -1,0 +1,205 @@
+@use '../../../scss/variables' as *;
+
+.textButton {
+  // Reset button styles
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  user-select: none;
+  vertical-align: middle;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+
+  // Sizes
+  &.size-small {
+    font-size: 0.8125rem;
+    padding: 4px 8px;
+    min-width: 64px;
+  }
+
+  &.size-medium {
+    font-size: 0.875rem;
+    padding: 6px 16px;
+    min-width: 80px;
+  }
+
+  &.size-large {
+    font-size: 0.9375rem;
+    padding: 8px 22px;
+    min-width: 96px;
+  }
+
+  // Colors
+  &.color-primary {
+    color: $primary-main;
+
+    &:hover:not(.disabled) {
+      background-color: rgba($primary-main, 0.04);
+    }
+
+    &:active:not(.disabled) {
+      background-color: rgba($primary-main, 0.08);
+    }
+  }
+
+  &.color-secondary {
+    color: $secondary-main;
+
+    &:hover:not(.disabled) {
+      background-color: rgba($secondary-main, 0.04);
+    }
+
+    &:active:not(.disabled) {
+      background-color: rgba($secondary-main, 0.08);
+    }
+  }
+
+  &.color-error {
+    color: $error-main;
+
+    &:hover:not(.disabled) {
+      background-color: rgba($error-main, 0.04);
+    }
+
+    &:active:not(.disabled) {
+      background-color: rgba($error-main, 0.08);
+    }
+  }
+
+  &.color-success {
+    color: $success-main;
+
+    &:hover:not(.disabled) {
+      background-color: rgba($success-main, 0.04);
+    }
+
+    &:active:not(.disabled) {
+      background-color: rgba($success-main, 0.08);
+    }
+  }
+
+  &.color-warning {
+    color: $warning-main;
+
+    &:hover:not(.disabled) {
+      background-color: rgba($warning-main, 0.04);
+    }
+
+    &:active:not(.disabled) {
+      background-color: rgba($warning-main, 0.08);
+    }
+  }
+
+  // Underline styles
+  &.underline-hover {
+    &:hover:not(.disabled) {
+      text-decoration: underline;
+    }
+  }
+
+  &.underline-always {
+    text-decoration: underline;
+  }
+
+  // States
+  &.disabled {
+    color: $text-disabled;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  &.loading {
+    position: relative;
+    color: transparent !important; // Hacer el texto transparente
+    pointer-events: none;
+    user-select: none;
+    
+    // Asegurar que el texto sea transparente
+    > span {
+      opacity: 0;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 1.5em;
+      height: 1.5em;
+      border: 2px solid currentcolor;
+      border-radius: 50%;
+      border-top-color: transparent;
+      border-right-color: transparent;
+      animation: spin 0.8s linear infinite;
+      
+      // Usar el color del tema actual
+      [data-theme="light"] & {
+        color: #000 !important;
+      }
+
+      [data-theme="dark"] & {
+        color: #fff !important;
+      }
+
+      :not([data-theme]) & {
+        color: #000 !important;
+      }
+    }
+  }
+
+  // Full width
+  &.fullWidth {
+    display: block;
+    width: 100% !important;
+    min-width: 100%;
+    max-width: 100%;
+    
+    // Asegurar que los elementos internos ocupen todo el ancho
+    > * {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    
+    // Asegurar que el texto ocupe todo el ancho disponible
+    > span {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  // Focus styles
+  &:focus-visible {
+    outline: 2px solid $primary-main;
+    outline-offset: 2px;
+  }
+}
+
+// Animation for loading spinner
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

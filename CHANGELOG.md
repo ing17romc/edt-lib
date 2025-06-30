@@ -4,6 +4,13 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+- **2025-06-30** fix: Corregir variables SCSS y errores de compilación
+  - Solucionado error de variable no definida `$primary-color-1`
+  - Actualizadas referencias a variables de color para usar las definidas
+  - Añadida paleta de grises completa para consistencia
+  - Mejorada la documentación de las variables SCSS
+  - Corregidos errores de linting en archivos de estilos
+
 - **2025-06-30** fix: Corregir errores de linting y configuración de pruebas
   - Corregidos errores de linting en archivos SCSS
   - Actualizada configuración de Jest para soportar @testing-library/jest-dom

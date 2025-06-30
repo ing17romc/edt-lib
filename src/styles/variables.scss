@@ -96,3 +96,29 @@ $button-heights: (
   --color-warning: #ffc107;
   --color-danger: #dc3545;
 }
+
+// Colores para botones de texto
+$primary-main: $primary-color;
+$secondary-main: $secondary-color;
+$error-main: $danger-color;
+$success-main: $success-color;
+$warning-main: $warning-color;
+$text-disabled: color.adjust($text-color, $lightness: 60%);
+$text-primary: $text-color;
+$border-default: $border-color;
+$background-paper: #fff;
+$border-disabled: color.adjust($border-color, $lightness: 10%);
+$background-disabled: color.adjust($border-color, $lightness: 15%);
+$background-default: #fff;
+$text-secondary: color.adjust($text-color, $lightness: 30%);
+
+// Variables de escala de grises para consistencia
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
