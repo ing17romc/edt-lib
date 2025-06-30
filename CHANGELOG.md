@@ -4,6 +4,13 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+- **2025-06-30** fix: Corregir variables SCSS en componentes
+  - Actualizadas importaciones de variables SCSS para usar `as *`
+  - Corregidas referencias a variables no definidas en CheckButton, TextArea y TextButton
+  - Reemplazados colores hardcodeados por variables CSS
+  - Mejorada la consistencia en el uso de variables de tema
+  - Corregidos errores de compilación en Storybook
+
 - **2025-06-30** fix: Corregir variables SCSS y errores de compilación
   - Solucionado error de variable no definida `$primary-color-1`
   - Actualizadas referencias a variables de color para usar las definidas
