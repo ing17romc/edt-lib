@@ -4,6 +4,12 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+- **2025-06-30** feat: Agregar componente Spinner y actualizar IconButton
+  - Nuevo componente Spinner con soporte para múltiples tamaños y variantes
+  - Actualizado el componente IconButton para usar el sistema de iconos existente
+  - Mejorada la accesibilidad en ambos componentes
+  - Incluye documentación en Storybook y pruebas unitarias
+
 - **2025-06-30** feat: Agregar componente Icon
   - Nuevo componente de icono con soporte para múltiples tamaños y variantes
   - Incluye documentación en Storybook y pruebas unitarias
