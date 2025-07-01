@@ -4,6 +4,14 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+- **2025-06-30** feat: Agregado componente Pagination
+  - Nuevo componente de paginación con navegación completa (primera/última página, anterior/siguiente)
+  - Soporte para personalización del número máximo de botones visibles
+  - Estados: deshabilitado, activo, hover
+  - Documentación completa en Storybook con ejemplos interactivos
+  - Pruebas unitarias implementadas para garantizar la calidad
+  - Accesibilidad mejorada con atributos ARIA
+
 - **2025-06-30** feat: Agregado componente RadioButton
   - Nuevo componente RadioButton con estilos personalizables mediante módulos SCSS
   - Soporte para estados: deshabilitado, seleccionado, hover y focus
