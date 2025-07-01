@@ -4,6 +4,15 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+- **2025-06-30** feat: Agregar componente Selector
+  - Nuevo componente Selector con soporte para opciones simples y agrupadas
+  - Incluye variantes de estilo (primary, secondary, danger, success, warning)
+  - Soporte para diferentes tamaños (small, medium, large)
+  - Estados: deshabilitado, carga, error, requerido
+  - Documentación completa en Storybook con ejemplos interactivos
+  - Pruebas unitarias implementadas para garantizar la calidad
+  - Accesibilidad mejorada con atributos ARIA
+
 - **2025-06-30** feat: Agregado componente Title
   - Nuevo componente Title con soporte para diferentes niveles de encabezado (h1-h6)
   - Incluye estilos personalizables mediante módulos SCSS
