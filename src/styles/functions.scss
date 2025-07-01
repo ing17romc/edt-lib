@@ -7,6 +7,6 @@ $size-mobile-h: 1.8;
 	@return $unidad * 1px;
 }
 
-@function calculate-size-vw($pixeles: 1, $resolucion: functions.$min-with-screen - 1) {
+@function calculate-size-vw($pixeles: 1, $resolucion: $min-with-screen - 1) {
 	@return calc(($pixeles * 100) / $resolucion * 1vw);
 }

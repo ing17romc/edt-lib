@@ -3,6 +3,7 @@ import getStatus from '../utils';
 import type { TableWithButtonProps } from './types';
 import { Title } from '../../../components/Title';
 import Button from '../../../components/Button';
+import '../../../styles/tables.scss';
 
 /**
  * TableWithButton

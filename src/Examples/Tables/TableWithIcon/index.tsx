@@ -3,6 +3,7 @@ import getStatus from '../utils';
 import type { TableWithIconProps } from './types';
 import { Title } from '../../../components/Title';
 import IconButton from '../../../components/IconButton';
+import '../../../styles/tables.scss';
 
 /**
  * TableWithIcon

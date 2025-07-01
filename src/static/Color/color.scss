@@ -1,57 +1,57 @@
-@use '../../scss/variables';
+@use '../../styles/variables' as *;
 
 .black-color {
-    background-color: variables.$black-color  !important;
+    background-color: $black-color !important;
 }
 
 .dark-gray-color {
-    background-color: variables.$dark-gray-color  !important;
+    background-color: $dark-gray-color !important;
 }
 
 .gray-color {
-    background-color: variables.$gray-color  !important;
+    background-color: $gray-color !important;
 }
 
 .light-gray-color {
-    background-color: variables.$light-gray-color  !important;
+    background-color: $light-gray-color !important;
 }
 
 .white-color {
-    background-color: variables.$white-color  !important;
+    background-color: $white-color !important;
 }
 
 .light-blue-color {
-    background-color: variables.$light-blue-color  !important;
+    background-color: $light-blue-color !important;
 }
 
 .primary-color-1 {
-    background-color: variables.$primary-color-1  !important;
+    background-color: $primary-color !important;
 }
 
 .primary-color-2 {
-    background-color: variables.$primary-color-2  !important;
+    background-color: $primary-color-2 !important;
 }
 
 .primary-color-3 {
-    background-color: variables.$primary-color-3  !important;
+    background-color: $primary-color-3 !important;
 }
 
 .dark-blue-color {
-    background-color: variables.$dark-blue-color  !important;
+    background-color: $dark-blue-color !important;
 }
 
 .red-color {
-    background-color: variables.$red-color  !important;
+    background-color: $red-color !important;
 }
 
 .orange-color {
-    background-color: variables.$orange-color  !important;
+    background-color: $orange-color !important;
 }
 
 .green-color {
-    background-color: variables.$green-color  !important;
+    background-color: $green-color !important;
 }
 
 .yellow-color {
-    background-color: variables.$yellow-color  !important;
+    background-color: $yellow-color !important;
 }

@@ -16,6 +16,7 @@
  */
 import React from 'react';
 import type { GridProps } from './types';
+import '../../styles/grids.scss';
 
 // Inline styles for the grid components
 const containerBody = {

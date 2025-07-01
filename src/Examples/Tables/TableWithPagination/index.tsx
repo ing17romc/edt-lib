@@ -6,7 +6,7 @@ import type { TableWithPaginationProps, TableWithPaginationState, TableRowData }
 import { Title } from '../../../components/Title';
 import Pagination from '../../../components/Pagination';
 import { Selector } from '../../../components/Selector';
-
+import '../../../styles/tables.scss';
 
 /**
  * TableWithPagination

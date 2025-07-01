@@ -2,6 +2,7 @@ import React from 'react';
 import getStatus from '../utils';
 import type { TableActiveRowProps } from './types';
 import { Title } from '../../../components/Title';
+import '../../../styles/tables.scss';
 
 /**
  * TableActiveRow

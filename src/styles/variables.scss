@@ -3,12 +3,29 @@
 
 // Colores principales
 $primary-color: #2563eb; // Azul principal
+$primary-color-2: #1d4ed8; // Azul 700
+$primary-color-3: #1e40af; // Azul 800
 $secondary-color: #64748b; // Gris azulado
 $danger-color: #dc2626;   // Rojo
 $success-color: #16a34a;  // Verde
 $warning-color: #f59e0b;  // Ámbar
 $text-color: #1e293b;     // Gris oscuro para texto
 $border-color: #e2e8f0;   // Gris claro para bordes
+
+// Colores base
+$black-color: #000000;
+$dark-gray-color: #4b5563;
+$gray-color: #6b7280;
+$light-gray-color: #e5e7eb;
+$white-color: #ffffff;
+
+// Colores adicionales
+$light-blue-color: #93c5fd;
+$dark-blue-color: #1e40af;
+$red-color: #dc2626;
+$orange-color: #f97316;
+$green-color: #16a34a;
+$yellow-color: #eab308;
 
 // Colores de estados
 $primary-hover: color.adjust($primary-color, $lightness: -10%);

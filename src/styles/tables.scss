@@ -1,0 +1,116 @@
+@use './variables' as *;
+@use './functions' as *;
+
+$padding: 12;
+
+table {
+	width: 100%;
+	background-color: $white-color;
+	overflow-x: auto;
+	padding: calculate-size-vw($padding);
+
+	&.big-table {
+		display: block;
+	}
+
+	& tbody {
+		padding: calculate-size-vw($padding);
+
+		& tr {
+			text-align: justify;
+			padding: calculate-size-vw($padding);
+
+			& th {
+				border-bottom: 2px solid $primary-color;
+				padding: calculate-size-vw($padding);
+			}
+
+			& td {
+				border-top: 1px solid $primary-color;
+				padding: calculate-size-vw($padding);
+				vertical-align: top;
+			}
+
+			&.active {
+				&:hover {
+					background-color: $light-gray-color;
+					cursor: pointer;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (min-width: calculate-size-px($min-with-screen)) {
+	table {
+		padding: calculate-size-px($padding);
+
+		& tbody {
+			padding: calculate-size-px($padding);
+
+			& tr {
+				padding: calculate-size-px($padding);
+
+				& th {
+					border-bottom: 2px solid $primary-color;
+					padding: calculate-size-px($padding);
+				}
+
+				& td {
+					border-top: 1px solid $primary-color;
+					padding: calculate-size-px($padding);
+				}
+			}
+		}
+	}
+}
+
+@media (hover: none),
+(pointer: coarse) {
+	table {
+		padding: calculate-size-vw($padding * $size-mobile);
+
+		& tbody {
+			padding: calculate-size-vw($padding * $size-mobile);
+
+			& tr {
+				padding: calculate-size-vw($padding * $size-mobile);
+
+				& th {
+					border-bottom: 2px solid $primary-color;
+					padding: calculate-size-vw($padding * $size-mobile);
+				}
+
+				& td {
+					border-top: 1px solid $primary-color;
+					padding: calculate-size-vw($padding * $size-mobile);
+				}
+			}
+		}
+	}
+}
+
+@media (hover: none),
+(pointer: coarse) {
+	table {
+		padding: calculate-size-vw($padding * $size-mobile-h);
+
+		& tbody {
+			padding: calculate-size-vw($padding * $size-mobile-h);
+
+			& tr {
+				padding: calculate-size-vw($padding * $size-mobile-h);
+
+				& th {
+					border-bottom: 2px solid $primary-color;
+					padding: calculate-size-vw($padding * $size-mobile-h);
+				}
+
+				& td {
+					border-top: 1px solid $primary-color;
+					padding: calculate-size-vw($padding * $size-mobile-h);
+				}
+			}
+		}
+	}
+}

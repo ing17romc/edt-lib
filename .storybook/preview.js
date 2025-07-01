@@ -1,5 +1,5 @@
 // Importar estilos globales
-import '../src/scss/index.scss';
+import "../src/styles/variables.scss";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
