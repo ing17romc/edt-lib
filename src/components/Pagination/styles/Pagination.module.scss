@@ -1,0 +1,63 @@
+@use '../../../styles/variables' as *;
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  padding: 0;
+  list-style: none;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2rem;
+    height: 2rem;
+    padding: 0 0.5rem;
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    background-color: var(--color-white);
+    color: $text-color;
+    font-size: 0.875rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover:not(&--disabled, &--active) {
+      background-color: var(--color-background-alt);
+      border-color: $primary-color;
+      color: $primary-color;
+    }
+
+    &--active {
+      background-color: $primary-color;
+      border-color: $primary-color;
+      color: var(--color-white);
+      font-weight: 500;
+      cursor: default;
+    }
+
+    &--disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  &__ellipsis {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2rem;
+    height: 2rem;
+    color: $text-color;
+    user-select: none;
+  }
+}
