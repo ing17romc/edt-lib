@@ -4,6 +4,13 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+- **2025-07-01** feat: Actualización de estilos y estructura de componentes
+  - Reorganización de estilos en archivos modulares SCSS
+  - Creación de archivos base para paleta de colores, tipografía y espaciado
+  - Actualización de componentes para usar los nuevos estilos modulares
+  - Mejora en la consistencia visual de los componentes
+  - Adición de archivo de índice para exportación centralizada
+
 - **2025-07-01** refactor: Reorganización de estilos y estructura de archivos SCSS
   - Movidos archivos SCSS a la carpeta `src/styles`
   - Actualizadas las importaciones en los componentes afectados
