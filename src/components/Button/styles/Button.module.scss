@@ -1,6 +1,6 @@
 @use 'sass:color';
 @use 'sass:map';
-@use '../../../styles/variables' as *;
+@use '../../../styles/variables.scss' as *;
 
 .button {
   display: inline-flex;
@@ -11,7 +11,6 @@
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  font-family: inherit;
   text-align: center;
   text-decoration: none;
   white-space: nowrap;

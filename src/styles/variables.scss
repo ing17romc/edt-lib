@@ -1,6 +1,10 @@
 
 @use 'sass:color';
 
+// =============================================
+// Variables de SASS
+// =============================================
+
 // Colores principales
 $primary-color: #2563eb; // Azul principal
 $primary-color-2: #1d4ed8; // Azul 700
@@ -13,11 +17,11 @@ $text-color: #1e293b;     // Gris oscuro para texto
 $border-color: #e2e8f0;   // Gris claro para bordes
 
 // Colores base
-$black-color: #000000;
+$black-color: #000;
 $dark-gray-color: #4b5563;
 $gray-color: #6b7280;
 $light-gray-color: #e5e7eb;
-$white-color: #ffffff;
+$white-color: #fff;
 
 // Colores adicionales
 $light-blue-color: #93c5fd;
@@ -48,73 +52,7 @@ $button-heights: (
   large: 3rem
 );
 
-// Fuentes
-:root {
-  // Fuente principal
-  --font-family-base: arial, helvetica, sans-serif;
-  
-  // Colores base
-  --color-white: #fff;
-  --color-border: #e0e0e0;
-  --color-background-alt: #f5f5f5;
-  
-  // Colores de texto
-  --color-text-primary: #333;
-  --color-text-secondary: #666;
-  
-  // Sombras
-  --shadow-elevated: 0 8px 16px 0 rgb(0 0 0 / 30%);
-  --shadow-flat: 0 3px 8px 0 rgb(0 0 0 / 30%);
-  
-  // Bordes
-  --border-radius-sm: 4px;
-  --border-radius-md: 8px;
-  --border-radius-lg: 12px;
-  
-  // Transiciones
-  --transition-base: all 0.3s ease;
-  
-  // Espaciados
-  --spacing-xs: 4px;
-  --spacing-sm: 8px;
-  --spacing-md: 16px;
-  --spacing-lg: 24px;
-  --spacing-xl: 32px;
-}
-
-// Variables para el tema claro (por defecto)
-[data-theme="light"] {
-  --color-background: #fff;
-  --color-surface: #f8f9fa;
-  --color-text: #212529;
-  --color-text-secondary: #6c757d;
-  --color-border: #dee2e6;
-  --color-primary: #0d6efd;
-  --color-primary-hover: #0b5ed7;
-  --color-secondary: #6c757d;
-  --color-success: #198754;
-  --color-info: #0dcaf0;
-  --color-warning: #ffc107;
-  --color-danger: #dc3545;
-}
-
-// Variables para el tema oscuro
-[data-theme="dark"] {
-  --color-background: #212529;
-  --color-surface: #2c3034;
-  --color-text: #f8f9fa;
-  --color-text-secondary: #adb5bd;
-  --color-border: #495057;
-  --color-primary: #0d6efd;
-  --color-primary-hover: #3d8bfd;
-  --color-secondary: #6c757d;
-  --color-success: #198754;
-  --color-info: #0dcaf0;
-  --color-warning: #ffc107;
-  --color-danger: #dc3545;
-}
-
-// Colores para botones de texto
+// Variables de compatibilidad (legacy)
 $primary-main: $primary-color;
 $secondary-main: $secondary-color;
 $error-main: $danger-color;
@@ -122,14 +60,14 @@ $success-main: $success-color;
 $warning-main: $warning-color;
 $text-disabled: color.adjust($text-color, $lightness: 60%);
 $text-primary: $text-color;
+$text-secondary: color.adjust($text-color, $lightness: 30%);
 $border-default: $border-color;
 $background-paper: #fff;
 $border-disabled: color.adjust($border-color, $lightness: 10%);
 $background-disabled: color.adjust($border-color, $lightness: 15%);
 $background-default: #fff;
-$text-secondary: color.adjust($text-color, $lightness: 30%);
 
-// Variables de escala de grises para consistencia
+// Escala de grises
 $gray-100: #f8f9fa;
 $gray-200: #e9ecef;
 $gray-300: #dee2e6;
@@ -139,3 +77,8 @@ $gray-600: #6c757d;
 $gray-700: #495057;
 $gray-800: #343a40;
 $gray-900: #212529;
+
+// =============================================
+// NOTA: Las variables CSS personalizadas (--variables)
+// se han movido a root-variables.scss
+// =============================================
