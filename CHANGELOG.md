@@ -4,6 +4,12 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+- **2025-07-01** feat: Eliminación de la funcionalidad de loading del componente Button
+  - Eliminada la propiedad `loading` y su lógica asociada
+  - Actualizadas las pruebas unitarias para reflejar los cambios
+  - Mejorada la consistencia del código eliminando funcionalidad no utilizada
+  - Actualizados los estilos para eliminar referencias al estado de carga
+
 - **2025-07-01** feat: Actualización de estilos y estructura de componentes
   - Reorganización de estilos en archivos modulares SCSS
   - Creación de archivos base para paleta de colores, tipografía y espaciado
