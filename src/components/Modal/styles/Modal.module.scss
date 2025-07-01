@@ -1,0 +1,155 @@
+@use '../../../styles/variables' as *;
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgb(0 0 0 / 50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  animation: modal-fade-in 0.3s ease-out forwards;
+  backdrop-filter: blur(2px);
+}
+
+.modalOverlay.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modalContainer {
+  background: var(--color-white);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgb(0 0 0 / 15%);
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+  max-width: 100%;
+  
+  .modalOverlay.visible & {
+    transform: translateY(0);
+  }
+  
+  // Tamaños del modal
+  &.small {
+    max-width: 400px;
+  }
+  
+  &.medium {
+    max-width: 600px;
+  }
+  
+  &.large {
+    max-width: 800px;
+  }
+  
+  &.xlarge {
+    max-width: 1140px;
+  }
+}
+
+.modalHeader {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-white);
+  
+  h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  padding: 0.25rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    color: var(--color-text);
+    background-color: var(--color-background-alt);
+  }
+  
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-primary-hover);
+  }
+}
+
+.modalContent {
+  padding: 1.5rem;
+  overflow-y: auto;
+  flex-grow: 1;
+  
+  &:not(:last-child) {
+    padding-bottom: 1.5rem;
+  }
+}
+
+.modalFooter {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--color-border);
+  background-color: var(--color-background-alt);
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+// Animaciones
+@keyframes modal-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.centered {
+  align-items: center;
+}
+
+// Estilos para scrollbar en el contenido del modal
+.modalContent::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.modalContent::-webkit-scrollbar-track {
+  background: var(--color-background-alt);
+  border-radius: 4px;
+}
+
+.modalContent::-webkit-scrollbar-thumb {
+  background: var(--color-text-secondary);
+  border-radius: 4px;
+  
+  &:hover {
+    background: var(--color-text);
+  }
+}
