@@ -4,6 +4,13 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+- **2025-06-30** feat: Agregado componente RadioButton
+  - Nuevo componente RadioButton con estilos personalizables mediante módulos SCSS
+  - Soporte para estados: deshabilitado, seleccionado, hover y focus
+  - Documentación completa en Storybook con diferentes ejemplos de uso
+  - Pruebas unitarias implementadas para garantizar la calidad
+  - Accesibilidad mejorada con atributos ARIA
+
 - **2025-06-30** feat: Agregar componente Selector
   - Nuevo componente Selector con soporte para opciones simples y agrupadas
   - Incluye variantes de estilo (primary, secondary, danger, success, warning)
