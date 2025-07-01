@@ -4,6 +4,19 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+- **2025-06-30** feat: Agregados componentes Layout, NavBar y Footer
+  - Nuevo componente Layout como contenedor principal de la aplicación
+  - Componente NavBar para la barra de navegación superior
+  - Componente Footer para el pie de página
+  - Documentación completa en Storybook con ejemplos interactivos
+  - Pruebas unitarias implementadas para garantizar la calidad
+  - Mejoras en la accesibilidad con atributos ARIA
+
+- **2025-06-30** fix: Correcciones en el componente Modal
+  - Mejora en las pruebas unitarias del componente Modal
+  - Corrección en el manejo del cierre del modal
+  - Mejora en la accesibilidad del componente
+
 - **2025-06-30** feat: Agregado componente Pagination
   - Nuevo componente de paginación con navegación completa (primera/última página, anterior/siguiente)
   - Soporte para personalización del número máximo de botones visibles
