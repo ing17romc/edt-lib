@@ -4,6 +4,13 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+- **2025-07-01** refactor: Reorganización de estilos y estructura de archivos SCSS
+  - Movidos archivos SCSS a la carpeta `src/styles`
+  - Actualizadas las importaciones en los componentes afectados
+  - Corregidas variables y funciones de estilos en tablas
+  - Mejorada la organización de los estilos globales
+
+
 - **2025-07-01** fix: Correcciones en pruebas y componentes de tablas
   - Corregidas importaciones en componentes de tablas
   - Mejoradas las pruebas unitarias para los componentes de tablas
