@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import functions from '../../../../src/components/utils/functions';
-import UI from '../../../../src/components/controls';
+
 import getStatus from '../utils';
 import type { TableWithPaginationProps, TableWithPaginationState, TableRowData } from './types';
+import { Title } from '../../../components/Title';
+import Pagination from '../../../components/Pagination';
+import { Selector } from '../../../components/Selector';
+
 
 /**
  * TableWithPagination
@@ -47,7 +51,7 @@ const TableWithPagination: React.FC<TableWithPaginationProps> = ({ dataTable }) 
 			<div className='container-body'>
 				<div className='grid-primary '>
 					<div className='start-1 size-12 padding-v-20'>
-						<UI.Title title='Example tables'>Example tables</UI.Title>
+						<Title title='Example tables'>Example tables</Title>
 					</div>
 
 					<div className='start-1  padding-v-20' />
@@ -56,16 +60,17 @@ const TableWithPagination: React.FC<TableWithPaginationProps> = ({ dataTable }) 
 							<h4>Table with pagination</h4>
 						</div>
 						<div className=' size-8 padding-v-20'>
-							<UI.Selector
+							<Selector
 								id="pages"
-								value={state.pages}
+								value={state.pages.toString()}
 								options={[
 									{ label: "1", value: '1' },
 									{ label: "2", value: '2' },
 									{ label: "3", value: '3' },
 								]}
-								eventChange={onInputChange}
-								titleTop="Number item by page"
+								onChange={(e) => onInputChange(e as React.ChangeEvent<HTMLSelectElement>)}
+								label="Number item by page"
+								placeholder="Select items per page"
 							/>
 						</div>
 
@@ -78,23 +83,34 @@ const TableWithPagination: React.FC<TableWithPaginationProps> = ({ dataTable }) 
 											<th>UserName</th>
 											<th>Status</th>
 										</tr>
-										{pages[getIndex].map((element, index) => (
-											<tr key={index}>
-												<td>{element.name}</td>
-												<td>{element.userName}</td>
-												<td>{getStatus(element.status)}</td>
+										{!pages.length ? (
+											<tr>
+												<td colSpan={3} className="text-center">No hay datos disponibles</td>
 											</tr>
-										))}
+										) : (
+											pages[getIndex]?.map((element, index) => (
+												<tr key={index}>
+													<td>{element.name}</td>
+													<td>{element.userName}</td>
+													<td>{getStatus(element.status)}</td>
+												</tr>
+											)) || (
+												<tr>
+													<td colSpan={3} className="text-center">No hay datos disponibles</td>
+												</tr>
+											)
+										)
+									}
 									</tbody>
 								</table>
 							</div>
 						</div>
 
 						<div className='start-1 size-24 padding-v-20 center'>
-							<UI.Pagination
-								totalCount= {pages.length}
-								currentPage= {state.page}
-								onPageChange= {currentPage => setstate({ ...state, page: currentPage })}
+							<Pagination
+								totalPages={pages.length}
+								currentPage={state.page}
+								onPageChange={currentPage => setstate({ ...state, page: currentPage })}
 							/>
 						</div>
 					</div>

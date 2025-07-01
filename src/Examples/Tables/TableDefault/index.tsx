@@ -1,7 +1,7 @@
 import React from 'react';
-import UI from '../../../../src/components/controls';
 import getStatus from '../utils';
 import type { TableDefaultProps } from './types';
+import { Title } from '../../../components/Title';
 
 /**
  * TableDefault
@@ -18,7 +18,7 @@ const TableDefault: React.FC<TableDefaultProps> = ({ dataTable }) => {
 			<div className='container-body'>
 				<div className='grid-primary '>
 					<div className='start-1 size-12 padding-v-20'>
-						<UI.Title title='Example tables'>Example tables</UI.Title>
+						<Title title='Example tables'>Example tables</Title>
 					</div>
 
 					<div className='start-1  padding-v-20' />

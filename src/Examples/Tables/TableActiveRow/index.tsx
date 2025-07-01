@@ -1,7 +1,7 @@
 import React from 'react';
-import UI from '../../../../src/components/controls';
 import getStatus from '../utils';
 import type { TableActiveRowProps } from './types';
+import { Title } from '../../../components/Title';
 
 /**
  * TableActiveRow
@@ -18,7 +18,7 @@ const TableActiveRow: React.FC<TableActiveRowProps> = ({ dataTable }) => {
 			<div className='container-body'>
 				<div className='grid-primary '>
 					<div className='start-1 size-12 padding-v-20'>
-						<UI.Title title='Example tables'>Example tables</UI.Title>
+						<Title title='Example tables'>Example tables</Title>
 					</div>
 
 					<div className='start-1  padding-v-20' />

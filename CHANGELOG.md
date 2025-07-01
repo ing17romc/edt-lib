@@ -4,6 +4,13 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+- **2025-07-01** fix: Correcciones en pruebas y componentes de tablas
+  - Corregidas importaciones en componentes de tablas
+  - Mejoradas las pruebas unitarias para los componentes de tablas
+  - Actualizados los selectores de pruebas para ser más robustos
+  - Corregido el manejo de celdas vacías en las tablas
+  - Mejorada la accesibilidad en los componentes de tablas
+
 - **2025-06-30** feat: Agregados componentes Layout, NavBar y Footer
   - Nuevo componente Layout como contenedor principal de la aplicación
   - Componente NavBar para la barra de navegación superior

@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import cx from 'classnames';
-import Icon from '../controls/Icon';
+import Icon from '../Icon';
 import { IconButtonProps } from './types';
 import { ControlSize } from '../utils/enums';
 import { ALL_ICONS, AllIconsType } from '../utils/IconTypes';

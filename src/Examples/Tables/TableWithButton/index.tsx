@@ -1,7 +1,8 @@
 import React from 'react';
-import UI from '../../../../src/components/controls';
 import getStatus from '../utils';
 import type { TableWithButtonProps } from './types';
+import { Title } from '../../../components/Title';
+import Button from '../../../components/Button';
 
 /**
  * TableWithButton
@@ -18,7 +19,7 @@ const TableWithButton: React.FC<TableWithButtonProps> = ({ dataTable }) => {
 			<div className='container-body'>
 				<div className='grid-primary '>
 					<div className='start-1 size-12 padding-v-20'>
-						<UI.Title title="Example tables">Example tables</UI.Title>
+						<Title title="Example tables">Example tables</Title>
 					</div>
 
 					<div className='start-1  padding-v-20' />
@@ -43,20 +44,20 @@ const TableWithButton: React.FC<TableWithButtonProps> = ({ dataTable }) => {
 												<td>{element.userName}</td>
 												<td>{getStatus(element.status)}</td>
 												<td>
-													<UI.Button
+													<Button
 														title='Update'
-														type='SECONDARY'
-														size='SM'
+														type='button'
+														size='medium'
 														onClick={() =>
 															alert('clic!!!')
 														}
 													/>
 												</td>
 												<td>
-													<UI.Button
+													<Button
 														title='Delete'
-														type='SECONDARY'
-														size='SM'
+														type='button'
+														size='medium'
 														onClick={() =>
 															alert('clic!!!')
 														}

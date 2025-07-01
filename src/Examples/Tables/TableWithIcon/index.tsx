@@ -1,7 +1,8 @@
 import React from 'react';
-import UI from '../../../../src/components/controls';
 import getStatus from '../utils';
 import type { TableWithIconProps } from './types';
+import { Title } from '../../../components/Title';
+import IconButton from '../../../components/IconButton';
 
 /**
  * TableWithIcon
@@ -18,7 +19,7 @@ const TableWithIcon: React.FC<TableWithIconProps> = ({ dataTable }) => {
 			<div className='container-body'>
 				<div className='grid-primary '>
 					<div className='start-1 size-12 padding-v-20'>
-						<UI.Title title='Example tables'>Example tables</UI.Title>
+						<Title title='Example tables'>Example tables</Title>
 					</div>
 
 					<div className='start-1  padding-v-20' />
@@ -43,22 +44,24 @@ const TableWithIcon: React.FC<TableWithIconProps> = ({ dataTable }) => {
 												<td>{element.userName}</td>
 												<td>{getStatus(element.status)}</td>
 												<td>
-													<UI.ImageButton
-														text='Edit'
+													<IconButton
 														icon="edit"
 														id={`edit_${index}`}
-														size="MD"
+														data-testid={`edit_${index}`}
+														size="medium"
+														aria-label="Editar"
 														onClick={() =>
 															alert('clic!!!')
 														}
 													/>
 												</td>
 												<td>
-													<UI.ImageButton
-														text='Delete'
+													<IconButton
 														icon="delete"
 														id={`delete_${index}`}
-														size="MD"
+														data-testid={`delete_${index}`}
+														size="medium"
+														aria-label="Eliminar"
 														onClick={() =>
 															alert('clic!!!')
 														}
