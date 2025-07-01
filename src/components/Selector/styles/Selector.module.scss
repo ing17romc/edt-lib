@@ -1,0 +1,193 @@
+@use '../../../styles/variables' as *;
+@use 'sass:color';
+
+// Variables
+$selector-padding-x: 0.75rem;
+$selector-padding-y: 0.5rem;
+$selector-border-radius: 4px;
+$selector-border-width: 1px;
+$selector-transition: all 0.2s ease-in-out;
+
+// Mixins
+@mixin selector-size($padding-y, $padding-x, $font-size, $line-height, $icon-size) {
+  padding: $padding-y $padding-x;
+  font-size: $font-size;
+  line-height: $line-height;
+  
+  & + .selectorIcon {
+    right: $padding-x;
+    width: $icon-size;
+    height: $icon-size;
+  }
+}
+
+.selectorWrapper {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 100%;
+  
+  &--fullWidth {
+    width: 100%;
+  }
+}
+
+.selectorLabel {
+  display: inline-block;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+  color: $text-primary;
+  font-size: 0.875rem;
+  line-height: 1.25;
+}
+
+.selectorContainer {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+}
+
+.selector {
+  appearance: none;
+  width: 100%;
+  background-color: $background-paper;
+  border: $selector-border-width solid $border-color;
+  border-radius: $selector-border-radius;
+  color: $text-primary;
+  cursor: pointer;
+  transition: $selector-transition;
+  outline: none;
+  
+  // Tamaños
+  &--small {
+    @include selector-size(
+      0.25rem 0.5rem,  // padding
+      0.5rem,          // padding-x
+      0.75rem,         // font-size
+      1.25,            // line-height
+      1rem             // icon-size
+    );
+  }
+  
+  &--medium {
+    @include selector-size(
+      0.5rem 0.75rem,  // padding
+      0.75rem,         // padding-x
+      0.875rem,        // font-size
+      1.5,             // line-height
+      1.25rem          // icon-size
+    );
+  }
+  
+  &--large {
+    @include selector-size(
+      0.75rem 1rem,    // padding
+      1rem,            // padding-x
+      1rem,            // font-size
+      1.5,             // line-height
+      1.5rem           // icon-size
+    );
+  }
+  
+  // Variantes
+  &--primary {
+    &:focus {
+      border-color: $primary-main;
+      box-shadow: 0 0 0 2px rgba($primary-main, 0.2);
+    }
+    
+    &:hover:not(:disabled) {
+      border-color: color.adjust($border-color, $lightness: -10%);
+    }
+  }
+  
+  &--secondary {
+    border-color: $secondary-main;
+    
+    &:focus {
+      border-color: $secondary-main;
+      box-shadow: 0 0 0 2px rgba($secondary-main, 0.2);
+    }
+    
+    &:hover:not(:disabled) {
+      border-color: color.adjust($secondary-main, $lightness: -10%);
+    }
+  }
+  
+  &--error {
+    border-color: $error-main;
+    
+    &:focus {
+      border-color: $error-main;
+      box-shadow: 0 0 0 2px rgba($error-main, 0.2);
+    }
+  }
+  
+  // Estados
+  &:disabled {
+    background-color: $background-default;
+    color: $text-disabled;
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+  
+  &--fullWidth {
+    width: 100%;
+  }
+}
+
+.selectorIcon {
+  position: absolute;
+  pointer-events: none;
+  color: $text-secondary;
+  transition: $selector-transition;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.helperText {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  line-height: 1.25;
+  color: $text-secondary;
+  
+  &--error {
+    color: $error-main;
+  }
+}
+
+.requiredIndicator {
+  color: $error-main;
+  margin-left: 0.25rem;
+}
+
+.selectorLoading {
+  position: absolute;
+  right: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  
+  &Spinner {
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid rgba($primary-main, 0.2);
+    border-radius: 50%;
+    border-top-color: $primary-main;
+    animation: spin 1s ease-in-out infinite;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
