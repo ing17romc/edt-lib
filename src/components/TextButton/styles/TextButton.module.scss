@@ -1,4 +1,4 @@
-@use '../../../styles/variables' as *;
+@use '../../../styles/palette' as *;
 
 .textButton {
   // Reset button styles
@@ -41,62 +41,62 @@
 
   // Colors
   &.color-primary {
-    color: $primary-main;
+    color: $primary-color;
 
     &:hover:not(.disabled) {
-      background-color: rgba($primary-main, 0.04);
+      background-color: rgba($primary-color, 0.04);
     }
 
     &:active:not(.disabled) {
-      background-color: rgba($primary-main, 0.08);
+      background-color: rgba($primary-color, 0.08);
     }
   }
 
   &.color-secondary {
-    color: $secondary-main;
+    color: $secondary-color;
 
     &:hover:not(.disabled) {
-      background-color: rgba($secondary-main, 0.04);
+      background-color: rgba($secondary-color, 0.04);
     }
 
     &:active:not(.disabled) {
-      background-color: rgba($secondary-main, 0.08);
+      background-color: rgba($secondary-color, 0.08);
     }
   }
 
   &.color-error {
-    color: $error-main;
+    color: $danger-color;
 
     &:hover:not(.disabled) {
-      background-color: rgba($error-main, 0.04);
+      background-color: rgba($danger-color, 0.04);
     }
 
     &:active:not(.disabled) {
-      background-color: rgba($error-main, 0.08);
+      background-color: rgba($danger-color, 0.08);
     }
   }
 
   &.color-success {
-    color: $success-main;
+    color: $success-color;
 
     &:hover:not(.disabled) {
-      background-color: rgba($success-main, 0.04);
+      background-color: rgba($success-color, 0.04);
     }
 
     &:active:not(.disabled) {
-      background-color: rgba($success-main, 0.08);
+      background-color: rgba($success-color, 0.08);
     }
   }
 
   &.color-warning {
-    color: $warning-main;
+    color: $warning-color;
 
     &:hover:not(.disabled) {
-      background-color: rgba($warning-main, 0.04);
+      background-color: rgba($warning-color, 0.04);
     }
 
     &:active:not(.disabled) {
-      background-color: rgba($warning-main, 0.08);
+      background-color: rgba($warning-color, 0.08);
     }
   }
 
@@ -182,7 +182,7 @@
 
   // Focus styles
   &:focus-visible {
-    outline: 2px solid $primary-main;
+    outline: 2px solid $primary-color;
     outline-offset: 2px;
   }
 }

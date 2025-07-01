@@ -1,4 +1,4 @@
-@use '../../../styles/variables' as *;
+@use '../../../styles/palette' as *;
 
 // Contenedor principal
 .textAreaContainer {
@@ -92,7 +92,7 @@
 
   // Variante estándar (sin borde, solo línea inferior)
   &.variant-standard {
-    border-bottom: 1px solid $border-default;
+    border-bottom: 1px solid $border-color;
     background-color: transparent;
     border-radius: 0;
     padding: 0;
@@ -102,7 +102,7 @@
     }
 
     &.error {
-      border-bottom-color: $error-main;
+      border-bottom-color: $danger-color;
     }
 
     .textarea {
@@ -115,7 +115,7 @@
   &.variant-filled {
     background-color: rgb(0 0 0 / 4%);
     border-radius: 4px 4px 0 0;
-    border-bottom: 1px solid $border-default;
+    border-bottom: 1px solid $border-color;
 
     &:hover:not(.disabled) {
       background-color: rgb(0 0 0 / 8%);
@@ -123,7 +123,7 @@
     }
 
     &.error {
-      border-bottom-color: $error-main;
+      border-bottom-color: $danger-color;
     }
 
     &.disabled {
@@ -138,7 +138,7 @@
 
   // Estado de error
   &.error {
-    border-color: $error-main;
+    border-color: $danger-color;
   }
 
   // Estado deshabilitado

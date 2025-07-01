@@ -40,12 +40,6 @@ export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement
   fullWidth?: boolean;
   
   /**
-   * Si es true, muestra un indicador de carga
-   * @default false
-   */
-  loading?: boolean;
-  
-  /**
    * Tipo de botón HTML
    * @default 'button'
    */

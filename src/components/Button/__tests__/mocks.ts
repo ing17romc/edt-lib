@@ -1,11 +1,11 @@
-import { ButtonProps } from '../types';
+import { ButtonProps, ButtonVariant, ButtonSize } from '../types';
 
 export const mockOnClick = jest.fn();
 
 export const defaultButtonProps: ButtonProps = {
   children: 'Click me',
-  variant: 'primary',
-  size: 'medium',
+  variant: ButtonVariant.PRIMARY,
+  size: ButtonSize.MEDIUM,
   onClick: mockOnClick,
 };
 
@@ -14,27 +14,22 @@ export const disabledButtonProps: ButtonProps = {
   disabled: true,
 };
 
-export const loadingButtonProps: ButtonProps = {
-  children: 'Loading Button',
-  loading: true,
-};
-
 export const fullWidthButtonProps: ButtonProps = {
   children: 'Full Width Button',
   fullWidth: true,
 };
 
 export const allVariants = [
-  { children: 'Primary', variant: 'primary' },
-  { children: 'Secondary', variant: 'secondary' },
-  { children: 'Tertiary', variant: 'tertiary' },
-  { children: 'Danger', variant: 'danger' },
-  { children: 'Success', variant: 'success' },
-  { children: 'Warning', variant: 'warning' },
+  { children: 'Primary', variant: ButtonVariant.PRIMARY },
+  { children: 'Secondary', variant: ButtonVariant.SECONDARY },
+  { children: 'Tertiary', variant: ButtonVariant.TERTIARY },
+  { children: 'Danger', variant: ButtonVariant.DANGER },
+  { children: 'Success', variant: ButtonVariant.SUCCESS },
+  { children: 'Warning', variant: ButtonVariant.WARNING },
 ] as const;
 
 export const allSizes = [
-  { children: 'Small', size: 'small' },
-  { children: 'Medium', size: 'medium' },
-  { children: 'Large', size: 'large' },
+  { children: 'Small', size: ButtonSize.SMALL },
+  { children: 'Medium', size: ButtonSize.MEDIUM },
+  { children: 'Large', size: ButtonSize.LARGE },
 ] as const;

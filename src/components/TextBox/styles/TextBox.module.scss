@@ -1,4 +1,4 @@
-@use '../../../styles/variables' as *;
+@use '../../../styles/palette' as *;
 
 // Contenedor principal
 .textBoxContainer {
@@ -20,7 +20,7 @@
   margin-bottom: 4px;
   font-size: 0.875rem;
   font-weight: 500;
-  color: $text-primary;
+  color: $text-color;
   transition: color 0.2s ease-in-out;
 
   &.disabled {
@@ -28,7 +28,7 @@
   }
 
   &.error {
-    color: $error-main;
+    color: $danger-color;
   }
 }
 
@@ -44,15 +44,15 @@
 
   // Variantes
   &.variant-outlined {
-    border: 1px solid $border-default;
+    border: 1px solid $border-color;
     background-color: $background-paper;
 
     &:hover:not(.disabled) {
-      border-color: $text-primary;
+      border-color: $text-color;
     }
 
     &.error {
-      border-color: $error-main;
+      border-color: $danger-color;
     }
 
     &.disabled {
@@ -64,14 +64,14 @@
   &.variant-filled {
     background-color: $background-default;
     border: 1px solid transparent;
-    border-bottom: 1px solid $border-default;
+    border-bottom: 1px solid $border-color;
 
     &:hover:not(.disabled) {
-      background-color: rgba($text-primary, 0.04);
+      background-color: rgba($text-color, 0.04);
     }
 
     &.error {
-      border-bottom-color: $error-main;
+      border-bottom-color: $danger-color;
     }
 
     &.disabled {
@@ -81,15 +81,15 @@
   }
 
   &.variant-standard {
-    border-bottom: 1px solid $border-default;
+    border-bottom: 1px solid $border-color;
     background-color: transparent;
 
     &:hover:not(.disabled) {
-      border-bottom-color: $text-primary;
+      border-bottom-color: $text-color;
     }
 
     &.error {
-      border-bottom-color: $error-main;
+      border-bottom-color: $danger-color;
     }
 
     &.disabled {
@@ -120,7 +120,7 @@
   border: none;
   outline: none;
   background: transparent;
-  color: $text-primary;
+  color: $text-color;
   font-size: 1rem;
   line-height: 1.5;
   padding: 0;
@@ -181,7 +181,7 @@
   &:-webkit-autofill:focus,
   &:-webkit-autofill:active {
     box-shadow: 0 0 0 30px white inset !important;
-    -webkit-text-fill-color: $text-primary !important;
+    -webkit-text-fill-color: $text-color !important;
     transition: background-color 5000s ease-in-out 0s;
   }
 }
@@ -212,7 +212,7 @@
   min-height: 18px; // Evita saltos de línea cuando no hay texto
 
   &.error {
-    color: $error-main;
+    color: $danger-color;
   }
 }
 

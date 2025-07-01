@@ -13,11 +13,6 @@ import { ButtonProps, ButtonVariant, ButtonSize } from './types';
  *   Hacer clic
  * </Button>
  * 
- * @example
- * // Botón con estado de carga
- * <Button variant="primary" loading={isLoading}>
- *   {isLoading ? 'Cargando...' : 'Enviar'}
- * </Button>
  */
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
   children,
@@ -25,7 +20,6 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
   size = ButtonSize.MEDIUM,
   type = 'button',
   disabled = false,
-  loading = false,
   fullWidth = false,
   className,
   onClick,
@@ -36,14 +30,13 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
     styles[`button--${variant}`],
     styles[`button--${size}`],
     {
-      [styles['button--loading']]: loading,
       [styles['button--fullWidth']]: fullWidth,
     },
     className
   );
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (loading || disabled) {
+    if (disabled) {
       e.preventDefault();
       return;
     }
@@ -56,16 +49,10 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
       ref={ref}
       type={type}
       className={buttonClasses}
-      disabled={disabled || loading}
+      disabled={disabled}
       onClick={handleClick}
-      aria-busy={loading}
       {...rest}
     >
-      {loading && (
-        <span className="sr-only" aria-live="polite">
-          Cargando...
-        </span>
-      )}
       {children}
     </button>
   );

@@ -5,7 +5,6 @@ import Button from '..';
 import { 
   mockOnClick, 
   defaultButtonProps, 
-  loadingButtonProps, 
   fullWidthButtonProps,
   allVariants,
   allSizes
@@ -41,22 +40,6 @@ describe('Button Component', () => {
     
     fireEvent.click(button);
     expect(mockOnClick).not.toHaveBeenCalled();
-  });
-
-  test('no ejecuta onClick cuando está en estado de carga', () => {
-    render(<Button {...defaultButtonProps} loading />);
-    const button = screen.getByRole('button', { name: /click me/i });
-    
-    fireEvent.click(button);
-    expect(mockOnClick).not.toHaveBeenCalled();
-  });
-
-  test('muestra el indicador de carga cuando loading es true', () => {
-    render(<Button {...loadingButtonProps} />);
-    const button = screen.getByRole('button');
-    
-    expect(button).toHaveClass('button--loading');
-    expect(button).toHaveAttribute('aria-busy', 'true');
   });
 
   test('aplica la clase fullWidth cuando fullWidth es true', () => {

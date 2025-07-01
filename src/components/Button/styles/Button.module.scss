@@ -1,6 +1,6 @@
-@use 'sass:color';
 @use 'sass:map';
-@use '../../../styles/variables.scss' as *;
+@use 'sass:color';
+@use '../../../styles/palette' as *;
 
 .button {
   display: inline-flex;
@@ -33,21 +33,21 @@
   
   // Sizes
   &--small {
-    padding: map.get($button-padding, small);
-    font-size: map.get($button-font-sizes, small);
-    min-height: map.get($button-heights, small);
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+    min-height: 2rem;
   }
   
   &--medium {
-    padding: map.get($button-padding, medium);
-    font-size: map.get($button-font-sizes, medium);
-    min-height: map.get($button-heights, medium);
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    min-height: 2.5rem;
   }
   
   &--large {
-    padding: map.get($button-padding, large);
-    font-size: map.get($button-font-sizes, large);
-    min-height: map.get($button-heights, large);
+    padding: 0.75rem 1.5rem;
+    font-size: 1.125rem;
+    min-height: 3rem;
   }
   
   // Variants
