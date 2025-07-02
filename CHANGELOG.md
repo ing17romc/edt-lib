@@ -4,6 +4,14 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+- **2025-07-01** refactor: Mejora en el componente CheckButton
+  - Refactorización de estilos para usar variables globales SCSS
+  - Extracción de tipografía, colores y espaciado a archivos globales
+  - Mejora en la documentación de Storybook
+  - Actualización de pruebas unitarias
+  - Eliminación de archivos de mocks redundantes
+  - Mejora en la consistencia visual del componente
+
 - **2025-07-01** refactor: Mejora en el componente Card
   - Refactorización de estilos para usar variables globales
   - Extracción de tipografía, colores y espaciado a archivos SCSS globales
