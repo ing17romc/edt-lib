@@ -1,7 +1,6 @@
-import type { StoryObj } from '@storybook/react';
-import { Selector } from '..';
+import type { StoryObj, Meta } from '@storybook/react';
+import { Selector, SelectorVariant, SelectorSize } from '..';
 import {
-  meta,
   defaultArgs,
   withoutLabelArgs,
   withHelperTextArgs,
@@ -12,7 +11,26 @@ import {
   withManyOptionsArgs,
   OptionGroupsComponent,
   SizesComponent,
+  mockOptions,
 } from './mocks';
+
+const meta: Meta<typeof Selector> = {
+  title: 'Components/Selector',
+  component: Selector,
+  tags: ['autodocs'],
+  argTypes: {
+    variant: {
+      control: { type: 'select', options: Object.values(SelectorVariant) },
+    },
+    size: {
+      control: { type: 'select', options: Object.values(SelectorSize) },
+    },
+    disabled: { control: 'boolean' },
+    loading: { control: 'boolean' },
+    fullWidth: { control: 'boolean' },
+    error: { control: 'boolean' },
+  },
+};
 
 export default meta;
 

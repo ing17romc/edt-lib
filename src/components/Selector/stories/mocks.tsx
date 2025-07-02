@@ -33,24 +33,7 @@ export const mockLongListOptions: SelectorOption[] = Array.from({ length: 50 }, 
   label: `Opción ${i + 1}`,
 }));
 
-// Storybook Meta Configuration
-export const meta: Meta<typeof Selector> = {
-  title: 'Components/Selector',
-  component: Selector,
-  tags: ['autodocs'],
-  argTypes: {
-    variant: {
-      control: { type: 'select', options: Object.values(SelectorVariant) },
-    },
-    size: {
-      control: { type: 'select', options: Object.values(SelectorSize) },
-    },
-    disabled: { control: 'boolean' },
-    loading: { control: 'boolean' },
-    fullWidth: { control: 'boolean' },
-    error: { control: 'boolean' },
-  },
-};
+
 
 // Story Arguments
 export const defaultArgs = {

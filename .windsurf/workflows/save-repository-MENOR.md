@@ -4,10 +4,9 @@ description: Save all repository
 
 Realiza los siguientes pasos:
 
-Haz un commit y un push con los últimos cambios.
-Actualiza el archivo changelog.md con la información correspondiente.
-Realiza un nuevo commit y push con estos cambios.
-Publica los cambios de Storybook ejecutando el comando:
-npm run release-sb
-Finalmente, publica el paquete en NPM usando:
-npm run publish-npm-minor
+1. Commit y Push Inicial: Guardar todos los cambios de código que hemos realizado hasta ahora.
+2. Actualizar Changelog: Documentar los cambios en el archivo changelog.md.
+3. Commit y Push del Changelog: Guardar los cambios del changelog.md.
+4. Publicar Storybook: Desplegar la última versión de Storybook. (npm run release-sb).
+5. Publicar en NPM: Lanzar una nueva versión menor del paquete. (npm run publish-npm-minor).
+6. Por ultimo realizar un "Syncs Changes"

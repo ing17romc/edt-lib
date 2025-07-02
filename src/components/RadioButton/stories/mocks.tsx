@@ -3,41 +3,7 @@ import { Meta } from '@storybook/react';
 import RadioButton from '..';
 import { RadioButtonProps } from '../types';
 
-export const meta: Meta<typeof RadioButton> = {
-  title: 'Components/RadioButton',
-  component: RadioButton,
-  tags: ['autodocs'],
-  argTypes: {
-    value: {
-      control: 'text',
-      description: 'Valor único que identifica este botón de radio',
-    },
-    label: {
-      control: 'text',
-      description: 'Texto que se muestra junto al botón de radio',
-    },
-    checked: {
-      control: 'boolean',
-      description: 'Indica si el botón de radio está seleccionado',
-    },
-    disabled: {
-      control: 'boolean',
-      description: 'Indica si el botón de radio está deshabilitado',
-    },
-    name: {
-      control: 'text',
-      description: 'Nombre del grupo al que pertenece el botón de radio',
-    },
-    className: {
-      control: 'text',
-      description: 'Clase CSS opcional para personalizar el estilo',
-    },
-    onChange: {
-      action: 'changed',
-      description: 'Función que se ejecuta cuando cambia el estado del botón de radio',
-    },
-  },
-};
+
 
 export const defaultArgs: RadioButtonProps = {
   value: 'option1',
