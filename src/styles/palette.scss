@@ -30,9 +30,20 @@ $orange-color: #f97316;
 $green-color: #16a34a;
 $yellow-color: #eab308;
 
+// Card Colors
+$card-bg: $white-color;
+$card-border: $border-color;
+$card-text-primary: $text-color;
+$card-text-secondary: $secondary-color;
+$card-bg-alt: color.adjust($light-gray-color, $lightness: 10%);
+
 // Colores de estados
 $primary-hover: color.adjust($primary-color, $lightness: -10%);
 $primary-active: color.adjust($primary-color, $lightness: -15%);
+
+// Card Shadows
+$card-shadow-flat: 0 1px 3px rgb(0 0 0 / 10%), 0 1px 2px rgb(0 0 0 / 6%);
+$card-shadow-elevated: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
 
 // Button Colors
 $button-primary-bg: $primary-color;
@@ -64,6 +75,10 @@ $button-warning-active: color.adjust($warning-color, $lightness: -15%);
 // Button States
 $button-disabled-opacity: 0.6;
 $button-focus-ring: rgba($primary-color, 0.5);
+
+// Card Transitions
+$card-transition: all 0.2s ease;
+$card-hover-transform: translateY(-2px);
 
 // Variables de compatibilidad (legacy)
 $text-disabled: color.adjust($text-color, $lightness: 60%);

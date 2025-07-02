@@ -3,6 +3,7 @@ $font-weight-regular: 400;
 $font-weight-medium: 500;
 $font-weight-semibold: 600;
 $font-weight-bold: 700;
+$font-weight-card-title: $font-weight-semibold;
 
 // Line Heights
 $line-height-sm: 1.25;
@@ -15,6 +16,12 @@ $font-size-sm: 0.875rem;   // 14px
 $font-size-md: 1rem;       // 16px
 $font-size-lg: 1.125rem;   // 18px
 $font-size-xl: 1.25rem;    // 20px
+
+// Card Typography
+$card-title-font-size: $font-size-xl;      // 1.25rem / 20px
+$card-subtitle-font-size: $font-size-sm;   // 0.875rem / 14px
+$card-body-font-size: $font-size-md;       // 1rem / 16px
+$card-body-line-height: 1.5;               // 24px
 
 // Button Specific Typography
 $button-font-weight: $font-weight-medium;
