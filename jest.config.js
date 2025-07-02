@@ -16,4 +16,5 @@ module.exports = {
   testEnvironmentOptions: {
     url: 'http://localhost',
   },
+  modulePathIgnorePatterns: ['<rootDir>/dist/'],
 }

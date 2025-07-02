@@ -67,4 +67,9 @@ export interface TextBoxProps extends Omit<InputHTMLAttributes<HTMLInputElement>
    * Clase CSS personalizada para el texto de ayuda
    */
   helperTextClassName?: string;
+
+  /**
+   * Permite el paso de atributos `data-*` para propósitos de testing.
+   */
+  [key: `data-${string}`]: any;
 }

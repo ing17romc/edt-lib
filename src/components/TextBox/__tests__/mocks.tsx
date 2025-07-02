@@ -21,6 +21,7 @@ export const mockErrorTextBoxProps: TextBoxProps = {
   error: true,
   helperText: 'Este campo es requerido',
   value: 'Valor incorrecto',
+  onChange: jest.fn(),
 };
 
 export const mockFullWidthTextBoxProps: TextBoxProps = {
