@@ -4,6 +4,14 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+- **2025-07-01** refactor: Mejora en el componente Icon
+  - Mejora en el manejo de estados (disabled, inheritColor)
+  - Soporte para componentes SVG personalizados a través de la prop `component`
+  - Refactorización de estilos para usar variables globales SCSS
+  - Corrección de errores de TypeScript en las historias de Storybook
+  - Actualización de pruebas unitarias para cubrir nuevos casos de uso
+  - Mejora en la documentación de Storybook
+
 - **2025-07-01** refactor: Mejora en el componente CheckButton
   - Refactorización de estilos para usar variables globales SCSS
   - Extracción de tipografía, colores y espaciado a archivos globales
