@@ -4,6 +4,14 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+### 2.7.8 (2025-07-02)
+- **refactor:** Componente `Modal`
+  - Extracción de tipografía a `typography.scss` con variables para títulos, contenido y botones.
+  - Extracción de colores a `palette.scss` con variables para fondos, bordes y estados interactivos.
+  - Extracción de espaciados a `spacing.scss` con variables para márgenes, paddings y dimensiones.
+  - Mejora en la organización del código y consistencia en el uso de variables globales.
+  - Documentación actualizada para facilitar el mantenimiento futuro.
+
 ### 2.7.7 (2025-07-01)
 - **refactor:** Componente `IconButton`
   - Extracción de tipografía, colores y espaciados a variables SCSS globales.
