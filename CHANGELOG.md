@@ -4,6 +4,14 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+- **2025-07-01** refactor: Mejora en el componente Button
+  - Refactorización de estilos para usar variables globales
+  - Extracción de estilos a archivos SCSS modulares
+  - Mejora en la organización de pruebas unitarias
+  - Actualización de historias de Storybook
+  - Eliminación de código duplicado en pruebas
+  - Mejora en la documentación de props y tipos
+
 - **2025-07-01** feat: Eliminación de la funcionalidad de loading del componente Button
   - Eliminada la propiedad `loading` y su lógica asociada
   - Actualizadas las pruebas unitarias para reflejar los cambios
