@@ -1,14 +1,16 @@
 @use 'sass:map';
 @use 'sass:color';
 @use '../../../styles/palette' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/spacing' as *;
 
 .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border: 1px solid transparent;
-  border-radius: 4px;
-  font-weight: 500;
+  border-radius: $button-border-radius;
+  font-weight: $button-font-weight;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   text-align: center;
@@ -17,86 +19,89 @@
   user-select: none;
   position: relative;
   overflow: hidden;
-  line-height: 1.5;
+  line-height: $button-line-height;
   
   &:disabled,
   &[disabled] {
     cursor: not-allowed;
-    opacity: 0.6;
+    opacity: $button-disabled-opacity;
     box-shadow: none;
   }
   
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba($primary-color, 0.5);
+    box-shadow: 0 0 0 $focus-ring-width $button-focus-ring;
   }
   
   // Sizes
   &--small {
-    padding: 0.25rem 0.75rem;
-    font-size: 0.875rem;
-    min-height: 2rem;
+    padding: $button-padding-y-sm $button-padding-x-sm;
+    font-size: $button-font-size-sm;
+    min-height: $button-height-sm;
+    line-height: $button-line-height-sm;
   }
   
   &--medium {
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    min-height: 2.5rem;
+    padding: $button-padding-y-md $button-padding-x-md;
+    font-size: $button-font-size-md;
+    min-height: $button-height-md;
+    line-height: $button-line-height-md;
   }
   
   &--large {
-    padding: 0.75rem 1.5rem;
-    font-size: 1.125rem;
-    min-height: 3rem;
+    padding: $button-padding-y-lg $button-padding-x-lg;
+    font-size: $button-font-size-lg;
+    min-height: $button-height-lg;
+    line-height: $button-line-height-lg;
   }
   
   // Variants
   &--primary {
-    background-color: $primary-color;
-    color: white;
+    background-color: $button-primary-bg;
+    color: $button-primary-text;
     
     &:hover:not(:disabled) {
-      background-color: $primary-hover;
+      background-color: $button-primary-hover;
     }
     
     &:active:not(:disabled) {
-      background-color: $primary-active;
+      background-color: $button-primary-active;
     }
   }
   
   &--secondary {
-    background-color: white;
-    color: $primary-color;
-    border-color: $border-color;
+    background-color: $button-secondary-bg;
+    color: $button-secondary-text;
+    border-color: $button-secondary-border;
     
     &:hover:not(:disabled) {
-      background-color: color.adjust(white, $lightness: -5%);
+      background-color: $button-secondary-hover;
     }
     
     &:active:not(:disabled) {
-      background-color: color.adjust(white, $lightness: -10%);
+      background-color: $button-secondary-active;
     }
   }
   
   &--tertiary {
-    background-color: transparent;
-    color: $primary-color;
+    background-color: $button-tertiary-bg;
+    color: $button-tertiary-text;
     
     &:hover:not(:disabled) {
-      background-color: rgba($primary-color, 0.1);
+      background-color: $button-tertiary-hover;
     }
     
     &:active:not(:disabled) {
-      background-color: rgba($primary-color, 0.2);
+      background-color: $button-tertiary-active;
     }
   }
   
   &--danger {
-    background-color: $danger-color;
-    color: white;
+    background-color: $button-danger-bg;
+    color: $button-danger-text;
     
     &:hover:not(:disabled) {
-      background-color: color.adjust($danger-color, $lightness: -10%);
+      background-color: $button-danger-hover;
     }
     
     &:active:not(:disabled) {
@@ -105,11 +110,11 @@
   }
   
   &--success {
-    background-color: $success-color;
-    color: white;
+    background-color: $button-success-bg;
+    color: $button-success-text;
     
     &:hover:not(:disabled) {
-      background-color: color.adjust($success-color, $lightness: -10%);
+      background-color: $button-success-hover;
     }
     
     &:active:not(:disabled) {
@@ -118,11 +123,11 @@
   }
   
   &--warning {
-    background-color: $warning-color;
-    color: $text-color;
+    background-color: $button-warning-bg;
+    color: $button-warning-text;
     
     &:hover:not(:disabled) {
-      background-color: color.adjust($warning-color, $lightness: -10%);
+      background-color: $button-warning-hover;
     }
     
     &:active:not(:disabled) {

@@ -1,0 +1,31 @@
+// Font Weights
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Line Heights
+$line-height-sm: 1.25;
+$line-height-md: 1.5;
+$line-height-lg: 1.75;
+
+// Font Sizes
+$font-size-xs: 0.75rem;    // 12px
+$font-size-sm: 0.875rem;   // 14px
+$font-size-md: 1rem;       // 16px
+$font-size-lg: 1.125rem;   // 18px
+$font-size-xl: 1.25rem;    // 20px
+
+// Button Specific Typography
+$button-font-weight: $font-weight-medium;
+$button-line-height: $line-height-md;
+
+// Button Font Sizes
+$button-font-size-sm: $font-size-sm;
+$button-font-size-md: $font-size-md;
+$button-font-size-lg: $font-size-lg;
+
+// Button Line Heights
+$button-line-height-sm: $line-height-sm;
+$button-line-height-md: $line-height-md;
+$button-line-height-lg: $line-height-lg;

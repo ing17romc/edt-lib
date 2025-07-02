@@ -34,6 +34,37 @@ $yellow-color: #eab308;
 $primary-hover: color.adjust($primary-color, $lightness: -10%);
 $primary-active: color.adjust($primary-color, $lightness: -15%);
 
+// Button Colors
+$button-primary-bg: $primary-color;
+$button-primary-text: $white-color;
+$button-primary-hover: $primary-hover;
+$button-primary-active: $primary-active;
+$button-secondary-bg: $white-color;
+$button-secondary-text: $primary-color;
+$button-secondary-border: $border-color;
+$button-secondary-hover: color.adjust($white-color, $lightness: -5%);
+$button-secondary-active: color.adjust($white-color, $lightness: -10%);
+$button-tertiary-bg: transparent;
+$button-tertiary-text: $primary-color;
+$button-tertiary-hover: rgba($primary-color, 0.1);
+$button-tertiary-active: rgba($primary-color, 0.2);
+$button-danger-bg: $danger-color;
+$button-danger-text: $white-color;
+$button-danger-hover: color.adjust($danger-color, $lightness: -10%);
+$button-danger-active: color.adjust($danger-color, $lightness: -15%);
+$button-success-bg: $success-color;
+$button-success-text: $white-color;
+$button-success-hover: color.adjust($success-color, $lightness: -10%);
+$button-success-active: color.adjust($success-color, $lightness: -15%);
+$button-warning-bg: $warning-color;
+$button-warning-text: $white-color;
+$button-warning-hover: color.adjust($warning-color, $lightness: -10%);
+$button-warning-active: color.adjust($warning-color, $lightness: -15%);
+
+// Button States
+$button-disabled-opacity: 0.6;
+$button-focus-ring: rgba($primary-color, 0.5);
+
 // Variables de compatibilidad (legacy)
 $text-disabled: color.adjust($text-color, $lightness: 60%);
 $text-secondary: color.adjust($text-color, $lightness: 30%);

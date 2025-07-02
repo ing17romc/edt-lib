@@ -1,195 +1,127 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Button from '..';
+import { buttonStories, variants, sizes } from './mocks';
 import { ButtonVariant, ButtonSize } from '../types';
 
-const meta: Meta<typeof Button> = {
-  title: 'Components/Button',
+const meta = {
+  ...buttonStories,
   component: Button,
-  tags: ['autodocs'],
-  argTypes: {
-    variant: {
-      control: {
-        type: 'select',
-        options: Object.values(ButtonVariant),
-      },
-      description: 'Variante visual del botón',
-      table: {
-        type: { summary: Object.values(ButtonVariant).join(' | ') },
-        defaultValue: { summary: ButtonVariant.PRIMARY },
-      },
-    },
-    size: {
-      control: {
-        type: 'select',
-        options: Object.values(ButtonSize),
-      },
-      description: 'Tamaño del botón',
-      table: {
-        type: { summary: Object.values(ButtonSize).join(' | ') },
-        defaultValue: { summary: ButtonSize.MEDIUM },
-      },
-    },
-    disabled: {
-      control: 'boolean',
-      description: 'Si el botón está deshabilitado',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-      },
-    },
-    loading: {
-      control: 'boolean',
-      description: 'Si muestra un indicador de carga',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-      },
-    },
-    fullWidth: {
-      control: 'boolean',
-      description: 'Si el botón ocupa todo el ancho disponible',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-      },
-    },
-    type: {
-      control: {
-        type: 'select',
-        options: ['button', 'submit', 'reset'],
-      },
-      description: 'Tipo de botón HTML',
-      table: {
-        type: { summary: 'button | submit | reset' },
-        defaultValue: { summary: 'button' },
-      },
-    },
-    onClick: {
-      action: 'clicked',
-      description: 'Función que se ejecuta al hacer clic',
-      table: {
-        category: 'Events',
-      },
-    },
-  },
-  args: {
-    children: 'Click me',
-    variant: ButtonVariant.PRIMARY,
-    size: ButtonSize.MEDIUM,
-    disabled: false,
-    loading: false,
-    fullWidth: false,
-  },
-};
+} satisfies Meta<typeof Button>;
 
 export default meta;
+
 type Story = StoryObj<typeof Button>;
 
 // Historias básicas
-export const Primary: Story = {
+export const Default: Story = {
   args: {
+    children: 'Button',
     variant: ButtonVariant.PRIMARY,
+    size: ButtonSize.MEDIUM,
   },
 };
 
-export const Secondary: Story = {
-  args: {
-    variant: ButtonVariant.SECONDARY,
-    children: 'Secondary Button',
-  },
-};
-
-export const Tertiary: Story = {
-  args: {
-    variant: ButtonVariant.TERTIARY,
-    children: 'Tertiary Button',
-  },
-};
-
-export const Danger: Story = {
-  args: {
-    variant: ButtonVariant.DANGER,
-    children: 'Danger Button',
-  },
-};
-
-export const Success: Story = {
-  args: {
-    variant: ButtonVariant.SUCCESS,
-    children: 'Success Button',
-  },
-};
-
-export const Warning: Story = {
-  args: {
-    variant: ButtonVariant.WARNING,
-    children: 'Warning Button',
-  },
-};
-
-// Historias de estados
-export const Disabled: Story = {
-  args: {
-    disabled: true,
-    children: 'Disabled Button',
-  },
-};
-
-export const Loading: Story = {
-  args: {
-    loading: true,
-    children: 'Loading Button',
-  },
-};
-
-// Historias de tamaños
-export const Small: Story = {
-  args: {
-    size: ButtonSize.SMALL,
-    children: 'Small Button',
-  },
-};
-
-export const Large: Story = {
-  args: {
-    size: ButtonSize.LARGE,
-    children: 'Large Button',
-  },
-};
-
-// Historia de ancho completo
-export const FullWidth: Story = {
+// Variantes
+export const Variants: Story = {
+  render: () => (
+    <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
+      {variants.map(({ variant, label }) => (
+        <div key={variant} style={{ marginBottom: '1rem' }}>
+          <div style={{ marginBottom: '0.5rem', fontSize: '0.875rem', color: '#666' }}>
+            {label}
+          </div>
+          <Button variant={variant}>
+            {label} Button
+          </Button>
+        </div>
+      ))}
+    </div>
+  ),
   parameters: {
-    layout: 'padded',
-  },
-  args: {
-    fullWidth: true,
-    children: 'Full Width Button',
-  },
-};
-
-// Historia con ícono
-export const WithIcon: Story = {
-  args: {
-    children: (
-      <>
-        <span style={{ marginRight: '8px' }}>⭐</span>
-        Button with Icon
-      </>
-    ),
+    docs: {
+      source: {
+        code: null,
+      },
+    },
   },
 };
 
-// Historia personalizada
-export const CustomButton: Story = {
-  args: {
-    variant: ButtonVariant.PRIMARY,
-    size: ButtonSize.LARGE,
-    children: 'Custom Button',
-    style: {
-      borderRadius: '20px',
-      textTransform: 'uppercase',
-      letterSpacing: '1px',
+// Tamaños
+export const Sizes: Story = {
+  render: () => (
+    <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-end' }}>
+      {sizes.map(({ size, label }) => (
+        <div key={size} style={{ textAlign: 'center' }}>
+          <div style={{ marginBottom: '0.5rem', fontSize: '0.875rem', color: '#666' }}>
+            {label}
+          </div>
+          <Button size={size}>
+            {size} Button
+          </Button>
+        </div>
+      ))}
+    </div>
+  ),
+  parameters: {
+    docs: {
+      source: {
+        code: null,
+      },
+    },
+  },
+};
+
+// Estados
+export const States: Story = {
+  render: () => (
+    <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+        <div style={{ fontSize: '0.875rem', color: '#666' }}>Disabled</div>
+        <Button disabled>Disabled Button</Button>
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', width: '100%', maxWidth: '300px' }}>
+        <div style={{ fontSize: '0.875rem', color: '#666' }}>Full Width</div>
+        <Button fullWidth>Full Width Button</Button>
+      </div>
+    </div>
+  ),
+  parameters: {
+    docs: {
+      source: {
+        code: null,
+      },
+    },
+  },
+};
+
+// Combinaciones
+export const Combinations: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+      {variants.map(({ variant, label: variantLabel }) => (
+        <div key={variant}>
+          <div style={{ marginBottom: '0.75rem', fontSize: '0.875rem', color: '#666', fontWeight: '500' }}>
+            {variantLabel} Variant
+          </div>
+          <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+            {sizes.map(({ size, label: sizeLabel }) => (
+              <div key={`${variant}-${size}`} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
+                <div style={{ fontSize: '0.75rem', color: '#888' }}>{sizeLabel}</div>
+                <Button variant={variant} size={size}>
+                  {sizeLabel}
+                </Button>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  ),
+  parameters: {
+    docs: {
+      source: {
+        code: null,
+      },
     },
   },
 };
