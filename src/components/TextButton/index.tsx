@@ -45,7 +45,6 @@ const TextButton: React.FC<TextButtonProps> = ({
       variant={ButtonVariant.PRIMARY}
       size={size as ButtonSize}
       fullWidth={fullWidth}
-      loading={loading}
       {...rest}
     >
       {children}

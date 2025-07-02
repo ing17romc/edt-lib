@@ -63,27 +63,21 @@ describe('Pagination', () => {
     expect(ellipsis.length).toBeGreaterThan(0);
   });
 
-  it('no renderiza nada si totalPages es menor o igual a 0', () => {
-    const { container } = render(
-      <Pagination 
-        totalPages={0} 
-        currentPage={1} 
-        onPageChange={jest.fn()} 
-      />
-    );
-    
+  it('no renderiza nada y muestra una advertencia si totalPages es 0', () => {
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+    const { container } = render(<Pagination currentPage={1} totalPages={0} onPageChange={jest.fn()} />);
     expect(container.firstChild).toBeNull();
+    expect(warnSpy).toHaveBeenCalledWith('Pagination: totalPages debe ser mayor a 0');
+    warnSpy.mockRestore();
   });
 
-  it('no renderiza nada si currentPage está fuera de rango', () => {
-    const { container } = render(
-      <Pagination 
-        totalPages={5} 
-        currentPage={10} // Fuera de rango
-        onPageChange={jest.fn()} 
-      />
-    );
-    
+  it('no renderiza nada y muestra una advertencia si currentPage está fuera de rango', () => {
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+    const { container } = render(<Pagination currentPage={10} totalPages={5} onPageChange={jest.fn()} />);
     expect(container.firstChild).toBeNull();
+    expect(warnSpy).toHaveBeenCalledWith('Pagination: currentPage (10) está fuera de rango [1, 5]');
+    warnSpy.mockRestore();
   });
 });

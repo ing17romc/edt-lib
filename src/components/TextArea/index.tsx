@@ -16,6 +16,8 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(({
   rows = 3,
   maxLength,
   autoResize = false,
+  minRows,
+  maxRows,
   className = '',
   containerClassName = '',
   labelClassName = '',
@@ -48,18 +50,32 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(({
   const adjustHeight = useCallback(() => {
     if (autoResize && textareaRef.current) {
       const textarea = textareaRef.current;
-      // Resetear la altura para obtener el scrollHeight correcto
-      textarea.style.height = 'auto';
-      // Obtener la altura base (mínima)
-      const baseHeight = textarea.scrollHeight;
-      // Establecer la nueva altura
-      textarea.style.height = `${Math.max(baseHeight, textarea.scrollHeight)}px`;
-      // Forzar el desbordamiento oculto
-      if (autoResize) {
+      textarea.style.height = 'auto'; // Reset height to get correct scrollHeight
+
+      const computedStyle = window.getComputedStyle(textarea);
+      const lineHeight = parseFloat(computedStyle.lineHeight);
+      const paddingTop = parseFloat(computedStyle.paddingTop);
+      const paddingBottom = parseFloat(computedStyle.paddingBottom);
+      const borderTop = parseFloat(computedStyle.borderTopWidth);
+      const borderBottom = parseFloat(computedStyle.borderBottomWidth);
+      
+      const verticalPaddingAndBorder = paddingTop + paddingBottom + borderTop + borderBottom;
+
+      const minHeight = minRows && lineHeight ? (minRows * lineHeight) + verticalPaddingAndBorder : -Infinity;
+      const maxHeight = maxRows && lineHeight ? (maxRows * lineHeight) + verticalPaddingAndBorder : Infinity;
+
+      const scrollHeight = textarea.scrollHeight;
+      const newHeight = Math.max(minHeight, Math.min(scrollHeight, maxHeight));
+
+      textarea.style.height = `${newHeight}px`;
+
+      if (maxHeight !== Infinity && scrollHeight > maxHeight) {
+        textarea.style.overflow = 'auto';
+      } else {
         textarea.style.overflow = 'hidden';
       }
     }
-  }, [autoResize]);
+  }, [autoResize, minRows, maxRows]);
 
   // Efecto para ajustar la altura inicial
   useEffect(() => {

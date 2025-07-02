@@ -15,6 +15,7 @@ export const Icon = forwardRef<HTMLSpanElement, IconProps>(({
   inheritColor = false,
   className,
   style,
+  component: CustomIcon,
   ...rest
 }, ref) => {
   const iconClasses = cx(
@@ -34,8 +35,7 @@ export const Icon = forwardRef<HTMLSpanElement, IconProps>(({
   };
 
   // Si se proporciona un componente personalizado, lo usamos
-  if (rest.component) {
-    const CustomIcon = rest.component;
+  if (CustomIcon) {
     return (
       <span
         ref={ref}

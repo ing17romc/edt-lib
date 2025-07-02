@@ -16,6 +16,8 @@ describe('TableWithPagination', () => {
   const mockData = generateMockData(10); // 10 elementos de prueba
 
   it('renderiza sin errores con datos vacíos', () => {
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
     render(<TableWithPagination dataTable={[]} />);
     
     // Verificar que se renderiza el título
@@ -23,6 +25,11 @@ describe('TableWithPagination', () => {
     
     // Verificar que se muestra el mensaje de "No hay datos disponibles"
     expect(screen.getByText('No hay datos disponibles')).toBeInTheDocument();
+    
+    // Verificar que la advertencia de paginación fue llamada
+    expect(warnSpy).toHaveBeenCalledWith('Pagination: totalPages debe ser mayor a 0');
+    
+    warnSpy.mockRestore();
     
     // Verificar que hay dos filas: encabezado y mensaje de no hay datos
     const allRows = screen.getAllByRole('row');

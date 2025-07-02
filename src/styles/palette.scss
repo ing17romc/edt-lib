@@ -98,6 +98,38 @@ $button-secondary-hover: color.adjust($white-color, $lightness: -5%);
 $button-secondary-active: color.adjust($white-color, $lightness: -10%);
 $button-tertiary-bg: transparent;
 $button-tertiary-text: $primary-color;
+
+// RadioButton Colors
+$radiobutton-bg: $white-color;
+$radiobutton-border: $border-color;
+$radiobutton-hover-border: $primary-color;
+$radiobutton-checked-bg: $primary-color;
+$radiobutton-checked-border: $primary-color;
+$radiobutton-checkmark-color: $white-color;
+$radiobutton-disabled-bg: #f3f4f6; // gray-100
+$radiobutton-disabled-border: $border-color;
+$radiobutton-disabled-checkmark: $secondary-color;
+$radiobutton-label-color: $text-color;
+$radiobutton-label-disabled-color: #9ca3af; // gray-400
+
+// Selector Colors
+$selector-bg: $background-paper;
+$selector-border: $border-color;
+$selector-text: $text-color;
+$selector-label-text: $text-color;
+$selector-icon-color: $text-secondary;
+
+// -- States
+$selector-hover-border: #d1d5db; // gray-300
+$selector-focus-border-primary: $primary-color;
+$selector-focus-shadow-primary: rgba($primary-color, 0.2);
+$selector-focus-border-secondary: $secondary-color;
+$selector-focus-shadow-secondary: rgba($secondary-color, 0.2);
+$selector-error-border: $danger-color;
+$selector-error-focus-shadow: rgba($danger-color, 0.2);
+$selector-disabled-bg: $background-default;
+$selector-disabled-text: $text-disabled;
+$selector-disabled-opacity: 0.7;
 $button-tertiary-hover: rgba($primary-color, 0.1);
 $button-tertiary-active: rgba($primary-color, 0.2);
 $button-danger-bg: $danger-color;

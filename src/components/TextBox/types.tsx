@@ -71,5 +71,5 @@ export interface TextBoxProps extends Omit<InputHTMLAttributes<HTMLInputElement>
   /**
    * Permite el paso de atributos `data-*` para propósitos de testing.
    */
-  [key: `data-${string}`]: any;
+  [key: `data-${string}`]: string | number | boolean;
 }

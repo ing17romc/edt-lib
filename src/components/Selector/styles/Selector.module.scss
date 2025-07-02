@@ -1,11 +1,8 @@
 @use '../../../styles/palette' as *;
-@use 'sass:color';
+@use '../../../styles/spacing' as *;
+@use '../../../styles/typography' as *;
 
-// Variables
-$selector-padding-x: 0.75rem;
-$selector-padding-y: 0.5rem;
-$selector-border-radius: 4px;
-$selector-border-width: 1px;
+// Local Variables
 $selector-transition: all 0.2s ease-in-out;
 
 // Mixins
@@ -13,7 +10,7 @@ $selector-transition: all 0.2s ease-in-out;
   padding: $padding-y $padding-x;
   font-size: $font-size;
   line-height: $line-height;
-  
+
   & + .selectorIcon {
     right: $padding-x;
     width: $icon-size;
@@ -24,9 +21,9 @@ $selector-transition: all 0.2s ease-in-out;
 .selectorWrapper {
   display: inline-flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: $selector-wrapper-gap;
   width: 100%;
-  
+
   &--fullWidth {
     width: 100%;
   }
@@ -34,11 +31,11 @@ $selector-transition: all 0.2s ease-in-out;
 
 .selectorLabel {
   display: inline-block;
-  margin-bottom: 0.25rem;
-  font-weight: 500;
-  color: $text-color;
-  font-size: 0.875rem;
-  line-height: 1.25;
+  margin-bottom: $selector-label-margin-bottom;
+  font-weight: $selector-label-font-weight;
+  color: $selector-label-text;
+  font-size: $selector-label-font-size;
+  line-height: $selector-label-line-height;
 }
 
 .selectorContainer {
@@ -51,87 +48,87 @@ $selector-transition: all 0.2s ease-in-out;
 .selector {
   appearance: none;
   width: 100%;
-  background-color: $background-paper;
-  border: $selector-border-width solid $border-color;
+  background-color: $selector-bg;
+  border: $selector-border-width solid $selector-border;
   border-radius: $selector-border-radius;
-  color: $text-color;
+  color: $selector-text;
   cursor: pointer;
   transition: $selector-transition;
   outline: none;
-  
+
   // Tamaños
   &--small {
     @include selector-size(
-      0.25rem 0.5rem,  // padding
-      0.5rem,          // padding-x
-      0.75rem,         // font-size
-      1.25,            // line-height
-      1rem             // icon-size
+      $selector-padding-y-sm,
+      $selector-padding-x-sm,
+      $selector-font-size-sm,
+      $selector-line-height-sm,
+      $selector-icon-size-sm
     );
   }
-  
+
   &--medium {
     @include selector-size(
-      0.5rem 0.75rem,  // padding
-      0.75rem,         // padding-x
-      0.875rem,        // font-size
-      1.5,             // line-height
-      1.25rem          // icon-size
+      $selector-padding-y-md,
+      $selector-padding-x-md,
+      $selector-font-size-md,
+      $selector-line-height-md,
+      $selector-icon-size-md
     );
   }
-  
+
   &--large {
     @include selector-size(
-      0.75rem 1rem,    // padding
-      1rem,            // padding-x
-      1rem,            // font-size
-      1.5,             // line-height
-      1.5rem           // icon-size
+      $selector-padding-y-lg,
+      $selector-padding-x-lg,
+      $selector-font-size-lg,
+      $selector-line-height-lg,
+      $selector-icon-size-lg
     );
   }
-  
+
   // Variantes
   &--primary {
     &:focus {
-      border-color: $primary-color;
-      box-shadow: 0 0 0 2px rgba($primary-color, 0.2);
+      border-color: $selector-focus-border-primary;
+      box-shadow: 0 0 0 2px $selector-focus-shadow-primary;
     }
-    
+
     &:hover:not(:disabled) {
-      border-color: color.adjust($border-color, $lightness: -10%);
+      border-color: $selector-hover-border;
     }
   }
-  
+
   &--secondary {
-    border-color: $secondary-color;
-    
+    border-color: $selector-focus-border-secondary;
+
     &:focus {
-      border-color: $secondary-color;
-      box-shadow: 0 0 0 2px rgba($secondary-color, 0.2);
+      border-color: $selector-focus-border-secondary;
+      box-shadow: 0 0 0 2px $selector-focus-shadow-secondary;
     }
-    
+
     &:hover:not(:disabled) {
-      border-color: color.adjust($secondary-color, $lightness: -10%);
+      border-color: $selector-hover-border;
     }
   }
-  
+
   &--error {
-    border-color: $danger-color;
-    
+    border-color: $selector-error-border;
+
     &:focus {
-      border-color: $danger-color;
-      box-shadow: 0 0 0 2px rgba($danger-color, 0.2);
+      border-color: $selector-error-border;
+      box-shadow: 0 0 0 2px $selector-error-focus-shadow;
     }
   }
-  
+
   // Estados
   &:disabled {
-    background-color: $background-default;
-    color: $text-disabled;
+    background-color: $selector-disabled-bg;
+    color: $selector-disabled-text;
     cursor: not-allowed;
-    opacity: 0.7;
+    opacity: $selector-disabled-opacity;
   }
-  
+
   &--fullWidth {
     width: 100%;
   }
@@ -140,12 +137,12 @@ $selector-transition: all 0.2s ease-in-out;
 .selectorIcon {
   position: absolute;
   pointer-events: none;
-  color: $text-secondary;
+  color: $selector-icon-color;
   transition: $selector-transition;
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   svg {
     width: 100%;
     height: 100%;

@@ -54,6 +54,16 @@ export interface TextAreaProps extends Omit<TextareaHTMLAttributes<HTMLTextAreaE
    * @default false
    */
   autoResize?: boolean;
+
+  /**
+   * Número mínimo de filas cuando autoResize es true
+   */
+  minRows?: number;
+
+  /**
+   * Número máximo de filas cuando autoResize es true
+   */
+  maxRows?: number;
   
   /**
    * Clase CSS personalizada para el contenedor

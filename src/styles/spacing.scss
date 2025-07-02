@@ -99,6 +99,33 @@ $pagination-margin: $space-4 0; // 16px top/bottom
 $pagination-button-padding: 0 $space-2; // 0 8px
 $pagination-button-min-width: 2rem; // 32px
 
+// RadioButton Spacing
+$radiobutton-margin-bottom: $space-2;          // 8px
+$radiobutton-padding-left: 1.75rem;         // 28px
+$radiobutton-size: 1.25rem;                 // 20px
+$radiobutton-border-width: 2px;
+$radiobutton-checkmark-size: 0.75rem;         // 12px
+$radiobutton-border-radius: $border-radius-full;
+
+// Selector Spacing
+$selector-border-radius: $border-radius-sm;    // 4px
+$selector-border-width: 1px;
+$selector-wrapper-gap: $space-1;               // 4px
+$selector-label-margin-bottom: $space-1;       // 4px
+
+// -- Sizes
+$selector-padding-y-sm: $space-1;              // 4px
+$selector-padding-x-sm: $space-2;              // 8px
+$selector-icon-size-sm: 1rem;                  // 16px
+
+$selector-padding-y-md: $space-2;              // 8px
+$selector-padding-x-md: $space-3;              // 12px
+$selector-icon-size-md: 1.25rem;               // 20px
+
+$selector-padding-y-lg: $space-3;              // 12px
+$selector-padding-x-lg: $space-4;              // 16px
+$selector-icon-size-lg: 1.5rem;                // 24px
+
 // Footer Spacing
 $footer-padding: $space-6; // 24px
 $footer-content-gap: $space-4; // 16px

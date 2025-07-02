@@ -1,205 +1,61 @@
-import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
-import { Selector, SelectorVariant, SelectorSize } from '..';
-import { mockOptions, mockGroupedOptions, mockLongListOptions } from '../__tests__/mocks';
-
-// Tipo para opciones agrupadas
-type GroupedOption = {
-  label: string;
-  options: Array<{
-    value: string | number;
-    label: string;
-    disabled?: boolean;
-  }>;
-};
-
-// Extendemos las props para aceptar opciones agrupadas
-type SelectorStoryProps = React.ComponentProps<typeof Selector> & {
-  options?: Array<{
-    value: string | number;
-    label: string;
-    disabled?: boolean;
-  } | GroupedOption>;
-};
-
-const meta: Meta<SelectorStoryProps> = {
-  title: 'Components/Selector',
-  component: Selector,
-  tags: ['autodocs'],
-  argTypes: {
-    variant: {
-      control: {
-        type: 'select',
-        options: Object.values(SelectorVariant),
-      },
-    },
-    size: {
-      control: {
-        type: 'select',
-        options: Object.values(SelectorSize),
-      },
-    },
-    disabled: {
-      control: 'boolean',
-    },
-    loading: {
-      control: 'boolean',
-    },
-    fullWidth: {
-      control: 'boolean',
-    },
-    error: {
-      control: 'boolean',
-    },
-  },
-  args: {
-    options: mockOptions,
-    label: 'Selecciona una opción',
-    placeholder: 'Elige una opción',
-    variant: SelectorVariant.PRIMARY,
-    size: SelectorSize.MEDIUM,
-    disabled: false,
-    loading: false,
-    fullWidth: false,
-    error: false,
-  },
-};
+import type { StoryObj } from '@storybook/react';
+import { Selector } from '..';
+import {
+  meta,
+  defaultArgs,
+  withoutLabelArgs,
+  withHelperTextArgs,
+  errorStateArgs,
+  disabledArgs,
+  loadingArgs,
+  fullWidthArgs,
+  withManyOptionsArgs,
+  OptionGroupsComponent,
+  SizesComponent,
+} from './mocks';
 
 export default meta;
 
-type Story = StoryObj<SelectorStoryProps>;
+type Story = StoryObj<typeof Selector>;
 
-/**
- * Selector básico con las opciones por defecto.
- */
-export const Default: Story = {};
+export const Default: Story = {
+  args: defaultArgs,
+};
 
-/**
- * Selector sin etiqueta.
- */
 export const WithoutLabel: Story = {
-  args: {
-    label: undefined,
-  },
+  args: withoutLabelArgs,
 };
 
-/**
- * Selector con texto de ayuda.
- */
 export const WithHelperText: Story = {
-  args: {
-    helperText: 'Selecciona una opción de la lista',
-  },
+  args: withHelperTextArgs,
 };
 
-/**
- * Selector con estado de error.
- */
 export const ErrorState: Story = {
-  args: {
-    error: true,
-    errorMessage: 'Debes seleccionar una opción',
-  },
+  args: errorStateArgs,
 };
 
-/**
- * Selector deshabilitado.
- */
 export const Disabled: Story = {
-  args: {
-    disabled: true,
-  },
+  args: disabledArgs,
 };
 
-/**
- * Selector en estado de carga.
- */
 export const Loading: Story = {
-  args: {
-    loading: true,
-  },
+  args: loadingArgs,
 };
 
-/**
- * Selector que ocupa todo el ancho disponible.
- */
 export const FullWidth: Story = {
-  args: {
-    fullWidth: true,
-  },
+  args: fullWidthArgs,
 };
 
-/**
- * Selector con opciones agrupadas.
- */
-export const WithOptionGroups: Story = {
-  args: {
-    options: [], // No usamos las opciones agrupadas aquí ya que se renderizan manualmente
-    label: 'Opciones agrupadas',
-  },
-  render: (args) => {
-    // Renderizamos manualmente el select con opciones agrupadas
-    return (
-      <div>
-        <label style={{ display: 'block', marginBottom: '8px', fontWeight: 500 }}>{args.label}</label>
-        <select style={{
-          padding: '8px',
-          borderRadius: '4px',
-          border: '1px solid #ccc',
-          minWidth: '200px',
-        }}>
-          {mockGroupedOptions.map((group, index) => (
-            <optgroup key={index} label={group.label}>
-              {group.options.map((option) => (
-                <option 
-                  key={option.value.toString()} 
-                  value={option.value}
-                  disabled={option.disabled}
-                >
-                  {option.label}
-                </option>
-              ))}
-            </optgroup>
-          ))}
-        </select>
-      </div>
-    );
-  },
-};
-
-/**
- * Selector con muchas opciones y scroll.
- */
 export const WithManyOptions: Story = {
-  args: {
-    options: mockLongListOptions,
-    label: 'Muchas opciones',
-  },
+  args: withManyOptionsArgs,
 };
 
-/**
- * Selector con diferentes tamaños.
- */
+export const WithOptionGroups: Story = {
+  render: () => <OptionGroupsComponent />,
+};
+
 export const Sizes: Story = {
-  render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-      <Selector 
-        options={mockOptions} 
-        label="Selector pequeño" 
-        size={SelectorSize.SMALL} 
-      />
-      <Selector 
-        options={mockOptions} 
-        label="Selector mediano (por defecto)" 
-        size={SelectorSize.MEDIUM} 
-      />
-      <Selector 
-        options={mockOptions} 
-        label="Selector grande" 
-        size={SelectorSize.LARGE} 
-      />
-    </div>
-  ),
+  render: () => <SizesComponent />,
 };
 
 /**

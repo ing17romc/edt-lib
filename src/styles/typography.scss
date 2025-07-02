@@ -75,3 +75,20 @@ $footer-copyright-font-size: $font-size-sm; // 14px
 // NavBar Typography
 $navbar-title-font-size: $font-size-xl; // 20px
 $navbar-title-font-weight: $font-weight-semibold;
+
+// RadioButton Typography
+$radiobutton-label-font-size: $font-size-sm;     // 14px
+$radiobutton-label-line-height: $line-height-sm;  // 1.25
+
+// Selector Typography
+$selector-label-font-size: $font-size-sm;      // 14px
+$selector-label-font-weight: $font-weight-medium;
+$selector-label-line-height: $line-height-sm;  // 1.25
+
+// -- Sizes
+$selector-font-size-sm: $font-size-xs;         // 12px
+$selector-line-height-sm: $line-height-sm;     // 1.25
+$selector-font-size-md: $font-size-sm;         // 14px
+$selector-line-height-md: $line-height-md;     // 1.5
+$selector-font-size-lg: $font-size-md;         // 16px
+$selector-line-height-lg: $line-height-md;     // 1.5
