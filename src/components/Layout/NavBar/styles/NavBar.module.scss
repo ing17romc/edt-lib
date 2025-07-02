@@ -1,9 +1,11 @@
 @use '../../../../styles/palette' as *;
+@use '../../../../styles/typography' as *;
+@use '../../../../styles/spacing' as *;
 
 .navbar {
   background-color: var(--color-surface);
-  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
-  padding: 0 1.5rem;
+  box-shadow: $navbar-shadow;
+  padding: 0 $navbar-padding-x;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -13,15 +15,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 4rem;
-  max-width: 1200px;
+  height: $navbar-height;
+  max-width: $navbar-max-width;
   margin: 0 auto;
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: $navbar-brand-gap;
 }
 
 .logo {
@@ -31,13 +33,13 @@
 
 .title {
   margin: 0;
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: $navbar-title-font-size;
+  font-weight: $navbar-title-font-weight;
   color: var(--color-text);
 }
 
 .nav {
   display: flex;
-  gap: 1.5rem;
+  gap: $navbar-nav-gap;
   align-items: center;
 }

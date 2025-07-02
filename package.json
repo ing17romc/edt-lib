@@ -18,9 +18,12 @@
     "lint:js": "eslint . --ext .ts,.tsx  --fix",
     "lint:scss": "stylelint \"src/**/*.scss\" --fix",
     "lint": "npm run lint:js && npm run lint:scss",
-    "sb": "npm run build && storybook build && storybook dev -p 6006",
-    "release-sb": "npm run build && rm -rf .gh-pages && storybook build && gh-pages -d storybook-static",
-    "publish-npm": "npm version patch && npm run build && npm publish --access public"
+    "sb": "npx storybook dev -p 6006",
+    "build-sb": "npx storybook build",
+    "release-sb": "npm run build-sb && rm -rf .gh-pages && gh-pages -d storybook-static",
+    "publish-npm-patch": "npm version patch && npm run build && npm publish --access public",
+    "publish-npm-minor": "npm version minor && npm run build && npm publish --access public",
+    "publish-npm-major": "npm version major && npm run build && npm publish --access public"
   },
   "dependencies": {
     "classnames": "^2.5.0",

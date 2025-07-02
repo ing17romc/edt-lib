@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './styles/Footer.module.scss';
-import { FooterProps } from '../types';
+import { FooterProps } from './types';
 
 const Footer: React.FC<FooterProps> = ({ 
   children, 

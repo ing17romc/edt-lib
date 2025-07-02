@@ -98,6 +98,18 @@ $pagination-gap: $space-2; // 8px
 $pagination-margin: $space-4 0; // 16px top/bottom
 $pagination-button-padding: 0 $space-2; // 0 8px
 $pagination-button-min-width: 2rem; // 32px
+
+// Footer Spacing
+$footer-padding: $space-6; // 24px
+$footer-content-gap: $space-4; // 16px
+$footer-max-width: 1200px;
+
+// NavBar Spacing
+$navbar-height: 4rem; // 64px
+$navbar-padding-x: $space-6; // 24px
+$navbar-max-width: 1200px;
+$navbar-brand-gap: $space-4; // 16px
+$navbar-nav-gap: $space-6; // 24px
 $pagination-button-height: 2rem; // 32px
 $pagination-button-border-radius: $border-radius-md; // 4px
 $pagination-button-border-width: 1px;
