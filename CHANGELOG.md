@@ -4,6 +4,12 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+- **2025-07-01** refactor: Mejora en el componente Card
+  - Refactorización de estilos para usar variables globales
+  - Extracción de tipografía, colores y espaciado a archivos SCSS globales
+  - Mejora en la consistencia visual del componente
+  - Actualización de documentación de estilos
+
 - **2025-07-01** refactor: Mejora en el componente Button
   - Refactorización de estilos para usar variables globales
   - Extracción de estilos a archivos SCSS modulares
