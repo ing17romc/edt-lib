@@ -4,6 +4,14 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+### 2.7.12 (2025-07-02)
+- **feat(layout):** Refactorización completa de los componentes `Layout`, `NavBar` y `Footer`.
+  - Extracción de estilos (tipografía, colores, espaciado) a variables SCSS globales para consistencia.
+  - Modularización de tipos (`interfaces`) a archivos `types.tsx` dedicados por componente.
+  - Creación de estructura de pruebas unitarias (`tests/` y `mocks.tsx`) para los tres componentes.
+- **fix(storybook):** Corregido error de construcción (`NoMetaError`) moviendo la configuración `meta` al archivo de historia.
+- **chore(scripts):** Optimización de scripts de npm en `package.json` para eliminar pasos de compilación redundantes.
+
 ### 2.7.9 (2025-07-02)
 - **refactor:** Componente `Pagination`
   - Extracción de tipografía a `typography.scss` con variables para botones y texto.
