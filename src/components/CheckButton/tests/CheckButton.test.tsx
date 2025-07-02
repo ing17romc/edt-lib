@@ -1,17 +1,26 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import CheckButton from '../index';
+import { 
+  DefaultCheckButton, 
+  ControlledCheckButton, 
+  DisabledCheckButton, 
+  CheckedCheckButton, 
+  CustomClassCheckButton,
+  LargeCheckButton,
+  SmallCheckButton,
+  LongLabelCheckButton
+} from './mocks';
 
 describe('CheckButton', () => {
-  it('se renderiza correctamente', () => {
-    render(<CheckButton label="Test Checkbox" />);
+  it('se renderiza correctamente con la etiqueta proporcionada', () => {
+    render(<DefaultCheckButton label="Test Checkbox" />);
     expect(screen.getByText('Test Checkbox')).toBeInTheDocument();
   });
 
-  it('cambia de estado al hacer clic', () => {
+  it('llama a onChange cuando se hace clic', () => {
     const handleChange = jest.fn();
-    render(<CheckButton label="Click me" onChange={handleChange} />);
+    render(<DefaultCheckButton label="Click me" onChange={handleChange} />);
     
     const checkbox = screen.getByLabelText('Click me');
     fireEvent.click(checkbox);
@@ -21,23 +30,57 @@ describe('CheckButton', () => {
 
   it('no responde al clic cuando está deshabilitado', () => {
     const handleChange = jest.fn();
-    render(<CheckButton label="Disabled" disabled onChange={handleChange} />);
+    render(<DisabledCheckButton onChange={handleChange} />);
     
-    const checkbox = screen.getByLabelText('Disabled');
+    const checkbox = screen.getByLabelText('Opción deshabilitada');
     fireEvent.click(checkbox);
     
     expect(handleChange).not.toHaveBeenCalled();
   });
 
-  it('muestra el estado inicial correcto', () => {
-    render(<CheckButton label="Checked" checked={true} />);
-    const checkbox = screen.getByLabelText('Checked') as HTMLInputElement;
+  it('muestra el estado inicial como marcado cuando checked es true', () => {
+    render(<CheckedCheckButton />);
+    const checkbox = screen.getByLabelText('Opción seleccionada') as HTMLInputElement;
     expect(checkbox.checked).toBe(true);
   });
 
-  it('aplica la clase personalizada', () => {
-    render(<CheckButton label="Custom Class" className="custom-class" />);
-    const label = screen.getByText('Custom Class').closest('label');
-    expect(label).toHaveClass('custom-class');
+  it('aplica la clase personalizada cuando se proporciona', () => {
+    render(<CustomClassCheckButton />);
+    const label = screen.getByText('Con clase personalizada').closest('label');
+    expect(label).toHaveClass('custom-checkbox-class');
+  });
+
+  it('aplica la clase de tamaño grande correctamente', () => {
+    render(<LargeCheckButton />);
+    const label = screen.getByText('Opción grande').closest('label');
+    expect(label).toHaveClass('check-button--large');
+  });
+
+  it('aplica la clase de tamaño pequeño correctamente', () => {
+    render(<SmallCheckButton />);
+    const label = screen.getByText('Opción pequeña').closest('label');
+    expect(label).toHaveClass('check-button--small');
+  });
+
+  it('maneja correctamente etiquetas largas', () => {
+    render(<LongLabelCheckButton />);
+    expect(screen.getByText(/Esta es una etiqueta muy larga/)).toBeInTheDocument();
+  });
+
+  it('actualiza el estado cuando se usa como componente controlado', () => {
+    const { rerender } = render(<ControlledCheckButton />);
+    const checkbox = screen.getByLabelText('Opción de ejemplo') as HTMLInputElement;
+    
+    // Estado inicial
+    expect(checkbox.checked).toBe(false);
+    
+    // Simular clic
+    fireEvent.click(checkbox);
+    
+    // Volver a renderizar con el nuevo estado
+    rerender(<ControlledCheckButton checked={true} />);
+    
+    // Verificar que el estado se actualizó
+    expect(checkbox.checked).toBe(true);
   });
 });

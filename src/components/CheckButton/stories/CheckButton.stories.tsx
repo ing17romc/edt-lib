@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import CheckButton from '../index';
+import { CheckButtonProps } from '../types';
 
-const meta: Meta<typeof CheckButton> = {
+// Configuración base para las historias
+const meta: Meta<CheckButtonProps> = {
   title: 'Components/CheckButton',
   component: CheckButton,
   tags: ['autodocs'],
@@ -36,9 +38,27 @@ const meta: Meta<typeof CheckButton> = {
 };
 
 export default meta;
+type Story = StoryObj<typeof meta>;
 
-type Story = StoryObj<typeof CheckButton>;
+// Opciones para el grupo de checkboxes
+const groupOptions = [
+  { id: '1', label: 'Opción 1' },
+  { id: '2', label: 'Opción 2' },
+  { id: '3', label: 'Opción 3' },
+];
 
+// Estilos para el contenedor del grupo
+const groupContainerStyle: React.CSSProperties = { 
+  display: 'flex', 
+  flexDirection: 'column', 
+  gap: '12px' 
+};
+
+const selectedItemsStyle: React.CSSProperties = { 
+  marginTop: '16px' 
+};
+
+// Historias
 export const Default: Story = {};
 
 export const Checked: Story = {
@@ -69,31 +89,22 @@ export const Small: Story = {
   },
 };
 
-interface InteractiveTemplateProps {
-  label?: string;
-  disabled?: boolean;
-  className?: string;
-}
-
-const InteractiveTemplate = (args: InteractiveTemplateProps) => {
-  const [checked, setChecked] = useState(false);
-  return (
-    <CheckButton
-      {...args}
-      checked={checked}
-      onChange={(isChecked) => setChecked(isChecked)}
-    />
-  );
-};
-
 export const Interactive: Story = {
-  render: InteractiveTemplate,
+  render: function InteractiveTemplate(args) {
+    const [checked, setChecked] = useState(false);
+    return (
+      <CheckButton
+        {...args}
+        checked={checked}
+        onChange={(isChecked: boolean) => setChecked(isChecked)}
+      />
+    );
+  },
   args: {
     label: 'Haz clic para cambiar',
   },
 };
 
-// Grupo de checkboxes
 export const Group: Story = {
   render: function GroupRender() {
     const [selected, setSelected] = useState<string[]>([]);
@@ -106,15 +117,9 @@ export const Group: Story = {
       );
     };
 
-    const options = [
-      { id: '1', label: 'Opción 1' },
-      { id: '2', label: 'Opción 2' },
-      { id: '3', label: 'Opción 3' },
-    ];
-
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-        {options.map((option) => (
+      <div style={groupContainerStyle}>
+        {groupOptions.map((option) => (
           <CheckButton
             key={option.id}
             label={option.label}
@@ -122,10 +127,17 @@ export const Group: Story = {
             onChange={() => handleChange(option.id)}
           />
         ))}
-        <div style={{ marginTop: '16px' }}>
+        <div style={selectedItemsStyle}>
           <p>Seleccionados: {selected.length > 0 ? selected.join(', ') : 'Ninguno'}</p>
         </div>
       </div>
     );
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Ejemplo de un grupo de checkboxes que se pueden seleccionar múltiples opciones.',
+      },
+    },
   },
 };

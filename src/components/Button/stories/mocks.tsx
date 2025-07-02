@@ -60,7 +60,6 @@ export const sizes = Object.values(ButtonSize).map((size) => ({
 }));
 
 export const buttonStories: Meta<ButtonProps> = {
-  title: 'Components/Button',
   tags: ['autodocs'],
   argTypes: {
     variant: {

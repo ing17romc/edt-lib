@@ -1,11 +1,13 @@
 @use '../../../styles/palette' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/spacing' as *;
 
 .check-button {
   display: inline-flex;
   align-items: center;
   position: relative;
-  padding-left: 30px;
-  margin-bottom: 12px;
+  padding-left: $checkbutton-padding-left;
+  margin-bottom: $checkbutton-margin-bottom;
   cursor: pointer;
   user-select: none;
   transition: all 0.2s ease-in-out;
@@ -18,8 +20,8 @@
     width: 0;
 
     &:checked ~ .check-button__checkmark {
-      background-color: $primary-color;
-      border-color: $primary-color;
+      background-color: $checkbutton-checked-bg;
+      border-color: $checkbutton-checked-border;
 
       &::after {
         display: block;
@@ -27,7 +29,7 @@
     }
 
     &:focus-visible ~ .check-button__checkmark {
-      box-shadow: 0 0 0 3px rgba($primary-color, 0.25);
+      box-shadow: $checkbutton-focus-shadow;
     }
   }
 
@@ -35,42 +37,43 @@
     position: absolute;
     top: 0;
     left: 0;
-    height: 20px;
-    width: 20px;
-    background-color: var(--color-white);
-    border: 2px solid $border-color;
-    border-radius: 4px;
+    height: $checkbutton-checkmark-size;
+    width: $checkbutton-checkmark-size;
+    background-color: $checkbutton-bg;
+    border: $checkbutton-border-width solid $checkbutton-border;
+    border-radius: $border-radius-sm;
     transition: all 0.2s ease-in-out;
 
     &::after {
       content: "";
       position: absolute;
       display: none;
-      left: 6px;
+      left: $checkbutton-checkmark-left;
       top: 2px;
-      width: 5px;
-      height: 10px;
-      border: solid var(--color-white);
-      border-width: 0 2px 2px 0;
+      width: $checkmark-width;
+      height: $checkmark-height;
+      border: solid $checkbutton-checkmark-color;
+      border-width: $checkmark-border-width;
       transform: rotate(45deg);
     }
   }
 
   &__label {
-    margin-left: 8px;
-    color: var(--color-text-primary);
-    font-size: 14px;
-    line-height: 1.5;
+    margin-left: $checkbutton-label-margin-left;
+    color: $checkbutton-label-color;
+    font-size: $checkbutton-font-size;
+    line-height: $checkbutton-line-height;
+    font-weight: $checkbutton-font-weight;
   }
 
   &:hover:not(.disabled) {
     .check-button__checkmark {
-      border-color: $primary-color;
+      border-color: $checkbutton-hover-border;
     }
   }
 
   &.disabled {
-    opacity: 0.65;
+    opacity: $checkbutton-disabled-opacity;
     cursor: not-allowed;
   }
 }
@@ -78,8 +81,8 @@
 // Modifiers
 .check-button--large {
   .check-button__checkmark {
-    width: 24px;
-    height: 24px;
+    width: $checkbutton-checkmark-size-lg;
+    height: $checkbutton-checkmark-size-lg;
 
     &::after {
       left: 8px;
@@ -88,24 +91,24 @@
   }
 
   .check-button__label {
-    font-size: 16px;
+    font-size: $checkbutton-font-size-lg;
   }
 }
 
 .check-button--small {
   .check-button__checkmark {
-    width: 16px;
-    height: 16px;
+    width: $checkbutton-checkmark-size-sm;
+    height: $checkbutton-checkmark-size-sm;
 
     &::after {
       left: 5px;
-      top: 2px;
+      top: 1px;
       width: 4px;
       height: 8px;
     }
   }
 
   .check-button__label {
-    font-size: 12px;
+    font-size: $checkbutton-font-size-sm;
   }
 }

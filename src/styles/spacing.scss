@@ -42,6 +42,19 @@ $button-border-radius: $border-radius-sm;
 // Card Image
 $card-image-height: 10rem;  // 160px
 
+// CheckButton Spacing
+$checkbutton-padding-left: 1.875rem;      // 30px
+$checkbutton-margin-bottom: 0.75rem;      // 12px
+$checkbutton-checkmark-size: 1.25rem;     // 20px
+$checkbutton-checkmark-size-sm: 1rem;     // 16px
+$checkbutton-checkmark-size-lg: 1.5rem;   // 24px
+$checkbutton-label-margin-left: 0.5rem;   // 8px
+$checkbutton-border-width: 2px;
+$checkbutton-checkmark-left: 0.375rem;    // 6px
+$checkmark-width: 0.3125rem;              // 5px
+$checkmark-height: 0.625rem;              // 10px
+$checkmark-border-width: 0 2px 2px 0;     // Ancho del borde del checkmark
+
 // Focus Styles
 $focus-ring-width: 3px;
 $focus-ring-offset: 1px;

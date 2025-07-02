@@ -4,6 +4,7 @@ import { buttonStories, variants, sizes } from './mocks';
 import { ButtonVariant, ButtonSize } from '../types';
 
 const meta = {
+  title: 'Components/Button',
   ...buttonStories,
   component: Button,
 } satisfies Meta<typeof Button>;
