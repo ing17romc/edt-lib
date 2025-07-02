@@ -14,7 +14,7 @@ export enum IconVariant {
   DUAL = 'dual',
 }
 
-export interface IconProps extends HTMLAttributes<HTMLSpanElement> {
+export interface IconProps extends Omit<HTMLAttributes<HTMLSpanElement>, 'children'> {
   /**
    * Nombre del icono a mostrar
    */
@@ -50,6 +50,17 @@ export interface IconProps extends HTMLAttributes<HTMLSpanElement> {
   inheritColor?: boolean;
   
   /**
+   * Si es true, el icono se muestra como deshabilitado
+   * @default false
+   */
+  disabled?: boolean;
+  
+  /**
+   * Componente personalizado para renderizar como icono
+   */
+  component?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  
+  /**
    * Clase CSS personalizada
    */
   className?: string;
@@ -58,4 +69,9 @@ export interface IconProps extends HTMLAttributes<HTMLSpanElement> {
    * Estilos en línea
    */
   style?: React.CSSProperties;
+  
+  /**
+   * Identificador para pruebas
+   */
+  'data-testid'?: string;
 }

@@ -43,3 +43,11 @@ $checkbutton-font-size-sm: $font-size-sm;     // 14px
 $checkbutton-font-size-lg: $font-size-lg;     // 18px
 $checkbutton-line-height: $line-height-md;    // 1.5
 $checkbutton-font-weight: $font-weight-regular;
+
+// Icon Typography
+$icon-font-size-xsmall: 1rem;      // 16px
+$icon-font-size-small: 1.25rem;    // 20px
+$icon-font-size-medium: 1.5rem;    // 24px
+$icon-font-size-large: 2rem;       // 32px
+$icon-font-size-xlarge: 2.5rem;    // 40px
+$icon-line-height: 1;              // Sin unidad para que herede el tamaño de fuente

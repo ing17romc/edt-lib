@@ -23,6 +23,7 @@ export const Icon = forwardRef<HTMLSpanElement, IconProps>(({
       [styles[`icon--${size}`]]: size,
       [styles[`icon--${variant}`]]: variant,
       [styles['icon--inherit-color']]: inheritColor,
+      [styles['icon--disabled']]: rest.disabled,
     },
     className
   );
@@ -31,6 +32,23 @@ export const Icon = forwardRef<HTMLSpanElement, IconProps>(({
     ...(color && !inheritColor ? { color } : {}),
     ...style,
   };
+
+  // Si se proporciona un componente personalizado, lo usamos
+  if (rest.component) {
+    const CustomIcon = rest.component;
+    return (
+      <span
+        ref={ref}
+        className={iconClasses}
+        style={iconStyle}
+        role="img"
+        aria-label={rest['aria-label'] || name}
+        {...rest}
+      >
+        <CustomIcon />
+      </span>
+    );
+  }
 
   // Nota: En una implementación real, aquí podrías importar dinámicamente
   // los iconos desde un archivo de assets o usar una librería de iconos
@@ -50,7 +68,7 @@ export const Icon = forwardRef<HTMLSpanElement, IconProps>(({
           cx="12" 
           cy="12" 
           r="10" 
-          className={styles.icon__path} 
+          className={styles.icon__path}
           style={{
             fill: variant === IconVariant.SOLID ? 'currentColor' : 'none',
             stroke: variant !== IconVariant.SOLID ? 'currentColor' : 'none',
@@ -60,7 +78,7 @@ export const Icon = forwardRef<HTMLSpanElement, IconProps>(({
         <text 
           x="12" 
           y="16" 
-          textAnchor="middle" 
+          textAnchor="middle"
           fill={variant === IconVariant.SOLID ? 'white' : 'currentColor'}
           style={{
             fontSize: '12px',
@@ -68,7 +86,7 @@ export const Icon = forwardRef<HTMLSpanElement, IconProps>(({
             fontFamily: 'sans-serif',
           }}
         >
-          {name.charAt(0).toUpperCase()}
+          {name ? name.charAt(0).toUpperCase() : 'I'}
         </text>
       </svg>
     );

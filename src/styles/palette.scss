@@ -48,6 +48,12 @@ $card-shadow-elevated: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0
 // CheckButton Colors
 $checkbutton-bg: $white-color;
 $checkbutton-border: $border-color;
+
+// Icon Colors
+$icon-color: currentcolor;
+$icon-primary-color: $primary-color;
+$icon-secondary-color: $secondary-color;
+$icon-disabled-opacity: 0.5;
 $checkbutton-checked-bg: $primary-color;
 $checkbutton-checked-border: $primary-color;
 $checkbutton-hover-border: $primary-color;
