@@ -4,6 +4,14 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+### 2.7.9 (2025-07-02)
+- **refactor:** Componente `Pagination`
+  - Extracción de tipografía a `typography.scss` con variables para botones y texto.
+  - Extracción de colores a `palette.scss` con variables para estados de botones y fondos.
+  - Extracción de espaciados a `spacing.scss` con variables para márgenes, paddings y dimensiones.
+  - Mejora en la organización del código y consistencia en el uso de variables globales.
+  - Documentación actualizada para facilitar el mantenimiento futuro.
+
 ### 2.7.8 (2025-07-02)
 - **refactor:** Componente `Modal`
   - Extracción de tipografía a `typography.scss` con variables para títulos, contenido y botones.
