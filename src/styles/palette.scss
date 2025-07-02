@@ -101,6 +101,18 @@ $button-danger-bg: $danger-color;
 $button-danger-text: $white-color;
 $button-danger-hover: color.adjust($danger-color, $lightness: -10%);
 $button-danger-active: color.adjust($danger-color, $lightness: -15%);
+
+// Modal Colors
+$modal-overlay-bg: rgb(0 0 0 / 50%);
+$modal-bg: $white-color;
+$modal-border-radius: 0.5rem; // 8px
+$modal-box-shadow: 0 4px 20px rgb(0 0 0 / 15%);
+$modal-header-border: $border-color;
+$modal-footer-bg: color.adjust($light-gray-color, $lightness: 10%);
+$modal-close-button-color: $secondary-color;
+$modal-close-button-hover-color: $text-color;
+$modal-close-button-hover-bg: color.adjust($light-gray-color, $lightness: -5%);
+$modal-focus-ring: 0 0 0 2px $primary-color;
 $button-success-bg: $success-color;
 $button-success-text: $white-color;
 $button-success-hover: color.adjust($success-color, $lightness: -10%);

@@ -79,3 +79,16 @@ $checkmark-border-width: 0 2px 2px 0;     // Ancho del borde del checkmark
 // Focus Styles
 $focus-ring-width: 3px;
 $focus-ring-offset: 1px;
+
+// Modal Spacing
+$modal-padding: 1.5rem;                     // 24px
+$modal-header-padding: 1rem 1.5rem;         // 16px 24px
+$modal-footer-padding: 1rem 1.5rem;         // 16px 24px
+$modal-close-button-padding: 0.25rem;       // 4px
+$modal-close-button-border-radius: 0.25rem; // 4px
+$modal-content-padding: 1.5rem;             // 24px
+$modal-scrollbar-width: 0.5rem;             // 8px
+$modal-scrollbar-track-radius: 0.25rem;     // 4px
+$modal-scrollbar-thumb-radius: 0.25rem;     // 4px
+$modal-gap: 0.75rem;                        // 12px
+$modal-enter-animation-duration: 0.3s;      // Duración de la animación de entrada

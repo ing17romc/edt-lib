@@ -1,18 +1,20 @@
 @use '../../../styles/palette' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/spacing' as *;
 
 .modalOverlay {
   position: fixed;
   inset: 0;
-  background-color: rgb(0 0 0 / 50%);
+  background-color: $modal-overlay-bg;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  padding: 1rem;
+  padding: $space-4;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-  animation: modal-fade-in 0.3s ease-out forwards;
+  transition: opacity $modal-enter-animation-duration ease, visibility $modal-enter-animation-duration ease;
+  animation: modal-fade-in $modal-enter-animation-duration ease-out forwards;
   backdrop-filter: blur(2px);
 }
 
@@ -22,16 +24,16 @@
 }
 
 .modalContainer {
-  background: var(--color-white);
-  border-radius: 8px;
-  box-shadow: 0 4px 20px rgb(0 0 0 / 15%);
+  background: $modal-bg;
+  border-radius: $modal-border-radius;
+  box-shadow: $modal-box-shadow;
   width: 100%;
   max-height: 90vh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   transform: translateY(20px);
-  transition: transform 0.3s ease;
+  transition: transform $modal-enter-animation-duration ease;
   max-width: 100%;
   
   .modalOverlay.visible & {
@@ -57,63 +59,65 @@
 }
 
 .modalHeader {
-  padding: 1rem 1.5rem;
-  border-bottom: 1px solid var(--color-border);
+  padding: $modal-header-padding;
+  border-bottom: 1px solid $modal-header-border;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--color-white);
+  background-color: $modal-bg;
   
   h2 {
     margin: 0;
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--color-text);
+    font-size: $modal-title-font-size;
+    font-weight: $modal-title-font-weight;
+    color: $text-color;
   }
 }
 
 .closeButton {
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: $modal-close-button-font-size;
   cursor: pointer;
-  color: var(--color-text-secondary);
-  padding: 0.25rem;
-  line-height: 1;
+  color: $modal-close-button-color;
+  padding: $modal-close-button-padding;
+  line-height: $line-height-md;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 4px;
+  border-radius: $modal-close-button-border-radius;
   transition: all 0.2s ease;
   
   &:hover {
-    color: var(--color-text);
-    background-color: var(--color-background-alt);
+    color: $modal-close-button-hover-color;
+    background-color: $modal-close-button-hover-bg;
   }
   
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 2px var(--color-primary-hover);
+    box-shadow: $modal-focus-ring;
   }
 }
 
 .modalContent {
-  padding: 1.5rem;
+  padding: $modal-content-padding;
   overflow-y: auto;
   flex-grow: 1;
+  font-size: $modal-body-font-size;
+  line-height: $modal-body-line-height;
   
   &:not(:last-child) {
-    padding-bottom: 1.5rem;
+    padding-bottom: $modal-content-padding;
   }
 }
 
 .modalFooter {
-  padding: 1rem 1.5rem;
-  border-top: 1px solid var(--color-border);
-  background-color: var(--color-background-alt);
+  padding: $modal-footer-padding;
+  border-top: 1px solid $modal-header-border;
+  background-color: $modal-footer-bg;
   display: flex;
   justify-content: flex-end;
-  gap: 0.75rem;
+  gap: $modal-gap;
   flex-wrap: wrap;
 }
 
@@ -136,20 +140,20 @@
 
 // Estilos para scrollbar en el contenido del modal
 .modalContent::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: $modal-scrollbar-width;
+  height: $modal-scrollbar-width;
 }
 
 .modalContent::-webkit-scrollbar-track {
-  background: var(--color-background-alt);
-  border-radius: 4px;
+  background: $modal-footer-bg;
+  border-radius: $modal-scrollbar-track-radius;
 }
 
 .modalContent::-webkit-scrollbar-thumb {
-  background: var(--color-text-secondary);
-  border-radius: 4px;
+  background: $modal-close-button-color;
+  border-radius: $modal-scrollbar-thumb-radius;
   
   &:hover {
-    background: var(--color-text);
+    background: $modal-close-button-hover-color;
   }
 }

@@ -55,3 +55,10 @@ $iconbutton-line-height: 1;
 $icon-font-size-large: 2rem;       // 32px
 $icon-font-size-xlarge: 2.5rem;    // 40px
 $icon-line-height: 1;              // Sin unidad para que herede el tamaño de fuente
+
+// Modal Typography
+$modal-title-font-size: 1.25rem;    // 20px
+$modal-title-font-weight: $font-weight-semibold;
+$modal-close-button-font-size: 1.5rem;  // 24px
+$modal-body-font-size: 1rem;        // 16px
+$modal-body-line-height: 1.5;       // 24px
