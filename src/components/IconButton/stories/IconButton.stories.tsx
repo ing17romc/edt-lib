@@ -11,6 +11,7 @@ import {
 
 // Usamos la configuración de meta desde el archivo de mocks
 const metaWithComponent = {
+  title: 'Components/IconButton',
   ...meta,
   component: IconButton,
 };

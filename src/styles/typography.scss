@@ -56,6 +56,12 @@ $icon-font-size-large: 2rem;       // 32px
 $icon-font-size-xlarge: 2.5rem;    // 40px
 $icon-line-height: 1;              // Sin unidad para que herede el tamaño de fuente
 
+// Pagination Typography
+$pagination-button-font-size: $font-size-sm;  // 14px
+$pagination-button-line-height: 1;
+$pagination-button-font-weight: $font-weight-regular;
+$pagination-button-active-font-weight: $font-weight-medium;
+
 // Modal Typography
 $modal-title-font-size: 1.25rem;    // 20px
 $modal-title-font-weight: $font-weight-semibold;

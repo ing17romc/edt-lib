@@ -130,6 +130,18 @@ $button-focus-ring: rgba($primary-color, 0.5);
 $card-transition: all 0.2s ease;
 $card-hover-transform: translateY(-2px);
 
+// Pagination Colors
+$pagination-button-bg: var(--color-white);
+$pagination-button-border: $border-color;
+$pagination-button-text: $text-color;
+$pagination-button-hover-bg: var(--color-background-alt);
+$pagination-button-hover-border: $primary-color;
+$pagination-button-hover-text: $primary-color;
+$pagination-button-active-bg: $primary-color;
+$pagination-button-active-text: var(--color-white);
+$pagination-button-disabled-opacity: 0.5;
+$pagination-ellipsis-color: $text-color;
+
 // Variables de compatibilidad (legacy)
 $text-disabled: color.adjust($text-color, $lightness: 60%);
 $text-secondary: color.adjust($text-color, $lightness: 30%);

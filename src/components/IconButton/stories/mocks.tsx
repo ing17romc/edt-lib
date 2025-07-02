@@ -3,7 +3,6 @@ import { ButtonSize, ButtonVariant } from '../types';
 
 // Configuración de la meta para las historias
 export const meta: Meta = {
-  title: 'Components/IconButton',
   tags: ['autodocs'],
   argTypes: {
     icon: {

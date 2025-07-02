@@ -1,11 +1,13 @@
 @use '../../../styles/palette' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/spacing' as *;
 
 .pagination {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  margin: 1rem 0;
+  gap: $pagination-gap;
+  margin: $pagination-margin;
   padding: 0;
   list-style: none;
 
@@ -19,34 +21,35 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 2rem;
-    height: 2rem;
-    padding: 0 0.5rem;
-    border: 1px solid $border-color;
-    border-radius: 4px;
-    background-color: var(--color-white);
-    color: $text-color;
-    font-size: 0.875rem;
-    line-height: 1;
+    min-width: $pagination-button-min-width;
+    height: $pagination-button-height;
+    padding: $pagination-button-padding;
+    border: $pagination-button-border-width solid $pagination-button-border;
+    border-radius: $pagination-button-border-radius;
+    background-color: $pagination-button-bg;
+    color: $pagination-button-text;
+    font-size: $pagination-button-font-size;
+    font-weight: $pagination-button-font-weight;
+    line-height: $pagination-button-line-height;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: $pagination-transition;
 
     &:hover:not(&--disabled, &--active) {
-      background-color: var(--color-background-alt);
-      border-color: $primary-color;
-      color: $primary-color;
+      background-color: $pagination-button-hover-bg;
+      border-color: $pagination-button-hover-border;
+      color: $pagination-button-hover-text;
     }
 
     &--active {
-      background-color: $primary-color;
-      border-color: $primary-color;
-      color: var(--color-white);
-      font-weight: 500;
+      background-color: $pagination-button-active-bg;
+      border-color: $pagination-button-active-bg;
+      color: $pagination-button-active-text;
+      font-weight: $pagination-button-active-font-weight;
       cursor: default;
     }
 
     &--disabled {
-      opacity: 0.5;
+      opacity: $pagination-button-disabled-opacity;
       cursor: not-allowed;
     }
   }
@@ -55,9 +58,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 2rem;
-    height: 2rem;
-    color: $text-color;
+    min-width: $pagination-button-min-width;
+    height: $pagination-button-height;
+    color: $pagination-ellipsis-color;
     user-select: none;
   }
 }
