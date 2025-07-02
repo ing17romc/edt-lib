@@ -1,16 +1,18 @@
 @use '../../../styles/palette' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/spacing' as *;
 
 .iconButton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border: 1px solid transparent;
-  border-radius: 4px;
-  font-weight: 500;
+  border-radius: $iconbutton-border-radius;
+  font-weight: $iconbutton-font-weight;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  padding: 0.5rem;
-  line-height: 1;
+  padding: $iconbutton-padding;
+  line-height: $iconbutton-line-height;
   position: relative;
   overflow: hidden;
   background: none;
@@ -18,84 +20,84 @@
   &:disabled,
   &[disabled] {
     cursor: not-allowed;
-    opacity: 0.6;
+    opacity: $iconbutton-disabled-opacity;
     box-shadow: none;
   }
   
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgb(var(--color-primary-rgb), 0.5);
+    box-shadow: $iconbutton-focus-ring;
   }
   
   // Tamaños
   &--small {
-    width: 2rem;
-    height: 2rem;
-    min-width: 2rem;
-    min-height: 2rem;
+    width: $iconbutton-size-sm;
+    height: $iconbutton-size-sm;
+    min-width: $iconbutton-size-sm;
+    min-height: $iconbutton-size-sm;
   }
   
   &--medium {
-    width: 2.5rem;
-    height: 2.5rem;
-    min-width: 2.5rem;
-    min-height: 2.5rem;
+    width: $iconbutton-size-md;
+    height: $iconbutton-size-md;
+    min-width: $iconbutton-size-md;
+    min-height: $iconbutton-size-md;
   }
   
   &--large {
-    width: 3rem;
-    height: 3rem;
-    min-width: 3rem;
-    min-height: 3rem;
+    width: $iconbutton-size-lg;
+    height: $iconbutton-size-lg;
+    min-width: $iconbutton-size-lg;
+    min-height: $iconbutton-size-lg;
   }
   
   // Variantes
   &--primary {
-    background-color: var(--color-primary);
-    color: white;
+    background-color: $iconbutton-primary-bg;
+    color: $white-color;
     
     &:hover:not(:disabled) {
-      background-color: var(--color-primary-dark);
+      background-color: $iconbutton-primary-hover;
     }
     
     &:active:not(:disabled) {
-      background-color: var(--color-primary-darker);
+      background-color: $iconbutton-primary-active;
     }
   }
   
   &--secondary {
-    background-color: white;
-    color: var(--color-primary);
-    border-color: var(--color-border);
+    background-color: $iconbutton-secondary-bg;
+    color: $primary-color;
+    border-color: $border-color;
     
     &:hover:not(:disabled) {
-      background-color: var(--color-gray-50);
+      background-color: $iconbutton-secondary-hover;
     }
     
     &:active:not(:disabled) {
-      background-color: var(--color-gray-100);
+      background-color: $iconbutton-secondary-active;
     }
   }
   
   &--tertiary {
-    background-color: transparent;
-    color: var(--color-primary);
+    background-color: $iconbutton-tertiary-bg;
+    color: $primary-color;
     
     &:hover:not(:disabled) {
-      background-color: rgb(var(--color-primary-rgb), 0.1);
+      background-color: $iconbutton-tertiary-hover;
     }
     
     &:active:not(:disabled) {
-      background-color: rgb(var(--color-primary-rgb), 0.2);
+      background-color: $iconbutton-tertiary-active;
     }
   }
   
   &--danger {
-    background-color: var(--color-danger);
-    color: white;
+    background-color: $iconbutton-danger-bg;
+    color: $white-color;
     
     &:hover:not(:disabled) {
-      background-color: var(--color-danger-dark);
+      background-color: $iconbutton-danger-hover;
     }
     
     &:active:not(:disabled) {

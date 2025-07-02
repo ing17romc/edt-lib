@@ -30,9 +30,6 @@ describe('Grid', () => {
     const gridElements = screen.getAllByText(/^\d+$/);
     expect(gridElements.length).toBeGreaterThan(0);
     
-    // Log the first element's styles for debugging
-    console.log('First element styles:', window.getComputedStyle(gridElements[0].parentElement as Element));
-    
     // Check for the expected styles
     gridElements.forEach(element => {
       // Check border style and color separately for better error messages

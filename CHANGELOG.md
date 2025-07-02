@@ -4,6 +4,19 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+### 2.7.7 (2025-07-01)
+- **refactor:** Componente `IconButton`
+  - Extracción de tipografía, colores y espaciados a variables SCSS globales.
+  - Organización de tipos en `types.ts` dedicado.
+  - Creación de archivos `mocks.tsx` para historias de Storybook.
+  - Actualización de historias para reutilizar mocks y mejorar la documentación.
+  - Corrección de tamaño de iconos utilizando `IconSize`.
+  - Corrección de estilos y variaciones del componente.
+  - Limpieza de estilos inline y uso de variables globales.
+- **chore:** Limpieza de mocks duplicados en `dist/__mocks__`.
+- **fix:** Ajustes menores de lint en archivos de Stories y Mocks.
+
+
 - **2025-07-01** refactor: Mejora en el componente Icon
   - Mejora en el manejo de estados (disabled, inheritColor)
   - Soporte para componentes SVG personalizados a través de la prop `component`

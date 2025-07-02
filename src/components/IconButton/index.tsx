@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 import cx from 'classnames';
 import Icon from '../Icon';
 import { IconButtonProps } from './types';
-import { ControlSize } from '../utils/enums';
+import { IconSize } from '../Icon/types';
 import { ALL_ICONS, AllIconsType } from '../utils/IconTypes';
 import styles from './styles/IconButton.module.scss';
 
@@ -36,19 +36,19 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(({
   ...rest
 }, ref) => {
   // Mapear tamaños de botón a tamaños de icono
-  const getIconSize = (): ControlSize => {
+  const getIconSize = (): IconSize => {
     switch (size) {
       case 'small':
-        return ControlSize.SM;
+        return IconSize.SMALL;
       case 'large':
-        return ControlSize.LG;
+        return IconSize.LARGE;
       case 'medium':
       default:
-        return ControlSize.MD;
+        return IconSize.MEDIUM;
     }
   };
   
-  const calculatedIconSize = (iconSize as ControlSize) || getIconSize();
+  const calculatedIconSize = (iconSize as IconSize) || getIconSize();
   
   // Asegurarse de que el icono sea válido
   const isValidIcon = (value: string): value is AllIconsType => {

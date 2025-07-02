@@ -1,13 +1,22 @@
 import { ButtonHTMLAttributes } from 'react';
 import { IconVariant } from '../Icon/types';
 
-// Tipos compatibles con los botones existentes
+/**
+ * Variantes de estilo disponibles para el botón de icono
+ */
 export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'danger' | 'success' | 'warning';
+
+/**
+ * Tamaños disponibles para el botón de icono
+ */
 export type ButtonSize = 'small' | 'medium' | 'large';
 
+/**
+ * Propiedades del componente IconButton
+ */
 export interface IconButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children' | 'color'> {
   /**
-   * Nombre del icono a mostrar
+   * Nombre del icono a mostrar. Debe ser un nombre de icono válido.
    */
   icon: string;
   
@@ -36,17 +45,17 @@ export interface IconButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonEle
   loading?: boolean;
   
   /**
-   * Color del icono
+   * Color personalizado para el icono. Sobrescribe el color por defecto.
    */
   iconColor?: string;
   
   /**
-   * Tamaño del icono. Si no se especifica, se calcula en base al tamaño del botón
+   * Tamaño personalizado para el icono. Sobrescribe el tamaño calculado.
    */
   iconSize?: string | number;
   
   /**
-   * Estilo del icono
+   * Estilo del icono (sólido, contorno, etc.)
    * @default 'outline'
    */
   iconVariant?: IconVariant;

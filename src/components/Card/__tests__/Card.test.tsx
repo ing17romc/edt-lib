@@ -18,21 +18,6 @@ jest.mock('../styles/Card.module.scss', () => ({
   card__body: 'card__body',
 }));
 
-// Mock de console.error para evitar warnings de act()
-const originalError = console.error;
-beforeAll(() => {
-  console.error = (...args) => {
-    if (/Warning: React does not recognize the `testID` prop on a DOM element/.test(args[0])) {
-      return;
-    }
-    originalError.call(console, ...args);
-  };
-});
-
-afterAll(() => {
-  console.error = originalError;
-});
-
 describe('Card Component', () => {
   afterEach(() => {
     cleanup();

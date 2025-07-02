@@ -49,6 +49,27 @@ $card-shadow-elevated: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0
 $checkbutton-bg: $white-color;
 $checkbutton-border: $border-color;
 
+// IconButton Colors
+$iconbutton-primary-bg: $primary-color;
+$iconbutton-primary-hover: $primary-hover;
+$iconbutton-primary-active: $primary-active;
+$iconbutton-secondary-bg: $white-color;
+$iconbutton-secondary-hover: color.adjust($light-gray-color, $lightness: 5%);
+$iconbutton-secondary-active: $light-gray-color;
+$iconbutton-tertiary-bg: transparent;
+$iconbutton-tertiary-hover: rgba($primary-color, 0.1);
+$iconbutton-tertiary-active: rgba($primary-color, 0.2);
+$iconbutton-danger-bg: $danger-color;
+$iconbutton-danger-hover: color.adjust($danger-color, $lightness: -10%);
+$iconbutton-danger-active: color.adjust($danger-color, $lightness: -15%);
+$iconbutton-success-bg: $success-color;
+$iconbutton-success-hover: color.adjust($success-color, $lightness: -10%);
+$iconbutton-success-active: color.adjust($success-color, $lightness: -15%);
+$iconbutton-warning-bg: $warning-color;
+$iconbutton-warning-hover: color.adjust($warning-color, $lightness: -10%);
+$iconbutton-warning-active: color.adjust($warning-color, $lightness: -15%);
+$iconbutton-disabled-opacity: 0.6;
+
 // Icon Colors
 $icon-color: currentcolor;
 $icon-primary-color: $primary-color;
