@@ -4,6 +4,20 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+### 2.7.13 (2025-07-02)
+- **refactor(Selector):** Refactorización completa del componente `Selector`.
+  - Modularización de historias de Storybook con un archivo `mocks.tsx` centralizado.
+  - Refactorización de pruebas unitarias para usar mocks y props por defecto, mejorando la mantenibilidad.
+  - Verificación de la correcta aplicación de estilos, tipado y estructura del componente.
+- **fix(lint):** Corregidos múltiples errores de lint y advertencias en toda la aplicación.
+  - Solucionado error de accesibilidad en la historia del `Selector`.
+  - Reemplazado el uso de `any` en los tipos del `TextBox`.
+  - Corregidas advertencias de funciones vacías en pruebas con `jest.fn()` o deshabilitando la regla de lint.
+- **fix(tests):** Eliminadas todas las advertencias (`console.warn`, `console.error`) de la ejecución de las pruebas.
+  - Corregida la propagación de props inválidas al DOM en los componentes `TextButton`, `Icon` y `TextArea`.
+  - Silenciadas advertencias intencionadas en las pruebas de `Pagination` y `TableWithPagination`.
+- **feat(TextArea):** Implementada la funcionalidad `minRows` y `maxRows` para el redimensionamiento automático.
+
 ### 2.7.12 (2025-07-02)
 - **feat(layout):** Refactorización completa de los componentes `Layout`, `NavBar` y `Footer`.
   - Extracción de estilos (tipografía, colores, espaciado) a variables SCSS globales para consistencia.
