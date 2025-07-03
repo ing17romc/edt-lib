@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 import TextBox from '../';
 import type { TextBoxProps } from '../types';
+import { defaultArgs } from './mocks';
 
 export default {
   title: 'Components/TextBox',
@@ -55,17 +56,12 @@ const Template: StoryFn<TextBoxProps> = (args) => {
 
 // Historia por defecto
 export const Default = Template.bind({});
-Default.args = {
-  label: 'Etiqueta',
-  placeholder: 'Escribe algo...',
-  variant: 'outlined',
-  size: 'medium',
-};
+Default.args = defaultArgs;
 
 // Historia con controles interactivos
 export const Interactive = Template.bind({});
 Interactive.args = {
-  ...Default.args,
+  ...defaultArgs,
 };
 Interactive.parameters = {
   docs: {

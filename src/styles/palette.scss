@@ -188,6 +188,10 @@ $pagination-ellipsis-color: $text-color;
 // TextArea Colors
 $textarea-filled-bg: rgba($black-color, 0.04);
 $textarea-filled-hover-bg: rgba($black-color, 0.08);
-$textarea-char-count-bg: rgba($white-color, 0.9);
+$textarea-char-count-color: $grey-700;
 
-
+// =============================================================================
+// Text Box
+// =============================================================================
+$text-box-autofill-background-color: $white !default;
+$text-box-filled-background-color-hover: rgba($black, 0.04) !default;

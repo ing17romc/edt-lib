@@ -102,3 +102,10 @@ $textarea-font-size-lg: $font-size-lg;
 $textarea-line-height: $line-height-md;
 $textarea-helper-text-font-size: $font-size-xs;
 $textarea-char-count-font-size: $font-size-xs;
+
+// TextBox Typography
+$text-box-label-font-size: 0.875rem;         // 14px
+$text-box-label-font-weight: 500;
+$text-box-input-font-size: 1rem;             // 16px
+$text-box-input-line-height: 1.5;
+$text-box-helper-text-font-size: 0.75rem;    // 12px

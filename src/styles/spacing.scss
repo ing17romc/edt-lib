@@ -167,3 +167,19 @@ $textarea-char-count-padding: 0 $space-1;
 $textarea-char-count-border-radius: $border-radius-xs;
 $textarea-helper-container-margin-top: $space-1;
 $textarea-helper-container-min-height: $space-5;
+
+// TextBox Spacing
+$text-box-container-min-width: 200px !default;
+$text-box-container-padding-y: $space-2 !default;
+$text-box-label-margin-bottom: $space-1 !default;
+$text-box-input-wrapper-border-radius: $border-radius-sm !default;
+$text-box-padding-small: 6px 12px !default;
+$text-box-padding-medium: 8px 16px !default;
+$text-box-padding-large: 12px 20px !default;
+$text-box-min-height-small: 36px !default;
+$text-box-min-height-medium: 44px !default;
+$text-box-min-height-large: 52px !default;
+$text-box-adornment-margin: $space-2 !default;
+$text-box-helper-text-margin-top: $space-1 !default;
+$text-box-helper-text-min-height: 18px !default;
+$text-box-utility-padding: $space-3 !default;

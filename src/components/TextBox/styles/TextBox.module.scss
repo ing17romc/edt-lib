@@ -1,12 +1,14 @@
 @use '../../../styles/palette' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/spacing' as *;
 
 // Contenedor principal
 .textBoxContainer {
   display: inline-flex;
   flex-direction: column;
   position: relative;
-  min-width: 200px;
-  padding: 8px 0;
+  min-width: $text-box-container-min-width;
+  padding: $text-box-container-padding-y 0;
   text-align: left;
 
   &.fullWidth {
@@ -17,9 +19,9 @@
 // Etiqueta
 .label {
   display: block;
-  margin-bottom: 4px;
-  font-size: 0.875rem;
-  font-weight: 500;
+  margin-bottom: $text-box-label-margin-bottom;
+  font-size: $text-box-label-font-size;
+  font-weight: $text-box-label-font-weight;
   color: $text-color;
   transition: color 0.2s ease-in-out;
 
@@ -38,7 +40,7 @@
   display: inline-flex;
   align-items: center;
   width: 100%;
-  border-radius: 4px;
+  border-radius: $text-box-input-wrapper-border-radius;
   transition: all 0.2s ease-in-out;
   background-color: transparent;
 
@@ -67,7 +69,7 @@
     border-bottom: 1px solid $border-color;
 
     &:hover:not(.disabled) {
-      background-color: rgba($text-color, 0.04);
+      background-color: $text-box-filled-background-color-hover;
     }
 
     &.error {
@@ -99,18 +101,18 @@
 
   // Tamaños
   &.size-small {
-    min-height: 36px;
-    padding: 6px 12px;
+    min-height: $text-box-min-height-small;
+    padding: $text-box-padding-small;
   }
 
   &.size-medium {
-    min-height: 44px;
-    padding: 8px 16px;
+    min-height: $text-box-min-height-medium;
+    padding: $text-box-padding-medium;
   }
 
   &.size-large {
-    min-height: 52px;
-    padding: 12px 20px;
+    min-height: $text-box-min-height-large;
+    padding: $text-box-padding-large;
   }
 }
 
@@ -121,8 +123,8 @@
   outline: none;
   background: transparent;
   color: $text-color;
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: $text-box-input-font-size;
+  line-height: $text-box-input-line-height;
   padding: 0;
   margin: 0;
   appearance: none;
@@ -180,7 +182,7 @@
   &:-webkit-autofill:hover,
   &:-webkit-autofill:focus,
   &:-webkit-autofill:active {
-    box-shadow: 0 0 0 30px white inset !important;
+    box-shadow: 0 0 0 30px $text-box-autofill-background-color inset !important;
     -webkit-text-fill-color: $text-color !important;
     transition: background-color 5000s ease-in-out 0s;
   }
@@ -196,20 +198,20 @@
 }
 
 .startAdornment {
-  margin-right: 8px;
+  margin-right: $text-box-adornment-margin;
 }
 
 .endAdornment {
-  margin-left: 8px;
+  margin-left: $text-box-adornment-margin;
 }
 
 // Texto de ayuda
 .helperText {
-  margin: 4px 0 0;
+  margin: $text-box-helper-text-margin-top 0 0;
   padding: 0;
-  font-size: 0.75rem;
+  font-size: $text-box-helper-text-font-size;
   color: $text-secondary;
-  min-height: 18px; // Evita saltos de línea cuando no hay texto
+  min-height: $text-box-helper-text-min-height; // Evita saltos de línea cuando no hay texto
 
   &.error {
     color: $danger-color;
@@ -218,9 +220,9 @@
 
 // Clases de utilidad
 .hasStartAdornment {
-  padding-left: 12px;
+  padding-left: $text-box-utility-padding;
 }
 
 .hasEndAdornment {
-  padding-right: 12px;
+  padding-right: $text-box-utility-padding;
 }
