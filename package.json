@@ -1,6 +1,6 @@
 {
   "name": "edt-lib",
-  "version": "2.8.1",
+  "version": "2.8.2",
   "description": "Front-end library, rebuilt for React",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
@@ -15,7 +15,7 @@
     "clean": "rm package-lock.json && rm -rf node_modules && npm i --force",
     "build": "babel src --out-dir dist --extensions .js,.jsx,.ts,.tsx",
     "test": "jest",
-    "lint:js": "eslint . --ext .ts,.tsx  --fix",  
+    "lint:js": "eslint . --ext .ts,.tsx  --fix",
     "lint:scss": "stylelint \"src/**/*.scss\" --fix",
     "lint:ts": "npx tsc --noEmit",
     "lint": "npm run lint:js && npm run lint:scss && npm run lint:ts",
