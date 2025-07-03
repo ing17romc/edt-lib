@@ -1,25 +1,42 @@
-// Mock data for Color component tests
-export const mockColorClasses = {
-  fontColors: ['font-blue', 'font-red', 'font-gray'],
-  backgroundColors: ['bg-blue', 'bg-red', 'bg-gray'],
-  scssVariables: ['variables.$black-color', 'variables.$white-color', '$primary-color']
+import { ColorGroup } from '../types';
+
+/**
+ * Datos de prueba para el componente Color
+ */
+export const mockColorGroups: ColorGroup[] = [
+  {
+    title: 'Font color',
+    type: 'font',
+    items: ['font-blue', 'font-red', 'font-gray']
+  },
+  {
+    title: 'Background color',
+    type: 'background',
+    items: ['bg-primary-1', 'bg-white', 'bg-gray']
+  },
+  {
+    title: 'SCSS color variables',
+    type: 'variable',
+    items: ['black-color', 'white-color', 'primary-color']
+  }
+];
+
+/**
+ * Mock para las props por defecto del componente
+ */
+export const defaultProps = {
+  showFontColors: true,
+  showBackgroundColors: true,
+  showScssVariables: true
 };
 
-// Mock for the color utility functions
+/**
+ * Mock para las funciones de utilidad de color
+ */
 export const mockColorUtils = {
-  getP: (style: string) => ({
-    type: 'p',
-    style,
-    text: ` <span class="${style}"></span>`
-  }),
-  getSpan: (style: string) => ({
-    type: 'span',
-    style,
-    text: ` <span class="${style}"></span>`
-  }),
-  getVariablesColor: (style: string) => ({
-    type: 'variable',
-    style,
-    text: ` $${style}`
+  renderColorItem: (className: string, type: string) => ({
+    type,
+    className,
+    key: className
   })
 };

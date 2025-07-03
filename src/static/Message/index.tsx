@@ -1,30 +1,45 @@
 /**
  * Message
  *
- * Este componente muestra diferentes tipos de mensajes de estado (éxito, información, advertencia y peligro) para la interfaz de usuario.
- * Útil para mostrar retroalimentación visual clara al usuario según el contexto de la acción realizada.
+ * Este componente muestra mensajes de estado (éxito, información, advertencia y peligro) 
+ * para proporcionar retroalimentación visual clara al usuario según el contexto de la acción realizada.
  *
- * @param props - Props del componente Message (actualmente no recibe ninguna, reservado para futuras extensiones).
- * @returns Elementos React que representan mensajes de distintos estados visuales.
+ * @component
+ * @example
+ * // Uso básico
+ * <Message type="success">Operación completada con éxito</Message>
+ * 
+ * // Con título personalizado
+ * <Message type="warning" title="Atención">
+ *   Este es un mensaje de advertencia importante.
+ * </Message>
  */
 import React from 'react';
+import cx from 'classnames';
 import type { MessageProps } from './types';
+import styles from './Message.module.scss';
 
-const Message: React.FC<MessageProps> = () => (
-  <div>
-    <div className="message message-success">
-      <strong>Success!</strong> Indicates a successful or positive action.
+const Message: React.FC<MessageProps> = ({
+  type = 'info',
+  title,
+  children,
+  className,
+  style,
+}) => {
+  const messageClasses = cx(
+    styles.message,
+    {
+      [styles[`message-${type}`]]: type,
+    },
+    className
+  );
+
+  return (
+    <div className={messageClasses} style={style} data-testid="message">
+      {title && <strong data-testid="message-title">{title}</strong>}{' '}
+      <span data-testid="message-content">{children}</span>
     </div>
-    <div className="message message-info">
-      <strong>Info!</strong> Indicates a neutral informative change or action.
-    </div>
-    <div className="message message-warning">
-      <strong>Warning!</strong> Indicates a warning that might need attention.
-    </div>
-    <div className="message message-danger">
-      <strong>Danger!</strong> Indicates a dangerous or potentially negative action.
-    </div>
-  </div>
-);
+  );
+};
 
 export default Message;

@@ -2,27 +2,83 @@ import '@testing-library/jest-dom';
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Message from '../index';
-import { mockMessages } from './mocks';
+import styles from '../Message.module.scss';
 
 describe('Message', () => {
-  it('renders all message types with correct content', () => {
-    render(<Message />);
+  it('renders message with default props', () => {
+    const { container } = render(
+      <Message type="info">Mensaje de prueba</Message>
+    );
     
-    // Check each message type is rendered with correct content
-    mockMessages.forEach(({ title, content }) => {
-      expect(screen.getByText(title)).toBeInTheDocument();
-      expect(screen.getByText(content)).toBeInTheDocument();
-    });
+    const messageElement = container.firstChild;
+    expect(messageElement).toHaveClass(styles.message);
+    expect(messageElement).toHaveClass(styles['message-info']);
+    expect(screen.getByText('Mensaje de prueba')).toBeInTheDocument();
   });
 
-  it('applies correct CSS classes to each message type', () => {
-    const { container } = render(<Message />);
+  it('renders message with title when provided', () => {
+    render(
+      <Message type="success" title="¡Éxito!">
+        Operación completada
+      </Message>
+    );
     
-    // Check each message has the correct class
-    mockMessages.forEach(({ className }) => {
-      const messageElement = container.querySelector(`.${className}`);
-      expect(messageElement).toBeInTheDocument();
-      expect(messageElement).toHaveClass('message', className);
-    });
+    expect(screen.getByText('¡Éxito!')).toBeInTheDocument();
+    expect(screen.getByText('Operación completada')).toBeInTheDocument();
+  });
+
+  it('applies correct CSS class based on type prop', () => {
+    const { getByText } = render(
+      <div>
+        <Message type="success" data-testid="success-msg">Éxito</Message>
+        <Message type="info" data-testid="info-msg">Información</Message>
+        <Message type="warning" data-testid="warning-msg">Advertencia</Message>
+        <Message type="danger" data-testid="danger-msg">Peligro</Message>
+      </div>
+    );
+    
+    // Verificar que cada mensaje tiene la clase correcta según su tipo
+    const successMsg = getByText('Éxito').closest(`.${styles.message}`);
+    const infoMsg = getByText('Información').closest(`.${styles.message}`);
+    const warningMsg = getByText('Advertencia').closest(`.${styles.message}`);
+    const dangerMsg = getByText('Peligro').closest(`.${styles.message}`);
+    
+    expect(successMsg).toHaveClass(styles['message-success']);
+    expect(infoMsg).toHaveClass(styles['message-info']);
+    expect(warningMsg).toHaveClass(styles['message-warning']);
+    expect(dangerMsg).toHaveClass(styles['message-danger']);
+  });
+
+  it('applies custom className when provided', () => {
+    const { container } = render(
+      <Message type="info" className="custom-class">
+        Mensaje con clase personalizada
+      </Message>
+    );
+    
+    expect(container.firstChild).toHaveClass('custom-class');
+    expect(container.firstChild).toHaveClass(styles.message);
+  });
+
+  it('applies custom styles when provided', () => {
+    const customStyle = { marginTop: '20px', backgroundColor: 'red' };
+    const { container } = render(
+      <Message type="info" style={customStyle}>
+        Mensaje con estilos personalizados
+      </Message>
+    );
+    
+    const messageElement = container.firstChild as HTMLElement;
+    expect(messageElement.style.marginTop).toBe('20px');
+    expect(messageElement.style.backgroundColor).toBe('red');
+  });
+
+  it('renders without title when title is not provided', () => {
+    const { queryByTestId } = render(
+      <Message type="info">Mensaje sin título</Message>
+    );
+    
+    expect(queryByTestId('message-title')).not.toBeInTheDocument();
+    expect(screen.getByText('Mensaje sin título')).toBeInTheDocument();
   });
 });

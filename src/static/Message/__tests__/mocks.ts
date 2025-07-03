@@ -1,27 +1,38 @@
-// Mock data for Message component tests
+import type { MessageType } from '../types';
+
+/**
+ * Datos de ejemplo para las pruebas del componente Message
+ */
 export const mockMessages = [
   {
-    type: 'success',
-    title: 'Success!',
-    content: 'Indicates a successful or positive action.',
-    className: 'message-success'
+    type: 'success' as MessageType,
+    title: '¡Éxito!',
+    content: 'La operación se completó correctamente.',
   },
   {
-    type: 'info',
-    title: 'Info!',
-    content: 'Indicates a neutral informative change or action.',
-    className: 'message-info'
+    type: 'info' as MessageType,
+    title: 'Información',
+    content: 'Este es un mensaje informativo.',
   },
   {
-    type: 'warning',
-    title: 'Warning!',
-    content: 'Indicates a warning that might need attention.',
-    className: 'message-warning'
+    type: 'warning' as MessageType,
+    title: 'Advertencia',
+    content: 'Esta acción requiere su atención.',
   },
   {
-    type: 'danger',
-    title: 'Danger!',
-    content: 'Indicates a dangerous or potentially negative action.',
-    className: 'message-danger'
-  }
+    type: 'danger' as MessageType,
+    title: 'Error',
+    content: 'Ha ocurrido un error inesperado.',
+  },
 ];
+
+/**
+ * Mock de las clases CSS para las pruebas
+ */
+export const mockStyles = {
+  message: 'message',
+  'message-success': 'message-success',
+  'message-info': 'message-info',
+  'message-warning': 'message-warning',
+  'message-danger': 'message-danger',
+};

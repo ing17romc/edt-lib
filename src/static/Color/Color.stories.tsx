@@ -1,20 +1,15 @@
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import './color.scss';
 import Color from './index';
+import { defaultArgs, argTypes, parameters } from './stories/mocks';
 
 const meta: Meta<typeof Color> = {
   title: 'Static/Color',
   component: Color,
   tags: ['autodocs'],
-  parameters: {
-    layout: 'fullscreen',
-    docs: {
-      description: {
-        component: 'A component that displays color examples including font colors, background colors, and SCSS color variables.',
-      },
-    },
-  },
+  args: defaultArgs,
+  argTypes,
+  parameters,
 };
 
 export default meta;
@@ -22,27 +17,51 @@ export default meta;
 type Story = StoryObj<typeof Color>;
 
 export const Default: Story = {
-  args: {},
+  args: {
+    ...defaultArgs,
+  },
+};
+
+export const FontColorsOnly: Story = {
+  args: {
+    showFontColors: true,
+    showBackgroundColors: false,
+    showScssVariables: false,
+  },
   parameters: {
     docs: {
       description: {
-        story: 'Default implementation of the Color component showing all color examples.'
+        story: 'Muestra solo los colores de fuente.'
       }
     }
   }
 };
 
-export const WithCustomTitle: Story = {
-  render: () => (
-    <div>
-      <h1>Custom Color Palette</h1>
-      <Color />
-    </div>
-  ),
+export const BackgroundColorsOnly: Story = {
+  args: {
+    showFontColors: false,
+    showBackgroundColors: true,
+    showScssVariables: false,
+  },
   parameters: {
     docs: {
       description: {
-        story: 'Example of the Color component with a custom title.'
+        story: 'Muestra solo los colores de fondo.'
+      }
+    }
+  }
+};
+
+export const ScssVariablesOnly: Story = {
+  args: {
+    showFontColors: false,
+    showBackgroundColors: false,
+    showScssVariables: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Muestra solo las variables SCSS de color.'
       }
     }
   }
