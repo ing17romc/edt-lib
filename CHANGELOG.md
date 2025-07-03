@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.8.3] - 2025-07-03
+
+### `Fixed`
+- **`Typography`**:
+  - Corregido el uso de `map.get` a `map-get` en los estilos SCSS para compatibilidad con la versión de Sass.
+  - Actualizada la configuración de Stylelint para permitir el uso de funciones globales de Sass.
+  - Mejorada la organización de los estilos con módulos CSS.
+  - Corregidas las pruebas unitarias para usar `data-testid` en lugar de buscar por texto.
+
 ## [2.8.2] - 2025-07-03
 
 ### `Fixed`
