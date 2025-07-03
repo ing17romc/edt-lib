@@ -1,10 +1,43 @@
 import React, { useState } from 'react';
-import { StoryFn } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import TextArea from '../';
 import type { TextAreaProps } from '../types';
-import { meta, defaultArgs } from './mocks';
+import { defaultArgs } from './mocks';
 
-export default meta;
+export default {
+  title: 'Components/TextArea',
+  component: TextArea,
+  argTypes: {
+    variant: {
+      control: {
+        type: 'select',
+        options: ['outlined', 'filled', 'standard'],
+      },
+    },
+    size: {
+      control: {
+        type: 'select',
+        options: ['small', 'medium', 'large'],
+      },
+    },
+    rows: { control: { type: 'number', min: 1, max: 20 } },
+    maxLength: { control: { type: 'number', min: 1 } },
+    error: { control: 'boolean' },
+    disabled: { control: 'boolean' },
+    fullWidth: { control: 'boolean' },
+    required: { control: 'boolean' },
+    readOnly: { control: 'boolean' },
+    autoResize: { control: 'boolean' },
+  },
+  parameters: {
+    componentSubtitle: 'Área de texto de múltiples líneas',
+    docs: {
+      description: {
+        component: 'Un componente de área de texto que permite la entrada de texto de múltiples líneas. Soporta diferentes variantes, tamaños y redimensionamiento automático.'
+      },
+    },
+  },
+} as Meta;
 
 // Plantilla base para las historias
 const Template: StoryFn<TextAreaProps> = (args) => {
