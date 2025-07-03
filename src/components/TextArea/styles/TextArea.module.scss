@@ -1,12 +1,14 @@
 @use '../../../styles/palette' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/spacing' as *;
 
 // Contenedor principal
 .textAreaContainer {
   display: inline-flex;
   flex-direction: column;
   position: relative;
-  min-width: 200px;
-  padding: 8px 0;
+  min-width: 200px; // Consider if this should be a variable
+  padding: $textarea-container-padding;
   text-align: left;
 
   &.fullWidth {
@@ -17,9 +19,9 @@
 // Etiqueta
 .label {
   display: block;
-  margin-bottom: 4px;
-  font-size: 0.875rem;
-  font-weight: 500;
+  margin-bottom: $textarea-label-margin-bottom;
+  font-size: $textarea-label-font-size;
+  font-weight: $textarea-label-font-weight;
   color: var(--color-text-primary);
   transition: color 0.2s ease-in-out;
 
@@ -38,7 +40,7 @@
   display: inline-flex;
   flex-direction: column;
   width: 100%;
-  border-radius: 4px;
+  border-radius: $textarea-border-radius;
   transition: all 0.2s ease-in-out;
   background-color: transparent;
 
@@ -64,29 +66,29 @@
 
   // Tamaños
   &.size-small {
-    font-size: 0.875rem;
-    
+    font-size: $textarea-font-size-sm;
+
     .textarea {
-      padding: 8px 12px;
-      min-height: 32px * 3; // rows * line-height
+      padding: $textarea-padding-sm;
+      min-height: $textarea-min-height-sm * 3; // rows * line-height
     }
   }
 
   &.size-medium {
-    font-size: 1rem;
-    
+    font-size: $textarea-font-size-md;
+
     .textarea {
-      padding: 12px 16px;
-      min-height: 40px * 3; // rows * line-height
+      padding: $textarea-padding-md;
+      min-height: $textarea-min-height-md * 3; // rows * line-height
     }
   }
 
   &.size-large {
-    font-size: 1.125rem;
-    
+    font-size: $textarea-font-size-lg;
+
     .textarea {
-      padding: 16px 20px;
-      min-height: 48px * 3; // rows * line-height
+      padding: $textarea-padding-lg;
+      min-height: $textarea-min-height-lg * 3; // rows * line-height
     }
   }
 
@@ -113,12 +115,12 @@
 
   // Variante rellena
   &.variant-filled {
-    background-color: rgb(0 0 0 / 4%);
-    border-radius: 4px 4px 0 0;
+    background-color: $textarea-filled-bg;
+    border-radius: $textarea-border-radius $textarea-border-radius 0 0;
     border-bottom: 1px solid $border-color;
 
     &:hover:not(.disabled) {
-      background-color: rgb(0 0 0 / 8%);
+      background-color: $textarea-filled-hover-bg;
       border-bottom-color: var(--color-text-primary);
     }
 
@@ -156,7 +158,7 @@
   background: transparent;
   color: var(--color-text-primary);
   font-size: inherit;
-  line-height: 1.5;
+  line-height: $textarea-line-height;
   resize: none;
   margin: 0;
   appearance: none;
@@ -201,15 +203,15 @@
 // Contenedor del contador de caracteres
 .charCount {
   position: absolute;
-  bottom: 4px;
-  right: 8px;
-  font-size: 0.75rem;
+  bottom: $textarea-char-count-bottom;
+  right: $textarea-char-count-right;
+  font-size: $textarea-char-count-font-size;
   color: var(--color-text-secondary);
   pointer-events: none;
-  background-color: rgb(255 255 255 / 90%);
-  padding: 0 4px;
-  border-radius: 2px;
-  line-height: 1.5;
+  background-color: $textarea-char-count-bg;
+  padding: $textarea-char-count-padding;
+  border-radius: $textarea-char-count-border-radius;
+  line-height: $textarea-line-height;
 
   .error & {
     color: $danger-color;
@@ -220,17 +222,17 @@
 .helperContainer {
   display: flex;
   justify-content: space-between;
-  margin-top: 4px;
-  min-height: 20px;
+  margin-top: $textarea-helper-container-margin-top;
+  min-height: $textarea-helper-container-min-height;
 }
 
 // Texto de ayuda
 .helperText {
   margin: 0;
   padding: 0;
-  font-size: 0.75rem;
+  font-size: $textarea-helper-text-font-size;
   color: var(--color-text-secondary);
-  line-height: 1.5;
+  line-height: $textarea-line-height;
 
   &.error {
     color: $danger-color;

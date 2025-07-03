@@ -1,6 +1,7 @@
 @use 'palette' as *;
 
 // Border Radius
+$border-radius-xs: 0.125rem;  // 2px
 $border-radius-sm: 0.25rem;  // 4px
 $border-radius-md: 0.375rem; // 6px
 $border-radius-lg: 0.5rem;   // 8px
@@ -149,3 +150,20 @@ $pagination-button-height: 2rem; // 32px
 $pagination-button-border-radius: $border-radius-md; // 4px
 $pagination-button-border-width: 1px;
 $pagination-transition: all 0.2s ease;
+
+// TextArea Spacing
+$textarea-container-padding: $space-2 0;
+$textarea-label-margin-bottom: $space-1;
+$textarea-border-radius: $border-radius-sm;
+$textarea-padding-sm: $space-2 $space-3;
+$textarea-padding-md: $space-3 $space-4;
+$textarea-padding-lg: $space-4 $space-5;
+$textarea-min-height-sm: 2rem; // 32px
+$textarea-min-height-md: 2.5rem; // 40px
+$textarea-min-height-lg: 3rem; // 48px
+$textarea-char-count-bottom: $space-1;
+$textarea-char-count-right: $space-2;
+$textarea-char-count-padding: 0 $space-1;
+$textarea-char-count-border-radius: $border-radius-xs;
+$textarea-helper-container-margin-top: $space-1;
+$textarea-helper-container-min-height: $space-5;

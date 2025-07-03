@@ -3,7 +3,11 @@ import { TextareaHTMLAttributes } from 'react';
 export type TextAreaVariant = 'outlined' | 'filled' | 'standard';
 export type TextAreaSize = 'small' | 'medium' | 'large';
 
-export interface TextAreaProps extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'size'> {
+export interface Testable {
+  'data-testid'?: string;
+}
+
+export interface TextAreaProps extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'size'>, Testable {
   /**
    * Etiqueta que se muestra encima del área de texto
    */

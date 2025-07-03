@@ -4,6 +4,13 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+### 2.7.15 (2025-07-03)
+- **refactor(TextArea):** Refactorización completa del componente `TextArea`.
+  - Extracción de estilos (colores, tipografía, espaciado) a variables SCSS globales.
+  - Centralización de tipos en `types.tsx` y añadido soporte para `data-testid`.
+  - Modularización de historias de Storybook con un archivo `mocks.tsx`.
+  - Refactorización de pruebas unitarias para usar mocks y eliminar código duplicado.
+
 ### 2.7.14 (2025-07-02)
 - **refactor(Spinner):** Refactorización completa del componente `Spinner`.
   - Extracción de valores de espaciado a variables SCSS globales en `spacing.scss`.

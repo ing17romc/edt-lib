@@ -185,4 +185,9 @@ $pagination-button-active-text: var(--color-white);
 $pagination-button-disabled-opacity: 0.5;
 $pagination-ellipsis-color: $text-color;
 
+// TextArea Colors
+$textarea-filled-bg: rgba($black-color, 0.04);
+$textarea-filled-hover-bg: rgba($black-color, 0.08);
+$textarea-char-count-bg: rgba($white-color, 0.9);
+
 
