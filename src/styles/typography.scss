@@ -37,6 +37,28 @@ $button-font-size-lg: $font-size-lg;
 $button-font-family-monospace: 'SFMono-Regular', consolas, 'Liberation Mono', menlo, courier, monospace;
 
 // =============================================================================
+// Typography Component
+// =============================================================================
+// Font Sizes for Typography component
+$typography-font-sizes: (
+  '8': 0.5rem,    // 8px
+  '10': 0.625rem, // 10px
+  '12': 0.75rem,  // 12px
+  '14': 0.875rem, // 14px
+  '16': 1rem,     // 16px
+  '18': 1.125rem, // 18px
+  '20': 1.25rem,  // 20px
+  '22': 1.375rem  // 22px
+) !default;
+
+// Line Heights for Typography component
+$typography-line-heights: (
+  'simple': 1.25,
+  'doble': 2,
+  'triple': 3
+) !default;
+
+// =============================================================================
 // Title
 // =============================================================================
 $title-line-height: 1.2 !default;
