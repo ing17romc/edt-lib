@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.8.1] - 2025-07-03
+
+### `Fixed`
+- **`Title`**:
+  - Se corrigieron errores de compilación en Storybook relacionados con variables SCSS no definidas.
+  - Se actualizaron las funciones de color obsoletas en `palette.scss` para usar `color.adjust()` en lugar de `darken()`.
+  - Se agregaron las variables de color faltantes `$light-color` y `$dark-color`.
+  - Se refactorizó la estructura de archivos del componente para mejorar la organización del código.
+  - Se corrigieron problemas de linting en los archivos de historias de Storybook.
+
 ## [2.8.0] - 2025-07-03
 
 ### `Changed`
