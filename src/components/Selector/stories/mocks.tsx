@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Meta } from '@storybook/react';
+
 import { Selector, SelectorVariant, SelectorSize } from '..';
 import { SelectorOption } from '../types';
 
