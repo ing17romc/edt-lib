@@ -4,6 +4,12 @@ Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
 
+### 2.7.14 (2025-07-02)
+- **refactor(Spinner):** Refactorización completa del componente `Spinner`.
+  - Extracción de valores de espaciado a variables SCSS globales en `spacing.scss`.
+  - Creación de estructura de pruebas unitarias (`tests/` y `mocks.tsx`) para el componente.
+  - Verificación de la correcta aplicación de estilos, tipado y estructura del componente.
+
 ### 2.7.13 (2025-07-02)
 - **refactor(Selector):** Refactorización completa del componente `Selector`.
   - Modularización de historias de Storybook con un archivo `mocks.tsx` centralizado.
