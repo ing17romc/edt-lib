@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.8.2] - 2025-07-03
+
+### `Fixed`
+- **`Message`**:
+  - Corregidos los estilos del componente Message para usar variables de color correctas.
+  - Actualizadas las rutas de importación SCSS para usar alias 'src'.
+  - Corregida la variable de altura de línea a `$line-height-md`.
+  - Mejorada la documentación en Storybook.
+
 ## [2.8.1] - 2025-07-03
 
 ### `Fixed`
