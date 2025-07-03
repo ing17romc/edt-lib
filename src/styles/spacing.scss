@@ -86,8 +86,18 @@ $checkmark-height: 0.625rem;              // 10px
 $checkmark-border-width: 0 2px 2px 0;     // Ancho del borde del checkmark
 
 // Focus Styles
-$focus-ring-width: 3px;
-$focus-ring-offset: 1px;
+$base-spacing-unit: 8px;
+$focus-ring-width: 2px;  // Ancho del anillo de enfoque para botones y elementos interactivos
+
+// =============================================================================
+// Title
+// =============================================================================
+$title-h1-margin-bottom: 1.5rem !default;
+$title-h2-margin-bottom: 1.25rem !default;
+$title-h3-margin-bottom: 1rem !default;
+$title-h4-margin-bottom: 0.75rem !default;
+$title-h5-margin-bottom: 0.5rem !default;
+$title-h6-margin-bottom: 0.5rem !default;
 
 // Modal Spacing
 $modal-padding: 1.5rem;                     // 24px

@@ -11,7 +11,8 @@ $primary-color-3: #1e40af; // Azul 800
 $secondary-color: #64748b; // Gris azulado
 $danger-color: #dc2626;   // Rojo
 $success-color: #16a34a;  // Verde
-$warning-color: #f59e0b;  // Ámbar
+$warning-color: #f59e0b;  // Ámbar;
+$info-color: #0ea5e9;      // Azul cielo para información
 $text-color: #1e293b;     // Gris oscuro para texto
 $border-color: #e2e8f0;   // Gris claro para bordes
 
@@ -30,6 +31,10 @@ $gray-color: #6b7280;
 $light-gray-color: #e5e7eb;
 $white-color: #fff;
 
+// Colores para texto
+$light-color: $white-color;
+$dark-color: $text-color;
+
 // Colores adicionales
 $light-blue-color: #93c5fd;
 $dark-blue-color: #1e40af;
@@ -47,6 +52,27 @@ $card-bg-alt: color.adjust($light-gray-color, $lightness: 10%);
 
 // Colores de estados
 $primary-hover: color.adjust($primary-color, $lightness: -10%);
+
+// Button Colors
+$button-primary-bg: $primary-color;
+$button-primary-text: $white-color;
+$button-primary-hover: $primary-color-2;
+$button-primary-active: $primary-color-3;
+$button-secondary-bg: $white-color;
+$button-secondary-text: $text-color;
+$button-secondary-border: $border-color;
+$button-secondary-hover: color.adjust($light-gray-color, $lightness: -5%);
+$button-secondary-active: color.adjust($light-gray-color, $lightness: -10%);
+$button-tertiary-bg: transparent;
+$button-tertiary-text: $primary-color;
+$button-tertiary-hover: color.adjust($light-gray-color, $lightness: -5%);
+$button-tertiary-active: color.adjust($light-gray-color, $lightness: -10%);
+$button-danger-bg: $danger-color;
+$button-danger-text: $white-color;
+$button-danger-hover: color.adjust($danger-color, $lightness: -10%);
+$button-danger-active: color.adjust($danger-color, $lightness: -20%);
+$button-disabled-opacity: 0.6;
+$button-focus-ring: rgba($primary-color, 0.5);
 $primary-active: color.adjust($primary-color, $lightness: -15%);
 
 // Card Shadows

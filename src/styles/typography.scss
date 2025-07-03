@@ -31,6 +31,20 @@ $button-line-height: $line-height-md;
 $button-font-size-sm: $font-size-sm;
 $button-font-size-md: $font-size-md;
 $button-font-size-lg: $font-size-lg;
+$button-font-family-monospace: 'SFMono-Regular', consolas, 'Liberation Mono', menlo, courier, monospace;
+
+// =============================================================================
+// Title
+// =============================================================================
+$title-line-height: 1.2 !default;
+$title-font-weight: 500 !default;
+$title-font-weight-bold: 700 !default;
+$title-h1-font-size: 2.5rem !default;
+$title-h2-font-size: 2rem !default;
+$title-h3-font-size: 1.75rem !default;
+$title-h4-font-size: 1.5rem !default;
+$title-h5-font-size: 1.25rem !default;
+$title-h6-font-size: 1rem !default;
 
 // Button Line Heights
 $button-line-height-sm: $line-height-sm;

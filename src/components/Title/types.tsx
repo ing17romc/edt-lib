@@ -94,3 +94,8 @@ interface TitleCustomProps {
  * Propiedades del componente Title que extiende las propiedades HTML estándar
  */
 export type TitleProps = TitleCustomProps & Omit<HTMLAttributes<HTMLHeadingElement>, keyof TitleCustomProps>;
+
+/**
+ * Tipo para las etiquetas de encabezado HTML válidas
+ */
+export type TitleTag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';

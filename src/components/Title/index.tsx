@@ -1,9 +1,7 @@
 import React, { forwardRef } from 'react';
 import cx from 'classnames';
-import { TitleProps, TitleSize, TitleVariant } from './types';
+import { TitleProps, TitleSize, TitleVariant, TitleTag } from './types';
 import styles from './styles/Title.module.scss';
-
-type TitleTag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 const Title = forwardRef<HTMLHeadingElement, TitleProps>(({
   size = TitleSize.H1,
