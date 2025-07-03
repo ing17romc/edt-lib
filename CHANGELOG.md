@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.8.0] - 2025-07-03
+
+### `Changed`
+- **`TextBox`**:
+  - Se ha refactorizado completamente el componente para mejorar su mantenibilidad y alinearlo con las directrices de la librería.
+  - **Estilos**: Se han centralizado todas las variables de tipografía, color y espaciado en los archivos SCSS globales (`typography.scss`, `palette.scss`, `spacing.scss`).
+  - **Storybook**: Se han extraído los argumentos por defecto a un archivo `mocks.tsx` para mejorar la reutilización.
+  - **Pruebas**: Se han refactorizado los mocks de prueba para usar un objeto base, reduciendo la duplicación de código.
+
 Todos los commits versionados en el repositorio:
 
 ## Últimos cambios relevantes (2025)
