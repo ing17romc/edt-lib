@@ -1,0 +1,515 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Color coincide con el snapshot 1`] = `
+<div>
+  <div
+    class="color-palette "
+    data-testid="color-palette"
+  >
+    <section
+      class="color-group"
+    >
+      <h2
+        class="color-group__title"
+      >
+        Font color
+      </h2>
+      <div
+        class="color-group__items"
+      >
+        <div>
+          <span
+            class="font-blue"
+          >
+            font-blue
+          </span>
+          <code
+            class="code-block"
+          >
+            &lt;span className="font-blue"&gt;Texto&lt;/span&gt;
+          </code>
+          <hr
+            class="divider"
+          />
+        </div>
+        <div>
+          <span
+            class="font-red"
+          >
+            font-red
+          </span>
+          <code
+            class="code-block"
+          >
+            &lt;span className="font-red"&gt;Texto&lt;/span&gt;
+          </code>
+          <hr
+            class="divider"
+          />
+        </div>
+        <div>
+          <span
+            class="font-orange"
+          >
+            font-orange
+          </span>
+          <code
+            class="code-block"
+          >
+            &lt;span className="font-orange"&gt;Texto&lt;/span&gt;
+          </code>
+          <hr
+            class="divider"
+          />
+        </div>
+        <div>
+          <span
+            class="font-green"
+          >
+            font-green
+          </span>
+          <code
+            class="code-block"
+          >
+            &lt;span className="font-green"&gt;Texto&lt;/span&gt;
+          </code>
+          <hr
+            class="divider"
+          />
+        </div>
+        <div>
+          <span
+            class="font-white"
+          >
+            font-white
+          </span>
+          <code
+            class="code-block"
+          >
+            &lt;span className="font-white"&gt;Texto&lt;/span&gt;
+          </code>
+          <hr
+            class="divider"
+          />
+        </div>
+        <div>
+          <span
+            class="font-yellow"
+          >
+            font-yellow
+          </span>
+          <code
+            class="code-block"
+          >
+            &lt;span className="font-yellow"&gt;Texto&lt;/span&gt;
+          </code>
+          <hr
+            class="divider"
+          />
+        </div>
+        <div>
+          <span
+            class="font-gray"
+          >
+            font-gray
+          </span>
+          <code
+            class="code-block"
+          >
+            &lt;span className="font-gray"&gt;Texto&lt;/span&gt;
+          </code>
+          <hr
+            class="divider"
+          />
+        </div>
+      </div>
+    </section>
+    <section
+      class="color-group"
+    >
+      <h2
+        class="color-group__title"
+      >
+        Background color
+      </h2>
+      <div
+        class="color-group__items"
+      >
+        <div>
+          <div
+            style="display: flex; align-items: center; gap: 8px;"
+          >
+            <span
+              class="bg-primary-1"
+              style="height: 18px; width: 18px; border-radius: 50%; display: inline-block; margin-right: 8px; vertical-align: middle;"
+            />
+            <code
+              class="code-block"
+            >
+              &lt;div className="bg-primary-1"&gt;&lt;/div&gt;
+            </code>
+          </div>
+          <hr
+            class="divider"
+          />
+        </div>
+        <div>
+          <div
+            style="display: flex; align-items: center; gap: 8px;"
+          >
+            <span
+              class="bg-primary-2"
+              style="height: 18px; width: 18px; border-radius: 50%; display: inline-block; margin-right: 8px; vertical-align: middle;"
+            />
+            <code
+              class="code-block"
+            >
+              &lt;div className="bg-primary-2"&gt;&lt;/div&gt;
+            </code>
+          </div>
+          <hr
+            class="divider"
+          />
+        </div>
+        <div>
+          <div
+            style="display: flex; align-items: center; gap: 8px;"
+          >
+            <span
+              class="bg-primary-3"
+              style="height: 18px; width: 18px; border-radius: 50%; display: inline-block; margin-right: 8px; vertical-align: middle;"
+            />
+            <code
+              class="code-block"
+            >
+              &lt;div className="bg-primary-3"&gt;&lt;/div&gt;
+            </code>
+          </div>
+          <hr
+            class="divider"
+          />
+        </div>
+        <div>
+          <div
+            style="display: flex; align-items: center; gap: 8px;"
+          >
+            <span
+              class="bg-white"
+              style="height: 18px; width: 18px; border-radius: 50%; display: inline-block; margin-right: 8px; vertical-align: middle;"
+            />
+            <code
+              class="code-block"
+            >
+              &lt;div className="bg-white"&gt;&lt;/div&gt;
+            </code>
+          </div>
+          <hr
+            class="divider"
+          />
+        </div>
+        <div>
+          <div
+            style="display: flex; align-items: center; gap: 8px;"
+          >
+            <span
+              class="bg-light-gray"
+              style="height: 18px; width: 18px; border-radius: 50%; display: inline-block; margin-right: 8px; vertical-align: middle;"
+            />
+            <code
+              class="code-block"
+            >
+              &lt;div className="bg-light-gray"&gt;&lt;/div&gt;
+            </code>
+          </div>
+          <hr
+            class="divider"
+          />
+        </div>
+        <div>
+          <div
+            style="display: flex; align-items: center; gap: 8px;"
+          >
+            <span
+              class="bg-gray"
+              style="height: 18px; width: 18px; border-radius: 50%; display: inline-block; margin-right: 8px; vertical-align: middle;"
+            />
+            <code
+              class="code-block"
+            >
+              &lt;div className="bg-gray"&gt;&lt;/div&gt;
+            </code>
+          </div>
+          <hr
+            class="divider"
+          />
+        </div>
+      </div>
+    </section>
+    <section
+      class="color-group"
+    >
+      <h2
+        class="color-group__title"
+      >
+        SCSS color variables
+      </h2>
+      <div
+        class="color-group__items"
+      >
+        <div>
+          <div
+            style="display: flex; align-items: center; gap: 8px;"
+          >
+            <span
+              style="height: 18px; width: 18px; border-radius: 50%; display: inline-block; margin-right: 8px; vertical-align: middle; background-color: var(--black-color);"
+            />
+            <code
+              class="code-block"
+            >
+              $
+              black-color
+            </code>
+          </div>
+          <hr
+            class="divider"
+          />
+        </div>
+        <div>
+          <div
+            style="display: flex; align-items: center; gap: 8px;"
+          >
+            <span
+              style="height: 18px; width: 18px; border-radius: 50%; display: inline-block; margin-right: 8px; vertical-align: middle; background-color: var(--dark-gray-color);"
+            />
+            <code
+              class="code-block"
+            >
+              $
+              dark-gray-color
+            </code>
+          </div>
+          <hr
+            class="divider"
+          />
+        </div>
+        <div>
+          <div
+            style="display: flex; align-items: center; gap: 8px;"
+          >
+            <span
+              style="height: 18px; width: 18px; border-radius: 50%; display: inline-block; margin-right: 8px; vertical-align: middle; background-color: var(--gray-color);"
+            />
+            <code
+              class="code-block"
+            >
+              $
+              gray-color
+            </code>
+          </div>
+          <hr
+            class="divider"
+          />
+        </div>
+        <div>
+          <div
+            style="display: flex; align-items: center; gap: 8px;"
+          >
+            <span
+              style="height: 18px; width: 18px; border-radius: 50%; display: inline-block; margin-right: 8px; vertical-align: middle; background-color: var(--light-gray-color);"
+            />
+            <code
+              class="code-block"
+            >
+              $
+              light-gray-color
+            </code>
+          </div>
+          <hr
+            class="divider"
+          />
+        </div>
+        <div>
+          <div
+            style="display: flex; align-items: center; gap: 8px;"
+          >
+            <span
+              style="height: 18px; width: 18px; border-radius: 50%; display: inline-block; margin-right: 8px; vertical-align: middle; background-color: var(--white-color);"
+            />
+            <code
+              class="code-block"
+            >
+              $
+              white-color
+            </code>
+          </div>
+          <hr
+            class="divider"
+          />
+        </div>
+        <div>
+          <div
+            style="display: flex; align-items: center; gap: 8px;"
+          >
+            <span
+              style="height: 18px; width: 18px; border-radius: 50%; display: inline-block; margin-right: 8px; vertical-align: middle; background-color: var(--light-blue-color);"
+            />
+            <code
+              class="code-block"
+            >
+              $
+              light-blue-color
+            </code>
+          </div>
+          <hr
+            class="divider"
+          />
+        </div>
+        <div>
+          <div
+            style="display: flex; align-items: center; gap: 8px;"
+          >
+            <span
+              style="height: 18px; width: 18px; border-radius: 50%; display: inline-block; margin-right: 8px; vertical-align: middle; background-color: var(--dark-blue-color);"
+            />
+            <code
+              class="code-block"
+            >
+              $
+              dark-blue-color
+            </code>
+          </div>
+          <hr
+            class="divider"
+          />
+        </div>
+        <div>
+          <div
+            style="display: flex; align-items: center; gap: 8px;"
+          >
+            <span
+              style="height: 18px; width: 18px; border-radius: 50%; display: inline-block; margin-right: 8px; vertical-align: middle; background-color: var(--red-color);"
+            />
+            <code
+              class="code-block"
+            >
+              $
+              red-color
+            </code>
+          </div>
+          <hr
+            class="divider"
+          />
+        </div>
+        <div>
+          <div
+            style="display: flex; align-items: center; gap: 8px;"
+          >
+            <span
+              style="height: 18px; width: 18px; border-radius: 50%; display: inline-block; margin-right: 8px; vertical-align: middle; background-color: var(--orange-color);"
+            />
+            <code
+              class="code-block"
+            >
+              $
+              orange-color
+            </code>
+          </div>
+          <hr
+            class="divider"
+          />
+        </div>
+        <div>
+          <div
+            style="display: flex; align-items: center; gap: 8px;"
+          >
+            <span
+              style="height: 18px; width: 18px; border-radius: 50%; display: inline-block; margin-right: 8px; vertical-align: middle; background-color: var(--green-color);"
+            />
+            <code
+              class="code-block"
+            >
+              $
+              green-color
+            </code>
+          </div>
+          <hr
+            class="divider"
+          />
+        </div>
+        <div>
+          <div
+            style="display: flex; align-items: center; gap: 8px;"
+          >
+            <span
+              style="height: 18px; width: 18px; border-radius: 50%; display: inline-block; margin-right: 8px; vertical-align: middle; background-color: var(--yellow-color);"
+            />
+            <code
+              class="code-block"
+            >
+              $
+              yellow-color
+            </code>
+          </div>
+          <hr
+            class="divider"
+          />
+        </div>
+        <div>
+          <div
+            style="display: flex; align-items: center; gap: 8px;"
+          >
+            <span
+              style="height: 18px; width: 18px; border-radius: 50%; display: inline-block; margin-right: 8px; vertical-align: middle; background-color: var(--primary-color-1);"
+            />
+            <code
+              class="code-block"
+            >
+              $
+              primary-color-1
+            </code>
+          </div>
+          <hr
+            class="divider"
+          />
+        </div>
+        <div>
+          <div
+            style="display: flex; align-items: center; gap: 8px;"
+          >
+            <span
+              style="height: 18px; width: 18px; border-radius: 50%; display: inline-block; margin-right: 8px; vertical-align: middle; background-color: var(--primary-color-2);"
+            />
+            <code
+              class="code-block"
+            >
+              $
+              primary-color-2
+            </code>
+          </div>
+          <hr
+            class="divider"
+          />
+        </div>
+        <div>
+          <div
+            style="display: flex; align-items: center; gap: 8px;"
+          >
+            <span
+              style="height: 18px; width: 18px; border-radius: 50%; display: inline-block; margin-right: 8px; vertical-align: middle; background-color: var(--primary-color-3);"
+            />
+            <code
+              class="code-block"
+            >
+              $
+              primary-color-3
+            </code>
+          </div>
+          <hr
+            class="divider"
+          />
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+`;

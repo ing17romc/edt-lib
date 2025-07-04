@@ -1,0 +1,73 @@
+@use '../../styles/palette' as *;
+@use '../../styles/typography' as *;
+@use '../../styles/spacing' as *;
+
+// Contenedor principal
+.color-palette {
+  padding: $space-4; // 16px
+  font-family: $font-family-base;
+  color: $text-color;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+// Grupo de colores
+.color-group {
+  margin-bottom: $space-6; // 24px
+  
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    margin-bottom: $space-4; // 16px
+    color: $primary-color;
+    border-bottom: 1px solid $border-color;
+    padding-bottom: $space-1; // 4px
+  }
+  
+  &__items {
+    display: flex;
+    flex-direction: column;
+    gap: $space-2; // 8px
+  }
+}
+
+// Elementos de código
+.code-block {
+  display: inline-block;
+  background-color: $light-gray-color;
+  padding: $space-1 $space-2; // 4px 8px
+  border-radius: 4px;
+  font-family: $font-family-base;
+  font-size: $font-size-sm;
+  margin-left: $space-4; // 16px
+  color: $dark-gray-color;
+}
+
+// Divisor
+.divider {
+  border: 0;
+  height: 1px;
+  background-color: $border-color;
+  margin: $space-2 0; // 8px 0
+}
+
+// Clases de utilidad para colores de fuente
+.font-blue { color: $primary-color; }
+.font-red { color: $red-color; }
+.font-orange { color: $orange-color; }
+.font-green { color: $green-color; }
+.font-white { color: $white-color; }
+.font-yellow { color: $yellow-color; }
+.font-gray { color: $gray-color; }
+
+// Clases de utilidad para colores de fondo
+.bg-primary-1 { background-color: $primary-color; }
+.bg-primary-2 { background-color: $primary-color-2; }
+.bg-primary-3 { background-color: $primary-color-3; }
+.bg-white { background-color: $white-color; }
+.bg-light-gray { background-color: $light-gray-color; }
+.bg-gray { background-color: $gray-color; }
+
+// Clases para mostrar las variables de color
+// Estas clases se generan automáticamente en el componente
+// usando las variables CSS definidas en palette.scss
