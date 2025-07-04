@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.8.7] - 2025-07-03
+
+### `Removed`
+- **`Componentes Estáticos`**:
+  - Eliminados los componentes estáticos: `Color`, `Grid`, `Message` y `Typography`
+  - Eliminados archivos de pruebas y estilos asociados
+
+### `Fixed`
+- **`Dependencias`**:
+  - Actualizadas las dependencias para resolver conflictos de versiones
+  - Mejorada la limpieza del proyecto en el script `clean`
+
 ## [2.8.6] - 2025-07-03
 
 ### `Fixed`
