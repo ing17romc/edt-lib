@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.8.10] - 2025-07-04
+
+### `Fixed`
+- **`Message`**:
+  - Corregidas variables SCSS no definidas en el componente Message
+  - Reemplazado `lighten()` por `color.adjust()` para mejor compatibilidad
+  - Mejorada la consistencia en los estilos y espaciados
+  - Corregido el peso de la fuente del título usando la variable correcta
+
 ## [2.8.9] - 2025-07-04
 
 ### `Added`
