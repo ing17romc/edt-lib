@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.8.8] - 2025-07-03
+
+### `Added`
+- **`Componentes Estáticos`**:
+  - Añadidos los componentes estáticos: `Grid` y `Typography` con sus respectivos estilos y documentación
+  - Incluidos archivos de pruebas y stories para ambos componentes
+
 ## [2.8.7] - 2025-07-03
 
 ### `Removed`
