@@ -12,7 +12,7 @@
     "url": "git+https://github.com/ing17romc/edt-lib.git"
   },
   "scripts": {
-    "clean": "rm package-lock.json && rm -rf node_modules && npm i --force",
+    "clean": "rm package-lock.json && rm -rf node_modules && rm -rf .gh-pages && rm -rf storybook-static && rm -rf dist && npm i --force",
     "build": "babel src --out-dir dist --extensions .js,.jsx,.ts,.tsx",
     "test": "jest",
     "lint:js": "eslint . --ext .ts,.tsx  --fix",

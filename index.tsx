@@ -1,14 +1,7 @@
 import functions from './src/components/utils/functions'
-import { Button, Title, CheckButton, Input, Selector, TextArea, Card, RadioButton } from './src/components/index'
+import RadioButton from './src/components/RadioButton'
 
 const UI = {
-    Button,
-    Title,
-    CheckButton,
-    Input,
-    Selector,
-    TextArea,
-    Card,
     RadioButton
 }
 
