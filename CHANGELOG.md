@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.8.11] - 2025-07-04
+
+### `Fixed`
+- **`Message`**:
+  - Corregido error de operador unario en estilos SCSS
+  - Actualizado el uso de `map-get` a `map.get` para compatibilidad con Sass moderno
+  - Mejorado el manejo de márgenes negativos
+  - Corregido el tamaño de fuente en modo responsivo
+
 ## [2.8.10] - 2025-07-04
 
 ### `Fixed`
