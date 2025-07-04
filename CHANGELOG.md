@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.8.4] - 2025-07-03
+
+### `Removed`
+- **`Examples`**:
+  - Eliminados archivos no utilizados en la carpeta de ejemplos.
+  - Eliminados archivos de datos obsoletos.
+  - Eliminados enums no utilizados en la carpeta de utilidades.
+
 ## [2.8.3] - 2025-07-03
 
 ### `Fixed`
