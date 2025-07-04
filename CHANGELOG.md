@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.8.5] - 2025-07-03
+
+### `Refactor`
+- **`Estilos`**:
+  - Actualizadas las rutas de importación en los archivos SCSS para usar rutas relativas en lugar de alias 'src'.
+  - Mejorada la configuración de Vite en Storybook para una mejor compatibilidad.
+  - Eliminadas dependencias no utilizadas del archivo de configuración principal de Storybook.
+
 ## [2.8.4] - 2025-07-03
 
 ### `Removed`
