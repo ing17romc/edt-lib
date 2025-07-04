@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import functions from '../../../../src/components/utils/functions';
+import functions from '../../../components/utils/functions';
 
 import getStatus from '../utils';
 import type { TableWithPaginationProps, TableWithPaginationState, TableRowData } from './types';

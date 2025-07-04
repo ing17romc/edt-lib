@@ -71,7 +71,7 @@
   "browserslist": {},
   "files": [
     "dist",
-    "src/scss",
+    "src/styles",
     "index.scss"
   ]
 }
