@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.8.6] - 2025-07-03
+
+### `Fixed`
+- **`Configuración`**:
+  - Corregida la configuración de TypeScript para usar rutas absolutas desde 'src'.
+  - Actualizada la configuración de Storybook para mejorar la resolución de módulos.
+  - Corregidos errores de tipos en los componentes.
+
 ## [2.8.5] - 2025-07-03
 
 ### `Refactor`
