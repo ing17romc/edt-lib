@@ -1,6 +1,6 @@
-@use 'src/styles/palette' as *;
-@use 'src/styles/typography' as *;
-@use 'src/styles/spacing' as *;
+@use '../../styles/palette' as *;
+@use '../../styles/typography' as *;
+@use '../../styles/spacing' as *;
 @use 'sass:color';
 
 .message {

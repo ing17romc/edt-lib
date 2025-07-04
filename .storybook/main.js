@@ -1,5 +1,3 @@
-const path = require('path');
-
 module.exports = {
   stories: [
     '../src/**/*.stories.@(js|jsx|ts|tsx)'
@@ -14,17 +12,7 @@ module.exports = {
   docs: {
     autodocs: true
   },
-  async viteFinal(config) {
-    // Asegurar que las rutas de importación se resuelvan correctamente
-    config.resolve = {
-      ...config.resolve,
-      alias: {
-        ...config.resolve?.alias,
-        // Mapear 'src' a la ruta absoluta del directorio src
-        'src': path.resolve(__dirname, '../src')
-      }
-    };
-
+  viteFinal(config) {
     // Configuración base para el despliegue
     config.base = '/edt-lib/';
     
