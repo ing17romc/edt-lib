@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.8.9] - 2025-07-04
+
+### `Added`
+- **`Componente Message`**:
+  - Añadido el componente estático `Message` con soporte para diferentes tipos (success, info, warning, danger)
+  - Incluidos archivos de pruebas unitarias y documentación en Storybook
+  - Añadida documentación de reglas para el desarrollo de componentes
+
+### `Fixed`
+- **`Linting`**:
+  - Corregidos errores de TypeScript en los componentes existentes
+  - Mejorados los tipos para mayor seguridad de tipos
+  - Corregidos problemas de compatibilidad con JSX en archivos TypeScript
+
+
 ## [2.8.8] - 2025-07-03
 
 ### `Added`
