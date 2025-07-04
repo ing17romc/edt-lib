@@ -1,16 +1,44 @@
 @use '../../styles/palette' as *;
 @use '../../styles/typography' as *;
 @use '../../styles/spacing' as *;
-@use '../../styles/animations' as *;
 @use 'sass:color';
 
+
 // Variables
-$message-padding: $space-4;
-$message-border-radius: $space-1;
+$message-padding: $space-4; // 1rem (16px)
+$message-border-radius: $space-1; // 0.25rem (4px)
 $message-border-width: 4px;
-$message-icon-size: 1.5rem;
-$message-close-size: 1.25rem;
+$message-icon-size: 1.5rem; // 24px
+$message-close-size: 1.25rem; // 20px
 $message-transition: all 0.3s ease-in-out;
+
+// Colores específicos para el componente Message
+$message-colors: (
+  'success': (
+    'bg': color.adjust($success-color, $lightness: 45%),
+    'border': $success-color,
+    'text': color.adjust($success-color, $lightness: -20%),
+    'icon': $success-color
+  ),
+  'info': (
+    'bg': color.adjust($info-color, $lightness: 45%),
+    'border': $info-color,
+    'text': color.adjust($info-color, $lightness: -20%),
+    'icon': $info-color
+  ),
+  'warning': (
+    'bg': color.adjust($warning-color, $lightness: 45%),
+    'border': $warning-color,
+    'text': color.adjust($warning-color, $lightness: -20%),
+    'icon': $warning-color
+  ),
+  'danger': (
+    'bg': color.adjust($danger-color, $lightness: 45%),
+    'border': $danger-color,
+    'text': color.adjust($danger-color, $lightness: -10%),
+    'icon': $danger-color
+  )
+);
 
 .message {
   position: relative;
@@ -29,6 +57,7 @@ $message-transition: all 0.3s ease-in-out;
     align-items: flex-start;
     gap: $space-3;
     position: relative;
+    color: $text-color;
   }
   
   // Icono del mensaje
@@ -36,7 +65,7 @@ $message-transition: all 0.3s ease-in-out;
     flex: 0 0 $message-icon-size;
     width: $message-icon-size;
     height: $message-icon-size;
-    margin-top: $space-0-5;
+    margin-top: $space-1; // Usando $space-1 (4px) en lugar de $space-0-5 que no existe
     
     svg {
       width: 100%;
@@ -48,14 +77,28 @@ $message-transition: all 0.3s ease-in-out;
   &Body {
     flex: 1;
     min-width: 0; // Evita desbordamiento en flex
+    
+    // Título del mensaje
+    &Title {
+      font-weight: $font-weight-semibold;
+      margin: 0 0 $space-2;
+      font-size: $font-size-md;
+    }
+    
+    // Texto del mensaje
+    &Text {
+      margin: 0;
+      font-size: $font-size-md;
+      line-height: $line-height-md;
+    }
   }
   
   // Título del mensaje
   &Title {
     display: block;
-    font-weight: $font-weight-semi-bold;
+    font-weight: $font-weight-semibold;
     margin-bottom: $space-2;
-    line-height: $line-height-tight;
+    line-height: $line-height-sm;
   }
   
   // Texto del mensaje
@@ -179,22 +222,22 @@ $message-transition: all 0.3s ease-in-out;
   .message {
     &-success {
       background-color: rgba($success-color, 0.15);
-      color: lighten($success-color, 10%);
+      color: color.adjust($success-color, $lightness: 10%);
     }
     
     &-info {
       background-color: rgba($info-color, 0.15);
-      color: lighten($info-color, 10%);
+      color: color.adjust($info-color, $lightness: 10%);
     }
     
     &-warning {
       background-color: rgba($warning-color, 0.15);
-      color: lighten($warning-color, 10%);
+      color: color.adjust($warning-color, $lightness: 10%);
     }
     
     &-danger {
       background-color: rgba($danger-color, 0.15);
-      color: lighten($danger-color, 10%);
+      color: color.adjust($danger-color, $lightness: 10%);
     }
   }
 }

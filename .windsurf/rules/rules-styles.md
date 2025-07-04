@@ -24,4 +24,6 @@ Carpeta de estilos globales:
 
 - Mantener coherencia visual entre todos los componentes.
 - Si se define una paleta de colores (por ejemplo, tonos azules), todos los componentes deben respetarla.
-- Centralizar estilos globales como colores (en palette.scss), tamaños de fuente y tipografías (typography.scss) y espacios en pixeles (spacing.scss) en la carpeta `src/styles/` para que puedan ser reutilizados.
+- Centralizar estilos globales como colores (en palette.scss), tamaños de fuente y tipografías (typography.scss) y espacios en pixeles (spacing.scss) en la carpeta `src/styles/` para que puedan ser reutilizados (Evitar los errores [sass] Undefined variable).
+- Usar "color.adjust()" en vez de "darken()" o "lighten()" y agregar @use 'sass:color';
+
