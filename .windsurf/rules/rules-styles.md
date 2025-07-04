@@ -26,4 +26,4 @@ Carpeta de estilos globales:
 - Si se define una paleta de colores (por ejemplo, tonos azules), todos los componentes deben respetarla.
 - Centralizar estilos globales como colores (en palette.scss), tamaños de fuente y tipografías (typography.scss) y espacios en pixeles (spacing.scss) en la carpeta `src/styles/` para que puedan ser reutilizados (Evitar los errores [sass] Undefined variable).
 - Usar "color.adjust()" en vez de "darken()" o "lighten()" y agregar @use 'sass:color';
-
+- Tener en cuenta las recomendaciones de Dart Sass 2.0.0
