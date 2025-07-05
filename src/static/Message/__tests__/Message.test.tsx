@@ -2,163 +2,105 @@ import '@testing-library/jest-dom';
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import Message from '../index';
+import type { MessageType } from '../types';
 import styles from '../Message.module.scss';
 
 describe('Message', () => {
-  it('renderiza el mensaje con las propiedades por defecto', () => {
+  // Casos de prueba para la renderización básica
+  it('debe renderizar correctamente con valores por defecto', () => {
+    const { container } = render(<Message>Mensaje predeterminado</Message>);
+    expect(container.firstChild).toHaveClass(styles.message, styles['message-info']);
+    expect(screen.getByText('Mensaje predeterminado')).toBeInTheDocument();
+    expect(container.querySelector(`.${styles.messageIcon} svg`)).toBeInTheDocument();
+  });
+
+  // Casos de prueba para los diferentes tipos de mensaje
+  it.each([
+    ['success', 'status'],
+    ['info', 'status'],
+    ['warning', 'alert'],
+    ['danger', 'alert']
+  ])('debe aplicar las clases y roles correctos para el tipo %s', (type, role) => {
     const { container } = render(
-      <Message type="info">Mensaje de prueba</Message>
+      <Message type={type as MessageType}>{`Mensaje de ${type}`}</Message>
     );
     
-    const messageElement = container.firstChild;
-    expect(messageElement).toHaveClass(styles.message);
-    expect(messageElement).toHaveClass(styles['message-info']);
-    expect(screen.getByText('Mensaje de prueba')).toBeInTheDocument();
-    
-    // Verificar que el ícono se renderice correctamente
-    const icon = container.querySelector(`.${styles.messageIcon} svg`);
-    expect(icon).toBeInTheDocument();
-    
-    // Verificar el rol ARIA por defecto para tipo info
-    expect(messageElement).toHaveAttribute('role', 'status');
-    expect(messageElement).toHaveAttribute('aria-live', 'polite');
-  });
-
-  it('renderiza el mensaje con un título cuando se proporciona', () => {
-    render(
-      <Message type="success" title="¡Éxito!" data-testid="message-with-title">
-        Operación completada
-      </Message>
+    expect(container.firstChild).toHaveClass(styles[`message-${type}`]);
+    expect(container.firstChild).toHaveAttribute('role', role);
+    expect(container.firstChild).toHaveAttribute(
+      'aria-live', 
+      role === 'alert' ? 'assertive' : 'polite'
     );
-    
-    const titleElement = screen.getByTestId('message-title');
-    expect(titleElement).toHaveTextContent('¡Éxito!');
-    expect(screen.getByText('Operación completada')).toBeInTheDocument();
-    
-    // Verificar que el título tenga la clase correcta
-    expect(titleElement).toHaveClass(styles.messageTitle);
   });
 
-  it('aplica la clase CSS correcta según la propiedad type', () => {
-    const { getByTestId } = render(
-      <div>
-        <Message type="success" data-testid="success-msg">Éxito</Message>
-        <Message type="info" data-testid="info-msg">Información</Message>
-        <Message type="warning" data-testid="warning-msg">Advertencia</Message>
-        <Message type="danger" data-testid="danger-msg">Peligro</Message>
-      </div>
-    );
-    
-    // Verificar que cada mensaje tenga la clase correcta según su tipo
-    const successMsg = getByTestId('success-msg');
-    const infoMsg = getByTestId('info-msg');
-    const warningMsg = getByTestId('warning-msg');
-    const dangerMsg = getByTestId('danger-msg');
-    
-    expect(successMsg).toHaveClass(styles['message-success']);
-    expect(infoMsg).toHaveClass(styles['message-info']);
-    expect(warningMsg).toHaveClass(styles['message-warning']);
-    expect(dangerMsg).toHaveClass(styles['message-danger']);
-    
-    // Verificar roles ARIA según el tipo
-    expect(warningMsg).toHaveAttribute('role', 'alert');
-    expect(dangerMsg).toHaveAttribute('role', 'alert');
-    expect(warningMsg).toHaveAttribute('aria-live', 'assertive');
+  // Casos de prueba para el título
+  it('debe mostrar el título cuando se proporciona', () => {
+    render(<Message title="Título">Mensaje</Message>);
+    expect(screen.getByText('Título')).toHaveClass(styles.messageTitle);
   });
 
-  it('aplica una clase personalizada cuando se proporciona', () => {
+  it('no debe mostrar el título cuando no se proporciona', () => {
+    render(<Message>Mensaje sin título</Message>);
+    expect(screen.queryByTestId('message-title')).not.toBeInTheDocument();
+  });
+
+  // Casos de prueba para personalización
+  it('debe aplicar clases personalizadas', () => {
     const { container } = render(
-      <Message type="info" className="custom-class">
-        Mensaje con clase personalizada
-      </Message>
+      <Message className="clase-personalizada">Mensaje</Message>
     );
-    
-    const messageElement = container.firstChild;
-    expect(messageElement).toHaveClass('custom-class');
-    expect(messageElement).toHaveClass(styles.message);
+    expect(container.firstChild).toHaveClass('clase-personalizada');
   });
 
-  it('aplica estilos personalizados cuando se proporcionan', () => {
-    const customStyle = { marginTop: '20px', backgroundColor: 'red' };
+  it('debe aplicar estilos personalizados', () => {
+    const style = { color: 'red' };
     const { container } = render(
-      <Message type="info" style={customStyle} data-testid="styled-message">
-        Mensaje con estilos personalizados
-      </Message>
+      <Message style={style}>Mensaje con estilo</Message>
     );
-    
-    const messageElement = container.firstChild as HTMLElement;
-    expect(messageElement.style.marginTop).toBe('20px');
-    expect(messageElement.style.backgroundColor).toBe('red');
-  });
-
-  it('no muestra el título cuando no se proporciona', () => {
-    const { queryByTestId } = render(
-      <Message type="info">Mensaje sin título</Message>
-    );
-    
-    expect(queryByTestId('message-title')).not.toBeInTheDocument();
-    expect(screen.getByText('Mensaje sin título')).toBeInTheDocument();
+    expect(container.firstChild).toHaveStyle('color: rgb(255, 0, 0)');
   });
   
-  it('muestra el botón de cierre cuando la propiedad closable es true', () => {
-    const handleClose = jest.fn();
+  // Pruebas de funcionalidad de cierre
+  it('debe mostrar el botón de cierre cuando la propiedad closable es true', () => {
     render(
-      <Message type="info" closable onClose={handleClose}>
+      <Message closable>
         Mensaje cerrable
       </Message>
     );
     
-    const closeButton = screen.getByRole('button', { name: /cerrar mensaje/i });
+    const closeButton = screen.getByRole('button', { name: /cerrar/i });
     expect(closeButton).toBeInTheDocument();
-    expect(closeButton).toHaveClass(styles.closeButton);
-    
-    // Verificar que el mensaje tenga la clase 'closable'
-    const messageElement = closeButton.closest(`.${styles.message}`);
-    expect(messageElement).toHaveClass(styles.closable);
   });
-  
-  it('llama a la función onClose cuando se hace clic en el botón de cierre', () => {
+
+  it('debe llamar a onClose cuando se hace clic en el botón de cierre', () => {
     const handleClose = jest.fn();
+    
     render(
-      <Message type="info" closable onClose={handleClose}>
-        Mensaje cerrable
+      <Message closable onClose={handleClose}>
+        Mensaje con cierre
       </Message>
     );
     
-    const closeButton = screen.getByRole('button', { name: /cerrar mensaje/i });
+    const closeButton = screen.getByRole('button', { name: /cerrar/i });
     fireEvent.click(closeButton);
     
     expect(handleClose).toHaveBeenCalledTimes(1);
   });
-  
-  it('oculta el mensaje después de hacer clic en el botón de cierre', () => {
-    const { queryByTestId } = render(
-      <Message type="info" closable data-testid="closable-message">
-        Mensaje que desaparecerá
+
+  it('debe ocultar el mensaje al hacer clic en el botón de cierre', () => {
+    const { container } = render(
+      <Message closable>
+        Mensaje cerrable
       </Message>
     );
     
-    const closeButton = screen.getByRole('button', { name: /cerrar mensaje/i });
+    const closeButton = screen.getByRole('button', { name: /cerrar/i });
     fireEvent.click(closeButton);
     
-    // Verificar que el mensaje ya no está en el DOM
-    expect(queryByTestId('closable-message')).not.toBeInTheDocument();
+    expect(container.firstChild).not.toBeInTheDocument();
   });
-  
-  it('acepta y muestra nodos React como children', () => {
-    const { getByText } = render(
-      <Message type="info">
-        <span>Este es un </span>
-        <strong>mensaje</strong>
-        <span> con formato</span>
-      </Message>
-    );
-    
-    expect(getByText('mensaje')).toHaveStyle('font-weight: bold');
-    expect(getByText('con formato')).toBeInTheDocument();
-  });
-  
-  it('permite sobrescribir el rol ARIA', () => {
+
+  it('debe permitir sobrescribir el rol ARIA', () => {
     const { getByRole } = render(
       <Message type="warning" role="alertdialog">
         Mensaje con rol personalizado
@@ -167,7 +109,18 @@ describe('Message', () => {
     
     expect(getByRole('alertdialog')).toBeInTheDocument();
   });
-  
+
+  it('debe aceptar nodos React como children', () => {
+    render(
+      <Message>
+        <span>Mensaje con </span>
+        <strong>formato</strong>
+      </Message>
+    );
+    
+    expect(screen.getByText('formato')).toHaveStyle('font-weight: bold');
+  });
+
   it('permite pasar propiedades HTML adicionales', () => {
     const { getByTestId } = render(
       <Message 

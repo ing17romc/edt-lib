@@ -5,54 +5,50 @@
 @use 'sass:map';
 @use 'sass:math';
 
-
 // Variables
 $message-padding: $space-4; // 1rem (16px)
-$message-padding-sm: $space-3; // 0.75rem (12px)
 $message-border-radius: $border-radius-sm; // 4px
 $message-border-width: 4px;
 $message-icon-size: 1.5rem; // 24px
 $message-close-size: 1.25rem; // 20px
-$message-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-$message-elevation: 0 1px 3px rgba(0, 0, 0, 0.1);
-$message-elevation-hover: 0 4px 6px rgba(0, 0, 0, 0.1);
+$message-transition: opacity 0.2s ease, transform 0.2s ease;
 
-// Colores específicos para el componente Message
+// Mapa de colores para los diferentes tipos de mensaje
 $message-colors: (
   'success': (
     'bg': color.adjust($success-color, $lightness: 50%),
     'border': $success-color,
     'text': color.adjust($success-color, $lightness: -25%),
-    'icon': $success-color,
-    'hover': color.adjust($success-color, $lightness: 55%)
+    'icon': $success-color
   ),
   'info': (
     'bg': color.adjust($info-color, $lightness: 50%),
     'border': $info-color,
     'text': color.adjust($info-color, $lightness: -25%),
-    'icon': $info-color,
-    'hover': color.adjust($info-color, $lightness: 55%)
+    'icon': $info-color
   ),
   'warning': (
     'bg': color.adjust($warning-color, $lightness: 50%),
     'border': $warning-color,
     'text': color.adjust($warning-color, $lightness: -25%),
-    'icon': $warning-color,
-    'hover': color.adjust($warning-color, $lightness: 55%)
+    'icon': $warning-color
   ),
   'danger': (
     'bg': color.adjust($danger-color, $lightness: 50%),
     'border': $danger-color,
     'text': color.adjust($danger-color, $lightness: -15%),
-    'icon': $danger-color,
-    'hover': color.adjust($danger-color, $lightness: 55%)
+    'icon': $danger-color
   )
 );
 
+// Estilos base del mensaje
 .message {
   position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: $space-3;
   padding: $message-padding;
-  margin: 0 0 $space-4;
+  margin-bottom: $space-4;
   border-radius: $message-border-radius;
   border-left: $message-border-width solid transparent;
   font-family: $font-family-base;
@@ -60,297 +56,149 @@ $message-colors: (
   line-height: $line-height-md;
   transition: $message-transition;
   overflow: hidden;
-  box-shadow: $message-elevation;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 10%);
   
-  // Mejorar accesibilidad con contraste
   @media (prefers-reduced-motion: reduce) {
     transition: none;
   }
+}
+
+// Contenido del mensaje
+.messageContent {
+  flex: 1;
+  min-width: 0; // Evita que el contenido se desborde
   
-  // Contenido del mensaje
-  &Content {
-    display: flex;
-    align-items: flex-start;
-    gap: $space-3;
-    position: relative;
-    color: inherit;
+  > * {
+    margin: 0;
     
-    // Mejor alineación vertical del contenido
-    > * {
-      margin-top: 0;
-      margin-bottom: 0;
+    & + * {
+      margin-top: $space-2;
     }
   }
+}
+
+// Título del mensaje
+.messageTitle {
+  display: block;
+  font-weight: $font-weight-bold;
+  margin-bottom: $space-1;
+}
+
+// Icono del mensaje
+.messageIcon {
+  flex: 0 0 $message-icon-size;
+  width: $message-icon-size;
+  height: $message-icon-size;
+  margin-top: $space-1;
   
-  // Icono del mensaje
-  &Icon {
-    flex: 0 0 $message-icon-size;
-    width: $message-icon-size;
-    height: $message-icon-size;
-    margin-top: $space-1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    svg {
-      width: 100%;
-      height: 100%;
-      fill: currentColor;
-      transition: transform 0.2s ease;
-    }
+  svg {
+    width: 100%;
+    height: 100%;
+    fill: currentcolor;
   }
-  
-  // Cuerpo del mensaje
-  &Body {
-    flex: 1;
-    min-width: 0; // Evita desbordamiento en flex
-    
-    // Título del mensaje
-    &Title {
-      font-weight: $font-weight-semibold;
-      margin: 0 0 $space-1;
-      font-size: $font-size-md;
-      line-height: $line-height-sm;
-      color: inherit;
-    }
-    
-    // Texto del mensaje
-    &Text {
-      margin: 0;
-      font-size: $font-size-md;
-      line-height: $line-height-md;
-      color: inherit;
-      
-      // Mejor espaciado entre párrafos
-      p + p {
-        margin-top: $space-2;
-      }
-      
-      // Estilos para enlaces dentro del mensaje
-      a {
-        color: inherit;
-        text-decoration: underline;
-        font-weight: $font-weight-medium;
-        transition: color 0.2s ease;
-        
-        &:hover, 
-        &:focus {
-          text-decoration: none;
-        }
-      }
-    }
-  }
+}
+
+// Cuerpo del mensaje
+.messageBody {
+  flex: 1;
+  min-width: 0; // Evita desbordamiento en flex
   
   // Título del mensaje
-  &Title {
-    display: block;
+  .messageTitle {
     font-weight: $font-weight-semibold;
-    margin-bottom: $space-2;
+    margin: 0 0 $space-1;
+    font-size: $font-size-md;
     line-height: $line-height-sm;
+    color: inherit;
   }
   
   // Texto del mensaje
-  &Text {
-    p {
-      margin: 0;
-      
-      & + p {
-        margin-top: $space-2;
-      }
-    }
-  }
-  
-  // Botón de cierre
-  &CloseButton {
-    flex: 0 0 auto;
-    background: none;
-    border: none;
-    padding: $space-1;
-    margin: - $space-1 - $space-1 - $space-1 $space-2;
-    cursor: pointer;
-    width: $message-close-size;
-    height: $message-close-size;
-    opacity: 0.6;
-    transition: all 0.2s ease;
+  .messageText {
+    margin: 0;
+    font-size: $font-size-md;
+    line-height: $line-height-md;
     color: inherit;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
     
-    &:hover,
-    &:focus {
-      opacity: 1;
-      background-color: rgba(0, 0, 0, 0.05);
-      outline: none;
-      transform: scale(1.1);
-    }
-    
-    &:active {
-      transform: scale(0.95);
-    }
-    
-    svg {
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-    }
-    
-    // Mejorar accesibilidad del foco
-    &:focus-visible {
-      box-shadow: 0 0 0 2px currentColor;
-    }
-  }
-  
-  // Mixin para generar estilos de tipo de mensaje
-  @mixin message-type($type) {
-    $color: map.get($message-colors, $type);
-    
-    background-color: map.get($color, 'bg');
-    color: map.get($color, 'text');
-    border-left-color: map.get($color, 'border');
-    
-    .messageIcon {
-      color: map.get($color, 'icon');
-    }
-    
-    // Efecto hover para mensajes interactivos
-    &:hover {
-      background-color: map.get($color, 'hover');
-      box-shadow: $message-elevation-hover;
-      transform: translateY(-1px);
+    // Mejor espaciado entre párrafos
+    p + p {
+      margin-top: $space-2;
     }
     
     // Estilos para enlaces dentro del mensaje
     a {
-      color: map.get($color, 'border');
+      color: inherit;
+      text-decoration: underline;
+      font-weight: $font-weight-medium;
+      transition: color 0.2s ease;
       
-      &:hover,
+      &:hover, 
       &:focus {
-        color: color.adjust(map.get($color, 'border'), $lightness: -10%);
+        text-decoration: none;
       }
     }
   }
-  
-  // Aplicar estilos a cada tipo de mensaje
-  &-success { @include message-type('success'); }
-  &-info { @include message-type('info'); }
-  &-warning { @include message-type('warning'); }
-  &-danger { @include message-type('danger'); }
-  
-  // Estado de hover para mensajes cerrables
-  &.closable {
-    padding-right: $space-10; // Espacio para el botón de cierre
+}
+
+// Estilos para cada tipo de mensaje
+@each $type, $colors in $message-colors {
+  .message-#{$type} {
+    background-color: map.get($colors, 'bg');
+    border-left-color: map.get($colors, 'border');
+    color: map.get($colors, 'text');
     
-    // Posicionar el botón de cierre
-    .messageCloseButton {
-      position: absolute;
-      top: $space-2;
-      right: $space-2;
-      margin: 0;
-      
-      @media (max-width: 480px) {
-        top: $space-1;
-        right: $space-1;
-      }
-    }
-    
-    // Reducir padding en móviles
-    @media (max-width: 480px) {
-      padding: $message-padding-sm $message-padding-sm $message-padding-sm $message-padding;
+    .messageIcon {
+      color: map.get($colors, 'icon');
     }
   }
-  
-  // Animaciones
-  &-enter {
-    opacity: 0;
-    transform: translateY(10px);
-    
-    &-active {
-      opacity: 1;
-      transform: translateY(0);
-      transition: $message-transition;
-    }
-  }
-  
-  &-exit {
-    opacity: 1;
-    transform: translateY(0);
-    
-    &-active {
-      opacity: 0;
-      transform: translateY(-10px);
-      transition: $message-transition;
-    }
-  }
-  
-  &-enter-active {
-    opacity: 1;
-    transform: translateY(0);
-    transition: $message-transition;
-  }
-  
-  &-exit {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  &-exit-active {
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: $message-transition;
-  }
+}
+
+// Estilos para mensajes cerrables
+.message.closable {
+  padding-right: $space-10; // Espacio para el botón de cierre
+}
+
+// Animaciones
+.message-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.message-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: $message-transition;
+}
+
+.message-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.message-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: $message-transition;
 }
 
 // Modo oscuro
-// Estilos para modo oscuro
 [data-theme='dark'] {
   .message {
-    // Reducir la opacidad del fondo en modo oscuro
-    @each $type, $color in $message-colors {
+    @each $type, $colors in $message-colors {
       &-#{$type} {
-        $dark-bg: color.adjust(map.get($color, 'border'), $lightness: -40%, $saturation: -30%);
-        background-color: rgba($dark-bg, 0.2);
-        color: color.adjust(map.get($color, 'text'), $lightness: 20%);
-        
-        &:hover {
-          background-color: rgba($dark-bg, 0.3);
-        }
-        
-        .messageIcon {
-          color: color.adjust(map.get($color, 'icon'), $lightness: 20%);
-        }
-        
-        // Ajustar color de borde en modo oscuro
-        border-left-color: color.adjust(map.get($color, 'border'), $lightness: 10%);
-      }
-    }
-    
-    // Ajustar el botón de cierre en modo oscuro
-    &CloseButton {
-      &:hover,
-      &:focus {
-        background-color: rgba(255, 255, 255, 0.1);
+        background-color: color.adjust(map.get($colors, 'bg'), $lightness: -5%);
       }
     }
   }
 }
 
-// Estilos responsivos
-@media (max-width: 768px) {
+// Media queries para responsividad
+@media (width <= 575.98px) {
   .message {
-    padding: $message-padding-sm $message-padding;
+    flex-direction: column;
+    align-items: flex-start;
     
-    &Icon {
-      margin-top: math.div($space-1, 2);
-    }
-    
-    &Title {
-      font-size: $font-size-md;
-    }
-    
-    &Text {
-      font-size: $font-size-sm;
+    .messageIcon {
+      margin-bottom: $space-2;
     }
   }
 }

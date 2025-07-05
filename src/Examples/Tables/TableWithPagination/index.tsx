@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import functions from '../../../components/utils/functions';
 
 import getStatus from '../utils';
 import type { TableWithPaginationProps, TableWithPaginationState, TableRowData } from './types';
@@ -18,10 +17,17 @@ import '../../../styles/tables.scss';
  * @returns {JSX.Element} Tabla interactiva con paginación y selector de filas por página.
  */
 const TableWithPagination: React.FC<TableWithPaginationProps> = ({ dataTable }) => {
-		const [state, setstate] = useState<TableWithPaginationState>({
-		page: 1,
-		pages: 3
-	});
+  const [state, setState] = useState<TableWithPaginationState>({
+    page: 1,
+    pages: 3
+  });
+  
+  const handlePageSizeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setState(prevState => ({
+      ...prevState,
+      pages: parseInt(e.target.value, 10)
+    }));
+  };
 
 	const getSlides = (acc: TableRowData[][], cur: TableRowData[], slidesPerView: number): TableRowData[][] => {
 		if (!Array.isArray(acc) || !Array.isArray(cur) || !slidesPerView) { return []; }
@@ -34,17 +40,6 @@ const TableWithPagination: React.FC<TableWithPaginationProps> = ({ dataTable }) 
 
 	const pages = getSlides([], dataTable, state.pages);
 	const getIndex = pages.length < state.page ? 0 : state.page - 1;
-
-	const onInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-		const object = functions.getValueInput(e);
-		if (e && object) {
-			setstate({
-				...state,
-				[object.key]: object.value,
-				page: 1
-			});
-		}
-	};
 
 	return (
 		<>
@@ -63,12 +58,12 @@ const TableWithPagination: React.FC<TableWithPaginationProps> = ({ dataTable }) 
 							<Selector
 								id="pages"
 								value={state.pages.toString()}
+								onChange={handlePageSizeChange}
 								options={[
 									{ label: "1", value: '1' },
 									{ label: "2", value: '2' },
 									{ label: "3", value: '3' },
 								]}
-								onChange={(e) => onInputChange(e as React.ChangeEvent<HTMLSelectElement>)}
 								label="Number item by page"
 								placeholder="Select items per page"
 							/>
@@ -110,7 +105,7 @@ const TableWithPagination: React.FC<TableWithPaginationProps> = ({ dataTable }) 
 							<Pagination
 								totalPages={pages.length}
 								currentPage={state.page}
-								onPageChange={currentPage => setstate({ ...state, page: currentPage })}
+								onPageChange={currentPage => setState(prevState => ({ ...prevState, page: currentPage }))}
 							/>
 						</div>
 					</div>

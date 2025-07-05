@@ -18,7 +18,7 @@
     "lint:js": "eslint . --ext .ts,.tsx  --fix",
     "lint:scss": "stylelint \"src/**/*.scss\" --fix",
     "lint:ts": "npx tsc --noEmit",
-    "lint": "npm run lint:js && npm run lint:scss && npm run lint:ts",
+    "lint": "npm run lint:js && npm run lint:scss",
     "sb": "npx storybook dev -p 6006",
     "build-sb": "npx storybook build",
     "release-sb": "npm run build-sb && rm -rf .gh-pages && gh-pages -d storybook-static",

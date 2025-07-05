@@ -3,59 +3,46 @@
  * Este componente muestra mensajes de retroalimentación al usuario con diferentes niveles de importancia.
  */
 
-/**
- * Tipos de mensaje disponibles
- * @enum {string}
- * @property {string} success - Indica una acción exitosa
- * @property {string} info - Proporciona información neutral
- * @property {string} warning - Indica una advertencia que requiere atención
- * @property {string} danger - Indica un error o problema crítico
- */
+import { HTMLAttributes, ReactNode } from 'react';
+
+/** Tipos de mensaje disponibles */
 export type MessageType = 'success' | 'info' | 'warning' | 'danger';
 
 /**
  * Propiedades del componente Message
  * @interface MessageProps
- * @extends React.HTMLAttributes<HTMLDivElement>
  */
-export interface MessageProps extends React.HTMLAttributes<HTMLDivElement> {
-  /**
-   * Tipo de mensaje a mostrar
+export interface MessageProps extends HTMLAttributes<HTMLDivElement> {
+  /** 
+   * Tipo de mensaje a mostrar 
    * @default 'info'
    */
   type?: MessageType;
   
-  /**
-   * Título del mensaje (opcional)
-   * Si se proporciona, se muestra en negrita al principio del mensaje
-   */
+  /** Título opcional que se muestra en negrita */
   title?: string;
   
-  /**
-   * Contenido principal del mensaje
-   */
-  children: React.ReactNode;
+  /** Contenido principal del mensaje */
+  children: ReactNode;
   
-  /**
-   * Indica si el mensaje puede ser cerrado por el usuario
+  /** 
+   * Permite cerrar el mensaje 
    * @default false
    */
   closable?: boolean;
   
-  /**
-   * Función que se ejecuta cuando el usuario cierra el mensaje
+  /** 
+   * Función que se ejecuta al cerrar el mensaje
    * Solo se usa si `closable` es `true`
    */
   onClose?: () => void;
   
-  /**
-   * Rol ARIA para accesibilidad
-   * @default 'status' para info/success, 'alert' para warning/error
+  /** 
+   * Rol ARIA personalizado 
+   * @default 'status' para info/success, 'alert' para warning/danger
    */
   role?: 'alert' | 'status' | 'alertdialog';
   
-  /**
-   * ID único para propósitos de prueba
-   */
+  /** ID para pruebas */
   'data-testid'?: string;
 }

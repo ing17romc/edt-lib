@@ -1,28 +1,22 @@
 /**
- * Message
- *
- * Este componente muestra mensajes de estado (éxito, información, advertencia y peligro) 
- * para proporcionar retroalimentación visual clara al usuario según el contexto de la acción realizada.
- * Incluye soporte para accesibilidad, cierre opcional y personalización de estilos.
- *
+ * Componente Message
+ * 
+ * Muestra mensajes de retroalimentación al usuario con diferentes niveles de importancia.
+ * Soporta diferentes tipos, títulos, cierre opcional y es completamente accesible.
+ * 
  * @component
  * @example
  * // Uso básico
- * <Message type="success">Operación completada con éxito</Message>
+ * <Message>Mensaje informativo</Message>
  * 
- * // Con título personalizado
- * <Message type="warning" title="Atención">
- *   Este es un mensaje de advertencia importante.
+ * // Con tipo y título
+ * <Message type="success" title="¡Éxito!">
+ *   La operación se completó correctamente.
  * </Message>
  * 
- * // Con botón de cierre
- * <Message 
- *   type="info" 
- *   title="Información"
- *   closable
- *   onClose={() => console.log('Mensaje cerrado')}
- * >
- *   Este mensaje se puede cerrar haciendo clic en la X.
+ * // Con cierre opcional
+ * <Message type="warning" closable onClose={handleClose}>
+ *   Este mensaje puede cerrarse.
  * </Message>
  */
 import React, { useState, useCallback } from 'react';
@@ -31,12 +25,20 @@ import type { MessageProps } from './types';
 import styles from './Message.module.scss';
 import { Icon } from '../../components/Icon';
 
+// Mapeo de iconos según el tipo de mensaje
+const iconMap: Record<NonNullable<MessageProps['type']>, string> = {
+  success: 'check-circle',
+  info: 'info-circle',
+  warning: 'exclamation-triangle',
+  danger: 'times-circle',
+};
+
 /**
- * Componente Message
- * 
- * Muestra un mensaje con diferentes estilos según su tipo (éxito, info, advertencia, peligro).
- * Soporta títulos, cierre opcional, y es completamente accesible.
+ * Determina el rol ARIA adecuado según el tipo de mensaje
  */
+const getAriaRole = (type: MessageProps['type']) => 
+  type === 'warning' || type === 'danger' ? 'alert' : 'status';
+
 const Message: React.FC<MessageProps> = ({
   type = 'info',
   title,
@@ -50,39 +52,24 @@ const Message: React.FC<MessageProps> = ({
   ...rest
 }) => {
   const [isVisible, setIsVisible] = useState(true);
-  
-  // Determinar el rol ARIA por defecto según el tipo de mensaje
-  const defaultRole = type === 'warning' || type === 'danger' ? 'alert' : 'status';
-  const role = propRole || defaultRole;
-  
-  // Mapeo de iconos según el tipo de mensaje
-  const iconMap = {
-    success: 'check-circle',
-    info: 'info-circle',
-    warning: 'exclamation-triangle',
-    danger: 'times-circle',
-  };
+  const role = propRole || getAriaRole(type);
+  const ariaLive = role === 'alert' ? 'assertive' : 'polite';
   
   // Manejador para cerrar el mensaje
   const handleClose = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setIsVisible(false);
-    if (onClose) {
-      onClose();
-    }
+    onClose?.();
   }, [onClose]);
   
-  // Si el mensaje no es visible, no renderizar nada
   if (!isVisible) {
     return null;
   }
   
   const messageClasses = cx(
     styles.message,
-    {
-      [styles[`message-${type}`]]: type,
-      [styles.closable]: closable,
-    },
+    styles[`message-${type}`],
+    { [styles.closable]: closable },
     className
   );
 
@@ -91,7 +78,7 @@ const Message: React.FC<MessageProps> = ({
       className={messageClasses} 
       style={style} 
       role={role}
-      aria-live={role === 'alert' ? 'assertive' : 'polite'}
+      aria-live={ariaLive}
       data-testid={testId}
       {...rest}
     >
@@ -100,30 +87,32 @@ const Message: React.FC<MessageProps> = ({
           <Icon name={iconMap[type]} aria-hidden="true" />
         </div>
         
-        <div className={styles.messageBody}>
+        <div className={styles.messageText}>
           {title && (
-            <strong className={styles.messageTitle} data-testid="message-title">
+            <div 
+              className={styles.messageTitle}
+              data-testid="message-title"
+            >
               {title}
-            </strong>
+            </div>
           )}
-          
-          <div className={styles.messageText} data-testid="message-content">
+          <div className={styles.messageBody}>
             {children}
           </div>
         </div>
-        
-        {closable && (
-          <button
-            type="button"
-            className={styles.closeButton}
-            onClick={handleClose}
-            aria-label="Cerrar mensaje"
-            data-testid="message-close-button"
-          >
-            <Icon name="times" aria-hidden="true" />
-          </button>
-        )}
       </div>
+      
+      {closable && (
+        <button
+          type="button"
+          className={styles.closeButton}
+          onClick={handleClose}
+          aria-label="Cerrar mensaje"
+          data-testid="message-close-button"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      )}
     </div>
   );
 };

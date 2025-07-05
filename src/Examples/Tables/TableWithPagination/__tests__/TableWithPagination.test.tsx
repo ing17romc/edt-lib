@@ -193,22 +193,23 @@ jest.mock('components/Selector', () => ({
     id, 
     value, 
     options, 
-    eventChange, 
-    titleTop 
+    onChange, 
+    label,
   }: { 
     id: string; 
-    value: number; 
+    value: string; 
     options: Array<{ label: string; value: string }>; 
-    eventChange: (e: React.ChangeEvent<HTMLSelectElement>) => void; 
-    titleTop: string; 
+    onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void; 
+    label: string;
+    placeholder?: string;
   }) => (
     <div>
-      <label htmlFor={id}>{titleTop}</label>
+      <label htmlFor={id}>{label}</label>
       <select 
         id={id} 
         value={value} 
-        onChange={eventChange}
-        aria-label={titleTop}
+        onChange={onChange}
+        aria-label={label}
       >
         {options.map((option) => (
           <option key={option.value} value={option.value}>
