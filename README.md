@@ -1,10 +1,38 @@
+<div align="center">
+  <h1>edt-lib</h1>
+  <p><strong>UI Component Library for React 18+ with TypeScript</strong></p>
+  
+  [![npm version](https://img.shields.io/npm/v/edt-lib.svg?style=flat-square)](https://www.npmjs.com/package/edt-lib)
+  [![GitHub license](https://img.shields.io/badge/license-ISC-blue.svg?style=flat-square)](https://github.com/ing17romc/edt-lib/blob/main/LICENSE)
+  [![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@main/badge/badge-storybook.svg)](https://ing17romc.github.io/edt-lib/)
+  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-# edt-lib
+  <p>Una biblioteca de componentes de interfaz de usuario moderna, accesible y altamente personalizable para aplicaciones React.</p>
+</div>
 
-**UI component library for React 19 + TypeScript.**  
-Incluye componentes reutilizables y accesibles para aplicaciones modernas.
+## ✨ Características
 
-## 📦 Dependencias
+- 🚀 Construido con React 18+ y TypeScript
+- 🎨 Diseño consistente con soporte para temas personalizados
+- ♿️ Totalmente accesible (WCAG 2.1)
+- 📱 Diseño responsivo
+- 🧪 Cobertura de pruebas completa
+- 📚 Documentación interactiva con Storybook
+- 🔧 Fácil de personalizar y extender
+
+## 📦 Instalación
+
+Instala el paquete usando npm o yarn:
+
+```bash
+# Usando npm
+npm install edt-lib
+
+# O usando yarn
+yarn add edt-lib
+```
+
+## 🔌 Requisitos Previos
 
 ### Material Icons
 
@@ -14,42 +42,120 @@ La biblioteca utiliza [Material Icons](https://fonts.google.com/icons) para los 
 <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
 ```
 
-O si estás usando un framework como Next.js, puedes agregarlo en el archivo `_document.js` o `_app.js`:
+### Configuración de TypeScript
+
+Si estás usando TypeScript, asegúrate de tener instalados los tipos de React:
+
+```bash
+npm install --save-dev @types/react @types/react-dom
+```
+
+## 🚀 Uso Rápido
 
 ```jsx
-import Head from 'next/head';
+import React from 'react';
+import { Button, ThemeProvider } from 'edt-lib';
 
-function MyApp({ Component, pageProps }) {
+function App() {
   return (
-    <>
-      <Head>
-        <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet" />
-      </Head>
-      <Component {...pageProps} />
-    </>
+    <ThemeProvider>
+      <div className="app">
+        <h1>Bienvenido a edt-lib</h1>
+        <Button variant="primary" onClick={() => alert('¡Hola!')}>
+          Haz clic aquí
+        </Button>
+      </div>
+    </ThemeProvider>
   );
 }
 
-export default MyApp;
+export default App;
 ```
+
+## 🧩 Componentes Disponibles
+
+### Componentes Básicos
+- `Button` - Botones con múltiples variantes
+- `Card` - Contenedor de contenido con estilos predefinidos
+- `CheckButton` - Botones de verificación
+- `Icon` - Componente de iconos
+- `IconButton` - Botones que contienen iconos
+- `Modal` - Ventanas modales
+- `RadioButton` - Botones de opción
+- `Selector` - Menús desplegables
+- `Spinner` - Indicadores de carga
+- `TextArea` - Áreas de texto editables
+- `TextBox` - Campos de texto
+- `TextButton` - Botones de texto
+- `Title` - Títulos con estilos predefinidos
+
+### Componentes de Tabla
+- `TableDefault` - Tabla básica
+- `TableActiveRow` - Tabla con filas seleccionables
+- `TableWithButton` - Tabla con botones de acción
+- `TableWithIcon` - Tabla con iconos
+- `TableWithPagination` - Tabla con paginación
+
+### Utilidades
+- `ThemeProvider` - Proveedor de temas personalizados
+- `Grid` - Sistema de cuadrícula responsive
+- `Message` - Componente para mostrar mensajes al usuario
+- `Typography` - Estilos tipográficos consistentes
+
+## 📚 Documentación Completa
+
+Para ver ejemplos detallados y la documentación completa de todos los componentes, visita nuestra [documentación de Storybook](https://ing17romc.github.io/edt-lib/).
+
+## 🛠 Desarrollo
+
+### Requisitos
+- Node.js 16+
+- npm 7+ o yarn 1.22+
+
+### Instalación de dependencias
+
+```bash
+# Instalar dependencias
+npm install
+# o
+yarn
+```
+
+### Comandos disponibles
+
+```bash
+# Iniciar servidor de desarrollo de Storybook
+npm run sb
+
+# Ejecutar pruebas
+npm test
+
+# Ejecutar linter
+npm run lint
+
+# Construir para producción
+npm run build
+
+# Desplegar documentación
+npm run release-sb
+
+# Publicar nueva versión (minor)
+npm run publish-npm-minor
+```
+
+## 🤝 Contribuir
+
+¡Las contribuciones son bienvenidas! Por favor, lee nuestra [guía de contribución](CONTRIBUTING.md) para más detalles.
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia ISC. Ver el archivo [LICENSE](LICENSE) para más detalles.
 
 ---
 
-## Instalación
-
-Puedes instalar la librería usando npm:
-
-```bash
-npm install edt-lib
-```
-
-O usando yarn:
-
-```bash
-yarn add edt-lib
-```
-
----
+<div align="center">
+  Hecho con ❤️ por el equipo de edt-lib
+</div>
 
 ## Publicar en npm
 
