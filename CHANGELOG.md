@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.8.13] - 2025-07-05
+
+### `Documentation`
+- **`README.md`**:
+  - Actualizada la documentación principal con información más clara y completa
+  - Añadida sección de componentes disponibles con descripciones
+  - Mejoradas las instrucciones de instalación y configuración
+  - Añadidos badges de estado del proyecto
+- **`/docs`**:
+  - Reescrita completamente la documentación técnica
+  - Añadida guía detallada de instalación y configuración
+  - Incluida documentación sobre temas y estilos personalizados
+  - Añadida guía de contribución con estándares de código
+
 ## [2.8.12] - 2025-07-05
 
 ### `Fixed`
