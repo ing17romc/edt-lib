@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.8.12] - 2025-07-05
+
+### `Fixed`
+- **`TableWithPagination`**:
+  - Corregido el manejo de eventos y tipos en el componente
+  - Mejorada la gestión del estado de paginación
+  - Actualizados los tests para mayor cobertura y claridad
+  - Eliminado código no utilizado
+
+### `Refactor`
+- **`Message`**:
+  - Mejorado el manejo de tipos en los tests
+  - Actualizadas las aserciones para usar valores RGB en lugar de nombres de colores
+
 ## [2.8.11] - 2025-07-04
 
 ### `Fixed`
