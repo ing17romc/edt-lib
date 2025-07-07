@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.9.2] - 2025-07-07
+
+### `Actualizado`
+- **Dependencias**:
+  - Actualizado `sass` a la versión `^1.79.0`
+  - Actualizadas dependencias de Storybook a la versión `^8.0.0`
+  - Actualizado `@testing-library/react` a la versión `^15.0.0`
+  - Actualizado `@testing-library/jest-dom` a la versión `^6.4.2`
+  - Actualizado `@types/jest` a la versión `^29.5.12`
+
+### `Corregido`
+- Resueltos conflictos de dependencias entre Storybook 8 y React 19
+- Corregida la configuración de TypeScript para soportar las versiones actualizadas
+
+
 ## [2.8.14] - 2025-07-07
 
 ### `Fixed`
