@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.9.5] - 2025-07-07
+
+### `Corregido`
+- **Componentes**:
+  - Corregidos errores de TypeScript en los componentes Button y CheckButton
+  - Mejorado el tipado de los manejadores de eventos onClick y onChange
+  - Eliminado archivo de funciones no utilizado (functions.tsx)
+  - Actualizados los tests para reflejar los cambios en los tipos
+
 ## [2.9.4] - 2025-07-07
 
 ### `Actualizado`
