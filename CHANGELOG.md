@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.9.4] - 2025-07-07
+
+### `Actualizado`
+- **Dependencias**:
+  - Actualizado `sass` a la versión `^1.80.0`
+  - Actualizadas dependencias de Storybook a la versión `^8.1.0`
+  - Actualizado `@testing-library/react` a la versión `^15.0.1`
+  - Actualizado `@testing-library/jest-dom` a la versión `^6.4.3`
+
+### `Corregido`
+- **Workflows**:
+  - Actualizados los workflows para manejo de versiones parche y menor
+  - Mejorada la documentación de los workflows
+
+---
+
 ## [2.9.2] - 2025-07-07
 
 ### `Actualizado`
