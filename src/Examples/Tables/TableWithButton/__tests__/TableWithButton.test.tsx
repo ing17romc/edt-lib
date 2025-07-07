@@ -166,13 +166,16 @@ jest.mock('../../utils', () => ({
 // Mock para el componente Button
 jest.mock('components/Button', () => ({
   __esModule: true,
-  default: ({ title, onClick }: { title: string; onClick: () => void }) => (
-    <button 
-      title={title}
-      onClick={onClick}
-      data-testid={`${title.toLowerCase()}-button`}
-    >
-      {title}
-    </button>
-  ),
+  default: ({ children, onClick }: { children: React.ReactNode; onClick: () => void }) => {
+    const buttonText = typeof children === 'string' ? children : '';
+    return (
+      <button 
+        title={buttonText}
+        onClick={onClick}
+        data-testid={`${buttonText.toLowerCase()}-button`}
+      >
+        {children}
+      </button>
+    );
+  },
 }));

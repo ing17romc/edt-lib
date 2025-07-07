@@ -220,14 +220,3 @@ jest.mock('components/Selector', () => ({
     </div>
   ),
 }));
-
-// Mock para functions
-jest.mock('components/utils/functions', () => ({
-  __esModule: true,
-  default: {
-    getValueInput: (e: React.ChangeEvent<HTMLSelectElement>) => ({
-      key: e.target.id,
-      value: parseInt(e.target.value, 10),
-    }),
-  },
-}));

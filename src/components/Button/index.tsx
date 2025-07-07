@@ -41,7 +41,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
       return;
     }
     
-    onClick?.(e);
+    if (onClick) {
+      onClick(e);
+    }
   };
 
   return (

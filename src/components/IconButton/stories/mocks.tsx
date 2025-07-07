@@ -15,7 +15,7 @@ export const meta: Meta = {
       description: 'Tamaño del botón',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: 'medium' },
+        defaultValue: { summary: '"medium"' },
       },
     },
     variant: {
@@ -24,7 +24,7 @@ export const meta: Meta = {
       description: 'Variante visual del botón',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: 'primary' },
+        defaultValue: { summary: '"primary"' },
       },
     },
     disabled: {
@@ -32,7 +32,7 @@ export const meta: Meta = {
       description: 'Si el botón está deshabilitado',
       table: {
         type: { summary: 'boolean' },
-        defaultValue: { summary: false },
+        defaultValue: { summary: 'false' },
       },
     },
     loading: {
@@ -40,7 +40,7 @@ export const meta: Meta = {
       description: 'Si muestra un indicador de carga',
       table: {
         type: { summary: 'boolean' },
-        defaultValue: { summary: false },
+        defaultValue: { summary: 'false' },
       },
     },
     fullWidth: {
@@ -48,7 +48,7 @@ export const meta: Meta = {
       description: 'Si el botón ocupa todo el ancho disponible',
       table: {
         type: { summary: 'boolean' },
-        defaultValue: { summary: false },
+        defaultValue: { summary: 'false' },
       },
     },
     iconVariant: {
@@ -57,7 +57,7 @@ export const meta: Meta = {
       description: 'Estilo del icono',
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: 'outline' },
+        defaultValue: { summary: '"outline"' },
       },
     },
     iconColor: {

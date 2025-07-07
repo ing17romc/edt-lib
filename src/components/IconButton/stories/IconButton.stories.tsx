@@ -1,5 +1,6 @@
 import React from 'react';
 import type { StoryObj } from '@storybook/react';
+import { IconVariant } from '../../Icon/types';
 import IconButton from '..';
 import { 
   meta, 
@@ -116,9 +117,9 @@ export const WithCustomColor: Story = {
 export const WithIconVariant: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-      <IconButton icon="star" iconVariant="outline" aria-label="Contorno" />
-      <IconButton icon="star" iconVariant="solid" aria-label="Sólido" />
-      <IconButton icon="star" iconVariant="dual" aria-label="Dual" />
+      <IconButton icon="star" iconVariant={IconVariant.OUTLINE} aria-label="Contorno" />
+      <IconButton icon="star" iconVariant={IconVariant.SOLID} aria-label="Sólido" />
+      <IconButton icon="star" iconVariant={IconVariant.DUAL} aria-label="Dual" />
     </div>
   ),
 };

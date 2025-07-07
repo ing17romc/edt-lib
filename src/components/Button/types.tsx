@@ -15,7 +15,7 @@ export enum ButtonSize {
   LARGE = 'large',
 }
 
-export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
+export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type' | 'onClick'> {
   /**
    * Contenido del botón (texto o elementos React)
    */
@@ -52,12 +52,18 @@ export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement
   disabled?: boolean;
   
   /**
+   * Si es true, el botón está cargando
+   * @default false
+   */
+  loading?: boolean;
+  
+  /**
+   * Manejador de clic del botón
+   */
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  
+    /**
    * Clase CSS adicional para el botón
    */
   className?: string;
-  
-  /**
-   * Función que se ejecuta al hacer clic en el botón
-   */
-  onClick?: () => void;
 }

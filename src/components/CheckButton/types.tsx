@@ -3,7 +3,7 @@ import { HTMLAttributes } from 'react';
 /**
  * Propiedades del componente CheckButton
  */
-export interface CheckButtonProps extends HTMLAttributes<HTMLInputElement> {
+export interface CheckButtonProps extends Omit<HTMLAttributes<HTMLInputElement>, 'onChange'> {
   /**
    * Etiqueta que se muestra junto al checkbox
    */

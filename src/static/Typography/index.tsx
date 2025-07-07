@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ElementType } from 'react';
 import styles from './Typography.module.scss';
 import type { TypographyProps } from './types';
 
@@ -18,15 +18,13 @@ const Typography: React.FC<TypographyProps> = (props = {}) => {
 
   // Genera un heading con su etiqueta de ejemplo
   const renderHeading = (level: number) => {
-    const Tag = `h${level}` as keyof JSX.IntrinsicElements;
+    const Tag = `h${level}` as ElementType;
     return (
       <div key={`heading-${level}`} className={styles.headingExample}>
-        <Tag 
-          className={styles[`h${level}`]}
-          data-testid={`heading-${level}`}
-        >
-          {`<h${level}>Heading ${level}</h${level}>`}
-        </Tag>
+        {React.createElement(Tag, {
+          className: styles[`h${level}`],
+          'data-testid': `heading-${level}`
+        }, `<h${level}>Heading ${level}</h${level}>`)}
         <code className={styles.codeExample}>
           {`<h${level}>Heading ${level}</h${level}>`}
         </code>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import type { GetStatusValue } from './types';
 
 /**
@@ -10,7 +10,7 @@ import type { GetStatusValue } from './types';
  * @param {GetStatusValue} value - Valor que representa el estado (booleano o numérico)
  * @returns {JSX.Element} Elemento <strong> con el texto 'Active' o 'Inactive' y color correspondiente
  */
-const getStatus = (value: GetStatusValue): JSX.Element => (
+const getStatus = (value: GetStatusValue): ReactElement => (
   <strong className={value ? 'font-blue' : 'font-red'}>
     {value ? 'Active' : 'Inactive'}
   </strong>
