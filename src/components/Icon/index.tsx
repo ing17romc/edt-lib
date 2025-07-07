@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import cx from 'classnames';
+import classNames from '../../utils/classNames';
 import { IconProps, IconSize, IconVariant } from './types';
 import styles from './styles/Icon.module.scss';
 
@@ -18,7 +18,7 @@ export const Icon = forwardRef<HTMLSpanElement, IconProps>(({
   component: CustomIcon,
   ...rest
 }, ref) => {
-  const iconClasses = cx(
+  const iconClasses = classNames(
     styles.icon,
     {
       [styles[`icon--${size}`]]: size,

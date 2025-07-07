@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import cx from 'classnames';
+import classNames from '../../utils/classNames';
 import { TitleProps, TitleSize, TitleVariant, TitleTag } from './types';
 import styles from './styles/Title.module.scss';
 
@@ -22,7 +22,7 @@ const Title = forwardRef<HTMLHeadingElement, TitleProps>(({
 }, ref) => {
   const Tag = size as TitleTag;
 
-  const titleClasses = cx(
+  const titleClasses = classNames(
     styles.title,
     styles[`title--${size}`],
     styles[`title--${variant}`],

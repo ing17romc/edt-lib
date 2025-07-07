@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.8.14] - 2025-07-07
+
+### `Fixed`
+- **`Button`**: Corregidos errores de compilación y mejorada la documentación
+- **`Icon`**: Actualizados los tipos y corregidos problemas de importación
+- **`IconButton`**: Mejorada la accesibilidad y corregidos problemas de estilos
+- **`Selector`**: Corregidos errores de tipos y mejorado el manejo de eventos
+- **`Spinner`**: Optimizado el rendimiento y corregidos problemas de visualización
+- **`Title`**: Mejorada la tipografía y corregidos problemas de alineación
+- **`Message`**: Actualizado el componente para usar las últimas características de React
+
+### `Refactor`
+- Extraídas utilidades comunes al directorio `src/utils/`
+- Actualizadas las dependencias en `package.json`
+- Mejorada la documentación de los componentes
+
 ## [2.8.13] - 2025-07-05
 
 ### `Documentation`

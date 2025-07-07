@@ -27,7 +27,6 @@
     "publish-npm-major": "npm version major && npm run build && npm publish --access public"
   },
   "dependencies": {
-    "classnames": "^2.5.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "sass": "^1.70.0"

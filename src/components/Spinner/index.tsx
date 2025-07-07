@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import cx from 'classnames';
+import classNames from '../../utils/classNames';
 import { SpinnerProps, SpinnerSize, SpinnerVariant } from './types';
 import styles from './styles/Spinner.module.scss';
 
@@ -29,7 +29,7 @@ const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(({
   'aria-label': ariaLabel = 'Cargando...',
   ...rest
 }, ref) => {
-  const spinnerClasses = cx(
+  const spinnerClasses = classNames(
     styles.spinner,
     styles[`spinner--${size}`],
     styles[`spinner--${variant}`],

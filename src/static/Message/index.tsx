@@ -20,7 +20,6 @@
  * </Message>
  */
 import React, { useState, useCallback } from 'react';
-import cx from 'classnames';
 import type { MessageProps } from './types';
 import styles from './Message.module.scss';
 import { Icon } from '../../components/Icon';
@@ -66,12 +65,12 @@ const Message: React.FC<MessageProps> = ({
     return null;
   }
   
-  const messageClasses = cx(
+  const messageClasses = [
     styles.message,
     styles[`message-${type}`],
-    { [styles.closable]: closable },
-    className
-  );
+    closable ? styles.closable : '',
+    className || ''
+  ].filter(Boolean).join(' ');
 
   return (
     <div 

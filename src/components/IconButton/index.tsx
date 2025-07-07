@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import cx from 'classnames';
+import classNames from '../../utils/classNames';
 import Icon from '../Icon';
 import { IconButtonProps } from './types';
 import { IconSize } from '../Icon/types';
@@ -58,7 +58,7 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(({
   const iconToShow: AllIconsType | null = isValidIcon(icon) ? icon : 'help_outline' as AllIconsType;
   
   // Clases del botón
-  const buttonClasses = cx(
+  const buttonClasses = classNames(
     styles.iconButton,
     styles[`iconButton--${size}`],
     styles[`iconButton--${variant}`],

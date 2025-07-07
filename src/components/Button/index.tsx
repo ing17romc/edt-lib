@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import classNames from 'classnames';
+import classNames from '../../utils/classNames';
 import styles from './styles/Button.module.scss';
 import { ButtonProps, ButtonVariant, ButtonSize } from './types';
 
