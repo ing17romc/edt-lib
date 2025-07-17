@@ -1,5 +1,9 @@
 # Changelog
 
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [2.9.7](https://github.com/ing17romc/edt-lib/compare/v2.9.6...v2.9.7) (2025-07-17)
+
 ## [2.9.5] - 2025-07-07
 
 ### `Corregido`
