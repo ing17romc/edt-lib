@@ -16,29 +16,40 @@ export const Card: React.FC<CardProps> = ({
   className = '',
   onClick,
 }) => {
+  const isClickable = !!onClick;
+  
   const cardClasses = [
     styles.card,
     styles[`card--${variant}`],
-    onClick && styles['card--clickable'],
+    isClickable ? styles['card--clickable'] : '',
     className,
   ]
     .filter(Boolean)
     .join(' ');
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' && onClick) {
-      onClick();
+    if (e.key === 'Enter' && isClickable) {
+      e.preventDefault();
+      onClick?.();
+    }
+  };
+  
+  const handleClick = (e: React.MouseEvent) => {
+    if (isClickable) {
+      e.preventDefault();
+      onClick?.();
     }
   };
 
   return (
     <div
       className={cardClasses}
-      onClick={onClick}
+      style={isClickable ? { cursor: 'pointer' } : undefined}
+      onClick={handleClick}
       onKeyDown={handleKeyDown}
-      role={onClick ? 'button' : 'article'}
-      tabIndex={onClick ? 0 : -1}
-      aria-label={onClick ? title || 'Tarjeta interactiva' : undefined}
+      role={isClickable ? 'button' : 'article'}
+      tabIndex={isClickable ? 0 : -1}
+      aria-label={isClickable ? title || 'Tarjeta interactiva' : undefined}
     >
       {imageUrl && (
         <img

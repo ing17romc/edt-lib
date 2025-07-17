@@ -4,15 +4,39 @@ import styles from './styles/Button.module.scss';
 import { ButtonProps, ButtonVariant, ButtonSize } from './types';
 
 /**
- * Componente Button que representa un botón interactivo con múltiples variantes y tamaños.
+ * Componente Button altamente personalizable que proporciona una interfaz de usuario interactiva
+ * con múltiples variantes de estilo, tamaños y estados.
  * 
  * @component
+ * 
  * @example
- * // Uso básico
- * <Button variant="primary" size="medium" onClick={() => console.log('Clicked!')}>
- *   Hacer clic
+ * // Ejemplo básico
+ * <Button onClick={() => console.log('Click')}>
+ *   Botón Primario
  * </Button>
  * 
+ * @example
+ * // Botón con variante secundaria y tamaño grande
+ * <Button variant="secondary" size="large">
+ *   Acción Secundaria
+ * </Button>
+ * 
+ * @example
+ * // Botón deshabilitado de ancho completo
+ * <Button 
+ *   variant="danger" 
+ *   disabled 
+ *   fullWidth
+ *   onClick={handleDelete}
+ * >
+ *   Eliminar permanentemente
+ * </Button>
+ * 
+ * @example
+ * // Botón de tipo submit en un formulario
+ * <form onSubmit={handleSubmit}>
+ *   <Button type="submit">Enviar</Button>
+ * </form>
  */
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
   children,
