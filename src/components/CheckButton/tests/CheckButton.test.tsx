@@ -8,6 +8,7 @@ import {
   CheckedCheckButton, 
   CustomClassCheckButton,
   LargeCheckButton,
+  MediumCheckButton,
   SmallCheckButton,
   LongLabelCheckButton
 } from './mocks';
@@ -56,10 +57,27 @@ describe('CheckButton', () => {
     expect(label).toHaveClass('check-button--large');
   });
 
+  it('aplica la clase de tamaño mediano correctamente', () => {
+    render(<MediumCheckButton />);
+    const label = screen.getByText('Opción mediana').closest('label');
+    expect(label).toHaveClass('check-button');
+    // Verifica que no tenga las clases de otros tamaños
+    expect(label).not.toHaveClass('check-button--small');
+    expect(label).not.toHaveClass('check-button--large');
+  });
+
   it('aplica la clase de tamaño pequeño correctamente', () => {
     render(<SmallCheckButton />);
     const label = screen.getByText('Opción pequeña').closest('label');
     expect(label).toHaveClass('check-button--small');
+  });
+
+  it('aplica el tamaño mediano por defecto cuando no se especifica', () => {
+    render(<DefaultCheckButton label="Tamaño predeterminado" />);
+    const label = screen.getByText('Tamaño predeterminado').closest('label');
+    expect(label).toHaveClass('check-button');
+    expect(label).not.toHaveClass('check-button--small');
+    expect(label).not.toHaveClass('check-button--large');
   });
 
   it('maneja correctamente etiquetas largas', () => {

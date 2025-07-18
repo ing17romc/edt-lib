@@ -1,6 +1,6 @@
 import React from 'react';
 import CheckButton from '../index';
-import { CheckButtonProps } from '../types';
+import { CheckButtonProps, ButtonSize } from '../types';
 
 // Tipos para los mocks
 type MockCheckButtonProps = Omit<CheckButtonProps, 'onChange'> & {
@@ -50,7 +50,17 @@ export const LargeCheckButton = (props: MockCheckButtonProps) => (
   <CheckButton 
     {...defaultProps} 
     label="Opción grande" 
-    className="check-button--large" 
+    size={ButtonSize.LARGE}
+    {...props} 
+  />
+);
+
+// Mock con tamaño mediano
+export const MediumCheckButton = (props: MockCheckButtonProps) => (
+  <CheckButton 
+    {...defaultProps} 
+    label="Opción mediana" 
+    size={ButtonSize.MEDIUM}
     {...props} 
   />
 );
@@ -60,7 +70,7 @@ export const SmallCheckButton = (props: MockCheckButtonProps) => (
   <CheckButton 
     {...defaultProps} 
     label="Opción pequeña" 
-    className="check-button--small" 
+    size={ButtonSize.SMALL}
     {...props} 
   />
 );

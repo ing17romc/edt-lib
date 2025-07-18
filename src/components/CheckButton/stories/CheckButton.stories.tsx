@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import CheckButton from '../index';
-import { CheckButtonProps } from '../types';
+import { CheckButtonProps, ButtonSize } from '../types';
 
 // Configuración base para las historias
 const meta: Meta<CheckButtonProps> = {
@@ -20,6 +20,12 @@ const meta: Meta<CheckButtonProps> = {
     disabled: {
       control: 'boolean',
       description: 'Estado deshabilitado',
+    },
+    size: {
+      control: 'select',
+      options: Object.values(ButtonSize),
+      description: 'Tamaño del botón de verificación',
+      defaultValue: ButtonSize.MEDIUM,
     },
     onChange: {
       action: 'changed',
@@ -59,12 +65,27 @@ const selectedItemsStyle: React.CSSProperties = {
 };
 
 // Historias
-export const Default: Story = {};
-
-export const Checked: Story = {
+export const Default: Story = {
+  render: (args) => <CheckButton {...args} />,
   args: {
-    checked: true,
-    label: 'Opción seleccionada',
+    label: 'Opción predeterminada (medium)',
+  },
+};
+
+export const SizeVariations: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+      <CheckButton label={`Tamaño pequeño (${ButtonSize.SMALL})`} size={ButtonSize.SMALL} />
+      <CheckButton label={`Tamaño mediano (${ButtonSize.MEDIUM}) - predeterminado`} size={ButtonSize.MEDIUM} />
+      <CheckButton label={`Tamaño grande (${ButtonSize.LARGE})`} size={ButtonSize.LARGE} />
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Ejemplo que muestra los diferentes tamaños disponibles para el botón de verificación.',
+      },
+    },
   },
 };
 

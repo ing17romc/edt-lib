@@ -9,10 +9,8 @@ export const defaultArgs = {
 
 export const argTypes = {
   variant: {
-    control: {
-      type: 'select',
-      options: Object.values(ButtonVariant),
-    },
+    control: 'select',
+    options: Object.values(ButtonVariant),
     description: 'Variante visual del botón',
     table: {
       type: { summary: Object.values(ButtonVariant).join(' | ') },
@@ -20,10 +18,8 @@ export const argTypes = {
     },
   },
   size: {
-    control: {
-      type: 'select',
-      options: Object.values(ButtonSize),
-    },
+    control: 'select',
+    options: Object.values(ButtonSize),
     description: 'Tamaño del botón',
     table: {
       type: { summary: Object.values(ButtonSize).join(' | ') },
@@ -63,10 +59,8 @@ export const buttonStories: Meta<ButtonProps> = {
   tags: ['autodocs'],
   argTypes: {
     variant: {
-      control: {
-        type: 'select',
-        options: Object.values(ButtonVariant),
-      },
+      control: 'select',
+      options: Object.values(ButtonVariant),
       description: 'Variante visual del botón',
       table: {
         type: { summary: Object.values(ButtonVariant).join(' | ') },
@@ -74,10 +68,8 @@ export const buttonStories: Meta<ButtonProps> = {
       },
     },
     size: {
-      control: {
-        type: 'select',
-        options: Object.values(ButtonSize),
-      },
+      control: 'select',
+      options: Object.values(ButtonSize),
       description: 'Tamaño del botón',
       table: {
         type: { summary: Object.values(ButtonSize).join(' | ') },
