@@ -50,45 +50,16 @@ export const Icon = forwardRef<HTMLSpanElement, IconProps>(({
     );
   }
 
-  // Nota: En una implementación real, aquí podrías importar dinámicamente
-  // los iconos desde un archivo de assets o usar una librería de iconos
+  // Renderiza un icono de Material Icons
   const renderIcon = () => {
-    // Este es un ejemplo básico. En una implementación real, podrías tener
-    // un sistema de iconos más sofisticado.
+    // Mapeo de variantes a estilos de Material Icons
+    const variantClass = variant === IconVariant.SOLID ? '' : '-outlined';
+    const iconClass = `material-icons${variantClass}`;
+    
     return (
-      <svg 
-        className={styles.icon__svg} 
-        viewBox="0 0 24 24"
-        fill="none" 
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-      >
-        {/* Este es un icono de ejemplo (un círculo con una 'i' en el centro) */}
-        <circle 
-          cx="12" 
-          cy="12" 
-          r="10" 
-          className={styles.icon__path}
-          style={{
-            fill: variant === IconVariant.SOLID ? 'currentColor' : 'none',
-            stroke: variant !== IconVariant.SOLID ? 'currentColor' : 'none',
-            strokeWidth: 2,
-          }}
-        />
-        <text 
-          x="12" 
-          y="16" 
-          textAnchor="middle"
-          fill={variant === IconVariant.SOLID ? 'white' : 'currentColor'}
-          style={{
-            fontSize: '12px',
-            fontWeight: 'bold',
-            fontFamily: 'sans-serif',
-          }}
-        >
-          {name ? name.charAt(0).toUpperCase() : 'I'}
-        </text>
-      </svg>
+      <span className={iconClass}>
+        {name || 'help_outline'}
+      </span>
     );
   };
 

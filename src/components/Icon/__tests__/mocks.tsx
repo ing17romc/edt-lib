@@ -20,15 +20,14 @@ export const sizeVariants = [
 
 // Props para diferentes variantes
 export const variantOptions = [
-  { variant: IconVariant.SOLID, className: 'icon--solid' },
-  { variant: IconVariant.OUTLINE, className: 'icon--outline' },
-  { variant: IconVariant.DUAL, className: 'icon--dual' },
+  { variant: IconVariant.SOLID, className: 'material-icons' },
+  { variant: IconVariant.OUTLINE, className: 'material-icons-outlined' },
 ];
 
 // Props para diferentes estados
 export const stateOptions = [
-  { disabled: true, className: 'icon--disabled' },
-  { inheritColor: true, className: 'icon--inherit-color' },
+  { disabled: true, inheritColor: false, className: 'icon--disabled' },
+  { disabled: false, inheritColor: true, className: 'icon--inherit-color' },
 ];
 
 // Mock para el SVG del icono
