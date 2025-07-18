@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.9.9] - 2025-07-17
+
+### Mejoras
+- Unificación de estilos del componente Card en un solo archivo
+- Mejora en la organización de los estilos específicos de Storybook
+
+### Refactorización
+- Eliminación de archivos CSS redundantes
+- Mejora en la estructura de los estilos del componente Card
+
 ## [2.9.8] - 2025-07-17
 
 ### Mejoras
