@@ -2,7 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [2.9.7](https://github.com/ing17romc/edt-lib/compare/v2.9.6...v2.9.7) (2025-07-17)
+## [2.9.8] - 2025-07-17
+
+### Mejoras
+- Agregados controles desplegables para las propiedades `variant` y `size` en los componentes Button y CheckButton en Storybook
+- Mejorada la documentación de los controles en la tabla de argumentos
+
+### Correcciones
+- Eliminada la propiedad `style` no utilizada en el componente Card
+
+## [2.9.7](https://github.com/ing17romc/edt-lib/compare/v2.9.6...v2.9.7) (2025-07-17)
 
 ## [2.9.5] - 2025-07-07
 

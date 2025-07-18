@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Card, CardVariant } from '..';
 import { mockCardProps, mockCardWithoutImage, mockClickableCard, mockOutlinedCard, mockFilledCard } from './mocks';
-import './CardStories.scss';
+import styles from '../styles/Card.module.scss';
 
 /**
  * El componente `Card` es un contenedor versátil que muestra contenido relacionado en una superficie clara y delimitada.
@@ -66,6 +66,13 @@ const meta: Meta<typeof Card> = {
       },
     },
   },
+  decorators: [
+    (Story) => (
+      <div className={styles['story-card']}>
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export default meta;
