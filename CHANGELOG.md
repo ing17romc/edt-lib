@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.10.0] - 2025-07-17
+
+### Mejoras
+- Migración del componente Icon para usar Material Icons de Google Fonts
+- Mejora en la accesibilidad del componente Icon
+- Actualización de pruebas unitarias para soportar la nueva implementación
+
+### Refactorización
+- Eliminación de SVG personalizado en favor de Material Icons
+- Mejora en la estructura de estilos del componente Icon
+- Actualización de documentación en Storybook
+
 ## [2.9.9] - 2025-07-17
 
 ### Mejoras
