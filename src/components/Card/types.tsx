@@ -1,4 +1,4 @@
-import { CSSProperties, ReactNode } from 'react';
+import { ReactNode } from 'react';
 
 export enum CardVariant {
   ELEVATED = 'elevated',
@@ -40,8 +40,4 @@ export interface CardProps {
    * Evento click en la tarjeta
    */
   onClick?: () => void;
-  /**
-   * Estilos en línea para personalizar la apariencia de la tarjeta
-   */
-  style?: CSSProperties;
 }
