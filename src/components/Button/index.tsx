@@ -1,8 +1,8 @@
 import React, { forwardRef } from 'react';
 import classNames from '../../utils/classNames';
 import styles from './styles/Button.module.scss';
-import { ButtonProps, ButtonVariant, ButtonSize } from './types';
-
+import { ButtonProps } from './types';
+import { ComponentVariant, ComponentSize } from '../types';
 /**
  * Componente Button altamente personalizable que proporciona una interfaz de usuario interactiva
  * con múltiples variantes de estilo, tamaños y estados.
@@ -40,8 +40,8 @@ import { ButtonProps, ButtonVariant, ButtonSize } from './types';
  */
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
   children,
-  variant = ButtonVariant.PRIMARY,
-  size = ButtonSize.MEDIUM,
+  variant = ComponentVariant.PRIMARY,
+  size = ComponentSize.MEDIUM,
   type = 'button',
   disabled = false,
   fullWidth = false,
@@ -88,5 +88,4 @@ Button.displayName = 'Button';
 
 export default Button;
 // Exportar los tipos para facilitar la importación
-export { ButtonVariant, ButtonSize } from './types';
 export type { ButtonProps };

@@ -9,6 +9,7 @@ import {
   containerStyle, 
   itemContainerStyle 
 } from './mocks';
+import { ComponentVariant } from '../../types';
 
 // Usamos la configuración de meta desde el archivo de mocks
 const metaWithComponent = {
@@ -95,11 +96,11 @@ export const CustomIcons: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
       <IconButton icon="home" aria-label="Inicio" />
-      <IconButton icon="settings" variant="secondary" aria-label="Configuración" />
-      <IconButton icon="search" variant="tertiary" aria-label="Buscar" />
-      <IconButton icon="heart" variant="danger" aria-label="Favorito" />
-      <IconButton icon="download" variant="success" aria-label="Descargar" />
-      <IconButton icon="bell" variant="warning" aria-label="Notificaciones" />
+      <IconButton icon="settings" variant={ComponentVariant.SECONDARY} aria-label="Configuración" />
+      <IconButton icon="search" variant={ComponentVariant.TERTIARY} aria-label="Buscar" />
+      <IconButton icon="heart" variant={ComponentVariant.DANGER} aria-label="Favorito" />
+      <IconButton icon="download" variant={ComponentVariant.SUCCESS} aria-label="Descargar" />
+      <IconButton icon="bell" variant={ComponentVariant.WARNING} aria-label="Notificaciones" />
     </div>
   ),
 };
@@ -136,7 +137,7 @@ export const FullWidth: Story = {
       />
       <IconButton 
         icon="delete" 
-        variant="danger" 
+        variant={ComponentVariant.DANGER} 
         fullWidth 
         aria-label="Eliminar" 
       />

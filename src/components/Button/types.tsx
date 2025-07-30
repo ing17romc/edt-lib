@@ -1,19 +1,5 @@
 import { ButtonHTMLAttributes, ReactNode } from 'react';
-
-export enum ButtonVariant {
-  PRIMARY = 'primary',
-  SECONDARY = 'secondary',
-  TERTIARY = 'tertiary',
-  DANGER = 'danger',
-  SUCCESS = 'success',
-  WARNING = 'warning',
-}
-
-export enum ButtonSize {
-  SMALL = 'small',
-  MEDIUM = 'medium',
-  LARGE = 'large',
-}
+import { ComponentSize, ComponentVariant } from '../types';
 
 export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type' | 'onClick'> {
   /**
@@ -25,13 +11,13 @@ export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement
    * Variante visual del botón
    * @default 'primary'
    */
-  variant?: ButtonVariant;
+  variant?: ComponentVariant;
   
   /**
    * Tamaño del botón
    * @default 'medium'
    */
-  size?: ButtonSize;
+  size?: ComponentSize;
   
   /**
    * Si es true, el botón ocupa todo el ancho disponible

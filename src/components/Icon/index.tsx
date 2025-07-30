@@ -1,7 +1,8 @@
 import React, { forwardRef } from 'react';
 import classNames from '../../utils/classNames';
-import { IconProps, IconSize, IconVariant } from './types';
+import { IconProps, IconVariant } from './types';
 import styles from './styles/Icon.module.scss';
+import { ComponentSize } from '../types';
 
 /**
  * Componente de icono que soporta múltiples tamaños y variantes.
@@ -9,7 +10,7 @@ import styles from './styles/Icon.module.scss';
  */
 export const Icon = forwardRef<HTMLSpanElement, IconProps>(({
   name,
-  size = IconSize.MEDIUM,
+  size = ComponentSize.MEDIUM,
   variant = IconVariant.OUTLINE,
   color,
   inheritColor = false,

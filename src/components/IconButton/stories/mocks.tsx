@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/react';
-import { ButtonSize, ButtonVariant } from '../types';
+import { ComponentSize, ComponentVariant } from '../../types';
 
 // Configuración de la meta para las historias
 export const meta: Meta = {
@@ -88,20 +88,20 @@ export const meta: Meta = {
 };
 
 // Opciones de tamaños para mostrar en las historias
-export const sizeOptions: { size: ButtonSize; label: string }[] = [
-  { size: 'small', label: 'Pequeño' },
-  { size: 'medium', label: 'Mediano' },
-  { size: 'large', label: 'Grande' },
+export const sizeOptions: { size: ComponentSize; label: string }[] = [
+  { size: ComponentSize.SMALL, label: 'Pequeño' },
+  { size: ComponentSize.MEDIUM, label: 'Mediano' },
+  { size: ComponentSize.LARGE, label: 'Grande' },
 ];
 
 // Opciones de variantes para mostrar en las historias
-export const variantOptions: { variant: ButtonVariant; label: string }[] = [
-  { variant: 'primary', label: 'Primario' },
-  { variant: 'secondary', label: 'Secundario' },
-  { variant: 'tertiary', label: 'Terciario' },
-  { variant: 'danger', label: 'Peligro' },
-  { variant: 'success', label: 'Éxito' },
-  { variant: 'warning', label: 'Advertencia' },
+export const variantOptions: { variant: ComponentVariant; label: string }[] = [
+  { variant: ComponentVariant.PRIMARY, label: 'Primario' },
+  { variant: ComponentVariant.SECONDARY, label: 'Secundario' },
+  { variant: ComponentVariant.TERTIARY, label: 'Terciario' },
+  { variant: ComponentVariant.DANGER, label: 'Peligro' },
+  { variant: ComponentVariant.SUCCESS, label: 'Éxito' },
+  { variant: ComponentVariant.WARNING, label: 'Advertencia' },
 ];
 
 // Iconos de ejemplo para mostrar en las historias

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import classNames from '../../utils/classNames';
-import { CheckButtonProps, ButtonSize } from './types';
+import { CheckButtonProps } from './types';
 import './styles/CheckButton.scss';
+import { ComponentSize } from '../types';
 
 /**
  * CheckButton - Un componente de botón de verificación personalizable.
@@ -36,7 +37,7 @@ const CheckButton: React.FC<CheckButtonProps> = ({
   checked = false,
   disabled = false,
   onChange,
-  size = ButtonSize.MEDIUM,
+  size = ComponentSize.MEDIUM,
   className = '',
   ...props
 }) => {

@@ -1,5 +1,6 @@
 import type { Meta } from '@storybook/react';
-import { ButtonVariant, ButtonSize, ButtonProps } from '../types';
+import { ButtonProps } from '../types';
+import { ComponentVariant, ComponentSize } from '../../types';
 
 export const defaultArgs = {
   children: 'Button',
@@ -8,22 +9,22 @@ export const defaultArgs = {
 };
 
 export const argTypes = {
-  variant: {
+  variant: {  
     control: 'select',
-    options: Object.values(ButtonVariant),
+    options: Object.values(ComponentVariant),
     description: 'Variante visual del botón',
     table: {
-      type: { summary: Object.values(ButtonVariant).join(' | ') },
-      defaultValue: { summary: ButtonVariant.PRIMARY },
+      type: { summary: Object.values(ComponentVariant).join(' | ') },
+      defaultValue: { summary: ComponentVariant.PRIMARY },
     },
   },
   size: {
     control: 'select',
-    options: Object.values(ButtonSize),
+    options: Object.values(ComponentSize),
     description: 'Tamaño del botón',
     table: {
-      type: { summary: Object.values(ButtonSize).join(' | ') },
-      defaultValue: { summary: ButtonSize.MEDIUM },
+      type: { summary: Object.values(ComponentSize).join(' | ') },
+      defaultValue: { summary: ComponentSize.MEDIUM },
     },
   },
   disabled: {
@@ -45,12 +46,12 @@ export const argTypes = {
   onClick: { action: 'clicked' },
 };
 
-export const variants = Object.values(ButtonVariant).map((variant) => ({
+export const variants = Object.values(ComponentVariant).map((variant) => ({
   variant,
   label: variant.charAt(0).toUpperCase() + variant.slice(1),
 }));
 
-export const sizes = Object.values(ButtonSize).map((size) => ({
+export const sizes = Object.values(ComponentSize).map((size) => ({
   size,
   label: size.charAt(0).toUpperCase() + size.slice(1),
 }));
@@ -60,20 +61,20 @@ export const buttonStories: Meta<ButtonProps> = {
   argTypes: {
     variant: {
       control: 'select',
-      options: Object.values(ButtonVariant),
+      options: Object.values(ComponentVariant),
       description: 'Variante visual del botón',
       table: {
-        type: { summary: Object.values(ButtonVariant).join(' | ') },
-        defaultValue: { summary: ButtonVariant.PRIMARY },
+        type: { summary: Object.values(ComponentVariant).join(' | ') },
+        defaultValue: { summary: ComponentVariant.PRIMARY },
       },
     },
     size: {
       control: 'select',
-      options: Object.values(ButtonSize),
+      options: Object.values(ComponentSize),
       description: 'Tamaño del botón',
       table: {
-        type: { summary: Object.values(ButtonSize).join(' | ') },
-        defaultValue: { summary: ButtonSize.MEDIUM },
+        type: { summary: Object.values(ComponentSize).join(' | ') },
+        defaultValue: { summary: ComponentSize.MEDIUM },
       },
     },
     disabled: {

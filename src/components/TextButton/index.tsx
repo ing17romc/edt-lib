@@ -1,8 +1,9 @@
 import React from 'react';
-import Button, { ButtonVariant, ButtonSize } from '../Button';
+import Button from '../Button';
 import { TextButtonProps } from './types';
 import styles from './styles/TextButton.module.scss';
-
+import { ComponentSize, ComponentVariant } from '../types';
+  
 /**
  * Componente de botón de texto que extiende la funcionalidad del componente Button.
  * Diseñado para acciones secundarias o menos prominentes que los botones regulares.
@@ -42,8 +43,8 @@ const TextButton: React.FC<TextButtonProps> = ({
       className={buttonClasses}
       style={buttonStyle}
       disabled={disabled || loading}
-      variant={ButtonVariant.PRIMARY}
-      size={size as ButtonSize}
+      variant={ComponentVariant.PRIMARY}
+      size={size as ComponentSize}
       fullWidth={fullWidth}
       {...rest}
     >

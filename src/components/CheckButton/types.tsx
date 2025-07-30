@@ -1,13 +1,5 @@
 import { InputHTMLAttributes } from 'react';
-
-/**
- * Tamaños disponibles para el componente CheckButton
- */
-export enum ButtonSize {
-  SMALL = 'small',
-  MEDIUM = 'medium',
-  LARGE = 'large',
-}
+import { ComponentSize } from '../types';
 
 /**
  * Propiedades del componente CheckButton
@@ -46,5 +38,5 @@ export interface CheckButtonProps extends Omit<InputHTMLAttributes<HTMLInputElem
    * Tamaño del botón de verificación
    * @default 'medium'
    */
-  size?: ButtonSize;
+  size?: ComponentSize;
 }

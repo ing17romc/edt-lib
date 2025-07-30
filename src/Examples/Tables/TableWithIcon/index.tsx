@@ -4,6 +4,7 @@ import type { TableWithIconProps } from './types';
 import { Title } from '../../../components/Title';
 import IconButton from '../../../components/IconButton';
 import '../../../styles/tables.scss';
+import { ComponentSize } from '../../../components/types';
 
 /**
  * TableWithIcon
@@ -49,7 +50,7 @@ const TableWithIcon: React.FC<TableWithIconProps> = ({ dataTable }) => {
 														icon="edit"
 														id={`edit_${index}`}
 														data-testid={`edit_${index}`}
-														size="medium"
+														size={ComponentSize.MEDIUM}
 														aria-label="Editar"
 														onClick={() =>
 															alert('clic!!!')
@@ -61,7 +62,7 @@ const TableWithIcon: React.FC<TableWithIconProps> = ({ dataTable }) => {
 														icon="delete"
 														id={`delete_${index}`}
 														data-testid={`delete_${index}`}
-														size="medium"
+														size={ComponentSize.MEDIUM}
 														aria-label="Eliminar"
 														onClick={() =>
 															alert('clic!!!')

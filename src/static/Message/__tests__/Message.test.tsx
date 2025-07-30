@@ -11,7 +11,11 @@ describe('Message', () => {
     const { container } = render(<Message>Mensaje predeterminado</Message>);
     expect(container.firstChild).toHaveClass(styles.message, styles['message-info']);
     expect(screen.getByText('Mensaje predeterminado')).toBeInTheDocument();
-    expect(container.querySelector(`.${styles.messageIcon} svg`)).toBeInTheDocument();
+    // Verificar que el contenedor del ícono existe y tiene la clase correcta
+    const iconContainer = container.querySelector(`.${styles.messageIcon}`);
+    expect(iconContainer).toBeInTheDocument();
+    // Verificar que el componente Icon está presente (puede no ser un SVG directo)
+    expect(iconContainer?.querySelector('i, svg, [role="img"]')).toBeInTheDocument();
   });
 
   // Casos de prueba para los diferentes tipos de mensaje

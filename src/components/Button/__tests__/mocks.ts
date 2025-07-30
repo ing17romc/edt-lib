@@ -1,5 +1,5 @@
 import type { ButtonProps } from '../types';
-import { ButtonVariant, ButtonSize } from '../types';
+import { ComponentVariant, ComponentSize } from '../../types';
 
 /**
  * Mock de la función onClick para pruebas
@@ -11,8 +11,8 @@ export const mockOnClick = jest.fn();
  */
 export const defaultButtonProps: ButtonProps = {
   children: 'Click me',
-  variant: ButtonVariant.PRIMARY,
-  size: ButtonSize.MEDIUM,
+  variant: ComponentVariant.PRIMARY,
+  size: ComponentSize.MEDIUM,
   onClick: mockOnClick,
 };
 
@@ -37,7 +37,7 @@ export const fullWidthButtonProps: ButtonProps = {
 /**
  * Todas las variantes de botón disponibles
  */
-export const allVariants = Object.values(ButtonVariant).map((variant) => ({
+export const allVariants = Object.values(ComponentVariant).map((variant) => ({
   children: variant.charAt(0).toUpperCase() + variant.slice(1),
   variant,
 }));
@@ -45,7 +45,7 @@ export const allVariants = Object.values(ButtonVariant).map((variant) => ({
 /**
  * Todos los tamaños de botón disponibles
  */
-export const allSizes = Object.values(ButtonSize).map((size) => ({
+export const allSizes = Object.values(ComponentSize).map((size) => ({
   children: size.charAt(0).toUpperCase() + size.slice(1),
   size,
 }));

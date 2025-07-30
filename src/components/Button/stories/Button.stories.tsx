@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Button from '..';
 import { buttonStories, variants, sizes } from './mocks';
-import { ButtonVariant, ButtonSize } from '../types';
+import { ComponentVariant, ComponentSize } from '../../types';
 
 const meta = {
   title: 'Components/Button',
@@ -17,8 +17,8 @@ type Story = StoryObj<typeof Button>;
 export const Default: Story = {
   args: {
     children: 'Button',
-    variant: ButtonVariant.PRIMARY,
-    size: ButtonSize.MEDIUM,
+    variant: ComponentVariant.PRIMARY,
+    size: ComponentSize.MEDIUM,
   },
 };
 

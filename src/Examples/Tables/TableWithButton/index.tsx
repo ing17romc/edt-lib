@@ -3,7 +3,7 @@ import getStatus from '../utils';
 import type { TableWithButtonProps } from './types';
 import { Title } from '../../../components/Title';
 import Button from '../../../components/Button';
-import { ButtonSize } from '../../../components/Button/types';
+import { ComponentSize } from '../../../components/types';
 import '../../../styles/tables.scss';
 
 /**
@@ -48,7 +48,7 @@ const TableWithButton: React.FC<TableWithButtonProps> = ({ dataTable }) => {
 												<td>
 													<Button
 														type='button'
-														size={ButtonSize.MEDIUM}
+														size={ComponentSize.MEDIUM}
 														onClick={() =>
 															alert('clic!!!')
 														}
@@ -59,7 +59,7 @@ const TableWithButton: React.FC<TableWithButtonProps> = ({ dataTable }) => {
 												<td>
 													<Button
 														type='button'
-														size={ButtonSize.MEDIUM}
+														size={ComponentSize.MEDIUM}
 														onClick={() =>
 															alert('clic!!!')
 														}

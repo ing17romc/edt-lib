@@ -2,6 +2,7 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import IconButton from '..';
+import { ComponentSize, ComponentVariant } from '../../types';
 
 describe('IconButton', () => {
   it('renderiza correctamente con las props por defecto', () => {
@@ -30,7 +31,7 @@ describe('IconButton', () => {
       const { container } = render(
         <IconButton 
           icon="home" 
-          size={size} 
+          size={size as ComponentSize} 
           aria-label={`Botón ${size}`} 
         />
       );
@@ -47,7 +48,7 @@ describe('IconButton', () => {
       const { container } = render(
         <IconButton 
           icon="home" 
-          variant={variant} 
+          variant={variant as ComponentVariant} 
           aria-label={`Botón ${variant}`} 
         />
       );

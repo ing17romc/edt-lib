@@ -5,6 +5,7 @@ import { IconButtonProps } from './types';
 import { IconSize } from '../Icon/types';
 import { ALL_ICONS, AllIconsType } from '../utils/IconTypes';
 import styles from './styles/IconButton.module.scss';
+import { ComponentVariant, ComponentSize } from '../types';
 
 /**
  * Componente de botón que muestra únicamente un icono.
@@ -22,8 +23,8 @@ import styles from './styles/IconButton.module.scss';
  */
 const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(({
   icon,
-  size = 'medium',
-  variant = 'primary',
+  size = ComponentSize.MEDIUM,
+  variant = ComponentVariant.PRIMARY,
   fullWidth = false,
   loading = false,
   disabled = false,
@@ -38,11 +39,11 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(({
   // Mapear tamaños de botón a tamaños de icono
   const getIconSize = (): IconSize => {
     switch (size) {
-      case 'small':
+      case ComponentSize.SMALL:
         return IconSize.SMALL;
-      case 'large':
+      case ComponentSize.LARGE:
         return IconSize.LARGE;
-      case 'medium':
+      case ComponentSize.MEDIUM:
       default:
         return IconSize.MEDIUM;
     }

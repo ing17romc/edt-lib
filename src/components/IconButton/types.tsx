@@ -1,15 +1,6 @@
 import { ButtonHTMLAttributes } from 'react';
 import { IconVariant } from '../Icon/types';
-
-/**
- * Variantes de estilo disponibles para el botón de icono
- */
-export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'danger' | 'success' | 'warning';
-
-/**
- * Tamaños disponibles para el botón de icono
- */
-export type ButtonSize = 'small' | 'medium' | 'large';
+import { ComponentSize, ComponentVariant } from '../types'; 
 
 /**
  * Propiedades del componente IconButton
@@ -24,13 +15,13 @@ export interface IconButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonEle
    * Tamaño del botón
    * @default 'medium'
    */
-  size?: ButtonSize;
+  size?: ComponentSize;
   
   /**
    * Variante visual del botón
    * @default 'primary'
    */
-  variant?: ButtonVariant;
+  variant?: ComponentVariant;
   
   /**
    * Si el botón ocupa todo el ancho disponible
@@ -87,7 +78,7 @@ export interface IconButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonEle
 }
 
 // Mapa de tamaños de icono basado en el tamaño del botón
-export const iconSizeMap: Record<ButtonSize, string> = {
+export const iconSizeMap: Record<ComponentSize, string> = {
   small: '1rem',
   medium: '1.25rem',
   large: '1.5rem',
