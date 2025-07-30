@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.10.1] - 2025-07-30
+
+### Mejoras
+- Actualización de componentes para usar enums centralizados (`ComponentSize` y `ComponentVariant`)
+- Mejora en la consistencia del código al estandarizar el uso de tamaños y variantes
+- Actualización de pruebas unitarias para reflejar los cambios en los enums
+
+### Correcciones
+- Corregido error en `TextButton` donde `ButtonVariant.PRIMARY` era `undefined`
+- Actualizados los archivos de mocks y stories para usar los enums centralizados
+- Corregidas importaciones en múltiples componentes para usar los enums correctos
+
 ## [2.10.0] - 2025-07-17
 
 ### Mejoras
