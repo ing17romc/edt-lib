@@ -5,7 +5,6 @@ export interface TextButtonProps extends Omit<ButtonProps, 'variant' | 'size' | 
   /** 
    * Tamaño del botón de texto
    * @default 'medium'
-   * @deprecated Use ComponentSize from '../types' instead.
    */
   size?: ComponentSize;
   

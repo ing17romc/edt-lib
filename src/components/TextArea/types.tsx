@@ -3,11 +3,6 @@ import { ComponentSize } from '../types';
 
 export type TextAreaVariant = 'outlined' | 'filled' | 'standard';
 
-/**
- * @deprecated Use ComponentSize from '../types' instead.
- */
-export type TextAreaSize = ComponentSize;
-
 export interface Testable {
   'data-testid'?: string;
 }

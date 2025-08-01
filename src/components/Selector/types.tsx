@@ -10,10 +10,6 @@ export enum SelectorVariant {
   WARNING = 'warning',
 }
 
-/**
- * @deprecated Use ComponentSize from '../types' instead.
- */
-export const SelectorSize = ComponentSize;
 
 type SelectorSize = ComponentSize;
 

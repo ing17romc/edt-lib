@@ -3,11 +3,6 @@ import { ComponentSize } from '../types';
 
 export type TextBoxVariant = 'outlined' | 'filled' | 'standard';
 
-/**
- * @deprecated Use ComponentSize from '../types' instead.
- */
-export type TextBoxSize = ComponentSize;
-
 export interface TextBoxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
   /**
    * Etiqueta que se muestra encima del campo de texto

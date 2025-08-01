@@ -1,22 +1,6 @@
 import { HTMLAttributes } from 'react';
 import { ComponentSize } from '../types';
 
-/**
- * @deprecated Use ComponentSize from '../types' instead.
- */
-export enum SpinnerSize {
-  XSMALL = 'xsmall',
-  SMALL = 'small',
-  MEDIUM = 'medium',
-  LARGE = 'large',
-  XLARGE = 'xlarge',
-}
-
-/**
- * @deprecated Use ComponentSize instead.
- */
-export type SpinnerSizeType = ComponentSize;
-
 export enum SpinnerVariant {
   PRIMARY = 'primary',
   SECONDARY = 'secondary',
