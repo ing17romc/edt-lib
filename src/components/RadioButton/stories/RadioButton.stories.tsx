@@ -8,6 +8,8 @@ import {
   disabledArgs,
   disabledCheckedArgs,
   withCustomClass,
+  smallSize,
+  largeSize,
   RadioGroupComponent,
 } from './mocks';
 
@@ -69,6 +71,52 @@ export const DisabledChecked: Story = {
 
 export const WithCustomClass: Story = {
   args: withCustomClass,
+  parameters: {
+    docs: {
+      description: {
+        story: 'RadioButton con una clase CSS personalizada aplicada.',
+      },
+    },
+  },
+};
+
+export const SmallSize: Story = {
+  args: smallSize,
+  parameters: {
+    docs: {
+      description: {
+        story: 'RadioButton con tamaño pequeño (SMALL).',
+      },
+    },
+  },
+};
+
+export const LargeSize: Story = {
+  args: largeSize,
+  parameters: {
+    docs: {
+      description: {
+        story: 'RadioButton con tamaño grande (LARGE).',
+      },
+    },
+  },
+};
+
+export const SizeVariants: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+      <RadioButton {...smallSize} label="Opción pequeña (SMALL)" />
+      <RadioButton {...defaultArgs} label="Opción mediana (MEDIUM)" />
+      <RadioButton {...largeSize} label="Opción grande (LARGE)" />
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Ejemplo que muestra las diferentes variantes de tamaño disponibles para el RadioButton.',
+      },
+    },
+  },
 };
 
 export const Group: Story = {

@@ -1,5 +1,6 @@
 import React, { forwardRef, useEffect, useRef, useCallback } from 'react';
 import { TextAreaProps } from './types';
+import { ComponentSize } from '../types';
 import styles from './styles/TextArea.module.scss';
 
 /**
@@ -12,7 +13,7 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(({
   error = false,
   fullWidth = false,
   variant = 'outlined',
-  size = 'medium',
+  size = ComponentSize.MEDIUM,
   rows = 3,
   maxLength,
   autoResize = false,

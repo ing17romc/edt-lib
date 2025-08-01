@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
+import { ComponentSize } from '../../types';
 import TextBox from '../';
 import { 
   mockTextBoxProps, 
@@ -106,7 +107,7 @@ describe('TextBox Component', () => {
     const { rerender } = render(
       <TextBox 
         label="Small" 
-        size="small" 
+        size={ComponentSize.SMALL} 
         data-testid="textbox-size" 
       />
     );
@@ -117,7 +118,7 @@ describe('TextBox Component', () => {
     rerender(
       <TextBox 
         label="Large" 
-        size="large" 
+        size={ComponentSize.LARGE} 
         data-testid="textbox-size" 
       />
     );

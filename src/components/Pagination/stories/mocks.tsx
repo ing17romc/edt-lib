@@ -1,8 +1,10 @@
+import { ComponentSize } from '../../types';
 import { PaginationProps } from '../types';
 
 export const baseArgs: PaginationProps = {
   totalPages: 10,
   currentPage: 5,
+  size: ComponentSize.MEDIUM,
   onPageChange: (page) => console.log(`Página cambiada a: ${page}`),
 };
 
@@ -31,4 +33,14 @@ export const firstPage: PaginationProps = {
 export const lastPage: PaginationProps = {
   ...baseArgs,
   currentPage: 10,
+};
+
+export const smallSize: PaginationProps = {
+  ...baseArgs,
+  size: ComponentSize.SMALL,
+};
+
+export const largeSize: PaginationProps = {
+  ...baseArgs,
+  size: ComponentSize.LARGE,
 };

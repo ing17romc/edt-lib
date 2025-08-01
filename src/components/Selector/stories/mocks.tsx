@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { Selector, SelectorVariant, SelectorSize } from '..';
+import { Selector, SelectorVariant } from '..';
 import { SelectorOption } from '../types';
+import { ComponentSize } from '../../types';
 
 // Mock Data
 export const mockOptions: SelectorOption[] = [
@@ -41,7 +42,7 @@ export const defaultArgs = {
   label: 'Selecciona una opción',
   placeholder: 'Elige una opción',
   variant: SelectorVariant.PRIMARY,
-  size: SelectorSize.MEDIUM,
+  size: ComponentSize.MEDIUM,
   disabled: false,
   loading: false,
   fullWidth: false,
@@ -119,8 +120,8 @@ export const OptionGroupsComponent = () => (
 
 export const SizesComponent = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-    <Selector {...defaultArgs} label="Selector pequeño" size={SelectorSize.SMALL} />
-    <Selector {...defaultArgs} label="Selector mediano (por defecto)" size={SelectorSize.MEDIUM} />
-    <Selector {...defaultArgs} label="Selector grande" size={SelectorSize.LARGE} />
+    <Selector {...defaultArgs} label="Selector pequeño" size={ComponentSize.SMALL} />
+    <Selector {...defaultArgs} label="Selector mediano (por defecto)" size={ComponentSize.MEDIUM} />
+    <Selector {...defaultArgs} label="Selector grande" size={ComponentSize.LARGE} />
   </div>
 );

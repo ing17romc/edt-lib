@@ -2,15 +2,19 @@ import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 import TextButton from '../';
 import type { TextButtonProps } from '../types';
+import { ComponentSize } from '../../types';
 
 export default {
   title: 'Components/TextButton',
   component: TextButton,
   argTypes: {
     size: {
-      control: {
-        type: 'select',
-        options: ['small', 'medium', 'large'],
+      control: 'select',
+      options: Object.values(ComponentSize),
+      description: 'Tamaño',
+      table: {
+        type: { summary: Object.values(ComponentSize).join(' | ') },
+        defaultValue: { summary: ComponentSize.MEDIUM },
       },
     },
     color: {
@@ -53,7 +57,7 @@ export const Default = Template.bind({});
 Default.args = {
   children: 'Botón de texto',
   color: 'primary',
-  size: 'medium',
+  size: ComponentSize.MEDIUM,
   underline: 'hover',
 };
 
@@ -73,9 +77,9 @@ Interactive.parameters = {
 // Historia de tamaños
 export const Sizes = () => (
   <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-    <TextButton size="small">Pequeño</TextButton>
-    <TextButton size="medium">Mediano</TextButton>
-    <TextButton size="large">Grande</TextButton>
+    <TextButton size={ComponentSize.SMALL}>Pequeño</TextButton>
+    <TextButton size={ComponentSize.MEDIUM}>Mediano</TextButton>
+    <TextButton size={ComponentSize.LARGE}>Grande</TextButton>
   </div>
 );
 Sizes.parameters = {

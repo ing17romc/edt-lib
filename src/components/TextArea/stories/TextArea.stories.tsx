@@ -3,6 +3,7 @@ import { Meta, StoryFn } from '@storybook/react';
 import TextArea from '../';
 import type { TextAreaProps } from '../types';
 import { defaultArgs } from './mocks';
+import { ComponentSize } from '../../types';
 
 export default {
   title: 'Components/TextArea',
@@ -15,9 +16,12 @@ export default {
       },
     },
     size: {
-      control: {
-        type: 'select',
-        options: ['small', 'medium', 'large'],
+      control: 'select',
+      options: Object.values(ComponentSize),
+      description: 'Tamaño',
+      table: {
+        type: { summary: Object.values(ComponentSize).join(' | ') },
+        defaultValue: { summary: ComponentSize.MEDIUM },
       },
     },
     rows: { control: { type: 'number', min: 1, max: 20 } },
@@ -116,21 +120,21 @@ export const Sizes = () => {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '600px' }}>
       <TextArea 
         label="Small" 
-        size="small" 
+        size={ComponentSize.SMALL} 
         placeholder="Small size" 
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
       <TextArea 
         label="Medium" 
-        size="medium" 
+        size={ComponentSize.MEDIUM} 
         placeholder="Medium size" 
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
       <TextArea 
         label="Large" 
-        size="large" 
+        size={ComponentSize.LARGE} 
         placeholder="Large size" 
         value={value}
         onChange={(e) => setValue(e.target.value)}

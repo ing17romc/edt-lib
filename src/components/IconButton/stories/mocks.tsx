@@ -10,12 +10,12 @@ export const meta: Meta = {
       description: 'Nombre del icono a mostrar',
     },
     size: {
-      control: { type: 'select' },
-      options: ['small', 'medium', 'large'],
-      description: 'Tamaño del botón',
+      control: 'select',
+      options: Object.values(ComponentSize),
+      description: 'Tamaño',
       table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '"medium"' },
+        type: { summary: Object.values(ComponentSize).join(' | ') },
+        defaultValue: { summary: ComponentSize.MEDIUM },
       },
     },
     variant: {

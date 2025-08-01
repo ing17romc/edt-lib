@@ -1,3 +1,5 @@
+import { ComponentSize } from '../types';
+
 export interface PaginationProps {
   /** Número total de páginas */
   totalPages: number;
@@ -15,4 +17,6 @@ export interface PaginationProps {
   className?: string;
   /** Indica si el componente está deshabilitado */
   disabled?: boolean;
+  /** Tamaño del componente */
+  size?: ComponentSize;
 }

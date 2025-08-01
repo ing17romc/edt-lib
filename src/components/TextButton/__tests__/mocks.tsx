@@ -1,9 +1,10 @@
 import { TextButtonProps } from '../types';
+import { ComponentSize } from '../../types';
 
 export const mockTextButtonProps: TextButtonProps = {
   children: 'Botón de prueba',
   color: 'primary',
-  size: 'medium',
+  size: ComponentSize.MEDIUM,
   className: 'test-class',
   onClick: jest.fn(),
 };
@@ -27,6 +28,6 @@ export const mockFullWidthTextButtonProps: TextButtonProps = {
 export const mockCustomTextButtonProps: TextButtonProps = {
   children: 'Personalizado',
   color: 'secondary',
-  size: 'large',
+  size: ComponentSize.LARGE,
   underline: 'always',
 };

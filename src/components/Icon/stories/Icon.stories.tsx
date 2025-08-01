@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Icon from '..';
 import { IconSize, IconVariant } from '../types';
 import { containerStyle, itemContainerStyle, sizeOptions } from './mocks';
+import { ComponentSize } from '../../types';
 
 // Configuración de meta para las historias
 const meta: Meta<typeof Icon> = {
@@ -16,10 +17,11 @@ const meta: Meta<typeof Icon> = {
     },
     size: {
       control: 'select',
-      options: Object.values(IconSize),
-      description: 'Tamaño del icono',
+      options: Object.values(ComponentSize),
+      description: 'Tamaño',
       table: {
-        defaultValue: { summary: IconSize.MEDIUM },
+        type: { summary: Object.values(ComponentSize).join(' | ') },
+        defaultValue: { summary: ComponentSize.MEDIUM },
       },
     },
     variant: {

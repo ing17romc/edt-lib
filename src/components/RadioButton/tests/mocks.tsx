@@ -1,4 +1,5 @@
 import { RadioButtonProps } from '../types';
+import { ComponentSize } from '../../types';
 
 export const defaultProps: RadioButtonProps = {
   value: 'option1',
@@ -6,6 +7,7 @@ export const defaultProps: RadioButtonProps = {
   checked: false,
   disabled: false,
   name: 'test-group',
+  size: ComponentSize.MEDIUM,
 };
 
 export const checkedProps: RadioButtonProps = {
@@ -28,4 +30,17 @@ export const withoutLabelProps: RadioButtonProps = {
   label: '', // Etiqueta vacía para pruebas sin etiqueta visible
   checked: false,
   name: 'test-group',
+  size: ComponentSize.MEDIUM,
+};
+
+export const smallSizeProps: RadioButtonProps = {
+  ...defaultProps,
+  size: ComponentSize.SMALL,
+  label: 'Opción pequeña',
+};
+
+export const largeSizeProps: RadioButtonProps = {
+  ...defaultProps,
+  size: ComponentSize.LARGE,
+  label: 'Opción grande',
 };

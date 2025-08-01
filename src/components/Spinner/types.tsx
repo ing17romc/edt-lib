@@ -1,5 +1,9 @@
 import { HTMLAttributes } from 'react';
+import { ComponentSize } from '../types';
 
+/**
+ * @deprecated Use ComponentSize from '../types' instead.
+ */
 export enum SpinnerSize {
   XSMALL = 'xsmall',
   SMALL = 'small',
@@ -7,6 +11,11 @@ export enum SpinnerSize {
   LARGE = 'large',
   XLARGE = 'xlarge',
 }
+
+/**
+ * @deprecated Use ComponentSize instead.
+ */
+export type SpinnerSizeType = ComponentSize;
 
 export enum SpinnerVariant {
   PRIMARY = 'primary',
@@ -24,7 +33,7 @@ export interface SpinnerProps extends HTMLAttributes<HTMLDivElement> {
    * Tamaño del spinner
    * @default 'medium'
    */
-  size?: SpinnerSize;
+  size?: ComponentSize;
   
   /**
    * Variante de color del spinner

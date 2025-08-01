@@ -115,15 +115,41 @@ $modal-enter-animation-duration: 0.3s;      // Duración de la animación de ent
 // Pagination Spacing
 $pagination-gap: $space-2; // 8px
 $pagination-margin: $space-4 0; // 16px top/bottom
+
+// Small size
+$pagination-button-padding-sm: 0 $space-2; // 0 8px
+$pagination-button-min-width-sm: 1.75rem; // 28px
+$pagination-button-height-sm: 1.75rem; // 28px
+
+// Medium size (default)
 $pagination-button-padding: 0 $space-2; // 0 8px
 $pagination-button-min-width: 2rem; // 32px
 
+// Large size
+$pagination-button-padding-lg: 0 $space-3; // 0 12px
+$pagination-button-min-width-lg: 2.5rem; // 40px
+$pagination-button-height-lg: 2.5rem; // 40px
+
 // RadioButton Spacing
 $radiobutton-margin-bottom: $space-2;          // 8px
-$radiobutton-padding-left: 1.75rem;         // 28px
-$radiobutton-size: 1.25rem;                 // 20px
+
+// RadioButton - Tamaño SMALL
+$radiobutton-padding-left-sm: 1.5rem;          // 24px
+$radiobutton-size-sm: 1rem;                   // 16px
+$radiobutton-checkmark-size-sm: 0.5rem;        // 8px
+
+// RadioButton - Tamaño MEDIUM (default)
+$radiobutton-padding-left: 1.75rem;           // 28px
+$radiobutton-size: 1.25rem;                   // 20px
+$radiobutton-checkmark-size: 0.75rem;          // 12px
+
+// RadioButton - Tamaño LARGE
+$radiobutton-padding-left-lg: 2rem;            // 32px
+$radiobutton-size-lg: 1.5rem;                 // 24px
+$radiobutton-checkmark-size-lg: 1rem;          // 16px
+
+// RadioButton - Valores comunes
 $radiobutton-border-width: 2px;
-$radiobutton-checkmark-size: 0.75rem;         // 12px
 $radiobutton-border-radius: $border-radius-full;
 
 // Selector Spacing

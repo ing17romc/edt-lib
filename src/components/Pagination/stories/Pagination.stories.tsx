@@ -6,7 +6,9 @@ import {
   withManyPages, 
   disabledState, 
   firstPage, 
-  lastPage 
+  lastPage,
+  smallSize,
+  largeSize
 } from './mocks';
 
 const meta: Meta<typeof Pagination> = {
@@ -113,7 +115,29 @@ export const LastPage: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Paginación mostrando la última página con el botón siguiente deshabilitado.',
+        story: 'Paginación mostrando la última página.',
+      },
+    },
+  },
+};
+
+export const SmallSize: Story = {
+  args: smallSize,
+  parameters: {
+    docs: {
+      description: {
+        story: 'Paginación con tamaño pequeño (SMALL).',
+      },
+    },
+  },
+};
+
+export const LargeSize: Story = {
+  args: largeSize,
+  parameters: {
+    docs: {
+      description: {
+        story: 'Paginación con tamaño grande (LARGE).',
       },
     },
   },

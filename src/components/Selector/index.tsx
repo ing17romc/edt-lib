@@ -1,7 +1,8 @@
 import React, { forwardRef } from 'react';
 import classNames from '../../utils/classNames';
 import styles from './styles/Selector.module.scss';
-import { SelectorProps, SelectorVariant, SelectorSize } from './types';
+import { SelectorProps, SelectorVariant } from './types';
+import { ComponentSize } from '../types';
 
 /**
  * Componente Selector que representa un menú desplegable con múltiples opciones.
@@ -36,7 +37,7 @@ const Selector = forwardRef<HTMLSelectElement, SelectorProps>(({
   error = false,
   errorMessage,
   variant = SelectorVariant.PRIMARY,
-  size = SelectorSize.MEDIUM,
+  size = ComponentSize.MEDIUM,
   fullWidth = false,
   loading = false,
   disabled = false,
@@ -144,6 +145,8 @@ const Selector = forwardRef<HTMLSelectElement, SelectorProps>(({
 
 Selector.displayName = 'Selector';
 
+// Re-exportar SelectorSize para mantener la compatibilidad con código existente
+export { SelectorVariant, SelectorSize } from './types';
+
 export { Selector };
 export type { SelectorProps };
-export { SelectorVariant, SelectorSize };

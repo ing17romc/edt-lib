@@ -1,5 +1,6 @@
 import React, { forwardRef } from 'react';
 import { TextBoxProps } from './types';
+import { ComponentSize } from '../types';
 import styles from './styles/TextBox.module.scss';
 
 /**
@@ -12,7 +13,7 @@ const TextBox = forwardRef<HTMLInputElement, TextBoxProps>(({
   error = false,
   fullWidth = false,
   variant = 'outlined',
-  size = 'medium',
+  size = ComponentSize.MEDIUM,
   startAdornment,
   endAdornment,
   className = '',

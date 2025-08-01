@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
+import { ComponentSize } from '../../types';
 import TextArea from '../';
 import { 
   mockTextAreaProps, 
@@ -104,7 +105,7 @@ describe('TextArea Component', () => {
     const { rerender } = render(
       <TextArea 
         label="Small" 
-        size="small" 
+        size={ComponentSize.SMALL} 
         data-testid="textarea-size" 
       />
     );
@@ -115,7 +116,7 @@ describe('TextArea Component', () => {
     rerender(
       <TextArea 
         label="Large" 
-        size="large" 
+        size={ComponentSize.LARGE} 
         data-testid="textarea-size" 
       />
     );

@@ -2,7 +2,8 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Spinner from '..';
 import { defaultProps, pulseProps } from './mocks';
-import { SpinnerSize, SpinnerVariant } from '../types';
+import { SpinnerVariant } from '../types';
+import { ComponentSize } from '../../types';
 
 describe('Spinner', () => {
   it('renders with default props', () => {
@@ -14,7 +15,7 @@ describe('Spinner', () => {
   });
 
   it('renders with a specific size', () => {
-    render(<Spinner {...defaultProps} size={SpinnerSize.LARGE} />);
+    render(<Spinner {...defaultProps} size={ComponentSize.LARGE} />);
     const spinner = screen.getByLabelText('Cargando...');
     expect(spinner).toHaveClass('spinner--large');
   });

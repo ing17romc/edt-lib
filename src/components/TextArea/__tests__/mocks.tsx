@@ -1,4 +1,5 @@
 import { TextAreaProps } from '../types';
+import { ComponentSize } from '../../types';
 
 const baseMockProps: Partial<TextAreaProps> = {
   rows: 3,
@@ -10,6 +11,7 @@ export const mockTextAreaProps: TextAreaProps = {
   label: 'Descripción',
   placeholder: 'Escribe algo...',
   value: '',
+  size: ComponentSize.MEDIUM,
   onChange: jest.fn(),
   className: 'test-class',
 };

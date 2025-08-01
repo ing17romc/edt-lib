@@ -21,9 +21,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: $pagination-button-min-width;
-    height: $pagination-button-height;
-    padding: $pagination-button-padding;
     border: $pagination-button-border-width solid $pagination-button-border;
     border-radius: $pagination-button-border-radius;
     background-color: $pagination-button-bg;
@@ -33,6 +30,11 @@
     line-height: $pagination-button-line-height;
     cursor: pointer;
     transition: $pagination-transition;
+
+    // Tamaño por defecto (MEDIUM)
+    min-width: $pagination-button-min-width;
+    height: $pagination-button-height;
+    padding: $pagination-button-padding;
 
     &:hover:not(&--disabled, &--active) {
       background-color: $pagination-button-hover-bg;
@@ -62,5 +64,34 @@
     height: $pagination-button-height;
     color: $pagination-ellipsis-color;
     user-select: none;
+  }
+
+  // Clases de tamaño
+  &--small {
+    .pagination__button {
+      min-width: $pagination-button-min-width-sm;
+      height: $pagination-button-height-sm;
+      padding: $pagination-button-padding-sm;
+      font-size: calc(#{$pagination-button-font-size} - 0.125rem);
+    }
+
+    .pagination__ellipsis {
+      min-width: $pagination-button-min-width-sm;
+      height: $pagination-button-height-sm;
+    }
+  }
+
+  &--large {
+    .pagination__button {
+      min-width: $pagination-button-min-width-lg;
+      height: $pagination-button-height-lg;
+      padding: $pagination-button-padding-lg;
+      font-size: calc(#{$pagination-button-font-size} + 0.125rem);
+    }
+
+    .pagination__ellipsis {
+      min-width: $pagination-button-min-width-lg;
+      height: $pagination-button-height-lg;
+    }
   }
 }

@@ -1,7 +1,8 @@
-import { SpinnerProps, SpinnerSize, SpinnerVariant } from '../types';
+import { SpinnerProps, SpinnerVariant } from '../types';
+import { ComponentSize } from '../../types';
 
 export const defaultProps: SpinnerProps = {
-  size: SpinnerSize.MEDIUM,
+  size: ComponentSize.MEDIUM,
   variant: SpinnerVariant.PRIMARY,
   'aria-label': 'Cargando...',
 };

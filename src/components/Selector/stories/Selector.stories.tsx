@@ -1,5 +1,6 @@
 import type { StoryObj, Meta } from '@storybook/react';
-import { Selector, SelectorVariant, SelectorSize } from '..';
+import { Selector, SelectorVariant } from '..';
+import { ComponentSize } from '../../types';
 import {
   defaultArgs,
   withoutLabelArgs,
@@ -23,7 +24,13 @@ const meta: Meta<typeof Selector> = {
       control: { type: 'select', options: Object.values(SelectorVariant) },
     },
     size: {
-      control: { type: 'select', options: Object.values(SelectorSize) },
+      control: 'select',
+      options: Object.values(ComponentSize),
+      description: 'Tamaño',
+      table: {
+        type: { summary: Object.values(ComponentSize).join(' | ') },
+        defaultValue: { summary: ComponentSize.MEDIUM },
+      },
     },
     disabled: { control: 'boolean' },
     loading: { control: 'boolean' },

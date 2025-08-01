@@ -1,5 +1,7 @@
 import React from 'react';
 import { PaginationProps } from './types';
+import { ComponentSize } from '../types';
+import classNames from '../../utils/classNames';
 import styles from './styles/Pagination.module.scss';
 
 /**
@@ -15,6 +17,7 @@ export const Pagination: React.FC<PaginationProps> = ({
   nextLabel = 'Siguiente',
   className = '',
   disabled = false,
+  size = ComponentSize.MEDIUM,
 }) => {
   // Validar props
   if (totalPages <= 0) {
@@ -52,8 +55,18 @@ export const Pagination: React.FC<PaginationProps> = ({
     onPageChange(page);
   };
 
+  const paginationClasses = classNames(
+    styles.pagination,
+    {
+      [styles['pagination--small']]: size === ComponentSize.SMALL,
+      [styles['pagination--large']]: size === ComponentSize.LARGE,
+      [styles['pagination--disabled']]: disabled,
+    },
+    className
+  );
+
   return (
-    <nav className={`${styles.pagination} ${className}`} aria-label="Paginación">
+    <nav className={paginationClasses} aria-label="Paginación">
       <div className={styles.pagination__item}>
         <button
           type="button"

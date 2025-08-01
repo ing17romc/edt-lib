@@ -71,7 +71,7 @@ export const buttonStories: Meta<ButtonProps> = {
     size: {
       control: 'select',
       options: Object.values(ComponentSize),
-      description: 'Tamaño del botón',
+      description: 'Tamaño',
       table: {
         type: { summary: Object.values(ComponentSize).join(' | ') },
         defaultValue: { summary: ComponentSize.MEDIUM },

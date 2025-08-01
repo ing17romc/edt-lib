@@ -1,11 +1,13 @@
 import { ButtonProps } from '../Button/types';
+import { ComponentSize } from '../types';
 
 export interface TextButtonProps extends Omit<ButtonProps, 'variant' | 'size' | 'fullWidth'> {
   /** 
    * Tamaño del botón de texto
    * @default 'medium'
+   * @deprecated Use ComponentSize from '../types' instead.
    */
-  size?: 'small' | 'medium' | 'large';
+  size?: ComponentSize;
   
   /** 
    * Si es true, el botón ocupa todo el ancho disponible

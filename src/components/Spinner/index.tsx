@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
 import classNames from '../../utils/classNames';
-import { SpinnerProps, SpinnerSize, SpinnerVariant } from './types';
+import { SpinnerProps, SpinnerVariant } from './types';
+import { ComponentSize } from '../types';
 import styles from './styles/Spinner.module.scss';
 
 /**
@@ -22,7 +23,7 @@ import styles from './styles/Spinner.module.scss';
  * <Spinner pulse />
  */
 const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(({
-  size = SpinnerSize.MEDIUM,
+  size = ComponentSize.MEDIUM,
   variant = SpinnerVariant.PRIMARY,
   pulse = false,
   className,

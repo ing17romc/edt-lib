@@ -1,6 +1,7 @@
 import React from 'react';
 import RadioButton from '..';
 import { RadioButtonProps } from '../types';
+import { ComponentSize } from '../../types';
 
 
 
@@ -10,6 +11,7 @@ export const defaultArgs: RadioButtonProps = {
   checked: false,
   disabled: false,
   name: 'radio-group',
+  size: ComponentSize.MEDIUM,
 };
 
 export const checkedArgs: RadioButtonProps = {
@@ -31,6 +33,18 @@ export const disabledCheckedArgs: RadioButtonProps = {
 export const withCustomClass: RadioButtonProps = {
   ...defaultArgs,
   className: 'custom-radio-class',
+};
+
+export const smallSize: RadioButtonProps = {
+  ...defaultArgs,
+  size: ComponentSize.SMALL,
+  label: 'Opción pequeña',
+};
+
+export const largeSize: RadioButtonProps = {
+  ...defaultArgs,
+  size: ComponentSize.LARGE,
+  label: 'Opción grande',
 };
 
 // Componente para el grupo de opciones

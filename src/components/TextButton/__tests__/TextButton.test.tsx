@@ -5,8 +5,9 @@ import {
   mockTextButtonProps, 
   mockDisabledTextButtonProps, 
   mockLoadingTextButtonProps,
-  mockFullWidthTextButtonProps
+  mockFullWidthTextButtonProps,
 } from './mocks';
+import { ComponentSize } from '../../types';
 
 describe('TextButton Component', () => {
   it('se renderiza correctamente con las propiedades predeterminadas', () => {
@@ -14,7 +15,7 @@ describe('TextButton Component', () => {
     const button = screen.getByRole('button', { name: /botón de prueba/i });
     expect(button).toBeInTheDocument();
     expect(button).toHaveClass('textButton');
-    expect(button).toHaveClass('size-medium');
+    expect(button).toHaveClass('size-medium'); // La clase CSS sigue siendo 'size-medium' aunque el valor sea ComponentSize.MEDIUM
     expect(button).toHaveClass('color-primary');
     expect(button).toHaveClass('underline-hover');
   });
@@ -66,7 +67,7 @@ describe('TextButton Component', () => {
     render(
       <TextButton 
         color="secondary" 
-        size="large" 
+        size={ComponentSize.LARGE}
         underline="always"
       >
         Personalizado

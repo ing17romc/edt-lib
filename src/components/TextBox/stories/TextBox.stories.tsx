@@ -3,6 +3,7 @@ import { Meta, StoryFn } from '@storybook/react';
 import TextBox from '../';
 import type { TextBoxProps } from '../types';
 import { defaultArgs } from './mocks';
+import { ComponentSize } from '../../types';
 
 export default {
   title: 'Components/TextBox',
@@ -15,9 +16,12 @@ export default {
       },
     },
     size: {
-      control: {
-        type: 'select',
-        options: ['small', 'medium', 'large'],
+      control: 'select',
+      options: Object.values(ComponentSize),
+      description: 'Tamaño',
+      table: {
+        type: { summary: Object.values(ComponentSize).join(' | ') },
+        defaultValue: { summary: ComponentSize.MEDIUM },
       },
     },
     type: {
@@ -90,9 +94,9 @@ Variants.parameters = {
 // Historia de tamaños
 export const Sizes = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '400px' }}>
-    <TextBox label="Small" size="small" placeholder="Small size" />
-    <TextBox label="Medium" size="medium" placeholder="Medium size" />
-    <TextBox label="Large" size="large" placeholder="Large size" />
+    <TextBox label="Small" size={ComponentSize.SMALL} placeholder="Small size" />
+    <TextBox label="Medium" size={ComponentSize.MEDIUM} placeholder="Medium size" />
+    <TextBox label="Large" size={ComponentSize.LARGE} placeholder="Large size" />
   </div>
 );
 Sizes.parameters = {

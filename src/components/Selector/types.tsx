@@ -1,4 +1,5 @@
 import { SelectHTMLAttributes } from 'react';
+import { ComponentSize } from '../types';
 
 export enum SelectorVariant {
   PRIMARY = 'primary',
@@ -9,11 +10,12 @@ export enum SelectorVariant {
   WARNING = 'warning',
 }
 
-export enum SelectorSize {
-  SMALL = 'small',
-  MEDIUM = 'medium',
-  LARGE = 'large',
-}
+/**
+ * @deprecated Use ComponentSize from '../types' instead.
+ */
+export const SelectorSize = ComponentSize;
+
+type SelectorSize = ComponentSize;
 
 export interface SelectorOption {
   /**

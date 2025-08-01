@@ -1,3 +1,5 @@
+import { ComponentSize } from '../types';
+
 export interface RadioButtonProps {
   /**
    * Valor único que identifica este botón de radio
@@ -33,4 +35,10 @@ export interface RadioButtonProps {
    * Nombre del grupo al que pertenece el botón de radio
    */
   name?: string;
+
+  /**
+   * Tamaño del botón de radio
+   * @default 'medium'
+   */
+  size?: ComponentSize;
 }

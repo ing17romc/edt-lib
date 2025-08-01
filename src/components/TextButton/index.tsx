@@ -11,7 +11,7 @@ import { ComponentSize, ComponentVariant } from '../types';
 const TextButton: React.FC<TextButtonProps> = ({
   children,
   className = '',
-  size = 'medium',
+  size = ComponentSize.MEDIUM,
   color = 'primary',
   underline = 'hover',
   disabled = false,

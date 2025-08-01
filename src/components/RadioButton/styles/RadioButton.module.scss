@@ -9,6 +9,8 @@
   cursor: pointer;
   user-select: none;
   position: relative;
+  
+  // Tamaño por defecto (MEDIUM)
   padding-left: $radiobutton-padding-left;
 
   &__input {
@@ -24,13 +26,15 @@
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    height: $radiobutton-size;
-    width: $radiobutton-size;
     background-color: $radiobutton-bg;
     border: $radiobutton-border-width solid $radiobutton-border;
     border-radius: $radiobutton-border-radius;
     transition: all 0.2s ease;
-
+    
+    // Tamaño por defecto (MEDIUM)
+    height: $radiobutton-size;
+    width: $radiobutton-size;
+    
     &::after {
       content: '';
       position: absolute;
@@ -38,17 +42,22 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: $radiobutton-checkmark-size;
-      height: $radiobutton-checkmark-size;
       border-radius: $radiobutton-border-radius;
       background: $radiobutton-checkmark-color;
+      
+      // Tamaño por defecto (MEDIUM)
+      width: $radiobutton-checkmark-size;
+      height: $radiobutton-checkmark-size;
     }
+
+
   }
 
   &__label {
     color: $radiobutton-label-color;
     font-size: $radiobutton-label-font-size;
     line-height: $radiobutton-label-line-height;
+    transition: color 0.2s ease;
   }
 
   &:hover &__input:not(:disabled) ~ &__checkmark {
@@ -77,5 +86,43 @@
   &__input:disabled ~ &__label {
     color: $radiobutton-label-disabled-color;
     cursor: not-allowed;
+  }
+  
+  // Estilos para tamaño SMALL
+  &--small {
+    padding-left: $radiobutton-padding-left-sm;
+    
+    .radioButton__checkmark {
+      height: $radiobutton-size-sm;
+      width: $radiobutton-size-sm;
+      
+      &::after {
+        width: $radiobutton-checkmark-size-sm;
+        height: $radiobutton-checkmark-size-sm;
+      }
+    }
+    
+    .radioButton__label {
+      font-size: calc(#{$radiobutton-label-font-size} - 0.125rem);
+    }
+  }
+  
+  // Estilos para tamaño LARGE
+  &--large {
+    padding-left: $radiobutton-padding-left-lg;
+    
+    .radioButton__checkmark {
+      height: $radiobutton-size-lg;
+      width: $radiobutton-size-lg;
+      
+      &::after {
+        width: $radiobutton-checkmark-size-lg;
+        height: $radiobutton-checkmark-size-lg;
+      }
+    }
+    
+    .radioButton__label {
+      font-size: calc(#{$radiobutton-label-font-size} + 0.125rem);
+    }
   }
 }

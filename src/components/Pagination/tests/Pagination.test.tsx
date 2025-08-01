@@ -5,7 +5,9 @@ import {
   mockPaginationProps, 
   mockPaginationCustomLabels, 
   mockPaginationDisabled,
-  mockPaginationManyPages 
+  mockPaginationManyPages,
+  mockPaginationSmallSize,
+  mockPaginationLargeSize 
 } from './mocks';
 
 describe('Pagination', () => {
@@ -79,5 +81,25 @@ describe('Pagination', () => {
     expect(container.firstChild).toBeNull();
     expect(warnSpy).toHaveBeenCalledWith('Pagination: currentPage (10) está fuera de rango [1, 5]');
     warnSpy.mockRestore();
+  });
+
+  it('aplica la clase CSS correcta para el tamaño pequeño (SMALL)', () => {
+    const { container } = render(<Pagination {...mockPaginationSmallSize} />);
+    const pagination = container.firstChild;
+    expect(pagination).toHaveClass('pagination--small');
+  });
+
+  it('aplica la clase CSS correcta para el tamaño grande (LARGE)', () => {
+    const { container } = render(<Pagination {...mockPaginationLargeSize} />);
+    const pagination = container.firstChild;
+    expect(pagination).toHaveClass('pagination--large');
+  });
+
+  it('usa el tamaño MEDIUM por defecto si no se especifica', () => {
+    const { container } = render(<Pagination {...mockPaginationProps} size={undefined} />);
+    const pagination = container.firstChild;
+    // No debería tener la clase de tamaño pequeño ni grande
+    expect(pagination).not.toHaveClass('pagination--small');
+    expect(pagination).not.toHaveClass('pagination--large');
   });
 });

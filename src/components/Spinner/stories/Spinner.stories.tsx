@@ -1,7 +1,8 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import Spinner from '..';
-import { SpinnerSize, SpinnerVariant } from '../types';
+import { SpinnerVariant } from '../types';
+import { ComponentSize } from '../../types';
 
 const meta: Meta<typeof Spinner> = {
   title: 'Components/Spinner',
@@ -10,10 +11,11 @@ const meta: Meta<typeof Spinner> = {
   argTypes: {
     size: {
       control: 'select',
-      options: Object.values(SpinnerSize),
-      description: 'Tamaño del spinner',
+      options: Object.values(ComponentSize),
+      description: 'Tamaño',
       table: {
-        defaultValue: { summary: SpinnerSize.MEDIUM },
+        type: { summary: Object.values(ComponentSize).join(' | ') },
+        defaultValue: { summary: ComponentSize.MEDIUM },
       },
     },
     variant: {
@@ -42,7 +44,7 @@ const meta: Meta<typeof Spinner> = {
     },
   },
   args: {
-    size: SpinnerSize.MEDIUM,
+    size: ComponentSize.MEDIUM,
     variant: SpinnerVariant.PRIMARY,
     pulse: false,
     'aria-label': 'Cargando...',
@@ -59,11 +61,9 @@ export const Default: Story = {
 export const Sizes: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
-      <Spinner size={SpinnerSize.XSMALL} aria-label="Extra pequeño" />
-      <Spinner size={SpinnerSize.SMALL} aria-label="Pequeño" />
-      <Spinner size={SpinnerSize.MEDIUM} aria-label="Mediano" />
-      <Spinner size={SpinnerSize.LARGE} aria-label="Grande" />
-      <Spinner size={SpinnerSize.XLARGE} aria-label="Extra grande" />
+      <Spinner size={ComponentSize.SMALL} aria-label="Pequeño" />
+      <Spinner size={ComponentSize.MEDIUM} aria-label="Mediano" />
+      <Spinner size={ComponentSize.LARGE} aria-label="Grande" />
     </div>
   ),
 };

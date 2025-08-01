@@ -6,29 +6,19 @@
   position: relative;
   vertical-align: middle;
   
-  &--xsmall {
-    width: $spinner-size-xsmall;
-    height: $spinner-size-xsmall;
-  }
-  
   &--small {
-    width: $spinner-size-small;
+    width: $spinner-size-small;  // 16px
     height: $spinner-size-small;
   }
   
   &--medium {
-    width: $spinner-size-medium;
+    width: $spinner-size-medium; // 32px
     height: $spinner-size-medium;
   }
   
   &--large {
-    width: $spinner-size-large;
+    width: $spinner-size-large;  // 48px
     height: $spinner-size-large;
-  }
-  
-  &--xlarge {
-    width: $spinner-size-xlarge;
-    height: $spinner-size-xlarge;
   }
   
   &--primary {

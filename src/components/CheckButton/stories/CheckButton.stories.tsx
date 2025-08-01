@@ -25,8 +25,11 @@ const meta: Meta<CheckButtonProps> = {
     size: {
       control: 'select',
       options: Object.values(ComponentSize),
-      description: 'Tamaño del botón de verificación',
-      defaultValue: ComponentSize.MEDIUM,
+      description: 'Tamaño',
+      table: {
+        type: { summary: Object.values(ComponentSize).join(' | ') },
+        defaultValue: { summary: ComponentSize.MEDIUM },
+      },
     },
     onChange: {
       action: 'changed',

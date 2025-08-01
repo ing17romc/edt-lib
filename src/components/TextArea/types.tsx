@@ -1,7 +1,12 @@
 import { TextareaHTMLAttributes } from 'react';
+import { ComponentSize } from '../types';
 
 export type TextAreaVariant = 'outlined' | 'filled' | 'standard';
-export type TextAreaSize = 'small' | 'medium' | 'large';
+
+/**
+ * @deprecated Use ComponentSize from '../types' instead.
+ */
+export type TextAreaSize = ComponentSize;
 
 export interface Testable {
   'data-testid'?: string;
@@ -40,7 +45,7 @@ export interface TextAreaProps extends Omit<TextareaHTMLAttributes<HTMLTextAreaE
    * Tamaño del área de texto
    * @default 'medium'
    */
-  size?: TextAreaSize;
+  size?: ComponentSize;
   
   /**
    * Número de filas por defecto

@@ -1,7 +1,12 @@
 import { InputHTMLAttributes, ReactNode } from 'react';
+import { ComponentSize } from '../types';
 
 export type TextBoxVariant = 'outlined' | 'filled' | 'standard';
-export type TextBoxSize = 'small' | 'medium' | 'large';
+
+/**
+ * @deprecated Use ComponentSize from '../types' instead.
+ */
+export type TextBoxSize = ComponentSize;
 
 export interface TextBoxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
   /**
@@ -36,7 +41,7 @@ export interface TextBoxProps extends Omit<InputHTMLAttributes<HTMLInputElement>
    * Tamaño del campo de texto
    * @default 'medium'
    */
-  size?: TextBoxSize;
+  size?: ComponentSize;
   
   /**
    * Elemento que se muestra al inicio del campo

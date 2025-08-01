@@ -1,12 +1,15 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import RadioButton from '..';
+import { ComponentSize } from '../../types';
 import { 
   defaultProps, 
   checkedProps, 
   disabledProps, 
   customClassProps, 
-  withoutLabelProps 
+  withoutLabelProps,
+  smallSizeProps,
+  largeSizeProps
 } from './mocks';
 
 describe('RadioButton', () => {
@@ -72,5 +75,51 @@ describe('RadioButton', () => {
     // No debería haber ninguna etiqueta de texto
     const labels = screen.queryByText(defaultProps.label as string);
     expect(labels).not.toBeInTheDocument();
+  });
+  
+  it('aplica la clase de tamaño pequeño cuando size es SMALL', () => {
+    const { container } = render(<RadioButton {...smallSizeProps} />);
+    
+    const radioButton = container.firstChild;
+    expect(radioButton).toHaveClass('radioButton--small');
+    
+    // Verificar que no tenga las clases de otros tamaños
+    expect(radioButton).not.toHaveClass('radioButton--medium');
+    expect(radioButton).not.toHaveClass('radioButton--large');
+  });
+  
+  it('aplica la clase de tamaño mediano por defecto', () => {
+    const { container } = render(<RadioButton {...defaultProps} />);
+    
+    const radioButton = container.firstChild;
+    expect(radioButton).toHaveClass('radioButton--medium');
+    
+    // Verificar que no tenga las clases de otros tamaños
+    expect(radioButton).not.toHaveClass('radioButton--small');
+    expect(radioButton).not.toHaveClass('radioButton--large');
+  });
+  
+  it('aplica la clase de tamaño grande cuando size es LARGE', () => {
+    const { container } = render(<RadioButton {...largeSizeProps} />);
+    
+    const radioButton = container.firstChild;
+    expect(radioButton).toHaveClass('radioButton--large');
+    
+    // Verificar que no tenga las clases de otros tamaños
+    expect(radioButton).not.toHaveClass('radioButton--small');
+    expect(radioButton).not.toHaveClass('radioButton--medium');
+  });
+  
+  it('mantiene las clases personalizadas cuando se combinan con size', () => {
+    const { container } = render(
+      <RadioButton 
+        {...customClassProps} 
+        size={ComponentSize.SMALL} 
+      />
+    );
+    
+    const radioButton = container.firstChild;
+    expect(radioButton).toHaveClass('custom-radio-class');
+    expect(radioButton).toHaveClass('radioButton--small');
   });
 });
