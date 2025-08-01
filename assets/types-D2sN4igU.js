@@ -1,0 +1,1 @@
+var R=(r=>(r.SMALL="small",r.MEDIUM="medium",r.LARGE="large",r))(R||{}),s=(r=>(r.PRIMARY="primary",r.SECONDARY="secondary",r.TERTIARY="tertiary",r.DANGER="danger",r.SUCCESS="success",r.WARNING="warning",r))(s||{});export{R as C,s as a};
