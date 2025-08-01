@@ -1,6 +1,7 @@
 import React from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import RadioButton from '..';
+import { ComponentSize } from '../../types';
 import { RadioButtonProps } from '../types';
 import {
   defaultArgs,
@@ -45,6 +46,15 @@ const meta: Meta<typeof RadioButton> = {
     onChange: {
       action: 'changed',
       description: 'Función que se ejecuta cuando cambia el estado del botón de radio',
+    },
+    size: {
+      control: 'select',
+      options: Object.values(ComponentSize),
+      description: 'Tamaño del botón de radio',
+      table: {
+        type: { summary: Object.values(ComponentSize).join(' | ') },
+        defaultValue: { summary: ComponentSize.MEDIUM },
+      },
     },
   },
 };

@@ -1,21 +1,20 @@
 import React from 'react';
-import { IconSize, IconVariant, IconProps } from '../types';
+import { IconVariant, IconProps } from '../types';
+import { ComponentSize } from '../../types';
 
 // Datos de prueba para el componente Icon
 export const mockIconProps: IconProps = {
   name: 'home',
-  size: IconSize.MEDIUM,
+  size: ComponentSize.MEDIUM,
   variant: IconVariant.OUTLINE,
   'data-testid': 'icon',
 };
 
 // Props para diferentes tamaños
 export const sizeVariants = [
-  { size: IconSize.XSMALL, className: 'icon--xsmall' },
-  { size: IconSize.SMALL, className: 'icon--small' },
-  { size: IconSize.MEDIUM, className: 'icon--medium' },
-  { size: IconSize.LARGE, className: 'icon--large' },
-  { size: IconSize.XLARGE, className: 'icon--xlarge' },
+  { size: ComponentSize.SMALL, className: 'icon--small' },
+  { size: ComponentSize.MEDIUM, className: 'icon--medium' },
+  { size: ComponentSize.LARGE, className: 'icon--large' },
 ];
 
 // Props para diferentes variantes

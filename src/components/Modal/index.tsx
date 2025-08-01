@@ -1,6 +1,7 @@
 import React, { useEffect, useCallback } from 'react';
 import styles from './styles/Modal.module.scss';
 import { ModalProps } from './types';
+import { ComponentSize } from '../types';
 
 /**
  * Componente Modal que muestra contenido en una ventana emergente.
@@ -11,7 +12,7 @@ const Modal: React.FC<ModalProps> = ({
   onClose,
   title,
   children,
-  size = 'medium',
+  size = ComponentSize.MEDIUM,
   showCloseButton = true,
   closeButtonText = 'Cerrar',
   closeOnOverlayClick = true,

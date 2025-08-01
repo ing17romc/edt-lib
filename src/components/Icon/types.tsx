@@ -1,12 +1,5 @@
 import { HTMLAttributes } from 'react';
-
-export enum IconSize {
-  XSMALL = 'xsmall',
-  SMALL = 'small',
-  MEDIUM = 'medium',
-  LARGE = 'large',
-  XLARGE = 'xlarge',
-}
+import { ComponentSize } from '../types';
 
 export enum IconVariant {
   SOLID = 'solid',
@@ -24,7 +17,7 @@ export interface IconProps extends Omit<HTMLAttributes<HTMLSpanElement>, 'childr
    * Tamaño del icono
    * @default 'medium'
    */
-  size?: IconSize;
+  size?: ComponentSize;
   
   /**
    * Estilo del icono

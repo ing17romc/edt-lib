@@ -8,6 +8,7 @@ import {
   withLongContent,
   withCustomCloseText
 } from './mocks';
+import { ComponentSize } from '../../types';
 
 const meta: Meta<typeof Modal> = {
   title: 'Components/Modal',
@@ -28,8 +29,12 @@ const meta: Meta<typeof Modal> = {
     },
     size: {
       control: 'select',
-      options: ['small', 'medium', 'large', 'xlarge'],
-      description: 'Tamaño del modal',
+      options: Object.values(ComponentSize),
+      description: 'Tamaño',
+      table: {
+        type: { summary: Object.values(ComponentSize).join(' | ') },
+        defaultValue: { summary: ComponentSize.MEDIUM },
+      },
     },
     showCloseButton: {
       control: 'boolean',

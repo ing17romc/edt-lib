@@ -1,8 +1,8 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import Icon from '..';
-import { IconSize, IconVariant } from '../types';
-import { containerStyle, itemContainerStyle, sizeOptions } from './mocks';
+import { IconVariant } from '../types';
+import { containerStyle, itemContainerStyle, } from './mocks';
 import { ComponentSize } from '../../types';
 
 // Configuración de meta para las historias
@@ -51,7 +51,7 @@ const meta: Meta<typeof Icon> = {
   },
   args: {
     name: 'home',
-    size: IconSize.MEDIUM,
+    size: ComponentSize.MEDIUM,
     variant: IconVariant.OUTLINE,
   },
 };
@@ -68,10 +68,10 @@ export const Default: Story = {
 export const Sizes: Story = {
   render: () => (
     <div style={containerStyle}>
-      {sizeOptions.map(({ size, label }) => (
+      {Object.values(ComponentSize).map((size) => (
         <div key={size} style={itemContainerStyle}>
           <Icon name="home" size={size} />
-          <span>{label}</span>
+          <span>{size}</span>
         </div>
       ))}
     </div>
@@ -135,9 +135,9 @@ export const WithInheritColor: Story = {
     <div style={{ color: 'purple' }}>
       <p>Este texto es morado, y el icono hereda el color:</p>
       <div style={{ display: 'flex', gap: '16px', alignItems: 'center', marginTop: '8px' }}>
-        <Icon name="check" inheritColor size={IconSize.LARGE} />
-        <Icon name="star" inheritColor size={IconSize.LARGE} />
-        <Icon name="heart" inheritColor size={IconSize.LARGE} />
+        <Icon name="check" inheritColor size={ComponentSize.LARGE} />
+        <Icon name="star" inheritColor size={ComponentSize.LARGE} />
+        <Icon name="heart" inheritColor size={ComponentSize.LARGE} />
       </div>
     </div>
   ),

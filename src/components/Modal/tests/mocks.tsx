@@ -1,5 +1,6 @@
 import React from 'react';
 import { ModalProps } from '../types';
+import { ComponentSize } from '../../types';
 
 export const mockModalProps: ModalProps = {
   isOpen: true,
@@ -31,7 +32,7 @@ export const mockModalWithCustomSize: ModalProps = {
   isOpen: true,
   onClose: jest.fn(),
   title: 'Modal Grande',
-  size: 'large',
+  size: ComponentSize.LARGE,
   children: <p>Este es un modal con tamaño personalizado</p>,
 };
 

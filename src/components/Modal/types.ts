@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { ComponentSize } from '../types';
 
 export interface ModalProps {
   /**
@@ -26,7 +27,7 @@ export interface ModalProps {
    * Tamaño del modal
    * @default 'medium'
    */
-  size?: 'small' | 'medium' | 'large' | 'xlarge';
+  size?: ComponentSize;
   
   /**
    * Indica si se debe mostrar el botón de cerrar

@@ -146,7 +146,7 @@ const Selector = forwardRef<HTMLSelectElement, SelectorProps>(({
 Selector.displayName = 'Selector';
 
 // Re-exportar SelectorSize para mantener la compatibilidad con código existente
-export { SelectorVariant, SelectorSize } from './types';
+export { SelectorVariant } from './types';
 
 export { Selector };
 export type { SelectorProps };

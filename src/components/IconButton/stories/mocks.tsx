@@ -78,7 +78,7 @@ export const meta: Meta = {
   args: {
     icon: 'home',
     'aria-label': 'Botón de ejemplo',
-    size: 'medium',
+    size: ComponentSize.MEDIUM,
     variant: 'primary',
     disabled: false,
     loading: false,

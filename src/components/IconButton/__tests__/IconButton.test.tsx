@@ -25,7 +25,7 @@ describe('IconButton', () => {
   });
 
   it('aplica el tamaño correcto', () => {
-    const sizes = ['small', 'medium', 'large'] as const;
+    const sizes = Object.values(ComponentSize);
     
     sizes.forEach(size => {
       const { container } = render(

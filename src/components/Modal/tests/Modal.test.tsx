@@ -10,6 +10,7 @@ import {
   mockModalWithDisabledClose,
   mockModalWithCustomCloseText
 } from './mocks';
+import { ComponentSize } from '../../types';
 
 describe('Modal', () => {
   it('renderiza correctamente con las props por defecto', () => {
@@ -104,11 +105,11 @@ describe('Modal', () => {
     const { container } = render(<Modal {...mockModalWithCustomSize} />);
     
     // Verificar que el modal tenga la clase de tamaño personalizado
-    const modalElement = container.querySelector(`.${styles.modalContainer}.${styles[mockModalWithCustomSize.size || 'medium']}`);
+    const modalElement = container.querySelector(`.${styles.modalContainer}.${styles[mockModalWithCustomSize.size || ComponentSize.MEDIUM]}`);
     expect(modalElement).toBeInTheDocument();
     
     // Verificar que el modal tenga la clase de tamaño correcta
-    expect(modalElement).toHaveClass(styles[mockModalWithCustomSize.size || 'medium']);
+    expect(modalElement).toHaveClass(styles[mockModalWithCustomSize.size || ComponentSize.MEDIUM]);
   });
 
   it('no muestra el título cuando no se proporciona', () => {

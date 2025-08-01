@@ -1,4 +1,5 @@
 import { ModalProps } from '../types';
+import { ComponentSize } from '../../types';
 
 export const baseArgs: ModalProps = {
   isOpen: true,
@@ -37,7 +38,7 @@ export const withoutTitle: ModalProps = {
 export const withCustomSize: ModalProps = {
   ...baseArgs,
   title: 'Modal Grande',
-  size: 'large',
+  size: ComponentSize.LARGE,
   children: (
     <div>
       <p>Este es un modal con un tamaño personalizado (large).</p>

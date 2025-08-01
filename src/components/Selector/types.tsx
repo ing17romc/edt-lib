@@ -10,9 +10,6 @@ export enum SelectorVariant {
   WARNING = 'warning',
 }
 
-
-type SelectorSize = ComponentSize;
-
 export interface SelectorOption {
   /**
    * Valor único de la opción
@@ -78,7 +75,7 @@ export interface SelectorProps extends Omit<SelectHTMLAttributes<HTMLSelectEleme
    * Tamaño del selector
    * @default 'medium'
    */
-  size?: SelectorSize;
+  size?: ComponentSize;
   
   /**
    * Si es true, el selector ocupa todo el ancho disponible

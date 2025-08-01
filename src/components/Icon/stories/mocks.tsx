@@ -1,5 +1,6 @@
 import React from 'react';
-import { IconSize, IconVariant } from '../types';
+import { IconVariant } from '../types';
+import { ComponentSize } from '../../types';
 
 // Tipos para los estilos de contenedor
 type FlexDirection = 'row' | 'row-reverse' | 'column' | 'column-reverse';
@@ -23,11 +24,9 @@ export const itemContainerStyle: React.CSSProperties = {
 
 // Configuración de tamaños para mostrar en las historias
 export const sizeOptions = [
-  { size: IconSize.XSMALL, label: 'XSmall' },
-  { size: IconSize.SMALL, label: 'Small' },
-  { size: IconSize.MEDIUM, label: 'Medium' },
-  { size: IconSize.LARGE, label: 'Large' },
-  { size: IconSize.XLARGE, label: 'XLarge' },
+  { size: ComponentSize.SMALL, label: 'Small' },
+  { size: ComponentSize.MEDIUM, label: 'Medium' },
+  { size: ComponentSize.LARGE, label: 'Large' },
 ];
 
 // Configuración de variantes para mostrar en las historias

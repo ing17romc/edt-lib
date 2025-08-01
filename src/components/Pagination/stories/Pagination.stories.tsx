@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Pagination } from '..';
+import { ComponentSize } from '../../types';
 import { 
   baseArgs, 
   withCustomLabels, 
@@ -47,6 +48,15 @@ const meta: Meta<typeof Pagination> = {
     className: {
       control: 'text',
       description: 'Clase CSS personalizada',
+    },
+    size: {
+      control: 'select',
+      options: Object.values(ComponentSize),
+      description: 'Tamaño del componente',
+      table: {
+        type: { summary: Object.values(ComponentSize).join(' | ') },
+        defaultValue: { summary: ComponentSize.MEDIUM },
+      },
     },
   },
   args: baseArgs,
