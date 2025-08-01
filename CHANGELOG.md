@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.13.0] - 2025-08-01
+
+### Mejoras
+- Unificación del uso de `ComponentSize` en los componentes `Icon`, `Modal` y `Selector`
+- Mejora en la consistencia de los controles de tamaño en Storybook
+- Actualización de documentación para reflejar los cambios en los tipos
+
+### Correcciones
+- Corregido error de TypeScript en el componente `Selector`
+- Arreglado el control de tamaño en las historias de `Icon`
+- Actualizados los mocks de prueba para usar `ComponentSize` de manera consistente
+
 ## [2.12.0] - 2025-07-31
 
 ### Mejoras
