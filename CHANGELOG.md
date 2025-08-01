@@ -2,7 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [2.10.1] - 2025-07-30
+## [2.12.0] - 2025-07-31
+
+### Mejoras
+- Centralización completa del uso de `ComponentSize` en todos los componentes
+- Actualización de historias de Storybook para usar consistentemente `ComponentSize`
+- Mejora en la documentación de propiedades en los componentes
+- Estandarización de la documentación de la propiedad `size` en todos los componentes
+
+### Correcciones
+- Corregidos errores de TypeScript en historias de Storybook
+- Eliminación de enums duplicados en favor de los centralizados
+- Corregidos errores de linting en archivos SCSS
 
 ### Mejoras
 - Actualización de componentes para usar enums centralizados (`ComponentSize` y `ComponentVariant`)
