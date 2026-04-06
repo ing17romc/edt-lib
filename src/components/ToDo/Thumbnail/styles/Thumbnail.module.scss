@@ -1,0 +1,32 @@
+@use '../../../../styles/palette' as *;
+@use '../../../../styles/typography' as *;
+@use '../../../../styles/spacing' as *;
+
+.thumbnail {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-2;
+  margin: 0;
+}
+
+.image {
+  display: block;
+  object-fit: cover;
+  border-radius: $border-radius-md;
+  border: 1px solid $border-color;
+
+  &--rounded {
+    border-radius: $border-radius-full;
+  }
+}
+
+.caption {
+  font-size: $font-size-xs;
+  color: $secondary-color;
+  text-align: center;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

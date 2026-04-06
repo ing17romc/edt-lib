@@ -1,0 +1,94 @@
+@use '../../../../styles/palette' as *;
+@use '../../../../styles/typography' as *;
+@use '../../../../styles/spacing' as *;
+@use 'sass:color';
+
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.trackWrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+.track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  min-width: 0;
+}
+
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid $border-color;
+  border-radius: $border-radius-full;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: $font-size-lg;
+  color: $text-color;
+  z-index: 1;
+  transition: background-color 0.15s ease, opacity 0.15s ease;
+  line-height: 1;
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  &:not(:disabled):hover {
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  }
+
+  &--prev {
+    left: $space-2;
+  }
+
+  &--next {
+    right: $space-2;
+  }
+}
+
+.indicators {
+  display: flex;
+  justify-content: center;
+  gap: $space-2;
+  padding: $space-3 0 $space-1;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: $border-radius-full;
+  background-color: $border-color;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+
+  &--active {
+    background-color: $primary-color;
+    transform: scale(1.25);
+  }
+}

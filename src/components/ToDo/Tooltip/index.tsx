@@ -1,10 +1,55 @@
-import React from 'react'
+import React, { useState } from 'react'
+import classNames from '../../../utils/classNames'
+import styles from './styles/Tooltip.module.scss'
+import { TooltipProps } from './types'
 
 /**
- * @decription TO DO
+ * Componente Tooltip que muestra información adicional al hacer hover sobre un elemento.
  *
- * @returns TO DO
+ * @param content - Contenido a mostrar dentro del tooltip
+ * @param placement - Posición del tooltip respecto al elemento hijo
+ * @param disabled - Si el tooltip está deshabilitado
+ * @param children - Elemento que activa el tooltip
  */
-const Component = () => <h1>Tooltip</h1>
+const Tooltip = ({
+  content,
+  placement = 'top',
+  disabled = false,
+  children,
+  className,
+  ...rest
+}: TooltipProps) => {
+  const [visible, setVisible] = useState(false)
 
-export default Component
+  if (disabled) {
+    return <>{children}</>
+  }
+
+  return (
+    <div
+      className={classNames(styles.wrapper, className)}
+      onMouseEnter={() => setVisible(true)}
+      onMouseLeave={() => setVisible(false)}
+      onFocus={() => setVisible(true)}
+      onBlur={() => setVisible(false)}
+      {...rest}
+    >
+      {children}
+      {visible && (
+        <div
+          role="tooltip"
+          className={classNames(
+            styles.tooltip,
+            styles[`tooltip--${placement}`]
+          )}
+        >
+          {content}
+          <span className={styles.arrow} />
+        </div>
+      )}
+    </div>
+  )
+}
+
+export default Tooltip
+export type { TooltipProps }

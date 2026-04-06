@@ -1,0 +1,94 @@
+@use '../../../../styles/palette' as *;
+@use '../../../../styles/typography' as *;
+@use '../../../../styles/spacing' as *;
+@use 'sass:color';
+
+.wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.tooltip {
+  position: absolute;
+  z-index: 1000;
+  padding: $space-2 $space-3;
+  background-color: $text-color;
+  color: #fff;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  border-radius: $border-radius-sm;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+// Placement: top
+.tooltip--top {
+  bottom: calc(100% + $space-2);
+  left: 50%;
+  transform: translateX(-50%);
+
+  .arrow {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid $text-color;
+  }
+}
+
+// Placement: bottom
+.tooltip--bottom {
+  top: calc(100% + $space-2);
+  left: 50%;
+  transform: translateX(-50%);
+
+  .arrow {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid $text-color;
+  }
+}
+
+// Placement: left
+.tooltip--left {
+  right: calc(100% + $space-2);
+  top: 50%;
+  transform: translateY(-50%);
+
+  .arrow {
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid $text-color;
+  }
+}
+
+// Placement: right
+.tooltip--right {
+  left: calc(100% + $space-2);
+  top: 50%;
+  transform: translateY(-50%);
+
+  .arrow {
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-right: 5px solid $text-color;
+  }
+}

@@ -1,0 +1,86 @@
+@use '../../../../styles/palette' as *;
+@use '../../../../styles/typography' as *;
+@use '../../../../styles/spacing' as *;
+@use 'sass:color';
+
+.message {
+  display: flex;
+  align-items: flex-start;
+  gap: $space-3;
+  padding: $space-3 $space-4;
+  border-radius: $border-radius-md;
+  border-left: 4px solid transparent;
+  font-size: $font-size-sm;
+}
+
+.icon {
+  font-size: $font-size-lg;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.body {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  display: block;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  margin-bottom: $space-1;
+}
+
+.content {
+  line-height: $line-height-md;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: $font-size-lg;
+  line-height: 1;
+  padding: 0;
+  flex-shrink: 0;
+  opacity: 0.6;
+  transition: opacity 0.15s ease;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+// Variants
+.message--primary {
+  background-color: color.adjust($primary-color, $lightness: 45%);
+  border-left-color: $primary-color;
+  color: color.adjust($primary-color, $lightness: -20%);
+
+  .closeButton { color: color.adjust($primary-color, $lightness: -20%); }
+}
+
+.message--success {
+  background-color: color.adjust($success-color, $lightness: 50%);
+  border-left-color: $success-color;
+  color: color.adjust($success-color, $lightness: -20%);
+
+  .closeButton { color: color.adjust($success-color, $lightness: -20%); }
+}
+
+.message--danger {
+  background-color: color.adjust($danger-color, $lightness: 45%);
+  border-left-color: $danger-color;
+  color: color.adjust($danger-color, $lightness: -15%);
+
+  .closeButton { color: color.adjust($danger-color, $lightness: -15%); }
+}
+
+.message--warning {
+  background-color: color.adjust($warning-color, $lightness: 40%);
+  border-left-color: $warning-color;
+  color: color.adjust($warning-color, $lightness: -35%);
+
+  .closeButton { color: color.adjust($warning-color, $lightness: -35%); }
+}

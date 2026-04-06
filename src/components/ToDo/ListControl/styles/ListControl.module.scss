@@ -1,0 +1,57 @@
+@use '../../../../styles/palette' as *;
+@use '../../../../styles/typography' as *;
+@use '../../../../styles/spacing' as *;
+@use 'sass:color';
+
+.listControl {
+  list-style: none;
+  margin: 0;
+  padding: $space-1 0;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-md;
+  overflow: hidden;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+  padding: $space-3 $space-4;
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+  border-bottom: 1px solid $border-color;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover:not(.item--disabled) {
+    background-color: color.adjust($primary-color, $lightness: 46%);
+  }
+
+  &--selected {
+    background-color: color.adjust($primary-color, $lightness: 44%);
+    border-left: 3px solid $primary-color;
+    padding-left: calc($space-4 - 3px);
+
+    .label {
+      color: $primary-color;
+      font-weight: $font-weight-medium;
+    }
+  }
+
+  &--disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+.label {
+  font-size: $font-size-sm;
+  color: $text-color;
+}
+
+.description {
+  font-size: $font-size-xs;
+  color: $secondary-color;
+}

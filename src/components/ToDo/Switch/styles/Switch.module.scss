@@ -1,0 +1,107 @@
+@use 'sass:color';
+@use '../../../../styles/palette' as *;
+@use '../../../../styles/typography' as *;
+@use '../../../../styles/spacing' as *;
+
+$track-width-sm: 1.75rem;
+$track-height-sm: 1rem;
+$track-width-md: 2.25rem;
+$track-height-md: 1.25rem;
+$track-width-lg: 2.75rem;
+$track-height-lg: 1.5rem;
+
+.switch {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  cursor: pointer;
+  user-select: none;
+  font-family: $font-family-base;
+
+  &--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.switchInput {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.switchTrack {
+  position: relative;
+  flex-shrink: 0;
+  background-color: $secondary-color;
+  border-radius: $border-radius-full;
+  transition: background-color 0.2s ease;
+
+  .switch--small & {
+    width: $track-width-sm;
+    height: $track-height-sm;
+  }
+
+  .switch--medium & {
+    width: $track-width-md;
+    height: $track-height-md;
+  }
+
+  .switch--large & {
+    width: $track-width-lg;
+    height: $track-height-lg;
+  }
+
+  .switchInput:checked + & {
+    background-color: $primary-color;
+  }
+}
+
+.switchThumb {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) translateX(2px);
+  background-color: $white-color;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 20%);
+
+  .switch--small & {
+    width: calc(#{$track-height-sm} - 4px);
+    height: calc(#{$track-height-sm} - 4px);
+  }
+
+  .switch--medium & {
+    width: calc(#{$track-height-md} - 4px);
+    height: calc(#{$track-height-md} - 4px);
+  }
+
+  .switch--large & {
+    width: calc(#{$track-height-lg} - 4px);
+    height: calc(#{$track-height-lg} - 4px);
+  }
+
+  .switchInput:checked ~ .switchTrack & {
+    transform: translateY(-50%) translateX(calc(100% + 2px));
+  }
+}
+
+.switchInput:checked + .switchTrack .switchThumb {
+  transform: translateY(-50%) translateX(calc(100% + 2px));
+}
+
+.switchLabel {
+  font-size: $font-size-sm;
+  color: $text-color;
+  line-height: $line-height-md;
+
+  .switch--large & {
+    font-size: $font-size-md;
+  }
+}

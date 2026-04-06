@@ -1,0 +1,55 @@
+@use '../../../../styles/palette' as *;
+@use '../../../../styles/typography' as *;
+@use '../../../../styles/spacing' as *;
+@use 'sass:color';
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.tabList {
+  display: flex;
+  border-bottom: 2px solid $border-color;
+  gap: 0;
+  overflow-x: auto;
+}
+
+.tab {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: $space-3 $space-4;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $secondary-color;
+  position: relative;
+  white-space: nowrap;
+  transition: color 0.15s ease;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+
+  &:hover:not(:disabled) {
+    color: $primary-color;
+  }
+
+  &--active {
+    color: $primary-color;
+    border-bottom-color: $primary-color;
+    font-weight: $font-weight-semibold;
+  }
+
+  &--disabled {
+    color: $text-disabled;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+.panel {
+  padding: $space-4 0;
+  font-size: $font-size-sm;
+  line-height: $line-height-md;
+  color: $text-color;
+}

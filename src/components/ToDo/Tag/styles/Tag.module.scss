@@ -1,0 +1,104 @@
+@use 'sass:color';
+@use '../../../../styles/palette' as *;
+@use '../../../../styles/typography' as *;
+@use '../../../../styles/spacing' as *;
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-1;
+  border-radius: $border-radius-full;
+  font-family: $font-family-base;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-sm;
+  white-space: nowrap;
+  border: 1px solid transparent;
+
+  // Sizes
+  &--small {
+    padding: 0 $space-2;
+    font-size: $font-size-xs;
+    height: 1.25rem;
+  }
+
+  &--medium {
+    padding: 0 $space-3;
+    font-size: $font-size-sm;
+    height: 1.5rem;
+  }
+
+  &--large {
+    padding: 0 $space-4;
+    font-size: $font-size-md;
+    height: 1.75rem;
+  }
+
+  // Variants
+  &--primary {
+    background-color: color.adjust($primary-color, $lightness: 45%);
+    color: $primary-color-3;
+    border-color: color.adjust($primary-color, $lightness: 30%);
+  }
+
+  &--secondary {
+    background-color: color.adjust($secondary-color, $lightness: 45%);
+    color: color.adjust($secondary-color, $lightness: -20%);
+    border-color: color.adjust($secondary-color, $lightness: 30%);
+  }
+
+  &--danger {
+    background-color: color.adjust($danger-color, $lightness: 45%);
+    color: color.adjust($danger-color, $lightness: -10%);
+    border-color: color.adjust($danger-color, $lightness: 30%);
+  }
+
+  &--success {
+    background-color: color.adjust($success-color, $lightness: 55%);
+    color: color.adjust($success-color, $lightness: -10%);
+    border-color: color.adjust($success-color, $lightness: 40%);
+  }
+
+  &--warning {
+    background-color: color.adjust($warning-color, $lightness: 40%);
+    color: color.adjust($warning-color, $lightness: -25%);
+    border-color: color.adjust($warning-color, $lightness: 20%);
+  }
+
+  &--tertiary {
+    background-color: $light-gray-color;
+    color: $dark-gray-color;
+    border-color: color.adjust($light-gray-color, $lightness: -10%);
+  }
+
+  &--disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
+.tagLabel {
+  display: inline;
+}
+
+.tagClose {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-left: $space-1;
+  font-size: 1rem;
+  line-height: 1;
+  color: inherit;
+  opacity: 0.7;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}

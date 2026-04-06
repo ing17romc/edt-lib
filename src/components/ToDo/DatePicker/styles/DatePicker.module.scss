@@ -1,0 +1,158 @@
+@use '../../../../styles/palette' as *;
+@use '../../../../styles/typography' as *;
+@use '../../../../styles/spacing' as *;
+@use 'sass:color';
+
+.datePicker {
+  position: relative;
+  display: inline-block;
+  width: 220px;
+}
+
+.label {
+  display: block;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $text-color;
+  margin-bottom: $space-1;
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-2;
+  width: 100%;
+  padding: $space-2 $space-3;
+  background-color: #fff;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-md;
+  cursor: pointer;
+  font-size: $font-size-sm;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+
+  &:focus-visible {
+    outline: none;
+    border-color: $primary-color;
+    box-shadow: 0 0 0 3px color.adjust($primary-color, $lightness: 38%);
+  }
+
+  &:hover:not(:disabled) {
+    border-color: color.adjust($border-color, $lightness: -10%);
+  }
+
+  &--disabled {
+    background-color: $background-disabled;
+    cursor: not-allowed;
+    color: $text-disabled;
+  }
+}
+
+.value {
+  color: $text-color;
+}
+
+.placeholder {
+  color: $text-disabled;
+}
+
+.calendarIcon {
+  flex-shrink: 0;
+  font-size: $font-size-sm;
+}
+
+// Calendar popup
+.calendar {
+  position: absolute;
+  z-index: 1000;
+  top: calc(100% + $space-1);
+  left: 0;
+  background: #fff;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-lg;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  padding: $space-3;
+  min-width: 248px;
+}
+
+.calendarHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $space-3;
+}
+
+.monthYear {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $text-color;
+}
+
+.navButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: $font-size-lg;
+  color: $text-color;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $border-radius-sm;
+  transition: background-color 0.1s ease;
+
+  &:hover {
+    background-color: color.adjust($border-color, $lightness: 5%);
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.dayName {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  color: $secondary-color;
+  text-align: center;
+  padding: $space-1 0;
+}
+
+.day {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: $font-size-xs;
+  color: $text-color;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $border-radius-sm;
+  transition: background-color 0.1s ease, color 0.1s ease;
+
+  &:hover:not(:disabled):not(.day--selected) {
+    background-color: color.adjust($primary-color, $lightness: 44%);
+    color: $primary-color;
+  }
+
+  &--today {
+    font-weight: $font-weight-semibold;
+    color: $primary-color;
+  }
+
+  &--selected {
+    background-color: $primary-color;
+    color: #fff;
+    font-weight: $font-weight-semibold;
+  }
+
+  &--disabled {
+    color: $text-disabled;
+    cursor: not-allowed;
+  }
+}

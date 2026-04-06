@@ -1,0 +1,117 @@
+@use '../../../../styles/palette' as *;
+@use '../../../../styles/typography' as *;
+@use '../../../../styles/spacing' as *;
+@use 'sass:color';
+
+.snackbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-3;
+  padding: $space-3 $space-4;
+  border-radius: $border-radius-md;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  min-width: 280px;
+  max-width: 560px;
+  animation: snackbar-in 0.2s ease-out;
+}
+
+@keyframes snackbar-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message {
+  flex: 1;
+  line-height: 1.4;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  flex-shrink: 0;
+}
+
+.actionButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: $space-1 $space-2;
+  border-radius: $border-radius-sm;
+  transition: background-color 0.15s ease;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: $font-size-base;
+  line-height: 1;
+  padding: $space-1;
+  border-radius: $border-radius-sm;
+  opacity: 0.8;
+  transition: opacity 0.15s ease;
+
+  &:hover {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+// Variants
+.snackbar--primary {
+  background-color: $primary-color;
+  color: #fff;
+
+  .actionButton,
+  .closeButton {
+    color: #fff;
+  }
+}
+
+.snackbar--success {
+  background-color: $success-color;
+  color: #fff;
+
+  .actionButton,
+  .closeButton {
+    color: #fff;
+  }
+}
+
+.snackbar--danger {
+  background-color: $danger-color;
+  color: #fff;
+
+  .actionButton,
+  .closeButton {
+    color: #fff;
+  }
+}
+
+.snackbar--warning {
+  background-color: $warning-color;
+  color: $text-color;
+
+  .actionButton,
+  .closeButton {
+    color: $text-color;
+  }
+}
