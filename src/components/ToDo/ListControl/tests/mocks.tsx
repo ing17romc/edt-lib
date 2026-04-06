@@ -1,6 +1,6 @@
 import { ListControlItem, ListControlProps } from '../types'
 
-export const mockOnSelect = jest.fn()
+export const mockOnSelect = vi.fn()
 
 export const defaultItems: ListControlItem[] = [
   { key: 'item1', label: 'Elemento 1' },

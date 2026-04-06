@@ -59,7 +59,7 @@ describe('IconButton', () => {
   });
 
   it('maneja correctamente el evento onClick', () => {
-    const handleClick = jest.fn();
+    const handleClick = vi.fn();
     
     render(
       <IconButton 

@@ -1,7 +1,7 @@
 import { TagProps } from '../types';
 import { ComponentVariant, ComponentSize } from '../../../types';
 
-export const mockOnClose = jest.fn();
+export const mockOnClose = vi.fn();
 
 export const defaultTagProps: TagProps = {
   children: 'Etiqueta',

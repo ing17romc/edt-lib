@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react-vite';
 import TextButton from '../';
 import type { TextButtonProps } from '../types';
 import { ComponentSize } from '../../types';

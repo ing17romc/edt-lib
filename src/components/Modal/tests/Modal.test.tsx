@@ -36,7 +36,7 @@ describe('Modal', () => {
   });
 
   it('llama a onClose cuando se hace clic en el botón de cerrar', () => {
-    const handleClose = jest.fn();
+    const handleClose = vi.fn();
     render(<Modal {...mockModalProps} onClose={handleClose} />);
     
     const closeButton = screen.getByRole('button', { name: mockModalProps.closeButtonText || 'Cerrar' });
@@ -46,7 +46,7 @@ describe('Modal', () => {
   });
 
   it('llama a onClose cuando se hace clic en el overlay', () => {
-    const handleClose = jest.fn();
+    const handleClose = vi.fn();
     render(
       <Modal 
         isOpen={true}
@@ -68,7 +68,7 @@ describe('Modal', () => {
   });
 
   it('no llama a onClose cuando se hace clic dentro del modal', () => {
-    const handleClose = jest.fn();
+    const handleClose = vi.fn();
     render(<Modal {...mockModalProps} onClose={handleClose} />);
     
     const modalContent = screen.getByText('Contenido del modal de prueba').closest(`.${styles.modalContainer}`);
@@ -120,7 +120,7 @@ describe('Modal', () => {
   });
 
   it('cierra con la tecla Escape', () => {
-    const handleClose = jest.fn();
+    const handleClose = vi.fn();
     render(<Modal {...mockModalProps} onClose={handleClose} />);
     
     fireEvent.keyDown(document, { key: 'Escape' });

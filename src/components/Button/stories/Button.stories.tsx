@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import Button from '..';
 import { buttonStories, variants, sizes } from './mocks';
 import { ComponentVariant, ComponentSize } from '../../types';

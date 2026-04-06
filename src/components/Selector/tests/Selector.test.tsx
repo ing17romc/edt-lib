@@ -12,7 +12,7 @@ import {
 
 describe('Selector', () => {
   beforeEach(() => {
-    (defaultTestProps.onChange as jest.Mock).mockClear();
+    (defaultTestProps.onChange as ReturnType<typeof vi.fn>).mockClear();
   });
 
   it('se renderiza correctamente con opciones', () => {

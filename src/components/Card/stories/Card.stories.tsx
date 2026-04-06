@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Card, CardVariant } from '..';
 import { mockCardProps, mockCardWithoutImage, mockClickableCard, mockOutlinedCard, mockFilledCard } from './mocks';
 import styles from '../styles/Card.module.scss';

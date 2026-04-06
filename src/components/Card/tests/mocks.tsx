@@ -16,6 +16,6 @@ export const mockCardWithoutImage: CardProps = {
 
 export const mockClickableCard: CardProps = {
   ...mockCardProps,
-  onClick: jest.fn(),
+  onClick: vi.fn(),
   children: 'Tarjeta clickeable',
 };

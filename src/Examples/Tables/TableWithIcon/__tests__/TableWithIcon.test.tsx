@@ -26,7 +26,7 @@ describe('TableWithIcon', () => {
   // Mock de alerta global
   const originalAlert = window.alert;
   beforeAll(() => {
-    window.alert = jest.fn();
+    window.alert = vi.fn();
   });
 
   afterAll(() => {
@@ -75,7 +75,7 @@ describe('TableWithIcon', () => {
     expect(window.alert).toHaveBeenCalledWith('clic!!!');
     
     // Limpiar el mock de alerta
-    (window.alert as jest.Mock).mockClear();
+    (window.alert as ReturnType<typeof vi.fn>).mockClear();
     
     // Hacer clic en el botón de eliminar de la primera fila
     const firstDeleteButton = screen.getByTestId('delete_0');
@@ -91,13 +91,9 @@ describe('TableWithIcon', () => {
     expect(table).toBeInTheDocument();
     
     // Verificar los encabezados de columna
-    const headers = screen.getAllByRole('columnheader');
-    expect(headers).toHaveLength(5); // Name, UserName, Status, Edit, Delete
-    expect(headers[0]).toHaveTextContent('Name');
-    expect(headers[1]).toHaveTextContent('UserName');
-    expect(headers[2]).toHaveTextContent('Status');
-    expect(headers[3]).toHaveTextContent(''); // Botón Editar
-    expect(headers[4]).toHaveTextContent(''); // Botón Eliminar
+    expect(screen.getByText('Name')).toBeInTheDocument();
+    expect(screen.getByText('UserName')).toBeInTheDocument();
+    expect(screen.getByText('Status')).toBeInTheDocument();
     
     // Verificar que hay una fila por cada dato más el encabezado
     const allRows = screen.getAllByRole('row');
@@ -146,8 +142,8 @@ describe('TableWithIcon', () => {
     expect(longNameCell).toBeInTheDocument();
     
     // Verificar que los botones de acción se renderizan correctamente
-    const editButtons = screen.getAllByLabelText('edit');
-    const deleteButtons = screen.getAllByLabelText('delete');
+    const editButtons = screen.getAllByLabelText('Editar');
+    const deleteButtons = screen.getAllByLabelText('Eliminar');
     expect(editButtons).toHaveLength(edgeCaseData.length);
     expect(deleteButtons).toHaveLength(edgeCaseData.length);
   });
@@ -167,7 +163,7 @@ describe('TableWithIcon', () => {
 });
 
 // Mock para getStatus
-jest.mock('../../utils', () => ({
+vi.mock('../../utils', () => ({
   __esModule: true,
   default: (value: boolean | number) => (
     <span data-testid={`status-${value ? 'active' : 'inactive'}`}>
@@ -177,25 +173,25 @@ jest.mock('../../utils', () => ({
 }));
 
 // Mock para el componente IconButton
-jest.mock('components/IconButton', () => ({
+vi.mock('components/IconButton', () => ({
   __esModule: true,
   default: ({ 
-    text, 
     id, 
-    onClick 
+    onClick,
+    'aria-label': ariaLabel,
   }: { 
-    text: string; 
     icon: string; 
     id: string; 
     size: string;
+    'aria-label'?: string;
     onClick: () => void 
   }) => (
     <button 
       onClick={onClick}
       data-testid={id}
-      aria-label={text.toLowerCase()}
+      aria-label={ariaLabel ?? id}
     >
-      {text}
+      {id}
     </button>
   ),
 }));

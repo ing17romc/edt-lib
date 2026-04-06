@@ -171,15 +171,6 @@
     color: var(--text-secondary, #666);
     opacity: 1;
   }
-  
-  &::input-placeholder { /* Chrome/Opera/Safari */
-    color: var(--text-secondary, #666);
-  }
-  
-  /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
-  &:input-placeholder { /* IE 10+ */
-    color: var(--text-secondary, #666);
-  }
   /* stylelint-enable selector-pseudo-element-no-unknown */
 
   // Para quitar el borde azul en Chrome

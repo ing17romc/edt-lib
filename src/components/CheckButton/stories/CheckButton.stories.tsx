@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import CheckButton from '../index';
 import { CheckButtonProps } from '../types';
 import { ComponentSize } from '../../types';

@@ -16,5 +16,5 @@ export const mockPlaceholder = 'Selecciona una opción';
 export const defaultTestProps: SelectorProps = {
   options: mockOptions,
   label: mockLabel,
-  onChange: jest.fn(),
+  onChange: vi.fn(),
 };

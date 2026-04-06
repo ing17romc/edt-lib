@@ -123,7 +123,7 @@ describe('TableDefault', () => {
 });
 
 // Mock para getStatus
-jest.mock('../../utils', () => ({
+vi.mock('../../utils', () => ({
   __esModule: true,
   default: (value: boolean | number) => (
     <span data-testid={`status-${value ? 'active' : 'inactive'}`}>

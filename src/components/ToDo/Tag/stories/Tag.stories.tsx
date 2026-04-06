@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import Tag from '..';
 import { defaultArgs, argTypes, allVariants, allSizes } from './mocks';
 import { ComponentVariant, ComponentSize } from '../../../types';

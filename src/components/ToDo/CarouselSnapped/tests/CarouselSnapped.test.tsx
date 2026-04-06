@@ -5,7 +5,7 @@ import { defaultCarouselProps, minimalCarouselProps, mockOnChange } from './mock
 
 beforeEach(() => {
   mockOnChange.mockClear()
-  Element.prototype.scrollIntoView = jest.fn()
+  Element.prototype.scrollIntoView = vi.fn()
 })
 
 describe('CarouselSnapped', () => {

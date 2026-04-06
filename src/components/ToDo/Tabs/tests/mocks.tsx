@@ -13,7 +13,7 @@ export const tabsWithDisabled: TabItem[] = [
   { key: 'tab3', label: 'Normal', content: <div>Contenido 3</div> },
 ]
 
-export const mockOnChange = jest.fn()
+export const mockOnChange = vi.fn()
 
 export const defaultTabsProps: TabsProps = {
   tabs: defaultTabs,

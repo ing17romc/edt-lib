@@ -1,7 +1,7 @@
 import { MessageProps } from '../types'
 import { ComponentVariant } from '../../../types'
 
-export const mockOnClose = jest.fn()
+export const mockOnClose = vi.fn()
 
 export const defaultArgs: Partial<MessageProps> = {
   variant: ComponentVariant.PRIMARY,

@@ -1,8 +1,8 @@
 import { SnackbarProps } from '../types'
 import { ComponentVariant } from '../../../types'
 
-export const mockOnClose = jest.fn()
-export const mockOnAction = jest.fn()
+export const mockOnClose = vi.fn()
+export const mockOnAction = vi.fn()
 
 export const defaultSnackbarProps: SnackbarProps = {
   message: 'Operación realizada con éxito',

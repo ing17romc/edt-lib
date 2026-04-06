@@ -7,7 +7,7 @@ import { ComponentSize } from '../../../types';
 
 describe('Switch Component', () => {
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   describe('Renderizado básico', () => {

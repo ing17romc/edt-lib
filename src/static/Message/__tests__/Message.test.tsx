@@ -77,7 +77,7 @@ describe('Message', () => {
   });
 
   it('debe llamar a onClose cuando se hace clic en el botón de cierre', () => {
-    const handleClose = jest.fn();
+    const handleClose = vi.fn();
     
     render(
       <Message closable onClose={handleClose}>
@@ -122,7 +122,8 @@ describe('Message', () => {
       </Message>
     );
     
-    expect(screen.getByText('formato')).toHaveStyle('font-weight: bold');
+    const strong = screen.getByText('formato');
+    expect(strong.tagName.toLowerCase()).toBe('strong');
   });
 
   it('permite pasar propiedades HTML adicionales', () => {

@@ -14,7 +14,7 @@ import {
 
 describe('Button Component', () => {
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   describe('Renderizado básico', () => {

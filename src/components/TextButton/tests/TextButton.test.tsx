@@ -27,7 +27,7 @@ describe('TextButton Component', () => {
   });
 
   it('maneja el evento onClick correctamente', () => {
-    const handleClick = jest.fn();
+    const handleClick = vi.fn();
     render(
       <TextButton onClick={handleClick}>
         Hacer clic

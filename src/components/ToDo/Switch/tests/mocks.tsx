@@ -1,7 +1,7 @@
 import { SwitchProps } from '../types';
 import { ComponentSize } from '../../../types';
 
-export const mockOnChange = jest.fn();
+export const mockOnChange = vi.fn();
 
 export const defaultSwitchProps: SwitchProps = {
   label: 'Activar opción',

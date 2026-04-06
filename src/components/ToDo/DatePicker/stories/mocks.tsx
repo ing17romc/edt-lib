@@ -1,6 +1,6 @@
 import { DatePickerProps } from '../types'
 
-export const mockOnChange = jest.fn()
+export const mockOnChange = vi.fn()
 
 export const defaultArgs: Partial<DatePickerProps> = {
   placeholder: 'DD/MM/YYYY',

@@ -1,7 +1,7 @@
 import React from 'react'
 import { CarouselSlide, CarouselSnappedProps } from '../types'
 
-export const mockOnChange = jest.fn()
+export const mockOnChange = vi.fn()
 
 export const defaultSlides: CarouselSlide[] = [
   { key: 'slide1', content: <div>Slide 1</div> },

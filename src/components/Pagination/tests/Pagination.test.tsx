@@ -34,7 +34,7 @@ describe('Pagination', () => {
   });
 
   it('llama a onPageChange con el número de página correcto al hacer clic en un botón de página', () => {
-    const handlePageChange = jest.fn();
+    const handlePageChange = vi.fn();
     render(
       <Pagination 
         {...mockPaginationProps} 
@@ -67,8 +67,8 @@ describe('Pagination', () => {
 
   it('no renderiza nada y muestra una advertencia si totalPages es 0', () => {
     // eslint-disable-next-line @typescript-eslint/no-empty-function
-    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
-    const { container } = render(<Pagination currentPage={1} totalPages={0} onPageChange={jest.fn()} />);
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const { container } = render(<Pagination currentPage={1} totalPages={0} onPageChange={vi.fn()} />);
     expect(container.firstChild).toBeNull();
     expect(warnSpy).toHaveBeenCalledWith('Pagination: totalPages debe ser mayor a 0');
     warnSpy.mockRestore();
@@ -76,8 +76,8 @@ describe('Pagination', () => {
 
   it('no renderiza nada y muestra una advertencia si currentPage está fuera de rango', () => {
     // eslint-disable-next-line @typescript-eslint/no-empty-function
-    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
-    const { container } = render(<Pagination currentPage={10} totalPages={5} onPageChange={jest.fn()} />);
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const { container } = render(<Pagination currentPage={10} totalPages={5} onPageChange={vi.fn()} />);
     expect(container.firstChild).toBeNull();
     expect(warnSpy).toHaveBeenCalledWith('Pagination: currentPage (10) está fuera de rango [1, 5]');
     warnSpy.mockRestore();

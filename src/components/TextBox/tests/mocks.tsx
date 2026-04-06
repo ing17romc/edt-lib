@@ -5,7 +5,7 @@ const baseMockProps: TextBoxProps = {
   label: 'Campo de texto',
   placeholder: 'Escribe algo...',
   value: '',
-  onChange: jest.fn(),
+  onChange: vi.fn(),
   'data-testid': 'textbox',
 };
 

@@ -29,6 +29,27 @@ Carpeta de estilos globales:
 
 ---
 
+## � Stack de Herramientas
+
+- **Node.js**: 22.x (ver `.nvmrc`)
+- **Build**: Vite 8 (`vite build`) — produce bundles ES y CJS en `dist/`
+- **Tests**: Vitest 4 con jsdom — usar `vi.*` (no `jest.*`) para mocks y spies
+- **Lint**: ESLint 10 con flat config (`eslint.config.js`) — no existe `.eslintrc`
+- **Storybook**: Storybook 9 (`@storybook/react-vite`) — importar `Meta`, `StoryObj`, etc. desde `@storybook/react-vite`
+
+### Comandos principales
+
+```bash
+npm run build          # vite build → dist/
+npm run test           # vitest run (single pass)
+npm run test:watch     # vitest (modo watch)
+npm run lint:js        # eslint . --fix
+npm run storybook      # storybook dev -p 6006
+npm run build-storybook  # storybook build
+```
+
+---
+
 ## 🚫 Reglas Generales
 
 - El código debe ser limpio, simple y fácilmente reutilizable.
@@ -59,6 +80,7 @@ Carpeta de estilos globales:
 ## 🧪 Pruebas (Tests)
 
 - Los tests unitarios deben ser simples y fáciles de entender.
+- Usar **Vitest** (`vi.*`) — nunca `jest.*`.
 - Crear un archivo `mocks.tsx` en `tests/` con las props y configuraciones necesarias para los casos de prueba.
 - Reutilizar los valores definidos en los `enums` dentro de los archivos de test y de mocks.
 
@@ -67,6 +89,8 @@ Carpeta de estilos globales:
 ## 📚 Storybook
 
 - La documentación visual debe tener un estilo uniforme en todos los componentes.
+- Importar `Meta`, `StoryObj`, `StoryFn`, `Preview` desde **`@storybook/react-vite`** (no desde `@storybook/react`).
+- En el archivo `preview.ts`, la configuración de backgrounds usa el formato nuevo: campo `options` (no `values`) y `initialGlobals` para el valor por defecto.
 - Reutilizar los valores de los `enums` tanto en los archivos de `stories` como en los `mocks`.
 - Los `stories` deben ser simples y directos.
 - Crear un archivo `mocks.tsx` en la carpeta `stories/` con las configuraciones necesarias para los props.

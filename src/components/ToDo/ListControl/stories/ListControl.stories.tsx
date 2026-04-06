@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import ListControl from '../index'
 import { ListControlItem } from '../types'
 import { defaultArgs, argTypes } from './mocks'

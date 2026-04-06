@@ -58,7 +58,7 @@ export const createTestProps = (
 /**
  * Mock para la función onClose
  */
-export const mockOnClose = jest.fn();
+export const mockOnClose = vi.fn();
 
 /**
  * Datos para probar el componente con diferentes combinaciones de props
@@ -84,7 +84,7 @@ export const testCases = [
     name: 'con cierre',
     props: {
       closable: true,
-      onClose: jest.fn(), // Reemplazado por un mock de Jest
+      onClose: vi.fn(), // Reemplazado por un mock de Vitest
       children: 'Mensaje cerrable',
     },
   },

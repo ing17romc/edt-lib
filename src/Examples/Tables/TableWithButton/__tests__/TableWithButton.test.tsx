@@ -26,7 +26,7 @@ describe('TableWithButton', () => {
   // Mock de alerta global
   const originalAlert = window.alert;
   beforeAll(() => {
-    window.alert = jest.fn();
+    window.alert = vi.fn();
   });
 
   afterAll(() => {
@@ -75,7 +75,7 @@ describe('TableWithButton', () => {
     expect(window.alert).toHaveBeenCalledWith('clic!!!');
     
     // Limpiar el mock de alerta
-    (window.alert as jest.Mock).mockClear();
+    (window.alert as ReturnType<typeof vi.fn>).mockClear();
     
     // Hacer clic en el botón de eliminar de la primera fila
     const firstDeleteButton = screen.getAllByTitle('Delete')[0];
@@ -154,7 +154,7 @@ describe('TableWithButton', () => {
 });
 
 // Mock para getStatus
-jest.mock('../../utils', () => ({
+vi.mock('../../utils', () => ({
   __esModule: true,
   default: (value: boolean | number) => (
     <span data-testid={`status-${value ? 'active' : 'inactive'}`}>
@@ -164,7 +164,7 @@ jest.mock('../../utils', () => ({
 }));
 
 // Mock para el componente Button
-jest.mock('components/Button', () => ({
+vi.mock('components/Button', () => ({
   __esModule: true,
   default: ({ children, onClick }: { children: React.ReactNode; onClick: () => void }) => {
     const buttonText = typeof children === 'string' ? children : '';

@@ -19,7 +19,7 @@ export const mockTitleWithAllProps: TitleProps = {
   block: true,
   noWrap: false,
   id: 'title-id',
-  onClick: jest.fn(),
+  onClick: vi.fn(),
 };
 
 // Función para generar títulos con diferentes variantes

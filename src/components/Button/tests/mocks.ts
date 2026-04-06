@@ -4,7 +4,7 @@ import { ComponentVariant, ComponentSize } from '../../types';
 /**
  * Mock de la función onClick para pruebas
  */
-export const mockOnClick = jest.fn();
+export const mockOnClick = vi.fn();
 
 /**
  * Props por defecto para el botón

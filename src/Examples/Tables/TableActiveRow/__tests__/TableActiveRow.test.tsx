@@ -26,7 +26,7 @@ describe('TableActiveRow', () => {
   // Mock de alerta global
   const originalAlert = window.alert;
   beforeAll(() => {
-    window.alert = jest.fn();
+    window.alert = vi.fn();
   });
 
   afterAll(() => {
@@ -164,7 +164,7 @@ describe('TableActiveRow', () => {
 });
 
 // Mock para getStatus
-jest.mock('../../utils', () => ({
+vi.mock('../../utils', () => ({
   __esModule: true,
   default: (value: boolean | number) => (
     <span data-testid="status-mock">{value ? 'Active' : 'Inactive'}</span>

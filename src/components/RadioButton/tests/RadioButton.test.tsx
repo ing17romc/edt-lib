@@ -46,7 +46,7 @@ describe('RadioButton', () => {
   });
   
   it('llama a la función onChange cuando se hace clic', () => {
-    const handleChange = jest.fn();
+    const handleChange = vi.fn();
     render(<RadioButton {...defaultProps} onChange={handleChange} />);
     
     const radioInput = screen.getByRole('radio');
@@ -57,7 +57,7 @@ describe('RadioButton', () => {
   });
   
   it('no llama a onChange cuando está deshabilitado', () => {
-    const handleChange = jest.fn();
+    const handleChange = vi.fn();
     render(<RadioButton {...disabledProps} onChange={handleChange} />);
     
     const radioInput = screen.getByRole('radio');

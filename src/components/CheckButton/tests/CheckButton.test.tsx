@@ -20,7 +20,7 @@ describe('CheckButton', () => {
   });
 
   it('llama a onChange cuando se hace clic', () => {
-    const handleChange = jest.fn();
+    const handleChange = vi.fn();
     render(<DefaultCheckButton label="Click me" onChange={handleChange} />);
     
     const checkbox = screen.getByLabelText('Click me');
@@ -30,7 +30,7 @@ describe('CheckButton', () => {
   });
 
   it('no responde al clic cuando está deshabilitado', () => {
-    const handleChange = jest.fn();
+    const handleChange = vi.fn();
     render(<DisabledCheckButton onChange={handleChange} />);
     
     const checkbox = screen.getByLabelText('Opción deshabilitada');

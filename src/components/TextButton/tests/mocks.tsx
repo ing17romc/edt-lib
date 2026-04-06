@@ -6,7 +6,7 @@ export const mockTextButtonProps: TextButtonProps = {
   color: 'primary',
   size: ComponentSize.MEDIUM,
   className: 'test-class',
-  onClick: jest.fn(),
+  onClick: vi.fn(),
 };
 
 export const mockDisabledTextButtonProps: TextButtonProps = {

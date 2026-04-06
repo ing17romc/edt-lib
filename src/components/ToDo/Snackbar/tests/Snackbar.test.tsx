@@ -60,11 +60,11 @@ describe('Snackbar', () => {
 
   describe('auto-cierre', () => {
     it('llama onClose después del duration especificado', () => {
-      jest.useFakeTimers()
+      vi.useFakeTimers()
       render(<Snackbar {...closableSnackbarProps} duration={1000} />)
-      act(() => { jest.advanceTimersByTime(1000) })
+      act(() => { vi.advanceTimersByTime(1000) })
       expect(mockOnClose).toHaveBeenCalledTimes(1)
-      jest.useRealTimers()
+      vi.useRealTimers()
     })
   })
 

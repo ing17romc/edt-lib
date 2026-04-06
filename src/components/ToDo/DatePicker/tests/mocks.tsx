@@ -1,6 +1,6 @@
 import { DatePickerProps } from '../types'
 
-export const mockOnChange = jest.fn()
+export const mockOnChange = vi.fn()
 
 export const defaultDatePickerProps: DatePickerProps = {
   onChange: mockOnChange,

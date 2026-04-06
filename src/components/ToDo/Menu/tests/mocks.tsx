@@ -1,7 +1,7 @@
 import React from 'react'
 import { MenuItem, MenuProps } from '../types'
 
-export const mockOnSelect = jest.fn()
+export const mockOnSelect = vi.fn()
 
 export const defaultItems: MenuItem[] = [
   { key: 'item1', label: 'Elemento 1' },

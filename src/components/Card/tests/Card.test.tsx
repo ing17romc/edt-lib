@@ -4,24 +4,10 @@ import '@testing-library/jest-dom';
 import { Card, CardVariant } from '..';
 import { mockCardProps, mockCardWithoutImage } from './mocks';
 
-// Mock del módulo SCSS
-jest.mock('../styles/Card.module.scss', () => ({
-  card: 'card',
-  'card--elevated': 'card--elevated',
-  'card--outlined': 'card--outlined',
-  'card--filled': 'card--filled',
-  'card--clickable': 'card--clickable',
-  card__image: 'card__image',
-  card__content: 'card__content',
-  card__title: 'card__title',
-  card__subtitle: 'card__subtitle',
-  card__body: 'card__body',
-}));
-
 describe('Card Component', () => {
   afterEach(() => {
     cleanup();
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it('renderiza correctamente con todas las props', () => {
@@ -59,7 +45,7 @@ describe('Card Component', () => {
   });
 
   it('maneja el evento onClick cuando se proporciona', () => {
-    const onClickMock = jest.fn();
+    const onClickMock = vi.fn();
     render(
       <Card {...mockCardWithoutImage} onClick={onClickMock}>
         {mockCardWithoutImage.children}
@@ -73,7 +59,7 @@ describe('Card Component', () => {
   });
 
   it('es accesible con teclado cuando es clickeable', () => {
-    const onKeyDownMock = jest.fn();
+    const onKeyDownMock = vi.fn();
     render(
       <Card {...mockCardWithoutImage} onClick={onKeyDownMock}>
         {mockCardWithoutImage.children}

@@ -7,7 +7,7 @@ import { ComponentVariant, ComponentSize } from '../../../types';
 
 describe('Tag Component', () => {
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   describe('Renderizado básico', () => {

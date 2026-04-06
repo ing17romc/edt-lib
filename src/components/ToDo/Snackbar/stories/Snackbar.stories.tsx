@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import Snackbar from '../index'
 import { ComponentVariant } from '../../../types'
 import { defaultArgs, argTypes } from './mocks'

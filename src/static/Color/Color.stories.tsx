@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import './color.scss';
 import Color from './index';
 import { defaultArgs, argTypes, parameters } from './stories/mocks';

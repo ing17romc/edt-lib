@@ -1,7 +1,7 @@
 import React from 'react'
 import { FloatingMenuItem, FloatingMenuProps } from '../types'
 
-export const mockOnSelect = jest.fn()
+export const mockOnSelect = vi.fn()
 
 export const defaultItems: FloatingMenuItem[] = [
   { key: 'edit', label: 'Editar' },

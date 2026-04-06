@@ -12,7 +12,7 @@ export const mockTextAreaProps: TextAreaProps = {
   placeholder: 'Escribe algo...',
   value: '',
   size: ComponentSize.MEDIUM,
-  onChange: jest.fn(),
+  onChange: vi.fn(),
   className: 'test-class',
 };
 

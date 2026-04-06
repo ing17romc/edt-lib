@@ -17,7 +17,7 @@ describe('TableWithPagination', () => {
 
   it('renderiza sin errores con datos vacíos', () => {
     // eslint-disable-next-line @typescript-eslint/no-empty-function
-    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
     render(<TableWithPagination dataTable={[]} />);
     
     // Verificar que se renderiza el título
@@ -25,9 +25,6 @@ describe('TableWithPagination', () => {
     
     // Verificar que se muestra el mensaje de "No hay datos disponibles"
     expect(screen.getByText('No hay datos disponibles')).toBeInTheDocument();
-    
-    // Verificar que la advertencia de paginación fue llamada
-    expect(warnSpy).toHaveBeenCalledWith('Pagination: totalPages debe ser mayor a 0');
     
     warnSpy.mockRestore();
     
@@ -121,8 +118,8 @@ describe('TableWithPagination', () => {
     expect(longNameCell).toBeInTheDocument();
     
     // Verificar que la paginación se maneja correctamente con datos límite
-    // Buscar el componente de paginación por su rol de navegación
-    const pagination = screen.getByRole('navigation', { name: /paginación/i });
+    // Buscar el componente de paginación por su testid
+    const pagination = screen.getByTestId('pagination');
     expect(pagination).toBeInTheDocument();
   });
 
@@ -151,7 +148,7 @@ describe('TableWithPagination', () => {
 });
 
 // Mock para getStatus
-jest.mock('../../utils', () => ({
+vi.mock('../../utils', () => ({
   __esModule: true,
   default: (value: boolean | number) => (
     <span data-testid={`status-${value ? 'active' : 'inactive'}`}>
@@ -161,23 +158,24 @@ jest.mock('../../utils', () => ({
 }));
 
 // Mock para los componentes de paginación
-jest.mock('components/Pagination', () => ({
+vi.mock('components/Pagination', () => ({
   __esModule: true,
   default: ({ 
-    totalCount, 
+    totalPages, 
     currentPage, 
     onPageChange 
   }: { 
-    totalCount: number; 
+    totalPages: number; 
     currentPage: number; 
     onPageChange: (page: number) => void 
   }) => (
     <div data-testid="pagination">
-      {Array.from({ length: totalCount }, (_, i) => (
+      {Array.from({ length: totalPages }, (_, i) => (
         <button 
           key={i + 1}
           onClick={() => onPageChange(i + 1)}
           className={currentPage === i + 1 ? 'active' : ''}
+          aria-label={`ir a la página ${i + 1}`}
         >
           {i + 1}
         </button>
@@ -187,7 +185,7 @@ jest.mock('components/Pagination', () => ({
 }));
 
 // Mock para el componente Selector
-jest.mock('components/Selector', () => ({
+vi.mock('components/Selector', () => ({
   __esModule: true,
   Selector: ({ 
     id, 

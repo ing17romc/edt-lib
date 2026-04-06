@@ -26,7 +26,7 @@ describe('TextArea Component', () => {
   });
 
   it('maneja el evento onChange correctamente', () => {
-    const handleChange = jest.fn();
+    const handleChange = vi.fn();
     render(
       <TextArea 
         label="Campo de prueba" 
