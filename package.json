@@ -19,8 +19,8 @@
     "lint:scss": "stylelint \"src/**/*.scss\" --fix",
     "lint:ts": "npx tsc --noEmit",
     "lint": "npm run lint:js && npm run lint:scss",
-    "sb": "npx storybook dev -p 6006",
-    "build-sb": "npx storybook build",
+    "sb": "storybook dev -p 6006",
+    "build-sb": "storybook build",
     "release-sb": "npm run build-sb && rm -rf .gh-pages && gh-pages -d storybook-static",
     "publish-npm-patch": "npm version patch && npm run build && npm publish --access public",
     "publish-npm-minor": "npm version minor && npm run build && npm publish --access public",
@@ -62,10 +62,12 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^30.0.2",
+    "storybook": "^8.6.18",
     "stylelint": "^16.21.0",
     "stylelint-config-standard-scss": "^15.0.1",
     "ts-jest": "^29.4.0",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "vite": "^5.4.21"
   },
   "browserslist": {},
   "files": [
