@@ -1,7 +1,7 @@
 import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import Thumbnail from '../index'
-import { defaultArgs, argTypes } from './mocks'
+import { defaultArgs, argTypes, parameters } from './mocks'
 
 const meta: Meta<typeof Thumbnail> = {
   title: 'Components/Thumbnail',
@@ -9,6 +9,7 @@ const meta: Meta<typeof Thumbnail> = {
   tags: ['autodocs'],
   args: defaultArgs,
   argTypes,
+  parameters,
 }
 
 export default meta
@@ -19,14 +20,14 @@ export const Default: Story = {}
 
 export const WithCaption: Story = {
   args: {
-    caption: 'Descripción de la imagen',
+    caption: 'Image description',
   },
 }
 
 export const Rounded: Story = {
   args: {
     rounded: true,
-    alt: 'Avatar de usuario',
+    alt: 'User avatar',
   },
 }
 

@@ -21,39 +21,54 @@ const meta: Meta<typeof RadioButton> = {
   argTypes: {
     value: {
       control: 'text',
-      description: 'Valor único que identifica este botón de radio',
+      description: 'Unique value that identifies this radio button within its group.',
+      table: { type: { summary: 'string | number' } },
     },
     label: {
       control: 'text',
-      description: 'Texto que se muestra junto al botón de radio',
+      description: 'Text label displayed next to the radio button.',
+      table: { type: { summary: 'string' } },
     },
     checked: {
       control: 'boolean',
-      description: 'Indica si el botón de radio está seleccionado',
+      description: 'Controls the selected state of the radio button.',
+      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' } },
     },
     disabled: {
       control: 'boolean',
-      description: 'Indica si el botón de radio está deshabilitado',
+      description: 'When true, the radio button is non-interactive and visually muted.',
+      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' } },
     },
     name: {
       control: 'text',
-      description: 'Nombre del grupo al que pertenece el botón de radio',
+      description: 'Group name — radio buttons sharing the same name are mutually exclusive.',
+      table: { type: { summary: 'string' } },
     },
     className: {
       control: 'text',
-      description: 'Clase CSS opcional para personalizar el estilo',
+      description: 'Additional CSS class names for the root element.',
+      table: { type: { summary: 'string' } },
     },
     onChange: {
       action: 'changed',
-      description: 'Función que se ejecuta cuando cambia el estado del botón de radio',
+      description: 'Callback fired with the radio button value when it becomes selected.',
+      table: { type: { summary: '(value: string | number) => void' } },
     },
     size: {
       control: 'select',
       options: Object.values(ComponentSize),
-      description: 'Tamaño del botón de radio',
+      description: 'Size of the radio button.',
       table: {
         type: { summary: Object.values(ComponentSize).join(' | ') },
         defaultValue: { summary: ComponentSize.MEDIUM },
+      },
+    },
+  },
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A styled radio button component for single-option selection within a group. Supports multiple sizes, controlled usage, and a disabled state.',
       },
     },
   },

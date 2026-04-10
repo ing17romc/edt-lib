@@ -35,6 +35,7 @@ const ListControl = ({
           item.disabled && styles['item--disabled']
         )}
         onClick={() => !item.disabled && onSelect?.(item.key)}
+        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); if (!item.disabled) { onSelect?.(item.key); } } }}
       >
         <span className={styles.label}>{item.label}</span>
         {item.description && (

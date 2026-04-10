@@ -13,12 +13,13 @@ const meta: Meta<typeof Icon> = {
   argTypes: {
     name: {
       control: 'text',
-      description: 'Nombre del icono a mostrar',
+      description: 'Material Icons name (e.g. "home", "star", "settings"). See https://fonts.google.com/icons for the full list.',
+      table: { type: { summary: 'string' } },
     },
     size: {
       control: 'select',
       options: Object.values(ComponentSize),
-      description: 'Tamaño',
+      description: 'Size of the icon.',
       table: {
         type: { summary: Object.values(ComponentSize).join(' | ') },
         defaultValue: { summary: ComponentSize.MEDIUM },
@@ -27,25 +28,36 @@ const meta: Meta<typeof Icon> = {
     variant: {
       control: 'select',
       options: Object.values(IconVariant),
-      description: 'Estilo del icono',
+      description: 'Icon style variant: outline, solid, or dual-tone.',
       table: {
+        type: { summary: Object.values(IconVariant).join(' | ') },
         defaultValue: { summary: IconVariant.OUTLINE },
       },
     },
     color: {
       control: 'color',
-      description: 'Color principal del icono',
+      description: 'Primary color of the icon. Has no effect when inheritColor is true.',
+      table: { type: { summary: 'string' } },
     },
     secondaryColor: {
       control: 'color',
-      description: 'Color secundario (solo para variante dual)',
+      description: 'Secondary color used only for the dual-tone variant.',
+      table: { type: { summary: 'string' } },
     },
     inheritColor: {
       control: { type: 'boolean' },
-      description: 'Si hereda el color del elemento padre',
+      description: 'When true, the icon inherits its color from the parent element.',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: 'false' },
+      },
+    },
+  },
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Renders a Material Icons glyph with support for multiple sizes, style variants (outline, solid, dual-tone) and custom or inherited colors.',
       },
     },
   },

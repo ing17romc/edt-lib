@@ -12,20 +12,23 @@ const meta: Meta<CheckButtonProps> = {
   argTypes: {
     label: {
       control: 'text',
-      description: 'Texto que se muestra junto al checkbox',
+      description: 'Text label displayed next to the checkbox.',
+      table: { type: { summary: 'string' } },
     },
     checked: {
       control: 'boolean',
-      description: 'Estado del checkbox',
+      description: 'Controls the checked state of the checkbox.',
+      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' } },
     },
     disabled: {
       control: 'boolean',
-      description: 'Estado deshabilitado',
+      description: 'When true, the checkbox is non-interactive and visually muted.',
+      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' } },
     },
     size: {
       control: 'select',
       options: Object.values(ComponentSize),
-      description: 'Tamaño',
+      description: 'Size of the checkbox and its label.',
       table: {
         type: { summary: Object.values(ComponentSize).join(' | ') },
         defaultValue: { summary: ComponentSize.MEDIUM },
@@ -33,15 +36,25 @@ const meta: Meta<CheckButtonProps> = {
     },
     onChange: {
       action: 'changed',
-      description: 'Función que se ejecuta al cambiar el estado',
+      description: 'Callback fired when the checked state changes.',
+      table: { type: { summary: '(checked: boolean) => void' } },
     },
     className: {
       control: 'text',
-      description: 'Clase CSS personalizada',
+      description: 'Additional CSS class names for the root element.',
+      table: { type: { summary: 'string' } },
+    },
+  },
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A styled checkbox component that wraps a native input with a label. Supports multiple sizes, controlled and uncontrolled usage, and a disabled state.',
+      },
     },
   },
   args: {
-    label: 'Opción de ejemplo',
+    label: 'Option label',
     checked: false,
     disabled: false,
   },

@@ -16,7 +16,7 @@ describe('TableWithPagination', () => {
   const mockData = generateMockData(10); // 10 elementos de prueba
 
   it('renderiza sin errores con datos vacíos', () => {
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
+     
     const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
     render(<TableWithPagination dataTable={[]} />);
     

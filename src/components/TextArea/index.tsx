@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useRef, useCallback } from 'react';
+import React, { forwardRef, useEffect, useRef, useCallback, useId } from 'react';
 import { TextAreaProps } from './types';
 import { ComponentSize } from '../types';
 import styles from './styles/TextArea.module.scss';
@@ -31,7 +31,8 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(({
   ...rest
 }, ref) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
-  const textareaId = id || `textarea-${Math.random().toString(36).substr(2, 9)}`;
+  const generatedId = useId();
+  const textareaId = id || `textarea-${generatedId}`;
   const helperTextId = helperText ? `${textareaId}-helper-text` : undefined;
 
   // Combinar las referes internas y externas

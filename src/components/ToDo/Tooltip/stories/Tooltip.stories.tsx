@@ -1,7 +1,7 @@
 import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import Tooltip from '../index'
-import { defaultArgs, argTypes, allPlacements } from './mocks'
+import { defaultArgs, argTypes, allPlacements, parameters } from './mocks'
 
 const meta: Meta<typeof Tooltip> = {
   title: 'Components/Tooltip',
@@ -12,6 +12,7 @@ const meta: Meta<typeof Tooltip> = {
     children: <button type="button">Hover me</button>,
   },
   argTypes,
+  parameters,
 }
 
 export default meta

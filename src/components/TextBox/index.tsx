@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useId } from 'react';
 import { TextBoxProps } from './types';
 import { ComponentSize } from '../types';
 import styles from './styles/TextBox.module.scss';
@@ -25,7 +25,8 @@ const TextBox = forwardRef<HTMLInputElement, TextBoxProps>(({
   id,
   ...rest
 }, ref) => {
-  const inputId = id || `textbox-${Math.random().toString(36).substr(2, 9)}`;
+  const generatedId = useId();
+  const inputId = id || `textbox-${generatedId}`;
   const helperTextId = helperText ? `${inputId}-helper-text` : undefined;
 
   const containerClasses = [

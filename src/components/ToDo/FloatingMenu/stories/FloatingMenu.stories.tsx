@@ -1,7 +1,7 @@
 import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import FloatingMenu from '../index'
-import { defaultArgs, argTypes } from './mocks'
+import { defaultArgs, argTypes, parameters } from './mocks'
 
 const meta: Meta<typeof FloatingMenu> = {
   title: 'Components/FloatingMenu',
@@ -9,9 +9,10 @@ const meta: Meta<typeof FloatingMenu> = {
   tags: ['autodocs'],
   args: {
     ...defaultArgs,
-    trigger: <button type="button">Opciones ▾</button>,
+    trigger: <button type="button">Options ▾</button>,
   },
   argTypes,
+  parameters,
 }
 
 export default meta
@@ -27,10 +28,10 @@ export const BottomEnd: Story = {
 export const WithIcons: Story = {
   args: {
     items: [
-      { key: 'edit', label: 'Editar', icon: '✏️' },
-      { key: 'duplicate', label: 'Duplicar', icon: '📋' },
+      { key: 'edit', label: 'Edit', icon: '✏️' },
+      { key: 'duplicate', label: 'Duplicate', icon: '📋' },
       { key: 'sep', label: '', divider: true },
-      { key: 'delete', label: 'Eliminar', icon: '🗑️' },
+      { key: 'delete', label: 'Delete', icon: '🗑️' },
     ],
   },
 }

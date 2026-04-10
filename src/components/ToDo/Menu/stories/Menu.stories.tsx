@@ -1,7 +1,7 @@
 import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import Menu from '../index'
-import { defaultArgs, argTypes } from './mocks'
+import { defaultArgs, argTypes, parameters } from './mocks'
 
 const meta: Meta<typeof Menu> = {
   title: 'Components/Menu',
@@ -9,6 +9,7 @@ const meta: Meta<typeof Menu> = {
   tags: ['autodocs'],
   args: defaultArgs,
   argTypes,
+  parameters,
 }
 
 export default meta

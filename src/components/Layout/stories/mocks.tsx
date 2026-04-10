@@ -18,9 +18,9 @@ export const MockLogo = () => (
 
 export const MockNav = () => (
   <>
-    <a href="#inicio" style={{ textDecoration: 'none', color: 'inherit' }}>Inicio</a>
-    <a href="#acerca" style={{ textDecoration: 'none', color: 'inherit' }}>Acerca de</a>
-    <a href="#contacto" style={{ textDecoration: 'none', color: 'inherit' }}>Contacto</a>
+    <a href="#home" style={{ textDecoration: 'none', color: 'inherit' }}>Home</a>
+    <a href="#about" style={{ textDecoration: 'none', color: 'inherit' }}>About</a>
+    <a href="#contact" style={{ textDecoration: 'none', color: 'inherit' }}>Contact</a>
   </>
 );
 
@@ -33,17 +33,17 @@ export const MockFooterContent = () => (
     gap: '1rem'
   }}>
     <div>
-      <h3>Enlaces útiles</h3>
+      <h3>Useful links</h3>
       <ul style={{ listStyle: 'none', padding: 0 }}>
-        <li><a href="#ayuda" style={{ textDecoration: 'none', color: 'inherit' }}>Ayuda</a></li>
-        <li><a href="#terminos" style={{ textDecoration: 'none', color: 'inherit' }}>Términos y condiciones</a></li>
-        <li><a href="#privacidad" style={{ textDecoration: 'none', color: 'inherit' }}>Política de privacidad</a></li>
+        <li><a href="#help" style={{ textDecoration: 'none', color: 'inherit' }}>Help</a></li>
+        <li><a href="#terms" style={{ textDecoration: 'none', color: 'inherit' }}>Terms and conditions</a></li>
+        <li><a href="#privacy" style={{ textDecoration: 'none', color: 'inherit' }}>Privacy policy</a></li>
       </ul>
     </div>
     <div>
-      <h3>Contacto</h3>
-      <p>Email: info@ejemplo.com</p>
-      <p>Teléfono: +123 456 7890</p>
+      <h3>Contact</h3>
+      <p>Email: info@example.com</p>
+      <p>Phone: +1 234 567 8900</p>
     </div>
   </div>
 );

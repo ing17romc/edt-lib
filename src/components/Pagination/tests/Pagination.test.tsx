@@ -66,7 +66,7 @@ describe('Pagination', () => {
   });
 
   it('no renderiza nada y muestra una advertencia si totalPages es 0', () => {
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
+     
     const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
     const { container } = render(<Pagination currentPage={1} totalPages={0} onPageChange={vi.fn()} />);
     expect(container.firstChild).toBeNull();
@@ -75,7 +75,7 @@ describe('Pagination', () => {
   });
 
   it('no renderiza nada y muestra una advertencia si currentPage está fuera de rango', () => {
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
+     
     const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
     const { container } = render(<Pagination currentPage={10} totalPages={5} onPageChange={vi.fn()} />);
     expect(container.firstChild).toBeNull();

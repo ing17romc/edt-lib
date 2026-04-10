@@ -10,11 +10,21 @@ const meta: Meta<typeof NavBar> = {
   argTypes: {
     title: {
       control: 'text',
-      description: 'Título de la barra de navegación',
+      description: 'Application or page title displayed in the navigation bar.',
+      table: { type: { summary: 'string' } },
     },
     className: {
       control: 'text',
-      description: 'Clase CSS adicional',
+      description: 'Additional CSS class name for the root element.',
+      table: { type: { summary: 'string' } },
+    },
+  },
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A top navigation bar that combines a logo slot, an optional title, and navigation link children. Sticks to the top of the page and spans full width.',
+      },
     },
   },
 };
@@ -24,28 +34,28 @@ type Story = StoryObj<typeof NavBar>;
 
 export const Default: Story = {
   render: (args) => (
-    <NavBar {...args} logo={<MockLogo />} title="Mi Aplicación">
+    <NavBar {...args} logo={<MockLogo />} title="My App">
       <MockNav />
     </NavBar>
   ),
   args: {},
 };
 
-export const SoloTitulo: Story = {
+export const TitleOnly: Story = {
   render: (args) => (
-    <NavBar {...args} title="Mi Aplicación" />
+    <NavBar {...args} title="My App" />
   ),
   args: {},
 };
 
-export const SoloLogo: Story = {
+export const LogoOnly: Story = {
   render: (args) => (
     <NavBar {...args} logo={<MockLogo />} />
   ),
   args: {},
 };
 
-export const SinContenido: Story = {
+export const Empty: Story = {
   render: (args) => <NavBar {...args} />,
   args: {},
 };

@@ -10,15 +10,26 @@ const meta: Meta<typeof Footer> = {
   argTypes: {
     copyright: {
       control: 'text',
-      description: 'Texto de copyright',
+      description: 'Copyright holder name displayed in the footer.',
+      table: { type: { summary: 'string' } },
     },
     year: {
       control: 'number',
-      description: 'Año del copyright',
+      description: 'Year displayed next to the copyright notice.',
+      table: { type: { summary: 'number' }, defaultValue: { summary: 'current year' } },
     },
     className: {
       control: 'text',
-      description: 'Clase CSS adicional',
+      description: 'Additional CSS class name for the root element.',
+      table: { type: { summary: 'string' } },
+    },
+  },
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A page footer that renders optional child content alongside an automatic copyright notice. Accepts a configurable copyright text and year.',
+      },
     },
   },
 };
@@ -33,23 +44,23 @@ export const Default: Story = {
     </Footer>
   ),
   args: {
-    copyright: 'Todos los derechos reservados',
+    copyright: 'All rights reserved',
     year: new Date().getFullYear(),
   },
 };
 
-export const SoloDerechos: Story = {
+export const CopyrightOnly: Story = {
   render: (args) => <Footer {...args} />,
   args: {
-    copyright: 'Todos los derechos reservados',
+    copyright: 'All rights reserved',
     year: new Date().getFullYear(),
   },
 };
 
-export const TextoPersonalizado: Story = {
+export const CustomCopyright: Story = {
   render: (args) => <Footer {...args} />,
   args: {
-    copyright: 'Mi Empresa S.A.',
+    copyright: 'My Company Inc.',
     year: 2025,
   },
 };

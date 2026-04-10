@@ -1,53 +1,80 @@
 import React, { useState } from 'react';
-import { Meta, StoryFn } from '@storybook/react-vite';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import TextBox from '../';
-import type { TextBoxProps } from '../types';
 import { defaultArgs } from './mocks';
 import { ComponentSize } from '../../types';
 
 export default {
   title: 'Components/TextBox',
   component: TextBox,
+  tags: ['autodocs'],
   argTypes: {
     variant: {
-      control: {
-        type: 'select',
-        options: ['outlined', 'filled', 'standard'],
+      control: 'select',
+      options: ['outlined', 'filled', 'standard'],
+      description: 'Visual style variant of the input field.',
+      table: {
+        type: { summary: 'outlined | filled | standard' },
+        defaultValue: { summary: 'outlined' },
       },
     },
     size: {
       control: 'select',
       options: Object.values(ComponentSize),
-      description: 'Tamaño',
+      description: 'Size of the input field.',
       table: {
         type: { summary: Object.values(ComponentSize).join(' | ') },
         defaultValue: { summary: ComponentSize.MEDIUM },
       },
     },
     type: {
-      control: {
-        type: 'select',
-        options: ['text', 'email', 'password', 'number', 'tel', 'url', 'search'],
+      control: 'select',
+      options: ['text', 'email', 'password', 'number', 'tel', 'url', 'search'],
+      description: 'HTML input type.',
+      table: {
+        type: { summary: 'text | email | password | number | tel | url | search' },
+        defaultValue: { summary: 'text' },
       },
     },
-    error: { control: 'boolean' },
-    disabled: { control: 'boolean' },
-    fullWidth: { control: 'boolean' },
-    required: { control: 'boolean' },
-    readOnly: { control: 'boolean' },
+    error: {
+      control: 'boolean',
+      description: 'When true, applies error styling to the field.',
+      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' } },
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'When true, the field is non-interactive.',
+      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' } },
+    },
+    fullWidth: {
+      control: 'boolean',
+      description: 'When true, the field stretches to fill its container width.',
+      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' } },
+    },
+    required: {
+      control: 'boolean',
+      description: 'Marks the field as required.',
+      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' } },
+    },
+    readOnly: {
+      control: 'boolean',
+      description: 'When true, the value can be read but not edited.',
+      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' } },
+    },
   },
   parameters: {
-    componentSubtitle: 'Campo de entrada de texto de una sola línea',
     docs: {
       description: {
-        component: 'Un componente de campo de texto que permite la entrada de texto de una sola línea. Soporta diferentes variantes, tamaños y estados.'
+        component:
+          'A single-line text input field. Supports outlined, filled, and standard variants, multiple sizes, input type selection, and optional start/end adornments.',
       },
     },
   },
 } as Meta;
 
-// Plantilla base para las historias
-const Template: StoryFn<TextBoxProps> = (args) => {
+type Story = StoryObj<typeof TextBox>;
+
+const ControlledTextBox = (args: React.ComponentProps<typeof TextBox>) => {
   const [value, setValue] = useState('');
   return (
     <TextBox
@@ -58,21 +85,9 @@ const Template: StoryFn<TextBoxProps> = (args) => {
   );
 };
 
-// Historia por defecto
-export const Default = Template.bind({});
-Default.args = defaultArgs;
-
-// Historia con controles interactivos
-export const Interactive = Template.bind({});
-Interactive.args = {
-  ...defaultArgs,
-};
-Interactive.parameters = {
-  docs: {
-    description: {
-      story: 'Usa los controles en el panel de controles para cambiar las propiedades del campo de texto.',
-    },
-  },
+export const Default: Story = {
+  render: (args) => <ControlledTextBox {...args} />,
+  args: defaultArgs,
 };
 
 // Historia de variantes
@@ -86,7 +101,7 @@ export const Variants = () => (
 Variants.parameters = {
   docs: {
     description: {
-      story: 'Diferentes variantes de diseño para el campo de texto.',
+      story: 'Available design variants for the text field.',
     },
   },
 };
@@ -102,7 +117,7 @@ export const Sizes = () => (
 Sizes.parameters = {
   docs: {
     description: {
-      story: 'Diferentes tamaños para el campo de texto.',
+      story: 'Available size options for the text field.',
     },
   },
 };
@@ -114,35 +129,35 @@ export const States = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '400px' }}>
       <TextBox 
-        label="Campo normal" 
+        label="Default field" 
         value={value}
         onChange={(e) => setValue(e.target.value)}
-        placeholder="Escribe algo..."
+        placeholder="Type something..."
       />
       <TextBox 
-        label="Campo con valor por defecto" 
-        defaultValue="Valor por defecto"
+        label="Field with default value" 
+        defaultValue="Default value"
       />
       <TextBox 
-        label="Campo deshabilitado" 
+        label="Disabled field" 
         disabled 
-        placeholder="No puedes escribir aquí"
+        placeholder="You cannot type here"
       />
       <TextBox 
-        label="Campo de solo lectura" 
+        label="Read-only field" 
         readOnly 
-        value="Este texto no se puede editar"
+        value="This text cannot be edited"
       />
       <TextBox 
-        label="Campo requerido" 
+        label="Required field" 
         required 
-        placeholder="Este campo es obligatorio"
+        placeholder="This field is mandatory"
       />
       <TextBox 
-        label="Campo con error" 
+        label="Field with error" 
         error 
-        helperText="Mensaje de error"
-        defaultValue="Valor incorrecto"
+        helperText="Error message"
+        defaultValue="Invalid value"
       />
     </div>
   );
@@ -150,7 +165,7 @@ export const States = () => {
 States.parameters = {
   docs: {
     description: {
-      story: 'Diferentes estados del campo de texto: normal, con valor, deshabilitado, solo lectura, requerido y con error.',
+      story: 'Different field states: default, with value, disabled, read-only, required, and error.',
     },
   },
 };
@@ -159,37 +174,37 @@ States.parameters = {
 export const WithAdornments = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '400px' }}>
     <TextBox 
-      label="Con icono al inicio"
+      label="With start icon"
       startAdornment={
-        <span style={{ fontSize: '20px' }}>🔍</span>
+        <span style={{ fontSize: '20px' }}>&#128269;</span>
       }
-      placeholder="Buscar..."
+      placeholder="Search..."
     />
     <TextBox 
-      label="Con icono al final"
+      label="With end icon"
       endAdornment={
-        <span style={{ fontSize: '20px' }}>🔒</span>
+        <span style={{ fontSize: '20px' }}>&#128274;</span>
       }
       type="password"
-      placeholder="Contraseña"
+      placeholder="Password"
     />
     <TextBox 
-      label="Con iconos en ambos lados"
+      label="With icons on both sides"
       startAdornment={
-        <span style={{ fontSize: '20px' }}>🔢</span>
+        <span style={{ fontSize: '20px' }}>&#128290;</span>
       }
       endAdornment={
-        <span style={{ fontSize: '14px', color: '#666' }}>Números</span>
+        <span style={{ fontSize: '14px', color: '#666' }}>Numbers</span>
       }
       type="number"
-      placeholder="Solo números"
+      placeholder="Numbers only"
     />
   </div>
 );
 WithAdornments.parameters = {
   docs: {
     description: {
-      story: 'Campos de texto con iconos u otros elementos decorativos.',
+      story: 'Text fields with optional start or end adornments (icons or text elements).',
     },
   },
 };
@@ -198,16 +213,16 @@ WithAdornments.parameters = {
 export const FullWidth = () => (
   <div style={{ width: '100%' }}>
     <TextBox 
-      label="Campo de ancho completo" 
+      label="Full-width field" 
       fullWidth 
-      placeholder="Este campo ocupa todo el ancho disponible"
+      placeholder="This field fills the full available width"
     />
   </div>
 );
 FullWidth.parameters = {
   docs: {
     description: {
-      story: 'Campo de texto que ocupa todo el ancho disponible en su contenedor.',
+      story: 'Text field that expands to fill the full width of its container.',
     },
   },
 };

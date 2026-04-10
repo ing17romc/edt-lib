@@ -4,6 +4,7 @@ import { IconVariant } from '../../Icon/types';
 import IconButton from '..';
 import { 
   meta, 
+  parameters,
   sizeOptions, 
   variantOptions, 
   containerStyle, 
@@ -11,14 +12,14 @@ import {
 } from './mocks';
 import { ComponentVariant } from '../../types';
 
-// Usamos la configuración de meta desde el archivo de mocks
+// Merge parameters into the meta exported from mocks
 const metaWithComponent = {
   title: 'Components/IconButton',
   ...meta,
   component: IconButton,
+  parameters,
 };
 
-// Exportamos la configuración de meta con el componente
 export default metaWithComponent;
 
 type Story = StoryObj<typeof IconButton>;

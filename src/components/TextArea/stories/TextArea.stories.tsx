@@ -1,50 +1,89 @@
 import React, { useState } from 'react';
-import { Meta, StoryFn } from '@storybook/react-vite';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import TextArea from '../';
-import type { TextAreaProps } from '../types';
 import { defaultArgs } from './mocks';
 import { ComponentSize } from '../../types';
 
 export default {
   title: 'Components/TextArea',
   component: TextArea,
+  tags: ['autodocs'],
   argTypes: {
     variant: {
-      control: {
-        type: 'select',
-        options: ['outlined', 'filled', 'standard'],
+      control: 'select',
+      options: ['outlined', 'filled', 'standard'],
+      description: 'Visual style variant of the text area.',
+      table: {
+        type: { summary: 'outlined | filled | standard' },
+        defaultValue: { summary: 'outlined' },
       },
     },
     size: {
       control: 'select',
       options: Object.values(ComponentSize),
-      description: 'Tamaño',
+      description: 'Size of the text area field.',
       table: {
         type: { summary: Object.values(ComponentSize).join(' | ') },
         defaultValue: { summary: ComponentSize.MEDIUM },
       },
     },
-    rows: { control: { type: 'number', min: 1, max: 20 } },
-    maxLength: { control: { type: 'number', min: 1 } },
-    error: { control: 'boolean' },
-    disabled: { control: 'boolean' },
-    fullWidth: { control: 'boolean' },
-    required: { control: 'boolean' },
-    readOnly: { control: 'boolean' },
-    autoResize: { control: 'boolean' },
+    rows: {
+      control: { type: 'number', min: 1, max: 20 },
+      description: 'Minimum number of visible text rows.',
+      table: { type: { summary: 'number' } },
+    },
+    maxLength: {
+      control: { type: 'number', min: 1 },
+      description: 'Maximum number of characters the user can enter.',
+      table: { type: { summary: 'number' } },
+    },
+    error: {
+      control: 'boolean',
+      description: 'When true, applies error styling to the field.',
+      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' } },
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'When true, the field is non-interactive.',
+      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' } },
+    },
+    fullWidth: {
+      control: 'boolean',
+      description: 'When true, the field stretches to fill its container width.',
+      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' } },
+    },
+    required: {
+      control: 'boolean',
+      description: 'Marks the field as required.',
+      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' } },
+    },
+    readOnly: {
+      control: 'boolean',
+      description: 'When true, the value can be read but not edited.',
+      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' } },
+    },
+    autoResize: {
+      control: 'boolean',
+      description: 'When true, the field height adjusts automatically as the user types.',
+      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' } },
+    },
   },
   parameters: {
-    componentSubtitle: 'Área de texto de múltiples líneas',
     docs: {
       description: {
-        component: 'Un componente de área de texto que permite la entrada de texto de múltiples líneas. Soporta diferentes variantes, tamaños y redimensionamiento automático.'
+        component:
+          'A multi-line text input field. Supports outlined, filled, and standard variants, multiple sizes, character limits, and automatic height resizing.',
       },
     },
   },
 } as Meta;
 
-// Plantilla base para las historias
-const Template: StoryFn<TextAreaProps> = (args) => {
+// Base template
+type Story = StoryObj<typeof TextArea>;
+export type { Story };
+
+// Default story
+const ControlledTextArea = (args: React.ComponentProps<typeof TextArea>) => {
   const [value, setValue] = useState('');
   return (
     <TextArea
@@ -55,22 +94,10 @@ const Template: StoryFn<TextAreaProps> = (args) => {
   );
 };
 
-// Historia por defecto
-export const Default = Template.bind({});
-Default.args = {
-  ...defaultArgs,
-};
-
-// Historia con controles interactivos
-export const Interactive = Template.bind({});
-Interactive.args = {
-  ...defaultArgs,
-};
-Interactive.parameters = {
-  docs: {
-    description: {
-      story: 'Usa los controles en el panel de controles para cambiar las propiedades del área de texto.',
-    },
+export const Default: Story = {
+  render: (args) => <ControlledTextArea {...args} />,
+  args: {
+    ...defaultArgs,
   },
 };
 
@@ -107,7 +134,7 @@ export const Variants = () => {
 Variants.parameters = {
   docs: {
     description: {
-      story: 'Diferentes variantes de diseño para el área de texto.',
+      story: 'Available design variants for the text area.',
     },
   },
 };
@@ -145,7 +172,7 @@ export const Sizes = () => {
 Sizes.parameters = {
   docs: {
     description: {
-      story: 'Diferentes tamaños para el área de texto.',
+      story: 'Available size options for the text area.',
     },
   },
 };
@@ -157,39 +184,39 @@ export const States = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '600px' }}>
       <TextArea 
-        label="Campo normal" 
+        label="Default field" 
         value={value}
         onChange={(e) => setValue(e.target.value)}
-        placeholder="Escribe algo..."
+        placeholder="Type something..."
       />
       <TextArea 
-        label="Campo con valor por defecto" 
-        defaultValue="Este es un valor por defecto en el área de texto. Puedes editar este contenido."
+        label="Field with default value" 
+        defaultValue="This is the default content in the text area. You can edit it."
         rows={4}
       />
       <TextArea 
-        label="Campo deshabilitado" 
+        label="Disabled field" 
         disabled 
-        value="Este es un área de texto deshabilitada"
+        value="This text area is disabled"
         rows={2}
       />
       <TextArea 
-        label="Campo de solo lectura" 
+        label="Read-only field" 
         readOnly 
-        value="Este es un área de texto de solo lectura. No se puede editar este contenido."
+        value="This text area is read-only. Its content cannot be edited."
         rows={3}
       />
       <TextArea 
-        label="Campo requerido" 
+        label="Required field" 
         required 
-        placeholder="Este campo es obligatorio"
+        placeholder="This field is mandatory"
         rows={2}
       />
       <TextArea 
-        label="Campo con error" 
+        label="Field with error" 
         error 
-        helperText="Este campo es requerido"
-        value="Valor incorrecto"
+        helperText="This field is required"
+        value="Invalid value"
         rows={2}
       />
     </div>
@@ -198,7 +225,7 @@ export const States = () => {
 States.parameters = {
   docs: {
     description: {
-      story: 'Diferentes estados del área de texto: normal, con valor, deshabilitado, solo lectura, requerido y con error.',
+      story: 'Different field states: default, with pre-filled value, disabled, read-only, required, and error.',
     },
   },
 };
@@ -211,12 +238,12 @@ export const WithCharacterLimit = () => {
   return (
     <div style={{ maxWidth: '600px' }}>
       <TextArea
-        label="Comentario"
-        placeholder="Escribe tu comentario (máx. 100 caracteres)"
+        label="Comment"
+        placeholder="Write your comment (max 100 characters)"
         maxLength={maxLength}
         value={value}
         onChange={(e) => setValue(e.target.value)}
-        helperText={`${value.length}/${maxLength} caracteres`}
+        helperText={`${value.length}/${maxLength} characters`}
         rows={4}
       />
     </div>
@@ -225,7 +252,7 @@ export const WithCharacterLimit = () => {
 WithCharacterLimit.parameters = {
   docs: {
     description: {
-      story: 'Área de texto con límite de caracteres y contador.',
+      story: 'Text area with a character limit and a live counter in the helper text.',
     },
   },
 };
@@ -237,12 +264,12 @@ export const AutoResize = () => {
   return (
     <div style={{ maxWidth: '600px' }}>
       <TextArea
-        label="Descripción"
-        placeholder="Escribe una descripción (se ajustará automáticamente)"
+        label="Description"
+        placeholder="Write a description (will resize automatically)"
         autoResize
         value={value}
         onChange={(e) => setValue(e.target.value)}
-        helperText="El área de texto se ajusta automáticamente según el contenido"
+        helperText="The text area grows automatically as you type"
         minRows={2}
         maxRows={8}
       />

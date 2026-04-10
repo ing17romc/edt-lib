@@ -1,4 +1,4 @@
-import type { Meta } from '@storybook/react';
+import type { Meta } from '@storybook/react-vite';
 import { SpinnerProps, SpinnerVariant } from '../types';
 import { ComponentSize } from '../../types';
 
@@ -13,7 +13,7 @@ export const argTypes: Meta<SpinnerProps>['argTypes'] = {
   size: {
     control: 'select',
     options: Object.values(ComponentSize),
-    description: 'Tamaño del spinner',
+    description: 'Size of the spinner indicator.',
     table: {
       type: { summary: Object.values(ComponentSize).join(' | ') },
       defaultValue: { summary: ComponentSize.MEDIUM },
@@ -22,7 +22,7 @@ export const argTypes: Meta<SpinnerProps>['argTypes'] = {
   variant: {
     control: 'select',
     options: Object.values(SpinnerVariant),
-    description: 'Variante de color del spinner',
+    description: 'Color variant of the spinner.',
     table: {
       type: { summary: Object.values(SpinnerVariant).join(' | ') },
       defaultValue: { summary: SpinnerVariant.PRIMARY },
@@ -30,7 +30,7 @@ export const argTypes: Meta<SpinnerProps>['argTypes'] = {
   },
   pulse: {
     control: 'boolean',
-    description: 'Si es true, muestra un spinner de tipo pulso',
+    description: 'When true, renders a pulsing animation instead of a rotating spinner.',
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: 'false' },
@@ -38,10 +38,19 @@ export const argTypes: Meta<SpinnerProps>['argTypes'] = {
   },
   'aria-label': {
     control: 'text',
-    description: 'Texto accesible para lectores de pantalla',
+    description: 'Accessible label for screen readers.',
     table: {
       type: { summary: 'string' },
-      defaultValue: { summary: 'Cargando...' },
+      defaultValue: { summary: 'Loading...' },
+    },
+  },
+};
+
+export const parameters = {
+  docs: {
+    description: {
+      component:
+        'An animated loading indicator that signals to users that content is being processed. Supports multiple color variants, sizes, and a pulse animation mode.',
     },
   },
 };

@@ -17,20 +17,23 @@ const meta: Meta<typeof Modal> = {
   argTypes: {
     isOpen: {
       control: 'boolean',
-      description: 'Indica si el modal está abierto o cerrado',
+      description: 'Controls whether the modal is visible.',
+      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' } },
     },
     onClose: {
       action: 'closed',
-      description: 'Función que se ejecuta cuando se cierra el modal',
+      description: 'Callback fired when the modal requests to be closed.',
+      table: { type: { summary: '() => void' } },
     },
     title: {
       control: 'text',
-      description: 'Título del modal',
+      description: 'Heading text displayed at the top of the modal.',
+      table: { type: { summary: 'string' } },
     },
     size: {
       control: 'select',
       options: Object.values(ComponentSize),
-      description: 'Tamaño',
+      description: 'Controls the maximum width of the modal dialog.',
       table: {
         type: { summary: Object.values(ComponentSize).join(' | ') },
         defaultValue: { summary: ComponentSize.MEDIUM },
@@ -38,27 +41,51 @@ const meta: Meta<typeof Modal> = {
     },
     showCloseButton: {
       control: 'boolean',
-      description: 'Indica si se muestra el botón de cerrar',
+      description: 'When true, renders a close button in the modal header.',
+      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'true' } },
     },
     closeButtonText: {
       control: 'text',
-      description: 'Texto personalizado para el botón de cerrar',
+      description: 'Custom label for the close button.',
+      table: { type: { summary: 'string' }, defaultValue: { summary: 'Close' } },
     },
     closeOnOverlayClick: {
       control: 'boolean',
-      description: 'Indica si el modal se cierra al hacer clic fuera de él',
+      description: 'When true, clicking outside the modal closes it.',
+      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'true' } },
     },
     closeOnEsc: {
       control: 'boolean',
-      description: 'Indica si el modal se cierra al presionar la tecla Escape',
+      description: 'When true, pressing the Escape key closes the modal.',
+      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'true' } },
     },
     centerVertically: {
       control: 'boolean',
-      description: 'Indica si el modal debe centrarse verticalmente',
+      description: 'When true, the modal is vertically centered in the viewport.',
+      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' } },
     },
     preventScroll: {
       control: 'boolean',
-      description: 'Indica si se debe deshabilitar el scroll del body cuando el modal está abierto',
+      description: 'When true, disables body scrolling while the modal is open.',
+      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'true' } },
+    },
+    children: {
+      control: 'text',
+      description: 'Main content rendered inside the modal body.',
+      table: { type: { summary: 'ReactNode' } },
+    },
+    footer: {
+      control: false,
+      description: 'Optional content rendered in the modal footer (e.g. action buttons).',
+      table: { type: { summary: 'ReactNode' } },
+    },
+  },
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A dialog overlay component that renders content in a layer above the page. Supports configurable size, close behaviors, optional action footer, and focus trapping for accessibility.',
+      },
     },
   },
   args: baseArgs,

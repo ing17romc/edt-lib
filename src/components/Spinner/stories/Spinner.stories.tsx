@@ -3,51 +3,19 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import Spinner from '..';
 import { SpinnerVariant } from '../types';
 import { ComponentSize } from '../../types';
+import { argTypes, parameters } from './mocks';
 
 const meta: Meta<typeof Spinner> = {
   title: 'Components/Spinner',
   component: Spinner,
   tags: ['autodocs'],
-  argTypes: {
-    size: {
-      control: 'select',
-      options: Object.values(ComponentSize),
-      description: 'Tamaño',
-      table: {
-        type: { summary: Object.values(ComponentSize).join(' | ') },
-        defaultValue: { summary: ComponentSize.MEDIUM },
-      },
-    },
-    variant: {
-      control: 'select',
-      options: Object.values(SpinnerVariant),
-      description: 'Variante de color del spinner',
-      table: {
-        defaultValue: { summary: SpinnerVariant.PRIMARY },
-      },
-    },
-    pulse: {
-      control: { type: 'boolean' },
-      description: 'Si es true, muestra un spinner de tipo pulso',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' },
-      },
-    },
-    'aria-label': {
-      control: 'text',
-      description: 'Texto accesible para lectores de pantalla',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'Cargando...' },
-      },
-    },
-  },
+  argTypes,
+  parameters,
   args: {
     size: ComponentSize.MEDIUM,
     variant: SpinnerVariant.PRIMARY,
     pulse: false,
-    'aria-label': 'Cargando...',
+    'aria-label': 'Loading...',
   },
 };
 

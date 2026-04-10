@@ -1,7 +1,7 @@
 import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import MoneyAmount from '../index'
-import { defaultArgs, argTypes } from './mocks'
+import { defaultArgs, argTypes, parameters } from './mocks'
 
 const meta: Meta<typeof MoneyAmount> = {
   title: 'Components/MoneyAmount',
@@ -9,6 +9,7 @@ const meta: Meta<typeof MoneyAmount> = {
   tags: ['autodocs'],
   args: defaultArgs,
   argTypes,
+  parameters,
 }
 
 export default meta

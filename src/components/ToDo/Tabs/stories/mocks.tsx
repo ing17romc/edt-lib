@@ -3,10 +3,30 @@ import { TabsProps } from '../types'
 
 export const defaultArgs: Partial<TabsProps> = {
   tabs: [
-    { key: 'tab1', label: 'Información', content: <div>Contenido de la pestaña Información.</div> },
-    { key: 'tab2', label: 'Detalles', content: <div>Contenido de la pestaña Detalles.</div> },
-    { key: 'tab3', label: 'Historial', content: <div>Contenido de la pestaña Historial.</div> },
+    { key: 'tab1', label: 'Information', content: <div>Content of the Information tab.</div> },
+    { key: 'tab2', label: 'Details', content: <div>Content of the Details tab.</div> },
+    { key: 'tab3', label: 'History', content: <div>Content of the History tab.</div> },
   ],
 }
 
-export const argTypes = {}
+export const argTypes = {
+  defaultActiveKey: {
+    control: 'text',
+    description: 'Key of the tab that is active by default on first render.',
+    table: { type: { summary: 'string' } },
+  },
+  onChange: {
+    action: 'changed',
+    description: 'Callback fired with the key of the newly selected tab.',
+    table: { type: { summary: '(key: string) => void' } },
+  },
+}
+
+export const parameters = {
+  docs: {
+    description: {
+      component:
+        'A tabbed navigation component that switches between labelled content panels. Supports a configurable default active tab and exposes a change callback.',
+    },
+  },
+}

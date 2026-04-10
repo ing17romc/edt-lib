@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/react';
+import { Meta } from '@storybook/react-vite';
 import { Title, TitleSize, TitleVariant } from '..';
 
 export default {
@@ -6,37 +6,42 @@ export default {
   component: Title,
   tags: ['autodocs'],
   parameters: {
-    componentSubtitle: 'Componente de título con múltiples variantes y tamaños',
+    docs: {
+      description: {
+        component:
+          'A semantic heading component (h1–h6) with configurable size, color variant, text styling (bold, italic, underline, strikethrough), text alignment, and display mode.',
+      },
+    },
   },
   argTypes: {
     size: {
       control: { type: 'select' },
       options: Object.values(TitleSize),
-      description: 'Tamaño del título (h1-h6)',
+      description: 'Heading level — maps to the corresponding HTML element (h1–h6).',
       table: {
-        type: { summary: 'TitleSize' },
-        defaultValue: { summary: 'h1' },
+        type: { summary: Object.values(TitleSize).join(' | ') },
+        defaultValue: { summary: TitleSize.H1 },
       },
     },
     variant: {
       control: { type: 'select' },
       options: Object.values(TitleVariant),
-      description: 'Variante de color del título',
+      description: 'Color variant applied to the heading text.',
       table: {
-        type: { summary: 'TitleVariant' },
-        defaultValue: { summary: 'dark' },
+        type: { summary: Object.values(TitleVariant).join(' | ') },
+        defaultValue: { summary: TitleVariant.DARK },
       },
     },
     children: {
       control: 'text',
-      description: 'Contenido del título',
+      description: 'Text or node content rendered inside the heading.',
       table: {
         type: { summary: 'ReactNode' },
       },
     },
     bold: {
       control: 'boolean',
-      description: 'Si es true, el título se muestra en negrita',
+      description: 'When true, the heading is rendered in bold weight.',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: 'false' },
@@ -44,7 +49,7 @@ export default {
     },
     italic: {
       control: 'boolean',
-      description: 'Si es true, el título se muestra en cursiva',
+      description: 'When true, the heading is rendered in italic style.',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: 'false' },
@@ -52,7 +57,7 @@ export default {
     },
     underline: {
       control: 'boolean',
-      description: 'Si es true, el título se muestra subrayado',
+      description: 'When true, the heading text is underlined.',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: 'false' },
@@ -60,7 +65,7 @@ export default {
     },
     strikethrough: {
       control: 'boolean',
-      description: 'Si es true, el título se muestra tachado',
+      description: 'When true, the heading text is struck through.',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: 'false' },
@@ -69,15 +74,15 @@ export default {
     align: {
       control: 'select',
       options: ['left', 'center', 'right', 'justify'],
-      description: 'Alineación del texto',
+      description: 'Horizontal text alignment.',
       table: {
-        type: { summary: 'string' },
+        type: { summary: 'left | center | right | justify' },
         defaultValue: { summary: 'left' },
       },
     },
     block: {
       control: 'boolean',
-      description: 'Si es true, el título ocupa todo el ancho disponible',
+      description: 'When true, the heading occupies the full available width.',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: 'true' },
@@ -85,7 +90,7 @@ export default {
     },
     noWrap: {
       control: 'boolean',
-      description: 'Si es true, el texto no se rompe en varias líneas',
+      description: 'When true, text does not wrap and overflows with an ellipsis.',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: 'false' },
@@ -93,14 +98,14 @@ export default {
     },
     onClick: {
       action: 'clicked',
-      description: 'Función que se ejecuta al hacer clic en el título',
+      description: 'Callback fired when the heading is clicked.',
       table: {
         type: { summary: '() => void' },
       },
     },
   },
   args: {
-    children: 'Título de ejemplo',
+    children: 'Heading example',
     size: TitleSize.H1,
     variant: TitleVariant.DARK,
   },

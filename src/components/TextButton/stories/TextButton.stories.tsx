@@ -1,143 +1,92 @@
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react-vite';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import TextButton from '../';
-import type { TextButtonProps } from '../types';
-import { ComponentSize } from '../../types';
+import { argTypes, parameters, defaultArgs, allColors, allSizes } from './mocks';
 
-export default {
+const meta: Meta<typeof TextButton> = {
   title: 'Components/TextButton',
   component: TextButton,
-  argTypes: {
-    size: {
-      control: 'select',
-      options: Object.values(ComponentSize),
-      description: 'Tamaño',
-      table: {
-        type: { summary: Object.values(ComponentSize).join(' | ') },
-        defaultValue: { summary: ComponentSize.MEDIUM },
-      },
-    },
-    color: {
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'error', 'success', 'warning', 'inherit'],
-      },
-    },
-    underline: {
-      control: {
-        type: 'select',
-        options: ['none', 'hover', 'always'],
-      },
-    },
-    disabled: {
-      control: 'boolean',
-    },
-    loading: {
-      control: 'boolean',
-    },
-    fullWidth: {
-      control: 'boolean',
-    },
-  },
+  tags: ['autodocs'],
+  argTypes,
+  parameters,
+};
+
+export default meta;
+type Story = StoryObj<typeof TextButton>;
+
+export const Default: Story = {
+  args: defaultArgs,
+};
+
+export const Sizes: Story = {
+  render: () => (
+    <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+      {allSizes.map((size) => (
+        <TextButton key={size} size={size}>
+          {size.charAt(0).toUpperCase() + size.slice(1)}
+        </TextButton>
+      ))}
+    </div>
+  ),
   parameters: {
-    componentSubtitle: 'Botón de texto para acciones secundarias',
     docs: {
       description: {
-        component: 'Un botón de texto para acciones secundarias que no necesitan mucha atención. Ideal para acciones menos importantes o como alternativa a los enlaces.',
+        story: 'Available sizes for the TextButton component.',
       },
     },
   },
-} as Meta;
-
-// Plantilla base para las historias
-const Template: StoryFn<TextButtonProps> = (args) => <TextButton {...args} />;
-
-// Historia por defecto
-export const Default = Template.bind({});
-Default.args = {
-  children: 'Botón de texto',
-  color: 'primary',
-  size: ComponentSize.MEDIUM,
-  underline: 'hover',
 };
 
-// Historia con controles interactivos
-export const Interactive = Template.bind({});
-Interactive.args = {
-  ...Default.args,
-};
-Interactive.parameters = {
-  docs: {
-    description: {
-      story: 'Usa los controles en el panel de controles para cambiar las propiedades del botón de texto.',
+export const Colors: Story = {
+  render: () => (
+    <div style={{ display: 'flex', gap: '16px', alignItems: 'center', flexWrap: 'wrap' }}>
+      {allColors.map((color) => (
+        <TextButton key={color} color={color}>
+          {color!.charAt(0).toUpperCase() + color!.slice(1)}
+        </TextButton>
+      ))}
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Available color variants for the TextButton component.',
+      },
     },
   },
 };
 
-// Historia de tamaños
-export const Sizes = () => (
-  <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-    <TextButton size={ComponentSize.SMALL}>Pequeño</TextButton>
-    <TextButton size={ComponentSize.MEDIUM}>Mediano</TextButton>
-    <TextButton size={ComponentSize.LARGE}>Grande</TextButton>
-  </div>
-);
-Sizes.parameters = {
-  docs: {
-    description: {
-      story: 'Diferentes tamaños de botones de texto. Controla el tamaño con la propiedad `size`.',
+export const States: Story = {
+  render: () => (
+    <div style={{ display: 'flex', gap: '16px', alignItems: 'center', flexWrap: 'wrap' }}>
+      <TextButton>Normal</TextButton>
+      <TextButton disabled>Disabled</TextButton>
+      <TextButton loading>Loading</TextButton>
+      <TextButton fullWidth>Full width</TextButton>
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Different interaction states: default, disabled, loading, and full-width.',
+      },
     },
   },
 };
 
-// Historia de colores
-export const Colors = () => (
-  <div style={{ display: 'flex', gap: '16px', alignItems: 'center', flexWrap: 'wrap' }}>
-    <TextButton color="primary">Primario</TextButton>
-    <TextButton color="secondary">Secundario</TextButton>
-    <TextButton color="error">Error</TextButton>
-    <TextButton color="success">Éxito</TextButton>
-    <TextButton color="warning">Advertencia</TextButton>
-    <TextButton color="inherit">Heredado</TextButton>
-  </div>
-);
-Colors.parameters = {
-  docs: {
-    description: {
-      story: 'Diferentes colores para el botón de texto. Controla el color con la propiedad `color`.',
-    },
-  },
-};
-
-// Historia de estados
-export const States = () => (
-  <div style={{ display: 'flex', gap: '16px', alignItems: 'center', flexWrap: 'wrap' }}>
-    <TextButton>Normal</TextButton>
-    <TextButton disabled>Deshabilitado</TextButton>
-    <TextButton loading>Cargando</TextButton>
-    <TextButton fullWidth>Ancho completo</TextButton>
-  </div>
-);
-States.parameters = {
-  docs: {
-    description: {
-      story: 'Diferentes estados del botón de texto: normal, deshabilitado, cargando y ancho completo.',
-    },
-  },
-};
-
-// Historia de subrayado
-export const Underline = () => (
-  <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-    <TextButton underline="none">Sin subrayado</TextButton>
-    <TextButton underline="hover">Subrayado al pasar</TextButton>
-    <TextButton underline="always">Siempre subrayado</TextButton>
-  </div>
-);
-Underline.parameters = {
-  docs: {
-    description: {
-      story: 'Diferentes estilos de subrayado para el botón de texto. Controla el subrayado con la propiedad `underline`.',
+export const Underline: Story = {
+  render: () => (
+    <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+      <TextButton underline="none">None</TextButton>
+      <TextButton underline="hover">Hover</TextButton>
+      <TextButton underline="always">Always</TextButton>
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Underline display options: none, on hover, or always visible.',
+      },
     },
   },
 };

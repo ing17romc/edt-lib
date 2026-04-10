@@ -19,43 +19,59 @@ const meta: Meta<typeof Pagination> = {
   argTypes: {
     totalPages: {
       control: { type: 'number', min: 1 },
-      description: 'Número total de páginas',
+      description: 'Total number of pages.',
+      table: { type: { summary: 'number' } },
     },
     currentPage: {
       control: { type: 'number', min: 1 },
-      description: 'Página actual',
+      description: 'Currently active page (1-based).',
+      table: { type: { summary: 'number' } },
     },
     onPageChange: {
       action: 'pageChanged',
-      description: 'Función que se ejecuta cuando se cambia de página',
+      description: 'Callback fired with the new page number when the user navigates.',
+      table: { type: { summary: '(page: number) => void' } },
     },
     maxPageButtons: {
       control: { type: 'number', min: 3, max: 10 },
-      description: 'Número máximo de botones de página a mostrar',
+      description: 'Maximum number of page buttons visible at once. Defaults to 5.',
+      table: { type: { summary: 'number' }, defaultValue: { summary: '5' } },
     },
     previousLabel: {
       control: 'text',
-      description: 'Texto para el botón de página anterior',
+      description: 'Label for the previous-page button.',
+      table: { type: { summary: 'string' }, defaultValue: { summary: '←' } },
     },
     nextLabel: {
       control: 'text',
-      description: 'Texto para el botón de página siguiente',
+      description: 'Label for the next-page button.',
+      table: { type: { summary: 'string' }, defaultValue: { summary: '→' } },
     },
     disabled: {
       control: 'boolean',
-      description: 'Indica si el componente está deshabilitado',
+      description: 'When true, all pagination controls are non-interactive.',
+      table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' } },
     },
     className: {
       control: 'text',
-      description: 'Clase CSS personalizada',
+      description: 'Additional CSS class names for the pagination root element.',
+      table: { type: { summary: 'string' } },
     },
     size: {
       control: 'select',
       options: Object.values(ComponentSize),
-      description: 'Tamaño del componente',
+      description: 'Size of the pagination buttons.',
       table: {
         type: { summary: Object.values(ComponentSize).join(' | ') },
         defaultValue: { summary: ComponentSize.MEDIUM },
+      },
+    },
+  },
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A navigation component for paginated data sets. Renders numbered page buttons with previous/next controls, configurable size, and a disabled state.',
       },
     },
   },

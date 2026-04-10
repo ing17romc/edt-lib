@@ -1,9 +1,18 @@
-import type { Meta } from '@storybook/react';
+import type { Meta } from '@storybook/react-vite';
 import { TextButtonProps } from '../types';
 import { ComponentSize } from '../../types';
 
+export const parameters = {
+  docs: {
+    description: {
+      component:
+        'A text-style button for secondary actions. Supports configurable color, underline style, size, loading state, and full-width layout.',
+    },
+  },
+};
+
 export const defaultArgs: Partial<TextButtonProps> = {
-  children: 'Botón de texto',
+  children: 'Text button',
   color: 'primary',
   size: ComponentSize.MEDIUM,
   underline: 'hover',
@@ -16,7 +25,7 @@ export const argTypes: Meta<TextButtonProps>['argTypes'] = {
   size: {
     control: 'select',
     options: Object.values(ComponentSize),
-    description: 'Tamaño del botón de texto',
+    description: 'Size of the text button.',
     table: {
       type: { summary: Object.values(ComponentSize).join(' | ') },
       defaultValue: { summary: ComponentSize.MEDIUM },
@@ -25,7 +34,7 @@ export const argTypes: Meta<TextButtonProps>['argTypes'] = {
   color: {
     control: 'select',
     options: ['primary', 'secondary', 'error', 'success', 'warning', 'inherit'],
-    description: 'Color del texto del botón',
+    description: 'Color tone of the button text.',
     table: {
       type: { summary: 'primary | secondary | error | success | warning | inherit' },
       defaultValue: { summary: 'primary' },
@@ -34,7 +43,7 @@ export const argTypes: Meta<TextButtonProps>['argTypes'] = {
   underline: {
     control: 'select',
     options: ['none', 'hover', 'always'],
-    description: 'Estilo de subrayado del botón',
+    description: 'Underline style — none, visible only on hover, or always shown.',
     table: {
       type: { summary: 'none | hover | always' },
       defaultValue: { summary: 'hover' },
@@ -42,7 +51,7 @@ export const argTypes: Meta<TextButtonProps>['argTypes'] = {
   },
   disabled: {
     control: 'boolean',
-    description: 'Si el botón está deshabilitado',
+    description: 'When true, the button is non-interactive and visually muted.',
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: 'false' },
@@ -50,7 +59,7 @@ export const argTypes: Meta<TextButtonProps>['argTypes'] = {
   },
   loading: {
     control: 'boolean',
-    description: 'Si muestra un indicador de carga',
+    description: 'When true, shows a loading spinner inside the button.',
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: 'false' },
@@ -58,7 +67,7 @@ export const argTypes: Meta<TextButtonProps>['argTypes'] = {
   },
   fullWidth: {
     control: 'boolean',
-    description: 'Si el botón ocupa todo el ancho disponible',
+    description: 'When true, the button stretches to fill the full width of its container.',
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: 'false' },

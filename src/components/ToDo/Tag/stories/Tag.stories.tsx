@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import Tag from '..';
-import { defaultArgs, argTypes, allVariants, allSizes } from './mocks';
+import { defaultArgs, argTypes, allVariants, allSizes, parameters } from './mocks';
 import { ComponentVariant, ComponentSize } from '../../../types';
 
 const meta: Meta<typeof Tag> = {
@@ -10,13 +10,14 @@ const meta: Meta<typeof Tag> = {
   tags: ['autodocs'],
   argTypes,
   args: defaultArgs,
+  parameters,
 };
 
 export default meta;
 type Story = StoryObj<typeof Tag>;
 
 export const Default: Story = {
-  args: { children: 'Etiqueta' },
+  args: { children: 'Tag label' },
 };
 
 export const Variants: Story = {

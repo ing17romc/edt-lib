@@ -1,7 +1,7 @@
 import { MessageProps } from '../types'
 import { ComponentVariant } from '../../../types'
 
-export const mockOnClose = vi.fn()
+export const mockOnClose = () => {}
 
 export const defaultArgs: Partial<MessageProps> = {
   variant: ComponentVariant.PRIMARY,
@@ -17,7 +17,39 @@ export const argTypes = {
       ComponentVariant.DANGER,
       ComponentVariant.WARNING,
     ],
+    description: 'Color variant that conveys the intent of the message.',
+    table: {
+      type: { summary: 'primary | success | danger | warning' },
+      defaultValue: { summary: ComponentVariant.PRIMARY },
+    },
   },
-  closable: { control: 'boolean' },
-  title: { control: 'text' },
+  closable: {
+    control: 'boolean',
+    description: 'When true, a dismiss button is shown to close the message.',
+    table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' } },
+  },
+  title: {
+    control: 'text',
+    description: 'Optional bold title rendered above the message body.',
+    table: { type: { summary: 'string' } },
+  },
+  children: {
+    control: 'text',
+    description: 'Main message content.',
+    table: { type: { summary: 'ReactNode' } },
+  },
+  onClose: {
+    action: 'closed',
+    description: 'Callback fired when the dismiss button is clicked.',
+    table: { type: { summary: '() => void' } },
+  },
+}
+
+export const parameters = {
+  docs: {
+    description: {
+      component:
+        'An inline message banner for displaying feedback such as info, success, warning, or error states. Supports an optional title, body content, and a dismissible close button.',
+    },
+  },
 }

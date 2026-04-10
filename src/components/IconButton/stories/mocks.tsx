@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/react';
+import { Meta } from '@storybook/react-vite';
 import { ComponentSize, ComponentVariant } from '../../types';
 
 // Configuración de la meta para las historias
@@ -7,12 +7,13 @@ export const meta: Meta = {
   argTypes: {
     icon: {
       control: { type: 'text' },
-      description: 'Nombre del icono a mostrar',
+      description: 'Name of the icon to display (Material Symbols identifier).',
+      table: { type: { summary: 'string' } },
     },
     size: {
       control: 'select',
       options: Object.values(ComponentSize),
-      description: 'Tamaño',
+      description: 'Size of the icon button.',
       table: {
         type: { summary: Object.values(ComponentSize).join(' | ') },
         defaultValue: { summary: ComponentSize.MEDIUM },
@@ -21,15 +22,15 @@ export const meta: Meta = {
     variant: {
       control: { type: 'select' },
       options: ['primary', 'secondary', 'tertiary', 'danger', 'success', 'warning'],
-      description: 'Variante visual del botón',
+      description: 'Visual color variant of the button.',
       table: {
-        type: { summary: 'string' },
+        type: { summary: 'primary | secondary | tertiary | danger | success | warning' },
         defaultValue: { summary: '"primary"' },
       },
     },
     disabled: {
       control: { type: 'boolean' },
-      description: 'Si el botón está deshabilitado',
+      description: 'When true, the button is non-interactive and visually muted.',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: 'false' },
@@ -37,7 +38,7 @@ export const meta: Meta = {
     },
     loading: {
       control: { type: 'boolean' },
-      description: 'Si muestra un indicador de carga',
+      description: 'When true, shows a loading spinner instead of the icon.',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: 'false' },
@@ -45,7 +46,7 @@ export const meta: Meta = {
     },
     fullWidth: {
       control: { type: 'boolean' },
-      description: 'Si el botón ocupa todo el ancho disponible',
+      description: 'When true, the button expands to fill the full width of its container.',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: 'false' },
@@ -54,30 +55,30 @@ export const meta: Meta = {
     iconVariant: {
       control: { type: 'select' },
       options: ['solid', 'outline', 'dual'],
-      description: 'Estilo del icono',
+      description: 'Rendering style of the icon — solid fill, outline, or dual-tone.',
       table: {
-        type: { summary: 'string' },
+        type: { summary: 'solid | outline | dual' },
         defaultValue: { summary: '"outline"' },
       },
     },
     iconColor: {
       control: { type: 'color' },
-      description: 'Color personalizado para el icono',
+      description: 'Custom color override for the icon.',
       table: {
         type: { summary: 'string' },
       },
     },
     onClick: {
       action: 'clicked',
-      description: 'Manejador de clic',
+      description: 'Callback fired when the button is clicked.',
       table: {
-        type: { summary: 'function' },
+        type: { summary: '() => void' },
       },
     },
   },
   args: {
     icon: 'home',
-    'aria-label': 'Botón de ejemplo',
+    'aria-label': 'Example button',
     size: ComponentSize.MEDIUM,
     variant: 'primary',
     disabled: false,
@@ -87,17 +88,26 @@ export const meta: Meta = {
   },
 };
 
-// Opciones de tamaños para mostrar en las historias
+export const parameters = {
+  docs: {
+    description: {
+      component:
+        'A compact button that renders an icon as its primary content. Supports all button variants, sizes, loading state, and a custom icon color override.',
+    },
+  },
+};
+
+// Size options for showcase stories
 export const sizeOptions: { size: ComponentSize; label: string }[] = [
-  { size: ComponentSize.SMALL, label: 'Pequeño' },
-  { size: ComponentSize.MEDIUM, label: 'Mediano' },
-  { size: ComponentSize.LARGE, label: 'Grande' },
+  { size: ComponentSize.SMALL, label: 'Small' },
+  { size: ComponentSize.MEDIUM, label: 'Medium' },
+  { size: ComponentSize.LARGE, label: 'Large' },
 ];
 
-// Opciones de variantes para mostrar en las historias
+// Variant options for showcase stories
 export const variantOptions: { variant: ComponentVariant; label: string }[] = [
-  { variant: ComponentVariant.PRIMARY, label: 'Primario' },
-  { variant: ComponentVariant.SECONDARY, label: 'Secundario' },
+  { variant: ComponentVariant.PRIMARY, label: 'Primary' },
+  { variant: ComponentVariant.SECONDARY, label: 'Secondary' },
   { variant: ComponentVariant.TERTIARY, label: 'Terciario' },
   { variant: ComponentVariant.DANGER, label: 'Peligro' },
   { variant: ComponentVariant.SUCCESS, label: 'Éxito' },

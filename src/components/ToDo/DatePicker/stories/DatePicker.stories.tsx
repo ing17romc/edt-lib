@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import DatePicker from '../index'
-import { defaultArgs, argTypes } from './mocks'
+import { defaultArgs, argTypes, parameters } from './mocks'
 
 const meta: Meta<typeof DatePicker> = {
   title: 'Components/DatePicker',
@@ -9,6 +9,7 @@ const meta: Meta<typeof DatePicker> = {
   tags: ['autodocs'],
   args: defaultArgs,
   argTypes,
+  parameters,
 }
 
 export default meta
@@ -20,20 +21,22 @@ export const Default: Story = {}
 export const WithValue: Story = {
   args: {
     value: '2024-06-15',
-    label: 'Fecha seleccionada',
+    label: 'Selected date',
   },
 }
 
+const InteractiveDatePicker = () => {
+  const [value, setValue] = useState('')
+  return (
+    <div>
+      <DatePicker label="Date of birth" value={value} onChange={setValue} />
+      {value && <p style={{ marginTop: 8 }}>Selected: {value}</p>}
+    </div>
+  )
+}
+
 export const Interactive: Story = {
-  render: () => {
-    const [value, setValue] = useState('')
-    return (
-      <div>
-        <DatePicker label="Fecha de nacimiento" value={value} onChange={setValue} />
-        {value && <p style={{ marginTop: 8 }}>Seleccionada: {value}</p>}
-      </div>
-    )
-  },
+  render: () => <InteractiveDatePicker />,
 }
 
 export const WithMinMax: Story = {
@@ -41,7 +44,7 @@ export const WithMinMax: Story = {
     value: '2024-06-15',
     min: '2024-06-01',
     max: '2024-06-30',
-    label: 'Solo junio 2024',
+    label: 'June 2024 only',
   },
 }
 
@@ -49,6 +52,6 @@ export const Disabled: Story = {
   args: {
     value: '2024-06-15',
     disabled: true,
-    label: 'Campo deshabilitado',
+    label: 'Disabled field',
   },
 }

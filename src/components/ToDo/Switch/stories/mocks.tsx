@@ -1,9 +1,9 @@
-import type { Meta } from '@storybook/react';
+import type { Meta } from '@storybook/react-vite';
 import { SwitchProps } from '../types';
 import { ComponentSize } from '../../../types';
 
 export const defaultArgs: Partial<SwitchProps> = {
-  label: 'Activar opción',
+  label: 'Enable option',
   checked: false,
   size: ComponentSize.MEDIUM,
   disabled: false,
@@ -13,7 +13,7 @@ export const argTypes: Meta<SwitchProps>['argTypes'] = {
   size: {
     control: 'select',
     options: Object.values(ComponentSize),
-    description: 'Tamaño del switch',
+    description: 'Size of the switch toggle.',
     table: {
       type: { summary: Object.values(ComponentSize).join(' | ') },
       defaultValue: { summary: ComponentSize.MEDIUM },
@@ -21,17 +21,32 @@ export const argTypes: Meta<SwitchProps>['argTypes'] = {
   },
   checked: {
     control: 'boolean',
-    description: 'Estado del switch',
+    description: 'Controlled on/off state of the switch.',
     table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' } },
   },
   disabled: {
     control: 'boolean',
-    description: 'Si el switch está deshabilitado',
+    description: 'When true, the switch is non-interactive and visually muted.',
     table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' } },
   },
   label: {
     control: 'text',
-    description: 'Etiqueta del switch',
+    description: 'Text label rendered next to the switch toggle.',
+    table: { type: { summary: 'string' } },
+  },
+  onChange: {
+    action: 'changed',
+    description: 'Callback fired with the new checked state when the switch is toggled.',
+    table: { type: { summary: '(checked: boolean) => void' } },
+  },
+};
+
+export const parameters = {
+  docs: {
+    description: {
+      component:
+        'A toggle switch for boolean settings. Supports multiple sizes, a text label, controlled checked state, and a disabled mode.',
+    },
   },
 };
 

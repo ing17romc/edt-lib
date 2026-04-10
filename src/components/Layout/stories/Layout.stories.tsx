@@ -12,7 +12,16 @@ const meta: Meta<typeof Layout> = {
   argTypes: {
     className: {
       control: 'text',
-      description: 'Clase CSS adicional para el contenedor principal',
+      description: 'Additional CSS class name for the root container.',
+      table: { type: { summary: 'string' } },
+    },
+  },
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A full-page shell that arranges a NavBar, scrollable main content, and a Footer in a vertical flex column. Provides consistent page structure across the application.',
+      },
     },
   },
 };
@@ -33,8 +42,8 @@ export const Default: Story = {
         width: '100%',
         margin: '0 auto'
       }}>
-        <h2>Contenido Principal</h2>
-        <p>Este es el contenido principal de la aplicación. Aquí iría el contenido específico de cada página.</p>
+        <h2>Main Content</h2>
+        <p>This is the main content area. Each page would render its specific content here.</p>
       </main>
       <Footer>
         <MockFooterContent />
@@ -44,12 +53,12 @@ export const Default: Story = {
   args: {},
 };
 
-export const SinBarraDeNavegacion: Story = {
+export const WithoutNavBar: Story = {
     render: (args) => (
         <Layout {...args}>
             <main style={{ padding: '2rem', flex: 1 }}>
-                <h2>Contenido sin barra de navegación</h2>
-                <p>Esta es una página sin barra de navegación.</p>
+                <h2>Content without a navigation bar</h2>
+                <p>This page has no NavBar — useful for login pages or standalone views.</p>
             </main>
             <Footer />
         </Layout>
@@ -57,10 +66,10 @@ export const SinBarraDeNavegacion: Story = {
     args: {},
 };
 
-export const ConClasePersonalizada: Story = {
+export const WithCustomClass: Story = {
     render: (args) => (
         <Layout {...args}>
-            <NavBar logo={<MockLogo />} title="Mi Aplicación">
+            <NavBar logo={<MockLogo />} title="My App">
                 <MockNav />
             </NavBar>
             <main style={{
@@ -70,8 +79,8 @@ export const ConClasePersonalizada: Story = {
                 width: '100%',
                 margin: '0 auto'
             }}>
-                <h2>Contenido con Clase Personalizada</h2>
-                <p>Este es un ejemplo de Layout con una clase personalizada aplicada al contenedor principal.</p>
+                <h2>Content with a custom class</h2>
+                <p>This example shows a Layout with a custom CSS class applied to the root container.</p>
             </main>
             <Footer>
                 <MockFooterContent />

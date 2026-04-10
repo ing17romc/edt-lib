@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import Message from '../index'
 import { ComponentVariant } from '../../../types'
-import { defaultArgs, argTypes } from './mocks'
+import { defaultArgs, argTypes, parameters } from './mocks'
 
 const meta: Meta<typeof Message> = {
   title: 'Components/Message',
@@ -10,9 +10,10 @@ const meta: Meta<typeof Message> = {
   tags: ['autodocs'],
   args: {
     ...defaultArgs,
-    children: 'Este es un mensaje informativo con información importante.',
+    children: 'This is an informational message with important content.',
   },
   argTypes,
+  parameters,
 }
 
 export default meta
@@ -24,43 +25,45 @@ export const Default: Story = {}
 export const Variants: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-      <Message variant={ComponentVariant.PRIMARY}>Mensaje informativo.</Message>
-      <Message variant={ComponentVariant.SUCCESS}>Operación completada con éxito.</Message>
-      <Message variant={ComponentVariant.DANGER}>Ha ocurrido un error inesperado.</Message>
-      <Message variant={ComponentVariant.WARNING}>Revisa la información antes de continuar.</Message>
+      <Message variant={ComponentVariant.PRIMARY}>Informational message.</Message>
+      <Message variant={ComponentVariant.SUCCESS}>Operation completed successfully.</Message>
+      <Message variant={ComponentVariant.DANGER}>An unexpected error has occurred.</Message>
+      <Message variant={ComponentVariant.WARNING}>Please review the information before continuing.</Message>
     </div>
   ),
 }
 
 export const WithTitle: Story = {
   args: {
-    title: 'Título del mensaje',
+    title: 'Message title',
     variant: ComponentVariant.PRIMARY,
-    children: 'Descripción detallada del mensaje.',
+    children: 'Detailed message description.',
   },
 }
 
+const ClosableMessage = () => {
+  const [open, setOpen] = useState(true)
+  return (
+    <div>
+      {!open && (
+        <button type="button" onClick={() => setOpen(true)}>
+          Show message
+        </button>
+      )}
+      {open && (
+        <Message
+          variant={ComponentVariant.SUCCESS}
+          title="Saved successfully"
+          closable
+          onClose={() => setOpen(false)}
+        >
+          Changes have been saved correctly.
+        </Message>
+      )}
+    </div>
+  )
+}
+
 export const Closable: Story = {
-  render: () => {
-    const [open, setOpen] = useState(true)
-    return (
-      <div>
-        {!open && (
-          <button type="button" onClick={() => setOpen(true)}>
-            Mostrar mensaje
-          </button>
-        )}
-        {open && (
-          <Message
-            variant={ComponentVariant.SUCCESS}
-            title="Guardado exitoso"
-            closable
-            onClose={() => setOpen(false)}
-          >
-            Los cambios se han guardado correctamente.
-          </Message>
-        )}
-      </div>
-    )
-  },
+  render: () => <ClosableMessage />,
 }

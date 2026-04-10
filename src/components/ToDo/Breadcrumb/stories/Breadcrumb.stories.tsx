@@ -1,7 +1,6 @@
-import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import Breadcrumb from '../index'
-import { defaultArgs, argTypes } from './mocks'
+import { defaultArgs, argTypes, parameters } from './mocks'
 
 const meta: Meta<typeof Breadcrumb> = {
   title: 'Components/Breadcrumb',
@@ -9,6 +8,7 @@ const meta: Meta<typeof Breadcrumb> = {
   tags: ['autodocs'],
   args: defaultArgs,
   argTypes,
+  parameters,
 }
 
 export default meta
@@ -25,18 +25,18 @@ export const CustomSeparator: Story = {
 
 export const SingleItem: Story = {
   args: {
-    items: [{ label: 'Inicio' }],
+    items: [{ label: 'Home' }],
   },
 }
 
 export const DeepNavigation: Story = {
   args: {
     items: [
-      { label: 'Inicio', href: '/' },
+      { label: 'Home', href: '/' },
       { label: 'Blog', href: '/blog' },
-      { label: 'Tecnología', href: '/blog/tecnologia' },
-      { label: 'React', href: '/blog/tecnologia/react' },
-      { label: 'Componentes' },
+      { label: 'Technology', href: '/blog/technology' },
+      { label: 'React', href: '/blog/technology/react' },
+      { label: 'Components' },
     ],
   },
 }

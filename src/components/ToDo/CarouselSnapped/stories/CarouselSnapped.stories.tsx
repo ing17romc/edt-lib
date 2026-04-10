@@ -1,7 +1,7 @@
 import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import CarouselSnapped from '../index'
-import { defaultArgs, argTypes } from './mocks'
+import { defaultArgs, argTypes, parameters } from './mocks'
 
 const sampleSlides = [
   {
@@ -39,6 +39,7 @@ const meta: Meta<typeof CarouselSnapped> = {
     slides: sampleSlides,
   },
   argTypes,
+  parameters,
 }
 
 export default meta

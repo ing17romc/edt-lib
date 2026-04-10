@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, isValidElement, cloneElement } from 'react'
 import classNames from '../../../utils/classNames'
 import styles from './styles/FloatingMenu.module.scss'
 import { FloatingMenuProps, FloatingMenuItem } from './types'
@@ -39,6 +39,22 @@ const FloatingMenu = ({
     setOpen(false)
   }
 
+  const handleOpen = () => {
+    if (!disabled) setOpen((v) => !v)
+  }
+
+  const enhancedTrigger = isValidElement(trigger)
+    ? cloneElement(trigger as React.ReactElement<React.DOMAttributes<HTMLElement>>, {
+        onClick: handleOpen,
+        onKeyDown: (e: React.KeyboardEvent) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault()
+            handleOpen()
+          }
+        },
+      })
+    : trigger
+
   return (
     <div
       ref={containerRef}
@@ -47,9 +63,8 @@ const FloatingMenu = ({
     >
       <div
         className={styles.trigger}
-        onClick={() => !disabled && setOpen((v) => !v)}
       >
-        {trigger}
+        {enhancedTrigger}
       </div>
       {open && (
         <ul

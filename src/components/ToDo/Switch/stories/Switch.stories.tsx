@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import Switch from '..';
-import { defaultArgs, argTypes, allSizes } from './mocks';
+import { defaultArgs, argTypes, allSizes, parameters } from './mocks';
 import { ComponentSize } from '../../../types';
 
 const meta: Meta<typeof Switch> = {
@@ -10,17 +10,18 @@ const meta: Meta<typeof Switch> = {
   tags: ['autodocs'],
   argTypes,
   args: defaultArgs,
+  parameters,
 };
 
 export default meta;
 type Story = StoryObj<typeof Switch>;
 
 export const Default: Story = {
-  args: { label: 'Activar opción' },
+  args: { label: 'Enable option' },
 };
 
 export const Checked: Story = {
-  args: { label: 'Activado', checked: true },
+  args: { label: 'Enabled', checked: true },
 };
 
 export const Sizes: Story = {
@@ -34,20 +35,22 @@ export const Sizes: Story = {
   parameters: { docs: { source: { code: null } } },
 };
 
+const InteractiveSwitch = () => {
+  const [checked, setChecked] = useState(false);
+  return (
+    <Switch
+      label={checked ? 'Enabled' : 'Disabled'}
+      checked={checked}
+      onChange={setChecked}
+    />
+  );
+};
+
 export const Interactive: Story = {
-  render: () => {
-    const [checked, setChecked] = useState(false);
-    return (
-      <Switch
-        label={checked ? 'Activado' : 'Desactivado'}
-        checked={checked}
-        onChange={setChecked}
-      />
-    );
-  },
+  render: () => <InteractiveSwitch />,
   parameters: { docs: { source: { code: null } } },
 };
 
 export const Disabled: Story = {
-  args: { label: 'Deshabilitado', disabled: true },
+  args: { label: 'Disabled', disabled: true },
 };

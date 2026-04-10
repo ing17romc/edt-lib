@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Card, CardVariant } from '..';
-import { mockCardProps, mockCardWithoutImage, mockClickableCard, mockOutlinedCard, mockFilledCard } from './mocks';
+import { Card } from '..';
+import { mockCardProps, mockCardWithoutImage, mockClickableCard, mockOutlinedCard, mockFilledCard, argTypes, parameters } from './mocks';
 import styles from '../styles/Card.module.scss';
 
 /**
@@ -26,46 +26,8 @@ const meta: Meta<typeof Card> = {
   args: {
     ...mockCardProps,
   },
-  argTypes: {
-    variant: {
-      control: 'select',
-      options: Object.values(CardVariant),
-      description: 'Variante visual de la tarjeta',
-      table: {
-        type: { summary: 'CardVariant' },
-        defaultValue: { summary: 'elevated' },
-      },
-    },
-    title: {
-      control: 'text',
-      description: 'Título principal de la tarjeta',
-    },
-    subtitle: {
-      control: 'text',
-      description: 'Subtítulo opcional',
-    },
-    imageUrl: {
-      control: 'text',
-      description: 'URL de la imagen a mostrar en la parte superior',
-    },
-    imageAlt: {
-      control: 'text',
-      description: 'Texto alternativo para la imagen',
-    },
-
-    className: {
-      control: 'text',
-      description: 'Clases CSS adicionales',
-    },
-  },
-  parameters: {
-    layout: 'centered',
-    docs: {
-      description: {
-        component: 'Un componente de tarjeta flexible que puede contener cualquier tipo de contenido.',
-      },
-    },
-  },
+  argTypes,
+  parameters,
   decorators: [
     (Story) => (
       <div className={styles['story-card']}>
