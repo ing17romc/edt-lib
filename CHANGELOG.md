@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.16.0] - 2026-04-10
+
+### Documentation
+- Standardized component, utility, and static documentation in English across props, inline docs, Storybook descriptions, and helper copy
+- Updated Storybook examples and demo content to use a consistent English naming pattern
+
+### Improvements
+- Standardized accessibility and UI labels in examples and tests across interactive components such as Modal, Pagination, Spinner, Tooltip, Tabs, Snackbar, and related ToDo components
+- Improved Storybook typing in `TextArea` and `TextBox` stories by aligning meta and story definitions with `Meta` and `StoryObj` patterns used in the library
+
+### Fixes
+- Updated unit tests, mocks, and snapshots to match the new English-facing labels and example content
+- Added missing Storybook metadata where needed to keep docs generation consistent
+
 ## [2.15.0] - 2026-04-10
 
 ### Documentation
