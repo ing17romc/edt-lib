@@ -1,0 +1,43 @@
+import{t as e}from"./iframe-YpqvHZo3.js";import{t}from"./jsx-runtime-ChNUh70B.js";import{t as n}from"./types-BTwUNDvM.js";import{n as r,t as i}from"./Selector-CfjVxUg1.js";e();var a=t(),o=[{value:`1`,label:`Opción 1`},{value:`2`,label:`Opción 2`},{value:`3`,label:`Opción 3 (Deshabilitada)`,disabled:!0},{value:`4`,label:`Opción 4`}],s=[{label:`Grupo 1`,options:[{value:`1-1`,label:`Opción 1.1`},{value:`1-2`,label:`Opción 1.2`}]},{label:`Grupo 2`,options:[{value:`2-1`,label:`Opción 2.1`},{value:`2-2`,label:`Opción 2.2 (Deshabilitada)`,disabled:!0}]}],c=Array.from({length:50},(e,t)=>({value:`${t+1}`,label:`Opción ${t+1}`})),l={options:o,label:`Selecciona una opción`,placeholder:`Elige una opción`,variant:r.PRIMARY,size:n.MEDIUM,disabled:!1,loading:!1,fullWidth:!1,error:!1},u={...l,label:void 0},d={...l,helperText:`Selecciona una opción de la lista`},f={...l,error:!0,errorMessage:`Debes seleccionar una opción`},p={...l,disabled:!0},m={...l,loading:!0},h={...l,fullWidth:!0},g={...l,options:c,label:`Muchas opciones`},_=()=>(0,a.jsxs)(`div`,{children:[(0,a.jsx)(`label`,{htmlFor:`grouped-selector`,style:{display:`block`,marginBottom:`8px`,fontWeight:500},children:`Opciones agrupadas`}),(0,a.jsx)(`select`,{id:`grouped-selector`,style:{padding:`8px`,borderRadius:`4px`,border:`1px solid #ccc`,minWidth:`200px`},children:s.map((e,t)=>(0,a.jsx)(`optgroup`,{label:e.label,children:e.options.map(e=>(0,a.jsx)(`option`,{value:e.value,disabled:e.disabled,children:e.label},e.value.toString()))},t))})]}),v=()=>(0,a.jsxs)(`div`,{style:{display:`flex`,flexDirection:`column`,gap:`1rem`},children:[(0,a.jsx)(i,{...l,label:`Selector pequeño`,size:n.SMALL}),(0,a.jsx)(i,{...l,label:`Selector mediano (por defecto)`,size:n.MEDIUM}),(0,a.jsx)(i,{...l,label:`Selector grande`,size:n.LARGE})]});_.__docgenInfo={description:``,methods:[],displayName:`OptionGroupsComponent`},v.__docgenInfo={description:``,methods:[],displayName:`SizesComponent`};var y={title:`Components/Selector`,component:i,tags:[`autodocs`],argTypes:{options:{control:!1,description:"Array of selectable option objects. Each item requires a `value` and `label`, with an optional `disabled` flag.",table:{type:{summary:`SelectorOption[]`}}},value:{control:`text`,description:`Currently selected value (controlled mode).`,table:{type:{summary:`string`}}},defaultValue:{control:`text`,description:`Initial selected value (uncontrolled mode).`,table:{type:{summary:`string`}}},onChange:{action:`changed`,description:`Callback fired with the selected value when the user picks an option.`,table:{type:{summary:`(value: string) => void`}}},label:{control:`text`,description:`Label text displayed above the selector.`,table:{type:{summary:`string`}}},placeholder:{control:`text`,description:`Placeholder text shown when no option is selected.`,table:{type:{summary:`string`}}},helperText:{control:`text`,description:`Hint text displayed below the selector.`,table:{type:{summary:`string`}}},errorMessage:{control:`text`,description:`Error message shown when error is true.`,table:{type:{summary:`string`}}},variant:{control:`select`,options:Object.values(r),description:`Visual style variant of the selector.`,table:{type:{summary:Object.values(r).join(` | `)},defaultValue:{summary:r.PRIMARY}}},size:{control:`select`,options:Object.values(n),description:`Size of the selector field.`,table:{type:{summary:Object.values(n).join(` | `)},defaultValue:{summary:n.MEDIUM}}},disabled:{control:`boolean`,description:`When true, the selector is non-interactive.`,table:{type:{summary:`boolean`},defaultValue:{summary:`false`}}},loading:{control:`boolean`,description:`When true, shows a loading indicator inside the selector.`,table:{type:{summary:`boolean`},defaultValue:{summary:`false`}}},fullWidth:{control:`boolean`,description:`When true, the selector stretches to fill its container width.`,table:{type:{summary:`boolean`},defaultValue:{summary:`false`}}},error:{control:`boolean`,description:`When true, applies an error style to the selector.`,table:{type:{summary:`boolean`},defaultValue:{summary:`false`}}},required:{control:`boolean`,description:`Marks the selector as required and adds a visual indicator.`,table:{type:{summary:`boolean`},defaultValue:{summary:`false`}}}},parameters:{docs:{description:{component:`A fully-featured dropdown selector with support for labels, placeholder, helper text, error state, loading state, grouped options, and multiple visual variants.`}}}},b={args:l},x={args:u},S={args:d},C={args:f},w={args:p},T={args:m},E={args:h},D={args:g},O={render:()=>(0,a.jsx)(_,{})},k={render:()=>(0,a.jsx)(v,{})},A={render:()=>(0,a.jsxs)(`div`,{style:{display:`flex`,flexDirection:`column`,gap:`1rem`},children:[(0,a.jsx)(i,{options:o,label:`Variante primaria (por defecto)`,variant:r.PRIMARY}),(0,a.jsx)(i,{options:o,label:`Variante secundaria`,variant:r.SECONDARY}),(0,a.jsx)(i,{options:o,label:`Variante de peligro`,variant:r.DANGER}),(0,a.jsx)(i,{options:o,label:`Variante de éxito`,variant:r.SUCCESS}),(0,a.jsx)(i,{options:o,label:`Variante de advertencia`,variant:r.WARNING})]})},j={args:{defaultValue:`2`,label:`Con valor por defecto`}},M={args:{label:`Campo obligatorio`,required:!0}};b.parameters={...b.parameters,docs:{...b.parameters?.docs,source:{originalSource:`{
+  args: defaultArgs
+}`,...b.parameters?.docs?.source}}},x.parameters={...x.parameters,docs:{...x.parameters?.docs,source:{originalSource:`{
+  args: withoutLabelArgs
+}`,...x.parameters?.docs?.source}}},S.parameters={...S.parameters,docs:{...S.parameters?.docs,source:{originalSource:`{
+  args: withHelperTextArgs
+}`,...S.parameters?.docs?.source}}},C.parameters={...C.parameters,docs:{...C.parameters?.docs,source:{originalSource:`{
+  args: errorStateArgs
+}`,...C.parameters?.docs?.source}}},w.parameters={...w.parameters,docs:{...w.parameters?.docs,source:{originalSource:`{
+  args: disabledArgs
+}`,...w.parameters?.docs?.source}}},T.parameters={...T.parameters,docs:{...T.parameters?.docs,source:{originalSource:`{
+  args: loadingArgs
+}`,...T.parameters?.docs?.source}}},E.parameters={...E.parameters,docs:{...E.parameters?.docs,source:{originalSource:`{
+  args: fullWidthArgs
+}`,...E.parameters?.docs?.source}}},D.parameters={...D.parameters,docs:{...D.parameters?.docs,source:{originalSource:`{
+  args: withManyOptionsArgs
+}`,...D.parameters?.docs?.source}}},O.parameters={...O.parameters,docs:{...O.parameters?.docs,source:{originalSource:`{
+  render: () => <OptionGroupsComponent />
+}`,...O.parameters?.docs?.source}}},k.parameters={...k.parameters,docs:{...k.parameters?.docs,source:{originalSource:`{
+  render: () => <SizesComponent />
+}`,...k.parameters?.docs?.source}}},A.parameters={...A.parameters,docs:{...A.parameters?.docs,source:{originalSource:`{
+  render: () => <div style={{
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '1rem'
+  }}>\r
+      <Selector options={mockOptions} label="Variante primaria (por defecto)" variant={SelectorVariant.PRIMARY} />\r
+      <Selector options={mockOptions} label="Variante secundaria" variant={SelectorVariant.SECONDARY} />\r
+      <Selector options={mockOptions} label="Variante de peligro" variant={SelectorVariant.DANGER} />\r
+      <Selector options={mockOptions} label="Variante de éxito" variant={SelectorVariant.SUCCESS} />\r
+      <Selector options={mockOptions} label="Variante de advertencia" variant={SelectorVariant.WARNING} />\r
+    </div>
+}`,...A.parameters?.docs?.source},description:{story:`Selector con diferentes variantes.`,...A.parameters?.docs?.description}}},j.parameters={...j.parameters,docs:{...j.parameters?.docs,source:{originalSource:`{
+  args: {
+    defaultValue: '2',
+    label: 'Con valor por defecto'
+  }
+}`,...j.parameters?.docs?.source},description:{story:`Selector con opción por defecto seleccionada.`,...j.parameters?.docs?.description}}},M.parameters={...M.parameters,docs:{...M.parameters?.docs,source:{originalSource:`{
+  args: {
+    label: 'Campo obligatorio',
+    required: true
+  }
+}`,...M.parameters?.docs?.source},description:{story:`Selector requerido con indicador de campo obligatorio.`,...M.parameters?.docs?.description}}};var N=[`Default`,`WithoutLabel`,`WithHelperText`,`ErrorState`,`Disabled`,`Loading`,`FullWidth`,`WithManyOptions`,`WithOptionGroups`,`Sizes`,`Variants`,`WithDefaultValue`,`RequiredField`];export{b as Default,w as Disabled,C as ErrorState,E as FullWidth,T as Loading,M as RequiredField,k as Sizes,A as Variants,j as WithDefaultValue,S as WithHelperText,D as WithManyOptions,O as WithOptionGroups,x as WithoutLabel,N as __namedExportsOrder,y as default};
