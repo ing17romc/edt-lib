@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import TableWithPagination from '..';
 import type { TableRowData } from '../types';
 
-// Datos de ejemplo para las historias
+// Sample data for stories
 const generateSampleData = (count: number): TableRowData[] => {
   const names = ['John', 'Jane', 'Robert', 'Emily', 'Michael', 'Sarah', 'David', 'Emma', 'James', 'Olivia'];
   const lastNames = ['Doe', 'Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Garcia', 'Miller', 'Davis', 'Rodriguez'];
@@ -18,7 +18,7 @@ const smallDataset = generateSampleData(5);
 const mediumDataset = generateSampleData(15);
 const largeDataset = generateSampleData(50);
 
-// Configuración del componente en Storybook
+// Storybook component configuration
 const meta: Meta<typeof TableWithPagination> = {
   title: 'Examples/Tables/TableWithPagination',
   component: TableWithPagination,
@@ -26,7 +26,7 @@ const meta: Meta<typeof TableWithPagination> = {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Tabla con paginación que permite navegar entre páginas de datos y ajustar la cantidad de filas mostradas por página. Ideal para grandes conjuntos de datos que necesitan ser divididos en páginas manejables.',
+        component: 'Table with pagination that allows navigating between pages of data and adjusting the number of rows shown per page. Ideal for large data sets that need to be divided into manageable pages.',
       },
     },
   },
@@ -37,7 +37,7 @@ export default meta;
 
 type Story = StoryObj<typeof TableWithPagination>;
 
-// Historia por defecto
+// Default story
 export const Default: Story = {
   args: {
     dataTable: mediumDataset,
@@ -45,13 +45,13 @@ export const Default: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Tabla con paginación que muestra 15 elementos por defecto, distribuidos en varias páginas según sea necesario.',
+        story: 'Table with pagination showing 15 items by default, distributed across multiple pages as needed.',
       },
     },
   },
 };
 
-// Historia con conjunto de datos pequeño
+// Small dataset story
 export const SmallDataset: Story = {
   args: {
     dataTable: smallDataset,
@@ -59,13 +59,13 @@ export const SmallDataset: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Tabla con un conjunto pequeño de datos (menos de una página).',
+        story: 'Table with a small data set (less than one page).',
       },
     },
   },
 };
 
-// Historia con conjunto de datos grande
+// Large dataset story
 export const LargeDataset: Story = {
   args: {
     dataTable: largeDataset,
@@ -73,13 +73,13 @@ export const LargeDataset: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Tabla con un conjunto grande de datos (varias páginas) para probar la paginación completa.',
+        story: 'Table with a large data set (multiple pages) to test full pagination.',
       },
     },
   },
 };
 
-// Historia con estado inicial vacío
+// Empty initial state story
 export const EmptyState: Story = {
   args: {
     dataTable: [],
@@ -87,7 +87,7 @@ export const EmptyState: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Tabla sin datos. Muestra un mensaje indicando que no hay datos disponibles.',
+        story: 'Table with no data. Shows a message indicating that no data is available.',
       },
     },
   },

@@ -10,35 +10,35 @@ describe('Tag Component', () => {
     vi.clearAllMocks();
   });
 
-  describe('Renderizado básico', () => {
-    test('se renderiza correctamente con las props por defecto', () => {
+  describe('Basic rendering', () => {
+    test('renders correctly with default props', () => {
       render(<Tag {...defaultTagProps} />);
-      expect(screen.getByText('Etiqueta')).toBeInTheDocument();
+      expect(screen.getByText('Label')).toBeInTheDocument();
     });
 
-    test('aplica la variante primary por defecto', () => {
+    test('applies the primary variant by default', () => {
       const { container } = render(<Tag>Test</Tag>);
       expect(container.firstChild).toHaveClass('tag--primary');
     });
 
-    test('aplica el tamaño medium por defecto', () => {
+    test('applies the medium size by default', () => {
       const { container } = render(<Tag>Test</Tag>);
       expect(container.firstChild).toHaveClass('tag--medium');
     });
   });
 
-  describe('Variantes', () => {
+  describe('Variants', () => {
     allVariants.forEach(({ variant, children }) => {
-      test(`renderiza correctamente la variante ${variant}`, () => {
+      test(`renders the ${variant} variant correctly`, () => {
         const { container } = render(<Tag variant={variant as ComponentVariant}>{children}</Tag>);
         expect(container.firstChild).toHaveClass(`tag--${variant}`);
       });
     });
   });
 
-  describe('Tamaños', () => {
+  describe('Sizes', () => {
     allSizes.forEach(({ size, children }) => {
-      test(`renderiza correctamente el tamaño ${size}`, () => {
+      test(`renders the ${size} size correctly`, () => {
         const { container } = render(<Tag size={size as ComponentSize}>{children}</Tag>);
         expect(container.firstChild).toHaveClass(`tag--${size}`);
       });
@@ -46,32 +46,32 @@ describe('Tag Component', () => {
   });
 
   describe('Closable', () => {
-    test('no muestra botón de cierre por defecto', () => {
+    test('does not show close button by default', () => {
       render(<Tag {...defaultTagProps} />);
-      expect(screen.queryByRole('button', { name: /cerrar/i })).not.toBeInTheDocument();
+      expect(screen.queryByRole('button', { name: /close/i })).not.toBeInTheDocument();
     });
 
-    test('muestra botón de cierre cuando closable es true', () => {
+    test('shows close button when closable is true', () => {
       render(<Tag {...closableTagProps} />);
-      expect(screen.getByRole('button', { name: /cerrar/i })).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: /close/i })).toBeInTheDocument();
     });
 
-    test('ejecuta onClose al hacer clic en el botón de cierre', () => {
+    test('executes onClose when clicking the close button', () => {
       render(<Tag {...closableTagProps} />);
-      fireEvent.click(screen.getByRole('button', { name: /cerrar/i }));
+      fireEvent.click(screen.getByRole('button', { name: /close/i }));
       expect(mockOnClose).toHaveBeenCalledTimes(1);
     });
   });
 
-  describe('Estado deshabilitado', () => {
-    test('aplica la clase disabled', () => {
+  describe('Disabled state', () => {
+    test('applies the disabled class', () => {
       const { container } = render(<Tag {...disabledTagProps} />);
       expect(container.firstChild).toHaveClass('tag--disabled');
     });
 
-    test('no ejecuta onClose cuando está deshabilitado', () => {
+    test('does not execute onClose when disabled', () => {
       render(<Tag {...disabledTagProps} closable onClose={mockOnClose} />);
-      const closeBtn = screen.getByRole('button', { name: /cerrar/i });
+      const closeBtn = screen.getByRole('button', { name: /close/i });
       expect(closeBtn).toBeDisabled();
     });
   });

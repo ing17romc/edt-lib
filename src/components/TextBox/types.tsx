@@ -5,71 +5,71 @@ export type TextBoxVariant = 'outlined' | 'filled' | 'standard';
 
 export interface TextBoxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
   /**
-   * Etiqueta que se muestra encima del campo de texto
+   * Label displayed above the text field
    */
   label?: string;
   
   /**
-   * Texto de ayuda que se muestra debajo del campo
+   * Helper text displayed below the field
    */
   helperText?: string;
   
   /**
-   * Si es true, muestra un indicador de error
+   * If true, shows an error indicator
    * @default false
    */
   error?: boolean;
   
   /**
-   * Si es true, el campo ocupa todo el ancho disponible
+   * If true, the field takes up the full available width
    * @default false
    */
   fullWidth?: boolean;
   
   /**
-   * Variante de diseño del campo de texto
+   * Design variant of the text field
    * @default 'outlined'
    */
   variant?: TextBoxVariant;
   
   /**
-   * Tamaño del campo de texto
+   * Text field size
    * @default 'medium'
    */
   size?: ComponentSize;
   
   /**
-   * Elemento que se muestra al inicio del campo
+   * Element displayed at the start of the field
    */
   startAdornment?: ReactNode;
   
   /**
-   * Elemento que se muestra al final del campo
+   * Element displayed at the end of the field
    */
   endAdornment?: ReactNode;
   
   /**
-   * Clase CSS personalizada para el contenedor
+   * Custom CSS class for the container
    */
   containerClassName?: string;
   
   /**
-   * Clase CSS personalizada para la etiqueta
+   * Custom CSS class for the label
    */
   labelClassName?: string;
   
   /**
-   * Clase CSS personalizada para el campo de entrada
+   * Custom CSS class for the input field
    */
   inputClassName?: string;
   
   /**
-   * Clase CSS personalizada para el texto de ayuda
+   * Custom CSS class for the helper text
    */
   helperTextClassName?: string;
 
   /**
-   * Permite el paso de atributos `data-*` para propósitos de testing.
+   * Allows passing `data-*` attributes for testing purposes.
    */
   [key: `data-${string}`]: string | number | boolean;
 }

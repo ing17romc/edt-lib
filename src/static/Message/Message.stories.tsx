@@ -10,13 +10,13 @@ export default {
     layout: 'padded',
     docs: {
       description: {
-        component: 'Componente para mostrar mensajes de retroalimentación al usuario con diferentes niveles de importancia.'
+        component: 'Component for displaying feedback messages to the user with different levels of importance.'
       },
     },
   },
   args: {
-    children: 'Mensaje de ejemplo',
-    title: 'Título del mensaje',
+    children: 'Example message',
+    title: 'Message title',
     type: 'info',
     closable: false,
   },
@@ -24,7 +24,7 @@ export default {
     type: {
       control: 'select',
       options: ['success', 'info', 'warning', 'danger'],
-      description: 'Tipo de mensaje',
+      description: 'Message type',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: 'info' },
@@ -32,22 +32,22 @@ export default {
     },
     title: {
       control: 'text',
-      description: 'Título opcional',
+      description: 'Optional title',
     },
     children: {
       control: 'text',
-      description: 'Contenido principal',
+      description: 'Main content',
     },
     closable: {
       control: 'boolean',
-      description: 'Permite cerrar el mensaje',
+      description: 'Allows closing the message',
       table: {
         defaultValue: { summary: 'false' },
       },
     },
     onClose: {
       action: 'onClose',
-      description: 'Manejador de cierre',
+      description: 'Close handler',
     },
   },
 } as Meta<typeof Message>;
@@ -58,15 +58,15 @@ export const Default: Story = {};
 
 export const WithTitle: Story = {
   args: {
-    title: 'Título del mensaje',
-    children: 'Este es un mensaje con título.',
+    title: 'Message title',
+    children: 'This is a message with a title.',
   },
 };
 
 export const Closable: Story = {
   args: {
-    title: 'Mensaje importante',
-    children: 'Este mensaje se puede cerrar.',
+    title: 'Important message',
+    children: 'This message can be closed.',
     closable: true,
   },
 };
@@ -74,17 +74,17 @@ export const Closable: Story = {
 export const Types: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-      <Message type="success" title="Éxito">
-        Operación completada correctamente.
+      <Message type="success" title="Success">
+        Operation completed successfully.
       </Message>
-      <Message type="info" title="Información">
-        Este es un mensaje informativo.
+      <Message type="info" title="Information">
+        This is an informational message.
       </Message>
-      <Message type="warning" title="Advertencia">
-        Esta acción no se puede deshacer.
+      <Message type="warning" title="Warning">
+        This action cannot be undone.
       </Message>
       <Message type="danger" title="Error">
-        Ha ocurrido un error al procesar la solicitud.
+        An error occurred while processing the request.
       </Message>
     </div>
   ),
@@ -92,13 +92,13 @@ export const Types: Story = {
 
 export const WithCustomContent: Story = {
   render: () => (
-    <Message type="info" title="Actualización disponible">
+    <Message type="info" title="Update available">
       <div>
-        <p>Nuevas características disponibles:</p>
+        <p>New features available:</p>
         <ul style={{ margin: '0.5rem 0 0 1rem', paddingLeft: '1rem' }}>
-          <li>Mejoras en el rendimiento</li>
-          <li>Nuevas funcionalidades</li>
-          <li>Correcciones de errores</li>
+          <li>Performance improvements</li>
+          <li>New functionalities</li>
+          <li>Bug fixes</li>
         </ul>
       </div>
     </Message>
@@ -108,6 +108,6 @@ export const WithCustomContent: Story = {
 export const WithoutTitle: Story = {
   args: {
     title: undefined,
-    children: 'Este es un mensaje sin título. Útil para mensajes cortos y directos.',
+    children: 'This is a message without a title. Useful for short and direct messages.',
   },
 };

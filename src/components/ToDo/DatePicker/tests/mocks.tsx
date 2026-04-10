@@ -12,7 +12,7 @@ export const withValueProps: DatePickerProps = {
 }
 
 export const withLabelProps: DatePickerProps = {
-  label: 'Fecha de nacimiento',
+  label: 'Date of birth',
   value: '2024-01-01',
   onChange: mockOnChange,
 }

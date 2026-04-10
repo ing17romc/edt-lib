@@ -1,53 +1,53 @@
 import { HTMLAttributes, ReactNode } from 'react';
 
 /**
- * Elemento de la lista
+ * List item
  */
 export interface ListControlItem {
   /**
-   * Identificador único
+   * Unique identifier
    */
   key: string;
 
   /**
-   * Contenido principal del elemento
+   * Main content of the item
    */
   label: ReactNode;
 
   /**
-   * Descripción secundaria
+   * Secondary description
    */
   description?: string;
 
   /**
-   * Si el elemento está seleccionado
+   * Whether the item is selected
    * @default false
    */
   selected?: boolean;
 
   /**
-   * Si está deshabilitado
+   * Whether it is disabled
    * @default false
    */
   disabled?: boolean;
 }
 
 /**
- * Propiedades del componente ListControl
+ * ListControl component properties
  */
 export interface ListControlProps extends HTMLAttributes<HTMLUListElement> {
   /**
-   * Elementos de la lista
+   * List items
    */
   items: ListControlItem[];
 
   /**
-   * Callback al seleccionar un elemento
+   * Callback when selecting an item
    */
   onSelect?: (key: string) => void;
 
   /**
-   * Si permite selección múltiple
+   * Whether it allows multiple selection
    * @default false
    */
   multiSelect?: boolean;

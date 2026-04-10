@@ -124,7 +124,7 @@
     pointer-events: none;
     user-select: none;
     
-    // Asegurar que el texto sea transparente
+    // Ensure the text is transparent
     > span {
       opacity: 0;
     }
@@ -165,14 +165,14 @@
     min-width: 100%;
     max-width: 100%;
     
-    // Asegurar que los elementos internos ocupen todo el ancho
+    // Ensure inner elements take the full width
     > * {
       width: 100%;
       display: flex;
       justify-content: center;
     }
     
-    // Asegurar que el texto ocupe todo el ancho disponible
+    // Ensure the text takes all available width
     > span {
       display: block;
       width: 100%;

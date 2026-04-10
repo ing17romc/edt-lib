@@ -2,15 +2,15 @@ import React from 'react'
 import { TabItem, TabsProps } from '../types'
 
 export const defaultTabs: TabItem[] = [
-  { key: 'tab1', label: 'Pestaña 1', content: <div>Contenido de pestaña 1</div> },
-  { key: 'tab2', label: 'Pestaña 2', content: <div>Contenido de pestaña 2</div> },
-  { key: 'tab3', label: 'Pestaña 3', content: <div>Contenido de pestaña 3</div> },
+  { key: 'tab1', label: 'Tab 1', content: <div>Tab 1 content</div> },
+  { key: 'tab2', label: 'Tab 2', content: <div>Tab 2 content</div> },
+  { key: 'tab3', label: 'Tab 3', content: <div>Tab 3 content</div> },
 ]
 
 export const tabsWithDisabled: TabItem[] = [
-  { key: 'tab1', label: 'Activo', content: <div>Contenido 1</div> },
-  { key: 'tab2', label: 'Deshabilitado', content: <div>Contenido 2</div>, disabled: true },
-  { key: 'tab3', label: 'Normal', content: <div>Contenido 3</div> },
+  { key: 'tab1', label: 'Active', content: <div>Content 1</div> },
+  { key: 'tab2', label: 'Disabled', content: <div>Content 2</div>, disabled: true },
+  { key: 'tab3', label: 'Normal', content: <div>Content 3</div> },
 ]
 
 export const mockOnChange = vi.fn()

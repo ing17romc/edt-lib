@@ -2,7 +2,7 @@ import React from 'react';
 import { IconVariant, IconProps } from '../types';
 import { ComponentSize } from '../../types';
 
-// Datos de prueba para el componente Icon
+// Test data for the Icon component
 export const mockIconProps: IconProps = {
   name: 'home',
   size: ComponentSize.MEDIUM,
@@ -10,26 +10,26 @@ export const mockIconProps: IconProps = {
   'data-testid': 'icon',
 };
 
-// Props para diferentes tamaños
+// Props for different sizes
 export const sizeVariants = [
   { size: ComponentSize.SMALL, className: 'icon--small' },
   { size: ComponentSize.MEDIUM, className: 'icon--medium' },
   { size: ComponentSize.LARGE, className: 'icon--large' },
 ];
 
-// Props para diferentes variantes
+// Props for different variants
 export const variantOptions = [
   { variant: IconVariant.SOLID, className: 'material-icons' },
   { variant: IconVariant.OUTLINE, className: 'material-icons-outlined' },
 ];
 
-// Props para diferentes estados
+// Props for different states
 export const stateOptions = [
   { disabled: true, inheritColor: false, className: 'icon--disabled' },
   { disabled: false, inheritColor: true, className: 'icon--inherit-color' },
 ];
 
-// Mock para el SVG del icono
+// Mock for SVG icon
 export const MockSvgIcon = () => (
   <svg 
     viewBox="0 0 24 24"

@@ -4,8 +4,8 @@ import { Title, TitleSize, TitleVariant } from '..';
 import { mockTitleProps, mockTitleWithAllProps, mockTitleWithDifferentSizes, mockTitleWithDifferentVariants } from './mocks';
 
 describe('Title Component', () => {
-  // Prueba básica de renderizado
-  it('debe renderizar correctamente con las props por defecto', () => {
+  // Basic rendering test
+  it('should render correctly with default props', () => {
     render(<Title>{mockTitleProps.children}</Title>);
     const titleElement = screen.getByText(mockTitleProps.children as string);
     
@@ -15,8 +15,8 @@ describe('Title Component', () => {
     expect(titleElement).toHaveClass('title--dark');
   });
 
-  // Prueba con todas las props
-  it('debe aplicar todas las props correctamente', () => {
+  // Test with all props
+  it('should apply all props correctly', () => {
     render(<Title {...mockTitleWithAllProps} />);
     const titleElement = screen.getByText(mockTitleWithAllProps.children as string);
     
@@ -29,44 +29,44 @@ describe('Title Component', () => {
     expect(titleElement).toHaveClass('title--center');
     expect(titleElement.id).toBe('title-id');
     
-    // Verificar que se aplique el manejador de clic
+    // Verify that the click handler is applied
     titleElement.click();
     expect(mockTitleWithAllProps.onClick).toHaveBeenCalledTimes(1);
   });
 
-  // Prueba de tamaños
-  it('debe renderizar correctamente todos los tamaños', () => {
+  // Sizes test
+  it('should render all sizes correctly', () => {
     const sizes = Object.values(TitleSize) as TitleSize[];
     
     sizes.forEach(size => {
       const props = mockTitleWithDifferentSizes(size);
       render(<Title {...props} />);
-      const titleElement = screen.getByText(`Título ${size}`);
+      const titleElement = screen.getByText(`Title ${size}`);
       
       expect(titleElement.tagName.toLowerCase()).toBe(size);
       expect(titleElement).toHaveClass(`title--${size}`);
     });
   });
 
-  // Prueba de variantes
-  it('debe aplicar correctamente las variantes de color', () => {
+  // Variants test
+  it('should apply color variants correctly', () => {
     const variants = Object.values(TitleVariant) as TitleVariant[];
     
     variants.forEach(variant => {
       const props = mockTitleWithDifferentVariants(variant);
       render(<Title {...props} />);
-      const titleElement = screen.getByText(`Título ${variant}`);
+      const titleElement = screen.getByText(`Title ${variant}`);
       
       expect(titleElement).toHaveClass(`title--${variant}`);
     });
   });
 
-  // Prueba de alineación
-  it('debe aplicar correctamente la alineación', () => {
+  // Alignment test
+  it('should apply alignment correctly', () => {
     const alignments = ['left', 'center', 'right', 'justify'] as const;
     
     alignments.forEach((align, index) => {
-      const testText = `Título de prueba ${index}`;
+      const testText = `Test title ${index}`;
       render(
         <Title {...mockTitleProps} align={align}>
           {testText}
@@ -78,50 +78,50 @@ describe('Title Component', () => {
     });
   });
 
-  // Prueba de estilos de texto
-  it('debe aplicar correctamente los estilos de texto', () => {
-    const testText = 'Estilos de texto';
+  // Text styles test
+  it('should apply text styles correctly', () => {
+    const testText = 'Text styles';
     
-    // Prueba negrita
+    // Bold test
     const { rerender } = render(
       <Title {...mockTitleProps} bold>
-        {testText} - Negrita
+        {testText} - Bold
       </Title>
     );
-    let titleElement = screen.getByText(`${testText} - Negrita`);
+    let titleElement = screen.getByText(`${testText} - Bold`);
     expect(titleElement).toHaveClass('title--bold');
     
-    // Prueba cursiva
+    // Italic test
     rerender(
       <Title {...mockTitleProps} italic>
-        {testText} - Cursiva
+        {testText} - Italic
       </Title>
     );
-    titleElement = screen.getByText(`${testText} - Cursiva`);
+    titleElement = screen.getByText(`${testText} - Italic`);
     expect(titleElement).toHaveClass('title--italic');
     
-    // Prueba subrayado
+    // Underline test
     rerender(
       <Title {...mockTitleProps} underline>
-        {testText} - Subrayado
+        {testText} - Underline
       </Title>
     );
-    titleElement = screen.getByText(`${testText} - Subrayado`);
+    titleElement = screen.getByText(`${testText} - Underline`);
     expect(titleElement).toHaveClass('title--underline');
     
-    // Prueba tachado
+    // Strikethrough test
     rerender(
       <Title {...mockTitleProps} strikethrough>
-        {testText} - Tachado
+        {testText} - Strikethrough
       </Title>
     );
-    titleElement = screen.getByText(`${testText} - Tachado`);
+    titleElement = screen.getByText(`${testText} - Strikethrough`);
     expect(titleElement).toHaveClass('title--strikethrough');
   });
 
-  // Prueba de no-wrap
-  it('debe aplicar la clase noWrap cuando noWrap es true', () => {
-    const testText = 'Título sin salto de línea';
+  // No-wrap test
+  it('should apply the noWrap class when noWrap is true', () => {
+    const testText = 'Title without line break';
     render(
       <Title {...mockTitleProps} noWrap>
         {testText}
@@ -132,9 +132,9 @@ describe('Title Component', () => {
     expect(titleElement).toHaveClass('title--noWrap');
   });
 
-  // Prueba de bloque
-  it('debe aplicar la clase block cuando block es true', () => {
-    const testText = 'Título en bloque';
+  // Block test
+  it('should apply the block class when block is true', () => {
+    const testText = 'Block title';
     render(
       <Title {...mockTitleProps} block>
         {testText}
@@ -145,8 +145,8 @@ describe('Title Component', () => {
     expect(titleElement).toHaveClass('title--block');
   });
 
-  // Prueba de referencia (ref)
-  it('debe asignar correctamente la referencia', () => {
+  // Ref test
+  it('should correctly assign the ref', () => {
     const ref = React.createRef<HTMLHeadingElement>();
     render(<Title {...mockTitleProps} ref={ref} />);
     

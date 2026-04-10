@@ -1,9 +1,9 @@
 import { BreadcrumbItem, BreadcrumbProps } from '../types'
 
 export const defaultItems: BreadcrumbItem[] = [
-  { label: 'Inicio', href: '/' },
-  { label: 'Productos', href: '/productos' },
-  { label: 'Detalle' },
+  { label: 'Home', href: '/' },
+  { label: 'Products', href: '/products' },
+  { label: 'Detail' },
 ]
 
 export const defaultBreadcrumbProps: BreadcrumbProps = {
@@ -16,12 +16,12 @@ export const customSeparatorProps: BreadcrumbProps = {
 }
 
 export const singleItemProps: BreadcrumbProps = {
-  items: [{ label: 'Inicio' }],
+  items: [{ label: 'Home' }],
 }
 
 export const twoItemsProps: BreadcrumbProps = {
   items: [
-    { label: 'Inicio', href: '/' },
-    { label: 'Actual' },
+    { label: 'Home', href: '/' },
+    { label: 'Current' },
   ],
 }

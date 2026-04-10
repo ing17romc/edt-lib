@@ -4,14 +4,14 @@ import styles from './styles/Thumbnail.module.scss'
 import { ThumbnailProps } from './types'
 
 /**
- * Componente Thumbnail que muestra una imagen en miniatura con caption opcional.
+ * Thumbnail component that displays a miniature image with optional caption.
  *
- * @param src - URL de la imagen
- * @param alt - Texto alternativo
- * @param caption - Texto descriptivo bajo la imagen
- * @param rounded - Si la imagen tiene bordes redondeados en círculo
- * @param width - Ancho en píxeles
- * @param height - Alto en píxeles
+ * @param src - Image URL
+ * @param alt - Alternative text
+ * @param caption - Descriptive text below the image
+ * @param rounded - Whether the image has circular rounded borders
+ * @param width - Width in pixels
+ * @param height - Height in pixels
  */
 const Thumbnail = ({
   src,

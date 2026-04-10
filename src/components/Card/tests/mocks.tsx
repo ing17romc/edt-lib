@@ -1,21 +1,21 @@
 import { CardProps, CardVariant } from '../types';
 
 export const mockCardProps: CardProps = {
-  children: 'Contenido de la tarjeta',
-  title: 'Título de la tarjeta',
-  subtitle: 'Subtítulo opcional',
+  children: 'Card content',
+  title: 'Card Title',
+  subtitle: 'Optional subtitle',
   imageUrl: 'https://via.placeholder.com/300x160',
-  imageAlt: 'Imagen de ejemplo',
+  imageAlt: 'Example image',
   variant: CardVariant.ELEVATED,
 };
 
 export const mockCardWithoutImage: CardProps = {
-  children: 'Contenido sin imagen',
-  title: 'Tarjeta sin imagen',
+  children: 'Content without image',
+  title: 'Card without image',
 };
 
 export const mockClickableCard: CardProps = {
   ...mockCardProps,
   onClick: vi.fn(),
-  children: 'Tarjeta clickeable',
+  children: 'Clickable card',
 };

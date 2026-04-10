@@ -15,52 +15,52 @@ beforeEach(() => {
 })
 
 describe('DatePicker', () => {
-  describe('renderizado básico', () => {
-    it('renderiza el botón de entrada', () => {
+  describe('basic rendering', () => {
+    it('renders the input button', () => {
       render(<DatePicker {...defaultDatePickerProps} />)
       expect(screen.getByRole('button', { expanded: false })).toBeInTheDocument()
     })
 
-    it('muestra el placeholder por defecto', () => {
+    it('shows the default placeholder', () => {
       render(<DatePicker {...defaultDatePickerProps} />)
       expect(screen.getByText('DD/MM/YYYY')).toBeInTheDocument()
     })
 
-    it('muestra la etiqueta cuando está definida', () => {
+    it('shows the label when defined', () => {
       render(<DatePicker {...withLabelProps} />)
-      expect(screen.getByText('Fecha de nacimiento')).toBeInTheDocument()
+      expect(screen.getByText('Date of birth')).toBeInTheDocument()
     })
 
-    it('muestra la fecha formateada cuando tiene valor', () => {
+    it('shows the formatted date when it has a value', () => {
       render(<DatePicker {...withValueProps} />)
       expect(screen.getByText('15/06/2024')).toBeInTheDocument()
     })
   })
 
-  describe('apertura del calendario', () => {
-    it('abre el calendario al hacer click', () => {
+  describe('calendar opening', () => {
+    it('opens the calendar on click', () => {
       render(<DatePicker {...defaultDatePickerProps} />)
       fireEvent.click(screen.getByRole('button'))
       expect(screen.getByRole('dialog')).toBeInTheDocument()
     })
 
-    it('muestra botones de navegación de mes', () => {
+    it('shows month navigation buttons', () => {
       render(<DatePicker {...defaultDatePickerProps} />)
       fireEvent.click(screen.getByRole('button'))
-      expect(screen.getByLabelText('Mes anterior')).toBeInTheDocument()
-      expect(screen.getByLabelText('Mes siguiente')).toBeInTheDocument()
+      expect(screen.getByLabelText('Previous month')).toBeInTheDocument()
+      expect(screen.getByLabelText('Next month')).toBeInTheDocument()
     })
   })
 
-  describe('selección de fecha', () => {
-    it('llama onChange al seleccionar una fecha', () => {
+  describe('date selection', () => {
+    it('calls onChange when selecting a date', () => {
       render(<DatePicker value="2024-06-15" onChange={mockOnChange} />)
       fireEvent.click(screen.getByRole('button'))
       fireEvent.click(screen.getByLabelText('2024-06-10'))
       expect(mockOnChange).toHaveBeenCalledWith('2024-06-10')
     })
 
-    it('cierra el calendario tras seleccionar', () => {
+    it('closes the calendar after selecting', () => {
       render(<DatePicker value="2024-06-15" onChange={mockOnChange} />)
       fireEvent.click(screen.getByRole('button'))
       fireEvent.click(screen.getByLabelText('2024-06-10'))
@@ -69,7 +69,7 @@ describe('DatePicker', () => {
   })
 
   describe('min/max', () => {
-    it('deshabilita días fuera del rango', () => {
+    it('disables days outside the range', () => {
       render(<DatePicker {...withMinMaxProps} />)
       fireEvent.click(screen.getByRole('button', { expanded: false }))
       expect(screen.getByLabelText('2024-06-05')).toBeDisabled()
@@ -78,13 +78,13 @@ describe('DatePicker', () => {
   })
 
   describe('disabled', () => {
-    it('no abre el calendario cuando está deshabilitado', () => {
+    it('does not open the calendar when disabled', () => {
       render(<DatePicker {...disabledDatePickerProps} />)
       fireEvent.click(screen.getByRole('button'))
       expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
     })
 
-    it('el botón está deshabilitado', () => {
+    it('the button is disabled', () => {
       render(<DatePicker {...disabledDatePickerProps} />)
       expect(screen.getByRole('button')).toBeDisabled()
     })

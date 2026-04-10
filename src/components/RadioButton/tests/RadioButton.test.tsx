@@ -13,7 +13,7 @@ import {
 } from './mocks';
 
 describe('RadioButton', () => {
-  it('se renderiza correctamente con las props por defecto', () => {
+  it('renders correctly with default props', () => {
     render(<RadioButton {...defaultProps} />);
     
     const radioInput = screen.getByRole('radio');
@@ -25,27 +25,27 @@ describe('RadioButton', () => {
     expect(label).toBeInTheDocument();
   });
   
-  it('se muestra marcado cuando la propiedad checked es true', () => {
+  it('is checked when the checked property is true', () => {
     render(<RadioButton {...checkedProps} />);
     
     const radioInput = screen.getByRole('radio');
     expect(radioInput).toBeChecked();
   });
   
-  it('se deshabilita cuando la propiedad disabled es true', () => {
+  it('is disabled when the disabled property is true', () => {
     render(<RadioButton {...disabledProps} />);
     
     const radioInput = screen.getByRole('radio');
     expect(radioInput).toBeDisabled();
   });
   
-  it('aplica la clase personalizada cuando se proporciona', () => {
+  it('applies the custom class when provided', () => {
     const { container } = render(<RadioButton {...customClassProps} />);
     
     expect(container.firstChild).toHaveClass('custom-radio-class');
   });
   
-  it('llama a la función onChange cuando se hace clic', () => {
+  it('calls the onChange function when clicked', () => {
     const handleChange = vi.fn();
     render(<RadioButton {...defaultProps} onChange={handleChange} />);
     
@@ -56,7 +56,7 @@ describe('RadioButton', () => {
     expect(handleChange).toHaveBeenCalledWith(defaultProps.value);
   });
   
-  it('no llama a onChange cuando está deshabilitado', () => {
+  it('does not call onChange when disabled', () => {
     const handleChange = vi.fn();
     render(<RadioButton {...disabledProps} onChange={handleChange} />);
     
@@ -66,51 +66,51 @@ describe('RadioButton', () => {
     expect(handleChange).not.toHaveBeenCalled();
   });
   
-  it('se renderiza sin etiqueta cuando no se proporciona', () => {
+  it('renders without a label when not provided', () => {
     render(<RadioButton {...withoutLabelProps} />);
     
     const radioInput = screen.getByRole('radio');
     expect(radioInput).toBeInTheDocument();
     
-    // No debería haber ninguna etiqueta de texto
+    // There should be no text label
     const labels = screen.queryByText(defaultProps.label as string);
     expect(labels).not.toBeInTheDocument();
   });
   
-  it('aplica la clase de tamaño pequeño cuando size es SMALL', () => {
+  it('applies the small size class when size is SMALL', () => {
     const { container } = render(<RadioButton {...smallSizeProps} />);
     
     const radioButton = container.firstChild;
     expect(radioButton).toHaveClass('radioButton--small');
     
-    // Verificar que no tenga las clases de otros tamaños
+    // Verify it doesn't have other size classes
     expect(radioButton).not.toHaveClass('radioButton--medium');
     expect(radioButton).not.toHaveClass('radioButton--large');
   });
   
-  it('aplica la clase de tamaño mediano por defecto', () => {
+  it('applies the medium size class by default', () => {
     const { container } = render(<RadioButton {...defaultProps} />);
     
     const radioButton = container.firstChild;
     expect(radioButton).toHaveClass('radioButton--medium');
     
-    // Verificar que no tenga las clases de otros tamaños
+    // Verify it doesn't have other size classes
     expect(radioButton).not.toHaveClass('radioButton--small');
     expect(radioButton).not.toHaveClass('radioButton--large');
   });
   
-  it('aplica la clase de tamaño grande cuando size es LARGE', () => {
+  it('applies the large size class when size is LARGE', () => {
     const { container } = render(<RadioButton {...largeSizeProps} />);
     
     const radioButton = container.firstChild;
     expect(radioButton).toHaveClass('radioButton--large');
     
-    // Verificar que no tenga las clases de otros tamaños
+    // Verify it doesn't have other size classes
     expect(radioButton).not.toHaveClass('radioButton--small');
     expect(radioButton).not.toHaveClass('radioButton--medium');
   });
   
-  it('mantiene las clases personalizadas cuando se combinan con size', () => {
+  it('keeps custom classes when combined with size', () => {
     const { container } = render(
       <RadioButton 
         {...customClassProps} 

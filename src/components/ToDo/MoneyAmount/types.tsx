@@ -3,34 +3,34 @@ import { HTMLAttributes } from 'react';
 export type CurrencyCode = 'USD' | 'EUR' | 'COP' | 'MXN' | 'ARS' | 'CLP' | string;
 
 /**
- * Propiedades del componente MoneyAmount
+ * MoneyAmount component properties
  */
 export interface MoneyAmountProps extends HTMLAttributes<HTMLSpanElement> {
   /**
-   * Valor numérico a mostrar
+   * Numeric value to display
    */
   amount: number;
 
   /**
-   * Código de moneda ISO 4217
+   * ISO 4217 currency code
    * @default 'USD'
    */
   currency?: CurrencyCode;
 
   /**
-   * Número de decimales a mostrar
+   * Number of decimal places to display
    * @default 2
    */
   decimals?: number;
 
   /**
-   * Locale para el formato numérico
+   * Locale for number formatting
    * @default 'es-CO'
    */
   locale?: string;
 
   /**
-   * Si muestra el símbolo de la moneda
+   * Whether to show the currency symbol
    * @default true
    */
   showCurrency?: boolean;

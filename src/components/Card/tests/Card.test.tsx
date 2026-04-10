@@ -10,7 +10,7 @@ describe('Card Component', () => {
     vi.clearAllMocks();
   });
 
-  it('renderiza correctamente con todas las props', () => {
+  it('renders correctly with all props', () => {
     render(<Card {...mockCardProps} />);
     
     if (mockCardProps.title) {
@@ -25,7 +25,7 @@ describe('Card Component', () => {
     expect(image).toHaveAttribute('src', mockCardProps.imageUrl);
   });
 
-  it('renderiza sin imagen cuando no se proporciona imageUrl', () => {
+  it('renders without image when imageUrl is not provided', () => {
     render(<Card {...mockCardWithoutImage} />);
     
     expect(screen.queryByRole('img')).not.toBeInTheDocument();
@@ -34,7 +34,7 @@ describe('Card Component', () => {
     }
   });
 
-  it('aplica la variante de estilo correcta', () => {
+  it('applies the correct style variant', () => {
     const { container } = render(
       <Card {...mockCardWithoutImage} variant={CardVariant.OUTLINED}>
         {mockCardWithoutImage.children}
@@ -44,7 +44,7 @@ describe('Card Component', () => {
     expect(container.firstChild).toHaveClass('card--outlined');
   });
 
-  it('maneja el evento onClick cuando se proporciona', () => {
+  it('handles the onClick event when provided', () => {
     const onClickMock = vi.fn();
     render(
       <Card {...mockCardWithoutImage} onClick={onClickMock}>
@@ -58,7 +58,7 @@ describe('Card Component', () => {
     expect(onClickMock).toHaveBeenCalledTimes(1);
   });
 
-  it('es accesible con teclado cuando es clickeable', () => {
+  it('is keyboard accessible when clickable', () => {
     const onKeyDownMock = vi.fn();
     render(
       <Card {...mockCardWithoutImage} onClick={onKeyDownMock}>
@@ -72,8 +72,8 @@ describe('Card Component', () => {
     expect(onKeyDownMock).toHaveBeenCalledTimes(1);
   });
 
-  it('aplica clases CSS personalizadas', () => {
-    const customClass = 'mi-clase-personalizada';
+  it('applies custom CSS classes', () => {
+    const customClass = 'my-custom-class';
     const { container } = render(
       <Card {...mockCardWithoutImage} className={customClass}>
         {mockCardWithoutImage.children}

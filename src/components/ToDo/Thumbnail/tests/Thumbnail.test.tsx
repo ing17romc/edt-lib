@@ -9,18 +9,18 @@ import {
 } from './mocks'
 
 describe('Thumbnail', () => {
-  describe('renderizado básico', () => {
-    it('renderiza la imagen', () => {
+  describe('basic rendering', () => {
+    it('renders the image', () => {
       render(<Thumbnail {...defaultThumbnailProps} />)
       expect(screen.getByRole('img')).toBeInTheDocument()
     })
 
-    it('tiene el alt correcto', () => {
+    it('has the correct alt text', () => {
       render(<Thumbnail {...defaultThumbnailProps} />)
-      expect(screen.getByAltText('Imagen de ejemplo')).toBeInTheDocument()
+      expect(screen.getByAltText('Example image')).toBeInTheDocument()
     })
 
-    it('aplica el ancho y alto por defecto (120)', () => {
+    it('applies default width and height (120)', () => {
       render(<Thumbnail {...defaultThumbnailProps} />)
       const img = screen.getByRole('img')
       expect(img).toHaveAttribute('width', '120')
@@ -29,31 +29,31 @@ describe('Thumbnail', () => {
   })
 
   describe('caption', () => {
-    it('muestra el caption cuando está definido', () => {
+    it('shows the caption when defined', () => {
       render(<Thumbnail {...withCaptionProps} />)
-      expect(screen.getByText('Descripción de la imagen')).toBeInTheDocument()
+      expect(screen.getByText('Image description')).toBeInTheDocument()
     })
 
-    it('no muestra caption cuando no está definido', () => {
+    it('does not show caption when not defined', () => {
       render(<Thumbnail {...defaultThumbnailProps} />)
       expect(screen.queryByRole('group')).not.toBeInTheDocument()
     })
   })
 
-  describe('variantes visuales', () => {
-    it('aplica clase redondeada cuando rounded=true', () => {
+  describe('visual variants', () => {
+    it('applies rounded class when rounded=true', () => {
       render(<Thumbnail {...roundedThumbnailProps} />)
       expect(screen.getByRole('img')).toHaveClass('image--rounded')
     })
 
-    it('no aplica clase redondeada por defecto', () => {
+    it('does not apply rounded class by default', () => {
       render(<Thumbnail {...defaultThumbnailProps} />)
       expect(screen.getByRole('img')).not.toHaveClass('image--rounded')
     })
   })
 
-  describe('tamaño personalizado', () => {
-    it('aplica el ancho y alto especificados', () => {
+  describe('custom size', () => {
+    it('applies the specified width and height', () => {
       render(<Thumbnail {...largeThumbnailProps} />)
       const img = screen.getByRole('img')
       expect(img).toHaveAttribute('width', '240')

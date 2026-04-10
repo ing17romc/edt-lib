@@ -10,31 +10,31 @@ describe('Switch Component', () => {
     vi.clearAllMocks();
   });
 
-  describe('Renderizado básico', () => {
-    test('se renderiza correctamente con las props por defecto', () => {
+  describe('Basic rendering', () => {
+    test('renders correctly with default props', () => {
       render(<Switch {...defaultSwitchProps} />);
       expect(screen.getByRole('switch')).toBeInTheDocument();
-      expect(screen.getByText('Activar opción')).toBeInTheDocument();
+      expect(screen.getByText('Enable option')).toBeInTheDocument();
     });
 
-    test('renderiza sin etiqueta', () => {
+    test('renders without a label', () => {
       render(<Switch />);
       expect(screen.getByRole('switch')).toBeInTheDocument();
     });
 
-    test('refleja el estado checked correctamente', () => {
+    test('reflects the checked state correctly', () => {
       render(<Switch {...checkedSwitchProps} />);
       expect(screen.getByRole('switch')).toBeChecked();
     });
 
-    test('refleja el estado unchecked correctamente', () => {
+    test('reflects the unchecked state correctly', () => {
       render(<Switch {...defaultSwitchProps} />);
       expect(screen.getByRole('switch')).not.toBeChecked();
     });
   });
 
-  describe('Comportamiento', () => {
-    test('llama a onChange al hacer clic', () => {
+  describe('Behavior', () => {
+    test('calls onChange on click', () => {
       render(<Switch {...defaultSwitchProps} />);
       fireEvent.click(screen.getByRole('switch'));
       expect(mockOnChange).toHaveBeenCalledTimes(1);
@@ -42,22 +42,22 @@ describe('Switch Component', () => {
     });
   });
 
-  describe('Tamaños', () => {
+  describe('Sizes', () => {
     allSizes.forEach((size) => {
-      test(`renderiza correctamente el tamaño ${size}`, () => {
+      test(`renders the ${size} size correctly`, () => {
         const { container } = render(<Switch size={size as ComponentSize} />);
         expect(container.firstChild).toHaveClass(`switch--${size}`);
       });
     });
   });
 
-  describe('Estado deshabilitado', () => {
-    test('aplica la clase disabled', () => {
+  describe('Disabled state', () => {
+    test('applies the disabled class', () => {
       const { container } = render(<Switch {...disabledSwitchProps} />);
       expect(container.firstChild).toHaveClass('switch--disabled');
     });
 
-    test('el input está deshabilitado', () => {
+    test('the input is disabled', () => {
       render(<Switch {...disabledSwitchProps} />);
       expect(screen.getByRole('switch')).toBeDisabled();
     });

@@ -4,13 +4,13 @@ import styles from './styles/MoneyAmount.module.scss'
 import { MoneyAmountProps } from './types'
 
 /**
- * Componente MoneyAmount que formatea y muestra valores monetarios.
+ * MoneyAmount component that formats and displays monetary values.
  *
- * @param amount - Valor numérico a mostrar
- * @param currency - Código de moneda ISO 4217
- * @param decimals - Número de decimales
- * @param locale - Locale para el formato numérico
- * @param showCurrency - Si se muestra el símbolo de moneda
+ * @param amount - Numeric value to display
+ * @param currency - ISO 4217 currency code
+ * @param decimals - Number of decimal places
+ * @param locale - Locale for number formatting
+ * @param showCurrency - Whether to show the currency symbol
  */
 const MoneyAmount = ({
   amount,

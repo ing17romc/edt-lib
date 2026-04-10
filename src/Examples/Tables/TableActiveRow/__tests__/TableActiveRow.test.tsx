@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import TableActiveRow from '..';
 import type { TableRowData } from '../types';
 
-// Datos de prueba
+// Test data
 const mockData: TableRowData[] = [
   {
     name: 'John Doe',
@@ -18,12 +18,12 @@ const mockData: TableRowData[] = [
   {
     name: 'Robert Johnson',
     userName: 'rjohnson',
-    status: 1, // También probamos con valor numérico
+    status: 1, // Also testing with numeric value
   },
 ];
 
 describe('TableActiveRow', () => {
-  // Mock de alerta global
+  // Global alert mock
   const originalAlert = window.alert;
   beforeAll(() => {
     window.alert = vi.fn();
@@ -33,41 +33,41 @@ describe('TableActiveRow', () => {
     window.alert = originalAlert;
   });
 
-  it('renderiza sin errores con datos vacíos', () => {
+  it('renders without errors with empty data', () => {
     render(<TableActiveRow dataTable={[]} />);
     
-    // Verificar que se renderiza la tabla vacía
+    // Verify the empty table is rendered
     const table = screen.getByRole('table');
     expect(table).toBeInTheDocument();
     
-    // Verificar que solo hay una fila (el encabezado) cuando no hay datos
+    // Verify there is only one row (the header) when there is no data
     const allRows = screen.getAllByRole('row');
-    expect(allRows).toHaveLength(1); // Solo el encabezado
+    expect(allRows).toHaveLength(1); // Header only
     
-    // Verificar que se renderiza el título
+    // Verify the title is rendered
     expect(screen.getByText('Example tables')).toBeInTheDocument();
     
-    // Verificar que se muestra el encabezado de la tabla
+    // Verify the table header is shown
     expect(screen.getByText('Table active row')).toBeInTheDocument();
     
-    // Verificar que se muestran los encabezados de las columnas
+    // Verify column headers are shown
     expect(screen.getByText('Name')).toBeInTheDocument();
     expect(screen.getByText('UserName')).toBeInTheDocument();
     expect(screen.getByText('Status')).toBeInTheDocument();
     
-    // Verificar que no hay filas de datos (solo el encabezado)
+    // Verify there are no data rows (header only)
     const rowsData = screen.queryAllByRole('row');
-    expect(rowsData.length).toBe(1); // Solo el encabezado
+    expect(rowsData.length).toBe(1); // Header only
   });
 
-  it('renderiza correctamente con datos', () => {
+  it('renders correctly with data', () => {
     render(<TableActiveRow dataTable={mockData} />);
     
-    // Verificar que se renderizan los datos
+    // Verify the data is rendered
     expect(screen.getByText('John Doe')).toBeInTheDocument();
     expect(screen.getByText('johndoe')).toBeInTheDocument();
     
-    // Verificar que hay al menos un estado 'Active' y uno 'Inactive'
+    // Verify there is at least one 'Active' and one 'Inactive' status
     const activeStatuses = screen.getAllByText('Active');
     const inactiveStatuses = screen.getAllByText('Inactive');
     expect(activeStatuses.length).toBeGreaterThan(0);
@@ -79,67 +79,67 @@ describe('TableActiveRow', () => {
     expect(screen.getByText('Robert Johnson')).toBeInTheDocument();
     expect(screen.getByText('rjohnson')).toBeInTheDocument();
     
-    // Verificar que las filas tienen la clase 'active'
-    const rows = screen.getAllByRole('row').slice(1); // Excluimos el encabezado
+    // Verify rows have the 'active' class
+    const rows = screen.getAllByRole('row').slice(1); // Exclude the header
     rows.forEach(row => {
       expect(row).toHaveClass('active');
     });
   });
 
-  it('maneja correctamente el clic en una fila', () => {
+  it('handles row click correctly', () => {
     render(<TableActiveRow dataTable={mockData} />);
     
-    // Hacer clic en la primera fila
+    // Click the first row
     const firstRow = screen.getByText('John Doe').closest('tr');
     if (firstRow) {
       fireEvent.click(firstRow);
     }
     
-    // Verificar que se llamó a alert con el mensaje correcto
+    // Verify alert was called with the correct message
     expect(window.alert).toHaveBeenCalledWith('clic!!!');
   });
 
-  it('muestra correctamente los estados activos e inactivos', () => {
+  it('correctly displays active and inactive statuses', () => {
     render(<TableActiveRow dataTable={mockData} />);
     
-    // Verificar que los estados activos tienen la clase 'font-blue'
+    // Verify active statuses have the 'font-blue' class
     const statusElements = screen.getAllByTestId('status-mock');
     const activeStatus = statusElements.filter(
       (element) => element.textContent === 'Active'
     );
     expect(activeStatus.length).toBeGreaterThan(0);
     
-    // Verificar que los estados inactivos tienen la clase 'font-red'
+    // Verify inactive statuses have the 'font-red' class
     const inactiveStatus = statusElements.filter(
       (element) => element.textContent === 'Inactive'
     );
     expect(inactiveStatus.length).toBeGreaterThan(0);
   });
 
-  it('tiene la estructura de tabla correcta', () => {
+  it('has the correct table structure', () => {
     render(<TableActiveRow dataTable={mockData} />);
     
-    // Verificar la estructura de la tabla
+    // Verify the table structure
     const table = screen.getByRole('table');
     expect(table).toBeInTheDocument();
     
-    // Verificar los encabezados de columna
+    // Verify column headers
     const headers = screen.getAllByRole('columnheader');
     expect(headers).toHaveLength(3);
     expect(headers[0]).toHaveTextContent('Name');
     expect(headers[1]).toHaveTextContent('UserName');
     expect(headers[2]).toHaveTextContent('Status');
     
-    // Verificar el ancho de las columnas
+    // Verify column widths
     expect(headers[0]).toHaveStyle('width: 40%');
     expect(headers[1]).toHaveStyle('width: 40%');
     expect(headers[2]).toHaveStyle('width: 20%');
   });
 
-  it('maneja correctamente los datos con valores límite', () => {
+  it('handles edge case data correctly', () => {
     const edgeCaseData: TableRowData[] = [
       {
-        name: '', // Nombre vacío
+        name: '', // Empty name
         userName: 'user',
         status: true,
       },
@@ -152,18 +152,18 @@ describe('TableActiveRow', () => {
     
     render(<TableActiveRow dataTable={edgeCaseData} />);
     
-    // Verificar que se manejan correctamente los nombres vacíos
+    // Verify empty names are handled correctly
     const emptyCells = screen.getAllByRole('cell', { name: '' });
     expect(emptyCells.length).toBeGreaterThan(0);
     
-    // Verificar que se manejan correctamente los nombres largos
+    // Verify long names are handled correctly
     const longNameText = 'A very long name that might break the layout A very long name that might break the layout';
     const longNameCell = screen.getByText(longNameText);
     expect(longNameCell).toBeInTheDocument();
   });
 });
 
-// Mock para getStatus
+// Mock for getStatus
 vi.mock('../../utils', () => ({
   __esModule: true,
   default: (value: boolean | number) => (

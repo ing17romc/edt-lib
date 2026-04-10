@@ -2,8 +2,8 @@ import React from 'react';
 import { TextBoxProps } from '../types';
 
 const baseMockProps: TextBoxProps = {
-  label: 'Campo de texto',
-  placeholder: 'Escribe algo...',
+  label: 'Text field',
+  placeholder: 'Type something...',
   value: '',
   onChange: vi.fn(),
   'data-testid': 'textbox',
@@ -16,30 +16,30 @@ export const mockTextBoxProps: TextBoxProps = {
 
 export const mockDisabledTextBoxProps: TextBoxProps = {
   ...baseMockProps,
-  label: 'Campo deshabilitado',
-  value: 'No se puede editar',
+  label: 'Disabled field',
+  value: 'Cannot be edited',
   disabled: true,
 };
 
 export const mockErrorTextBoxProps: TextBoxProps = {
   ...baseMockProps,
-  label: 'Campo con error',
+  label: 'Field with error',
   error: true,
-  helperText: 'Este campo es requerido',
-  value: 'Valor incorrecto',
+  helperText: 'This field is required',
+  value: 'Incorrect value',
 };
 
 export const mockFullWidthTextBoxProps: TextBoxProps = {
   ...baseMockProps,
-  label: 'Campo de ancho completo',
+  label: 'Full width field',
   fullWidth: true,
-  placeholder: 'Ocupa todo el ancho disponible',
+  placeholder: 'Takes up all available width',
 };
 
 export const mockWithAdornmentsTextBoxProps: TextBoxProps = {
   ...baseMockProps,
-  label: 'Campo con iconos',
+  label: 'Field with icons',
   startAdornment: <span>🔍</span>,
   endAdornment: <span>✓</span>,
-  placeholder: 'Buscar...',
+  placeholder: 'Search...',
 };

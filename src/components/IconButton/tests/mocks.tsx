@@ -2,53 +2,53 @@ import { IconButtonProps } from '../types';
 import { ComponentVariant, ComponentSize } from '../../types';
 
 /**
- * Mock de la función onClick para pruebas
+ * Mock onClick function for tests
  */
 export const mockOnClick = vi.fn();
 
 /**
- * Props por defecto para el IconButton
+ * Default props for IconButton
  */
 export const defaultIconButtonProps: IconButtonProps = {
   icon: 'home',
-  'aria-label': 'Inicio',
+  'aria-label': 'Home',
   variant: ComponentVariant.PRIMARY,
   size: ComponentSize.MEDIUM,
   onClick: mockOnClick,
 };
 
 /**
- * Props para un IconButton deshabilitado
+ * Props for a disabled IconButton
  */
 export const disabledIconButtonProps: IconButtonProps = {
   ...defaultIconButtonProps,
-  'aria-label': 'Botón deshabilitado',
+  'aria-label': 'Disabled button',
   disabled: true,
 };
 
 /**
- * Props para un IconButton en estado de carga
+ * Props for a loading IconButton
  */
 export const loadingIconButtonProps: IconButtonProps = {
   ...defaultIconButtonProps,
-  'aria-label': 'Cargando',
+  'aria-label': 'Loading',
   loading: true,
 };
 
 /**
- * Todas las variantes disponibles de IconButton
+ * All available IconButton variants
  */
 export const allVariants = Object.values(ComponentVariant).map((variant) => ({
   icon: 'home',
   variant,
-  'aria-label': `Botón ${variant}`,
+  'aria-label': `${variant} button`,
 }));
 
 /**
- * Todos los tamaños disponibles de IconButton
+ * All available IconButton sizes
  */
 export const allSizes = Object.values(ComponentSize).map((size) => ({
   icon: 'home',
   size,
-  'aria-label': `Botón ${size}`,
+  'aria-label': `${size} button`,
 }));

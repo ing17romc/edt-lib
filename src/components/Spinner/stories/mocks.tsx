@@ -6,7 +6,7 @@ export const defaultArgs: Partial<SpinnerProps> = {
   size: ComponentSize.MEDIUM,
   variant: SpinnerVariant.PRIMARY,
   pulse: false,
-  'aria-label': 'Cargando...',
+  'aria-label': 'Loading...',
 };
 
 export const argTypes: Meta<SpinnerProps>['argTypes'] = {
@@ -56,11 +56,11 @@ export const parameters = {
 };
 
 /**
- * Todas las variantes disponibles del Spinner
+ * All available Spinner variants
  */
 export const allVariants = Object.values(SpinnerVariant);
 
 /**
- * Todos los tamaños disponibles del Spinner
+ * All available Spinner sizes
  */
 export const allSizes = Object.values(ComponentSize);

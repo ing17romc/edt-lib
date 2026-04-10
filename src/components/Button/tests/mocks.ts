@@ -2,12 +2,12 @@ import type { ButtonProps } from '../types';
 import { ComponentVariant, ComponentSize } from '../../types';
 
 /**
- * Mock de la función onClick para pruebas
+ * Mock onClick function for testing
  */
 export const mockOnClick = vi.fn();
 
 /**
- * Props por defecto para el botón
+ * Default button props
  */
 export const defaultButtonProps: ButtonProps = {
   children: 'Click me',
@@ -17,7 +17,7 @@ export const defaultButtonProps: ButtonProps = {
 };
 
 /**
- * Props para un botón deshabilitado
+ * Disabled button props
  */
 export const disabledButtonProps: ButtonProps = {
   ...defaultButtonProps,
@@ -26,7 +26,7 @@ export const disabledButtonProps: ButtonProps = {
 };
 
 /**
- * Props para un botón de ancho completo
+ * Full width button props
  */
 export const fullWidthButtonProps: ButtonProps = {
   ...defaultButtonProps,
@@ -35,7 +35,7 @@ export const fullWidthButtonProps: ButtonProps = {
 };
 
 /**
- * Todas las variantes de botón disponibles
+ * All available button variants
  */
 export const allVariants = Object.values(ComponentVariant).map((variant) => ({
   children: variant.charAt(0).toUpperCase() + variant.slice(1),
@@ -43,7 +43,7 @@ export const allVariants = Object.values(ComponentVariant).map((variant) => ({
 }));
 
 /**
- * Todos los tamaños de botón disponibles
+ * All available button sizes
  */
 export const allSizes = Object.values(ComponentSize).map((size) => ({
   children: size.charAt(0).toUpperCase() + size.slice(1),
@@ -51,7 +51,7 @@ export const allSizes = Object.values(ComponentSize).map((size) => ({
 }));
 
 /**
- * Todas las combinaciones de variantes y tamaños
+ * All variant and size combinations
  */
 export const allCombinations = allVariants.flatMap(({ variant }) =>
   allSizes.map(({ size }) => ({

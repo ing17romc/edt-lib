@@ -1,7 +1,7 @@
 import { Meta } from '@storybook/react-vite';
 import { ComponentSize, ComponentVariant } from '../../types';
 
-// Configuración de la meta para las historias
+// Meta configuration for stories
 export const meta: Meta = {
   tags: ['autodocs'],
   argTypes: {
@@ -108,13 +108,13 @@ export const sizeOptions: { size: ComponentSize; label: string }[] = [
 export const variantOptions: { variant: ComponentVariant; label: string }[] = [
   { variant: ComponentVariant.PRIMARY, label: 'Primary' },
   { variant: ComponentVariant.SECONDARY, label: 'Secondary' },
-  { variant: ComponentVariant.TERTIARY, label: 'Terciario' },
-  { variant: ComponentVariant.DANGER, label: 'Peligro' },
-  { variant: ComponentVariant.SUCCESS, label: 'Éxito' },
-  { variant: ComponentVariant.WARNING, label: 'Advertencia' },
+  { variant: ComponentVariant.TERTIARY, label: 'Tertiary' },
+  { variant: ComponentVariant.DANGER, label: 'Danger' },
+  { variant: ComponentVariant.SUCCESS, label: 'Success' },
+  { variant: ComponentVariant.WARNING, label: 'Warning' },
 ];
 
-// Iconos de ejemplo para mostrar en las historias
+// Example icons for stories
 export const exampleIcons = [
   'home',
   'star',
@@ -128,7 +128,7 @@ export const exampleIcons = [
   'check',
 ];
 
-// Estilos para los contenedores de las historias
+// Styles for story containers
 export const containerStyle: React.CSSProperties = {
   display: 'flex',
   gap: '16px',

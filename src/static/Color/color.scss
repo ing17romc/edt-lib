@@ -2,7 +2,7 @@
 @use '../../styles/typography' as *;
 @use '../../styles/spacing' as *;
 
-// Contenedor principal
+// Main container
 .color-palette {
   padding: $space-4; // 16px
   font-family: $font-family-base;
@@ -11,7 +11,7 @@
   margin: 0 auto;
 }
 
-// Grupo de colores
+// Color group
 .color-group {
   margin-bottom: $space-6; // 24px
   
@@ -31,7 +31,7 @@
   }
 }
 
-// Elementos de código
+// Code elements
 .code-block {
   display: inline-block;
   background-color: $light-gray-color;
@@ -43,7 +43,7 @@
   color: $dark-gray-color;
 }
 
-// Divisor
+// Divider
 .divider {
   border: 0;
   height: 1px;
@@ -51,7 +51,7 @@
   margin: $space-2 0; // 8px 0
 }
 
-// Clases de utilidad para colores de fuente
+// Utility classes for font colors
 .font-blue { color: $primary-color; }
 .font-red { color: $red-color; }
 .font-orange { color: $orange-color; }
@@ -60,7 +60,7 @@
 .font-yellow { color: $yellow-color; }
 .font-gray { color: $gray-color; }
 
-// Clases de utilidad para colores de fondo
+// Utility classes for background colors
 .bg-primary-1 { background-color: $primary-color; }
 .bg-primary-2 { background-color: $primary-color-2; }
 .bg-primary-3 { background-color: $primary-color-3; }
@@ -68,6 +68,6 @@
 .bg-light-gray { background-color: $light-gray-color; }
 .bg-gray { background-color: $gray-color; }
 
-// Clases para mostrar las variables de color
-// Estas clases se generan automáticamente en el componente
-// usando las variables CSS definidas en palette.scss
+// Classes for displaying color variables
+// These classes are automatically generated in the component
+// using the CSS variables defined in palette.scss

@@ -2,12 +2,12 @@ import React from 'react';
 import type { MessageType, MessageProps } from '../types';
 
 /**
- * Tipos de mensaje disponibles para pruebas
+ * Available message types for testing
  */
 export const messageTypes: MessageType[] = ['success', 'info', 'warning', 'danger'];
 
 /**
- * Datos de ejemplo para las pruebas del componente Message
+ * Sample data for Message component tests
  */
 export const mockMessages: Array<{
   type: MessageType;
@@ -16,36 +16,36 @@ export const mockMessages: Array<{
 }> = [
   {
     type: 'success',
-    title: '¡Operación exitosa!',
-    content: 'Los cambios se han guardado correctamente.',
+    title: 'Operation successful!',
+    content: 'Changes have been saved correctly.',
   },
   {
     type: 'info',
-    title: 'Información importante',
-    content: 'Este es un mensaje informativo para el usuario.',
+    title: 'Important information',
+    content: 'This is an informational message for the user.',
   },
   {
     type: 'warning',
-    title: 'Advertencia',
-    content: 'Esta acción no se puede deshacer.',
+    title: 'Warning',
+    content: 'This action cannot be undone.',
   },
   {
     type: 'danger',
     title: 'Error',
-    content: 'Ha ocurrido un error al procesar la solicitud.',
+    content: 'An error occurred while processing the request.',
   },
 ];
 
 /**
- * Props por defecto para el componente Message en pruebas
+ * Default props for the Message component in tests
  */
 export const defaultProps: MessageProps = {
   type: 'info',
-  children: 'Mensaje de prueba',
+  children: 'Test message',
 };
 
 /**
- * Función para generar props personalizadas para pruebas
+ * Function to generate custom props for tests
  */
 export const createTestProps = (
   customProps: Partial<MessageProps> = {}
@@ -56,47 +56,47 @@ export const createTestProps = (
 });
 
 /**
- * Mock para la función onClose
+ * Mock for the onClose function
  */
 export const mockOnClose = vi.fn();
 
 /**
- * Datos para probar el componente con diferentes combinaciones de props
+ * Data to test the component with different prop combinations
  */
 export const testCases = [
-  // Caso básico sin título
+  // Basic case without title
   {
-    name: 'sin título',
+    name: 'without title',
     props: {
-      children: 'Mensaje sin título',
+      children: 'Message without title',
     },
   },
-  // Caso con título
+  // Case with title
   {
-    name: 'con título',
+    name: 'with title',
     props: {
-      title: 'Título del mensaje',
-      children: 'Contenido del mensaje',
+      title: 'Message title',
+      children: 'Message content',
     },
   },
-  // Caso con cierre
+  // Case with close
   {
-    name: 'con cierre',
+    name: 'with close',
     props: {
       closable: true,
-      onClose: vi.fn(), // Reemplazado por un mock de Vitest
-      children: 'Mensaje cerrable',
+      onClose: vi.fn(), // Replaced by a Vitest mock
+      children: 'Closable message',
     },
   },
-  // Caso con HTML en children
+  // Case with HTML in children
   {
-    name: 'con HTML en children',
+    name: 'with HTML in children',
     props: {
       children: (
         <React.Fragment>
-          <span>Texto en </span>
-          <strong>negrita</strong>
-          <span> y más texto</span>
+          <span>Text in </span>
+          <strong>bold</strong>
+          <span> and more text</span>
         </React.Fragment>
       ),
     },
@@ -104,7 +104,7 @@ export const testCases = [
 ];
 
 /**
- * Mock de las clases CSS para las pruebas
+ * Mock of CSS classes for tests
  */
 export const mockStyles = {
   message: 'message',

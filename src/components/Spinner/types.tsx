@@ -14,31 +14,31 @@ export enum SpinnerVariant {
 
 export interface SpinnerProps extends HTMLAttributes<HTMLDivElement> {
   /**
-   * Tamaño del spinner
+   * Spinner size
    * @default 'medium'
    */
   size?: ComponentSize;
   
   /**
-   * Variante de color del spinner
+   * Spinner color variant
    * @default 'primary'
    */
   variant?: SpinnerVariant;
   
   /**
-   * Si es true, el spinner será de tipo "pulso" en lugar de giratorio
+   * If true, the spinner will be a "pulse" type instead of spinning
    * @default false
    */
   pulse?: boolean;
   
   /**
-   * Texto accesible para lectores de pantalla
-   * @default 'Cargando...'
+   * Accessible text for screen readers
+   * @default 'Loading...'
    */
   'aria-label'?: string;
   
   /**
-   * Clase CSS personalizada
+   * Custom CSS class
    */
   className?: string;
 }

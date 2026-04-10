@@ -4,15 +4,15 @@ import Footer from '../index';
 import { MockFooterContent } from './mocks';
 
 describe('Footer', () => {
-  it('debe renderizar el footer con el contenido', () => {
+  it('should render the footer with content', () => {
     render(
       <Footer>
         <MockFooterContent />
       </Footer>
     );
 
-    expect(screen.getByText('Enlaces útiles')).toBeInTheDocument();
-    expect(screen.getByText('Contacto')).toBeInTheDocument();
-    expect(screen.getByText('Email: info@ejemplo.com')).toBeInTheDocument();
+    expect(screen.getByText('Useful links')).toBeInTheDocument();
+    expect(screen.getByText('Contact')).toBeInTheDocument();
+    expect(screen.getByText('Email: info@example.com')).toBeInTheDocument();
   });
 });

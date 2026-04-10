@@ -4,7 +4,7 @@ import { ComponentSize } from '../../types';
 export const defaultProps: SpinnerProps = {
   size: ComponentSize.MEDIUM,
   variant: SpinnerVariant.PRIMARY,
-  'aria-label': 'Cargando...',
+  'aria-label': 'Loading...',
 };
 
 export const pulseProps: SpinnerProps = {

@@ -10,7 +10,7 @@
   font-weight: $title-font-weight;
   color: $text-color;
 
-  // Tamaños
+  // Sizes
   &--h1 {
     font-size: $title-h1-font-size;
     margin-bottom: $title-h1-margin-bottom;
@@ -74,7 +74,7 @@
     color: $dark-color;
   }
 
-  // Estilos de texto
+  // Text styles
   &--bold {
     font-weight: $title-font-weight-bold;
   }
@@ -91,7 +91,7 @@
     text-decoration: line-through;
   }
 
-  // Alineación
+  // Alignment
   &--left {
     text-align: left;
   }
@@ -109,7 +109,7 @@
     text-align: justify;
   }
 
-  // Otros estilos
+  // Other styles
   &--block {
     display: block;
     width: 100%;

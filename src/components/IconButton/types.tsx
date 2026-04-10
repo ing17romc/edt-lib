@@ -3,81 +3,81 @@ import { IconVariant } from '../Icon/types';
 import { ComponentSize, ComponentVariant } from '../types'; 
 
 /**
- * Propiedades del componente IconButton
+ * IconButton component props
  */
 export interface IconButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children' | 'color'> {
   /**
-   * Nombre del icono a mostrar. Debe ser un nombre de icono válido.
+   * Name of the icon to display. Must be a valid icon name.
    */
   icon: string;
   
   /**
-   * Tamaño del botón
+   * Button size
    * @default 'medium'
    */
   size?: ComponentSize;
   
   /**
-   * Variante visual del botón
+   * Visual variant of the button
    * @default 'primary'
    */
   variant?: ComponentVariant;
   
   /**
-   * Si el botón ocupa todo el ancho disponible
+   * If the button takes up the full available width
    * @default false
    */
   fullWidth?: boolean;
   
   /**
-   * Si muestra un indicador de carga
+   * If it shows a loading indicator
    * @default false
    */
   loading?: boolean;
   
   /**
-   * Color personalizado para el icono. Sobrescribe el color por defecto.
+   * Custom icon color. Overrides the default color.
    */
   iconColor?: string;
   
   /**
-   * Tamaño personalizado para el icono. Sobrescribe el tamaño calculado.
+   * Custom icon size. Overrides the calculated size.
    */
   iconSize?: string | number;
   
   /**
-   * Estilo del icono (sólido, contorno, etc.)
+   * Icon style (solid, outline, etc.)
    * @default 'outline'
    */
   iconVariant?: IconVariant;
   
   /**
-   * Clase CSS adicional para el botón
+   * Additional CSS class for the button
    */
   className?: string;
   
   /**
-   * Clase CSS adicional para el icono
+   * Additional CSS class for the icon
    */
   iconClassName?: string;
   
   /**
-   * Estilos en línea para el botón
+   * Inline styles for the button
    */
   buttonStyle?: React.CSSProperties;
   
   /**
-   * Estilos en línea para el icono
+   * Inline styles for the icon
    */
   iconStyle?: React.CSSProperties;
   
   /**
-   * Texto accesible para lectores de pantalla
+   * Accessible text for screen readers
    */
   'aria-label': string;
 }
 
-// Mapa de tamaños de icono basado en el tamaño del botón
+// Icon size map based on button size
 export const iconSizeMap: Record<ComponentSize, string> = {
   small: '1rem',
   medium: '1.25rem',

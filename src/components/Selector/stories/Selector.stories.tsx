@@ -159,34 +159,34 @@ export const Sizes: Story = {
 };
 
 /**
- * Selector con diferentes variantes.
+ * Selector with different variants.
  */
 export const Variants: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
       <Selector 
         options={mockOptions} 
-        label="Variante primaria (por defecto)" 
+        label="Primary variant (default)" 
         variant={SelectorVariant.PRIMARY} 
       />
       <Selector 
         options={mockOptions} 
-        label="Variante secundaria" 
+        label="Secondary variant" 
         variant={SelectorVariant.SECONDARY} 
       />
       <Selector 
         options={mockOptions} 
-        label="Variante de peligro" 
+        label="Danger variant" 
         variant={SelectorVariant.DANGER} 
       />
       <Selector 
         options={mockOptions} 
-        label="Variante de éxito" 
+        label="Success variant" 
         variant={SelectorVariant.SUCCESS} 
       />
       <Selector 
         options={mockOptions} 
-        label="Variante de advertencia" 
+        label="Warning variant" 
         variant={SelectorVariant.WARNING} 
       />
     </div>
@@ -194,21 +194,21 @@ export const Variants: Story = {
 };
 
 /**
- * Selector con opción por defecto seleccionada.
+ * Selector with a default selected option.
  */
 export const WithDefaultValue: Story = {
   args: {
     defaultValue: '2',
-    label: 'Con valor por defecto',
+    label: 'With default value',
   },
 };
 
 /**
- * Selector requerido con indicador de campo obligatorio.
+ * Required selector with mandatory field indicator.
  */
 export const RequiredField: Story = {
   args: {
-    label: 'Campo obligatorio',
+    label: 'Required field',
     required: true,
   },
 };

@@ -1,13 +1,13 @@
 import { TitleProps, TitleSize, TitleVariant } from '../types';
 
-// Mock básico con props mínimas
+// Basic mock with minimum props
 export const mockTitleProps: TitleProps = {
-  children: 'Título de ejemplo',
+  children: 'Example Title',
 };
 
-// Mock con todas las propiedades
+// Mock with all properties
 export const mockTitleWithAllProps: TitleProps = {
-  children: 'Título con todas las propiedades',
+  children: 'Title with all properties',
   size: TitleSize.H2,
   variant: TitleVariant.PRIMARY,
   className: 'custom-class',
@@ -22,14 +22,14 @@ export const mockTitleWithAllProps: TitleProps = {
   onClick: vi.fn(),
 };
 
-// Función para generar títulos con diferentes variantes
+// Function to generate titles with different variants
 export const mockTitleWithDifferentVariants = (variant: TitleVariant): TitleProps => ({
-  children: `Título ${variant}`,
+  children: `Title ${variant}`,
   variant,
 });
 
-// Función para generar títulos con diferentes tamaños
+// Function to generate titles with different sizes
 export const mockTitleWithDifferentSizes = (size: TitleSize): TitleProps => ({
-  children: `Título ${size}`,
+  children: `Title ${size}`,
   size,
 });

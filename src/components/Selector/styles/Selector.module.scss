@@ -56,7 +56,7 @@ $selector-transition: all 0.2s ease-in-out;
   transition: $selector-transition;
   outline: none;
 
-  // Tamaños
+  // Sizes
   &--small {
     @include selector-size(
       $selector-padding-y-sm,
@@ -87,7 +87,7 @@ $selector-transition: all 0.2s ease-in-out;
     );
   }
 
-  // Variantes
+  // Variants
   &--primary {
     &:focus {
       border-color: $selector-focus-border-primary;
@@ -121,7 +121,7 @@ $selector-transition: all 0.2s ease-in-out;
     }
   }
 
-  // Estados
+  // States
   &:disabled {
     background-color: $selector-disabled-bg;
     color: $selector-disabled-text;

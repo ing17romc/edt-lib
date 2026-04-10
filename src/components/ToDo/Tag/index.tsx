@@ -5,8 +5,8 @@ import { TagProps } from './types';
 import { ComponentVariant, ComponentSize } from '../../types';
 
 /**
- * Etiqueta informativa para categorizar o clasificar contenido.
- * Soporta variantes de color, tamaños y opción de cierre.
+ * Informational label for categorizing or classifying content.
+ * Supports color variants, sizes, and close option.
  * @component
  */
 const Tag: React.FC<TagProps> = ({
@@ -43,7 +43,7 @@ const Tag: React.FC<TagProps> = ({
           className={styles.tagClose}
           onClick={handleClose}
           disabled={disabled}
-          aria-label="Cerrar"
+          aria-label="Close"
         >
           ×
         </button>

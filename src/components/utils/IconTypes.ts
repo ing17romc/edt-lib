@@ -1,6 +1,6 @@
 /**
- * Tipos de iconos disponibles en la aplicación.
- * Cada categoría de iconos está organizada en su propio enum.
+ * Icon types available in the application.
+ * Each icon category is organized in its own enum.
  */
 
 export enum ActionIcons {

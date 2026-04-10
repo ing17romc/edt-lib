@@ -93,7 +93,7 @@ $iconbutton-font-weight: $font-weight-medium;
 $iconbutton-line-height: 1;
 $icon-font-size-large: 2rem;       // 32px
 $icon-font-size-xlarge: 2.5rem;    // 40px
-$icon-line-height: 1;              // Sin unidad para que herede el tamaño de fuente
+$icon-line-height: 1;              // Unitless so it inherits the font size
 
 // Pagination Typography
 $pagination-button-font-size: $font-size-sm;  // 14px

@@ -5,8 +5,8 @@ import styles from './styles/TextButton.module.scss';
 import { ComponentSize, ComponentVariant } from '../types';
   
 /**
- * Componente de botón de texto que extiende la funcionalidad del componente Button.
- * Diseñado para acciones secundarias o menos prominentes que los botones regulares.
+ * Text button component that extends the functionality of the Button component.
+ * Designed for secondary or less prominent actions than regular buttons.
  */
 const TextButton: React.FC<TextButtonProps> = ({
   children,
@@ -30,11 +30,11 @@ const TextButton: React.FC<TextButtonProps> = ({
     className,
   ].filter(Boolean).join(' ');
 
-  // Estilos en línea para sobrescribir cualquier estilo que pueda estar causando problemas
+  // Inline styles to override any styles that might be causing issues
   const buttonStyle: React.CSSProperties = {
-    // Forzar color transparente cuando está cargando
+    // Force transparent color when loading
     ...(loading && { color: 'transparent' }),
-    // Forzar ancho completo cuando fullWidth es true
+    // Force full width when fullWidth is true
     ...(fullWidth && { width: '100%' })
   };
 

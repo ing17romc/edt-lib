@@ -4,8 +4,8 @@ import { ComponentSize } from '../types';
 import styles from './styles/TextBox.module.scss';
 
 /**
- * Componente de campo de texto que permite la entrada de texto de una sola línea.
- * Soporta diferentes variantes, tamaños y estados.
+ * Text field component that allows single-line text input.
+ * Supports different variants, sizes, and states.
  */
 const TextBox = forwardRef<HTMLInputElement, TextBoxProps>(({
   label,
@@ -35,7 +35,7 @@ const TextBox = forwardRef<HTMLInputElement, TextBoxProps>(({
     containerClassName,
   ].filter(Boolean).join(' ');
 
-  // Asegurar que el ancho completo se herede correctamente
+  // Ensure that full width is inherited correctly
   const containerStyle = fullWidth ? { 
     width: '100%',
     display: 'block' 

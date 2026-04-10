@@ -4,11 +4,11 @@ import styles from './styles/Menu.module.scss'
 import { MenuProps, MenuItem } from './types'
 
 /**
- * Componente Menu que muestra una lista de elementos de navegación o acciones.
+ * Menu component that displays a list of navigation or action items.
  *
- * @param items - Elementos del menú
- * @param activeKey - Key del elemento activo
- * @param onSelect - Callback al seleccionar un elemento
+ * @param items - Menu items
+ * @param activeKey - Key of the active item
+ * @param onSelect - Callback when selecting an item
  */
 const Menu = ({
   items,

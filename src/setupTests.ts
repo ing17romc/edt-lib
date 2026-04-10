@@ -1,7 +1,7 @@
-// Configuración global para las pruebas con Vitest y Testing Library
+// Global configuration for tests with Vitest and Testing Library
 import '@testing-library/jest-dom';
 
-// Configuración de mocks para estilos
+// Style mocks configuration
 const localStorageMock = {
   getItem: vi.fn(),
   setItem: vi.fn(),
@@ -16,7 +16,7 @@ Object.defineProperty(window, 'localStorage', {
   writable: true,
 });
 
-// Configuración de matchMedia para pruebas
+// matchMedia configuration for tests
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
   value: vi.fn().mockImplementation(query => ({

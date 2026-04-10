@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import TableDefault from '..';
 import type { TableRowData } from '../types';
 
-// Datos de prueba
+// Test data
 const mockData: TableRowData[] = [
   {
     name: 'John Doe',
@@ -18,54 +18,54 @@ const mockData: TableRowData[] = [
   {
     name: 'Robert Johnson',
     userName: 'rjohnson',
-    status: 1, // También probamos con valor numérico
+    status: 1, // Also testing with numeric value
   },
 ];
 
 describe('TableDefault', () => {
-  it('renderiza sin errores con datos vacíos', () => {
+  it('renders without errors with empty data', () => {
     render(<TableDefault dataTable={[]} />);
     
-    // Verificar que se renderiza el título
+    // Verify the title is rendered
     expect(screen.getByText('Example tables')).toBeInTheDocument();
     
-    // Verificar que se muestra el encabezado de la tabla
+    // Verify the table header is shown
     expect(screen.getByText('Table default')).toBeInTheDocument();
     
-    // Verificar que solo hay una fila (el encabezado) cuando no hay datos
+    // Verify there is only one row (the header) when there is no data
     const allRows = screen.getAllByRole('row');
-    expect(allRows).toHaveLength(1); // Solo el encabezado
+    expect(allRows).toHaveLength(1); // Header only
   });
 
-  it('renderiza correctamente con datos', () => {
+  it('renders correctly with data', () => {
     render(<TableDefault dataTable={mockData} />);
     
-    // Verificar que se renderizan los datos
+    // Verify the data is rendered
     const johnDoeCells = screen.getAllByText('John Doe');
     const janeDoeCells = screen.getAllByText('Jane Smith');
     const robertCells = screen.getAllByText('Robert Johnson');
     
-    // Verificar que se repiten las columnas (4 veces por fila de datos)
-    expect(johnDoeCells.length).toBe(4); // 4 repeticiones por fila
+    // Verify columns are repeated (4 times per data row)
+    expect(johnDoeCells.length).toBe(4); // 4 repetitions per row
     expect(janeDoeCells.length).toBe(4);
     expect(robertCells.length).toBe(4);
     
-    // Verificar que se muestra el estado correcto
+    // Verify the correct status is shown
     const activeStatus = screen.getAllByText('Active');
     const inactiveStatus = screen.getAllByText('Inactive');
     expect(activeStatus.length).toBeGreaterThan(0);
     expect(inactiveStatus.length).toBeGreaterThan(0);
   });
 
-  it('tiene la estructura de tabla correcta con múltiples columnas', () => {
+  it('has the correct table structure with multiple columns', () => {
     render(<TableDefault dataTable={mockData} />);
     
-    // Verificar la estructura de la tabla
+    // Verify the table structure
     const table = screen.getByRole('table');
     expect(table).toBeInTheDocument();
     expect(table).toHaveClass('big-table');
     
-    // Verificar los encabezados de columna (4 repeticiones de Name, UserName, Status)
+    // Verify column headers (4 repetitions of Name, UserName, Status)
     const nameHeaders = screen.getAllByText('Name');
     const userHeaders = screen.getAllByText('UserName');
     const statusHeaders = screen.getAllByText('Status');
@@ -74,31 +74,31 @@ describe('TableDefault', () => {
     expect(userHeaders.length).toBe(4);
     expect(statusHeaders.length).toBe(4);
     
-    // Verificar que todas las celdas de datos están presentes
+    // Verify all data cells are present
     const allCells = screen.getAllByRole('cell');
-    expect(allCells.length).toBe(mockData.length * 12); // 12 columnas por fila (4 repeticiones de 3 columnas)
+    expect(allCells.length).toBe(mockData.length * 12); // 12 columns per row (4 repetitions of 3 columns)
   });
 
-  it('aplica las clases CSS correctas', () => {
+  it('applies the correct CSS classes', () => {
     render(<TableDefault dataTable={mockData} />);
     
-    // Verificar las clases del contenedor principal
+    // Verify the main container classes
     const container = screen.getByText('Example tables').closest('.container-body');
     expect(container).toHaveClass('container-body');
     
-    // Verificar las clases de la cuadrícula
+    // Verify the grid classes
     const grid = screen.getByText('Table default').closest('.grid-secondary');
     expect(grid).toHaveClass('grid-secondary');
     
-    // Verificar las clases de la tabla
+    // Verify the table classes
     const tableWrapper = screen.getByRole('table').closest('.bg-gray');
     expect(tableWrapper).toHaveClass('bg-gray', 'padding-h-30', 'padding-v-30');
   });
 
-  it('maneja correctamente los datos con valores límite', () => {
+  it('handles edge case data correctly', () => {
     const edgeCaseData: TableRowData[] = [
       {
-        name: '', // Nombre vacío
+        name: '', // Empty name
         userName: 'user',
         status: true,
       },
@@ -111,18 +111,18 @@ describe('TableDefault', () => {
     
     render(<TableDefault dataTable={edgeCaseData} />);
     
-    // Verificar que se manejan correctamente los nombres vacíos
+    // Verify empty names are handled correctly
     const emptyNameCells = screen.getAllByRole('cell', { name: '' });
-    expect(emptyNameCells.length).toBe(4); // 4 repeticiones
+    expect(emptyNameCells.length).toBe(4); // 4 repetitions
     
-    // Verificar que se manejan correctamente los nombres largos
+    // Verify long names are handled correctly
     const longNameText = 'A very long name that might break the layout A very long name that might break the layout';
     const longNameCells = screen.getAllByText(longNameText);
-    expect(longNameCells.length).toBe(4); // 4 repeticiones
+    expect(longNameCells.length).toBe(4); // 4 repetitions
   });
 });
 
-// Mock para getStatus
+// Mock for getStatus
 vi.mock('../../utils', () => ({
   __esModule: true,
   default: (value: boolean | number) => (

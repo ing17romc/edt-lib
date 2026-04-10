@@ -24,14 +24,14 @@ export default metaWithComponent;
 
 type Story = StoryObj<typeof IconButton>;
 
-// Historia por defecto
+// Default story
 export const Default: Story = {
   args: {
-    'aria-label': 'Botón de inicio',
+    'aria-label': 'Home button',
   },
 };
 
-// Tamaños
+// Sizes
 export const Sizes: Story = {
   render: () => (
     <div style={containerStyle}>
@@ -40,7 +40,7 @@ export const Sizes: Story = {
           <IconButton 
             icon="home" 
             size={size} 
-            aria-label={`Botón ${label}`} 
+            aria-label={`${label} button`} 
           />
           <span>{label}</span>
         </div>
@@ -50,13 +50,13 @@ export const Sizes: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Muestra los diferentes tamaños disponibles para el componente IconButton.',
+        story: 'Shows the different sizes available for the IconButton component.',
       },
     },
   },
 };
 
-// Variantes
+// Variants
 export const Variants: Story = {
   render: () => (
     <div style={containerStyle}>
@@ -65,7 +65,7 @@ export const Variants: Story = {
           <IconButton 
             icon="star" 
             variant={variant} 
-            aria-label={`Botón ${label}`} 
+            aria-label={`${label} button`} 
           />
           <span>{label}</span>
         </div>
@@ -75,72 +75,72 @@ export const Variants: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Muestra las diferentes variantes de estilo disponibles para el componente IconButton.',
+        story: 'Shows the different style variants available for the IconButton component.',
       },
     },
   },
 };
 
-// Estados
+// States
 export const States: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
       <IconButton icon="check" aria-label="Normal" />
-      <IconButton icon="check" disabled aria-label="Deshabilitado" />
-      <IconButton icon="check" loading aria-label="Cargando" />
+      <IconButton icon="check" disabled aria-label="Disabled" />
+      <IconButton icon="check" loading aria-label="Loading" />
     </div>
   ),
 };
 
-// Iconos personalizados
+// Custom icons
 export const CustomIcons: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-      <IconButton icon="home" aria-label="Inicio" />
-      <IconButton icon="settings" variant={ComponentVariant.SECONDARY} aria-label="Configuración" />
-      <IconButton icon="search" variant={ComponentVariant.TERTIARY} aria-label="Buscar" />
-      <IconButton icon="heart" variant={ComponentVariant.DANGER} aria-label="Favorito" />
-      <IconButton icon="download" variant={ComponentVariant.SUCCESS} aria-label="Descargar" />
-      <IconButton icon="bell" variant={ComponentVariant.WARNING} aria-label="Notificaciones" />
+      <IconButton icon="home" aria-label="Home" />
+      <IconButton icon="settings" variant={ComponentVariant.SECONDARY} aria-label="Settings" />
+      <IconButton icon="search" variant={ComponentVariant.TERTIARY} aria-label="Search" />
+      <IconButton icon="heart" variant={ComponentVariant.DANGER} aria-label="Favorite" />
+      <IconButton icon="download" variant={ComponentVariant.SUCCESS} aria-label="Download" />
+      <IconButton icon="bell" variant={ComponentVariant.WARNING} aria-label="Notifications" />
     </div>
   ),
 };
 
-// Con color personalizado
+// With custom color
 export const WithCustomColor: Story = {
   args: {
     icon: 'favorite',
     iconColor: '#ff4081',
-    'aria-label': 'Favorito rosa',
+    'aria-label': 'Pink favorite',
   },
 };
 
-// Con variante de icono
+// With icon variant
 export const WithIconVariant: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-      <IconButton icon="star" iconVariant={IconVariant.OUTLINE} aria-label="Contorno" />
-      <IconButton icon="star" iconVariant={IconVariant.SOLID} aria-label="Sólido" />
+      <IconButton icon="star" iconVariant={IconVariant.OUTLINE} aria-label="Outline" />
+      <IconButton icon="star" iconVariant={IconVariant.SOLID} aria-label="Solid" />
       <IconButton icon="star" iconVariant={IconVariant.DUAL} aria-label="Dual" />
     </div>
   ),
 };
 
-// Ancho completo
+// Full width
 export const FullWidth: Story = {
   render: () => (
     <div style={{ width: '300px' }}>
       <IconButton 
         icon="add" 
         fullWidth 
-        aria-label="Agregar" 
+        aria-label="Add" 
         style={{ marginBottom: '8px' }} 
       />
       <IconButton 
         icon="delete" 
         variant={ComponentVariant.DANGER} 
         fullWidth 
-        aria-label="Eliminar" 
+        aria-label="Delete" 
       />
     </div>
   ),

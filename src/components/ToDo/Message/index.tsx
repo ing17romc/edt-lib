@@ -12,13 +12,13 @@ const variantIcons: Record<string, string> = {
 }
 
 /**
- * Componente Message que muestra mensajes informativos con diferentes niveles de importancia.
+ * Message component that displays informational messages with different levels of importance.
  *
- * @param children - Contenido del mensaje
- * @param variant - Variante de color/tipo
- * @param title - Título opcional
- * @param closable - Si se puede cerrar
- * @param onClose - Callback al cerrar
+ * @param children - Message content
+ * @param variant - Color/type variant
+ * @param title - Optional title
+ * @param closable - Whether the message can be closed
+ * @param onClose - Close callback
  */
 const Message = ({
   children,
@@ -49,7 +49,7 @@ const Message = ({
       <button
         type="button"
         className={styles.closeButton}
-        aria-label="Cerrar"
+        aria-label="Close"
         onClick={onClose}
       >
         ×

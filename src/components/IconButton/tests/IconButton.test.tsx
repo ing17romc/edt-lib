@@ -5,11 +5,11 @@ import IconButton from '..';
 import { ComponentSize, ComponentVariant } from '../../types';
 
 describe('IconButton', () => {
-  it('renderiza correctamente con las props por defecto', () => {
+  it('renders correctly with default props', () => {
     render(
       <IconButton 
         icon="home" 
-        aria-label="Inicio" 
+        aria-label="Home" 
         data-testid="icon-button" 
       />
     );
@@ -21,10 +21,10 @@ describe('IconButton', () => {
     expect(button).toHaveClass('iconButton--medium');
     expect(button).toHaveClass('iconButton--primary');
     expect(icon).toHaveAttribute('aria-label', 'home');
-    expect(button).toHaveAttribute('aria-label', 'Inicio');
+    expect(button).toHaveAttribute('aria-label', 'Home');
   });
 
-  it('aplica el tamaño correcto', () => {
+  it('applies the correct size', () => {
     const sizes = Object.values(ComponentSize);
     
     sizes.forEach(size => {
@@ -32,7 +32,7 @@ describe('IconButton', () => {
         <IconButton 
           icon="home" 
           size={size as ComponentSize} 
-          aria-label={`Botón ${size}`} 
+          aria-label={`Button ${size}`} 
         />
       );
       
@@ -41,7 +41,7 @@ describe('IconButton', () => {
     });
   });
 
-  it('aplica la variante correcta', () => {
+  it('applies the correct variant', () => {
     const variants = ['primary', 'secondary', 'tertiary', 'danger', 'success', 'warning'] as const;
     
     variants.forEach(variant => {
@@ -49,7 +49,7 @@ describe('IconButton', () => {
         <IconButton 
           icon="home" 
           variant={variant as ComponentVariant} 
-          aria-label={`Botón ${variant}`} 
+          aria-label={`Button ${variant}`} 
         />
       );
       
@@ -58,14 +58,14 @@ describe('IconButton', () => {
     });
   });
 
-  it('maneja correctamente el evento onClick', () => {
+  it('handles the onClick event correctly', () => {
     const handleClick = vi.fn();
     
     render(
       <IconButton 
         icon="home" 
         onClick={handleClick} 
-        aria-label="Haz clic" 
+        aria-label="Click me" 
         data-testid="icon-button"
       />
     );
@@ -76,12 +76,12 @@ describe('IconButton', () => {
     expect(handleClick).toHaveBeenCalledTimes(1);
   });
 
-  it('se deshabilita correctamente', () => {
+  it('is disabled correctly', () => {
     render(
       <IconButton 
         icon="home" 
         disabled 
-        aria-label="Botón deshabilitado" 
+        aria-label="Disabled button" 
         data-testid="icon-button"
       />
     );
@@ -91,12 +91,12 @@ describe('IconButton', () => {
     expect(button).toHaveAttribute('aria-disabled', 'true');
   });
 
-  it('muestra el estado de carga correctamente', () => {
+  it('shows loading state correctly', () => {
     render(
       <IconButton 
         icon="home" 
         loading 
-        aria-label="Cargando" 
+        aria-label="Loading" 
         data-testid="icon-button"
       />
     );
@@ -104,16 +104,16 @@ describe('IconButton', () => {
     const button = screen.getByTestId('icon-button');
     expect(button).toHaveClass('iconButton--loading');
     expect(button).toHaveAttribute('aria-busy', 'true');
-    expect(button).toHaveAttribute('aria-label', 'Cargando...');
+    expect(button).toHaveAttribute('aria-label', 'Loading...');
   });
 
-  it('aplica clases personalizadas correctamente', () => {
+  it('applies custom classes correctly', () => {
     render(
       <IconButton 
         icon="home" 
         className="custom-button" 
         iconClassName="custom-icon" 
-        aria-label="Personalizado"
+        aria-label="Custom"
       />
     );
     
@@ -128,13 +128,13 @@ describe('IconButton', () => {
     render(
       <IconButton 
         icon="home" 
-        title="Botón de inicio" 
-        aria-label="Inicio" 
+        title="Home button" 
+        aria-label="Home" 
         data-testid="icon-button"
       />
     );
     
     const button = screen.getByTestId('icon-button');
-    expect(button).toHaveAttribute('title', 'Botón de inicio');
+    expect(button).toHaveAttribute('title', 'Home button');
   });
 });

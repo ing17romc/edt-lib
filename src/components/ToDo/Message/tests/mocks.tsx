@@ -4,17 +4,17 @@ import { ComponentVariant } from '../../../types'
 export const mockOnClose = vi.fn()
 
 export const defaultMessageProps: MessageProps = {
-  children: 'Este es un mensaje informativo.',
+  children: 'This is an informational message.',
 }
 
 export const titleMessageProps: MessageProps = {
-  children: 'Descripción del mensaje.',
-  title: 'Título del mensaje',
+  children: 'Message description.',
+  title: 'Message title',
   variant: ComponentVariant.SUCCESS,
 }
 
 export const closableMessageProps: MessageProps = {
-  children: 'Este mensaje se puede cerrar.',
+  children: 'This message can be closed.',
   closable: true,
   onClose: mockOnClose,
 }

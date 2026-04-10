@@ -8,7 +8,7 @@ import { ComponentSize } from '../../types';
 describe('Spinner', () => {
   it('renders with default props', () => {
     render(<Spinner {...defaultProps} />);
-    const spinner = screen.getByLabelText('Cargando...');
+    const spinner = screen.getByLabelText('Loading...');
     expect(spinner).toBeInTheDocument();
     expect(spinner).toHaveClass('spinner--medium');
     expect(spinner).toHaveClass('spinner--primary');
@@ -16,25 +16,25 @@ describe('Spinner', () => {
 
   it('renders with a specific size', () => {
     render(<Spinner {...defaultProps} size={ComponentSize.LARGE} />);
-    const spinner = screen.getByLabelText('Cargando...');
+    const spinner = screen.getByLabelText('Loading...');
     expect(spinner).toHaveClass('spinner--large');
   });
 
   it('renders with a specific variant', () => {
     render(<Spinner {...defaultProps} variant={SpinnerVariant.DANGER} />);
-    const spinner = screen.getByLabelText('Cargando...');
+    const spinner = screen.getByLabelText('Loading...');
     expect(spinner).toHaveClass('spinner--danger');
   });
 
   it('renders in pulse mode', () => {
     render(<Spinner {...pulseProps} />);
-    const spinner = screen.getByLabelText('Cargando...');
+    const spinner = screen.getByLabelText('Loading...');
     expect(spinner).toHaveClass('spinner--pulse');
   });
 
   it('applies custom className', () => {
     render(<Spinner {...defaultProps} className="custom-class" />);
-    const spinner = screen.getByLabelText('Cargando...');
+    const spinner = screen.getByLabelText('Loading...');
     expect(spinner).toHaveClass('custom-class');
   });
 });

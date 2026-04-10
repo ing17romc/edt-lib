@@ -4,7 +4,7 @@ import { ComponentVariant, ComponentSize } from '../../../types';
 export const mockOnClose = vi.fn();
 
 export const defaultTagProps: TagProps = {
-  children: 'Etiqueta',
+  children: 'Label',
   variant: ComponentVariant.PRIMARY,
   size: ComponentSize.MEDIUM,
 };

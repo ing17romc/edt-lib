@@ -1,15 +1,15 @@
 /**
  * Color
  *
- * Este componente muestra ejemplos de colores de fuente, colores de fondo y variables SCSS de color utilizadas en la librería EDT.
- * Útil para visualizar y validar los estilos de color definidos en la librería.
+ * This component displays examples of font colors, background colors, and SCSS color variables used in the EDT library.
+ * Useful for visualizing and validating the color styles defined in the library.
  */
 import React from 'react';
 import './color.scss';
 import type { ColorProps, ColorCategory } from './types';
 import { colorGroups } from './stories/mocks';
 
-// Estilos en línea para los puntos de color
+// Inline styles for color dots
 const dotStyle: React.CSSProperties = {
   height: '18px',
   width: '18px',
@@ -20,7 +20,7 @@ const dotStyle: React.CSSProperties = {
 };
 
 /**
- * Renderiza un elemento de color con su clase y código de ejemplo
+ * Renders a color item with its class and example code
  */
 const renderColorItem = (className: string, type: ColorCategory) => {
   switch (type) {
@@ -28,7 +28,7 @@ const renderColorItem = (className: string, type: ColorCategory) => {
       return (
         <div key={className}>
           <span className={className}>{className}</span>
-          <code className="code-block">{`<span className="${className}">Texto</span>`}</code>
+          <code className="code-block">{`<span className="${className}">Text</span>`}</code>
           <hr className="divider" />
         </div>
       );
@@ -58,7 +58,7 @@ const renderColorItem = (className: string, type: ColorCategory) => {
 };
 
 /**
- * Componente que muestra una paleta de colores con ejemplos de uso
+ * Component that displays a color palette with usage examples
  */
 const Color: React.FC<ColorProps> = ({
   className = '',
@@ -66,7 +66,7 @@ const Color: React.FC<ColorProps> = ({
   showBackgroundColors = true,
   showScssVariables = true,
 }) => {
-  // Filtrar los grupos de colores según las props
+  // Filter color groups based on props
   const filteredGroups = colorGroups.filter((group) => {
     if (group.type === 'font') return showFontColors;
     if (group.type === 'background') return showBackgroundColors;

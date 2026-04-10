@@ -2,11 +2,11 @@ import type { TextBoxProps } from '../types';
 import { ComponentSize } from '../../types';
 
 /**
- * Argumentos por defecto para las historias de Storybook del componente TextBox.
+ * Default arguments for TextBox Storybook stories.
  */
 export const defaultArgs: TextBoxProps = {
-  label: 'Etiqueta',
-  placeholder: 'Escribe algo...',
+  label: 'Label',
+  placeholder: 'Type something...',
   variant: 'outlined',
   size: ComponentSize.MEDIUM,
 };

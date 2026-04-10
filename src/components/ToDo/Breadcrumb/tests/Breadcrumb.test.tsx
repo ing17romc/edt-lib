@@ -9,66 +9,66 @@ import {
 } from './mocks'
 
 describe('Breadcrumb', () => {
-  describe('renderizado básico', () => {
-    it('renderiza el nav con aria-label', () => {
+  describe('basic rendering', () => {
+    it('renders the nav with aria-label', () => {
       render(<Breadcrumb {...defaultBreadcrumbProps} />)
       expect(screen.getByRole('navigation', { name: 'breadcrumb' })).toBeInTheDocument()
     })
 
-    it('renderiza todos los elementos', () => {
+    it('renders all items', () => {
       render(<Breadcrumb {...defaultBreadcrumbProps} />)
-      expect(screen.getByText('Inicio')).toBeInTheDocument()
-      expect(screen.getByText('Productos')).toBeInTheDocument()
-      expect(screen.getByText('Detalle')).toBeInTheDocument()
+      expect(screen.getByText('Home')).toBeInTheDocument()
+      expect(screen.getByText('Products')).toBeInTheDocument()
+      expect(screen.getByText('Detail')).toBeInTheDocument()
     })
 
-    it('el último elemento tiene aria-current="page"', () => {
+    it('the last item has aria-current="page"', () => {
       render(<Breadcrumb {...defaultBreadcrumbProps} />)
-      expect(screen.getByText('Detalle')).toHaveAttribute('aria-current', 'page')
+      expect(screen.getByText('Detail')).toHaveAttribute('aria-current', 'page')
     })
 
-    it('los elementos con href son links', () => {
+    it('items with href are links', () => {
       render(<Breadcrumb {...defaultBreadcrumbProps} />)
-      expect(screen.getByRole('link', { name: 'Inicio' })).toHaveAttribute('href', '/')
-      expect(screen.getByRole('link', { name: 'Productos' })).toHaveAttribute('href', '/productos')
+      expect(screen.getByRole('link', { name: 'Home' })).toHaveAttribute('href', '/')
+      expect(screen.getByRole('link', { name: 'Products' })).toHaveAttribute('href', '/products')
     })
 
-    it('el último elemento no es un link', () => {
+    it('the last item is not a link', () => {
       render(<Breadcrumb {...defaultBreadcrumbProps} />)
-      expect(screen.queryByRole('link', { name: 'Detalle' })).not.toBeInTheDocument()
+      expect(screen.queryByRole('link', { name: 'Detail' })).not.toBeInTheDocument()
     })
   })
 
-  describe('separadores', () => {
-    it('muestra el separador por defecto ("/")', () => {
+  describe('separators', () => {
+    it('shows the default separator ("/")', () => {
       render(<Breadcrumb {...defaultBreadcrumbProps} />)
       const separators = screen.getAllByText('/')
       expect(separators).toHaveLength(2)
     })
 
-    it('muestra el separador personalizado', () => {
+    it('shows the custom separator', () => {
       render(<Breadcrumb {...customSeparatorProps} />)
       const separators = screen.getAllByText('>')
       expect(separators).toHaveLength(2)
     })
 
-    it('no muestra separador en un solo elemento', () => {
+    it('does not show separator for a single item', () => {
       render(<Breadcrumb {...singleItemProps} />)
       expect(screen.queryByText('/')).not.toBeInTheDocument()
     })
   })
 
-  describe('casos especiales', () => {
-    it('renderiza un solo elemento sin links', () => {
+  describe('special cases', () => {
+    it('renders a single item without links', () => {
       render(<Breadcrumb {...singleItemProps} />)
-      expect(screen.getByText('Inicio')).toBeInTheDocument()
+      expect(screen.getByText('Home')).toBeInTheDocument()
       expect(screen.queryAllByRole('link')).toHaveLength(0)
     })
 
-    it('renderiza dos elementos correctamente', () => {
+    it('renders two items correctly', () => {
       render(<Breadcrumb {...twoItemsProps} />)
-      expect(screen.getByRole('link', { name: 'Inicio' })).toBeInTheDocument()
-      expect(screen.getByText('Actual')).toHaveAttribute('aria-current', 'page')
+      expect(screen.getByRole('link', { name: 'Home' })).toBeInTheDocument()
+      expect(screen.getByText('Current')).toHaveAttribute('aria-current', 'page')
     })
   })
 })

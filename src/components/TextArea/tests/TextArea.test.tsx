@@ -12,61 +12,61 @@ import {
 } from './mocks';
 
 describe('TextArea Component', () => {
-  it('se renderiza correctamente con las propiedades predeterminadas', () => {
-    render(<TextArea label="Campo de prueba" />);
-    const textarea = screen.getByLabelText('Campo de prueba');
+  it('renders correctly with default properties', () => {
+    render(<TextArea label="Test field" />);
+    const textarea = screen.getByLabelText('Test field');
     expect(textarea).toBeInTheDocument();
     expect(textarea.tagName).toBe('TEXTAREA');
   });
 
-  it('aplica la clase personalizada cuando se proporciona', () => {
+  it('applies the custom class when provided', () => {
     render(<TextArea {...mockTextAreaProps} />);
     const container = screen.getByTestId('textarea').parentElement?.parentElement;
     expect(container).toHaveClass('test-class');
   });
 
-  it('maneja el evento onChange correctamente', () => {
+  it('handles the onChange event correctly', () => {
     const handleChange = vi.fn();
     render(
       <TextArea 
-        label="Campo de prueba" 
+        label="Test field" 
         onChange={handleChange} 
       />
     );
-    const textarea = screen.getByLabelText('Campo de prueba');
-    fireEvent.change(textarea, { target: { value: 'nuevo valor' } });
+    const textarea = screen.getByLabelText('Test field');
+    fireEvent.change(textarea, { target: { value: 'new value' } });
     expect(handleChange).toHaveBeenCalledTimes(1);
   });
 
-  it('se deshabilita correctamente cuando la propiedad disabled es true', () => {
+  it('is disabled correctly when the disabled property is true', () => {
     render(<TextArea {...mockDisabledTextAreaProps} />);
-    const textarea = screen.getByLabelText('Campo deshabilitado') as HTMLTextAreaElement;
+    const textarea = screen.getByLabelText('Disabled field') as HTMLTextAreaElement;
     expect(textarea).toBeDisabled();
-    expect(textarea.value).toBe('Este es un texto de ejemplo en un área de texto deshabilitada.');
+    expect(textarea.value).toBe('This is sample text in a disabled textarea.');
   });
 
-  it('muestra el mensaje de error cuando la propiedad error es true', () => {
+  it('shows the error message when the error property is true', () => {
     render(<TextArea {...mockErrorTextAreaProps} />);
-    const errorText = screen.getByText('Este campo es requerido');
-    const textarea = screen.getByLabelText('Campo con error');
+    const errorText = screen.getByText('This field is required');
+    const textarea = screen.getByLabelText('Field with error');
     
     expect(errorText).toBeInTheDocument();
     expect(textarea).toHaveAttribute('aria-invalid', 'true');
   });
 
-  it('ocupa todo el ancho disponible cuando fullWidth es true', () => {
+  it('takes up full width when fullWidth is true', () => {
     render(<TextArea {...mockFullWidthTextAreaProps} />);
-    const container = screen.getByLabelText('Campo de ancho completo').closest('.textAreaContainer');
+    const container = screen.getByLabelText('Full width field').closest('.textAreaContainer');
     expect(container).toHaveClass('fullWidth');
   });
 
-  it('aplica el límite de caracteres cuando maxLength está definido', () => {
+  it('applies the character limit when maxLength is defined', () => {
     render(<TextArea {...mockWithMaxLengthTextAreaProps} />);
-    const textarea = screen.getByLabelText('Campo con límite de caracteres') as HTMLTextAreaElement;
+    const textarea = screen.getByLabelText('Character limit field') as HTMLTextAreaElement;
     expect(textarea.maxLength).toBe(100);
   });
 
-  it('aplica las diferentes variantes correctamente', () => {
+  it('applies different variants correctly', () => {
     const { rerender } = render(
       <TextArea 
         label="Outlined" 
@@ -101,7 +101,7 @@ describe('TextArea Component', () => {
     expect(textareaWrapper).toHaveClass('variant-standard');
   });
 
-  it('aplica los diferentes tamaños correctamente', () => {
+  it('applies different sizes correctly', () => {
     const { rerender } = render(
       <TextArea 
         label="Small" 
@@ -125,21 +125,21 @@ describe('TextArea Component', () => {
     expect(textareaWrapper).toHaveClass('size-large');
   });
 
-  it('es accesible con un nombre accesible', () => {
-    render(<TextArea label="Campo accesible" aria-label="Área de texto para comentarios" />);
-    const textarea = screen.getByRole('textbox', { name: /área de texto para comentarios/i });
+  it('is accessible with an accessible name', () => {
+    render(<TextArea label="Accessible field" aria-label="Textarea for comments" />);
+    const textarea = screen.getByRole('textbox', { name: /textarea for comments/i });
     expect(textarea).toBeInTheDocument();
   });
 
-  it('aplica el número de filas especificado', () => {
-    render(<TextArea label="Campo con filas" rows={5} />);
-    const textarea = screen.getByLabelText('Campo con filas');
+  it('applies the specified number of rows', () => {
+    render(<TextArea label="Field with rows" rows={5} />);
+    const textarea = screen.getByLabelText('Field with rows');
     expect(textarea).toHaveAttribute('rows', '5');
   });
 
-  it('maneja correctamente el redimensionamiento automático', () => {
-    // Nota: Las pruebas de redimensionamiento automático son difíciles de probar con JSDOM
-    // ya que no tiene un diseño real. Esta es una prueba básica para verificar que la propiedad se aplica.
+  it('handles auto-resize correctly', () => {
+    // Note: Auto-resize tests are hard to test with JSDOM
+    // since it has no real layout. This is a basic test to verify the property is applied.
     const { container } = render(<TextArea {...mockAutoResizeTextAreaProps} />);
     const textarea = container.querySelector('textarea');
     expect(textarea).toHaveStyle('overflow: hidden');

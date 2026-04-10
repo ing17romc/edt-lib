@@ -5,7 +5,7 @@ import { IconVariant } from '../types';
 import { containerStyle, itemContainerStyle, } from './mocks';
 import { ComponentSize } from '../../types';
 
-// Configuración de meta para las historias
+// Meta configuration for stories
 const meta: Meta<typeof Icon> = {
   title: 'Components/Icon',
   component: Icon,
@@ -91,7 +91,7 @@ export const Sizes: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Muestra los diferentes tamaños disponibles para el componente Icon.',
+        story: 'Shows the different sizes available for the Icon component.',
       },
     },
   },
@@ -122,7 +122,7 @@ export const Variants: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Muestra las diferentes variantes de estilo disponibles para el componente Icon.',
+        story: 'Shows the different style variants available for the Icon component.',
       },
     },
   },
@@ -136,7 +136,7 @@ export const WithCustomColor: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Ejemplo de un icono con un color personalizado.',
+        story: 'Example of an icon with a custom color.',
       },
     },
   },
@@ -145,7 +145,7 @@ export const WithCustomColor: Story = {
 export const WithInheritColor: Story = {
   render: () => (
     <div style={{ color: 'purple' }}>
-      <p>Este texto es morado, y el icono hereda el color:</p>
+      <p>This text is purple, and the icon inherits the color:</p>
       <div style={{ display: 'flex', gap: '16px', alignItems: 'center', marginTop: '8px' }}>
         <Icon name="check" inheritColor size={ComponentSize.LARGE} />
         <Icon name="star" inheritColor size={ComponentSize.LARGE} />
@@ -156,7 +156,7 @@ export const WithInheritColor: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Ejemplo de iconos que heredan el color del elemento padre.',
+        story: 'Example of icons that inherit the color from the parent element.',
       },
     },
   },
@@ -167,18 +167,18 @@ export const DisabledState: Story = {
     <div style={containerStyle}>
       <div style={itemContainerStyle}>
         <Icon name="home" disabled />
-        <span>Deshabilitado</span>
+        <span>Disabled</span>
       </div>
       <div style={itemContainerStyle}>
         <Icon name="home" />
-        <span>Habilitado</span>
+        <span>Enabled</span>
       </div>
     </div>
   ),
   parameters: {
     docs: {
       description: {
-        story: 'Muestra el estado deshabilitado del icono.',
+        story: 'Shows the disabled state of the icon.',
       },
     },
   },

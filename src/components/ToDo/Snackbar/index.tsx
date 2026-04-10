@@ -5,15 +5,15 @@ import { SnackbarProps } from './types'
 import { ComponentVariant } from '../../types'
 
 /**
- * Componente Snackbar que muestra notificaciones temporales en la pantalla.
+ * Snackbar component that displays temporary notifications on screen.
  *
- * @param message - Texto de la notificación
- * @param variant - Variante de color
- * @param open - Si el snackbar es visible
- * @param duration - Duración en ms antes de cerrarse (0 = manual)
- * @param onClose - Callback al cerrar
- * @param actionLabel - Texto del botón de acción
- * @param onAction - Callback del botón de acción
+ * @param message - Notification text
+ * @param variant - Color variant
+ * @param open - Whether the snackbar is visible
+ * @param duration - Duration in ms before closing (0 = manual)
+ * @param onClose - Close callback
+ * @param actionLabel - Action button text
+ * @param onAction - Action button callback
  */
 const Snackbar = ({
   message,
@@ -60,7 +60,7 @@ const Snackbar = ({
           <button
             type="button"
             className={styles.closeButton}
-            aria-label="Cerrar"
+            aria-label="Close"
             onClick={onClose}
           >
             ×

@@ -86,7 +86,7 @@ export const Default: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Paginación estándar con 10 páginas y la página 5 seleccionada.',
+        story: 'Standard pagination with 10 pages and page 5 selected.',
       },
     },
   },
@@ -97,7 +97,7 @@ export const WithCustomLabels: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Paginación con etiquetas personalizadas para los botones de navegación.',
+        story: 'Pagination with custom labels for navigation buttons.',
       },
     },
   },
@@ -108,7 +108,7 @@ export const WithManyPages: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Paginación con muchas páginas que muestra puntos suspensivos para navegación.',
+        story: 'Pagination with many pages showing ellipsis for navigation.',
       },
     },
   },
@@ -119,7 +119,7 @@ export const Disabled: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Paginación deshabilitada que no responde a interacciones.',
+        story: 'Disabled pagination that does not respond to interactions.',
       },
     },
   },
@@ -130,7 +130,7 @@ export const FirstPage: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Paginación mostrando la primera página con el botón anterior deshabilitado.',
+        story: 'Pagination showing the first page with the previous button disabled.',
       },
     },
   },
@@ -141,7 +141,7 @@ export const LastPage: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Paginación mostrando la última página.',
+        story: 'Pagination showing the last page.',
       },
     },
   },
@@ -152,7 +152,7 @@ export const SmallSize: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Paginación con tamaño pequeño (SMALL).',
+        story: 'Pagination with small size (SMALL).',
       },
     },
   },
@@ -163,7 +163,7 @@ export const LargeSize: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Paginación con tamaño grande (LARGE).',
+        story: 'Pagination with large size (LARGE).',
       },
     },
   },

@@ -4,27 +4,27 @@ import Typography from './index';
 import { mockTypographyProps } from './__tests__/mocks';
 
 /**
- * # Componente Typography
+ * # Typography Component
  * 
- * El componente Typography es una guía visual que muestra todos los estilos tipográficos 
- * disponibles en la aplicación, incluyendo encabezados, párrafos y ejemplos de interlineado.
+ * The Typography component is a visual guide that displays all typographic styles 
+ * available in the application, including headings, paragraphs, and line-height examples.
  * 
- * Este componente es especialmente útil para:
- * - Visualizar la jerarquía tipográfica del diseño
- * - Asegurar la consistencia visual en toda la aplicación
- * - Documentar los estilos tipográficos para el equipo de desarrollo
+ * This component is especially useful for:
+ * - Visualizing the design's typographic hierarchy
+ * - Ensuring visual consistency across the application
+ * - Documenting typographic styles for the development team
  */
 const meta: Meta<typeof Typography> = {
   title: 'Static/Typography',
   component: Typography,
   tags: ['autodocs', 'static'],
   parameters: {
-    componentSubtitle: 'Guía de estilos tipográficos',
+    componentSubtitle: 'Typographic styles guide',
     docs: {
       description: {
         component: (
-          'Muestra ejemplos de los estilos tipográficos disponibles en la aplicación, ' +
-          'incluyendo encabezados (h1-h6), párrafos con diferentes tamaños y ejemplos de interlineado.'
+          'Shows examples of the typographic styles available in the application, ' +
+          'including headings (h1-h6), paragraphs with different sizes, and line-height examples.'
         ),
       },
     },
@@ -32,7 +32,7 @@ const meta: Meta<typeof Typography> = {
   argTypes: {
     showCodeExamples: {
       control: 'boolean',
-      description: 'Muestra ejemplos de código para cada elemento tipográfico',
+      description: 'Shows code examples for each typographic element',
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: 'true' },
@@ -40,7 +40,7 @@ const meta: Meta<typeof Typography> = {
     },
     className: {
       control: 'text',
-      description: 'Clase CSS adicional para el contenedor principal',
+      description: 'Additional CSS class for the main container',
       table: {
         type: { summary: 'string' },
       },
@@ -63,10 +63,10 @@ export default meta;
 type Story = StoryObj<typeof Typography>;
 
 /**
- * ## Vista por defecto
+ * ## Default view
  * 
- * Muestra todos los estilos tipográficos con ejemplos de código para cada elemento.
- * Incluye encabezados (h1-h6), párrafos con diferentes tamaños y ejemplos de interlineado.
+ * Shows all typographic styles with code examples for each element.
+ * Includes headings (h1-h6), paragraphs with different sizes, and line-height examples.
  */
 export const Default: Story = {
   args: {
@@ -75,16 +75,16 @@ export const Default: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Muestra todos los estilos tipográficos con ejemplos de código para cada elemento.'
+        story: 'Shows all typographic styles with code examples for each element.'
       }
     }
   }
 };
 
 /**
- * ## Sin ejemplos de código
+ * ## Without code examples
  * 
- * Muestra los estilos tipográficos sin los ejemplos de código, útil para una vista más limpia.
+ * Shows the typographic styles without code examples, useful for a cleaner view.
  */
 export const WithoutCodeExamples: Story = {
   args: {
@@ -93,16 +93,16 @@ export const WithoutCodeExamples: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Muestra los estilos tipográficos sin los ejemplos de código, ideal para revisiones de diseño.'
+        story: 'Shows the typographic styles without code examples, ideal for design reviews.'
       }
     }
   }
 };
 
 /**
- * ## Con clase personalizada
+ * ## With custom class
  * 
- * Demuestra cómo se puede personalizar el componente aplicando una clase CSS personalizada.
+ * Demonstrates how the component can be customized by applying a custom CSS class.
  */
 export const WithCustomClass: Story = {
   args: {
@@ -112,7 +112,7 @@ export const WithCustomClass: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Muestra cómo aplicar una clase CSS personalizada al contenedor principal del componente.'
+        story: 'Shows how to apply a custom CSS class to the main container of the component.'
       }
     }
   },
@@ -140,10 +140,10 @@ export const WithCustomClass: Story = {
 };
 
 /**
- * ## En contexto
+ * ## In context
  * 
- * Muestra el componente Typography en un contexto similar al de una aplicación real,
- * con un encabezado, contenido y pie de página.
+ * Shows the Typography component in a context similar to a real application,
+ * with a header, content, and footer.
  */
 export const InContext: Story = {
   args: {
@@ -152,7 +152,7 @@ export const InContext: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Ejemplo del componente Typography en un contexto similar al de una aplicación real.'
+        story: 'Example of the Typography component in a context similar to a real application.'
       }
     }
   },
@@ -165,8 +165,8 @@ export const InContext: Story = {
           borderBottom: '1px solid #e0e0e0',
           marginBottom: '2rem'
         }}>
-          <h1 style={{ margin: 0 }}>Aplicación de Ejemplo</h1>
-          <p style={{ margin: '0.5rem 0 0', color: '#666' }}>Barra de navegación</p>
+          <h1 style={{ margin: 0 }}>Example Application</h1>
+          <p style={{ margin: '0.5rem 0 0', color: '#666' }}>Navigation bar</p>
         </header>
         
         <main style={{ padding: '0 1rem' }}>
@@ -182,7 +182,7 @@ export const InContext: Story = {
           fontSize: '0.875rem',
           color: '#666'
         }}>
-          © 2023 Mi Aplicación. Todos los derechos reservados.
+          © 2023 My Application. All rights reserved.
         </footer>
       </div>
     ),

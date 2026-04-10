@@ -1,42 +1,42 @@
 import { AnchorHTMLAttributes } from 'react';
 
 /**
- * Elemento individual del Breadcrumb
+ * Individual Breadcrumb item
  */
 export interface BreadcrumbItem {
   /**
-   * Texto del elemento
+   * Item text
    */
   label: string;
 
   /**
-   * URL del enlace (si es undefined, se renderiza como texto plano — ítem activo)
+   * Link URL (if undefined, rendered as plain text — active item)
    */
   href?: string;
 }
 
 /**
- * Propiedades del componente Breadcrumb
+ * Breadcrumb component properties
  */
 export interface BreadcrumbProps {
   /**
-   * Lista de elementos del breadcrumb
+   * List of breadcrumb items
    */
   items: BreadcrumbItem[];
 
   /**
-   * Separador entre elementos
+   * Separator between items
    * @default '/'
    */
   separator?: string;
 
   /**
-   * Props adicionales para los anchors
+   * Additional props for anchors
    */
   linkProps?: AnchorHTMLAttributes<HTMLAnchorElement>;
 
   /**
-   * Clase CSS adicional para el contenedor
+   * Additional CSS class for the container
    */
   className?: string;
 }

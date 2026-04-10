@@ -13,7 +13,7 @@ $message-icon-size: 1.5rem; // 24px
 $message-close-size: 1.25rem; // 20px
 $message-transition: opacity 0.2s ease, transform 0.2s ease;
 
-// Mapa de colores para los diferentes tipos de mensaje
+// Color map for the different message types
 $message-colors: (
   'success': (
     'bg': color.adjust($success-color, $lightness: 50%),
@@ -41,7 +41,7 @@ $message-colors: (
   )
 );
 
-// Estilos base del mensaje
+// Base message styles
 .message {
   position: relative;
   display: flex;
@@ -63,10 +63,10 @@ $message-colors: (
   }
 }
 
-// Contenido del mensaje
+// Message content
 .messageContent {
   flex: 1;
-  min-width: 0; // Evita que el contenido se desborde
+  min-width: 0; // Prevents content from overflowing
   
   > * {
     margin: 0;
@@ -77,14 +77,14 @@ $message-colors: (
   }
 }
 
-// Título del mensaje
+// Message title
 .messageTitle {
   display: block;
   font-weight: $font-weight-bold;
   margin-bottom: $space-1;
 }
 
-// Icono del mensaje
+// Message icon
 .messageIcon {
   flex: 0 0 $message-icon-size;
   width: $message-icon-size;
@@ -98,12 +98,12 @@ $message-colors: (
   }
 }
 
-// Cuerpo del mensaje
+// Message body
 .messageBody {
   flex: 1;
-  min-width: 0; // Evita desbordamiento en flex
+  min-width: 0; // Prevents overflow in flex
   
-  // Título del mensaje
+  // Message title
   .messageTitle {
     font-weight: $font-weight-semibold;
     margin: 0 0 $space-1;
@@ -112,19 +112,19 @@ $message-colors: (
     color: inherit;
   }
   
-  // Texto del mensaje
+  // Message text
   .messageText {
     margin: 0;
     font-size: $font-size-md;
     line-height: $line-height-md;
     color: inherit;
     
-    // Mejor espaciado entre párrafos
+    // Better spacing between paragraphs
     p + p {
       margin-top: $space-2;
     }
     
-    // Estilos para enlaces dentro del mensaje
+    // Styles for links inside the message
     a {
       color: inherit;
       text-decoration: underline;
@@ -139,7 +139,7 @@ $message-colors: (
   }
 }
 
-// Estilos para cada tipo de mensaje
+// Styles for each message type
 @each $type, $colors in $message-colors {
   .message-#{$type} {
     background-color: map.get($colors, 'bg');
@@ -152,12 +152,12 @@ $message-colors: (
   }
 }
 
-// Estilos para mensajes cerrables
+// Styles for closable messages
 .message.closable {
-  padding-right: $space-10; // Espacio para el botón de cierre
+  padding-right: $space-10; // Space for the close button
 }
 
-// Animaciones
+// Animations
 .message-enter {
   opacity: 0;
   transform: translateY(10px);
@@ -180,7 +180,7 @@ $message-colors: (
   transition: $message-transition;
 }
 
-// Modo oscuro
+// Dark mode
 [data-theme='dark'] {
   .message {
     @each $type, $colors in $message-colors {
@@ -191,7 +191,7 @@ $message-colors: (
   }
 }
 
-// Media queries para responsividad
+// Media queries for responsiveness
 @media (width <= 575.98px) {
   .message {
     flex-direction: column;
@@ -203,7 +203,7 @@ $message-colors: (
   }
 }
 
-// Mejoras de accesibilidad
+// Accessibility improvements
 @media (prefers-reduced-motion: reduce) {
   .message {
     transition: none;

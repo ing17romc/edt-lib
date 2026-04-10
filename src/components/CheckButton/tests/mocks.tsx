@@ -3,24 +3,24 @@ import CheckButton from '../index';
 import { CheckButtonProps } from '../types';
 import { ComponentSize } from '../../types';
 
-// Tipos para los mocks
+// Types for mocks
 type MockCheckButtonProps = Omit<CheckButtonProps, 'onChange'> & {
   onChange?: (checked: boolean) => void;
 };
 
-// Valores por defecto para los mocks
+// Default values for mocks
 const defaultProps: MockCheckButtonProps = {
-  label: 'Opción de ejemplo',
+  label: 'Example option',
   checked: false,
   disabled: false,
 };
 
-// Mock básico
+// Basic mock
 export const DefaultCheckButton = (props: MockCheckButtonProps) => (
   <CheckButton {...defaultProps} {...props} />
 );
 
-// Mock con estado controlado
+// Mock with controlled state
 export const ControlledCheckButton = (props: MockCheckButtonProps) => {
   const [checked, setChecked] = React.useState(defaultProps.checked);
   return (
@@ -36,60 +36,60 @@ export const ControlledCheckButton = (props: MockCheckButtonProps) => {
   );
 };
 
-// Mock deshabilitado
+// Disabled mock
 export const DisabledCheckButton = (props: MockCheckButtonProps) => (
-  <CheckButton {...defaultProps} disabled={true} label="Opción deshabilitada" {...props} />
+  <CheckButton {...defaultProps} disabled={true} label="Disabled option" {...props} />
 );
 
-// Mock con estado marcado
+// Checked state mock
 export const CheckedCheckButton = (props: MockCheckButtonProps) => (
-  <CheckButton {...defaultProps} checked={true} label="Opción seleccionada" {...props} />
+  <CheckButton {...defaultProps} checked={true} label="Selected option" {...props} />
 );
 
-// Mock con tamaño grande
+// Large size mock
 export const LargeCheckButton = (props: MockCheckButtonProps) => (
   <CheckButton 
     {...defaultProps} 
-    label="Opción grande" 
+    label="Large option" 
     size={ComponentSize.LARGE}
     {...props} 
   />
 );
 
-// Mock con tamaño mediano
+// Medium size mock
 export const MediumCheckButton = (props: MockCheckButtonProps) => (
   <CheckButton 
     {...defaultProps} 
-    label="Opción mediana" 
+    label="Medium option" 
     size={ComponentSize.MEDIUM}
     {...props} 
   />
 );
 
-// Mock con tamaño pequeño
+// Small size mock
 export const SmallCheckButton = (props: MockCheckButtonProps) => (
   <CheckButton 
     {...defaultProps} 
-    label="Opción pequeña" 
+    label="Small option" 
     size={ComponentSize.SMALL}
     {...props} 
   />
 );
 
-// Mock con etiqueta larga
+// Long label mock
 export const LongLabelCheckButton = (props: MockCheckButtonProps) => (
   <CheckButton 
     {...defaultProps} 
-    label="Esta es una etiqueta muy larga que debería manejarse correctamente con el texto que se desborda en múltiples líneas si es necesario" 
+    label="This is a very long label that should be handled correctly with text overflowing into multiple lines if necessary" 
     {...props} 
   />
 );
 
-// Mock con clase personalizada
+// Custom class mock
 export const CustomClassCheckButton = (props: MockCheckButtonProps) => (
   <CheckButton 
     {...defaultProps} 
-    label="Con clase personalizada" 
+    label="With custom class" 
     className="custom-checkbox-class" 
     {...props} 
   />

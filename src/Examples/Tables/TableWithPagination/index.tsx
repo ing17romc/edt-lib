@@ -10,11 +10,11 @@ import '../../../styles/tables.scss';
 /**
  * TableWithPagination
  *
- * Componente de tabla que muestra datos paginados y permite seleccionar el número de elementos por página.
- * Incluye controles para cambiar de página y ajustar la cantidad de filas visibles.
+ * Table component that displays paginated data and allows selecting the number of items per page.
+ * Includes controls to change pages and adjust the number of visible rows.
  *
- * @param {TableWithPaginationProps} props - Propiedades del componente, incluyendo el arreglo de datos a mostrar.
- * @returns {JSX.Element} Tabla interactiva con paginación y selector de filas por página.
+ * @param {TableWithPaginationProps} props - Component properties, including the array of data to display.
+ * @returns {JSX.Element} Interactive table with pagination and rows per page selector.
  */
 const TableWithPagination: React.FC<TableWithPaginationProps> = ({ dataTable }) => {
   const [state, setState] = useState<TableWithPaginationState>({
@@ -80,7 +80,7 @@ const TableWithPagination: React.FC<TableWithPaginationProps> = ({ dataTable }) 
 										</tr>
 										{!pages.length ? (
 											<tr>
-												<td colSpan={3} className="text-center">No hay datos disponibles</td>
+												<td colSpan={3} className="text-center">No data available</td>
 											</tr>
 										) : (
 											pages[getIndex]?.map((element, index) => (
@@ -91,7 +91,7 @@ const TableWithPagination: React.FC<TableWithPaginationProps> = ({ dataTable }) 
 												</tr>
 											)) || (
 												<tr>
-													<td colSpan={3} className="text-center">No hay datos disponibles</td>
+													<td colSpan={3} className="text-center">No data available</td>
 												</tr>
 											)
 										)

@@ -5,13 +5,13 @@ export const baseArgs: PaginationProps = {
   totalPages: 10,
   currentPage: 5,
   size: ComponentSize.MEDIUM,
-  onPageChange: (page) => console.log(`Página cambiada a: ${page}`),
+  onPageChange: (page) => console.log(`Page changed to: ${page}`),
 };
 
 export const withCustomLabels: PaginationProps = {
   ...baseArgs,
-  previousLabel: 'Anterior',
-  nextLabel: 'Siguiente',
+  previousLabel: 'Previous',
+  nextLabel: 'Next',
 };
 
 export const withManyPages: PaginationProps = {

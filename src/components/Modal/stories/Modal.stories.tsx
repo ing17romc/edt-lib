@@ -99,7 +99,7 @@ export const Default: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Modal estándar con título, contenido y botón de cerrar.',
+        story: 'Standard modal with title, content, and close button.',
       },
     },
   },
@@ -110,7 +110,7 @@ export const WithFooter: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Modal con un pie de página personalizado que puede incluir botones de acción.',
+        story: 'Modal with a custom footer that can include action buttons.',
       },
     },
   },
@@ -121,7 +121,7 @@ export const WithoutTitle: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Modal sin título ni botón de cerrar. Útil para contenido que maneja su propio cierre.',
+        story: 'Modal without title or close button. Useful for content that handles its own closing.',
       },
     },
   },
@@ -132,7 +132,7 @@ export const WithCustomSize: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Modal con un tamaño personalizado (small, medium, large, xlarge).',
+        story: 'Modal with a custom size (small, medium, large, xlarge).',
       },
     },
   },
@@ -143,7 +143,7 @@ export const WithLongContent: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Modal con contenido largo que genera desplazamiento vertical.',
+        story: 'Modal with long content that generates vertical scrolling.',
       },
     },
   },
@@ -154,23 +154,23 @@ export const WithCustomCloseText: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Modal con texto personalizado para el botón de cerrar.',
+        story: 'Modal with custom text for the close button.',
       },
     },
   },
 };
 
-// Ejemplo de uso con controles interactivos
+// Example of usage with interactive controls
 export const Interactive: Story = {
   args: {
     ...baseArgs,
-    title: 'Modal Interactivo',
-    children: 'Usa los controles del panel de Storybook para modificar las propiedades del modal.',
+    title: 'Interactive Modal',
+    children: 'Use the Storybook panel controls to modify the modal properties.',
   },
   parameters: {
     docs: {
       description: {
-        story: 'Ejemplo interactivo donde puedes modificar las propiedades del modal usando los controles del panel de Storybook.',
+        story: 'Interactive example where you can modify the modal properties using the Storybook panel controls.',
       },
     },
   },

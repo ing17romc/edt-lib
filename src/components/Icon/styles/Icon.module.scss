@@ -2,7 +2,7 @@
 @use '../../../styles/typography' as *;
 @use '../../../styles/spacing' as *;
 
-// Estilos base para Material Icons
+// Base styles for Material Icons
 .material-icons,
 .material-icons-outlined {
   font-family: 'Material Icons', 'Material Icons Outlined', sans-serif;
@@ -31,7 +31,7 @@
   margin: $icon-margin;
   padding: $icon-padding;
 
-  // Asegurar que el icono herede los estilos de tamaño
+  // Ensure the icon inherits size styles
   .material-icons,
   .material-icons-outlined {
     font-size: inherit;
@@ -42,7 +42,7 @@
     justify-content: center;
   }
 
-  // Tamaños
+  // Sizes
   &--xsmall {
     font-size: $icon-font-size-xsmall;
   }
@@ -63,7 +63,7 @@
     font-size: $icon-font-size-xlarge;
   }
 
-  // Estados
+  // States
   &--disabled {
     opacity: $icon-disabled-opacity;
     cursor: not-allowed;

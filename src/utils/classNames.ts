@@ -8,20 +8,20 @@ type ClassValue =
   | ClassValue[];
 
 /**
- * Función utilitaria para combinar nombres de clases CSS de manera condicional.
- * Reemplaza la dependencia 'classnames' manteniendo la misma funcionalidad.
+ * Utility function to conditionally combine CSS class names.
+ * Replaces the 'classnames' dependency while maintaining the same functionality.
  * 
- * @param {...ClassValue} args - Clases CSS a combinar. Pueden ser strings, objetos o arrays.
- * @returns {string} Cadena con las clases combinadas.
+ * @param {...ClassValue} args - CSS classes to combine. Can be strings, objects, or arrays.
+ * @returns {string} String with the combined classes.
  * 
  * @example
- * // Uso básico
+ * // Basic usage
  * classNames('foo', 'bar'); // => 'foo bar'
  * 
- * // Con objetos para condiciones
+ * // With objects for conditions
  * classNames({ 'foo': true, 'bar': false }); // => 'foo'
  * 
- * // Mezclando diferentes tipos
+ * // Mixing different types
  * classNames('foo', { bar: true }, ['baz', { qux: true }]); // => 'foo bar baz qux'
  */
 function classNames(...args: ClassValue[]): string {

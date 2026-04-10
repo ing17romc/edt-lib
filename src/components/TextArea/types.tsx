@@ -9,88 +9,88 @@ export interface Testable {
 
 export interface TextAreaProps extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'size'>, Testable {
   /**
-   * Etiqueta que se muestra encima del área de texto
+   * Label displayed above the textarea
    */
   label?: string;
   
   /**
-   * Texto de ayuda que se muestra debajo del área de texto
+   * Helper text displayed below the textarea
    */
   helperText?: string;
   
   /**
-   * Si es true, muestra un indicador de error
+   * If true, shows an error indicator
    * @default false
    */
   error?: boolean;
   
   /**
-   * Si es true, el área de texto ocupa todo el ancho disponible
+   * If true, the textarea takes up the full available width
    * @default false
    */
   fullWidth?: boolean;
   
   /**
-   * Variante de diseño del área de texto
+   * Design variant of the textarea
    * @default 'outlined'
    */
   variant?: TextAreaVariant;
   
   /**
-   * Tamaño del área de texto
+   * Textarea size
    * @default 'medium'
    */
   size?: ComponentSize;
   
   /**
-   * Número de filas por defecto
+   * Default number of rows
    * @default 3
    */
   rows?: number;
   
   /**
-   * Número máximo de caracteres permitidos
+   * Maximum number of characters allowed
    */
   maxLength?: number;
   
   /**
-   * Si es true, el área de texto se redimensiona automáticamente según el contenido
+   * If true, the textarea resizes automatically based on content
    * @default false
    */
   autoResize?: boolean;
 
   /**
-   * Número mínimo de filas cuando autoResize es true
+   * Minimum number of rows when autoResize is true
    */
   minRows?: number;
 
   /**
-   * Número máximo de filas cuando autoResize es true
+   * Maximum number of rows when autoResize is true
    */
   maxRows?: number;
   
   /**
-   * Clase CSS personalizada para el contenedor
+   * Custom CSS class for the container
    */
   containerClassName?: string;
   
   /**
-   * Clase CSS personalizada para la etiqueta
+   * Custom CSS class for the label
    */
   labelClassName?: string;
   
   /**
-   * Clase CSS personalizada para el área de texto
+   * Custom CSS class for the textarea
    */
   textareaClassName?: string;
   
   /**
-   * Clase CSS personalizada para el texto de ayuda
+   * Custom CSS class for the helper text
    */
   helperTextClassName?: string;
   
   /**
-   * Función que se llama cuando el valor del área de texto cambia
+   * Function called when the textarea value changes
    */
   onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }

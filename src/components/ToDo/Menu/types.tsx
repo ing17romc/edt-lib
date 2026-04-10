@@ -1,53 +1,53 @@
 import { HTMLAttributes, ReactNode } from 'react';
 
 /**
- * Elemento individual del menú
+ * Individual menu item
  */
 export interface MenuItem {
   /**
-   * Identificador único
+   * Unique identifier
    */
   key: string;
 
   /**
-   * Etiqueta del elemento
+   * Item label
    */
   label: ReactNode;
 
   /**
-   * Icono (opcional)
+   * Icon (optional)
    */
   icon?: ReactNode;
 
   /**
-   * Si está deshabilitado
+   * Whether it is disabled
    * @default false
    */
   disabled?: boolean;
 
   /**
-   * Si es un separador visual
+   * Whether it is a visual separator
    * @default false
    */
   divider?: boolean;
 }
 
 /**
- * Propiedades del componente Menu
+ * Menu component props
  */
 export interface MenuProps extends HTMLAttributes<HTMLUListElement> {
   /**
-   * Lista de elementos del menú
+   * List of menu items
    */
   items: MenuItem[];
 
   /**
-   * Key del elemento activo
+   * Key of the active element
    */
   activeKey?: string;
 
   /**
-   * Callback al seleccionar un elemento
+   * Callback when selecting an item
    */
   onSelect?: (key: string) => void;
 }

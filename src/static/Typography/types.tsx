@@ -1,31 +1,31 @@
 /**
- * Tipos y contratos para el componente Typography.
+ * Types and contracts for the Typography component.
  */
 
 /**
- * Props para el componente Typography.
- * @property {boolean} [showCodeExamples] - Si es verdadero, muestra ejemplos de código para cada elemento tipográfico. Por defecto es true.
- * @property {string} [className] - Clase CSS adicional para el contenedor principal.
+ * Props for the Typography component.
+ * @property {boolean} [showCodeExamples] - If true, shows code examples for each typographic element. Defaults to true.
+ * @property {string} [className] - Additional CSS class for the main container.
  */
 export interface TypographyProps {
   /**
-   * Si es verdadero, muestra ejemplos de código para cada elemento tipográfico.
+   * If true, shows code examples for each typographic element.
    * @default true
    */
   showCodeExamples?: boolean;
   
   /**
-   * Clase CSS adicional para el contenedor principal.
+   * Additional CSS class for the main container.
    */
   className?: string;
 }
 
 /**
- * Tipo para los tamaños de fuente disponibles en el componente Typography.
+ * Type for the available font sizes in the Typography component.
  */
 export type FontSize = '8' | '10' | '12' | '14' | '16' | '18' | '20' | '22';
 
 /**
- * Tipo para los tipos de interlineado disponibles en el componente Typography.
+ * Type for the available line height types in the Typography component.
  */
 export type LineHeightType = 'simple' | 'doble' | 'triple';

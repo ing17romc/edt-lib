@@ -27,10 +27,10 @@ export const WithActiveItem: Story = {
 export const WithDivider: Story = {
   args: {
     items: [
-      { key: 'profile', label: 'Perfil' },
-      { key: 'settings', label: 'Configuración' },
+      { key: 'profile', label: 'Profile' },
+      { key: 'settings', label: 'Settings' },
       { key: 'sep', label: '', divider: true },
-      { key: 'logout', label: 'Cerrar sesión' },
+      { key: 'logout', label: 'Log out' },
     ],
   },
 }
@@ -39,10 +39,10 @@ export const WithIcons: Story = {
   render: () => (
     <Menu
       items={[
-        { key: 'home', label: 'Inicio', icon: '🏠' },
-        { key: 'settings', label: 'Ajustes', icon: '⚙️' },
+        { key: 'home', label: 'Home', icon: '🏠' },
+        { key: 'settings', label: 'Settings', icon: '⚙️' },
         { key: 'sep', label: '', divider: true },
-        { key: 'disabled', label: 'Sin acceso', disabled: true },
+        { key: 'disabled', label: 'No access', disabled: true },
       ]}
     />
   ),

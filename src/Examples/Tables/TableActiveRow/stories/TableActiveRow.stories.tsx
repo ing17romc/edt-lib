@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import TableActiveRow from '..';
 import type { TableRowData } from '../types';
 
-// Datos de ejemplo para las historias
+// Sample data for stories
 const sampleData: TableRowData[] = [
   {
     name: 'John Doe',
@@ -22,16 +22,16 @@ const sampleData: TableRowData[] = [
   {
     name: 'Emily Davis',
     userName: 'edavis',
-    status: 1, // Usando número para mostrar que también acepta number como status
+    status: 1, // Using number to show it also accepts number as status
   },
   {
     name: 'Michael Wilson',
     userName: 'mwilson',
-    status: 0, // Usando 0 para mostrar estado inactivo
+    status: 0, // Using 0 to show inactive status
   },
 ];
 
-// Configuración del componente en Storybook
+// Storybook component configuration
 const meta: Meta<typeof TableActiveRow> = {
   title: 'Examples/Tables/TableActiveRow',
   component: TableActiveRow,
@@ -39,7 +39,7 @@ const meta: Meta<typeof TableActiveRow> = {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Tabla con filas seleccionables que resaltan al hacer clic. Útil para mostrar datos tabulares donde se necesita interacción con filas específicas.',
+        component: 'Table with selectable rows that highlight on click. Useful for displaying tabular data where interaction with specific rows is needed.',
       },
     },
   },
@@ -50,7 +50,7 @@ export default meta;
 
 type Story = StoryObj<typeof TableActiveRow>;
 
-// Historia por defecto
+// Default story
 export const Default: Story = {
   args: {
     dataTable: sampleData,
@@ -58,13 +58,13 @@ export const Default: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Tabla con filas seleccionables. Haz clic en cualquier fila para ver el resaltado.',
+        story: 'Table with selectable rows. Click on any row to see the highlight.',
       },
     },
   },
 };
 
-// Historia con estado inicial vacío
+// Empty initial state story
 export const EmptyState: Story = {
   args: {
     dataTable: [],
@@ -72,13 +72,13 @@ export const EmptyState: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Tabla sin datos. Muestra una tabla vacía sin filas de datos.',
+        story: 'Table with no data. Shows an empty table without data rows.',
       },
     },
   },
 };
 
-// Historia con un solo elemento
+// Single item story
 export const SingleItem: Story = {
   args: {
     dataTable: [sampleData[0]],
@@ -86,13 +86,13 @@ export const SingleItem: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Tabla con una sola fila de datos.',
+        story: 'Table with a single row of data.',
       },
     },
   },
 };
 
-// Historia con muchos elementos
+// Many items story
 export const ManyItems: Story = {
   args: {
     dataTable: [
@@ -112,7 +112,7 @@ export const ManyItems: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Tabla con múltiples filas para probar el desplazamiento y la interacción con muchas filas.',
+        story: 'Table with multiple rows to test scrolling and interaction with many rows.',
       },
     },
   },

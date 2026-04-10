@@ -4,20 +4,20 @@ import { mockCardProps, mockCardWithoutImage, mockClickableCard, mockOutlinedCar
 import styles from '../styles/Card.module.scss';
 
 /**
- * El componente `Card` es un contenedor versátil que muestra contenido relacionado en una superficie clara y delimitada.
- * Soporta múltiples variantes visuales, imágenes opcionales y comportamiento clickeable.
+ * The `Card` component is a versatile container that displays related content on a clear, delimited surface.
+ * It supports multiple visual variants, optional images, and clickable behavior.
  * 
- * ### Características principales:
- * - Múltiples variantes visuales (elevada, outline, etc.)
- * - Soporte para imágenes opcionales
- * - Comportamiento clickeable opcional
- * - Contenido personalizable
+ * ### Key features:
+ * - Multiple visual variants (elevated, outline, etc.)
+ * - Support for optional images
+ * - Optional clickable behavior
+ * - Customizable content
  * 
- * ### Uso recomendado:
- * - Para agrupar información relacionada
- * - Como tarjetas de producto
- * - Para mostrar resúmenes de artículos
- * - Como elementos de navegación
+ * ### Recommended usage:
+ * - To group related information
+ * - As product cards
+ * - To display article summaries
+ * - As navigation elements
  */
 const meta: Meta<typeof Card> = {
   title: 'Components/Card',
@@ -41,8 +41,8 @@ export default meta;
 type Story = StoryObj<typeof Card>;
 
 /**
- * Tarjeta estándar con imagen y contenido básico.
- * Esta es la variante por defecto del componente Card.
+ * Standard card with image and basic content.
+ * This is the default variant of the Card component.
  */
 export const Default: Story = {
   args: {
@@ -52,8 +52,8 @@ export const Default: Story = {
 };
 
 /**
- * Tarjeta con variante de borde (outlined).
- * Ideal para destacar contenido sin un fondo sólido.
+ * Card with outlined variant.
+ * Ideal for highlighting content without a solid background.
  */
 export const Outlined: Story = {
   args: {
@@ -63,7 +63,7 @@ export const Outlined: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Variante con borde que resalta el contenido sin necesidad de un fondo sólido.',
+        story: 'Outlined variant that highlights content without a solid background.',
       },
     },
   },
@@ -77,8 +77,8 @@ export const Outlined: Story = {
 };
 
 /**
- * Tarjeta con variante de relleno (filled).
- * Proporciona un fondo sólido para mayor contraste.
+ * Card with filled variant.
+ * Provides a solid background for greater contrast.
  */
 export const Filled: Story = {
   args: {
@@ -88,7 +88,7 @@ export const Filled: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Variante con fondo sólido para mayor contraste y énfasis visual.',
+        story: 'Variant with solid background for greater contrast and visual emphasis.',
       },
     },
     backgrounds: {
@@ -105,8 +105,8 @@ export const Filled: Story = {
 };
 
 /**
- * Tarjeta sin imagen que muestra solo el contenido de texto.
- * Útil cuando el contenido es más importante que la imagen.
+ * Card without image that shows only text content.
+ * Useful when content is more important than the image.
  */
 export const WithoutImage: Story = {
   args: {
@@ -114,15 +114,15 @@ export const WithoutImage: Story = {
     onClick: undefined,
     children: (
       <div>
-        <p>Esta es una tarjeta que no incluye una imagen.</p>
-        <p>Ideal para contenido que no requiere soporte visual.</p>
+        <p>This is a card that does not include an image.</p>
+        <p>Ideal for content that does not require visual support.</p>
       </div>
     ),
   },
   parameters: {
     docs: {
       description: {
-        story: 'Ejemplo de una tarjeta que solo muestra texto sin imagen.',
+        story: 'Example of a card that only shows text without an image.',
       },
     },
   },
@@ -136,26 +136,26 @@ export const WithoutImage: Story = {
 };
 
 /**
- * Tarjeta clickeable que responde a eventos de clic.
- * Útil para navegación o para mostrar más detalles.
+ * Clickable card that responds to click events.
+ * Useful for navigation or showing more details.
  */
 export const Clickable: Story = {
   args: {
     ...mockClickableCard,
     onClick: () => alert('Card clicked!'),
-    title: 'Tarjeta clickeable',
-    subtitle: 'Haz clic para ver la acción',
+    title: 'Clickable card',
+    subtitle: 'Click to see the action',
     children: (
       <div>
-        <p>Esta tarjeta tiene un manejador de clics.</p>
-        <p>Intenta hacer clic en cualquier parte de la tarjeta.</p>
+        <p>This card has a click handler.</p>
+        <p>Try clicking anywhere on the card.</p>
       </div>
     ),
   },
   parameters: {
     docs: {
       description: {
-        story: 'Tarjeta que puede ser clickeada y responde a eventos de clic.',
+        story: 'Card that can be clicked and responds to click events.',
       },
     },
   },

@@ -1,6 +1,6 @@
 ---
 mode: 'agent'
-description: 'Corregir errores y warnings de TypeScript. Ejecuta npm run lint:ts y aplica todas las correcciones.'
+description: 'Fix TypeScript errors and warnings. Runs npm run lint:ts and applies all corrections.'
 ---
 
-Ejecuta el comando `npm run lint:ts` y corrige todos los errores y advertencias (warnings) que se generen durante el análisis del código TypeScript.
+Run `npm run lint:ts` and fix all errors and warnings generated during the TypeScript code analysis.

@@ -7,11 +7,11 @@ import '../../../styles/tables.scss';
 /**
  * TableDefault
  *
- * Componente de tabla que muestra una tabla grande con múltiples columnas repetidas.
- * Útil para mostrar datos en formato de tabla expandida.
+ * Table component that displays a large table with multiple repeated columns.
+ * Useful for showing data in expanded table format.
  *
- * @param {TableDefaultProps} props - Propiedades del componente, incluyendo el arreglo de datos a mostrar.
- * @returns {JSX.Element} Tabla expandida con datos repetidos por fila.
+ * @param {TableDefaultProps} props - Component properties, including the array of data to display.
+ * @returns {JSX.Element} Expanded table with data repeated per row.
  */
 const TableDefault: React.FC<TableDefaultProps> = ({ dataTable }) => {
 	return (

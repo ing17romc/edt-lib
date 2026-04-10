@@ -3,27 +3,27 @@ import { HTMLAttributes, ReactNode } from 'react';
 export type TooltipPlacement = 'top' | 'bottom' | 'left' | 'right';
 
 /**
- * Propiedades del componente Tooltip
+ * Tooltip component props
  */
 export interface TooltipProps extends HTMLAttributes<HTMLDivElement> {
   /**
-   * Contenido del tooltip
+   * Tooltip content
    */
   content: ReactNode;
 
   /**
-   * Elemento que activa el tooltip
+   * Element that triggers the tooltip
    */
   children: ReactNode;
 
   /**
-   * Posición del tooltip relativa al elemento hijo
+   * Tooltip position relative to the child element
    * @default 'top'
    */
   placement?: TooltipPlacement;
 
   /**
-   * Si el tooltip está deshabilitado
+   * Whether the tooltip is disabled
    * @default false
    */
   disabled?: boolean;

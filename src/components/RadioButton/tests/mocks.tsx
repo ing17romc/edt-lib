@@ -3,7 +3,7 @@ import { ComponentSize } from '../../types';
 
 export const defaultProps: RadioButtonProps = {
   value: 'option1',
-  label: 'Opción 1',
+  label: 'Option 1',
   checked: false,
   disabled: false,
   name: 'test-group',
@@ -27,7 +27,7 @@ export const customClassProps: RadioButtonProps = {
 
 export const withoutLabelProps: RadioButtonProps = {
   value: 'option2',
-  label: '', // Etiqueta vacía para pruebas sin etiqueta visible
+  label: '', // Empty label for tests without a visible label
   checked: false,
   name: 'test-group',
   size: ComponentSize.MEDIUM,
@@ -36,11 +36,11 @@ export const withoutLabelProps: RadioButtonProps = {
 export const smallSizeProps: RadioButtonProps = {
   ...defaultProps,
   size: ComponentSize.SMALL,
-  label: 'Opción pequeña',
+  label: 'Small option',
 };
 
 export const largeSizeProps: RadioButtonProps = {
   ...defaultProps,
   size: ComponentSize.LARGE,
-  label: 'Opción grande',
+  label: 'Large option',
 };

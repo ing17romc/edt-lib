@@ -8,36 +8,36 @@ export enum CardVariant {
 
 export interface CardProps {
   /**
-   * El contenido principal de la tarjeta
+   * Main content of the card
    */
   children: ReactNode;
   /**
-   * Título opcional de la tarjeta
+   * Optional card title
    */
   title?: string;
   /**
-   * Subtítulo opcional de la tarjeta
+   * Optional card subtitle
    */
   subtitle?: string;
   /**
-   * URL de la imagen opcional para la tarjeta
+   * Optional image URL for the card
    */
   imageUrl?: string;
   /**
-   * Texto alternativo para la imagen
+   * Alternative text for the image
    */
   imageAlt?: string;
   /**
-   * Estilo visual de la tarjeta
+   * Visual style of the card
    * @default CardVariant.ELEVATED
    */
   variant?: CardVariant;
   /**
-   * Clase CSS personalizada
+   * Custom CSS class
    */
   className?: string;
   /**
-   * Evento click en la tarjeta
+   * Click event on the card
    */
   onClick?: () => void;
 }

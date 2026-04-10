@@ -32,7 +32,7 @@ type Story = StoryObj<typeof Layout>;
 export const Default: Story = {
   render: (args) => (
     <Layout {...args}>
-      <NavBar logo={<MockLogo />} title="Mi Aplicación">
+      <NavBar logo={<MockLogo />} title="My App">
         <MockNav />
       </NavBar>
       <main style={{
@@ -88,6 +88,6 @@ export const WithCustomClass: Story = {
         </Layout>
     ),
     args: {
-        className: 'mi-clase-personalizada',
+        className: 'my-custom-class',
     },
 };

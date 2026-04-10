@@ -4,8 +4,8 @@ import { ModalProps } from './types';
 import { ComponentSize } from '../types';
 
 /**
- * Componente Modal que muestra contenido en una ventana emergente.
- * Soporta diferentes tamaños, cierre con tecla Escape y clic fuera del modal.
+ * Modal component that displays content in a popup window.
+ * Supports different sizes, Escape key closing, and clicking outside the modal.
  */
 const Modal: React.FC<ModalProps> = ({
   isOpen,
@@ -14,7 +14,7 @@ const Modal: React.FC<ModalProps> = ({
   children,
   size = ComponentSize.MEDIUM,
   showCloseButton = true,
-  closeButtonText = 'Cerrar',
+  closeButtonText = 'Close',
   closeOnOverlayClick = true,
   closeOnEsc = true,
   className = '',
@@ -23,7 +23,7 @@ const Modal: React.FC<ModalProps> = ({
   centerVertically = true,
   preventScroll = true,
 }) => {
-  // Efecto para manejar el scroll del body cuando el modal está abierto
+  // Effect to manage body scroll when the modal is open
   useEffect(() => {
     if (isOpen && preventScroll) {
       document.body.style.overflow = 'hidden';
@@ -36,7 +36,7 @@ const Modal: React.FC<ModalProps> = ({
     };
   }, [isOpen, preventScroll]);
 
-  // Manejador de tecla Escape para cerrar el modal
+  // Escape key handler to close the modal
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
       if (e.key === 'Escape' && isOpen && closeOnEsc) {
@@ -46,7 +46,7 @@ const Modal: React.FC<ModalProps> = ({
     [isOpen, onClose, closeOnEsc]
   );
 
-  // Agregar y remover el event listener para la tecla Escape
+  // Add and remove the event listener for the Escape key
   useEffect(() => {
     if (isOpen) {
       document.addEventListener('keydown', handleKeyDown);
@@ -57,7 +57,7 @@ const Modal: React.FC<ModalProps> = ({
     };
   }, [isOpen, handleKeyDown]);
 
-  // Manejador de clic en el overlay
+  // Overlay click handler
   const handleOverlayClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     if (closeOnOverlayClick) {
@@ -65,7 +65,7 @@ const Modal: React.FC<ModalProps> = ({
     }
   };
 
-  // Si el modal no está abierto, no renderizar nada
+  // If the modal is not open, render nothing
   if (!isOpen) return null;
 
   return (
@@ -79,7 +79,7 @@ const Modal: React.FC<ModalProps> = ({
         type="button"
         className={styles.overlayButton}
         onClick={handleOverlayClick}
-        aria-label="Cerrar modal"
+        aria-label="Close modal"
       />
       <div 
         className={`${styles.modalContainer} ${styles[size]} ${className}`}

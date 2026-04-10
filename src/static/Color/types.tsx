@@ -1,39 +1,39 @@
 /**
- * Tipos y contratos para el componente Color.
+ * Types and contracts for the Color component.
  */
 
 /**
- * Props para el componente Color.
+ * Props for the Color component.
  */
 export interface ColorProps {
   /**
-   * Clase CSS personalizada para el contenedor principal
+   * Custom CSS class for the main container
    */
   className?: string;
   
   /**
-   * Si es verdadero, muestra solo los colores de fuente
+   * If true, shows only font colors
    */
   showFontColors?: boolean;
   
   /**
-   * Si es verdadero, muestra solo los colores de fondo
+   * If true, shows only background colors
    */
   showBackgroundColors?: boolean;
   
   /**
-   * Si es verdadero, muestra las variables de color SCSS
+   * If true, shows SCSS color variables
    */
   showScssVariables?: boolean;
 }
 
 /**
- * Tipo para las categorías de colores
+ * Type for color categories
  */
 export type ColorCategory = 'font' | 'background' | 'variable';
 
 /**
- * Interfaz para los grupos de colores
+ * Interface for color groups
  */
 export interface ColorGroup {
   title: string;

@@ -4,7 +4,7 @@ import { ComponentSize } from '../../../types';
 export const mockOnChange = vi.fn();
 
 export const defaultSwitchProps: SwitchProps = {
-  label: 'Activar opción',
+  label: 'Enable option',
   checked: false,
   size: ComponentSize.MEDIUM,
   onChange: mockOnChange,

@@ -10,7 +10,7 @@
   user-select: none;
   position: relative;
   
-  // Tamaño por defecto (MEDIUM)
+  // Default size (MEDIUM)
   padding-left: $radiobutton-padding-left;
 
   &__input {
@@ -31,7 +31,7 @@
     border-radius: $radiobutton-border-radius;
     transition: all 0.2s ease;
     
-    // Tamaño por defecto (MEDIUM)
+    // Default size (MEDIUM)
     height: $radiobutton-size;
     width: $radiobutton-size;
     
@@ -45,7 +45,7 @@
       border-radius: $radiobutton-border-radius;
       background: $radiobutton-checkmark-color;
       
-      // Tamaño por defecto (MEDIUM)
+      // Default size (MEDIUM)
       width: $radiobutton-checkmark-size;
       height: $radiobutton-checkmark-size;
     }
@@ -88,7 +88,7 @@
     cursor: not-allowed;
   }
   
-  // Estilos para tamaño SMALL
+  // Styles for SMALL size
   &--small {
     padding-left: $radiobutton-padding-left-sm;
     
@@ -107,7 +107,7 @@
     }
   }
   
-  // Estilos para tamaño LARGE
+  // Styles for LARGE size
   &--large {
     padding-left: $radiobutton-padding-left-lg;
     

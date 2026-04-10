@@ -11,55 +11,55 @@ import {
 } from './mocks';
 
 describe('TextBox Component', () => {
-  it('se renderiza correctamente con las propiedades predeterminadas', () => {
-    render(<TextBox label="Campo de prueba" />);
-    const input = screen.getByLabelText('Campo de prueba');
+  it('renders correctly with default properties', () => {
+    render(<TextBox label="Test field" />);
+    const input = screen.getByLabelText('Test field');
     expect(input).toBeInTheDocument();
     expect(input).toHaveAttribute('type', 'text');
   });
 
-  it('aplica la clase personalizada cuando se proporciona', () => {
+  it('applies custom class when provided', () => {
     render(<TextBox {...mockTextBoxProps} />);
     const container = screen.getByTestId('textbox').parentElement;
     expect(container).toHaveClass('test-class');
   });
 
-  it('maneja el evento onChange correctamente', () => {
+  it('handles the onChange event correctly', () => {
     const handleChange = vi.fn();
     render(
       <TextBox 
-        label="Campo de prueba" 
+        label="Test field" 
         onChange={handleChange} 
       />
     );
-    const input = screen.getByLabelText('Campo de prueba');
-    fireEvent.change(input, { target: { value: 'nuevo valor' } });
+    const input = screen.getByLabelText('Test field');
+    fireEvent.change(input, { target: { value: 'new value' } });
     expect(handleChange).toHaveBeenCalledTimes(1);
   });
 
-  it('se deshabilita correctamente cuando la propiedad disabled es true', () => {
+  it('disables correctly when the disabled property is true', () => {
     render(<TextBox {...mockDisabledTextBoxProps} />);
-    const input = screen.getByLabelText('Campo deshabilitado') as HTMLInputElement;
+    const input = screen.getByLabelText('Disabled field') as HTMLInputElement;
     expect(input).toBeDisabled();
-    expect(input.value).toBe('No se puede editar');
+    expect(input.value).toBe('Cannot be edited');
   });
 
-  it('muestra el mensaje de error cuando la propiedad error es true', () => {
+  it('shows error message when the error property is true', () => {
     render(<TextBox {...mockErrorTextBoxProps} />);
-    const errorText = screen.getByText('Este campo es requerido');
-    const input = screen.getByLabelText('Campo con error');
+    const errorText = screen.getByText('This field is required');
+    const input = screen.getByLabelText('Field with error');
     
     expect(errorText).toBeInTheDocument();
     expect(input).toHaveAttribute('aria-invalid', 'true');
   });
 
-  it('ocupa todo el ancho disponible cuando fullWidth es true', () => {
+  it('takes up all available width when fullWidth is true', () => {
     render(<TextBox {...mockFullWidthTextBoxProps} />);
-    const container = screen.getByLabelText('Campo de ancho completo').closest('.textBoxContainer');
+    const container = screen.getByLabelText('Full width field').closest('.textBoxContainer');
     expect(container).toHaveStyle('width: 100%');
   });
 
-  it('muestra los adornos cuando se proporcionan', () => {
+  it('shows adornments when provided', () => {
     render(<TextBox {...mockWithAdornmentsTextBoxProps} />);
     const startAdornment = screen.getByText('🔍');
     const endAdornment = screen.getByText('✓');
@@ -68,7 +68,7 @@ describe('TextBox Component', () => {
     expect(endAdornment).toBeInTheDocument();
   });
 
-  it('aplica las diferentes variantes correctamente', () => {
+  it('applies different variants correctly', () => {
     const { rerender } = render(
       <TextBox 
         label="Outlined" 
@@ -103,7 +103,7 @@ describe('TextBox Component', () => {
     expect(inputWrapper).toHaveClass('variant-standard');
   });
 
-  it('aplica los diferentes tamaños correctamente', () => {
+  it('applies different sizes correctly', () => {
     const { rerender } = render(
       <TextBox 
         label="Small" 
@@ -127,9 +127,9 @@ describe('TextBox Component', () => {
     expect(inputWrapper).toHaveClass('size-large');
   });
 
-  it('es accesible con un nombre accesible', () => {
-    render(<TextBox label="Campo accesible" aria-label="Campo para búsqueda" />);
-    const input = screen.getByRole('textbox', { name: /campo para búsqueda/i });
+  it('is accessible with an accessible name', () => {
+    render(<TextBox label="Accessible field" aria-label="Search field" />);
+    const input = screen.getByRole('textbox', { name: /search field/i });
     expect(input).toBeInTheDocument();
   });
 });

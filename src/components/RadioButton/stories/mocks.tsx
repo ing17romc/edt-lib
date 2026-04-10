@@ -7,7 +7,7 @@ import { ComponentSize } from '../../types';
 
 export const defaultArgs: RadioButtonProps = {
   value: 'option1',
-  label: 'Opción 1',
+  label: 'Option 1',
   checked: false,
   disabled: false,
   name: 'radio-group',
@@ -38,16 +38,16 @@ export const withCustomClass: RadioButtonProps = {
 export const smallSize: RadioButtonProps = {
   ...defaultArgs,
   size: ComponentSize.SMALL,
-  label: 'Opción pequeña',
+  label: 'Small option',
 };
 
 export const largeSize: RadioButtonProps = {
   ...defaultArgs,
   size: ComponentSize.LARGE,
-  label: 'Opción grande',
+  label: 'Large option',
 };
 
-// Componente para el grupo de opciones
+// Component for the option group
 export const RadioGroupComponent = () => {
   const [selectedValue, setSelectedValue] = React.useState('option1');
 
@@ -59,21 +59,21 @@ export const RadioGroupComponent = () => {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
       <RadioButton
         value="option1"
-        label="Opción 1"
+        label="Option 1"
         checked={selectedValue === 'option1'}
         onChange={handleChange}
         name="example-group"
       />
       <RadioButton
         value="option2"
-        label="Opción 2"
+        label="Option 2"
         checked={selectedValue === 'option2'}
         onChange={handleChange}
         name="example-group"
       />
       <RadioButton
         value="option3"
-        label="Opción 3 (deshabilitada)"
+        label="Option 3 (disabled)"
         checked={selectedValue === 'option3'}
         onChange={handleChange}
         name="example-group"

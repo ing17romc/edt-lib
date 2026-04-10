@@ -3,53 +3,53 @@ import { ComponentSize, ComponentVariant } from '../types';
 
 export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type' | 'onClick'> {
   /**
-   * Contenido del botón (texto o elementos React)
+   * Button content (text or React elements)
    */
   children: ReactNode;
   
   /**
-   * Variante visual del botón
+   * Visual variant of the button
    * @default 'primary'
    */
   variant?: ComponentVariant;
   
   /**
-   * Tamaño del botón
+   * Button size
    * @default 'medium'
    */
   size?: ComponentSize;
   
   /**
-   * Si es true, el botón ocupa todo el ancho disponible
+   * If true, the button takes up the full available width
    * @default false
    */
   fullWidth?: boolean;
   
   /**
-   * Tipo de botón HTML
+   * HTML button type
    * @default 'button'
    */
   type?: 'button' | 'submit' | 'reset';
   
   /**
-   * Si es true, el botón está deshabilitado
+   * If true, the button is disabled
    * @default false
    */
   disabled?: boolean;
   
   /**
-   * Si es true, el botón está cargando
+   * If true, the button is loading
    * @default false
    */
   loading?: boolean;
   
   /**
-   * Manejador de clic del botón
+   * Button click handler
    */
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   
     /**
-   * Clase CSS adicional para el botón
+   * Additional CSS class for the button
    */
   className?: string;
 }

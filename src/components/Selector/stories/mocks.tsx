@@ -6,32 +6,32 @@ import { ComponentSize } from '../../types';
 
 // Mock Data
 export const mockOptions: SelectorOption[] = [
-  { value: '1', label: 'Opción 1' },
-  { value: '2', label: 'Opción 2' },
-  { value: '3', label: 'Opción 3 (Deshabilitada)', disabled: true },
-  { value: '4', label: 'Opción 4' },
+  { value: '1', label: 'Option 1' },
+  { value: '2', label: 'Option 2' },
+  { value: '3', label: 'Option 3 (Disabled)', disabled: true },
+  { value: '4', label: 'Option 4' },
 ];
 
 export const mockGroupedOptions = [
   {
     label: 'Grupo 1',
     options: [
-      { value: '1-1', label: 'Opción 1.1' },
-      { value: '1-2', label: 'Opción 1.2' },
+      { value: '1-1', label: 'Option 1.1' },
+      { value: '1-2', label: 'Option 1.2' },
     ],
   },
   {
     label: 'Grupo 2',
     options: [
-      { value: '2-1', label: 'Opción 2.1' },
-      { value: '2-2', label: 'Opción 2.2 (Deshabilitada)', disabled: true },
+      { value: '2-1', label: 'Option 2.1' },
+      { value: '2-2', label: 'Option 2.2 (Disabled)', disabled: true },
     ],
   },
 ];
 
 export const mockLongListOptions: SelectorOption[] = Array.from({ length: 50 }, (_, i) => ({
   value: `${i + 1}`,
-  label: `Opción ${i + 1}`,
+  label: `Option ${i + 1}`,
 }));
 
 
@@ -39,8 +39,8 @@ export const mockLongListOptions: SelectorOption[] = Array.from({ length: 50 }, 
 // Story Arguments
 export const defaultArgs = {
   options: mockOptions,
-  label: 'Selecciona una opción',
-  placeholder: 'Elige una opción',
+  label: 'Select an option',
+  placeholder: 'Choose an option',
   variant: SelectorVariant.PRIMARY,
   size: ComponentSize.MEDIUM,
   disabled: false,
@@ -56,13 +56,13 @@ export const withoutLabelArgs = {
 
 export const withHelperTextArgs = {
   ...defaultArgs,
-  helperText: 'Selecciona una opción de la lista',
+  helperText: 'Select an option from the list',
 };
 
 export const errorStateArgs = {
   ...defaultArgs,
   error: true,
-  errorMessage: 'Debes seleccionar una opción',
+  errorMessage: 'You must select an option',
 };
 
 export const disabledArgs = {
@@ -83,14 +83,14 @@ export const fullWidthArgs = {
 export const withManyOptionsArgs = {
   ...defaultArgs,
   options: mockLongListOptions,
-  label: 'Muchas opciones',
+  label: 'Many options',
 };
 
 // Custom Render Components for Stories
 export const OptionGroupsComponent = () => (
   <div>
     <label htmlFor="grouped-selector" style={{ display: 'block', marginBottom: '8px', fontWeight: 500 }}>
-      Opciones agrupadas
+      Grouped options
     </label>
     <select
       id="grouped-selector"
@@ -120,8 +120,8 @@ export const OptionGroupsComponent = () => (
 
 export const SizesComponent = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-    <Selector {...defaultArgs} label="Selector pequeño" size={ComponentSize.SMALL} />
-    <Selector {...defaultArgs} label="Selector mediano (por defecto)" size={ComponentSize.MEDIUM} />
-    <Selector {...defaultArgs} label="Selector grande" size={ComponentSize.LARGE} />
+    <Selector {...defaultArgs} label="Small selector" size={ComponentSize.SMALL} />
+    <Selector {...defaultArgs} label="Medium selector (default)" size={ComponentSize.MEDIUM} />
+    <Selector {...defaultArgs} label="Large selector" size={ComponentSize.LARGE} />
   </div>
 );

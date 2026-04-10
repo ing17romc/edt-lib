@@ -1,22 +1,22 @@
 import { ComponentSize } from '../types';
 
 export interface PaginationProps {
-  /** Número total de páginas */
+  /** Total number of pages */
   totalPages: number;
-  /** Página actual */
+  /** Current page */
   currentPage: number;
-  /** Función que se ejecuta cuando se cambia de página */
+  /** Function called when the page changes */
   onPageChange: (page: number) => void;
-  /** Número máximo de botones de página a mostrar */
+  /** Maximum number of page buttons to display */
   maxPageButtons?: number;
-  /** Texto para el botón de página anterior */
+  /** Text for the previous page button */
   previousLabel?: string;
-  /** Texto para el botón de página siguiente */
+  /** Text for the next page button */
   nextLabel?: string;
-  /** Clase CSS personalizada */
+  /** Custom CSS class */
   className?: string;
-  /** Indica si el componente está deshabilitado */
+  /** Whether the component is disabled */
   disabled?: boolean;
-  /** Tamaño del componente */
+  /** Component size */
   size?: ComponentSize;
 }

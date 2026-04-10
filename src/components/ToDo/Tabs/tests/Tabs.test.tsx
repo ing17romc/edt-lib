@@ -13,63 +13,63 @@ beforeEach(() => {
 })
 
 describe('Tabs', () => {
-  describe('renderizado básico', () => {
-    it('renderiza la lista de pestañas', () => {
+  describe('basic rendering', () => {
+    it('renders the tab list', () => {
       render(<Tabs {...defaultTabsProps} />)
       expect(screen.getByRole('tablist')).toBeInTheDocument()
     })
 
-    it('renderiza todas las pestañas', () => {
+    it('renders all tabs', () => {
       render(<Tabs {...defaultTabsProps} />)
-      expect(screen.getByRole('tab', { name: 'Pestaña 1' })).toBeInTheDocument()
-      expect(screen.getByRole('tab', { name: 'Pestaña 2' })).toBeInTheDocument()
-      expect(screen.getByRole('tab', { name: 'Pestaña 3' })).toBeInTheDocument()
+      expect(screen.getByRole('tab', { name: 'Tab 1' })).toBeInTheDocument()
+      expect(screen.getByRole('tab', { name: 'Tab 2' })).toBeInTheDocument()
+      expect(screen.getByRole('tab', { name: 'Tab 3' })).toBeInTheDocument()
     })
 
-    it('muestra el contenido del primer tab por defecto', () => {
+    it('shows the first tab content by default', () => {
       render(<Tabs {...defaultTabsProps} />)
-      expect(screen.getByText('Contenido de pestaña 1')).toBeInTheDocument()
+      expect(screen.getByText('Tab 1 content')).toBeInTheDocument()
     })
 
-    it('el primer tab tiene aria-selected="true" por defecto', () => {
+    it('the first tab has aria-selected="true" by default', () => {
       render(<Tabs {...defaultTabsProps} />)
-      expect(screen.getByRole('tab', { name: 'Pestaña 1' })).toHaveAttribute('aria-selected', 'true')
-    })
-  })
-
-  describe('navegación', () => {
-    it('cambia el contenido al hacer click en un tab', () => {
-      render(<Tabs {...defaultTabsProps} />)
-      fireEvent.click(screen.getByRole('tab', { name: 'Pestaña 2' }))
-      expect(screen.getByText('Contenido de pestaña 2')).toBeInTheDocument()
-    })
-
-    it('actualiza aria-selected al cambiar de tab', () => {
-      render(<Tabs {...defaultTabsProps} />)
-      fireEvent.click(screen.getByRole('tab', { name: 'Pestaña 2' }))
-      expect(screen.getByRole('tab', { name: 'Pestaña 2' })).toHaveAttribute('aria-selected', 'true')
-      expect(screen.getByRole('tab', { name: 'Pestaña 1' })).toHaveAttribute('aria-selected', 'false')
+      expect(screen.getByRole('tab', { name: 'Tab 1' })).toHaveAttribute('aria-selected', 'true')
     })
   })
 
-  describe('tab deshabilitado', () => {
-    it('no cambia el contenido al hacer click en tab deshabilitado', () => {
+  describe('navigation', () => {
+    it('changes content when clicking a tab', () => {
+      render(<Tabs {...defaultTabsProps} />)
+      fireEvent.click(screen.getByRole('tab', { name: 'Tab 2' }))
+      expect(screen.getByText('Tab 2 content')).toBeInTheDocument()
+    })
+
+    it('updates aria-selected when changing tabs', () => {
+      render(<Tabs {...defaultTabsProps} />)
+      fireEvent.click(screen.getByRole('tab', { name: 'Tab 2' }))
+      expect(screen.getByRole('tab', { name: 'Tab 2' })).toHaveAttribute('aria-selected', 'true')
+      expect(screen.getByRole('tab', { name: 'Tab 1' })).toHaveAttribute('aria-selected', 'false')
+    })
+  })
+
+  describe('disabled tab', () => {
+    it('does not change content when clicking a disabled tab', () => {
       render(<Tabs tabs={tabsWithDisabled} />)
-      fireEvent.click(screen.getByRole('tab', { name: 'Deshabilitado' }))
-      expect(screen.queryByText('Contenido 2')).not.toBeInTheDocument()
+      fireEvent.click(screen.getByRole('tab', { name: 'Disabled' }))
+      expect(screen.queryByText('Content 2')).not.toBeInTheDocument()
     })
   })
 
-  describe('modo controlado', () => {
-    it('llama onChange al cambiar de tab', () => {
+  describe('controlled mode', () => {
+    it('calls onChange when changing tabs', () => {
       render(<Tabs {...controlledTabsProps} />)
-      fireEvent.click(screen.getByRole('tab', { name: 'Pestaña 2' }))
+      fireEvent.click(screen.getByRole('tab', { name: 'Tab 2' }))
       expect(mockOnChange).toHaveBeenCalledWith('tab2')
     })
   })
 
   describe('panel', () => {
-    it('el panel tiene aria-labelledby apuntando al tab activo', () => {
+    it('the panel has aria-labelledby pointing to the active tab', () => {
       render(<Tabs {...defaultTabsProps} />)
       const panel = screen.getByRole('tabpanel')
       expect(panel).toHaveAttribute('aria-labelledby', 'tab-tab1')

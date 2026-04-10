@@ -1,11 +1,11 @@
 /**
- * Enums centralizados para tamaños y variantes de componentes.
- * Estos enums deben ser utilizados por los componentes Button, IconButton y CheckButton
- * para mantener consistencia en toda la aplicación.
+ * Centralized enums for component sizes and variants.
+ * These enums should be used by the Button, IconButton, and CheckButton components
+ * to maintain consistency across the application.
  */
 
 /**
- * Tamaños estándar para componentes de interfaz de usuario.
+ * Standard sizes for user interface components.
  */
 export enum ComponentSize {
   SMALL = 'small',
@@ -14,7 +14,7 @@ export enum ComponentSize {
 }
 
 /**
- * Variantes de estilo estándar para componentes de interfaz de usuario.
+ * Standard style variants for user interface components.
  */
 export enum ComponentVariant {
   PRIMARY = 'primary',

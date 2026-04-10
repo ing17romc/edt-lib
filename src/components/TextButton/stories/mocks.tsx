@@ -76,13 +76,13 @@ export const argTypes: Meta<TextButtonProps>['argTypes'] = {
 };
 
 /**
- * Todos los colores disponibles del TextButton
+ * All available TextButton colors
  */
 export const allColors: Array<TextButtonProps['color']> = [
   'primary', 'secondary', 'error', 'success', 'warning', 'inherit',
 ];
 
 /**
- * Todos los tamaños disponibles del TextButton
+ * All available TextButton sizes
  */
 export const allSizes = Object.values(ComponentSize);

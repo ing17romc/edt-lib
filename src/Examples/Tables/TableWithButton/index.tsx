@@ -9,11 +9,11 @@ import '../../../styles/tables.scss';
 /**
  * TableWithButton
  *
- * Componente de tabla que muestra datos y agrega botones de acción (actualizar y eliminar) para cada fila.
- * Permite visualizar una tabla con botones de actualización y eliminación en cada registro.
+ * Table component that displays data and adds action buttons (update and delete) for each row.
+ * Allows viewing a table with update and delete buttons on each record.
  *
- * @param {TableWithButtonProps} props - Propiedades del componente, incluyendo el arreglo de datos a mostrar.
- * @returns {JSX.Element} Tabla con botones de acción por fila.
+ * @param {TableWithButtonProps} props - Component properties, including the array of data to display.
+ * @returns {JSX.Element} Table with action buttons per row.
  */
 const TableWithButton: React.FC<TableWithButtonProps> = ({ dataTable }) => {
 	return (

@@ -5,32 +5,32 @@ import classNames from '../../utils/classNames';
 import styles from './styles/Pagination.module.scss';
 
 /**
- * Componente de paginación que muestra controles para navegar entre páginas.
- * Permite navegar a la página anterior, siguiente, primera, última o cualquier página intermedia.
+ * Pagination component that displays controls for navigating between pages.
+ * Allows navigating to the previous, next, first, last, or any intermediate page.
  */
 export const Pagination: React.FC<PaginationProps> = ({
   totalPages,
   currentPage,
   onPageChange,
   maxPageButtons = 5,
-  previousLabel = 'Anterior',
-  nextLabel = 'Siguiente',
+  previousLabel = 'Previous',
+  nextLabel = 'Next',
   className = '',
   disabled = false,
   size = ComponentSize.MEDIUM,
 }) => {
-  // Validar props
+  // Validate props
   if (totalPages <= 0) {
-    console.warn('Pagination: totalPages debe ser mayor a 0');
+    console.warn('Pagination: totalPages must be greater than 0');
     return null;
   }
 
   if (currentPage < 1 || currentPage > totalPages) {
-    console.warn(`Pagination: currentPage (${currentPage}) está fuera de rango [1, ${totalPages}]`);
+    console.warn(`Pagination: currentPage (${currentPage}) is out of range [1, ${totalPages}]`);
     return null;
   }
 
-  // Calcular el rango de páginas a mostrar
+  // Calculate the range of pages to display
   const getPageRange = () => {
     const halfRange = Math.floor(maxPageButtons / 2);
     let startPage = Math.max(1, currentPage - halfRange);
@@ -66,7 +66,7 @@ export const Pagination: React.FC<PaginationProps> = ({
   );
 
   return (
-    <nav className={paginationClasses} aria-label="Paginación">
+    <nav className={paginationClasses} aria-label="Pagination">
       <div className={styles.pagination__item}>
         <button
           type="button"
@@ -75,13 +75,13 @@ export const Pagination: React.FC<PaginationProps> = ({
           className={`${styles.pagination__button} ${
             (isFirstPage || disabled) ? styles['pagination__button--disabled'] : ''
           }`}
-          aria-label="Página anterior"
+          aria-label="Previous page"
         >
           {previousLabel}
         </button>
       </div>
 
-      {/* Primera página */}
+      {/* First page */}
       {pages[0] > 1 && (
         <>
           <div className={styles.pagination__item}>
@@ -92,7 +92,7 @@ export const Pagination: React.FC<PaginationProps> = ({
               className={`${styles.pagination__button} ${
                 disabled ? styles['pagination__button--disabled'] : ''
               }`}
-              aria-label="Ir a la primera página"
+              aria-label="Go to first page"
             >
               1
             </button>
@@ -103,7 +103,7 @@ export const Pagination: React.FC<PaginationProps> = ({
         </>
       )}
 
-      {/* Páginas del rango */}
+      {/* Page range */}
       {pages.map((page) => (
         <div key={page} className={styles.pagination__item}>
           <button
@@ -113,7 +113,7 @@ export const Pagination: React.FC<PaginationProps> = ({
             className={`${styles.pagination__button} ${
               page === currentPage ? styles['pagination__button--active'] : ''
             } ${disabled ? styles['pagination__button--disabled'] : ''}`}
-            aria-label={`Ir a la página ${page}`}
+            aria-label={`Go to page ${page}`}
             aria-current={page === currentPage ? 'page' : undefined}
           >
             {page}
@@ -121,7 +121,7 @@ export const Pagination: React.FC<PaginationProps> = ({
         </div>
       ))}
 
-      {/* Última página */}
+      {/* Last page */}
       {pages[pages.length - 1] < totalPages && (
         <>
           {pages[pages.length - 1] < totalPages - 1 && (
@@ -135,7 +135,7 @@ export const Pagination: React.FC<PaginationProps> = ({
               className={`${styles.pagination__button} ${
                 disabled ? styles['pagination__button--disabled'] : ''
               }`}
-              aria-label={`Ir a la última página (${totalPages})`}
+              aria-label={`Go to last page (${totalPages})`}
             >
               {totalPages}
             </button>
@@ -151,7 +151,7 @@ export const Pagination: React.FC<PaginationProps> = ({
           className={`${styles.pagination__button} ${
             (isLastPage || disabled) ? styles['pagination__button--disabled'] : ''
           }`}
-          aria-label="Página siguiente"
+          aria-label="Next page"
         >
           {nextLabel}
         </button>

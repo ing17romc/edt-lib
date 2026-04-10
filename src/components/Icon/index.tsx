@@ -5,8 +5,8 @@ import styles from './styles/Icon.module.scss';
 import { ComponentSize } from '../types';
 
 /**
- * Componente de icono que soporta múltiples tamaños y variantes.
- * Utiliza SVG para renderizar los iconos de manera escalable.
+ * Icon component that supports multiple sizes and variants.
+ * Uses SVG to render scalable icons.
  */
 export const Icon = forwardRef<HTMLSpanElement, IconProps>(({
   name,
@@ -35,7 +35,7 @@ export const Icon = forwardRef<HTMLSpanElement, IconProps>(({
     ...style,
   };
 
-  // Si se proporciona un componente personalizado, lo usamos
+  // If a custom component is provided, use it
   if (CustomIcon) {
     return (
       <span
@@ -51,9 +51,9 @@ export const Icon = forwardRef<HTMLSpanElement, IconProps>(({
     );
   }
 
-  // Renderiza un icono de Material Icons
+  // Renders a Material Icons icon
   const renderIcon = () => {
-    // Mapeo de variantes a estilos de Material Icons
+    // Map variants to Material Icons styles
     const variantClass = variant === IconVariant.SOLID ? '' : '-outlined';
     const iconClass = `material-icons${variantClass}`;
     

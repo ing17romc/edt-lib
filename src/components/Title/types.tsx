@@ -1,7 +1,7 @@
 import { HTMLAttributes, ReactNode } from 'react';
 
 /**
- * Tamaños disponibles para el componente Title
+ * Available sizes for the Title component
  */
 export enum TitleSize {
   H1 = 'h1',
@@ -13,7 +13,7 @@ export enum TitleSize {
 }
 
 /**
- * Variantes de color disponibles para el componente Title
+ * Available color variants for the Title component
  */
 export enum TitleVariant {
   PRIMARY = 'primary',
@@ -27,75 +27,75 @@ export enum TitleVariant {
 }
 
 /**
- * Propiedades personalizadas del componente Title
+ * Custom properties of the Title component
  */
 interface TitleCustomProps {
   /**
-   * Tamaño del título (corresponde a los elementos h1-h6)
+   * Title size (corresponds to h1-h6 elements)
    * @default 'h1'
    */
   size?: TitleSize;
   
   /**
-   * Variante de color del título
+   * Title color variant
    * @default 'dark'
    */
   variant?: TitleVariant;
   
   /**
-   * Contenido del título
+   * Title content
    */
   children: ReactNode;
   
   /**
-   * Si es true, el título se mostrará en negrita
+   * If true, the title will be displayed in bold
    * @default false
    */
   bold?: boolean;
   
   /**
-   * Si es true, el título se mostrará en cursiva
+   * If true, the title will be displayed in italic
    * @default false
    */
   italic?: boolean;
   
   /**
-   * Si es true, el título se mostrará subrayado
+   * If true, the title will be displayed underlined
    * @default false
    */
   underline?: boolean;
   
   /**
-   * Si es true, el título se mostrará tachado
+   * If true, the title will be displayed with strikethrough
    * @default false
    */
   strikethrough?: boolean;
   
   /**
-   * Alineación del texto
+   * Text alignment
    * @default 'left'
    */
   align?: 'left' | 'center' | 'right' | 'justify';
   
   /**
-   * Si es true, el título será un elemento de bloque
+   * If true, the title will be a block element
    * @default true
    */
   block?: boolean;
   
   /**
-   * Si es true, el texto no se romperá en varias líneas
+   * If true, the text will not wrap to multiple lines
    * @default false
    */
   noWrap?: boolean;
 }
 
 /**
- * Propiedades del componente Title que extiende las propiedades HTML estándar
+ * Title component props extending standard HTML properties
  */
 export type TitleProps = TitleCustomProps & Omit<HTMLAttributes<HTMLHeadingElement>, keyof TitleCustomProps>;
 
 /**
- * Tipo para las etiquetas de encabezado HTML válidas
+ * Type for valid HTML heading tags
  */
 export type TitleTag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';

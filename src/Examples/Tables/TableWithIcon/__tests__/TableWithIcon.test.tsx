@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import TableWithIcon from '..';
 import type { TableRowData } from '../types';
 
-// Datos de prueba
+// Test data
 const mockData: TableRowData[] = [
   {
     name: 'John Doe',
@@ -18,12 +18,12 @@ const mockData: TableRowData[] = [
   {
     name: 'Robert Johnson',
     userName: 'rjohnson',
-    status: 1, // También probamos con valor numérico
+    status: 1, // Also testing with numeric value
   },
 ];
 
 describe('TableWithIcon', () => {
-  // Mock de alerta global
+  // Global alert mock
   const originalAlert = window.alert;
   beforeAll(() => {
     window.alert = vi.fn();
@@ -33,93 +33,93 @@ describe('TableWithIcon', () => {
     window.alert = originalAlert;
   });
 
-  it('renderiza sin errores con datos vacíos', () => {
+  it('renders without errors with empty data', () => {
     render(<TableWithIcon dataTable={[]} />);
     
-    // Verificar que se renderiza el título
+    // Verify the title is rendered
     expect(screen.getByText('Example tables')).toBeInTheDocument();
     
-    // Verificar que se muestra el encabezado de la tabla
+    // Verify the table header is shown
     expect(screen.getByText('Table with icon')).toBeInTheDocument();
     
-    // Verificar que solo hay una fila (el encabezado) cuando no hay datos
+    // Verify there is only one row (the header) when there is no data
     const allRows = screen.getAllByRole('row');
-    expect(allRows).toHaveLength(1); // Solo el encabezado
+    expect(allRows).toHaveLength(1); // Header only
   });
 
-  it('renderiza correctamente con datos', () => {
+  it('renders correctly with data', () => {
     render(<TableWithIcon dataTable={mockData} />);
     
-    // Verificar que se renderizan los datos
+    // Verify the data is rendered
     expect(screen.getByText('John Doe')).toBeInTheDocument();
     expect(screen.getByText('johndoe')).toBeInTheDocument();
     
-    // Verificar que se muestran los botones de acción con iconos
-    // Verificar que hay un botón de editar y eliminar por cada elemento en mockData
+    // Verify action buttons with icons are shown
+    // Verify there is an edit and delete button for each item in mockData
     mockData.forEach((_, index) => {
       expect(screen.getByTestId(`edit_${index}`)).toBeInTheDocument();
       expect(screen.getByTestId(`delete_${index}`)).toBeInTheDocument();
     });
     
-    // Verificar que se muestra el estado correcto
+    // Verify the correct status is shown
     const activeStatus = screen.getAllByText('Active');
     expect(activeStatus.length).toBeGreaterThan(0);
   });
 
-  it('maneja correctamente los clics en los botones de iconos', () => {
+  it('handles icon button clicks correctly', () => {
     render(<TableWithIcon dataTable={mockData} />);
     
-    // Hacer clic en el botón de editar de la primera fila
+    // Click the edit button in the first row
     const firstEditButton = screen.getByTestId('edit_0');
     fireEvent.click(firstEditButton);
     expect(window.alert).toHaveBeenCalledWith('clic!!!');
     
-    // Limpiar el mock de alerta
+    // Clear the alert mock
     (window.alert as ReturnType<typeof vi.fn>).mockClear();
     
-    // Hacer clic en el botón de eliminar de la primera fila
+    // Click the delete button in the first row
     const firstDeleteButton = screen.getByTestId('delete_0');
     fireEvent.click(firstDeleteButton);
     expect(window.alert).toHaveBeenCalledWith('clic!!!');
   });
 
-  it('tiene la estructura de tabla correcta', () => {
+  it('has the correct table structure', () => {
     render(<TableWithIcon dataTable={mockData} />);
     
-    // Verificar la estructura de la tabla
+    // Verify the table structure
     const table = screen.getByRole('table');
     expect(table).toBeInTheDocument();
     
-    // Verificar los encabezados de columna
+    // Verify column headers
     expect(screen.getByText('Name')).toBeInTheDocument();
     expect(screen.getByText('UserName')).toBeInTheDocument();
     expect(screen.getByText('Status')).toBeInTheDocument();
     
-    // Verificar que hay una fila por cada dato más el encabezado
+    // Verify there is one row per data item plus the header
     const allRows = screen.getAllByRole('row');
-    expect(allRows).toHaveLength(mockData.length + 1); // +1 para el encabezado
+    expect(allRows).toHaveLength(mockData.length + 1); // +1 for header
   });
 
-  it('aplica las clases CSS correctas', () => {
+  it('applies the correct CSS classes', () => {
     render(<TableWithIcon dataTable={mockData} />);
     
-    // Verificar las clases del contenedor principal
+    // Verify the main container classes
     const container = screen.getByText('Example tables').closest('.container-body');
     expect(container).toHaveClass('container-body');
     
-    // Verificar las clases de la cuadrícula
+    // Verify the grid classes
     const grid = screen.getByText('Table with icon').closest('.grid-secondary');
     expect(grid).toHaveClass('grid-secondary');
     
-    // Verificar las clases de la tabla
+    // Verify the table classes
     const tableWrapper = screen.getByRole('table').closest('.bg-gray');
     expect(tableWrapper).toHaveClass('bg-gray', 'padding-h-30', 'padding-v-30');
   });
 
-  it('maneja correctamente los datos con valores límite', () => {
+  it('handles edge case data correctly', () => {
     const edgeCaseData: TableRowData[] = [
       {
-        name: '', // Nombre vacío
+        name: '', // Empty name
         userName: 'user',
         status: true,
       },
@@ -132,26 +132,26 @@ describe('TableWithIcon', () => {
     
     render(<TableWithIcon dataTable={edgeCaseData} />);
     
-    // Verificar que se manejan correctamente los nombres vacíos
+    // Verify empty names are handled correctly
     const emptyCells = screen.getAllByRole('cell', { name: '' });
     expect(emptyCells.length).toBeGreaterThan(0);
     
-    // Verificar que se manejan correctamente los nombres largos
+    // Verify long names are handled correctly
     const longNameText = 'A very long name that might break the layout A very long name that might break the layout';
     const longNameCell = screen.getByText(longNameText);
     expect(longNameCell).toBeInTheDocument();
     
-    // Verificar que los botones de acción se renderizan correctamente
-    const editButtons = screen.getAllByLabelText('Editar');
-    const deleteButtons = screen.getAllByLabelText('Eliminar');
+    // Verify action buttons render correctly
+    const editButtons = screen.getAllByLabelText('Edit');
+    const deleteButtons = screen.getAllByLabelText('Delete');
     expect(editButtons).toHaveLength(edgeCaseData.length);
     expect(deleteButtons).toHaveLength(edgeCaseData.length);
   });
 
-  it('asigna IDs únicos a los botones de iconos', () => {
+  it('assigns unique IDs to icon buttons', () => {
     render(<TableWithIcon dataTable={mockData} />);
     
-    // Verificar que los botones tienen IDs únicos
+    // Verify buttons have unique IDs
     mockData.forEach((_, index) => {
       const editButton = screen.getByTestId(`edit_${index}`);
       const deleteButton = screen.getByTestId(`delete_${index}`);
@@ -162,7 +162,7 @@ describe('TableWithIcon', () => {
   });
 });
 
-// Mock para getStatus
+// Mock for getStatus
 vi.mock('../../utils', () => ({
   __esModule: true,
   default: (value: boolean | number) => (
@@ -172,7 +172,7 @@ vi.mock('../../utils', () => ({
   ),
 }));
 
-// Mock para el componente IconButton
+// Mock for the IconButton component
 vi.mock('components/IconButton', () => ({
   __esModule: true,
   default: ({ 

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import TableWithButton from '..';
 import type { TableRowData } from '../types';
 
-// Datos de ejemplo para las historias
+// Sample data for stories
 const sampleData: TableRowData[] = [
   {
     name: 'John Doe',
@@ -31,7 +31,7 @@ const sampleData: TableRowData[] = [
   },
 ];
 
-// Configuración del componente en Storybook
+// Storybook component configuration
 const meta: Meta<typeof TableWithButton> = {
   title: 'Examples/Tables/TableWithButton',
   component: TableWithButton,
@@ -39,7 +39,7 @@ const meta: Meta<typeof TableWithButton> = {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Tabla que incluye botones de acción (actualizar y eliminar) en cada fila. Ideal para interfaces que requieren acciones rápidas sobre registros individuales.',
+        component: 'Table that includes action buttons (update and delete) in each row. Ideal for interfaces that require quick actions on individual records.',
       },
     },
   },
@@ -50,7 +50,7 @@ export default meta;
 
 type Story = StoryObj<typeof TableWithButton>;
 
-// Historia por defecto
+// Default story
 export const Default: Story = {
   args: {
     dataTable: sampleData,
@@ -58,13 +58,13 @@ export const Default: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Tabla con botones de acción en cada fila. Los botones están configurados con acciones de consola de ejemplo.',
+        story: 'Table with action buttons in each row. Buttons are configured with sample console actions.',
       },
     },
   },
 };
 
-// Historia con estado inicial vacío
+// Empty initial state story
 export const EmptyState: Story = {
   args: {
     dataTable: [],
@@ -72,13 +72,13 @@ export const EmptyState: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Tabla sin datos. Muestra solo los encabezados de las columnas y los encabezados de los botones.',
+        story: 'Table with no data. Shows only the column headers and button headers.',
       },
     },
   },
 };
 
-// Historia con un solo elemento
+// Single item story
 export const SingleItem: Story = {
   args: {
     dataTable: [sampleData[0]],
@@ -86,13 +86,13 @@ export const SingleItem: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Tabla con una sola fila de datos y sus respectivos botones de acción.',
+        story: 'Table with a single row of data and its respective action buttons.',
       },
     },
   },
 };
 
-// Historia con muchos elementos
+// Many items story
 export const ManyItems: Story = {
   args: {
     dataTable: [
@@ -112,7 +112,7 @@ export const ManyItems: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Tabla con múltiples filas para probar el desplazamiento vertical con botones de acción en cada fila.',
+        story: 'Table with multiple rows to test vertical scrolling with action buttons in each row.',
       },
     },
   },

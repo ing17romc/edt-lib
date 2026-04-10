@@ -2,33 +2,33 @@ import { InputHTMLAttributes } from 'react';
 import { ComponentSize } from '../../types';
 
 /**
- * Propiedades del componente Switch
+ * Switch component props
  */
 export interface SwitchProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'type'> {
   /**
-   * Etiqueta del switch
+   * Switch label
    */
   label?: string;
 
   /**
-   * Si el switch está activado
+   * Whether the switch is on
    * @default false
    */
   checked?: boolean;
 
   /**
-   * Callback al cambiar el estado
+   * Callback when state changes
    */
   onChange?: (checked: boolean) => void;
 
   /**
-   * Tamaño del switch
+   * Switch size
    * @default 'medium'
    */
   size?: ComponentSize;
 
   /**
-   * Si el switch está deshabilitado
+   * Whether the switch is disabled
    * @default false
    */
   disabled?: boolean;

@@ -2,24 +2,24 @@ import { ThumbnailProps } from '../types'
 
 export const defaultThumbnailProps: ThumbnailProps = {
   src: 'https://placehold.co/120x120',
-  alt: 'Imagen de ejemplo',
+  alt: 'Example image',
 }
 
 export const withCaptionProps: ThumbnailProps = {
   src: 'https://placehold.co/120x120',
-  alt: 'Imagen con caption',
-  caption: 'Descripción de la imagen',
+  alt: 'Image with caption',
+  caption: 'Image description',
 }
 
 export const roundedThumbnailProps: ThumbnailProps = {
   src: 'https://placehold.co/120x120',
-  alt: 'Avatar redondeado',
+  alt: 'Rounded avatar',
   rounded: true,
 }
 
 export const largeThumbnailProps: ThumbnailProps = {
   src: 'https://placehold.co/240x160',
-  alt: 'Imagen grande',
+  alt: 'Large image',
   width: 240,
   height: 160,
 }

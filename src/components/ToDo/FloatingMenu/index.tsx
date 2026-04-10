@@ -4,13 +4,13 @@ import styles from './styles/FloatingMenu.module.scss'
 import { FloatingMenuProps, FloatingMenuItem } from './types'
 
 /**
- * Componente FloatingMenu que muestra un menú desplegable sobre un elemento trigger.
+ * FloatingMenu component that displays a dropdown menu over a trigger element.
  *
- * @param trigger - Elemento que abre/cierra el menú
- * @param items - Elementos del menú
- * @param placement - Posición del menú respecto al trigger
- * @param onSelect - Callback al seleccionar un elemento
- * @param disabled - Si el menú está deshabilitado
+ * @param trigger - Element that opens/closes the menu
+ * @param items - Menu items
+ * @param placement - Menu position relative to the trigger
+ * @param onSelect - Callback when selecting an item
+ * @param disabled - Whether the menu is disabled
  */
 const FloatingMenu = ({
   trigger,

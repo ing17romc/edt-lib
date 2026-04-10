@@ -1,11 +1,11 @@
 ## [2.9.8] - 2025-07-17
 
-### Mejoras
-- Agregados controles desplegables para las propiedades  y __TEXT	__DATA	__OBJC	others	dec	hex en los componentes Button y CheckButton en Storybook
-- Mejorada la documentación de los controles en la tabla de argumentos
+### Improvements
+- Added dropdown controls for the `variant` and `size` properties in Button and CheckButton components in Storybook
+- Improved controls documentation in the arguments table
 
-### Correcciones
-- Eliminada la propiedad  no utilizada en el componente Card
+### Fixes
+- Removed unused property in the Card component
 
-### Dependencias
-- Actualizadas las dependencias de desarrollo
+### Dependencies
+- Updated development dependencies

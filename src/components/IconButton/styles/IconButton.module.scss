@@ -29,7 +29,7 @@
     box-shadow: $iconbutton-focus-ring;
   }
   
-  // Tamaños
+  // Sizes
   &--small {
     width: $iconbutton-size-sm;
     height: $iconbutton-size-sm;
@@ -51,7 +51,7 @@
     min-height: $iconbutton-size-lg;
   }
   
-  // Variantes
+  // Variants
   &--primary {
     background-color: $iconbutton-primary-bg;
     color: $white-color;
@@ -131,7 +131,7 @@
     }
   }
   
-  // Estados
+  // States
   &--loading {
     color: transparent;
     pointer-events: none;

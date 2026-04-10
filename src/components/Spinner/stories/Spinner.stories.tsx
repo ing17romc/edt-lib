@@ -29,9 +29,9 @@ export const Default: Story = {
 export const Sizes: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
-      <Spinner size={ComponentSize.SMALL} aria-label="Pequeño" />
-      <Spinner size={ComponentSize.MEDIUM} aria-label="Mediano" />
-      <Spinner size={ComponentSize.LARGE} aria-label="Grande" />
+      <Spinner size={ComponentSize.SMALL} aria-label="Small" />
+      <Spinner size={ComponentSize.MEDIUM} aria-label="Medium" />
+      <Spinner size={ComponentSize.LARGE} aria-label="Large" />
     </div>
   ),
 };
@@ -39,12 +39,12 @@ export const Sizes: Story = {
 export const Variants: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
-      <Spinner variant={SpinnerVariant.PRIMARY} aria-label="Primario" />
-      <Spinner variant={SpinnerVariant.SECONDARY} aria-label="Secundario" />
-      <Spinner variant={SpinnerVariant.TERTIARY} aria-label="Terciario" />
-      <Spinner variant={SpinnerVariant.DANGER} aria-label="Peligro" />
-      <Spinner variant={SpinnerVariant.SUCCESS} aria-label="Éxito" />
-      <Spinner variant={SpinnerVariant.WARNING} aria-label="Advertencia" />
+      <Spinner variant={SpinnerVariant.PRIMARY} aria-label="Primary" />
+      <Spinner variant={SpinnerVariant.SECONDARY} aria-label="Secondary" />
+      <Spinner variant={SpinnerVariant.TERTIARY} aria-label="Tertiary" />
+      <Spinner variant={SpinnerVariant.DANGER} aria-label="Danger" />
+      <Spinner variant={SpinnerVariant.SUCCESS} aria-label="Success" />
+      <Spinner variant={SpinnerVariant.WARNING} aria-label="Warning" />
     </div>
   ),
 };
@@ -57,6 +57,6 @@ export const Pulse: Story = {
 
 export const WithCustomLabel: Story = {
   args: {
-    'aria-label': 'Espere mientras se cargan los datos...',
+    'aria-label': 'Please wait while data is loading...',
   },
 };

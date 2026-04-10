@@ -5,24 +5,24 @@ export const mockOnClose = vi.fn()
 export const mockOnAction = vi.fn()
 
 export const defaultSnackbarProps: SnackbarProps = {
-  message: 'Operación realizada con éxito',
+  message: 'Operation completed successfully',
   open: true,
   duration: 0,
 }
 
 export const closableSnackbarProps: SnackbarProps = {
-  message: 'Mensaje con botón de cierre',
+  message: 'Message with close button',
   open: true,
   duration: 0,
   onClose: mockOnClose,
 }
 
 export const actionSnackbarProps: SnackbarProps = {
-  message: 'Archivo eliminado',
+  message: 'File deleted',
   open: true,
   duration: 0,
   onClose: mockOnClose,
-  actionLabel: 'Deshacer',
+  actionLabel: 'Undo',
   onAction: mockOnAction,
 }
 

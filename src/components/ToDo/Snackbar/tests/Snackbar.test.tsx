@@ -17,49 +17,49 @@ beforeEach(() => {
 })
 
 describe('Snackbar', () => {
-  describe('renderizado básico', () => {
-    it('renderiza el mensaje', () => {
+  describe('basic rendering', () => {
+    it('renders the message', () => {
       render(<Snackbar {...defaultSnackbarProps} />)
-      expect(screen.getByText('Operación realizada con éxito')).toBeInTheDocument()
+      expect(screen.getByText('Operation completed successfully')).toBeInTheDocument()
     })
 
-    it('usa rol status para accesibilidad', () => {
+    it('uses status role for accessibility', () => {
       render(<Snackbar {...defaultSnackbarProps} />)
       expect(screen.getByRole('status')).toBeInTheDocument()
     })
 
-    it('no renderiza cuando open=false', () => {
+    it('does not render when open=false', () => {
       render(<Snackbar {...defaultSnackbarProps} open={false} />)
       expect(screen.queryByRole('status')).not.toBeInTheDocument()
     })
   })
 
-  describe('acciones', () => {
-    it('muestra botón de cierre cuando onClose está definido', () => {
+  describe('actions', () => {
+    it('shows close button when onClose is defined', () => {
       render(<Snackbar {...closableSnackbarProps} />)
-      expect(screen.getByLabelText('Cerrar')).toBeInTheDocument()
+      expect(screen.getByLabelText('Close')).toBeInTheDocument()
     })
 
-    it('llama onClose al hacer click en cerrar', () => {
+    it('calls onClose when clicking close', () => {
       render(<Snackbar {...closableSnackbarProps} />)
-      fireEvent.click(screen.getByLabelText('Cerrar'))
+      fireEvent.click(screen.getByLabelText('Close'))
       expect(mockOnClose).toHaveBeenCalledTimes(1)
     })
 
-    it('muestra botón de acción cuando actionLabel está definido', () => {
+    it('shows action button when actionLabel is defined', () => {
       render(<Snackbar {...actionSnackbarProps} />)
-      expect(screen.getByText('Deshacer')).toBeInTheDocument()
+      expect(screen.getByText('Undo')).toBeInTheDocument()
     })
 
-    it('llama onAction al hacer click en el botón de acción', () => {
+    it('calls onAction when clicking the action button', () => {
       render(<Snackbar {...actionSnackbarProps} />)
-      fireEvent.click(screen.getByText('Deshacer'))
+      fireEvent.click(screen.getByText('Undo'))
       expect(mockOnAction).toHaveBeenCalledTimes(1)
     })
   })
 
-  describe('auto-cierre', () => {
-    it('llama onClose después del duration especificado', () => {
+  describe('auto-close', () => {
+    it('calls onClose after the specified duration', () => {
       vi.useFakeTimers()
       render(<Snackbar {...closableSnackbarProps} duration={1000} />)
       act(() => { vi.advanceTimersByTime(1000) })
@@ -68,15 +68,15 @@ describe('Snackbar', () => {
     })
   })
 
-  describe('variantes', () => {
-    it.each(allSnackbarVariants)('aplica la variante %s', (variant) => {
+  describe('variants', () => {
+    it.each(allSnackbarVariants)('applies the %s variant', (variant) => {
       const { container } = render(
         <Snackbar {...defaultSnackbarProps} variant={variant} />
       )
       expect(container.firstChild).toHaveClass(`snackbar--${variant}`)
     })
 
-    it('usa variante primary por defecto', () => {
+    it('uses primary variant by default', () => {
       const { container } = render(<Snackbar {...defaultSnackbarProps} />)
       expect(container.firstChild).toHaveClass(`snackbar--${ComponentVariant.PRIMARY}`)
     })

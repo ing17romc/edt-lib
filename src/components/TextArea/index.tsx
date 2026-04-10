@@ -4,8 +4,8 @@ import { ComponentSize } from '../types';
 import styles from './styles/TextArea.module.scss';
 
 /**
- * Componente de área de texto que permite la entrada de texto de múltiples líneas.
- * Soporta diferentes variantes, tamaños y redimensionamiento automático.
+ * Text area component that allows multi-line text input.
+ * Supports different variants, sizes, and auto-resize.
  */
 const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(({
   label,
@@ -35,12 +35,12 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(({
   const textareaId = id || `textarea-${generatedId}`;
   const helperTextId = helperText ? `${textareaId}-helper-text` : undefined;
 
-  // Combinar las referes internas y externas
+  // Combine internal and external refs
   const setRefs = (element: HTMLTextAreaElement | null) => {
-    // Asignar la referencia interna
+    // Assign the internal reference
     (textareaRef as React.MutableRefObject<HTMLTextAreaElement | null>).current = element;
     
-    // Si se proporcionó una referencia externa, asignarla
+    // If an external reference was provided, assign it
     if (typeof ref === 'function') {
       ref(element);
     } else if (ref) {
@@ -48,7 +48,7 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(({
     }
   };
 
-  // Función para ajustar la altura del textarea según el contenido
+  // Function to adjust textarea height based on content
   const adjustHeight = useCallback(() => {
     if (autoResize && textareaRef.current) {
       const textarea = textareaRef.current;
@@ -86,7 +86,7 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(({
     }
   }, [autoResize, adjustHeight]);
 
-  // Manejador de cambio personalizado
+  // Custom change handler
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     if (autoResize) {
       adjustHeight();
@@ -97,7 +97,7 @@ const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(({
     }
   };
 
-  // Clases CSS
+  // CSS classes
   const containerClasses = [
     styles.textAreaContainer,
     fullWidth ? styles.fullWidth : '',

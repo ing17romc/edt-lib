@@ -1,7 +1,7 @@
 import { ColorGroup } from '../types';
 
 /**
- * Datos de prueba para el componente Color
+ * Test data for the Color component
  */
 export const mockColorGroups: ColorGroup[] = [
   {
@@ -22,7 +22,7 @@ export const mockColorGroups: ColorGroup[] = [
 ];
 
 /**
- * Mock para las props por defecto del componente
+ * Mock for the component's default props
  */
 export const defaultProps = {
   showFontColors: true,
@@ -31,7 +31,7 @@ export const defaultProps = {
 };
 
 /**
- * Mock para las funciones de utilidad de color
+ * Mock for color utility functions
  */
 export const mockColorUtils = {
   renderColorItem: (className: string, type: string) => ({

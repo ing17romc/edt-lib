@@ -8,8 +8,8 @@ const baseMockProps: Partial<TextAreaProps> = {
 
 export const mockTextAreaProps: TextAreaProps = {
   ...baseMockProps,
-  label: 'Descripción',
-  placeholder: 'Escribe algo...',
+  label: 'Description',
+  placeholder: 'Write something...',
   value: '',
   size: ComponentSize.MEDIUM,
   onChange: vi.fn(),
@@ -18,38 +18,38 @@ export const mockTextAreaProps: TextAreaProps = {
 
 export const mockDisabledTextAreaProps: TextAreaProps = {
   ...baseMockProps,
-  label: 'Campo deshabilitado',
-  value: 'Este es un texto de ejemplo en un área de texto deshabilitada.',
+  label: 'Disabled field',
+  value: 'This is sample text in a disabled textarea.',
   disabled: true,
 };
 
 export const mockErrorTextAreaProps: TextAreaProps = {
   ...baseMockProps,
-  label: 'Campo con error',
+  label: 'Field with error',
   error: true,
-  helperText: 'Este campo es requerido',
-  value: 'Texto con error',
+  helperText: 'This field is required',
+  value: 'Text with error',
 };
 
 export const mockFullWidthTextAreaProps: TextAreaProps = {
   ...baseMockProps,
-  label: 'Campo de ancho completo',
+  label: 'Full width field',
   fullWidth: true,
-  placeholder: 'Este campo ocupa todo el ancho disponible',
+  placeholder: 'This field takes up the full available width',
 };
 
 export const mockAutoResizeTextAreaProps: TextAreaProps = {
   ...baseMockProps,
-  label: 'Campo con redimensionamiento automático',
+  label: 'Auto-resize field',
   autoResize: true,
-  placeholder: 'Escribe y el área se ajustará automáticamente',
+  placeholder: 'Write and the area will adjust automatically',
   minRows: 2,
   maxRows: 6,
 };
 
 export const mockWithMaxLengthTextAreaProps: TextAreaProps = {
   ...baseMockProps,
-  label: 'Campo con límite de caracteres',
+  label: 'Character limit field',
   maxLength: 100,
-  placeholder: 'Escribe hasta 100 caracteres',
+  placeholder: 'Write up to 100 characters',
 };

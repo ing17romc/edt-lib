@@ -3,64 +3,64 @@ import { HTMLAttributes, ReactNode } from 'react';
 export type FloatingMenuPlacement = 'bottom-start' | 'bottom-end' | 'top-start' | 'top-end';
 
 /**
- * Elemento del menú flotante
+ * Floating menu item
  */
 export interface FloatingMenuItem {
   /**
-   * Identificador único
+   * Unique identifier
    */
   key: string;
 
   /**
-   * Etiqueta visible
+   * Visible label
    */
   label: ReactNode;
 
   /**
-   * Icono (opcional)
+   * Icon (optional)
    */
   icon?: ReactNode;
 
   /**
-   * Si está deshabilitado
+   * Whether it is disabled
    * @default false
    */
   disabled?: boolean;
 
   /**
-   * Si es separador
+   * Whether it is a separator
    * @default false
    */
   divider?: boolean;
 }
 
 /**
- * Propiedades del componente FloatingMenu
+ * FloatingMenu component properties
  */
 export interface FloatingMenuProps extends HTMLAttributes<HTMLDivElement> {
   /**
-   * Elemento que abre el menú (trigger)
+   * Element that opens the menu (trigger)
    */
   trigger: ReactNode;
 
   /**
-   * Elementos del menú
+   * Menu items
    */
   items: FloatingMenuItem[];
 
   /**
-   * Posición del menú respecto al trigger
+   * Menu position relative to the trigger
    * @default 'bottom-start'
    */
   placement?: FloatingMenuPlacement;
 
   /**
-   * Callback al seleccionar un elemento
+   * Callback when selecting an item
    */
   onSelect?: (key: string) => void;
 
   /**
-   * Si el menú está deshabilitado
+   * Whether the menu is disabled
    * @default false
    */
   disabled?: boolean;

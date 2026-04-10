@@ -3,26 +3,26 @@ import { ComponentSize } from '../../types';
 
 export const baseArgs: ModalProps = {
   isOpen: true,
-  onClose: () => console.log('Modal cerrado'),
-  title: 'Título del Modal',
+  onClose: () => console.log('Modal closed'),
+  title: 'Modal Title',
   children: (
     <div>
-      <p>Este es el contenido principal del modal. Puedes colocar cualquier tipo de contenido aquí, incluyendo formularios, imágenes, texto, etc.</p>
-      <p>El contenido se desplazará automáticamente si excede el tamaño máximo del modal.</p>
+      <p>This is the main content of the modal. You can place any type of content here, including forms, images, text, etc.</p>
+      <p>The content will scroll automatically if it exceeds the maximum size of the modal.</p>
     </div>
   ),
 };
 
 export const withFooter: ModalProps = {
   ...baseArgs,
-  title: 'Modal con Pie de Página',
+  title: 'Modal with Footer',
   footer: (
     <div style={{ display: 'flex', gap: '0.5rem', justifyContent: 'flex-end' }}>
       <button type="button" style={{ padding: '0.5rem 1rem', borderRadius: '4px', border: '1px solid #ccc' }}>
-        Cancelar
+        Cancel
       </button>
       <button type="button" style={{ padding: '0.5rem 1rem', borderRadius: '4px', background: '#007bff', color: 'white', border: 'none' }}>
-        Guardar Cambios
+        Save Changes
       </button>
     </div>
   ),  
@@ -32,30 +32,30 @@ export const withoutTitle: ModalProps = {
   ...baseArgs,
   title: '',
   showCloseButton: false,
-  children: 'Este es un modal sin título y sin botón de cerrar. Debes proporcionar una forma de cerrarlo, como un botón personalizado en el contenido o en el pie de página.',
+  children: 'This is a modal without a title or close button. You must provide a way to close it, such as a custom button in the content or in the footer.',
 };
 
 export const withCustomSize: ModalProps = {
   ...baseArgs,
-  title: 'Modal Grande',
+  title: 'Large Modal',
   size: ComponentSize.LARGE,
   children: (
     <div>
-      <p>Este es un modal con un tamaño personalizado (large).</p>
-      <p>Puedes elegir entre: small, medium, large o xlarge.</p>
+      <p>This is a modal with a custom size (large).</p>
+      <p>You can choose from: small, medium, large or xlarge.</p>
     </div>
   ),
 };
 
 export const withLongContent: ModalProps = {
   ...baseArgs,
-  title: 'Modal con Contenido Largo',
+  title: 'Modal with Long Content',
   children: (
     <div>
       {Array.from({ length: 10 }).map((_, i) => (
         <p key={i} style={{ marginBottom: '1rem' }}>
-          Párrafo de ejemplo {i + 1}. Este es un contenido largo para demostrar el desplazamiento dentro del modal.
-          El contenido que exceda la altura máxima del modal generará una barra de desplazamiento.
+          Example paragraph {i + 1}. This is long content to demonstrate scrolling within the modal.
+          Content that exceeds the maximum height of the modal will generate a scrollbar.
         </p>
       ))}
     </div>
@@ -64,7 +64,7 @@ export const withLongContent: ModalProps = {
 
 export const withCustomCloseText: ModalProps = {
   ...baseArgs,
-  title: 'Modal con Texto Personalizado',
-  closeButtonText: 'Cerrar Ventana',
-  children: 'Este modal tiene un texto personalizado para el botón de cierre.',
+  title: 'Modal with Custom Text',
+  closeButtonText: 'Close Window',
+  children: 'This modal has a custom text for the close button.',
 };

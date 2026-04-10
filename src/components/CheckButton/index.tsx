@@ -5,12 +5,12 @@ import './styles/CheckButton.scss';
 import { ComponentSize } from '../types';
 
 /**
- * CheckButton - Un componente de botón de verificación personalizable.
+ * CheckButton - A customizable checkbox button component.
  * 
  * @component
  * @example
  * <CheckButton 
- *   label="Opción 1"
+ *   label="Option 1"
  *   onChange={(checked) => console.log(checked)}
  *   checked={false}
  *   disabled={false}
@@ -18,19 +18,19 @@ import { ComponentSize } from '../types';
  * />
  * 
  * @example
- * // Ejemplo con diferentes tamaños
+ * // Example with different sizes
  * <div>
- *   <CheckButton label="Pequeño" size="small" />
- *   <CheckButton label="Mediano (predeterminado)" size="medium" />
- *   <CheckButton label="Grande" size="large" />
+ *   <CheckButton label="Small" size="small" />
+ *   <CheckButton label="Medium (default)" size="medium" />
+ *   <CheckButton label="Large" size="large" />
  * </div>
  * 
- * @param {string} [label] - Texto que se muestra junto al checkbox
- * @param {boolean} [checked=false] - Estado inicial del checkbox
- * @param {boolean} [disabled=false] - Si es true, el checkbox está deshabilitado
- * @param {Function} [onChange] - Función que se ejecuta cuando cambia el estado del checkbox
- * @param {'small'|'medium'|'large'} [size='medium'] - Tamaño del botón de verificación
- * @param {string} [className] - Clase CSS adicional para personalizar el estilo
+ * @param {string} [label] - Text displayed next to the checkbox
+ * @param {boolean} [checked=false] - Initial checkbox state
+ * @param {boolean} [disabled=false] - If true, the checkbox is disabled
+ * @param {Function} [onChange] - Function called when the checkbox state changes
+ * @param {'small'|'medium'|'large'} [size='medium'] - Checkbox button size
+ * @param {string} [className] - Additional CSS class for custom styling
  */
 const CheckButton: React.FC<CheckButtonProps> = ({
   label,

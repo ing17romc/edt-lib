@@ -2,60 +2,60 @@ import type { Meta } from '@storybook/react-vite';
 import { CardProps, CardVariant } from '../types';
 
 /**
- * Datos de prueba para el componente Card
+ * Test data for the Card component
  */
 export const mockCardProps: CardProps = {
-  children: 'Contenido de la tarjeta',
-  title: 'Título de la tarjeta',
-  subtitle: 'Subtítulo opcional',
+  children: 'Card content',
+  title: 'Card Title',
+  subtitle: 'Optional subtitle',
   imageUrl: 'https://w7.pngwing.com/pngs/745/105/png-transparent-pencil-and-paper-illustration-ssc-mts-exam-test-computer-icons-educational-entrance-examination-test-paper-miscellaneous-angle-text-thumbnail.png',
-  imageAlt: 'Imagen de ejemplo',
+  imageAlt: 'Example image',
   variant: CardVariant.ELEVATED,
 };
 
 /**
- * Datos de prueba para una tarjeta sin imagen
+ * Test data for a card without image
  */
 export const mockCardWithoutImage: CardProps = {
   imageUrl: '',
-  children: 'Contenido sin imagen',
-  title: 'Tarjeta sin imagen',
-  subtitle: 'Esta tarjeta no tiene imagen',
+  children: 'Content without image',
+  title: 'Card without image',
+  subtitle: 'This card has no image',
 };
 
 /**
- * Datos de prueba para una tarjeta clickeable
+ * Test data for a clickable card
  */
 export const mockClickableCard: CardProps = {
-  children: 'Contenido de la tarjeta clickeable',
-  title: 'Tarjeta clickeable',
-  subtitle: 'Haz clic para ver la acción',
-  imageAlt: 'Imagen de ejemplo',
+  children: 'Clickable card content',
+  title: 'Clickable card',
+  subtitle: 'Click to see the action',
+  imageAlt: 'Example image',
   variant: CardVariant.ELEVATED,
   onClick: () => console.log('Card clicked!'),
 };
 
 /**
- * Datos de prueba para una tarjeta con variante Outlined
+ * Test data for a card with Outlined variant
  */
 export const mockOutlinedCard: CardProps = {
-  children: 'Contenido de tarjeta con borde',
-  title: 'Tarjeta Outlined',
-  subtitle: 'Variante con borde',
+  children: 'Outlined card content',
+  title: 'Outlined Card',
+  subtitle: 'Outlined variant',
   imageUrl: '',
   imageAlt: '',
   variant: CardVariant.OUTLINED,
 };
 
 /**
- * Datos de prueba para una tarjeta con variante Filled
+ * Test data for a card with Filled variant
  */
 export const mockFilledCard: CardProps = {
-  children: 'Contenido de tarjeta con relleno',
-  title: 'Tarjeta Filled',
-  subtitle: 'Variante con relleno',
+  children: 'Filled card content',
+  title: 'Filled Card',
+  subtitle: 'Filled variant',
   imageUrl: 'https://w7.pngwing.com/pngs/745/105/png-transparent-pencil-and-paper-illustration-ssc-mts-exam-test-computer-icons-educational-entrance-examination-test-paper-miscellaneous-angle-text-thumbnail.png',
-  imageAlt: 'Imagen de ejemplo',
+  imageAlt: 'Example image',
   variant: CardVariant.FILLED,
 };
 

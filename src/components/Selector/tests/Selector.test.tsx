@@ -15,7 +15,7 @@ describe('Selector', () => {
     (defaultTestProps.onChange as ReturnType<typeof vi.fn>).mockClear();
   });
 
-  it('se renderiza correctamente con opciones', () => {
+  it('renders correctly with options', () => {
     render(<Selector {...defaultTestProps} />);
     
     const selectElement = screen.getByRole('combobox');
@@ -32,13 +32,13 @@ describe('Selector', () => {
     });
   });
 
-  it('muestra la etiqueta correctamente', () => {
+  it('shows the label correctly', () => {
     render(<Selector {...defaultTestProps} />);
     const labelElement = screen.getByText(mockLabel);
     expect(labelElement).toBeInTheDocument();
   });
 
-  it('maneja el cambio de selección', () => {
+  it('handles selection change', () => {
     render(<Selector {...defaultTestProps} />);
     const selectElement = screen.getByRole('combobox');
     fireEvent.change(selectElement, { target: { value: '2' } });
@@ -46,7 +46,7 @@ describe('Selector', () => {
     expect(selectElement).toHaveValue('2');
   });
 
-  it('muestra el estado de error cuando se proporciona', () => {
+  it('shows the error state when provided', () => {
     render(<Selector {...defaultTestProps} error errorMessage={mockErrorMessage} />);
     const selectElement = screen.getByRole('combobox');
     const errorElement = screen.getByText(mockErrorMessage);
@@ -55,13 +55,13 @@ describe('Selector', () => {
     expect(errorElement).toHaveClass('helperText--error');
   });
 
-  it('muestra el texto de ayuda cuando se proporciona', () => {
+  it('shows the helper text when provided', () => {
     render(<Selector {...defaultTestProps} helperText={mockHelperText} />);
     const helperTextElement = screen.getByText(mockHelperText);
     expect(helperTextElement).toBeInTheDocument();
   });
 
-  it('se deshabilita cuando loading es true', () => {
+  it('is disabled when loading is true', () => {
     render(<Selector {...defaultTestProps} loading />);
     const selectElement = screen.getByRole('combobox');
     expect(selectElement).toBeDisabled();
@@ -69,27 +69,27 @@ describe('Selector', () => {
     expect(loadingSpinner).toBeInTheDocument();
   });
 
-  it('se deshabilita cuando disabled es true', () => {
+  it('is disabled when disabled is true', () => {
     render(<Selector {...defaultTestProps} disabled />);
     const selectElement = screen.getByRole('combobox');
     expect(selectElement).toBeDisabled();
   });
 
-  it('acepta un valor por defecto', () => {
+  it('accepts a default value', () => {
     const defaultValue = '2';
     render(<Selector {...defaultTestProps} defaultValue={defaultValue} />);
     const selectElement = screen.getByRole('combobox');
     expect(selectElement).toHaveValue(defaultValue);
   });
 
-  it('acepta un valor controlado', () => {
+  it('accepts a controlled value', () => {
     const value = '3';
     render(<Selector {...defaultTestProps} value={value} readOnly />);
     const selectElement = screen.getByRole('combobox');
     expect(selectElement).toHaveValue(value);
   });
 
-  it('muestra el placeholder cuando se proporciona', () => {
+  it('shows the placeholder when provided', () => {
     render(<Selector {...defaultTestProps} placeholder={mockPlaceholder} />);
     const optionElement = screen.getByRole('option', { name: mockPlaceholder });
     expect(optionElement).toBeInTheDocument();

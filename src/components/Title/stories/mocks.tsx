@@ -112,7 +112,7 @@ export default {
 } as Meta<typeof Title>;
 
 export const withAllPropsArgs = {
-  children: 'Título con todas las propiedades',
+  children: 'Title with all properties',
   size: TitleSize.H2,
   variant: TitleVariant.PRIMARY,
   bold: true,

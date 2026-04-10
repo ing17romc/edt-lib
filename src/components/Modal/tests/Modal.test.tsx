@@ -13,39 +13,39 @@ import {
 import { ComponentSize } from '../../types';
 
 describe('Modal', () => {
-  it('renderiza correctamente con las props por defecto', () => {
+  it('renders correctly with default props', () => {
     render(<Modal {...mockModalProps} />);
     
-    // Verificar que el modal se renderice con el título y el contenido
-    const modalTitle = screen.getByRole('heading', { name: /título del modal/i, level: 2 });
-    const modalContent = screen.getByText('Contenido del modal de prueba');
+    // Verify that the modal renders with the title and content
+    const modalTitle = screen.getByRole('heading', { name: /modal title/i, level: 2 });
+    const modalContent = screen.getByText('Test modal content');
     
     expect(modalTitle).toBeInTheDocument();
     expect(modalContent).toBeInTheDocument();
     
-    // Verificar que el botón de cerrar esté presente
-    const closeButton = screen.getByRole('button', { name: mockModalProps.closeButtonText || 'Cerrar' });
+    // Verify that the close button is present
+    const closeButton = screen.getByRole('button', { name: mockModalProps.closeButtonText || 'Close' });
     expect(closeButton).toBeInTheDocument();
   });
 
-  it('no se renderiza cuando isOpen es falso', () => {
+  it('does not render when isOpen is false', () => {
     render(<Modal {...mockModalProps} isOpen={false} />);
     
-    // Verificar que el modal no esté en el documento
-    expect(screen.queryByText('Título del Modal')).not.toBeInTheDocument();
+    // Verify that the modal is not in the document
+    expect(screen.queryByText('Modal Title')).not.toBeInTheDocument();
   });
 
-  it('llama a onClose cuando se hace clic en el botón de cerrar', () => {
+  it('calls onClose when the close button is clicked', () => {
     const handleClose = vi.fn();
     render(<Modal {...mockModalProps} onClose={handleClose} />);
     
-    const closeButton = screen.getByRole('button', { name: mockModalProps.closeButtonText || 'Cerrar' });
+    const closeButton = screen.getByRole('button', { name: mockModalProps.closeButtonText || 'Close' });
     fireEvent.click(closeButton);
     
     expect(handleClose).toHaveBeenCalledTimes(1);
   });
 
-  it('llama a onClose cuando se hace clic en el overlay', () => {
+  it('calls onClose when the overlay is clicked', () => {
     const handleClose = vi.fn();
     render(
       <Modal 
@@ -54,24 +54,24 @@ describe('Modal', () => {
         closeOnOverlayClick={true}
         title="Test Modal"
       >
-        Contenido de prueba
+        Test content
       </Modal>
     );
     
-    // Encontrar el botón del overlay
-    const overlayButton = screen.getByRole('button', { name: 'Cerrar modal' });
+    // Find the overlay button
+    const overlayButton = screen.getByRole('button', { name: 'Close modal' });
     expect(overlayButton).toBeInTheDocument();
     
-    // Simular clic en el botón del overlay
+    // Simulate click on the overlay button
     fireEvent.click(overlayButton);
     expect(handleClose).toHaveBeenCalledTimes(1);
   });
 
-  it('no llama a onClose cuando se hace clic dentro del modal', () => {
+  it('does not call onClose when clicking inside the modal', () => {
     const handleClose = vi.fn();
     render(<Modal {...mockModalProps} onClose={handleClose} />);
     
-    const modalContent = screen.getByText('Contenido del modal de prueba').closest(`.${styles.modalContainer}`);
+    const modalContent = screen.getByText('Test modal content').closest(`.${styles.modalContainer}`);
     if (modalContent) {
       fireEvent.click(modalContent);
     }
@@ -79,47 +79,47 @@ describe('Modal', () => {
     expect(handleClose).not.toHaveBeenCalled();
   });
 
-  it('renderiza el footer cuando se proporciona', () => {
+  it('renders the footer when provided', () => {
     render(<Modal {...mockModalWithFooter} />);
     
-    expect(screen.getByText('Cancelar')).toBeInTheDocument();
-    expect(screen.getByText('Aceptar')).toBeInTheDocument();
+    expect(screen.getByText('Cancel')).toBeInTheDocument();
+    expect(screen.getByText('Accept')).toBeInTheDocument();
   });
 
-  it('no muestra el botón de cerrar cuando showCloseButton es falso', () => {
+  it('does not show the close button when showCloseButton is false', () => {
     const { container } = render(<Modal {...mockModalWithDisabledClose} />);
     
-    // Verificar que el botón de cierre (×) no esté presente
+    // Verify that the close button (×) is not present
     const closeButton = container.querySelector(`.${styles.closeButton}`);
     expect(closeButton).not.toBeInTheDocument();
   });
 
-  it('usa el texto personalizado para el botón de cerrar', () => {
+  it('uses custom text for the close button', () => {
     render(<Modal {...mockModalWithCustomCloseText} />);
     
-    const closeButton = screen.getByRole('button', { name: /cerrar ventana/i });
+    const closeButton = screen.getByRole('button', { name: /close window/i });
     expect(closeButton).toBeInTheDocument();
   });
 
-  it('aplica la clase de tamaño personalizado', () => {
+  it('applies the custom size class', () => {
     const { container } = render(<Modal {...mockModalWithCustomSize} />);
     
-    // Verificar que el modal tenga la clase de tamaño personalizado
+    // Verify that the modal has the custom size class
     const modalElement = container.querySelector(`.${styles.modalContainer}.${styles[mockModalWithCustomSize.size || ComponentSize.MEDIUM]}`);
     expect(modalElement).toBeInTheDocument();
     
-    // Verificar que el modal tenga la clase de tamaño correcta
+    // Verify that the modal has the correct size class
     expect(modalElement).toHaveClass(styles[mockModalWithCustomSize.size || ComponentSize.MEDIUM]);
   });
 
-  it('no muestra el título cuando no se proporciona', () => {
+  it('does not show the title when not provided', () => {
     render(<Modal {...mockModalWithoutTitle} />);
     
     const title = screen.queryByRole('heading');
     expect(title).not.toBeInTheDocument();
   });
 
-  it('cierra con la tecla Escape', () => {
+  it('closes with the Escape key', () => {
     const handleClose = vi.fn();
     render(<Modal {...mockModalProps} onClose={handleClose} />);
     

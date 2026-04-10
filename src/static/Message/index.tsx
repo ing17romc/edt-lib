@@ -1,22 +1,22 @@
 /**
- * Componente Message
+ * Message Component
  * 
- * Muestra mensajes de retroalimentación al usuario con diferentes niveles de importancia.
- * Soporta diferentes tipos, títulos, cierre opcional y es completamente accesible.
+ * Displays feedback messages to the user with different levels of importance.
+ * Supports different types, titles, optional closing, and is fully accessible.
  * 
  * @component
  * @example
- * // Uso básico
- * <Message>Mensaje informativo</Message>
+ * // Basic usage
+ * <Message>Informational message</Message>
  * 
- * // Con tipo y título
- * <Message type="success" title="¡Éxito!">
- *   La operación se completó correctamente.
+ * // With type and title
+ * <Message type="success" title="Success!">
+ *   The operation was completed successfully.
  * </Message>
  * 
- * // Con cierre opcional
+ * // With optional closing
  * <Message type="warning" closable onClose={handleClose}>
- *   Este mensaje puede cerrarse.
+ *   This message can be closed.
  * </Message>
  */
 import React, { useState, useCallback } from 'react';
@@ -24,7 +24,7 @@ import type { MessageProps } from './types';
 import styles from './Message.module.scss';
 import { Icon } from '../../components/Icon';
 
-// Mapeo de iconos según el tipo de mensaje
+// Icon mapping based on message type
 const iconMap: Record<NonNullable<MessageProps['type']>, string> = {
   success: 'check-circle',
   info: 'info-circle',
@@ -33,7 +33,7 @@ const iconMap: Record<NonNullable<MessageProps['type']>, string> = {
 };
 
 /**
- * Determina el rol ARIA adecuado según el tipo de mensaje
+ * Determines the appropriate ARIA role based on message type
  */
 const getAriaRole = (type: MessageProps['type']) => 
   type === 'warning' || type === 'danger' ? 'alert' : 'status';
@@ -54,7 +54,7 @@ const Message: React.FC<MessageProps> = ({
   const role = propRole || getAriaRole(type);
   const ariaLive = role === 'alert' ? 'assertive' : 'polite';
   
-  // Manejador para cerrar el mensaje
+  // Handler for closing the message
   const handleClose = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setIsVisible(false);
@@ -106,7 +106,7 @@ const Message: React.FC<MessageProps> = ({
           type="button"
           className={styles.closeButton}
           onClick={handleClose}
-          aria-label="Cerrar mensaje"
+          aria-label="Close message"
           data-testid="message-close-button"
         >
           <span aria-hidden="true">&times;</span>

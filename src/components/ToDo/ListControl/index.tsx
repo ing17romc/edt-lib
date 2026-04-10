@@ -4,11 +4,11 @@ import styles from './styles/ListControl.module.scss'
 import { ListControlProps, ListControlItem } from './types'
 
 /**
- * Componente ListControl que muestra una lista seleccionable de elementos.
+ * ListControl component that displays a selectable list of items.
  *
- * @param items - Elementos de la lista
- * @param onSelect - Callback al seleccionar un elemento
- * @param multiSelect - Si permite selección múltiple
+ * @param items - List items
+ * @param onSelect - Callback when selecting an item
+ * @param multiSelect - Whether it allows multiple selection
  */
 const ListControl = ({
   items,

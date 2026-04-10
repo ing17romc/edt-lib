@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import TableDefault from '..';
 import type { TableRowData } from '../types';
 
-// Datos de ejemplo para las historias
+// Sample data for stories
 const sampleData: TableRowData[] = [
   {
     name: 'John Doe',
@@ -31,7 +31,7 @@ const sampleData: TableRowData[] = [
   },
 ];
 
-// Configuración del componente en Storybook
+// Storybook component configuration
 const meta: Meta<typeof TableDefault> = {
   title: 'Examples/Tables/TableDefault',
   component: TableDefault,
@@ -39,7 +39,7 @@ const meta: Meta<typeof TableDefault> = {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Tabla predeterminada que muestra múltiples columnas con información repetida. Útil para mostrar grandes conjuntos de datos en un formato tabular amplio.',
+        component: 'Default table that displays multiple columns with repeated information. Useful for showing large data sets in a wide tabular format.',
       },
     },
   },
@@ -50,7 +50,7 @@ export default meta;
 
 type Story = StoryObj<typeof TableDefault>;
 
-// Historia por defecto
+// Default story
 export const Default: Story = {
   args: {
     dataTable: sampleData,
@@ -58,13 +58,13 @@ export const Default: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Tabla predeterminada con múltiples columnas que repiten la información.',
+        story: 'Default table with multiple columns that repeat the information.',
       },
     },
   },
 };
 
-// Historia con estado inicial vacío
+// Empty initial state story
 export const EmptyState: Story = {
   args: {
     dataTable: [],
@@ -72,13 +72,13 @@ export const EmptyState: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Tabla sin datos. Muestra solo los encabezados de las columnas.',
+        story: 'Table with no data. Shows only the column headers.',
       },
     },
   },
 };
 
-// Historia con un solo elemento
+// Single item story
 export const SingleItem: Story = {
   args: {
     dataTable: [sampleData[0]],
@@ -86,13 +86,13 @@ export const SingleItem: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Tabla con una sola fila de datos.',
+        story: 'Table with a single row of data.',
       },
     },
   },
 };
 
-// Historia con muchos elementos
+// Many items story
 export const ManyItems: Story = {
   args: {
     dataTable: [
@@ -112,7 +112,7 @@ export const ManyItems: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Tabla con múltiples filas para probar el desplazamiento horizontal.',
+        story: 'Table with multiple rows to test horizontal scrolling.',
       },
     },
   },

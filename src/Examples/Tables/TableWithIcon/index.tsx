@@ -9,11 +9,11 @@ import { ComponentSize } from '../../../components/types';
 /**
  * TableWithIcon
  *
- * Componente de tabla que muestra datos y agrega botones con iconos para acciones sobre cada fila.
- * Permite visualizar una tabla con botones de edición y eliminación en cada registro.
+ * Table component that displays data and adds icon buttons for actions on each row.
+ * Allows viewing a table with edit and delete buttons on each record.
  *
- * @param {TableWithIconProps} props - Propiedades del componente, incluyendo el arreglo de datos a mostrar.
- * @returns {JSX.Element} Tabla con botones de acción por fila.
+ * @param {TableWithIconProps} props - Component properties, including the array of data to display.
+ * @returns {JSX.Element} Table with action buttons per row.
  */
 const TableWithIcon: React.FC<TableWithIconProps> = ({ dataTable }) => {
 	return (
@@ -51,7 +51,7 @@ const TableWithIcon: React.FC<TableWithIconProps> = ({ dataTable }) => {
 														id={`edit_${index}`}
 														data-testid={`edit_${index}`}
 														size={ComponentSize.MEDIUM}
-														aria-label="Editar"
+														aria-label="Edit"
 														onClick={() =>
 															alert('clic!!!')
 														}
@@ -63,7 +63,7 @@ const TableWithIcon: React.FC<TableWithIconProps> = ({ dataTable }) => {
 														id={`delete_${index}`}
 														data-testid={`delete_${index}`}
 														size={ComponentSize.MEDIUM}
-														aria-label="Eliminar"
+														aria-label="Delete"
 														onClick={() =>
 															alert('clic!!!')
 														}

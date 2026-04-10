@@ -1,43 +1,43 @@
 import { HTMLAttributes } from 'react';
 
 /**
- * Propiedades del componente DatePicker
+ * DatePicker component properties
  */
 export interface DatePickerProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   /**
-   * Valor seleccionado (formato ISO: YYYY-MM-DD)
+   * Selected value (ISO format: YYYY-MM-DD)
    */
   value?: string;
 
   /**
-   * Callback al seleccionar una fecha
+   * Callback when selecting a date
    */
   onChange?: (value: string) => void;
 
   /**
-   * Fecha mínima permitida (formato ISO: YYYY-MM-DD)
+   * Minimum allowed date (ISO format: YYYY-MM-DD)
    */
   min?: string;
 
   /**
-   * Fecha máxima permitida (formato ISO: YYYY-MM-DD)
+   * Maximum allowed date (ISO format: YYYY-MM-DD)
    */
   max?: string;
 
   /**
-   * Placeholder del input
+   * Input placeholder
    * @default 'DD/MM/YYYY'
    */
   placeholder?: string;
 
   /**
-   * Si el campo está deshabilitado
+   * Whether the field is disabled
    * @default false
    */
   disabled?: boolean;
 
   /**
-   * Etiqueta del campo
+   * Field label
    */
   label?: string;
 }

@@ -1,49 +1,49 @@
 import { HTMLAttributes, ReactNode } from 'react';
 
 /**
- * Diapositiva del carrusel
+ * Carousel slide
  */
 export interface CarouselSlide {
   /**
-   * Identificador único
+   * Unique identifier
    */
   key: string;
 
   /**
-   * Contenido de la diapositiva
+   * Slide content
    */
   content: ReactNode;
 }
 
 /**
- * Propiedades del componente CarouselSnapped
+ * CarouselSnapped component props
  */
 export interface CarouselSnappedProps extends HTMLAttributes<HTMLDivElement> {
   /**
-   * Diapositivas del carrusel
+   * Carousel slides
    */
   slides: CarouselSlide[];
 
   /**
-   * Si muestra botones de navegación
+   * Whether to show navigation buttons
    * @default true
    */
   showNavigation?: boolean;
 
   /**
-   * Si muestra indicadores de posición
+   * Whether to show position indicators
    * @default true
    */
   showIndicators?: boolean;
 
   /**
-   * Índice activo inicial
+   * Initial active index
    * @default 0
    */
   defaultIndex?: number;
 
   /**
-   * Callback al cambiar de slide
+   * Callback when changing slides
    */
   onChange?: (index: number) => void;
 }

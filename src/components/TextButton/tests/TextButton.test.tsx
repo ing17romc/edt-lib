@@ -10,90 +10,90 @@ import {
 import { ComponentSize } from '../../types';
 
 describe('TextButton Component', () => {
-  it('se renderiza correctamente con las propiedades predeterminadas', () => {
-    render(<TextButton>Botón de prueba</TextButton>);
-    const button = screen.getByRole('button', { name: /botón de prueba/i });
+  it('renders correctly with default properties', () => {
+    render(<TextButton>Test button</TextButton>);
+    const button = screen.getByRole('button', { name: /test button/i });
     expect(button).toBeInTheDocument();
     expect(button).toHaveClass('textButton');
-    expect(button).toHaveClass('size-medium'); // La clase CSS sigue siendo 'size-medium' aunque el valor sea ComponentSize.MEDIUM
+    expect(button).toHaveClass('size-medium');
     expect(button).toHaveClass('color-primary');
     expect(button).toHaveClass('underline-hover');
   });
 
-  it('aplica la clase personalizada cuando se proporciona', () => {
+  it('applies custom class when provided', () => {
     render(<TextButton {...mockTextButtonProps} />);
-    const button = screen.getByRole('button', { name: /botón de prueba/i });
+    const button = screen.getByRole('button', { name: /test button/i });
     expect(button).toHaveClass('test-class');
   });
 
-  it('maneja el evento onClick correctamente', () => {
+  it('handles the onClick event correctly', () => {
     const handleClick = vi.fn();
     render(
       <TextButton onClick={handleClick}>
-        Hacer clic
+        Click me
       </TextButton>
     );
-    const button = screen.getByRole('button', { name: /hacer clic/i });
+    const button = screen.getByRole('button', { name: /click me/i });
     fireEvent.click(button);
     expect(handleClick).toHaveBeenCalledTimes(1);
   });
 
-  it('se deshabilita correctamente cuando la propiedad disabled es true', () => {
+  it('disables correctly when the disabled property is true', () => {
     render(<TextButton {...mockDisabledTextButtonProps} />);
-    const button = screen.getByRole('button', { name: /deshabilitado/i });
+    const button = screen.getByRole('button', { name: /disabled/i });
     expect(button).toBeDisabled();
     expect(button).toHaveClass('disabled');
   });
 
-  it('muestra un indicador de carga cuando loading es true', () => {
+  it('shows a loading indicator when loading is true', () => {
     render(<TextButton {...mockLoadingTextButtonProps} />);
-    const button = screen.getByRole('button', { name: /cargando/i });
+    const button = screen.getByRole('button', { name: /loading/i });
     expect(button).toHaveClass('loading');
-    // Verificar que el color sea transparente o que el texto no sea visible
+    // Verify that the color is transparent or the text is not visible
     const buttonStyle = window.getComputedStyle(button);
     const color = buttonStyle.getPropertyValue('color');
     const isTransparent = color === 'transparent' || color === 'rgba(0, 0, 0, 0)' || color === '';
     expect(isTransparent).toBe(true);
   });
 
-  it('ocupa todo el ancho disponible cuando fullWidth es true', () => {
+  it('takes up all available width when fullWidth is true', () => {
     render(<TextButton {...mockFullWidthTextButtonProps} />);
-    const button = screen.getByRole('button', { name: /ancho completo/i });
+    const button = screen.getByRole('button', { name: /full width/i });
     expect(button).toHaveClass('fullWidth');
     expect(button).toHaveStyle('width: 100%');
   });
 
-  it('aplica las propiedades personalizadas correctamente', () => {
+  it('applies custom properties correctly', () => {
     render(
       <TextButton 
         color="secondary" 
         size={ComponentSize.LARGE}
         underline="always"
       >
-        Personalizado
+        Custom
       </TextButton>
     );
-    const button = screen.getByRole('button', { name: /personalizado/i });
+    const button = screen.getByRole('button', { name: /custom/i });
     expect(button).toHaveClass('color-secondary');
     expect(button).toHaveClass('size-large');
     expect(button).toHaveClass('underline-always');
   });
 
-  it('aplica el estilo de subrayado correctamente', () => {
+  it('applies underline style correctly', () => {
     const { rerender } = render(
-      <TextButton underline="none">Sin subrayado</TextButton>
+      <TextButton underline="none">No underline</TextButton>
     );
-    let button = screen.getByRole('button', { name: /sin subrayado/i });
+    let button = screen.getByRole('button', { name: /no underline/i });
     expect(button).toHaveClass('underline-none');
 
-    rerender(<TextButton underline="always">Siempre subrayado</TextButton>);
-    button = screen.getByRole('button', { name: /siempre subrayado/i });
+    rerender(<TextButton underline="always">Always underlined</TextButton>);
+    button = screen.getByRole('button', { name: /always underlined/i });
     expect(button).toHaveClass('underline-always');
   });
 
-  it('es accesible con un nombre accesible', () => {
-    render(<TextButton>Botón accesible</TextButton>);
-    const button = screen.getByRole('button', { name: /botón accesible/i });
+  it('is accessible with an accessible name', () => {
+    render(<TextButton>Accessible button</TextButton>);
+    const button = screen.getByRole('button', { name: /accessible button/i });
     expect(button).toBeInTheDocument();
   });
 });

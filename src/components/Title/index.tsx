@@ -47,7 +47,7 @@ const Title = forwardRef<HTMLHeadingElement, TitleProps>(({
     style,
   };
 
-  // Crear el elemento con la ref correctamente tipada
+  // Create the element with the correctly typed ref
   return React.createElement(Tag, {
     ...props,
     ref: ref as React.Ref<HTMLHeadingElement>,

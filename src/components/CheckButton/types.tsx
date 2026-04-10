@@ -2,40 +2,40 @@ import { InputHTMLAttributes } from 'react';
 import { ComponentSize } from '../types';
 
 /**
- * Propiedades del componente CheckButton
- * Extendemos de InputHTMLAttributes pero omitimos 'onChange' y 'size' para evitar conflictos
+ * CheckButton component props
+ * Extends InputHTMLAttributes but omits 'onChange' and 'size' to avoid conflicts
  */
 export interface CheckButtonProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'size'> {
   /**
-   * Etiqueta que se muestra junto al checkbox
+   * Label displayed next to the checkbox
    */
   label?: string;
   
   /**
-   * Estado del checkbox (controlado)
+   * Checkbox state (controlled)
    * @default false
    */
   checked?: boolean;
   
   /**
-   * Estado deshabilitado del checkbox
+   * Disabled state of the checkbox
    * @default false
    */
   disabled?: boolean;
   
   /**
-   * Función que se ejecuta cuando cambia el estado del checkbox
-   * @param checked - Nuevo valor del checkbox
+   * Function called when the checkbox state changes
+   * @param checked - New checkbox value
    */
   onChange?: (checked: boolean) => void;
   
   /**
-   * Clase CSS personalizada
+   * Custom CSS class
    */
   className?: string;
 
   /**
-   * Tamaño del botón de verificación
+   * Checkbox button size
    * @default 'medium'
    */
   size?: ComponentSize;

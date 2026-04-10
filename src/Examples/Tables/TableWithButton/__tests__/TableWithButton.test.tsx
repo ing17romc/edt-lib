@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import TableWithButton from '..';
 import type { TableRowData } from '../types';
 
-// Datos de prueba
+// Test data
 const mockData: TableRowData[] = [
   {
     name: 'John Doe',
@@ -18,12 +18,12 @@ const mockData: TableRowData[] = [
   {
     name: 'Robert Johnson',
     userName: 'rjohnson',
-    status: 1, // También probamos con valor numérico
+    status: 1, // Also testing with numeric value
   },
 ];
 
 describe('TableWithButton', () => {
-  // Mock de alerta global
+  // Global alert mock
   const originalAlert = window.alert;
   beforeAll(() => {
     window.alert = vi.fn();
@@ -33,97 +33,97 @@ describe('TableWithButton', () => {
     window.alert = originalAlert;
   });
 
-  it('renderiza sin errores con datos vacíos', () => {
+  it('renders without errors with empty data', () => {
     render(<TableWithButton dataTable={[]} />);
     
-    // Verificar que se renderiza el título
+    // Verify the title is rendered
     expect(screen.getByText('Example tables')).toBeInTheDocument();
     
-    // Verificar que se muestra el encabezado de la tabla
+    // Verify the table header is shown
     expect(screen.getByText('Table with button')).toBeInTheDocument();
     
-    // Verificar que solo hay una fila (el encabezado) cuando no hay datos
+    // Verify there is only one row (the header) when there is no data
     const allRows = screen.getAllByRole('row');
-    expect(allRows).toHaveLength(1); // Solo el encabezado
+    expect(allRows).toHaveLength(1); // Header only
   });
 
-  it('renderiza correctamente con datos', () => {
+  it('renders correctly with data', () => {
     render(<TableWithButton dataTable={mockData} />);
     
-    // Verificar que se renderizan los datos
+    // Verify the data is rendered
     expect(screen.getByText('John Doe')).toBeInTheDocument();
     expect(screen.getByText('johndoe')).toBeInTheDocument();
     
-    // Verificar que se muestran los botones de acción
+    // Verify action buttons are shown
     const updateButtons = screen.getAllByTitle('Update');
     const deleteButtons = screen.getAllByTitle('Delete');
     
     expect(updateButtons).toHaveLength(mockData.length);
     expect(deleteButtons).toHaveLength(mockData.length);
     
-    // Verificar que se muestra el estado correcto
+    // Verify the correct status is shown
     const activeStatus = screen.getAllByText('Active');
     expect(activeStatus.length).toBeGreaterThan(0);
   });
 
-  it('maneja correctamente los clics en los botones', () => {
+  it('handles button clicks correctly', () => {
     render(<TableWithButton dataTable={mockData} />);
     
-    // Hacer clic en el botón de actualizar de la primera fila
+    // Click the update button in the first row
     const firstUpdateButton = screen.getAllByTitle('Update')[0];
     fireEvent.click(firstUpdateButton);
     expect(window.alert).toHaveBeenCalledWith('clic!!!');
     
-    // Limpiar el mock de alerta
+    // Clear the alert mock
     (window.alert as ReturnType<typeof vi.fn>).mockClear();
     
-    // Hacer clic en el botón de eliminar de la primera fila
+    // Click the delete button in the first row
     const firstDeleteButton = screen.getAllByTitle('Delete')[0];
     fireEvent.click(firstDeleteButton);
     expect(window.alert).toHaveBeenCalledWith('clic!!!');
   });
 
-  it('tiene la estructura de tabla correcta', () => {
+  it('has the correct table structure', () => {
     render(<TableWithButton dataTable={mockData} />);
     
-    // Verificar la estructura de la tabla
+    // Verify the table structure
     const table = screen.getByRole('table');
     expect(table).toBeInTheDocument();
     
-    // Verificar los encabezados de columna
+    // Verify column headers
     const headers = screen.getAllByRole('columnheader');
     expect(headers).toHaveLength(5); // Name, UserName, Status, Update, Delete
     expect(headers[0]).toHaveTextContent('Name');
     expect(headers[1]).toHaveTextContent('UserName');
     expect(headers[2]).toHaveTextContent('Status');
-    expect(headers[3]).toHaveTextContent(''); // Botón Update
-    expect(headers[4]).toHaveTextContent(''); // Botón Delete
+    expect(headers[3]).toHaveTextContent(''); // Update button
+    expect(headers[4]).toHaveTextContent(''); // Delete button
     
-    // Verificar que hay una fila por cada dato más el encabezado
+    // Verify there is one row per data item plus the header
     const allRows = screen.getAllByRole('row');
-    expect(allRows).toHaveLength(mockData.length + 1); // +1 para el encabezado
+    expect(allRows).toHaveLength(mockData.length + 1); // +1 for header
   });
 
-  it('aplica las clases CSS correctas', () => {
+  it('applies the correct CSS classes', () => {
     render(<TableWithButton dataTable={mockData} />);
     
-    // Verificar las clases del contenedor principal
+    // Verify the main container classes
     const container = screen.getByText('Example tables').closest('.container-body');
     expect(container).toHaveClass('container-body');
     
-    // Verificar las clases de la cuadrícula
+    // Verify the grid classes
     const grid = screen.getByText('Table with button').closest('.grid-secondary');
     expect(grid).toHaveClass('grid-secondary');
     
-    // Verificar las clases de la tabla
+    // Verify the table classes
     const tableWrapper = screen.getByRole('table').closest('.bg-gray');
     expect(tableWrapper).toHaveClass('bg-gray', 'padding-h-30', 'padding-v-30');
   });
 
-  it('maneja correctamente los datos con valores límite', () => {
+  it('handles edge case data correctly', () => {
     const edgeCaseData: TableRowData[] = [
       {
-        name: '', // Nombre vacío
+        name: '', // Empty name
         userName: 'user',
         status: true,
       },
@@ -136,16 +136,16 @@ describe('TableWithButton', () => {
     
     render(<TableWithButton dataTable={edgeCaseData} />);
     
-    // Verificar que se manejan correctamente los nombres vacíos
+    // Verify empty names are handled correctly
     const emptyCells = screen.queryAllByRole('cell', { name: '' });
     expect(emptyCells.length).toBeGreaterThan(0);
     
-    // Verificar que se manejan correctamente los nombres largos
+    // Verify long names are handled correctly
     const longNameText = 'A very long name that might break the layout A very long name that might break the layout';
     const longNameCell = screen.getByText(longNameText);
     expect(longNameCell).toBeInTheDocument();
     
-    // Verificar que los botones se renderizan correctamente incluso con datos límite
+    // Verify buttons render correctly even with edge case data
     const updateButtons = screen.getAllByTitle('Update');
     const deleteButtons = screen.getAllByTitle('Delete');
     expect(updateButtons).toHaveLength(edgeCaseData.length);
@@ -153,7 +153,7 @@ describe('TableWithButton', () => {
   });
 });
 
-// Mock para getStatus
+// Mock for getStatus
 vi.mock('../../utils', () => ({
   __esModule: true,
   default: (value: boolean | number) => (
@@ -163,7 +163,7 @@ vi.mock('../../utils', () => ({
   ),
 }));
 
-// Mock para el componente Button
+// Mock for the Button component
 vi.mock('components/Button', () => ({
   __esModule: true,
   default: ({ children, onClick }: { children: React.ReactNode; onClick: () => void }) => {

@@ -7,16 +7,16 @@ import styles from './styles/IconButton.module.scss';
 import { ComponentVariant, ComponentSize } from '../types';
 
 /**
- * Componente de botón que muestra únicamente un icono.
- * Combina la funcionalidad de Button e Icon en un solo componente.
+ * Button component that displays only an icon.
+ * Combines the functionality of Button and Icon in a single component.
  * 
  * @component
  * @example
- * // Uso básico
+ * // Basic usage
  * <IconButton 
  *   icon="home" 
  *   variant="primary" 
- *   aria-label="Inicio" 
+ *   aria-label="Home" 
  *   onClick={() => console.log('Click')} 
  * />
  */
@@ -35,7 +35,7 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(({
   'aria-label': ariaLabel,
   ...rest
 }, ref) => {
-  // Mapear tamaños de botón a tamaños de icono
+  // Map button sizes to icon sizes
   const getIconSize = (): ComponentSize => {
     switch (size) {
       case ComponentSize.SMALL:
@@ -50,14 +50,14 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(({
   
   const calculatedIconSize = (iconSize as ComponentSize) || getIconSize();
   
-  // Asegurarse de que el icono sea válido
+  // Ensure the icon is valid
   const isValidIcon = (value: string): value is AllIconsType => {
     return Object.values(ALL_ICONS).includes(value as AllIconsType);
   };
   
   const iconToShow: AllIconsType | null = isValidIcon(icon) ? icon : 'help_outline' as AllIconsType;
   
-  // Clases del botón
+  // Button classes
   const buttonClasses = classNames(
     styles.iconButton,
     styles[`iconButton--${size}`],
@@ -75,7 +75,7 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(({
       type="button"
       className={buttonClasses}
       disabled={disabled || loading}
-      aria-label={loading ? 'Cargando...' : ariaLabel}
+      aria-label={loading ? 'Loading...' : ariaLabel}
       aria-busy={loading}
       aria-disabled={disabled || loading}
       style={buttonStyle}

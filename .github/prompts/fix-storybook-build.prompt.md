@@ -1,6 +1,6 @@
 ---
 mode: 'agent'
-description: 'Corregir el build de Storybook. Ejecuta npm run build-sb y soluciona cualquier error de construcción.'
+description: 'Fix the Storybook build. Runs npm run build-sb and resolves any build errors.'
 ---
 
-Ejecuta `npm run build-sb` y soluciona cualquier error que impida la correcta construcción de Storybook.
+Run `npm run build-sb` and resolve any errors preventing the correct Storybook build.

@@ -1,7 +1,7 @@
-// Tipos para TableWithPagination
+// Types for TableWithPagination
 
 /**
- * Representa una fila de datos de la tabla.
+ * Represents a row of table data.
  */
 export interface TableRowData {
   name: string;
@@ -10,14 +10,14 @@ export interface TableRowData {
 }
 
 /**
- * Props para TableWithPagination.
+ * Props for TableWithPagination.
  */
 export interface TableWithPaginationProps {
   dataTable: TableRowData[];
 }
 
 /**
- * Estado interno del componente TableWithPagination.
+ * Internal state of the TableWithPagination component.
  */
 export interface TableWithPaginationState {
   page: number;

@@ -7,13 +7,14 @@ const meta = {
   title: 'Components/Button',
   ...buttonStories,
   component: Button,
+  tags: ['autodocs'],
 } satisfies Meta<typeof Button>;
 
 export default meta;
 
 type Story = StoryObj<typeof Button>;
 
-// Historias básicas
+// Basic stories
 export const Default: Story = {
   args: {
     children: 'Button',
@@ -22,7 +23,7 @@ export const Default: Story = {
   },
 };
 
-// Variantes
+// Variants
 export const Variants: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
@@ -47,7 +48,7 @@ export const Variants: Story = {
   },
 };
 
-// Tamaños
+// Sizes
 export const Sizes: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-end' }}>

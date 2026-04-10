@@ -10,27 +10,27 @@ import {
 } from './mocks'
 
 describe('Tooltip', () => {
-  describe('renderizado básico', () => {
-    it('renderiza el elemento hijo', () => {
+  describe('basic rendering', () => {
+    it('renders the child element', () => {
       render(<Tooltip {...defaultTooltipProps} />)
       expect(screen.getByRole('button', { name: 'Hover me' })).toBeInTheDocument()
     })
 
-    it('no muestra el tooltip por defecto', () => {
+    it('does not show the tooltip by default', () => {
       render(<Tooltip {...defaultTooltipProps} />)
       expect(screen.queryByRole('tooltip')).not.toBeInTheDocument()
     })
   })
 
-  describe('interacción hover', () => {
-    it('muestra el tooltip al hacer hover', () => {
+  describe('hover interaction', () => {
+    it('shows the tooltip on hover', () => {
       render(<Tooltip {...defaultTooltipProps} />)
       fireEvent.mouseEnter(screen.getByRole('button'))
       expect(screen.getByRole('tooltip')).toBeInTheDocument()
-      expect(screen.getByRole('tooltip')).toHaveTextContent('Información adicional')
+      expect(screen.getByRole('tooltip')).toHaveTextContent('Additional information')
     })
 
-    it('oculta el tooltip al salir del hover', () => {
+    it('hides the tooltip on mouse leave', () => {
       render(<Tooltip {...defaultTooltipProps} />)
       const trigger = screen.getByRole('button')
       fireEvent.mouseEnter(trigger)
@@ -38,7 +38,7 @@ describe('Tooltip', () => {
       expect(screen.queryByRole('tooltip')).not.toBeInTheDocument()
     })
 
-    it('muestra el tooltip al recibir foco', () => {
+    it('shows the tooltip on focus', () => {
       render(<Tooltip {...defaultTooltipProps} />)
       fireEvent.focus(screen.getByRole('button').parentElement!)
       expect(screen.getByRole('tooltip')).toBeInTheDocument()
@@ -46,25 +46,25 @@ describe('Tooltip', () => {
   })
 
   describe('placements', () => {
-    it('aplica clase top por defecto', () => {
+    it('applies top class by default', () => {
       render(<Tooltip {...defaultTooltipProps} />)
       fireEvent.mouseEnter(screen.getByRole('button'))
       expect(screen.getByRole('tooltip').className).toMatch(/tooltip--top/)
     })
 
-    it('aplica clase bottom', () => {
+    it('applies bottom class', () => {
       render(<Tooltip {...bottomTooltipProps} />)
       fireEvent.mouseEnter(screen.getByRole('button'))
       expect(screen.getByRole('tooltip').className).toMatch(/tooltip--bottom/)
     })
 
-    it('aplica clase left', () => {
+    it('applies left class', () => {
       render(<Tooltip {...leftTooltipProps} />)
       fireEvent.mouseEnter(screen.getByRole('button'))
       expect(screen.getByRole('tooltip').className).toMatch(/tooltip--left/)
     })
 
-    it('aplica clase right', () => {
+    it('applies right class', () => {
       render(<Tooltip {...rightTooltipProps} />)
       fireEvent.mouseEnter(screen.getByRole('button'))
       expect(screen.getByRole('tooltip').className).toMatch(/tooltip--right/)
@@ -72,13 +72,13 @@ describe('Tooltip', () => {
   })
 
   describe('disabled', () => {
-    it('no muestra el tooltip cuando está deshabilitado', () => {
+    it('does not show the tooltip when disabled', () => {
       render(<Tooltip {...disabledTooltipProps} />)
       fireEvent.mouseEnter(screen.getByRole('button'))
       expect(screen.queryByRole('tooltip')).not.toBeInTheDocument()
     })
 
-    it('sigue renderizando el elemento hijo cuando está deshabilitado', () => {
+    it('still renders the child element when disabled', () => {
       render(<Tooltip {...disabledTooltipProps} />)
       expect(screen.getByRole('button', { name: 'Disabled' })).toBeInTheDocument()
     })

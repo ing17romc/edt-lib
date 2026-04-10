@@ -1,24 +1,24 @@
-# 🛠️ Instrucciones del Proyecto edt-lib
+# 🛠️ edt-lib Project Instructions
 
-## 📁 Estructura de Carpeta de los Componentes
+## 📁 Component Folder Structure
 
-Todos los componentes deben seguir esta estructura de carpetas y archivos:
+All components must follow this folder and file structure:
 
 ```
-📁 src/**/NombreDelComponente/
+📁 src/**/ComponentName/
 ├── tests/
-│   ├── NombreDelComponente.test.tsx
+│   ├── ComponentName.test.tsx
 │   └── mocks.tsx
 ├── stories/
-│   ├── NombreDelComponente.stories.tsx
+│   ├── ComponentName.stories.tsx
 │   └── mocks.tsx
 ├── styles/
-│   └── NombreDelComponente.scss
+│   └── ComponentName.scss
 ├── index.tsx
 └── types.tsx
 ```
 
-Carpeta de estilos globales:
+Global styles folder:
 
 ```
 📁 src/styles/
@@ -29,20 +29,20 @@ Carpeta de estilos globales:
 
 ---
 
-## � Stack de Herramientas
+## 🔧 Tool Stack
 
-- **Node.js**: 22.x (ver `.nvmrc`)
-- **Build**: Vite 8 (`vite build`) — produce bundles ES y CJS en `dist/`
-- **Tests**: Vitest 4 con jsdom — usar `vi.*` (no `jest.*`) para mocks y spies
-- **Lint**: ESLint 10 con flat config (`eslint.config.js`) — no existe `.eslintrc`
-- **Storybook**: Storybook 9 (`@storybook/react-vite`) — importar `Meta`, `StoryObj`, etc. desde `@storybook/react-vite`
+- **Node.js**: 22.x (see `.nvmrc`)
+- **Build**: Vite 8 (`vite build`) — produces ES and CJS bundles in `dist/`
+- **Tests**: Vitest 4 with jsdom — use `vi.*` (not `jest.*`) for mocks and spies
+- **Lint**: ESLint 10 with flat config (`eslint.config.js`) — no `.eslintrc` exists
+- **Storybook**: Storybook 9 (`@storybook/react-vite`) — import `Meta`, `StoryObj`, etc. from `@storybook/react-vite`
 
-### Comandos principales
+### Main Commands
 
 ```bash
 npm run build          # vite build → dist/
 npm run test           # vitest run (single pass)
-npm run test:watch     # vitest (modo watch)
+npm run test:watch     # vitest (watch mode)
 npm run lint:js        # eslint . --fix
 npm run storybook      # storybook dev -p 6006
 npm run build-storybook  # storybook build
@@ -50,47 +50,47 @@ npm run build-storybook  # storybook build
 
 ---
 
-## 🚫 Reglas Generales
+## 🚫 General Rules
 
-- El código debe ser limpio, simple y fácilmente reutilizable.
-- No se deben instalar dependencias de terceros.
-- El código no debe generar *warnings* ni errores de *lint*, ni en archivos `.scss` ni `.ts/.tsx`.
-- La descripción del componente y de sus propiedades (`props`) debe seguir un formato consistente en toda la base de código.
-
----
-
-## 📐 Tipado
-
-- Usar `enums` en lugar de constantes siempre que sea posible.
-- Agrupar `types`, `enums` e `interfaces` específicos del componente en su archivo `types.tsx`.
-- Si algún tipo es reutilizable entre varios componentes, moverlo a la carpeta global `src/types/`.
+- Code must be clean, simple, and easily reusable.
+- No third-party dependencies should be installed.
+- Code must not generate *warnings* or *lint* errors, neither in `.scss` nor `.ts/.tsx` files.
+- Component and prop descriptions must follow a consistent format across the entire codebase.
 
 ---
 
-## 🎨 Estilos
+## 📐 Typing
 
-- Mantener coherencia visual entre todos los componentes.
-- Si se define una paleta de colores (por ejemplo, tonos azules), todos los componentes deben respetarla.
-- Centralizar estilos globales en `src/styles/`: colores en `palette.scss`, tipografías en `typography.scss`, espacios en `spacing.scss`.
-- Usar `color.adjust()` en vez de `darken()` o `lighten()` y agregar `@use 'sass:color'` al inicio del archivo.
-- Tener en cuenta las recomendaciones de Dart Sass 2.0.0.
+- Use `enums` instead of constants whenever possible.
+- Group component-specific `types`, `enums`, and `interfaces` in its `types.tsx` file.
+- If a type is reusable across multiple components, move it to the global `src/types/` folder.
 
 ---
 
-## 🧪 Pruebas (Tests)
+## 🎨 Styles
 
-- Los tests unitarios deben ser simples y fáciles de entender.
-- Usar **Vitest** (`vi.*`) — nunca `jest.*`.
-- Crear un archivo `mocks.tsx` en `tests/` con las props y configuraciones necesarias para los casos de prueba.
-- Reutilizar los valores definidos en los `enums` dentro de los archivos de test y de mocks.
+- Maintain visual consistency across all components.
+- If a color palette is defined (e.g., blue tones), all components must respect it.
+- Centralize global styles in `src/styles/`: colors in `palette.scss`, typography in `typography.scss`, spacing in `spacing.scss`.
+- Use `color.adjust()` instead of `darken()` or `lighten()` and add `@use 'sass:color'` at the top of the file.
+- Follow Dart Sass 2.0.0 recommendations.
+
+---
+
+## 🧪 Tests
+
+- Unit tests must be simple and easy to understand.
+- Use **Vitest** (`vi.*`) — never `jest.*`.
+- Create a `mocks.tsx` file in `tests/` with the props and configurations needed for test cases.
+- Reuse values defined in `enums` within test and mock files.
 
 ---
 
 ## 📚 Storybook
 
-- La documentación visual debe tener un estilo uniforme en todos los componentes.
-- Importar `Meta`, `StoryObj`, `StoryFn`, `Preview` desde **`@storybook/react-vite`** (no desde `@storybook/react`).
-- En el archivo `preview.ts`, la configuración de backgrounds usa el formato nuevo: campo `options` (no `values`) y `initialGlobals` para el valor por defecto.
-- Reutilizar los valores de los `enums` tanto en los archivos de `stories` como en los `mocks`.
-- Los `stories` deben ser simples y directos.
-- Crear un archivo `mocks.tsx` en la carpeta `stories/` con las configuraciones necesarias para los props.
+- Visual documentation must have a uniform style across all components.
+- Import `Meta`, `StoryObj`, `StoryFn`, `Preview` from **`@storybook/react-vite`** (not from `@storybook/react`).
+- In the `preview.ts` file, the backgrounds configuration uses the new format: `options` field (not `values`) and `initialGlobals` for the default value.
+- Reuse `enum` values in both `stories` and `mocks` files.
+- Stories must be simple and straightforward.
+- Create a `mocks.tsx` file in the `stories/` folder with the necessary prop configurations.

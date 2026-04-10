@@ -2,7 +2,7 @@ import { TextButtonProps } from '../types';
 import { ComponentSize } from '../../types';
 
 export const mockTextButtonProps: TextButtonProps = {
-  children: 'Botón de prueba',
+  children: 'Test button',
   color: 'primary',
   size: ComponentSize.MEDIUM,
   className: 'test-class',
@@ -10,23 +10,23 @@ export const mockTextButtonProps: TextButtonProps = {
 };
 
 export const mockDisabledTextButtonProps: TextButtonProps = {
-  children: 'Deshabilitado',
+  children: 'Disabled',
   color: 'primary',
   disabled: true,
 };
 
 export const mockLoadingTextButtonProps: TextButtonProps = {
-  children: 'Cargando',
+  children: 'Loading',
   loading: true,
 };
 
 export const mockFullWidthTextButtonProps: TextButtonProps = {
-  children: 'Ancho completo',
+  children: 'Full width',
   fullWidth: true,
 };
 
 export const mockCustomTextButtonProps: TextButtonProps = {
-  children: 'Personalizado',
+  children: 'Custom',
   color: 'secondary',
   size: ComponentSize.LARGE,
   underline: 'always',

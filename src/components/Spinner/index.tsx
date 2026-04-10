@@ -5,18 +5,18 @@ import { ComponentSize } from '../types';
 import styles from './styles/Spinner.module.scss';
 
 /**
- * Componente Spinner que muestra un indicador de carga.
- * Proporciona diferentes estilos y tamaños para adaptarse a diferentes contextos.
+ * Spinner component that displays a loading indicator.
+ * Provides different styles and sizes to adapt to different contexts.
  * 
  * @component
  * @example
- * // Uso básico
+ * // Basic usage
  * <Spinner />
  * 
- * // Con tamaño personalizado
+ * // With custom size
  * <Spinner size="large" />
  * 
- * // Con variante de color
+ * // With color variant
  * <Spinner variant="danger" />
  * 
  * // Modo pulso
@@ -27,7 +27,7 @@ const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(({
   variant = SpinnerVariant.PRIMARY,
   pulse = false,
   className,
-  'aria-label': ariaLabel = 'Cargando...',
+  'aria-label': ariaLabel = 'Loading...',
   ...rest
 }, ref) => {
   const spinnerClasses = classNames(

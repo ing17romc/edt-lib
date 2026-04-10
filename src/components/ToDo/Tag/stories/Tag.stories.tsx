@@ -47,9 +47,9 @@ export const Sizes: Story = {
 };
 
 export const Closable: Story = {
-  args: { children: 'Cerrar tag', closable: true },
+  args: { children: 'Close tag', closable: true },
 };
 
 export const Disabled: Story = {
-  args: { children: 'Deshabilitado', disabled: true },
+  args: { children: 'Disabled', disabled: true },
 };

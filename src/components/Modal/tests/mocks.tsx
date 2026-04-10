@@ -5,19 +5,19 @@ import { ComponentSize } from '../../types';
 export const mockModalProps: ModalProps = {
   isOpen: true,
   onClose: vi.fn(),
-  title: 'Título del Modal',
-  children: <p>Contenido del modal de prueba</p>,
+  title: 'Modal Title',
+  children: <p>Test modal content</p>,
 };
 
 export const mockModalWithFooter: ModalProps = {
   isOpen: true,
   onClose: vi.fn(),
-  title: 'Modal con Footer',
-  children: <p>Contenido del modal con pie de página</p>,
+  title: 'Modal with Footer',
+  children: <p>Modal content with footer</p>,
   footer: (
     <>
-      <button type="button">Cancelar</button>
-      <button type="button">Aceptar</button>
+      <button type="button">Cancel</button>
+      <button type="button">Accept</button>
     </>
   ),
 };
@@ -25,29 +25,29 @@ export const mockModalWithFooter: ModalProps = {
 export const mockModalWithoutTitle: ModalProps = {
   isOpen: true,
   onClose: vi.fn(),
-  children: <p>Modal sin título</p>,
+  children: <p>Modal without title</p>,
 };
 
 export const mockModalWithCustomSize: ModalProps = {
   isOpen: true,
   onClose: vi.fn(),
-  title: 'Modal Grande',
+  title: 'Large Modal',
   size: ComponentSize.LARGE,
-  children: <p>Este es un modal con tamaño personalizado</p>,
+  children: <p>This is a modal with custom size</p>,
 };
 
 export const mockModalWithDisabledClose: ModalProps = {
   isOpen: true,
   onClose: vi.fn(),
-  title: 'Sin botón de cerrar',
+  title: 'No close button',
   showCloseButton: false,
-  children: <p>Este modal no se puede cerrar con el botón</p>,
+  children: <p>This modal cannot be closed with the button</p>,
 };
 
 export const mockModalWithCustomCloseText: ModalProps = {
   isOpen: true,
   onClose: vi.fn(),
-  title: 'Modal con texto personalizado',
-  closeButtonText: 'Cerrar ventana',
-  children: <p>Este modal tiene un texto personalizado para cerrar</p>,
+  title: 'Modal with custom text',
+  closeButtonText: 'Close window',
+  children: <p>This modal has custom close text</p>,
 };

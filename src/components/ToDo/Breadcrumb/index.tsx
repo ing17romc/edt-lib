@@ -4,11 +4,11 @@ import styles from './styles/Breadcrumb.module.scss'
 import { BreadcrumbProps, BreadcrumbItem } from './types'
 
 /**
- * Componente Breadcrumb que muestra la ruta de navegación jerárquica.
+ * Breadcrumb component that displays the hierarchical navigation path.
  *
- * @param items - Lista de elementos de la ruta
- * @param separator - Separador entre elementos
- * @param linkProps - Props adicionales para los anchors
+ * @param items - List of path items
+ * @param separator - Separator between items
+ * @param linkProps - Additional props for anchors
  */
 const Breadcrumb = ({
   items,

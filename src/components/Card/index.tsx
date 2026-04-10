@@ -3,8 +3,8 @@ import styles from './styles/Card.module.scss';
 import { CardProps, CardVariant } from './types';
 
 /**
- * Componente Card para mostrar contenido en un contenedor con estilo de tarjeta.
- * Soporta diferentes variantes visuales y es completamente accesible.
+ * Card component for displaying content in a card-styled container.
+ * Supports different visual variants and is fully accessible.
  */
 export const Card: React.FC<CardProps> = ({
   children,

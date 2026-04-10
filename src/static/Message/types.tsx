@@ -1,48 +1,48 @@
 /**
- * Tipos y contratos para el componente Message.
- * Este componente muestra mensajes de retroalimentación al usuario con diferentes niveles de importancia.
+ * Types and contracts for the Message component.
+ * This component displays feedback messages to the user with different levels of importance.
  */
 
 import { HTMLAttributes, ReactNode } from 'react';
 
-/** Tipos de mensaje disponibles */
+/** Available message types */
 export type MessageType = 'success' | 'info' | 'warning' | 'danger';
 
 /**
- * Propiedades del componente Message
+ * Message component props
  * @interface MessageProps
  */
 export interface MessageProps extends HTMLAttributes<HTMLDivElement> {
   /** 
-   * Tipo de mensaje a mostrar 
+   * Message type to display 
    * @default 'info'
    */
   type?: MessageType;
   
-  /** Título opcional que se muestra en negrita */
+  /** Optional title displayed in bold */
   title?: string;
   
-  /** Contenido principal del mensaje */
+  /** Main content of the message */
   children: ReactNode;
   
   /** 
-   * Permite cerrar el mensaje 
+   * Allows closing the message 
    * @default false
    */
   closable?: boolean;
   
   /** 
-   * Función que se ejecuta al cerrar el mensaje
-   * Solo se usa si `closable` es `true`
+   * Function called when the message is closed
+   * Only used if `closable` is `true`
    */
   onClose?: () => void;
   
   /** 
-   * Rol ARIA personalizado 
-   * @default 'status' para info/success, 'alert' para warning/danger
+   * Custom ARIA role 
+   * @default 'status' for info/success, 'alert' for warning/danger
    */
   role?: 'alert' | 'status' | 'alertdialog';
   
-  /** ID para pruebas */
+  /** Test ID */
   'data-testid'?: string;
 }

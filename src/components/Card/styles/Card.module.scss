@@ -2,16 +2,16 @@
 @use '../../../styles/typography' as *;
 @use '../../../styles/spacing' as *;
 
-// Estilos para las historias de Storybook
+// Styles for Storybook stories
 .story {
-  // Contenedor para las historias individuales de tarjetas
+  // Container for individual card stories
   &-card {
     max-width: 400px;
     margin: 0 auto;
     padding: 1rem;
   }
   
-  // Contenedor para la vista de todas las variantes
+  // Container for the all variants view
   &-variants {
     display: grid;
     gap: 2rem;
@@ -20,7 +20,7 @@
     margin: 0 auto;
     padding: 2rem;
     
-    // Estilo para cada tarjeta en la vista de todas las variantes
+    // Style for each card in the all variants view
     > div {
       display: flex;
       flex-direction: column;
@@ -108,7 +108,7 @@
     }
   }
 
-  // Mejora la legibilidad del contenido dentro de las tarjetas
+  // Improves readability of content inside cards
   p {
     margin: 0.5rem 0;
     line-height: 1.5;

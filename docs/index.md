@@ -1,70 +1,70 @@
-# 📚 Documentación de edt-lib
+# 📚 edt-lib Documentation
 
-Bienvenido a la documentación técnica de **edt-lib**, una biblioteca de componentes de interfaz de usuario para React con TypeScript.
+Welcome to the technical documentation for **edt-lib**, a UI component library for React with TypeScript.
 
-## 📋 Índice
-- [Introducción](#-introducción)
-- [Guía de Instalación](#-guía-de-instalación)
-- [Configuración Inicial](#-configuración-inicial)
-- [Componentes](#-componentes)
-- [Temas y Estilos](#-temas-y-estilos)
-- [Guía de Contribución](#-guía-de-contribución)
-- [Preguntas Frecuentes](#-preguntas-frecuentes)
-- [Soporte](#-soporte)
+## 📋 Table of Contents
+- [Introduction](#-introduction)
+- [Installation Guide](#-installation-guide)
+- [Initial Setup](#-initial-setup)
+- [Components](#-components)
+- [Themes and Styles](#-themes-and-styles)
+- [Contributing Guide](#-contributing-guide)
+- [FAQ](#-faq)
+- [Support](#-support)
 
 ---
 
-## 🚀 Introducción
+## 🚀 Introduction
 
-`edt-lib` es una biblioteca de componentes de interfaz de usuario construida con React 18+ y TypeScript. Está diseñada para ofrecer componentes accesibles, personalizables y listos para producción que siguen las mejores prácticas de desarrollo frontend.
+`edt-lib` is a UI component library built with React 18+ and TypeScript. It is designed to offer accessible, customizable, and production-ready components that follow frontend development best practices.
 
-### Características Principales
-- **Tipado Estático**: Totalmente escrito en TypeScript
-- **Accesibilidad**: Cumple con WCAG 2.1
-- **Temas**: Soporte para temas personalizados
-- **Responsive**: Componentes que se adaptan a cualquier dispositivo
-- **Documentación Interactiva**: Con ejemplos en vivo usando Storybook
+### Key Features
+- **Static Typing**: Fully written in TypeScript
+- **Accessibility**: WCAG 2.1 compliant
+- **Themes**: Custom theme support
+- **Responsive**: Components that adapt to any device
+- **Interactive Documentation**: With live examples using Storybook
 
-## 📥 Guía de Instalación
+## 📥 Installation Guide
 
-### Requisitos Previos
-- Node.js 16 o superior
-- React 18 o superior
-- TypeScript 4.9 o superior (recomendado)
+### Prerequisites
+- Node.js 16 or higher
+- React 18 or higher
+- TypeScript 4.9 or higher (recommended)
 
-### Instalación con npm
+### Install with npm
 
 ```bash
 npm install edt-lib
 ```
 
-### Instalación con Yarn
+### Install with Yarn
 
 ```bash
 yarn add edt-lib
 ```
 
-## ⚙️ Configuración Inicial
+## ⚙️ Initial Setup
 
-### Configuración de TypeScript
+### TypeScript Configuration
 
-Asegúrate de tener los tipos de React instalados:
+Make sure you have React types installed:
 
 ```bash
 npm install --save-dev @types/react @types/react-dom
 ```
 
-### Configuración de Iconos
+### Icon Configuration
 
-La biblioteca utiliza Material Icons. Añade lo siguiente al `<head>` de tu aplicación:
+The library uses Material Icons. Add the following to your application's `<head>`:
 
 ```html
 <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
 ```
 
-### Configuración del Tema
+### Theme Configuration
 
-Envuelve tu aplicación con `ThemeProvider` para habilitar los temas personalizados:
+Wrap your application with `ThemeProvider` to enable custom themes:
 
 ```jsx
 import { ThemeProvider } from 'edt-lib';
@@ -72,7 +72,7 @@ import { ThemeProvider } from 'edt-lib';
 function App() {
   return (
     <ThemeProvider>
-      {/* Tu aplicación aquí */}
+      {/* Your application here */}
     </ThemeProvider>
   );
 }
@@ -80,58 +80,58 @@ function App() {
 
 ## 🧩 Componentes
 
-### Uso Básico
+### Basic Usage
 
 ```jsx
 import { Button, Card } from 'edt-lib';
 
-function MiComponente() {
+function MyComponent() {
   return (
     <Card>
-      <h2>Mi Tarjeta</h2>
-      <p>Contenido de la tarjeta</p>
-      <Button variant="primary">Aceptar</Button>
+      <h2>My Card</h2>
+      <p>Card content</p>
+      <Button variant="primary">Accept</Button>
     </Card>
   );
 }
 ```
 
-### Componentes Disponibles
+### Available Components
 
-#### Navegación
-- `NavBar` - Barra de navegación superior
-- `Footer` - Pie de página
-- `Breadcrumb` - Rutas de navegación
+#### Navigation
+- `NavBar` - Top navigation bar
+- `Footer` - Page footer
+- `Breadcrumb` - Navigation breadcrumbs
 
-#### Formularios
-- `Button` - Botones con múltiples variantes
-- `CheckButton` - Casillas de verificación
-- `RadioButton` - Botones de opción
-- `Selector` - Menús desplegables
-- `TextArea` - Áreas de texto
-- `TextBox` - Campos de texto
+#### Forms
+- `Button` - Buttons with multiple variants
+- `CheckButton` - Checkboxes
+- `RadioButton` - Radio buttons
+- `Selector` - Dropdown menus
+- `TextArea` - Text areas
+- `TextBox` - Text fields
 
-#### Superficies
-- `Card` - Contenedor de contenido
-- `Modal` - Ventanas modales
-- `Message` - Mensajes de alerta
+#### Surfaces
+- `Card` - Content container
+- `Modal` - Modal windows
+- `Message` - Alert messages
 
-#### Datos
-- `Table` - Tablas de datos
-- `TableWithPagination` - Tablas con paginación
-- `TableWithButton` - Tablas con acciones
+#### Data
+- `Table` - Data tables
+- `TableWithPagination` - Tables with pagination
+- `TableWithButton` - Tables with actions
 
-#### Retroalimentación
-- `Spinner` - Indicadores de carga
-- `Progress` - Barras de progreso
+#### Feedback
+- `Spinner` - Loading indicators
+- `Progress` - Progress bars
 
-## 🎨 Temas y Estilos
+## 🎨 Themes and Styles
 
-### Variables de Estilo
+### Style Variables
 
-La biblioteca utiliza variables CSS personalizadas para colores, tipografía y espaciado. Puedes sobrescribirlas para personalizar el tema.
+The library uses custom CSS variables for colors, typography, and spacing. You can override them to customize the theme.
 
-### Personalización
+### Customization
 
 ```scss
 :root {
@@ -141,28 +141,28 @@ La biblioteca utiliza variables CSS personalizadas para colores, tipografía y e
 }
 ```
 
-## 👥 Guía de Contribución
+## 👥 Contributing Guide
 
-¡Apreciamos las contribuciones! Por favor, lee nuestra [guía de contribución](CONTRIBUTING.md) para comenzar.
+We appreciate contributions! Please read our [contributing guide](CONTRIBUTING.md) to get started.
 
-### Estándares de Código
+### Code Standards
 
-- Usar TypeScript con tipado estricto
-- Seguir las convenciones de nomenclatura de React
-- Escribir pruebas unitarias para todo el código nuevo
-- Documentar props y componentes con JSDoc
+- Use TypeScript with strict typing
+- Follow React naming conventions
+- Write unit tests for all new code
+- Document props and components with JSDoc
 
-### Proceso de Pull Request
+### Pull Request Process
 
-1. Haz un fork del repositorio
-2. Crea una rama para tu característica (`git checkout -b feature/nueva-caracteristica`)
-3. Haz commit de tus cambios (`git commit -am 'Añadir nueva característica'`)
-4. Haz push a la rama (`git push origin feature/nueva-caracteristica`)
-5. Abre un Pull Request
+1. Fork the repository
+2. Create a branch for your feature (`git checkout -b feature/new-feature`)
+3. Commit your changes (`git commit -am 'Add new feature'`)
+4. Push to the branch (`git push origin feature/new-feature`)
+5. Open a Pull Request
 
-## ❓ Preguntas Frecuentes
+## ❓ FAQ
 
-### ¿Cómo actualizo a la última versión?
+### How do I update to the latest version?
 
 ```bash
 npm update edt-lib
@@ -170,29 +170,29 @@ npm update edt-lib
 yarn upgrade edt-lib
 ```
 
-### ¿Cómo reporto un error?
+### How do I report a bug?
 
-Por favor, abre un [issue](https://github.com/ing17romc/edt-lib/issues) en GitHub con los siguientes detalles:
-- Versión de la biblioteca
-- Pasos para reproducir el error
-- Comportamiento esperado vs. real
-- Capturas de pantalla (si aplica)
+Please open an [issue](https://github.com/ing17romc/edt-lib/issues) on GitHub with the following details:
+- Library version
+- Steps to reproduce the bug
+- Expected vs. actual behavior
+- Screenshots (if applicable)
 
-## 📞 Soporte
+## 📞 Support
 
-Para soporte, por favor:
-- Revisa la [documentación de la API](https://ing17romc.github.io/edt-lib/)
-- Busca en los [issues existentes](https://github.com/ing17romc/edt-lib/issues)
-- Abre un nuevo issue si tu problema no ha sido reportado
+For support, please:
+- Check the [API documentation](https://ing17romc.github.io/edt-lib/)
+- Search the [existing issues](https://github.com/ing17romc/edt-lib/issues)
+- Open a new issue if your problem has not been reported
 
 ---
 
 <div align="center">
-  <p>Documentación generada el 5 de Julio de 2025</p>
-  <p>Versión actual: 2.9.0</p>
+  <p>Documentation generated on July 5, 2025</p>
+  <p>Current version: 2.9.0</p>
 </div>
-      <h1>Mi Aplicación</h1>
-      <Button>Botón con ícono</Button>
+      <h1>My Application</h1>
+      <Button>Button with icon</Button>
     </div>
   );
 }
@@ -200,40 +200,40 @@ Para soporte, por favor:
 export default App;
 ```
 
-## Estructura del proyecto
+## Project Structure
 
-- `/src`: Código fuente principal de la librería.
-- `/docs`: Documentación del proyecto.
-- `/dist`: Archivos generados para distribución.
+- `/src`: Main library source code.
+- `/docs`: Project documentation.
+- `/dist`: Generated files for distribution.
 
-## Contribuir
+## Contributing
 
-¡Las contribuciones son bienvenidas! Por favor, sigue estos pasos:
-1. Haz un fork del repositorio.
-2. Crea una rama para tu funcionalidad o corrección: `git checkout -b mi-feature`
-3. Haz commit de tus cambios: `git commit -am 'Agrega nueva funcionalidad'`
-4. Haz push a la rama: `git push origin mi-feature`
-5. Abre un Pull Request.
+Contributions are welcome! Please follow these steps:
+1. Fork the repository.
+2. Create a branch for your feature or fix: `git checkout -b my-feature`
+3. Commit your changes: `git commit -am 'Add new feature'`
+4. Push to the branch: `git push origin my-feature`
+5. Open a Pull Request.
 
-## Publicar en npm
+## Publish to npm
 
-- Para publicar una nueva versión en npm:
+- To publish a new version to npm:
   ```bash
   npm run publish-lib
   ```
-- Para incrementar el patch, compilar y publicar automáticamente:
+- To increment the patch, build and publish automatically:
   ```bash
   npm run release-lib
   ```
 
-## Desplegar Storybook en GitHub Pages
+## Deploy Storybook to GitHub Pages
 
-- Para construir y desplegar Storybook:
+- To build and deploy Storybook:
   ```bash
   npm run deploy-sb
   ```
 
-## Contacto
+## Contact
 
-Para dudas o sugerencias, abre un issue en GitHub o contacta al mantenedor principal.
+For questions or suggestions, open an issue on GitHub or contact the main maintainer.
 

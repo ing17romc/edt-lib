@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import TableWithIcon from '..';
 import type { TableRowData } from '../types';
 
-// Datos de ejemplo para las historias
+// Sample data for stories
 const sampleData: TableRowData[] = [
   {
     name: 'John Doe',
@@ -31,7 +31,7 @@ const sampleData: TableRowData[] = [
   },
 ];
 
-// Configuración del componente en Storybook
+// Storybook component configuration
 const meta: Meta<typeof TableWithIcon> = {
   title: 'Examples/Tables/TableWithIcon',
   component: TableWithIcon,
@@ -39,7 +39,7 @@ const meta: Meta<typeof TableWithIcon> = {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Tabla que incluye botones con iconos para acciones en cada fila. Ideal para interfaces que requieren acciones rápidas y compactas sobre registros individuales.',
+        component: 'Table that includes icon buttons for actions in each row. Ideal for interfaces that require quick and compact actions on individual records.',
       },
     },
   },
@@ -50,7 +50,7 @@ export default meta;
 
 type Story = StoryObj<typeof TableWithIcon>;
 
-// Historia por defecto
+// Default story
 export const Default: Story = {
   args: {
     dataTable: sampleData,
@@ -58,13 +58,13 @@ export const Default: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Tabla con botones de iconos en cada fila. Los botones están configurados con acciones de consola de ejemplo.',
+        story: 'Table with icon buttons in each row. Buttons are configured with sample console actions.',
       },
     },
   },
 };
 
-// Historia con estado inicial vacío
+// Empty initial state story
 export const EmptyState: Story = {
   args: {
     dataTable: [],
@@ -72,13 +72,13 @@ export const EmptyState: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Tabla sin datos. Muestra solo los encabezados de las columnas.',
+        story: 'Table with no data. Shows only the column headers.',
       },
     },
   },
 };
 
-// Historia con un solo elemento
+// Single item story
 export const SingleItem: Story = {
   args: {
     dataTable: [sampleData[0]],
@@ -86,13 +86,13 @@ export const SingleItem: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Tabla con una sola fila de datos y sus respectivos botones de iconos.',
+        story: 'Table with a single row of data and its respective icon buttons.',
       },
     },
   },
 };
 
-// Historia con muchos elementos
+// Many items story
 export const ManyItems: Story = {
   args: {
     dataTable: [
@@ -112,7 +112,7 @@ export const ManyItems: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Tabla con múltiples filas para probar el desplazamiento vertical con botones de iconos en cada fila.',
+        story: 'Table with multiple rows to test vertical scrolling with icon buttons in each row.',
       },
     },
   },

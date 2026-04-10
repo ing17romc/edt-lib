@@ -4,12 +4,12 @@ import styles from './styles/Tabs.module.scss'
 import { TabsProps, TabItem } from './types'
 
 /**
- * Componente Tabs que permite navegar entre varias secciones de contenido.
+ * Tabs component that allows navigating between multiple content sections.
  *
- * @param tabs - Listado de pestañas con su contenido
- * @param activeKey - Key activo (modo controlado)
- * @param defaultActiveKey - Key activo por defecto (modo no controlado)
- * @param onChange - Callback al cambiar de pestaña
+ * @param tabs - List of tabs with their content
+ * @param activeKey - Active key (controlled mode)
+ * @param defaultActiveKey - Default active key (uncontrolled mode)
+ * @param onChange - Callback when changing tabs
  */
 const Tabs = ({
   tabs,

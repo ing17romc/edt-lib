@@ -14,12 +14,12 @@ import {
 } from './mocks';
 
 describe('CheckButton', () => {
-  it('se renderiza correctamente con la etiqueta proporcionada', () => {
+  it('renders correctly with the provided label', () => {
     render(<DefaultCheckButton label="Test Checkbox" />);
     expect(screen.getByText('Test Checkbox')).toBeInTheDocument();
   });
 
-  it('llama a onChange cuando se hace clic', () => {
+  it('calls onChange when clicked', () => {
     const handleChange = vi.fn();
     render(<DefaultCheckButton label="Click me" onChange={handleChange} />);
     
@@ -29,76 +29,76 @@ describe('CheckButton', () => {
     expect(handleChange).toHaveBeenCalledWith(true);
   });
 
-  it('no responde al clic cuando está deshabilitado', () => {
+  it('does not respond to click when disabled', () => {
     const handleChange = vi.fn();
     render(<DisabledCheckButton onChange={handleChange} />);
     
-    const checkbox = screen.getByLabelText('Opción deshabilitada');
+    const checkbox = screen.getByLabelText('Disabled option');
     fireEvent.click(checkbox);
     
     expect(handleChange).not.toHaveBeenCalled();
   });
 
-  it('muestra el estado inicial como marcado cuando checked es true', () => {
+  it('shows initial state as checked when checked is true', () => {
     render(<CheckedCheckButton />);
-    const checkbox = screen.getByLabelText('Opción seleccionada') as HTMLInputElement;
+    const checkbox = screen.getByLabelText('Selected option') as HTMLInputElement;
     expect(checkbox.checked).toBe(true);
   });
 
-  it('aplica la clase personalizada cuando se proporciona', () => {
+  it('applies the custom class when provided', () => {
     render(<CustomClassCheckButton />);
-    const label = screen.getByText('Con clase personalizada').closest('label');
+    const label = screen.getByText('With custom class').closest('label');
     expect(label).toHaveClass('custom-checkbox-class');
   });
 
-  it('aplica la clase de tamaño grande correctamente', () => {
+  it('applies the large size class correctly', () => {
     render(<LargeCheckButton />);
-    const label = screen.getByText('Opción grande').closest('label');
+    const label = screen.getByText('Large option').closest('label');
     expect(label).toHaveClass('check-button--large');
   });
 
-  it('aplica la clase de tamaño mediano correctamente', () => {
+  it('applies the medium size class correctly', () => {
     render(<MediumCheckButton />);
-    const label = screen.getByText('Opción mediana').closest('label');
+    const label = screen.getByText('Medium option').closest('label');
     expect(label).toHaveClass('check-button');
-    // Verifica que no tenga las clases de otros tamaños
+    // Verify it does not have other size classes
     expect(label).not.toHaveClass('check-button--small');
     expect(label).not.toHaveClass('check-button--large');
   });
 
-  it('aplica la clase de tamaño pequeño correctamente', () => {
+  it('applies the small size class correctly', () => {
     render(<SmallCheckButton />);
-    const label = screen.getByText('Opción pequeña').closest('label');
+    const label = screen.getByText('Small option').closest('label');
     expect(label).toHaveClass('check-button--small');
   });
 
-  it('aplica el tamaño mediano por defecto cuando no se especifica', () => {
-    render(<DefaultCheckButton label="Tamaño predeterminado" />);
-    const label = screen.getByText('Tamaño predeterminado').closest('label');
+  it('applies the medium size by default when not specified', () => {
+    render(<DefaultCheckButton label="Default size" />);
+    const label = screen.getByText('Default size').closest('label');
     expect(label).toHaveClass('check-button');
     expect(label).not.toHaveClass('check-button--small');
     expect(label).not.toHaveClass('check-button--large');
   });
 
-  it('maneja correctamente etiquetas largas', () => {
+  it('handles long labels correctly', () => {
     render(<LongLabelCheckButton />);
-    expect(screen.getByText(/Esta es una etiqueta muy larga/)).toBeInTheDocument();
+    expect(screen.getByText(/This is a very long label/)).toBeInTheDocument();
   });
 
-  it('actualiza el estado cuando se usa como componente controlado', () => {
+  it('updates state when used as a controlled component', () => {
     const { rerender } = render(<ControlledCheckButton />);
-    const checkbox = screen.getByLabelText('Opción de ejemplo') as HTMLInputElement;
+    const checkbox = screen.getByLabelText('Example option') as HTMLInputElement;
     
-    // Estado inicial
+    // Initial state
     expect(checkbox.checked).toBe(false);
     
-    // Simular clic
+    // Simulate click
     fireEvent.click(checkbox);
     
-    // Volver a renderizar con el nuevo estado
+    // Re-render with the new state
     rerender(<ControlledCheckButton checked={true} />);
     
-    // Verificar que el estado se actualizó
+    // Verify that the state was updated
     expect(checkbox.checked).toBe(true);
   });
 });

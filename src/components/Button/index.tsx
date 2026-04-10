@@ -4,38 +4,38 @@ import styles from './styles/Button.module.scss';
 import { ButtonProps } from './types';
 import { ComponentVariant, ComponentSize } from '../types';
 /**
- * Componente Button altamente personalizable que proporciona una interfaz de usuario interactiva
- * con múltiples variantes de estilo, tamaños y estados.
+ * Highly customizable Button component that provides an interactive user interface
+ * with multiple style variants, sizes, and states.
  * 
  * @component
  * 
  * @example
- * // Ejemplo básico
+ * // Basic example
  * <Button onClick={() => console.log('Click')}>
- *   Botón Primario
+ *   Primary Button
  * </Button>
  * 
  * @example
- * // Botón con variante secundaria y tamaño grande
+ * // Button with secondary variant and large size
  * <Button variant="secondary" size="large">
- *   Acción Secundaria
+ *   Secondary Action
  * </Button>
  * 
  * @example
- * // Botón deshabilitado de ancho completo
+ * // Disabled full-width button
  * <Button 
  *   variant="danger" 
  *   disabled 
  *   fullWidth
  *   onClick={handleDelete}
  * >
- *   Eliminar permanentemente
+ *   Delete permanently
  * </Button>
  * 
  * @example
- * // Botón de tipo submit en un formulario
+ * // Submit button in a form
  * <form onSubmit={handleSubmit}>
- *   <Button type="submit">Enviar</Button>
+ *   <Button type="submit">Submit</Button>
  * </form>
  */
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
@@ -87,5 +87,5 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
 Button.displayName = 'Button';
 
 export default Button;
-// Exportar los tipos para facilitar la importación
+// Export types for easier importing
 export type { ButtonProps };

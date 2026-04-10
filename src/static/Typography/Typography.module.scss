@@ -28,7 +28,7 @@
 .headingExample {
   margin-bottom: $space-4;
   
-  // Estilos para los headings h1-h6
+  // Styles for headings h1-h6
   @for $i from 1 through 6 {
     .h#{$i} {
       font-size: map.get($typography-font-sizes, if($i == 1, '22', if($i == 2, '20', if($i == 3, '18', if($i == 4, '16', if($i == 5, '14', '12'))))));
@@ -47,19 +47,19 @@
   margin: $space-3 0;
   line-height: $line-height-md;
   
-  // Tamaños de fuente basados en las variables
+  // Font sizes based on variables
   @each $size, $value in $typography-font-sizes {
     &.size-#{$size} {
       font-size: map.get($typography-font-sizes, $size);
     }
   }
   
-  // Estilo de negrita
+  // Bold style
   &.bold {
     font-weight: $font-weight-bold;
   }
   
-  // Ejemplos de interlineado
+  // Line height examples
   @each $type, $value in $typography-line-heights {
     &.line-height-#{$type} {
       line-height: var(--line-height, #{$value});
@@ -85,7 +85,7 @@
   margin: $space-4 0;
 }
 
-// Estilos responsivos
+// Responsive styles
 @media (width <= 768px) {
   .typographyContainer {
     padding: $space-3;

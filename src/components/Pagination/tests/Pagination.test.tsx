@@ -11,14 +11,14 @@ import {
 } from './mocks';
 
 describe('Pagination', () => {
-  it('renderiza correctamente con los props por defecto', () => {
+  it('renders correctly with default props', () => {
     render(<Pagination {...mockPaginationProps} />);
     
-    // Verificar que se rendericen los botones de navegación
-    expect(screen.getByText('Anterior')).toBeInTheDocument();
-    expect(screen.getByText('Siguiente')).toBeInTheDocument();
+    // Verify that the navigation buttons are rendered
+    expect(screen.getByText('Previous')).toBeInTheDocument();
+    expect(screen.getByText('Next')).toBeInTheDocument();
     
-    // Verificar que se rendericen las páginas
+    // Verify that the pages are rendered
     expect(screen.getByText('1')).toBeInTheDocument();
     expect(screen.getByText('2')).toBeInTheDocument();
     expect(screen.getByText('3')).toBeInTheDocument();
@@ -26,14 +26,14 @@ describe('Pagination', () => {
     expect(screen.getByText('5')).toBeInTheDocument();
   });
 
-  it('permite personalizar las etiquetas de los botones', () => {
+  it('allows customizing button labels', () => {
     render(<Pagination {...mockPaginationCustomLabels} />);
     
-    expect(screen.getByText('Anterior')).toBeInTheDocument();
-    expect(screen.getByText('Siguiente')).toBeInTheDocument();
+    expect(screen.getByText('Previous')).toBeInTheDocument();
+    expect(screen.getByText('Next')).toBeInTheDocument();
   });
 
-  it('llama a onPageChange con el número de página correcto al hacer clic en un botón de página', () => {
+  it('calls onPageChange with the correct page number when a page button is clicked', () => {
     const handlePageChange = vi.fn();
     render(
       <Pagination 
@@ -48,7 +48,7 @@ describe('Pagination', () => {
     expect(handlePageChange).toHaveBeenCalledWith(2);
   });
 
-  it('deshabilita los botones cuando la propiedad disabled es true', () => {
+  it('disables buttons when the disabled property is true', () => {
     render(<Pagination {...mockPaginationDisabled} />);
     
     const buttons = screen.getAllByRole('button');
@@ -57,48 +57,48 @@ describe('Pagination', () => {
     });
   });
 
-  it('muestra puntos suspensivos cuando hay muchas páginas', () => {
+  it('shows ellipsis when there are many pages', () => {
     render(<Pagination {...mockPaginationManyPages} />);
     
-    // Debería mostrar puntos suspensivos para indicar páginas ocultas
+    // Should show ellipsis to indicate hidden pages
     const ellipsis = screen.getAllByText('...');
     expect(ellipsis.length).toBeGreaterThan(0);
   });
 
-  it('no renderiza nada y muestra una advertencia si totalPages es 0', () => {
+  it('does not render and shows a warning if totalPages is 0', () => {
      
     const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
     const { container } = render(<Pagination currentPage={1} totalPages={0} onPageChange={vi.fn()} />);
     expect(container.firstChild).toBeNull();
-    expect(warnSpy).toHaveBeenCalledWith('Pagination: totalPages debe ser mayor a 0');
+    expect(warnSpy).toHaveBeenCalledWith('Pagination: totalPages must be greater than 0');
     warnSpy.mockRestore();
   });
 
-  it('no renderiza nada y muestra una advertencia si currentPage está fuera de rango', () => {
+  it('does not render and shows a warning if currentPage is out of range', () => {
      
     const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
     const { container } = render(<Pagination currentPage={10} totalPages={5} onPageChange={vi.fn()} />);
     expect(container.firstChild).toBeNull();
-    expect(warnSpy).toHaveBeenCalledWith('Pagination: currentPage (10) está fuera de rango [1, 5]');
+    expect(warnSpy).toHaveBeenCalledWith('Pagination: currentPage (10) is out of range [1, 5]');
     warnSpy.mockRestore();
   });
 
-  it('aplica la clase CSS correcta para el tamaño pequeño (SMALL)', () => {
+  it('applies the correct CSS class for small size (SMALL)', () => {
     const { container } = render(<Pagination {...mockPaginationSmallSize} />);
     const pagination = container.firstChild;
     expect(pagination).toHaveClass('pagination--small');
   });
 
-  it('aplica la clase CSS correcta para el tamaño grande (LARGE)', () => {
+  it('applies the correct CSS class for large size (LARGE)', () => {
     const { container } = render(<Pagination {...mockPaginationLargeSize} />);
     const pagination = container.firstChild;
     expect(pagination).toHaveClass('pagination--large');
   });
 
-  it('usa el tamaño MEDIUM por defecto si no se especifica', () => {
+  it('uses MEDIUM size by default if none is specified', () => {
     const { container } = render(<Pagination {...mockPaginationProps} size={undefined} />);
     const pagination = container.firstChild;
-    // No debería tener la clase de tamaño pequeño ni grande
+    // Should not have the small or large size class
     expect(pagination).not.toHaveClass('pagination--small');
     expect(pagination).not.toHaveClass('pagination--large');
   });

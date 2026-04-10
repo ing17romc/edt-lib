@@ -3,94 +3,94 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import TableWithPagination from '..';
 import type { TableRowData } from '../types';
 
-// Datos de prueba
+// Test data
 const generateMockData = (count: number): TableRowData[] => {
   return Array.from({ length: count }, (_, i) => ({
     name: `User ${i + 1}`,
     userName: `user${i + 1}`,
-    status: i % 2 === 0, // Alternar entre true y false
+    status: i % 2 === 0, // Alternate between true and false
   }));
 };
 
 describe('TableWithPagination', () => {
-  const mockData = generateMockData(10); // 10 elementos de prueba
+  const mockData = generateMockData(10); // 10 test items
 
-  it('renderiza sin errores con datos vacíos', () => {
+  it('renders without errors with empty data', () => {
      
     const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
     render(<TableWithPagination dataTable={[]} />);
     
-    // Verificar que se renderiza el título
+    // Verify the title is rendered
     expect(screen.getByText('Example tables')).toBeInTheDocument();
     
-    // Verificar que se muestra el mensaje de "No hay datos disponibles"
-    expect(screen.getByText('No hay datos disponibles')).toBeInTheDocument();
+    // Verify the "No data available" message is shown
+    expect(screen.getByText('No data available')).toBeInTheDocument();
     
     warnSpy.mockRestore();
     
-    // Verificar que hay dos filas: encabezado y mensaje de no hay datos
+    // Verify there are two rows: header and no data message
     const allRows = screen.getAllByRole('row');
     expect(allRows).toHaveLength(2);
   });
 
-  it('renderiza correctamente con datos y muestra la primera página', () => {
+  it('renders correctly with data and shows the first page', () => {
     render(<TableWithPagination dataTable={mockData} />);
     
-    // Por defecto, debería mostrar 3 elementos (valor inicial de pages)
+    // By default, should show 3 items (initial pages value)
     const rows = screen.getAllByRole('row');
-    // 1 fila de encabezado + 3 filas de datos (página 1)
+    // 1 header row + 3 data rows (page 1)
     expect(rows).toHaveLength(4);
     
-    // Verificar que se muestran los elementos de la primera página
+    // Verify the first page items are shown
     expect(screen.getByText('User 1')).toBeInTheDocument();
     expect(screen.getByText('User 2')).toBeInTheDocument();
     expect(screen.getByText('User 3')).toBeInTheDocument();
     
-    // Verificar que no se muestran elementos de otras páginas
+    // Verify items from other pages are not shown
     expect(screen.queryByText('User 4')).not.toBeInTheDocument();
   });
 
-  it('cambia correctamente el número de elementos por página', () => {
+  it('correctly changes the number of items per page', () => {
     const data = generateMockData(10);
     render(<TableWithPagination dataTable={data} />);
     
-    // Verificar que inicialmente muestra 3 elementos (valor por defecto)
+    // Verify it initially shows 3 items (default value)
     const initialRows = screen.getAllByRole('row');
-    // Restamos 1 para el encabezado
+    // Subtract 1 for the header
     expect(initialRows.length - 1).toBe(3);
     
-    // Seleccionar mostrar 2 elementos por página
+    // Select showing 2 items per page
     const select = screen.getByRole('combobox');
     
-    // Simular el cambio en el selector
+    // Simulate the change in the selector
     fireEvent.change(select, { target: { value: '2' } });
     
-    // Verificar que el manejador de eventos se llamó correctamente
-    // Nota: No podemos verificar el valor directamente porque el mock no actualiza el DOM
-    // En su lugar, verificamos que el selector está presente
+    // Verify the event handler was called correctly
+    // Note: We cannot verify the value directly because the mock doesn't update the DOM
+    // Instead, we verify the selector is present
     expect(select).toBeInTheDocument();
   });
 
-  it('cambia de página correctamente', () => {
+  it('changes page correctly', () => {
     const data = generateMockData(10);
     render(<TableWithPagination dataTable={data} />);
     
-    // Obtener el botón de la página 2 usando su atributo aria-label
-    const page2Button = screen.getByRole('button', { name: /ir a la página 2/i });
+    // Get the page 2 button using its aria-label attribute
+    const page2Button = screen.getByRole('button', { name: /go to page 2/i });
     
-    // Hacer clic en el botón de la página 2
+    // Click the page 2 button
     fireEvent.click(page2Button);
     
-    // Verificar que el manejador de eventos se llamó correctamente
-    // Nota: Como estamos usando mocks, no podemos verificar el estado activo directamente
-    // ya que el mock de paginación no actualiza las clases CSS.
+    // Verify the event handler was called correctly
+    // Note: Since we are using mocks, we cannot verify the active state directly
+    // because the pagination mock doesn't update CSS classes.
     expect(page2Button).toBeInTheDocument();
   });
 
-  it('maneja correctamente los datos con valores límite', () => {
+  it('handles edge case data correctly', () => {
     const edgeCaseData: TableRowData[] = [
       {
-        name: '', // Nombre vacío
+        name: '', // Empty name
         userName: 'user1',
         status: true,
       },
@@ -108,46 +108,46 @@ describe('TableWithPagination', () => {
     
     render(<TableWithPagination dataTable={edgeCaseData} />);
     
-    // Verificar que se manejan correctamente los nombres vacíos
+    // Verify empty names are handled correctly
     const emptyCells = screen.getAllByRole('cell', { name: '' });
     expect(emptyCells.length).toBeGreaterThan(0);
     
-    // Verificar que se manejan correctamente los nombres largos
+    // Verify long names are handled correctly
     const longNameText = 'A very long name that might break the layout';
     const longNameCell = screen.getByText(longNameText);
     expect(longNameCell).toBeInTheDocument();
     
-    // Verificar que la paginación se maneja correctamente con datos límite
-    // Buscar el componente de paginación por su testid
+    // Verify pagination handles edge case data correctly
+    // Find the pagination component by its testid
     const pagination = screen.getByTestId('pagination');
     expect(pagination).toBeInTheDocument();
   });
 
-  it('actualiza correctamente cuando cambian los datos', () => {
+  it('updates correctly when data changes', () => {
     const { rerender } = render(<TableWithPagination dataTable={mockData.slice(0, 5)} />);
     
-    // Verificar que se muestran los datos iniciales
+    // Verify initial data is shown
     expect(screen.getByText('User 1')).toBeInTheDocument();
     
-    // Actualizar con nuevos datos
+    // Update with new data
     const newData = [
       ...mockData.slice(0, 2),
       {
-        name: 'Nuevo Usuario',
-        userName: 'nuevo',
+        name: 'New User',
+        userName: 'newuser',
         status: true,
       },
     ];
     
     rerender(<TableWithPagination dataTable={newData} />);
     
-    // Verificar que se muestran los nuevos datos
-    expect(screen.getByText('Nuevo Usuario')).toBeInTheDocument();
-    expect(screen.getByText('nuevo')).toBeInTheDocument();
+    // Verify new data is shown
+    expect(screen.getByText('New User')).toBeInTheDocument();
+    expect(screen.getByText('newuser')).toBeInTheDocument();
   });
 });
 
-// Mock para getStatus
+// Mock for getStatus
 vi.mock('../../utils', () => ({
   __esModule: true,
   default: (value: boolean | number) => (
@@ -157,7 +157,7 @@ vi.mock('../../utils', () => ({
   ),
 }));
 
-// Mock para los componentes de paginación
+// Mock for pagination components
 vi.mock('components/Pagination', () => ({
   __esModule: true,
   default: ({ 
@@ -175,7 +175,7 @@ vi.mock('components/Pagination', () => ({
           key={i + 1}
           onClick={() => onPageChange(i + 1)}
           className={currentPage === i + 1 ? 'active' : ''}
-          aria-label={`ir a la página ${i + 1}`}
+          aria-label={`go to page ${i + 1}`}
         >
           {i + 1}
         </button>
@@ -184,7 +184,7 @@ vi.mock('components/Pagination', () => ({
   ),
 }));
 
-// Mock para el componente Selector
+// Mock for the Selector component
 vi.mock('components/Selector', () => ({
   __esModule: true,
   Selector: ({ 

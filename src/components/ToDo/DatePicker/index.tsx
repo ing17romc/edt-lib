@@ -3,10 +3,10 @@ import classNames from '../../../utils/classNames'
 import styles from './styles/DatePicker.module.scss'
 import { DatePickerProps } from './types'
 
-const DAYS = ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá']
+const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 const MONTHS = [
-  'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
-  'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre',
+  'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December',
 ]
 
 const toISO = (y: number, m: number, d: number) =>
@@ -29,15 +29,15 @@ const getFirstDayOfWeek = (year: number, month: number) =>
   new Date(year, month, 1).getDay()
 
 /**
- * Componente DatePicker — selector de fecha sin dependencias externas.
+ * DatePicker component — date selector without external dependencies.
  *
- * @param value - Fecha seleccionada en formato ISO (YYYY-MM-DD)
- * @param onChange - Callback con la fecha seleccionada
- * @param min - Fecha mínima en formato ISO
- * @param max - Fecha máxima en formato ISO
- * @param placeholder - Texto de ayuda
- * @param disabled - Si el campo está deshabilitado
- * @param label - Etiqueta del campo
+ * @param value - Selected date in ISO format (YYYY-MM-DD)
+ * @param onChange - Callback with the selected date
+ * @param min - Minimum date in ISO format
+ * @param max - Maximum date in ISO format
+ * @param placeholder - Help text
+ * @param disabled - Whether the field is disabled
+ * @param label - Field label
  */
 const DatePicker = ({
   value,
@@ -118,11 +118,11 @@ const DatePicker = ({
       </button>
 
       {open && (
-        <div role="dialog" aria-label="Selector de fecha" className={styles.calendar}>
+        <div role="dialog" aria-label="Date picker" className={styles.calendar}>
           <div className={styles.calendarHeader}>
             <button
               type="button"
-              aria-label="Mes anterior"
+              aria-label="Previous month"
               className={styles.navButton}
               onClick={prevMonth}
             >
@@ -133,7 +133,7 @@ const DatePicker = ({
             </span>
             <button
               type="button"
-              aria-label="Mes siguiente"
+              aria-label="Next month"
               className={styles.navButton}
               onClick={nextMonth}
             >

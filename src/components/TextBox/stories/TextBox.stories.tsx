@@ -4,7 +4,7 @@ import TextBox from '../';
 import { defaultArgs } from './mocks';
 import { ComponentSize } from '../../types';
 
-export default {
+const meta = {
   title: 'Components/TextBox',
   component: TextBox,
   tags: ['autodocs'],
@@ -70,9 +70,11 @@ export default {
       },
     },
   },
-} as Meta;
+} satisfies Meta<typeof TextBox>;
 
-type Story = StoryObj<typeof TextBox>;
+export default meta;
+
+type Story = StoryObj<typeof meta>;
 
 const ControlledTextBox = (args: React.ComponentProps<typeof TextBox>) => {
   const [value, setValue] = useState('');
@@ -90,139 +92,144 @@ export const Default: Story = {
   args: defaultArgs,
 };
 
-// Historia de variantes
-export const Variants = () => (
-  <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', maxWidth: '400px' }}>
-    <TextBox label="Outlined" variant="outlined" placeholder="Outlined" />
-    <TextBox label="Filled" variant="filled" placeholder="Filled" />
-    <TextBox label="Standard" variant="standard" placeholder="Standard" />
-  </div>
-);
-Variants.parameters = {
-  docs: {
-    description: {
-      story: 'Available design variants for the text field.',
+export const Variants: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', maxWidth: '400px' }}>
+      <TextBox label="Outlined" variant="outlined" placeholder="Outlined" />
+      <TextBox label="Filled" variant="filled" placeholder="Filled" />
+      <TextBox label="Standard" variant="standard" placeholder="Standard" />
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Available design variants for the text field.',
+      },
     },
   },
 };
 
-// Historia de tamaños
-export const Sizes = () => (
-  <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '400px' }}>
-    <TextBox label="Small" size={ComponentSize.SMALL} placeholder="Small size" />
-    <TextBox label="Medium" size={ComponentSize.MEDIUM} placeholder="Medium size" />
-    <TextBox label="Large" size={ComponentSize.LARGE} placeholder="Large size" />
-  </div>
-);
-Sizes.parameters = {
-  docs: {
-    description: {
-      story: 'Available size options for the text field.',
-    },
-  },
-};
-
-// Historia de estados
-export const States = () => {
-  const [value, setValue] = useState('');
-  
-  return (
+export const Sizes: Story = {
+  render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '400px' }}>
-      <TextBox 
-        label="Default field" 
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        placeholder="Type something..."
+      <TextBox label="Small" size={ComponentSize.SMALL} placeholder="Small size" />
+      <TextBox label="Medium" size={ComponentSize.MEDIUM} placeholder="Medium size" />
+      <TextBox label="Large" size={ComponentSize.LARGE} placeholder="Large size" />
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Available size options for the text field.',
+      },
+    },
+  },
+};
+
+export const States: Story = {
+  render: () => {
+    const [value, setValue] = useState('');
+
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '400px' }}>
+        <TextBox
+          label="Default field"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          placeholder="Type something..."
+        />
+        <TextBox
+          label="Field with default value"
+          defaultValue="Default value"
+        />
+        <TextBox
+          label="Disabled field"
+          disabled
+          placeholder="You cannot type here"
+        />
+        <TextBox
+          label="Read-only field"
+          readOnly
+          value="This text cannot be edited"
+        />
+        <TextBox
+          label="Required field"
+          required
+          placeholder="This field is mandatory"
+        />
+        <TextBox
+          label="Field with error"
+          error
+          helperText="Error message"
+          defaultValue="Invalid value"
+        />
+      </div>
+    );
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Different field states: default, with value, disabled, read-only, required, and error.',
+      },
+    },
+  },
+};
+
+export const WithAdornments: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '400px' }}>
+      <TextBox
+        label="With start icon"
+        startAdornment={
+          <span style={{ fontSize: '20px' }}>&#128269;</span>
+        }
+        placeholder="Search..."
       />
-      <TextBox 
-        label="Field with default value" 
-        defaultValue="Default value"
+      <TextBox
+        label="With end icon"
+        endAdornment={
+          <span style={{ fontSize: '20px' }}>&#128274;</span>
+        }
+        type="password"
+        placeholder="Password"
       />
-      <TextBox 
-        label="Disabled field" 
-        disabled 
-        placeholder="You cannot type here"
-      />
-      <TextBox 
-        label="Read-only field" 
-        readOnly 
-        value="This text cannot be edited"
-      />
-      <TextBox 
-        label="Required field" 
-        required 
-        placeholder="This field is mandatory"
-      />
-      <TextBox 
-        label="Field with error" 
-        error 
-        helperText="Error message"
-        defaultValue="Invalid value"
+      <TextBox
+        label="With icons on both sides"
+        startAdornment={
+          <span style={{ fontSize: '20px' }}>&#128290;</span>
+        }
+        endAdornment={
+          <span style={{ fontSize: '14px', color: '#666' }}>Numbers</span>
+        }
+        type="number"
+        placeholder="Numbers only"
       />
     </div>
-  );
-};
-States.parameters = {
-  docs: {
-    description: {
-      story: 'Different field states: default, with value, disabled, read-only, required, and error.',
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Text fields with optional start or end adornments (icons or text elements).',
+      },
     },
   },
 };
 
-// Historia con adornos
-export const WithAdornments = () => (
-  <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '400px' }}>
-    <TextBox 
-      label="With start icon"
-      startAdornment={
-        <span style={{ fontSize: '20px' }}>&#128269;</span>
-      }
-      placeholder="Search..."
-    />
-    <TextBox 
-      label="With end icon"
-      endAdornment={
-        <span style={{ fontSize: '20px' }}>&#128274;</span>
-      }
-      type="password"
-      placeholder="Password"
-    />
-    <TextBox 
-      label="With icons on both sides"
-      startAdornment={
-        <span style={{ fontSize: '20px' }}>&#128290;</span>
-      }
-      endAdornment={
-        <span style={{ fontSize: '14px', color: '#666' }}>Numbers</span>
-      }
-      type="number"
-      placeholder="Numbers only"
-    />
-  </div>
-);
-WithAdornments.parameters = {
-  docs: {
-    description: {
-      story: 'Text fields with optional start or end adornments (icons or text elements).',
-    },
-  },
-};
-
-// Historia de ancho completo
-export const FullWidth = () => (
-  <div style={{ width: '100%' }}>
-    <TextBox 
-      label="Full-width field" 
-      fullWidth 
-      placeholder="This field fills the full available width"
-    />
-  </div>
-);
-FullWidth.parameters = {
-  docs: {
-    description: {
-      story: 'Text field that expands to fill the full width of its container.',
+export const FullWidth: Story = {
+  render: () => (
+    <div style={{ width: '100%' }}>
+      <TextBox
+        label="Full-width field"
+        fullWidth
+        placeholder="This field fills the full available width"
+      />
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Text field that expands to fill the full width of its container.',
+      },
     },
   },
 };

@@ -3,78 +3,78 @@ import { ComponentSize } from '../types';
 
 export interface ModalProps {
   /**
-   * Indica si el modal está abierto o cerrado
+   * Indicates whether the modal is open or closed
    * @default false
    */
   isOpen: boolean;
   
   /**
-   * Función que se ejecuta cuando se cierra el modal
+   * Function called when the modal closes
    */
   onClose: () => void;
   
   /**
-   * Título del modal
+   * Modal title
    */
   title?: string;
   
   /**
-   * Contenido del modal
+   * Modal content
    */
   children: ReactNode;
   
   /**
-   * Tamaño del modal
+   * Modal size
    * @default 'medium'
    */
   size?: ComponentSize;
   
   /**
-   * Indica si se debe mostrar el botón de cerrar
+   * Indicates whether to show the close button
    * @default true
    */
   showCloseButton?: boolean;
   
   /**
-   * Texto personalizado para el botón de cerrar
+   * Custom text for the close button
    */
   closeButtonText?: string;
   
   /**
-   * Indica si el modal debe cerrarse al hacer clic fuera de él
+   * Indicates whether the modal should close when clicking outside of it
    * @default true
    */
   closeOnOverlayClick?: boolean;
   
   /**
-   * Indica si el modal debe cerrarse al presionar la tecla Escape
+   * Indicates whether the modal should close when pressing the Escape key
    * @default true
    */
   closeOnEsc?: boolean;
   
   /**
-   * Clase CSS personalizada para el contenedor del modal
+   * Custom CSS class for the modal container
    */
   className?: string;
   
   /**
-   * Estilos en línea para el contenedor del modal
+   * Inline styles for the modal container
    */
   style?: React.CSSProperties;
   
   /**
-   * Elemento que se renderiza en el pie del modal
+   * Element rendered in the modal footer
    */
   footer?: ReactNode;
   
   /**
-   * Indica si el modal debe centrarse verticalmente
+   * Indicates whether the modal should be vertically centered
    * @default true
    */
   centerVertically?: boolean;
   
   /**
-   * Indica si el modal debe deshabilitar el scroll del body cuando está abierto
+   * Indicates whether the modal should disable body scroll when open
    * @default true
    */
   preventScroll?: boolean;

@@ -15,68 +15,68 @@ beforeEach(() => {
 })
 
 describe('Message', () => {
-  describe('renderizado básico', () => {
-    it('renderiza el contenido', () => {
+  describe('basic rendering', () => {
+    it('renders the content', () => {
       render(<Message {...defaultMessageProps} />)
-      expect(screen.getByText('Este es un mensaje informativo.')).toBeInTheDocument()
+      expect(screen.getByText('This is an informational message.')).toBeInTheDocument()
     })
 
-    it('usa rol alert para accesibilidad', () => {
+    it('uses alert role for accessibility', () => {
       render(<Message {...defaultMessageProps} />)
       expect(screen.getByRole('alert')).toBeInTheDocument()
     })
 
-    it('aplica clase primary por defecto', () => {
+    it('applies primary class by default', () => {
       const { container } = render(<Message {...defaultMessageProps} />)
       expect(container.firstChild).toHaveClass('message--primary')
     })
   })
 
-  describe('título', () => {
-    it('muestra el título cuando está definido', () => {
+  describe('title', () => {
+    it('shows the title when defined', () => {
       render(<Message {...titleMessageProps} />)
-      expect(screen.getByText('Título del mensaje')).toBeInTheDocument()
+      expect(screen.getByText('Message title')).toBeInTheDocument()
     })
 
-    it('no muestra el título cuando no está definido', () => {
+    it('does not show the title when not defined', () => {
       render(<Message {...defaultMessageProps} />)
-      expect(screen.queryByText(/Título/)).not.toBeInTheDocument()
+      expect(screen.queryByText(/Title/)).not.toBeInTheDocument()
     })
   })
 
-  describe('cierre', () => {
-    it('muestra botón de cierre cuando closable=true', () => {
+  describe('closing', () => {
+    it('shows close button when closable=true', () => {
       render(<Message {...closableMessageProps} />)
-      expect(screen.getByLabelText('Cerrar')).toBeInTheDocument()
+      expect(screen.getByLabelText('Close')).toBeInTheDocument()
     })
 
-    it('no muestra botón de cierre por defecto', () => {
+    it('does not show close button by default', () => {
       render(<Message {...defaultMessageProps} />)
-      expect(screen.queryByLabelText('Cerrar')).not.toBeInTheDocument()
+      expect(screen.queryByLabelText('Close')).not.toBeInTheDocument()
     })
 
-    it('llama onClose al hacer click en cerrar', () => {
+    it('calls onClose when clicking close', () => {
       render(<Message {...closableMessageProps} />)
-      fireEvent.click(screen.getByLabelText('Cerrar'))
+      fireEvent.click(screen.getByLabelText('Close'))
       expect(mockOnClose).toHaveBeenCalledTimes(1)
     })
   })
 
-  describe('variantes', () => {
-    it.each(allMessageVariants)('aplica la variante %s', (variant) => {
+  describe('variants', () => {
+    it.each(allMessageVariants)('applies the %s variant', (variant) => {
       const { container } = render(<Message {...defaultMessageProps} variant={variant} />)
       expect(container.firstChild).toHaveClass(`message--${variant}`)
     })
   })
 
-  describe('iconos', () => {
-    it('muestra un icono con variant primary', () => {
-      render(<Message variant={ComponentVariant.PRIMARY}>Mensaje</Message>)
+  describe('icons', () => {
+    it('shows an icon with primary variant', () => {
+      render(<Message variant={ComponentVariant.PRIMARY}>Message</Message>)
       expect(screen.getByText('ℹ')).toBeInTheDocument()
     })
 
-    it('muestra un icono con variant success', () => {
-      render(<Message variant={ComponentVariant.SUCCESS}>Mensaje</Message>)
+    it('shows an icon with success variant', () => {
+      render(<Message variant={ComponentVariant.SUCCESS}>Message</Message>)
       expect(screen.getByText('✓')).toBeInTheDocument()
     })
   })

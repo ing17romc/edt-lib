@@ -5,7 +5,7 @@ import { RadioButtonProps } from './types';
 import { ComponentSize } from '../types';
 
 /**
- * Componente RadioButton que permite seleccionar una opción de un conjunto de opciones mutuamente excluyentes.
+ * RadioButton component that allows selecting one option from a set of mutually exclusive options.
  */
 const RadioButton: React.FC<RadioButtonProps> = ({
   value,

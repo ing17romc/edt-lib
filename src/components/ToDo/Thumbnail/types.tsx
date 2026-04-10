@@ -1,38 +1,38 @@
 import { ImgHTMLAttributes } from 'react';
 
 /**
- * Propiedades del componente Thumbnail
+ * Thumbnail component props
  */
 export interface ThumbnailProps extends ImgHTMLAttributes<HTMLImageElement> {
   /**
-   * URL de la imagen
+   * Image URL
    */
   src: string;
 
   /**
-   * Texto alternativo de la imagen
+   * Image alternative text
    */
   alt: string;
 
   /**
-   * Caption opcional bajo la imagen
+   * Optional caption below the image
    */
   caption?: string;
 
   /**
-   * Si es redonda
+   * Whether it is rounded
    * @default false
    */
   rounded?: boolean;
 
   /**
-   * Ancho de la imagen en px
+   * Image width in px
    * @default 120
    */
   width?: number;
 
   /**
-   * Alto de la imagen en px
+   * Image height in px
    * @default 120
    */
   height?: number;

@@ -2,39 +2,39 @@ import { HTMLAttributes, ReactNode } from 'react';
 import { ComponentVariant, ComponentSize } from '../../types';
 
 /**
- * Propiedades del componente Tag
+ * Tag component properties
  */
 export interface TagProps extends HTMLAttributes<HTMLSpanElement> {
   /**
-   * Contenido del tag
+   * Tag content
    */
   children: ReactNode;
 
   /**
-   * Variante de color
+   * Color variant
    * @default 'primary'
    */
   variant?: ComponentVariant;
 
   /**
-   * Tamaño del tag
+   * Tag size
    * @default 'medium'
    */
   size?: ComponentSize;
 
   /**
-   * Si el tag puede ser cerrado/eliminado
+   * Whether the tag can be closed/removed
    * @default false
    */
   closable?: boolean;
 
   /**
-   * Callback al cerrar el tag
+   * Callback when closing the tag
    */
   onClose?: () => void;
 
   /**
-   * Si el tag está deshabilitado
+   * Whether the tag is disabled
    * @default false
    */
   disabled?: boolean;

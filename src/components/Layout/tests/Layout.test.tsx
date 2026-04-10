@@ -6,14 +6,14 @@ import Footer from '../Footer';
 import { MockLogo, MockNav, MockFooterContent } from './mocks';
 
 describe('Layout', () => {
-  it('debe renderizar el layout con el contenido principal', () => {
+  it('should render the layout with the main content', () => {
     render(
       <Layout>
-        <NavBar logo={<MockLogo />} title="Mi Aplicación">
+        <NavBar logo={<MockLogo />} title="My Application">
           <MockNav />
         </NavBar>
         <main>
-          <h1>Contenido Principal</h1>
+          <h1>Main Content</h1>
         </main>
         <Footer>
           <MockFooterContent />
@@ -21,8 +21,8 @@ describe('Layout', () => {
       </Layout>
     );
 
-    expect(screen.getByText('Contenido Principal')).toBeInTheDocument();
-    expect(screen.getByText('Mi Aplicación')).toBeInTheDocument();
-    expect(screen.getByText('Enlaces útiles')).toBeInTheDocument();
+    expect(screen.getByText('Main Content')).toBeInTheDocument();
+    expect(screen.getByText('My Application')).toBeInTheDocument();
+    expect(screen.getByText('Useful links')).toBeInTheDocument();
   });
 });

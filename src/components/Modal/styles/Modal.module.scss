@@ -40,7 +40,7 @@
     transform: translateY(0);
   }
   
-  // Tamaños del modal
+  // Modal sizes
   &.small {
     max-width: 400px;
   }
@@ -121,7 +121,7 @@
   flex-wrap: wrap;
 }
 
-// Animaciones
+// Animations
 @keyframes modal-fade-in {
   from {
     opacity: 0;
@@ -138,7 +138,7 @@
   align-items: center;
 }
 
-// Estilos para scrollbar en el contenido del modal
+// Styles for scrollbar in modal content
 .modalContent::-webkit-scrollbar {
   width: $modal-scrollbar-width;
   height: $modal-scrollbar-width;

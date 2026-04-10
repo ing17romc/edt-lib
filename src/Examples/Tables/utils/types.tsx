@@ -1,6 +1,6 @@
-// Tipos para getStatus
+// Types for getStatus
 
 /**
- * Props para la función getStatus.
+ * Props for the getStatus function.
  */
 export type GetStatusValue = boolean | number;

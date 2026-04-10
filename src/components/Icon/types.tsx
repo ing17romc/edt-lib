@@ -9,62 +9,62 @@ export enum IconVariant {
 
 export interface IconProps extends Omit<HTMLAttributes<HTMLSpanElement>, 'children'> {
   /**
-   * Nombre del icono a mostrar
+   * Name of the icon to display
    */
   name: string;
   
   /**
-   * Tamaño del icono
+   * Icon size
    * @default 'medium'
    */
   size?: ComponentSize;
   
   /**
-   * Estilo del icono
+   * Icon style
    * @default 'outline'
    */
   variant?: IconVariant;
   
   /**
-   * Color principal del icono
+   * Main icon color
    * @default 'currentColor'
    */
   color?: string;
   
   /**
-   * Color secundario (solo aplica para variante 'dual')
+   * Secondary color (only applies to the 'dual' variant)
    */
   secondaryColor?: string;
   
   /**
-   * Si es true, el icono hereda el color del elemento padre
+   * If true, the icon inherits the color from the parent element
    * @default false
    */
   inheritColor?: boolean;
   
   /**
-   * Si es true, el icono se muestra como deshabilitado
+   * If true, the icon is displayed as disabled
    * @default false
    */
   disabled?: boolean;
   
   /**
-   * Componente personalizado para renderizar como icono
+   * Custom component to render as icon
    */
   component?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   
   /**
-   * Clase CSS personalizada
+   * Custom CSS class
    */
   className?: string;
   
   /**
-   * Estilos en línea
+   * Inline styles
    */
   style?: React.CSSProperties;
   
   /**
-   * Identificador para pruebas
+   * Test identifier
    */
   'data-testid'?: string;
 }

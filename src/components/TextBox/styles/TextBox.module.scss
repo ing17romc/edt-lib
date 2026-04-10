@@ -2,7 +2,7 @@
 @use '../../../styles/typography' as *;
 @use '../../../styles/spacing' as *;
 
-// Contenedor principal
+// Main container
 .textBoxContainer {
   display: inline-flex;
   flex-direction: column;
@@ -16,7 +16,7 @@
   }
 }
 
-// Etiqueta
+// Label
 .label {
   display: block;
   margin-bottom: $text-box-label-margin-bottom;
@@ -34,7 +34,7 @@
   }
 }
 
-// Contenedor del input
+// Input wrapper
 .inputWrapper {
   position: relative;
   display: inline-flex;
@@ -44,7 +44,7 @@
   transition: all 0.2s ease-in-out;
   background-color: transparent;
 
-  // Variantes
+  // Variants
   &.variant-outlined {
     border: 1px solid $border-color;
     background-color: $background-paper;
@@ -99,7 +99,7 @@
     }
   }
 
-  // Tamaños
+  // Sizes
   &.size-small {
     min-height: $text-box-min-height-small;
     padding: $text-box-padding-small;
@@ -138,37 +138,37 @@
 
   /* stylelint-disable selector-pseudo-element-no-unknown */
 
-  /* Prefijos específicos para compatibilidad con navegadores antiguos */
-  &::placeholder { /* Estándar moderno y Firefox 19+ */
+  /* Browser-specific prefixes for older browser compatibility */
+  &::placeholder { /* Modern standard and Firefox 19+ */
     color: var(--text-secondary, #666);
     opacity: 1;
   }
   /* stylelint-enable selector-pseudo-element-no-unknown */
 
-  // Para navegadores basados en WebKit
+  // For WebKit-based browsers
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
     appearance: none;
     margin: 0;
   }
 
-  // Para Firefox
+  // For Firefox
   &[type='number'] {
     appearance: textfield;
   }
 
-  // Para quitar la X en IE y Edge
+  // To remove the X in IE and Edge
   &::-ms-clear,
   &::-ms-reveal {
     display: none;
   }
 
-  // Para quitar el borde azul en Chrome
+  // To remove the blue border in Chrome
   &:focus {
     outline: none;
   }
 
-  // Estilos para el autocompletado
+  // Autocomplete styles
   &:-webkit-autofill,
   &:-webkit-autofill:hover,
   &:-webkit-autofill:focus,
@@ -179,7 +179,7 @@
   }
 }
 
-// Adornos (iconos)
+// Adornments (icons)
 .startAdornment,
 .endAdornment {
   display: flex;
@@ -196,20 +196,20 @@
   margin-left: $text-box-adornment-margin;
 }
 
-// Texto de ayuda
+// Helper text
 .helperText {
   margin: $text-box-helper-text-margin-top 0 0;
   padding: 0;
   font-size: $text-box-helper-text-font-size;
   color: $text-secondary;
-  min-height: $text-box-helper-text-min-height; // Evita saltos de línea cuando no hay texto
+  min-height: $text-box-helper-text-min-height; // Prevents line jumps when there is no text
 
   &.error {
     color: $danger-color;
   }
 }
 
-// Clases de utilidad
+// Utility classes
 .hasStartAdornment {
   padding-left: $text-box-utility-padding;
 }

@@ -12,17 +12,17 @@ export enum SelectorVariant {
 
 export interface SelectorOption {
   /**
-   * Valor único de la opción
+   * Unique value of the option
    */
   value: string | number;
   
   /**
-   * Texto a mostrar para la opción
+   * Display text for the option
    */
   label: string;
   
   /**
-   * Si es true, la opción está deshabilitada
+   * If true, the option is disabled
    * @default false
    */
   disabled?: boolean;
@@ -30,72 +30,72 @@ export interface SelectorOption {
 
 export interface SelectorProps extends Omit<SelectHTMLAttributes<HTMLSelectElement>, 'size'> {
   /**
-   * Opciones del selector
+   * Selector options
    */
   options: SelectorOption[];
   
   /**
-   * Valor seleccionado actualmente
+   * Currently selected value
    */
   value?: string | number;
   
   /**
-   * Valor por defecto del selector
+   * Default value of the selector
    */
   defaultValue?: string | number;
   
   /**
-   * Etiqueta del selector
+   * Selector label
    */
   label?: string;
   
   /**
-   * Texto de ayuda o descripción
+   * Helper text or description
    */
   helperText?: string;
   
   /**
-   * Si es true, muestra un indicador de error
+   * If true, shows an error indicator
    * @default false
    */
   error?: boolean;
   
   /**
-   * Mensaje de error a mostrar cuando hay un error
+   * Error message to display when there is an error
    */
   errorMessage?: string;
   
   /**
-   * Variante visual del selector
+   * Visual variant of the selector
    * @default 'primary'
    */
   variant?: SelectorVariant;
   
   /**
-   * Tamaño del selector
+   * Selector size
    * @default 'medium'
    */
   size?: ComponentSize;
   
   /**
-   * Si es true, el selector ocupa todo el ancho disponible
+   * If true, the selector takes up the full available width
    * @default false
    */
   fullWidth?: boolean;
   
   /**
-   * Si es true, el selector está en estado de carga
+   * If true, the selector is in a loading state
    * @default false
    */
   loading?: boolean;
   
   /**
-   * Texto a mostrar cuando no hay opciones
+   * Text to display when there are no options
    */
   placeholder?: string;
   
   /**
-   * Si es true, el selector es de solo lectura
+   * If true, the selector is read-only
    * @default false
    */
   readOnly?: boolean;

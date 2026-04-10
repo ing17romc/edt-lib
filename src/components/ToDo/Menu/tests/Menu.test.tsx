@@ -13,45 +13,45 @@ beforeEach(() => {
 })
 
 describe('Menu', () => {
-  describe('renderizado básico', () => {
-    it('renderiza el menú con role="menu"', () => {
+  describe('basic rendering', () => {
+    it('renders the menu with role="menu"', () => {
       render(<Menu {...defaultMenuProps} />)
       expect(screen.getByRole('menu')).toBeInTheDocument()
     })
 
-    it('renderiza todos los elementos', () => {
+    it('renders all items', () => {
       render(<Menu {...defaultMenuProps} />)
-      expect(screen.getByRole('menuitem', { name: 'Elemento 1' })).toBeInTheDocument()
-      expect(screen.getByRole('menuitem', { name: 'Elemento 2' })).toBeInTheDocument()
-      expect(screen.getByRole('menuitem', { name: 'Elemento 3' })).toBeInTheDocument()
+      expect(screen.getByRole('menuitem', { name: 'Item 1' })).toBeInTheDocument()
+      expect(screen.getByRole('menuitem', { name: 'Item 2' })).toBeInTheDocument()
+      expect(screen.getByRole('menuitem', { name: 'Item 3' })).toBeInTheDocument()
     })
   })
 
-  describe('interacción', () => {
-    it('llama onSelect al hacer click', () => {
+  describe('interaction', () => {
+    it('calls onSelect on click', () => {
       render(<Menu {...defaultMenuProps} />)
-      fireEvent.click(screen.getByRole('menuitem', { name: 'Elemento 1' }))
+      fireEvent.click(screen.getByRole('menuitem', { name: 'Item 1' }))
       expect(mockOnSelect).toHaveBeenCalledWith('item1')
     })
 
-    it('no llama onSelect en elemento deshabilitado', () => {
+    it('does not call onSelect on a disabled item', () => {
       render(<Menu items={itemsWithIcons} onSelect={mockOnSelect} />)
-      fireEvent.click(screen.getByRole('menuitem', { name: 'Deshabilitado' }))
+      fireEvent.click(screen.getByRole('menuitem', { name: 'Disabled' }))
       expect(mockOnSelect).not.toHaveBeenCalled()
     })
   })
 
-  describe('separador', () => {
-    it('renderiza el separador', () => {
+  describe('separator', () => {
+    it('renders the separator', () => {
       render(<Menu items={itemsWithDivider} />)
       expect(screen.getByRole('separator')).toBeInTheDocument()
     })
   })
 
-  describe('elemento activo', () => {
-    it('aplica clase active al elemento activo', () => {
+  describe('active item', () => {
+    it('applies active class to the active item', () => {
       render(<Menu {...defaultMenuProps} activeKey="item1" />)
-      expect(screen.getByRole('menuitem', { name: 'Elemento 1' }).className).toMatch(/item--active/)
+      expect(screen.getByRole('menuitem', { name: 'Item 1' }).className).toMatch(/item--active/)
     })
   })
 })

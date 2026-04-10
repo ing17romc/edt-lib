@@ -31,7 +31,7 @@ export const FontColorsOnly: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Muestra solo los colores de fuente.'
+        story: 'Shows only the font colors.'
       }
     }
   }
@@ -46,7 +46,7 @@ export const BackgroundColorsOnly: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Muestra solo los colores de fondo.'
+        story: 'Shows only the background colors.'
       }
     }
   }
@@ -61,7 +61,7 @@ export const ScssVariablesOnly: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Muestra solo las variables SCSS de color.'
+        story: 'Shows only the SCSS color variables.'
       }
     }
   }

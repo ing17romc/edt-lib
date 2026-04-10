@@ -4,12 +4,12 @@ import styles from './styles/Tooltip.module.scss'
 import { TooltipProps } from './types'
 
 /**
- * Componente Tooltip que muestra información adicional al hacer hover sobre un elemento.
+ * Tooltip component that displays additional information when hovering over an element.
  *
- * @param content - Contenido a mostrar dentro del tooltip
- * @param placement - Posición del tooltip respecto al elemento hijo
- * @param disabled - Si el tooltip está deshabilitado
- * @param children - Elemento que activa el tooltip
+ * @param content - Content to display inside the tooltip
+ * @param placement - Tooltip position relative to the child element
+ * @param disabled - Whether the tooltip is disabled
+ * @param children - Element that activates the tooltip
  */
 const Tooltip = ({
   content,

@@ -7,50 +7,50 @@
   [![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@main/badge/badge-storybook.svg)](https://ing17romc.github.io/edt-lib/)
   [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-  <p>Una biblioteca de componentes de interfaz de usuario moderna, accesible y altamente personalizable para aplicaciones React.</p>
+  <p>A modern, accessible, and highly customizable UI component library for React applications.</p>
 </div>
 
-## ✨ Características
+## ✨ Features
 
-- 🚀 Construido con React 18+ y TypeScript
-- 🎨 Diseño consistente con soporte para temas personalizados
-- ♿️ Totalmente accesible (WCAG 2.1)
-- 📱 Diseño responsivo
-- 🧪 Cobertura de pruebas completa
-- 📚 Documentación interactiva con Storybook
-- 🔧 Fácil de personalizar y extender
+- 🚀 Built with React 18+ and TypeScript
+- 🎨 Consistent design with custom theme support
+- ♿️ Fully accessible (WCAG 2.1)
+- 📱 Responsive design
+- 🧪 Full test coverage
+- 📚 Interactive documentation with Storybook
+- 🔧 Easy to customize and extend
 
-## 📦 Instalación
+## 📦 Installation
 
-Instala el paquete usando npm o yarn:
+Install the package using npm or yarn:
 
 ```bash
-# Usando npm
+# Using npm
 npm install edt-lib
 
-# O usando yarn
+# Or using yarn
 yarn add edt-lib
 ```
 
-## 🔌 Requisitos Previos
+## 🔌 Prerequisites
 
 ### Material Icons
 
-La biblioteca utiliza [Material Icons](https://fonts.google.com/icons) para los iconos. Asegúrate de incluir el siguiente enlace en el `<head>` de tu aplicación:
+The library uses [Material Icons](https://fonts.google.com/icons) for icons. Make sure to include the following link in your application's `<head>`:
 
 ```html
 <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
 ```
 
-### Configuración de TypeScript
+### TypeScript Configuration
 
-Si estás usando TypeScript, asegúrate de tener instalados los tipos de React:
+If you are using TypeScript, make sure you have React types installed:
 
 ```bash
 npm install --save-dev @types/react @types/react-dom
 ```
 
-## 🚀 Uso Rápido
+## 🚀 Quick Start
 
 ```jsx
 import React from 'react';
@@ -60,9 +60,9 @@ function App() {
   return (
     <ThemeProvider>
       <div className="app">
-        <h1>Bienvenido a edt-lib</h1>
-        <Button variant="primary" onClick={() => alert('¡Hola!')}>
-          Haz clic aquí
+        <h1>Welcome to edt-lib</h1>
+        <Button variant="primary" onClick={() => alert('Hello!')}>
+          Click here
         </Button>
       </div>
     </ThemeProvider>
@@ -72,173 +72,173 @@ function App() {
 export default App;
 ```
 
-## 🧩 Componentes Disponibles
+## 🧩 Available Components
 
-### Componentes Básicos
-- `Button` - Botones con múltiples variantes
-- `Card` - Contenedor de contenido con estilos predefinidos
-- `CheckButton` - Botones de verificación
-- `Icon` - Componente de iconos
-- `IconButton` - Botones que contienen iconos
-- `Modal` - Ventanas modales
-- `RadioButton` - Botones de opción
-- `Selector` - Menús desplegables
-- `Spinner` - Indicadores de carga
-- `TextArea` - Áreas de texto editables
-- `TextBox` - Campos de texto
-- `TextButton` - Botones de texto
-- `Title` - Títulos con estilos predefinidos
+### Basic Components
+- `Button` - Buttons with multiple variants
+- `Card` - Content container with predefined styles
+- `CheckButton` - Checkboxes
+- `Icon` - Icon component
+- `IconButton` - Buttons containing icons
+- `Modal` - Modal windows
+- `RadioButton` - Radio buttons
+- `Selector` - Dropdown menus
+- `Spinner` - Loading indicators
+- `TextArea` - Editable text areas
+- `TextBox` - Text fields
+- `TextButton` - Text buttons
+- `Title` - Titles with predefined styles
 
-### Componentes de Tabla
-- `TableDefault` - Tabla básica
-- `TableActiveRow` - Tabla con filas seleccionables
-- `TableWithButton` - Tabla con botones de acción
-- `TableWithIcon` - Tabla con iconos
-- `TableWithPagination` - Tabla con paginación
+### Table Components
+- `TableDefault` - Basic table
+- `TableActiveRow` - Table with selectable rows
+- `TableWithButton` - Table with action buttons
+- `TableWithIcon` - Table with icons
+- `TableWithPagination` - Table with pagination
 
-### Utilidades
-- `ThemeProvider` - Proveedor de temas personalizados
-- `Grid` - Sistema de cuadrícula responsive
-- `Message` - Componente para mostrar mensajes al usuario
-- `Typography` - Estilos tipográficos consistentes
+### Utilities
+- `ThemeProvider` - Custom theme provider
+- `Grid` - Responsive grid system
+- `Message` - Component for displaying messages to the user
+- `Typography` - Consistent typographic styles
 
-## 📚 Documentación Completa
+## 📚 Full Documentation
 
-Para ver ejemplos detallados y la documentación completa de todos los componentes, visita nuestra [documentación de Storybook](https://ing17romc.github.io/edt-lib/).
+To see detailed examples and complete documentation for all components, visit our [Storybook documentation](https://ing17romc.github.io/edt-lib/).
 
-## 🛠 Desarrollo
+## 🛠 Development
 
-### Requisitos
+### Requirements
 - Node.js 16+
-- npm 7+ o yarn 1.22+
+- npm 7+ or yarn 1.22+
 
-### Instalación de dependencias
+### Install dependencies
 
 ```bash
-# Instalar dependencias
+# Install dependencies
 npm install
-# o
+# or
 yarn
 ```
 
-### Comandos disponibles
+### Available commands
 
 ```bash
-# Iniciar servidor de desarrollo de Storybook
+# Start Storybook development server
 npm run sb
 
-# Ejecutar pruebas
+# Run tests
 npm test
 
-# Ejecutar linter
+# Run linter
 npm run lint
 
-# Construir para producción
+# Build for production
 npm run build
 
-# Desplegar documentación
+# Deploy documentation
 npm run release-sb
 
-# Publicar nueva versión (minor)
+# Publish new version (minor)
 npm run publish-npm-minor
 ```
 
-## 🤝 Contribuir
+## 🤝 Contributing
 
-¡Las contribuciones son bienvenidas! Por favor, lee nuestra [guía de contribución](CONTRIBUTING.md) para más detalles.
+Contributions are welcome! Please read our [contributing guide](CONTRIBUTING.md) for more details.
 
-## 📄 Licencia
+## 📄 License
 
-Este proyecto está bajo la Licencia ISC. Ver el archivo [LICENSE](LICENSE) para más detalles.
+This project is licensed under the ISC License. See the [LICENSE](LICENSE) file for more details.
 
 ---
 
 <div align="center">
-  Hecho con ❤️ por el equipo de edt-lib
+  Made with ❤️ by the edt-lib team
 </div>
 
-## Publicar en npm
+## Publish to npm
 
-Asegúrate de tener permisos para publicar el paquete en npm y haber actualizado la versión en `package.json` si es necesario.
+Make sure you have permissions to publish the package to npm and have updated the version in `package.json` if necessary.
 
-1. Para incrementar el patch, compilar y publicar automáticamente:
+1. To increment the patch, build and publish automatically:
    ```bash
    npm run publish-npm
    ```
-   Este comando actualizará automáticamente la versión (patch), construirá el paquete y lo publicará en el registro público de npm.
+   This command will automatically update the version (patch), build the package and publish it to the npm public registry.
 
 ---
 
-## Desplegar Storybook en GitHub Pages
+## Deploy Storybook to GitHub Pages
 
-1. Para construir y desplegar Storybook en GitHub Pages, ejecuta:
+1. To build and deploy Storybook to GitHub Pages, run:
    ```bash
    npm run release-sb
    ```
-   Este comando construirá la aplicación, creará una carpeta `.gh-pages` y desplegará el contenido en la rama `gh-pages` de tu repositorio.
+   This command will build the application, create a `.gh-pages` folder, and deploy the content to the `gh-pages` branch of your repository.
 
 ---
 
-## 🚀 Uso básico
+## 🚀 Basic Usage
 
 ```tsx
 import { Title } from 'edt-lib';
 
 function App() {
-  return <Title level={1}>¡Hola, mundo!</Title>;
+  return <Title level={1}>Hello, world!</Title>;
 }
 ```
 
 ---
 
-## 📚 Documentación Visual
+## 📚 Visual Documentation
 
-Consulta la documentación interactiva y ejemplos en vivo en:  
+Check out the interactive documentation and live examples at:  
 👉 [Storybook: http://ing17romc.github.io/edt-lib/](http://ing17romc.github.io/edt-lib/)
 
 ---
 
-## 🧑‍💻 Desarrollo local
+## 🧑‍💻 Local Development
 
-Clona el repositorio y ejecuta los siguientes comandos:
+Clone the repository and run the following commands:
 
-1. Instala las dependencias:
+1. Install dependencies:
    ```bash
    npm install
    ```
 
-2. Inicia Storybook para desarrollo:
+2. Start Storybook for development:
    ```bash
    npm run sb
    ```
-   Esto construirá los componentes y abrirá Storybook en http://localhost:6006
+   This will build the components and open Storybook at http://localhost:6006
 
-3. Para ejecutar los tests:
+3. To run tests:
    ```bash
    npm test
    ```
 
-4. Para limpiar y reinstalar dependencias (útil en caso de problemas):
+4. To clean and reinstall dependencies (useful in case of problems):
    ```bash
    npm run clean
    ```
 
-5. Para construir los componentes para producción:
+5. To build components for production:
    ```bash
    npm run build
    ```
 
 ---
 
-## 📦 Scripts disponibles
+## 📦 Available Scripts
 
-- `clean`: Limpia las dependencias y las reinstala
-- `build`: Construye los componentes para producción
-- `test`: Ejecuta las pruebas unitarias
-- `lint`: Ejecuta el linter
-- `sb`: Inicia Storybook en modo desarrollo
-- `release-sb`: Despliega Storybook en GitHub Pages
-- `publish-npm`: Publica una nueva versión en npm
+- `clean`: Cleans dependencies and reinstalls them
+- `build`: Builds components for production
+- `test`: Runs unit tests
+- `lint`: Runs the linter
+- `sb`: Starts Storybook in development mode
+- `release-sb`: Deploys Storybook to GitHub Pages
+- `publish-npm`: Publishes a new version to npm
 
 ---
 
@@ -257,29 +257,29 @@ npm run test
 
 ---
 
-## 🚢 Publicar en NPM
+## 🚢 Publish to NPM
 
-1. Aumenta la versión en `package.json`.
-2. Compila el paquete si es necesario (`npm run build`).
-3. Publica:
+1. Bump the version in `package.json`.
+2. Build the package if necessary (`npm run build`).
+3. Publish:
    ```sh
    npm publish --access public
    ```
 
 ---
 
-## 🌐 Deploy de Storybook (demo visual)
+## 🌐 Storybook Deploy (visual demo)
 
 ```sh
 npm run build-storybook
 npm run deploy-storybook
 ```
-Esto publicará la documentación en GitHub Pages:  
+This will publish the documentation to GitHub Pages:  
 [http://ing17romc.github.io/edt-lib/](http://ing17romc.github.io/edt-lib/)
 
 ---
 
-## 📦 Repositorio
+## 📦 Repository
 
 - [GitHub](https://github.com/ing17romc/edt-lib/)
 - [NPM](https://www.npmjs.com/package/edt-lib)

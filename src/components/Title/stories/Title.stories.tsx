@@ -12,72 +12,72 @@ export default meta;
 
 type Story = StoryObj<typeof Title>;
 
-// Historia por defecto
+// Default story
 export const Default: Story = {};
 
-// Historia con todas las propiedades
+// Story with all properties
 export const WithAllProps: Story = {
   args: withAllPropsArgs,
 };
 
-// Historia con diferentes tamaños
+// Story with different sizes
 export const Sizes: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
       {Object.values(TitleSize).map((size) => (
         <Title key={size} size={size}>
-          Título {size.toUpperCase()}
+          Title {size.toUpperCase()}
         </Title>
       ))}
     </div>
   ),
 };
 
-// Historia con diferentes variantes de color
+// Story with different color variants
 export const Variants: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
       {Object.values(TitleVariant).map((variant) => (
         <Title key={variant} variant={variant}>
-          Variante {variant}
+          Variant {variant}
         </Title>
       ))}
     </div>
   ),
 };
 
-// Historia con diferentes estilos de texto
+// Story with different text styles
 export const TextStyles: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-      <Title>Estilo normal</Title>
-      <Title bold>Negrita</Title>
-      <Title italic>Cursiva</Title>
-      <Title underline>Subrayado</Title>
-      <Title strikethrough>Tachado</Title>
-      <Title bold italic>Negrita y cursiva</Title>
+      <Title>Normal style</Title>
+      <Title bold>Bold</Title>
+      <Title italic>Italic</Title>
+      <Title underline>Underline</Title>
+      <Title strikethrough>Strikethrough</Title>
+      <Title bold italic>Bold and italic</Title>
     </div>
   ),
 };
 
-// Historia con diferentes alineaciones
+// Story with different alignments
 export const Alignments: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-      <Title align="left">Alineación izquierda</Title>
-      <Title align="center">Alineación centrada</Title>
-      <Title align="right">Alineación derecha</Title>
+      <Title align="left">Left alignment</Title>
+      <Title align="center">Center alignment</Title>
+      <Title align="right">Right alignment</Title>
       <Title 
         align="justify" 
         style={{ maxWidth: '300px' }}
       >
-        Texto justificado: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Justified text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </Title>
     </div>
   ),
 };
 
-// Historia con comportamiento de bloque
+// Story with block behavior
 export const Block: Story = {
   render: () => (
     <div style={{ border: '1px solid #ccc', padding: '1rem' }}>
@@ -90,32 +90,32 @@ export const Block: Story = {
           marginBottom: '8px'
         }}
       >
-        Título en bloque (ocupa todo el ancho)
+        Block title (full width)
       </Title>
-      <p>Contenido debajo del título</p>
+      <p>Content below the title</p>
     </div>
   ),
 };
 
-// Historia con no-wrap
+// Story with no-wrap
 export const NoWrap: Story = {
   render: () => (
     <div style={{ width: '200px', border: '1px solid #ccc', padding: '1rem' }}>
       <Title noWrap>
-        Este texto no se romperá en varias líneas aunque sea muy largo y no quepa en el contenedor
+        This text will not break into multiple lines even if it is very long and does not fit in the container
       </Title>
       <Title>
-        Este texto sí se romperá en varias líneas si no cabe en el contenedor
+        This text will break into multiple lines if it does not fit in the container
       </Title>
-      <p>El título de arriba debería mostrarse en una sola línea con puntos suspensivos</p>
+      <p>The title above should be displayed on a single line with ellipsis</p>
     </div>
   ),
 };
 
-// Historia con manejador de clic
+// Story with click handler
 export const Clickable: Story = {
   args: {
-    children: 'Haz clic en este título',
-    onClick: () => alert('¡Título clickeado!'),
+    children: 'Click on this title',
+    onClick: () => alert('Title clicked!'),
   },
 };

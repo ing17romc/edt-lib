@@ -7,11 +7,11 @@ import '../../../styles/tables.scss';
 /**
  * TableActiveRow
  *
- * Componente de tabla que permite seleccionar filas activas y muestra datos con estilos diferenciados.
- * Útil para resaltar o interactuar con filas específicas de la tabla.
+ * Table component that allows selecting active rows and displays data with differentiated styles.
+ * Useful for highlighting or interacting with specific table rows.
  *
- * @param {TableActiveRowProps} props - Propiedades del componente, incluyendo el arreglo de datos a mostrar.
- * @returns {JSX.Element} Tabla con filas activas e interacción básica.
+ * @param {TableActiveRowProps} props - Component properties, including the array of data to display.
+ * @returns {JSX.Element} Table with active rows and basic interaction.
  */
 const TableActiveRow: React.FC<TableActiveRowProps> = ({ dataTable }) => {
 	return (

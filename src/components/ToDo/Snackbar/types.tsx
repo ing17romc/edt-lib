@@ -4,44 +4,44 @@ import { ComponentVariant } from '../../types';
 export type SnackbarVariant = ComponentVariant.PRIMARY | ComponentVariant.SUCCESS | ComponentVariant.DANGER | ComponentVariant.WARNING;
 
 /**
- * Propiedades del componente Snackbar
+ * Snackbar component props
  */
 export interface SnackbarProps extends HTMLAttributes<HTMLDivElement> {
   /**
-   * Mensaje a mostrar
+   * Message to display
    */
   message: ReactNode;
 
   /**
-   * Variante de color
+   * Color variant
    * @default 'primary'
    */
   variant?: SnackbarVariant;
 
   /**
-   * Si el snackbar es visible
+   * Whether the snackbar is visible
    * @default true
    */
   open?: boolean;
 
   /**
-   * Duración en ms antes de cerrarse automáticamente (0 = no se cierra)
+   * Duration in ms before auto-closing (0 = does not close)
    * @default 4000
    */
   duration?: number;
 
   /**
-   * Callback al cerrar el snackbar
+   * Callback when the snackbar closes
    */
   onClose?: () => void;
 
   /**
-   * Texto del botón de acción (opcional)
+   * Action button text (optional)
    */
   actionLabel?: string;
 
   /**
-   * Callback del botón de acción
+   * Action button callback
    */
   onAction?: () => void;
 }

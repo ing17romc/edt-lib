@@ -12,8 +12,8 @@ export const mockPaginationCustomLabels: PaginationProps = {
   totalPages: 10,
   currentPage: 1,
   onPageChange: vi.fn(),
-  previousLabel: 'Anterior',
-  nextLabel: 'Siguiente',
+  previousLabel: 'Previous',
+  nextLabel: 'Next',
 };
 
 export const mockPaginationDisabled: PaginationProps = {

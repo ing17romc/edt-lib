@@ -99,7 +99,7 @@ export const WithCustomClass: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'RadioButton con una clase CSS personalizada aplicada.',
+        story: 'RadioButton with a custom CSS class applied.',
       },
     },
   },
@@ -110,7 +110,7 @@ export const SmallSize: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'RadioButton con tamaño pequeño (SMALL).',
+        story: 'RadioButton with small size (SMALL).',
       },
     },
   },
@@ -121,7 +121,7 @@ export const LargeSize: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'RadioButton con tamaño grande (LARGE).',
+        story: 'RadioButton with large size (LARGE).',
       },
     },
   },
@@ -130,15 +130,15 @@ export const LargeSize: Story = {
 export const SizeVariants: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-      <RadioButton {...smallSize} label="Opción pequeña (SMALL)" />
-      <RadioButton {...defaultArgs} label="Opción mediana (MEDIUM)" />
-      <RadioButton {...largeSize} label="Opción grande (LARGE)" />
+      <RadioButton {...smallSize} label="Small option (SMALL)" />
+      <RadioButton {...defaultArgs} label="Medium option (MEDIUM)" />
+      <RadioButton {...largeSize} label="Large option (LARGE)" />
     </div>
   ),
   parameters: {
     docs: {
       description: {
-        story: 'Ejemplo que muestra las diferentes variantes de tamaño disponibles para el RadioButton.',
+        story: 'Example showing the different size variants available for the RadioButton.',
       },
     },
   },
@@ -148,7 +148,7 @@ export const Group: Story = {
   render: () => <RadioGroupComponent />,
 };
 
-// Componente controlado
+// Controlled component
 const ControlledComponent = (args: RadioButtonProps) => {
   const [checked, setChecked] = React.useState(args.checked || false);
   
@@ -161,7 +161,7 @@ const ControlledComponent = (args: RadioButtonProps) => {
   );
 };
 
-// Ejemplo de uso controlado
+// Controlled usage example
 export const Controlled: Story = {
   render: (args) => <ControlledComponent {...args} />,
   args: defaultArgs,

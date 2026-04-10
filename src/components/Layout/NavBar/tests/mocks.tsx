@@ -18,8 +18,8 @@ export const MockLogo = () => (
 
 export const MockNav = () => (
   <>
-    <a href="#inicio">Inicio</a>
-    <a href="#acerca">Acerca de</a>
-    <a href="#contacto">Contacto</a>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
   </>
 );

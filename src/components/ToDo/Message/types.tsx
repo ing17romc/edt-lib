@@ -8,33 +8,33 @@ export type MessageVariant =
   | ComponentVariant.WARNING;
 
 /**
- * Propiedades del componente Message
+ * Message component properties
  */
 export interface MessageProps extends HTMLAttributes<HTMLDivElement> {
   /**
-   * Contenido del mensaje
+   * Message content
    */
   children: ReactNode;
 
   /**
-   * Variante de color/tipo del mensaje
+   * Color/type variant of the message
    * @default 'primary'
    */
   variant?: MessageVariant;
 
   /**
-   * Título opcional del mensaje
+   * Optional message title
    */
   title?: string;
 
   /**
-   * Si se puede cerrar el mensaje
+   * Whether the message can be closed
    * @default false
    */
   closable?: boolean;
 
   /**
-   * Callback al cerrar el mensaje
+   * Callback when closing the message
    */
   onClose?: () => void;
 }

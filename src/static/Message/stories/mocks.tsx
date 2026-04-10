@@ -2,7 +2,7 @@ import type { Meta } from '@storybook/react';
 import type { MessageType, MessageProps } from '../types';
 
 /**
- * Datos de ejemplo para los mensajes
+ * Example data for messages
  */
 export const mockMessages: Array<{
   type: MessageType;
@@ -11,49 +11,49 @@ export const mockMessages: Array<{
 }> = [
   {
     type: 'success',
-    title: '¡Éxito!',
-    content: 'La operación se completó correctamente.',
+    title: 'Success!',
+    content: 'The operation completed successfully.',
   },
   {
     type: 'info',
-    title: 'Información',
-    content: 'Este es un mensaje informativo.',
+    title: 'Information',
+    content: 'This is an informational message.',
   },
   {
     type: 'warning',
-    title: 'Advertencia',
-    content: 'Esta acción requiere su atención.',
+    title: 'Warning',
+    content: 'This action requires your attention.',
   },
   {
     type: 'danger',
     title: 'Error',
-    content: 'Ha ocurrido un error inesperado.',
+    content: 'An unexpected error occurred.',
   },
 ];
 
 /**
- * Tipos de mensaje disponibles para los controles de Storybook
+ * Available message types for Storybook controls
  */
 export const messageTypes: MessageType[] = ['success', 'info', 'warning', 'danger'];
 
 /**
- * Argumentos por defecto para el componente Message
+ * Default arguments for the Message component
  */
 export const defaultArgs: Partial<MessageProps> = {
   type: 'info',
-  title: 'Título del mensaje',
-  children: 'Contenido del mensaje de ejemplo.',
+  title: 'Message title',
+  children: 'Example message content.',
 };
 
 
 /**
- * Controles para los argumentos en Storybook
+ * Controls for Storybook arguments
  */
 export const argTypes: Meta<typeof defaultArgs>['argTypes'] = {
   type: {
     control: { type: 'select' },
     options: messageTypes,
-    description: 'Tipo de mensaje a mostrar',
+    description: 'Message type to display',
     table: {
       type: { summary: messageTypes.map(t => `'${t}'`).join(' | ') },
       defaultValue: { summary: 'info' },
@@ -61,21 +61,21 @@ export const argTypes: Meta<typeof defaultArgs>['argTypes'] = {
   },
   title: {
     control: { type: 'text' },
-    description: 'Título opcional del mensaje',
+    description: 'Optional message title',
     table: {
       type: { summary: 'string' },
     },
   },
   children: {
     control: { type: 'text' },
-    description: 'Contenido del mensaje',
+    description: 'Message content',
     table: {
       type: { summary: 'ReactNode' },
     },
   },
   className: {
     control: { type: 'text' },
-    description: 'Clases CSS adicionales',
+    description: 'Additional CSS classes',
     table: {
       type: { summary: 'string' },
     },

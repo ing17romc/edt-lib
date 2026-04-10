@@ -1,52 +1,52 @@
 import { HTMLAttributes, ReactNode } from 'react';
 
 /**
- * Elemento de una pestaña
+ * Tab item
  */
 export interface TabItem {
   /**
-   * Identificador único del tab
+   * Unique tab identifier
    */
   key: string;
 
   /**
-   * Etiqueta del tab
+   * Tab label
    */
   label: ReactNode;
 
   /**
-   * Contenido del tab
+   * Tab content
    */
   content: ReactNode;
 
   /**
-   * Si el tab está deshabilitado
+   * Whether the tab is disabled
    * @default false
    */
   disabled?: boolean;
 }
 
 /**
- * Propiedades del componente Tabs
+ * Tabs component properties
  */
 export interface TabsProps extends HTMLAttributes<HTMLDivElement> {
   /**
-   * Lista de pestañas
+   * List of tabs
    */
   tabs: TabItem[];
 
   /**
-   * Key del tab activo (modo controlado)
+   * Active tab key (controlled mode)
    */
   activeKey?: string;
 
   /**
-   * Key del tab activo por defecto (modo no controlado)
+   * Default active tab key (uncontrolled mode)
    */
   defaultActiveKey?: string;
 
   /**
-   * Callback al cambiar de pestaña
+   * Callback when changing tabs
    */
   onChange?: (key: string) => void;
 }

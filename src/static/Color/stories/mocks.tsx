@@ -2,7 +2,7 @@ import type { ColorGroup, ColorProps } from '../types';
 import type { Meta } from '@storybook/react';
 
 /**
- * Grupos de colores para mostrar en el componente
+ * Color groups to display in the component
  */
 export const colorGroups: ColorGroup[] = [
   {
@@ -53,7 +53,7 @@ export const colorGroups: ColorGroup[] = [
 ];
 
 /**
- * Configuración por defecto para las historias de Storybook
+ * Default configuration for Storybook stories
  */
 export const defaultArgs: ColorProps = {
   showFontColors: true,
@@ -62,35 +62,35 @@ export const defaultArgs: ColorProps = {
 };
 
 /**
- * Configuración de controles para Storybook
+ * Control configuration for Storybook
  */
 export const argTypes: Meta<ColorProps>['argTypes'] = {
   className: {
     control: { type: 'text' },
-    description: 'Clase CSS personalizada para el contenedor principal',
+    description: 'Custom CSS class for the main container',
   },
   showFontColors: {
     control: { type: 'boolean' },
-    description: 'Mostrar colores de fuente',
+    description: 'Show font colors',
   },
   showBackgroundColors: {
     control: { type: 'boolean' },
-    description: 'Mostrar colores de fondo',
+    description: 'Show background colors',
   },
   showScssVariables: {
     control: { type: 'boolean' },
-    description: 'Mostrar variables SCSS de color',
+    description: 'Show SCSS color variables',
   },
 };
 
 /**
- * Configuración de parámetros para las historias
+ * Parameter configuration for stories
  */
 export const parameters = {
   layout: 'fullscreen',
   docs: {
     description: {
-      component: 'Componente que muestra ejemplos de colores, incluyendo colores de fuente, colores de fondo y variables SCSS de color.',
+      component: 'Component that displays color examples, including font colors, background colors, and SCSS color variables.',
     },
   },
 };

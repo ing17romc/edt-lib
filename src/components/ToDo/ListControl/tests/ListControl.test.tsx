@@ -12,47 +12,47 @@ beforeEach(() => {
 })
 
 describe('ListControl', () => {
-  describe('renderizado básico', () => {
-    it('renderiza la lista con role="listbox"', () => {
+  describe('basic rendering', () => {
+    it('renders the list with role="listbox"', () => {
       render(<ListControl {...defaultListControlProps} />)
       expect(screen.getByRole('listbox')).toBeInTheDocument()
     })
 
-    it('renderiza todos los elementos', () => {
+    it('renders all items', () => {
       render(<ListControl {...defaultListControlProps} />)
-      expect(screen.getByText('Elemento 1')).toBeInTheDocument()
-      expect(screen.getByText('Elemento 2')).toBeInTheDocument()
-      expect(screen.getByText('Elemento 3')).toBeInTheDocument()
+      expect(screen.getByText('Item 1')).toBeInTheDocument()
+      expect(screen.getByText('Item 2')).toBeInTheDocument()
+      expect(screen.getByText('Item 3')).toBeInTheDocument()
     })
 
-    it('muestra la descripción cuando está definida', () => {
+    it('shows the description when defined', () => {
       render(<ListControl {...defaultListControlProps} />)
-      expect(screen.getByText('Descripción del elemento 2')).toBeInTheDocument()
+      expect(screen.getByText('Description of item 2')).toBeInTheDocument()
     })
   })
 
-  describe('selección', () => {
-    it('llama onSelect al hacer click en un elemento', () => {
+  describe('selection', () => {
+    it('calls onSelect when clicking an item', () => {
       render(<ListControl {...defaultListControlProps} />)
-      fireEvent.click(screen.getByText('Elemento 1'))
+      fireEvent.click(screen.getByText('Item 1'))
       expect(mockOnSelect).toHaveBeenCalledWith('item1')
     })
 
-    it('el elemento seleccionado tiene aria-selected="true"', () => {
+    it('the selected item has aria-selected="true"', () => {
       render(<ListControl items={itemsWithSelection} />)
       const options = screen.getAllByRole('option')
       expect(options[0]).toHaveAttribute('aria-selected', 'true')
     })
 
-    it('no llama onSelect en elemento deshabilitado', () => {
+    it('does not call onSelect on a disabled item', () => {
       render(<ListControl items={itemsWithSelection} onSelect={mockOnSelect} />)
-      fireEvent.click(screen.getByText('Deshabilitado'))
+      fireEvent.click(screen.getByText('Disabled'))
       expect(mockOnSelect).not.toHaveBeenCalled()
     })
   })
 
   describe('multiSelect', () => {
-    it('tiene aria-multiselectable="true" cuando multiSelect=true', () => {
+    it('has aria-multiselectable="true" when multiSelect=true', () => {
       render(<ListControl {...defaultListControlProps} multiSelect />)
       expect(screen.getByRole('listbox')).toHaveAttribute('aria-multiselectable', 'true')
     })

@@ -4,7 +4,7 @@ import CheckButton from '../index';
 import { CheckButtonProps } from '../types';
 import { ComponentSize } from '../../types';
 
-// Configuración base para las historias
+// Base configuration for stories
 const meta: Meta<CheckButtonProps> = {
   title: 'Components/CheckButton',
   component: CheckButton,
@@ -63,14 +63,14 @@ const meta: Meta<CheckButtonProps> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// Opciones para el grupo de checkboxes
+// Options for the checkbox group
 const groupOptions = [
-  { id: '1', label: 'Opción 1' },
-  { id: '2', label: 'Opción 2' },
-  { id: '3', label: 'Opción 3' },
+  { id: '1', label: 'Option 1' },
+  { id: '2', label: 'Option 2' },
+  { id: '3', label: 'Option 3' },
 ];
 
-// Estilos para el contenedor del grupo
+// Styles for the group container
 const groupContainerStyle: React.CSSProperties = { 
   display: 'flex', 
   flexDirection: 'column', 
@@ -81,26 +81,26 @@ const selectedItemsStyle: React.CSSProperties = {
   marginTop: '16px' 
 };
 
-// Historias
+// Stories
 export const Default: Story = {
   render: (args) => <CheckButton {...args} />,
   args: {
-    label: 'Opción predeterminada (medium)',
+    label: 'Default option (medium)',
   },
 };
 
 export const SizeVariations: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-      <CheckButton label={`Tamaño pequeño (${ComponentSize.SMALL})`} size={ComponentSize.SMALL} />
-      <CheckButton label={`Tamaño mediano (${ComponentSize.MEDIUM}) - predeterminado`} size={ComponentSize.MEDIUM} />
-      <CheckButton label={`Tamaño grande (${ComponentSize.LARGE})`} size={ComponentSize.LARGE} />
+      <CheckButton label={`Small size (${ComponentSize.SMALL})`} size={ComponentSize.SMALL} />
+      <CheckButton label={`Medium size (${ComponentSize.MEDIUM}) - default`} size={ComponentSize.MEDIUM} />
+      <CheckButton label={`Large size (${ComponentSize.LARGE})`} size={ComponentSize.LARGE} />
     </div>
   ),
   parameters: {
     docs: {
       description: {
-        story: 'Ejemplo que muestra los diferentes tamaños disponibles para el botón de verificación.',
+        story: 'Example showing the different sizes available for the checkbox button.',
       },
     },
   },
@@ -109,20 +109,20 @@ export const SizeVariations: Story = {
 export const Disabled: Story = {
   args: {
     disabled: true,
-    label: 'Opción deshabilitada',
+    label: 'Disabled option',
   },
 };
 
 export const Large: Story = {
   args: {
-    label: 'Opción grande',
+    label: 'Large option',
     className: 'check-button--large',
   },
 };
 
 export const Small: Story = {
   args: {
-    label: 'Opción pequeña',
+    label: 'Small option',
     className: 'check-button--small',
   },
 };
@@ -139,7 +139,7 @@ export const Interactive: Story = {
     );
   },
   args: {
-    label: 'Haz clic para cambiar',
+    label: 'Click to toggle',
   },
 };
 
@@ -166,7 +166,7 @@ export const Group: Story = {
           />
         ))}
         <div style={selectedItemsStyle}>
-          <p>Seleccionados: {selected.length > 0 ? selected.join(', ') : 'Ninguno'}</p>
+          <p>Selected: {selected.length > 0 ? selected.join(', ') : 'None'}</p>
         </div>
       </div>
     );
@@ -174,7 +174,7 @@ export const Group: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Ejemplo de un grupo de checkboxes que se pueden seleccionar múltiples opciones.',
+        story: 'Example of a checkbox group where multiple options can be selected.',
       },
     },
   },

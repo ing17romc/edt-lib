@@ -4,13 +4,13 @@ import styles from './styles/CarouselSnapped.module.scss'
 import { CarouselSnappedProps, CarouselSlide } from './types'
 
 /**
- * Componente CarouselSnapped que muestra slides con scroll snapping nativo.
+ * CarouselSnapped component that displays slides with native scroll snapping.
  *
- * @param slides - Diapositivas del carrusel
- * @param showNavigation - Si muestra botones prev/next
- * @param showIndicators - Si muestra indicadores de posición
- * @param defaultIndex - Índice inicial
- * @param onChange - Callback al cambiar de slide
+ * @param slides - Carousel slides
+ * @param showNavigation - Whether to show prev/next buttons
+ * @param showIndicators - Whether to show position indicators
+ * @param defaultIndex - Initial index
+ * @param onChange - Callback when slide changes
  */
 const CarouselSnapped = ({
   slides,
@@ -61,7 +61,7 @@ const CarouselSnapped = ({
         <>
           <button
             type="button"
-            aria-label="Anterior"
+            aria-label="Previous"
             disabled={currentIndex === 0}
             className={classNames(styles.navButton, styles['navButton--prev'])}
             onClick={prev}
@@ -70,7 +70,7 @@ const CarouselSnapped = ({
           </button>
           <button
             type="button"
-            aria-label="Siguiente"
+            aria-label="Next"
             disabled={currentIndex === slides.length - 1}
             className={classNames(styles.navButton, styles['navButton--next'])}
             onClick={next}
@@ -81,12 +81,12 @@ const CarouselSnapped = ({
       )}
 
       {showIndicators && (
-        <div className={styles.indicators} aria-label="Indicadores de posición">
+        <div className={styles.indicators} aria-label="Position indicators">
           {slides.map((slide, i) => (
             <button
               key={slide.key}
               type="button"
-              aria-label={`Ir a slide ${i + 1}`}
+              aria-label={`Go to slide ${i + 1}`}
               aria-current={i === currentIndex}
               className={classNames(
                 styles.dot,

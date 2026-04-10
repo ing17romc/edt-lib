@@ -5,29 +5,29 @@ import { SelectorProps, SelectorVariant } from './types';
 import { ComponentSize } from '../types';
 
 /**
- * Componente Selector que representa un menú desplegable con múltiples opciones.
+ * Selector component that represents a dropdown menu with multiple options.
  * 
  * @component
  * @example
- * // Uso básico
+ * // Basic usage
  * const options = [
- *   { value: '1', label: 'Opción 1' },
- *   { value: '2', label: 'Opción 2' },
+ *   { value: '1', label: 'Option 1' },
+ *   { value: '2', label: 'Option 2' },
  * ];
  * 
  * <Selector 
  *   options={options}
- *   label="Selecciona una opción"
+ *   label="Select an option"
  *   onChange={(e) => console.log(e.target.value)}
  * />
  * 
  * @example
- * // Selector con estado de error
+ * // Selector with error state
  * <Selector
  *   options={options}
- *   label="Selecciona una opción"
+ *   label="Select an option"
  *   error={true}
- *   errorMessage="Selecciona una opción válida"
+ *   errorMessage="Select a valid option"
  * />
  */
 const Selector = forwardRef<HTMLSelectElement, SelectorProps>(({
@@ -48,10 +48,10 @@ const Selector = forwardRef<HTMLSelectElement, SelectorProps>(({
   defaultValue,
   ...rest
 }, ref) => {
-  // Estado interno para manejar el valor no controlado
+  // Internal state to handle uncontrolled value
   const [uncontrolledValue, setUncontrolledValue] = React.useState(defaultValue || '');
   
-  // Determinar si el componente está controlado o no
+  // Determine if the component is controlled or not
   const isControlled = controlledValue !== undefined;
   const value = isControlled ? controlledValue : uncontrolledValue;
   const selectClasses = classNames(
@@ -145,7 +145,7 @@ const Selector = forwardRef<HTMLSelectElement, SelectorProps>(({
 
 Selector.displayName = 'Selector';
 
-// Re-exportar SelectorSize para mantener la compatibilidad con código existente
+// Re-export SelectorSize for backward compatibility with existing code
 export { SelectorVariant } from './types';
 
 export { Selector };

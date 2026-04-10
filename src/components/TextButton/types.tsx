@@ -3,37 +3,37 @@ import { ComponentSize } from '../types';
 
 export interface TextButtonProps extends Omit<ButtonProps, 'variant' | 'size' | 'fullWidth'> {
   /** 
-   * Tamaño del botón de texto
+   * Text button size
    * @default 'medium'
    */
   size?: ComponentSize;
   
   /** 
-   * Si es true, el botón ocupa todo el ancho disponible
+   * If true, the button takes up the full available width
    * @default false
    */
   fullWidth?: boolean;
   
   /** 
-   * Si es true, muestra el botón en estado de deshabilitado
+   * If true, shows the button in disabled state
    * @default false
    */
   disabled?: boolean;
   
   /** 
-   * Si es true, muestra un indicador de carga
+   * If true, shows a loading indicator
    * @default false
    */
   loading?: boolean;
   
   /** 
-   * Color del texto del botón
+   * Button text color
    * @default 'primary'
    */
   color?: 'primary' | 'secondary' | 'error' | 'success' | 'warning' | 'inherit';
   
   /** 
-   * Si es true, añade un subrayado al texto
+   * If true, adds an underline to the text
    * @default false
    */
   underline?: 'none' | 'hover' | 'always';

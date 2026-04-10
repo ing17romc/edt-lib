@@ -2,7 +2,7 @@ import React from 'react';
 import { IconVariant } from '../types';
 import { ComponentSize } from '../../types';
 
-// Tipos para los estilos de contenedor
+// Container style types
 type FlexDirection = 'row' | 'row-reverse' | 'column' | 'column-reverse';
 type FlexWrap = 'nowrap' | 'wrap' | 'wrap-reverse';
 
@@ -22,14 +22,14 @@ export const itemContainerStyle: React.CSSProperties = {
   minWidth: '80px',
 };
 
-// Configuración de tamaños para mostrar en las historias
+// Size configuration for stories
 export const sizeOptions = [
   { size: ComponentSize.SMALL, label: 'Small' },
   { size: ComponentSize.MEDIUM, label: 'Medium' },
   { size: ComponentSize.LARGE, label: 'Large' },
 ];
 
-// Configuración de variantes para mostrar en las historias
+// Variant configuration for stories
 export const variantOptions = [
   { variant: IconVariant.OUTLINE, label: 'Outline' },
   { variant: IconVariant.SOLID, label: 'Solid' },

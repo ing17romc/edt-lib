@@ -37,9 +37,9 @@ export const WithReactContent: Story = {
   args: {
     content: (
       <span>
-        <strong>Título</strong>
+        <strong>Title</strong>
         <br />
-        Descripción adicional
+        Additional description
       </span>
     ),
     children: <button type="button">Rich content</button>,

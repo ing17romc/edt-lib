@@ -17,8 +17,8 @@ describe('Button Component', () => {
     vi.clearAllMocks();
   });
 
-  describe('Renderizado básico', () => {
-    test('se renderiza correctamente con las props por defecto', () => {
+  describe('Basic rendering', () => {
+    test('renders correctly with default props', () => {
       render(<Button>Click me</Button>);
       const button = screen.getByRole('button', { name: /click me/i });
       
@@ -29,7 +29,7 @@ describe('Button Component', () => {
       expect(button).toHaveAttribute('type', 'button');
     });
 
-    test('aplica la clase button--fullWidth cuando fullWidth es true', () => {
+    test('applies the button--fullWidth class when fullWidth is true', () => {
       render(<Button {...fullWidthButtonProps} />);
       const button = screen.getByRole('button');
       
@@ -37,8 +37,8 @@ describe('Button Component', () => {
     });
   });
 
-  describe('Comportamiento', () => {
-    test('ejecuta la función onClick cuando se hace clic', () => {
+  describe('Behavior', () => {
+    test('executes the onClick function when clicked', () => {
       render(<Button {...defaultButtonProps} />);
       const button = screen.getByRole('button', { name: /click me/i });
       
@@ -46,7 +46,7 @@ describe('Button Component', () => {
       expect(mockOnClick).toHaveBeenCalledTimes(1);
     });
 
-    test('no ejecuta onClick cuando está deshabilitado', () => {
+    test('does not execute onClick when disabled', () => {
       render(<Button {...disabledButtonProps} />);
       const button = screen.getByRole('button', { name: /disabled button/i });
       
@@ -56,18 +56,18 @@ describe('Button Component', () => {
     });
   });
 
-  describe('Variantes', () => {
+  describe('Variants', () => {
     allVariants.forEach(({ variant, children }) => {
-      test(`renderiza correctamente la variante ${variant}`, () => {
+      test(`renders the ${variant} variant correctly`, () => {
         render(<Button variant={variant}>{children}</Button>);
         const button = screen.getByRole('button', { name: children });
         
         expect(button).toHaveClass(`button--${variant}`);
       });
 
-      test('pasa correctamente los atributos HTML adicionales', () => {
-        const ariaLabel = 'Botón de ejemplo';
-        const className = 'clase-personalizada';
+      test('passes additional HTML attributes correctly', () => {
+        const ariaLabel = 'Example button';
+        const className = 'custom-class';
         
         render(
           <Button 
@@ -75,7 +75,7 @@ describe('Button Component', () => {
             className={className}
             data-testid="button-test"
           >
-            Botón con atributos
+            Button with attributes
           </Button>
         );
         
@@ -87,9 +87,9 @@ describe('Button Component', () => {
     });
   });
 
-  describe('Tamaños', () => {
+  describe('Sizes', () => {
     allSizes.forEach(({ size, children }) => {
-      test(`renderiza correctamente el tamaño ${size}`, () => {
+      test(`renders the ${size} size correctly`, () => {
         render(<Button size={size}>{children}</Button>);
         const button = screen.getByRole('button', { name: children });
         
@@ -98,9 +98,9 @@ describe('Button Component', () => {
     });
   });
 
-  describe('Combinaciones', () => {
+  describe('Combinations', () => {
     allCombinations.forEach(({ variant, size, children }) => {
-      test(`renderiza correctamente la combinación ${variant} con tamaño ${size}`, () => {
+      test(`renders the ${variant} combination with ${size} size correctly`, () => {
         render(
           <Button variant={variant} size={size}>
             {children}
@@ -114,27 +114,27 @@ describe('Button Component', () => {
     });
   });
 
-  describe('Atributos adicionales', () => {
-    test('pasa correctamente las clases personalizadas', () => {
-      const customClass = 'mi-clase-personalizada';
+  describe('Additional attributes', () => {
+    test('passes custom classes correctly', () => {
+      const customClass = 'my-custom-class';
       render(<Button className={customClass}>Custom Button</Button>);
       
       const button = screen.getByRole('button', { name: /custom button/i });
       expect(button).toHaveClass(customClass);
     });
 
-    test('pasa correctamente los atributos HTML personalizados', () => {
+    test('passes custom HTML attributes correctly', () => {
       render(
-        <Button data-testid="test-button" aria-label="Botón de prueba">
+        <Button data-testid="test-button" aria-label="Test button">
           Test Button
         </Button>
       );
       
       const button = screen.getByTestId('test-button');
-      expect(button).toHaveAttribute('aria-label', 'Botón de prueba');
+      expect(button).toHaveAttribute('aria-label', 'Test button');
     });
 
-    test('usa correctamente la referencia (ref)', () => {
+    test('uses the ref correctly', () => {
       const ref = React.createRef<HTMLButtonElement>();
       render(<Button ref={ref}>Button with Ref</Button>);
       

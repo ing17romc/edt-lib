@@ -2,42 +2,42 @@ import { ComponentSize } from '../types';
 
 export interface RadioButtonProps {
   /**
-   * Valor único que identifica este botón de radio
+   * Unique value that identifies this radio button
    */
   value: string | number;
   
   /**
-   * Texto que se muestra junto al botón de radio
+   * Text displayed next to the radio button
    */
   label: string;
   
   /**
-   * Indica si el botón de radio está seleccionado
+   * Indicates whether the radio button is selected
    */
   checked?: boolean;
   
   /**
-   * Indica si el botón de radio está deshabilitado
+   * Indicates whether the radio button is disabled
    */
   disabled?: boolean;
   
   /**
-   * Función que se ejecuta cuando cambia el estado del botón de radio
+   * Function called when the radio button state changes
    */
   onChange?: (value: string | number) => void;
   
   /**
-   * Clase CSS opcional para personalizar el estilo
+   * Optional CSS class for custom styling
    */
   className?: string;
   
   /**
-   * Nombre del grupo al que pertenece el botón de radio
+   * Name of the group the radio button belongs to
    */
   name?: string;
 
   /**
-   * Tamaño del botón de radio
+   * Radio button size
    * @default 'medium'
    */
   size?: ComponentSize;

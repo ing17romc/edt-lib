@@ -22,507 +22,507 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [2.13.0] - 2025-08-01
 
-### Mejoras
-- Unificación del uso de `ComponentSize` en los componentes `Icon`, `Modal` y `Selector`
-- Mejora en la consistencia de los controles de tamaño en Storybook
-- Actualización de documentación para reflejar los cambios en los tipos
+### Improvements
+- Unified the use of `ComponentSize` in `Icon`, `Modal`, and `Selector` components
+- Improved consistency of size controls in Storybook
+- Updated documentation to reflect type changes
 
-### Correcciones
-- Corregido error de TypeScript en el componente `Selector`
-- Arreglado el control de tamaño en las historias de `Icon`
-- Actualizados los mocks de prueba para usar `ComponentSize` de manera consistente
+### Fixes
+- Fixed TypeScript error in the `Selector` component
+- Fixed size control in `Icon` stories
+- Updated test mocks to consistently use `ComponentSize`
 
 ## [2.12.0] - 2025-07-31
 
-### Mejoras
-- Centralización completa del uso de `ComponentSize` en todos los componentes
-- Actualización de historias de Storybook para usar consistentemente `ComponentSize`
-- Mejora en la documentación de propiedades en los componentes
-- Estandarización de la documentación de la propiedad `size` en todos los componentes
+### Improvements
+- Complete centralization of `ComponentSize` usage across all components
+- Updated Storybook stories to consistently use `ComponentSize`
+- Improved property documentation in components
+- Standardized `size` property documentation across all components
 
-### Correcciones
-- Corregidos errores de TypeScript en historias de Storybook
-- Eliminación de enums duplicados en favor de los centralizados
-- Corregidos errores de linting en archivos SCSS
+### Fixes
+- Fixed TypeScript errors in Storybook stories
+- Removed duplicate enums in favor of centralized ones
+- Fixed linting errors in SCSS files
 
-### Mejoras
-- Actualización de componentes para usar enums centralizados (`ComponentSize` y `ComponentVariant`)
-- Mejora en la consistencia del código al estandarizar el uso de tamaños y variantes
-- Actualización de pruebas unitarias para reflejar los cambios en los enums
+### Improvements
+- Updated components to use centralized enums (`ComponentSize` and `ComponentVariant`)
+- Improved code consistency by standardizing the use of sizes and variants
+- Updated unit tests to reflect enum changes
 
-### Correcciones
-- Corregido error en `TextButton` donde `ButtonVariant.PRIMARY` era `undefined`
-- Actualizados los archivos de mocks y stories para usar los enums centralizados
-- Corregidas importaciones en múltiples componentes para usar los enums correctos
+### Fixes
+- Fixed error in `TextButton` where `ButtonVariant.PRIMARY` was `undefined`
+- Updated mock and story files to use centralized enums
+- Fixed imports in multiple components to use correct enums
 
 ## [2.10.0] - 2025-07-17
 
-### Mejoras
-- Migración del componente Icon para usar Material Icons de Google Fonts
-- Mejora en la accesibilidad del componente Icon
-- Actualización de pruebas unitarias para soportar la nueva implementación
+### Improvements
+- Migrated Icon component to use Material Icons from Google Fonts
+- Improved Icon component accessibility
+- Updated unit tests to support the new implementation
 
-### Refactorización
-- Eliminación de SVG personalizado en favor de Material Icons
-- Mejora en la estructura de estilos del componente Icon
-- Actualización de documentación en Storybook
+### Refactoring
+- Removed custom SVG in favor of Material Icons
+- Improved Icon component style structure
+- Updated Storybook documentation
 
 ## [2.9.9] - 2025-07-17
 
-### Mejoras
-- Unificación de estilos del componente Card en un solo archivo
-- Mejora en la organización de los estilos específicos de Storybook
+### Improvements
+- Unified Card component styles into a single file
+- Improved organization of Storybook-specific styles
 
-### Refactorización
-- Eliminación de archivos CSS redundantes
-- Mejora en la estructura de los estilos del componente Card
+### Refactoring
+- Removed redundant CSS files
+- Improved Card component style structure
 
 ## [2.9.8] - 2025-07-17
 
-### Mejoras
-- Agregados controles desplegables para las propiedades `variant` y `size` en los componentes Button y CheckButton en Storybook
-- Mejorada la documentación de los controles en la tabla de argumentos
+### Improvements
+- Added dropdown controls for `variant` and `size` properties in Button and CheckButton components in Storybook
+- Improved controls documentation in the arguments table
 
-### Correcciones
-- Eliminada la propiedad `style` no utilizada en el componente Card
+### Fixes
+- Removed unused `style` property from Card component
 
 ## [2.9.7](https://github.com/ing17romc/edt-lib/compare/v2.9.6...v2.9.7) (2025-07-17)
 
 ## [2.9.5] - 2025-07-07
 
-### `Corregido`
-- **Componentes**:
-  - Corregidos errores de TypeScript en los componentes Button y CheckButton
-  - Mejorado el tipado de los manejadores de eventos onClick y onChange
-  - Eliminado archivo de funciones no utilizado (functions.tsx)
-  - Actualizados los tests para reflejar los cambios en los tipos
+### `Fixed`
+- **Components**:
+  - Fixed TypeScript errors in Button and CheckButton components
+  - Improved typing of onClick and onChange event handlers
+  - Removed unused functions file (functions.tsx)
+  - Updated tests to reflect type changes
 
 ## [2.9.4] - 2025-07-07
 
-### `Actualizado`
-- **Dependencias**:
-  - Actualizado `sass` a la versión `^1.80.0`
-  - Actualizadas dependencias de Storybook a la versión `^8.1.0`
-  - Actualizado `@testing-library/react` a la versión `^15.0.1`
-  - Actualizado `@testing-library/jest-dom` a la versión `^6.4.3`
+### `Updated`
+- **Dependencies**:
+  - Updated `sass` to version `^1.80.0`
+  - Updated Storybook dependencies to version `^8.1.0`
+  - Updated `@testing-library/react` to version `^15.0.1`
+  - Updated `@testing-library/jest-dom` to version `^6.4.3`
 
-### `Corregido`
+### `Fixed`
 - **Workflows**:
-  - Actualizados los workflows para manejo de versiones parche y menor
-  - Mejorada la documentación de los workflows
+  - Updated workflows for patch and minor version management
+  - Improved workflow documentation
 
 ---
 
 ## [2.9.2] - 2025-07-07
 
-### `Actualizado`
-- **Dependencias**:
-  - Actualizado `sass` a la versión `^1.79.0`
-  - Actualizadas dependencias de Storybook a la versión `^8.0.0`
-  - Actualizado `@testing-library/react` a la versión `^15.0.0`
-  - Actualizado `@testing-library/jest-dom` a la versión `^6.4.2`
-  - Actualizado `@types/jest` a la versión `^29.5.12`
+### `Updated`
+- **Dependencies**:
+  - Updated `sass` to version `^1.79.0`
+  - Updated Storybook dependencies to version `^8.0.0`
+  - Updated `@testing-library/react` to version `^15.0.0`
+  - Updated `@testing-library/jest-dom` to version `^6.4.2`
+  - Updated `@types/jest` to version `^29.5.12`
 
-### `Corregido`
-- Resueltos conflictos de dependencias entre Storybook 8 y React 19
-- Corregida la configuración de TypeScript para soportar las versiones actualizadas
+### `Fixed`
+- Resolved dependency conflicts between Storybook 8 and React 19
+- Fixed TypeScript configuration to support updated versions
 
 
 ## [2.8.14] - 2025-07-07
 
 ### `Fixed`
-- **`Button`**: Corregidos errores de compilación y mejorada la documentación
-- **`Icon`**: Actualizados los tipos y corregidos problemas de importación
-- **`IconButton`**: Mejorada la accesibilidad y corregidos problemas de estilos
-- **`Selector`**: Corregidos errores de tipos y mejorado el manejo de eventos
-- **`Spinner`**: Optimizado el rendimiento y corregidos problemas de visualización
-- **`Title`**: Mejorada la tipografía y corregidos problemas de alineación
-- **`Message`**: Actualizado el componente para usar las últimas características de React
+- **`Button`**: Fixed build errors and improved documentation
+- **`Icon`**: Updated types and fixed import issues
+- **`IconButton`**: Improved accessibility and fixed style issues
+- **`Selector`**: Fixed type errors and improved event handling
+- **`Spinner`**: Optimized performance and fixed display issues
+- **`Title`**: Improved typography and fixed alignment issues
+- **`Message`**: Updated component to use latest React features
 
 ### `Refactor`
-- Extraídas utilidades comunes al directorio `src/utils/`
-- Actualizadas las dependencias en `package.json`
-- Mejorada la documentación de los componentes
+- Extracted common utilities to `src/utils/` directory
+- Updated dependencies in `package.json`
+- Improved component documentation
 
 ## [2.8.13] - 2025-07-05
 
 ### `Documentation`
 - **`README.md`**:
-  - Actualizada la documentación principal con información más clara y completa
-  - Añadida sección de componentes disponibles con descripciones
-  - Mejoradas las instrucciones de instalación y configuración
-  - Añadidos badges de estado del proyecto
+  - Updated main documentation with clearer and more complete information
+  - Added available components section with descriptions
+  - Improved installation and configuration instructions
+  - Added project status badges
 - **`/docs`**:
-  - Reescrita completamente la documentación técnica
-  - Añadida guía detallada de instalación y configuración
-  - Incluida documentación sobre temas y estilos personalizados
-  - Añadida guía de contribución con estándares de código
+  - Completely rewritten technical documentation
+  - Added detailed installation and configuration guide
+  - Included documentation on themes and custom styles
+  - Added contribution guide with code standards
 
 ## [2.8.12] - 2025-07-05
 
 ### `Fixed`
 - **`TableWithPagination`**:
-  - Corregido el manejo de eventos y tipos en el componente
-  - Mejorada la gestión del estado de paginación
-  - Actualizados los tests para mayor cobertura y claridad
-  - Eliminado código no utilizado
+  - Fixed event handling and types in the component
+  - Improved pagination state management
+  - Updated tests for greater coverage and clarity
+  - Removed unused code
 
 ### `Refactor`
 - **`Message`**:
-  - Mejorado el manejo de tipos en los tests
-  - Actualizadas las aserciones para usar valores RGB en lugar de nombres de colores
+  - Improved type handling in tests
+  - Updated assertions to use RGB values instead of color names
 
 ## [2.8.11] - 2025-07-04
 
 ### `Fixed`
 - **`Message`**:
-  - Corregido error de operador unario en estilos SCSS
-  - Actualizado el uso de `map-get` a `map.get` para compatibilidad con Sass moderno
-  - Mejorado el manejo de márgenes negativos
-  - Corregido el tamaño de fuente en modo responsivo
+  - Fixed unary operator error in SCSS styles
+  - Updated `map-get` to `map.get` for modern Sass compatibility
+  - Improved negative margin handling
+  - Fixed font size in responsive mode
 
 ## [2.8.10] - 2025-07-04
 
 ### `Fixed`
 - **`Message`**:
-  - Corregidas variables SCSS no definidas en el componente Message
-  - Reemplazado `lighten()` por `color.adjust()` para mejor compatibilidad
-  - Mejorada la consistencia en los estilos y espaciados
-  - Corregido el peso de la fuente del título usando la variable correcta
+  - Fixed undefined SCSS variables in the Message component
+  - Replaced `lighten()` with `color.adjust()` for better compatibility
+  - Improved style and spacing consistency
+  - Fixed title font weight using the correct variable
 
 ## [2.8.9] - 2025-07-04
 
 ### `Added`
-- **`Componente Message`**:
-  - Añadido el componente estático `Message` con soporte para diferentes tipos (success, info, warning, danger)
-  - Incluidos archivos de pruebas unitarias y documentación en Storybook
-  - Añadida documentación de reglas para el desarrollo de componentes
+- **`Message Component`**:
+  - Added static `Message` component with support for different types (success, info, warning, danger)
+  - Included unit test files and Storybook documentation
+  - Added component development rules documentation
 
 ### `Fixed`
 - **`Linting`**:
-  - Corregidos errores de TypeScript en los componentes existentes
-  - Mejorados los tipos para mayor seguridad de tipos
-  - Corregidos problemas de compatibilidad con JSX en archivos TypeScript
+  - Fixed TypeScript errors in existing components
+  - Improved types for better type safety
+  - Fixed JSX compatibility issues in TypeScript files
 
 
 ## [2.8.8] - 2025-07-03
 
 ### `Added`
-- **`Componentes Estáticos`**:
-  - Añadidos los componentes estáticos: `Grid` y `Typography` con sus respectivos estilos y documentación
-  - Incluidos archivos de pruebas y stories para ambos componentes
+- **`Static Components`**:
+  - Added static components: `Grid` and `Typography` with their respective styles and documentation
+  - Included test files and stories for both components
 
 ## [2.8.7] - 2025-07-03
 
 ### `Removed`
-- **`Componentes Estáticos`**:
-  - Eliminados los componentes estáticos: `Color`, `Grid`, `Message` y `Typography`
-  - Eliminados archivos de pruebas y estilos asociados
+- **`Static Components`**:
+  - Removed static components: `Color`, `Grid`, `Message`, and `Typography`
+  - Removed associated test and style files
 
 ### `Fixed`
-- **`Dependencias`**:
-  - Actualizadas las dependencias para resolver conflictos de versiones
-  - Mejorada la limpieza del proyecto en el script `clean`
+- **`Dependencies`**:
+  - Updated dependencies to resolve version conflicts
+  - Improved project cleanup in the `clean` script
 
 ## [2.8.6] - 2025-07-03
 
 ### `Fixed`
-- **`Configuración`**:
-  - Corregida la configuración de TypeScript para usar rutas absolutas desde 'src'.
-  - Actualizada la configuración de Storybook para mejorar la resolución de módulos.
-  - Corregidos errores de tipos en los componentes.
+- **`Configuration`**:
+  - Fixed TypeScript configuration to use absolute paths from 'src'.
+  - Updated Storybook configuration to improve module resolution.
+  - Fixed type errors in components.
 
 ## [2.8.5] - 2025-07-03
 
 ### `Refactor`
-- **`Estilos`**:
-  - Actualizadas las rutas de importación en los archivos SCSS para usar rutas relativas en lugar de alias 'src'.
-  - Mejorada la configuración de Vite en Storybook para una mejor compatibilidad.
-  - Eliminadas dependencias no utilizadas del archivo de configuración principal de Storybook.
+- **`Styles`**:
+  - Updated import paths in SCSS files to use relative paths instead of 'src' alias.
+  - Improved Vite configuration in Storybook for better compatibility.
+  - Removed unused dependencies from the main Storybook configuration file.
 
 ## [2.8.4] - 2025-07-03
 
 ### `Removed`
 - **`Examples`**:
-  - Eliminados archivos no utilizados en la carpeta de ejemplos.
-  - Eliminados archivos de datos obsoletos.
-  - Eliminados enums no utilizados en la carpeta de utilidades.
+  - Removed unused files in the examples folder.
+  - Removed obsolete data files.
+  - Removed unused enums in the utilities folder.
 
 ## [2.8.3] - 2025-07-03
 
 ### `Fixed`
 - **`Typography`**:
-  - Corregido el uso de `map.get` a `map-get` en los estilos SCSS para compatibilidad con la versión de Sass.
-  - Actualizada la configuración de Stylelint para permitir el uso de funciones globales de Sass.
-  - Mejorada la organización de los estilos con módulos CSS.
-  - Corregidas las pruebas unitarias para usar `data-testid` en lugar de buscar por texto.
+  - Fixed the use of `map.get` to `map-get` in SCSS styles for Sass version compatibility.
+  - Updated Stylelint configuration to allow the use of Sass global functions.
+  - Improved style organization with CSS modules.
+  - Fixed unit tests to use `data-testid` instead of searching by text.
 
 ## [2.8.2] - 2025-07-03
 
 ### `Fixed`
 - **`Message`**:
-  - Corregidos los estilos del componente Message para usar variables de color correctas.
-  - Actualizadas las rutas de importación SCSS para usar alias 'src'.
-  - Corregida la variable de altura de línea a `$line-height-md`.
-  - Mejorada la documentación en Storybook.
+  - Fixed Message component styles to use correct color variables.
+  - Updated SCSS import paths to use 'src' alias.
+  - Fixed line height variable to `$line-height-md`.
+  - Improved Storybook documentation.
 
 ## [2.8.1] - 2025-07-03
 
 ### `Fixed`
 - **`Title`**:
-  - Se corrigieron errores de compilación en Storybook relacionados con variables SCSS no definidas.
-  - Se actualizaron las funciones de color obsoletas en `palette.scss` para usar `color.adjust()` en lugar de `darken()`.
-  - Se agregaron las variables de color faltantes `$light-color` y `$dark-color`.
-  - Se refactorizó la estructura de archivos del componente para mejorar la organización del código.
-  - Se corrigieron problemas de linting en los archivos de historias de Storybook.
+  - Fixed Storybook build errors related to undefined SCSS variables.
+  - Updated deprecated color functions in `palette.scss` to use `color.adjust()` instead of `darken()`.
+  - Added missing color variables `$light-color` and `$dark-color`.
+  - Refactored component file structure to improve code organization.
+  - Fixed linting issues in Storybook story files.
 
 ## [2.8.0] - 2025-07-03
 
 ### `Changed`
 - **`TextBox`**:
-  - Se ha refactorizado completamente el componente para mejorar su mantenibilidad y alinearlo con las directrices de la librería.
-  - **Estilos**: Se han centralizado todas las variables de tipografía, color y espaciado en los archivos SCSS globales (`typography.scss`, `palette.scss`, `spacing.scss`).
-  - **Storybook**: Se han extraído los argumentos por defecto a un archivo `mocks.tsx` para mejorar la reutilización.
-  - **Pruebas**: Se han refactorizado los mocks de prueba para usar un objeto base, reduciendo la duplicación de código.
+  - Completely refactored the component to improve maintainability and align with library guidelines.
+  - **Styles**: Centralized all typography, color, and spacing variables in global SCSS files (`typography.scss`, `palette.scss`, `spacing.scss`).
+  - **Storybook**: Extracted default arguments to a `mocks.tsx` file to improve reusability.
+  - **Tests**: Refactored test mocks to use a base object, reducing code duplication.
 
-Todos los commits versionados en el repositorio:
+All versioned commits in the repository:
 
-## Últimos cambios relevantes (2025)
+## Latest relevant changes (2025)
 
 ### 2.7.15 (2025-07-03)
-- **refactor(TextArea):** Refactorización completa del componente `TextArea`.
-  - Extracción de estilos (colores, tipografía, espaciado) a variables SCSS globales.
-  - Centralización de tipos en `types.tsx` y añadido soporte para `data-testid`.
-  - Modularización de historias de Storybook con un archivo `mocks.tsx`.
-  - Refactorización de pruebas unitarias para usar mocks y eliminar código duplicado.
+- **refactor(TextArea):** Complete refactoring of the `TextArea` component.
+  - Extracted styles (colors, typography, spacing) to global SCSS variables.
+  - Centralized types in `types.tsx` and added `data-testid` support.
+  - Modularized Storybook stories with a `mocks.tsx` file.
+  - Refactored unit tests to use mocks and eliminate duplicate code.
 
 ### 2.7.14 (2025-07-02)
-- **refactor(Spinner):** Refactorización completa del componente `Spinner`.
-  - Extracción de valores de espaciado a variables SCSS globales en `spacing.scss`.
-  - Creación de estructura de pruebas unitarias (`tests/` y `mocks.tsx`) para el componente.
-  - Verificación de la correcta aplicación de estilos, tipado y estructura del componente.
+- **refactor(Spinner):** Complete refactoring of the `Spinner` component.
+  - Extracted spacing values to global SCSS variables in `spacing.scss`.
+  - Created unit test structure (`tests/` and `mocks.tsx`) for the component.
+  - Verified correct application of styles, typing, and component structure.
 
 ### 2.7.13 (2025-07-02)
-- **refactor(Selector):** Refactorización completa del componente `Selector`.
-  - Modularización de historias de Storybook con un archivo `mocks.tsx` centralizado.
-  - Refactorización de pruebas unitarias para usar mocks y props por defecto, mejorando la mantenibilidad.
-  - Verificación de la correcta aplicación de estilos, tipado y estructura del componente.
-- **fix(lint):** Corregidos múltiples errores de lint y advertencias en toda la aplicación.
-  - Solucionado error de accesibilidad en la historia del `Selector`.
-  - Reemplazado el uso de `any` en los tipos del `TextBox`.
-  - Corregidas advertencias de funciones vacías en pruebas con `jest.fn()` o deshabilitando la regla de lint.
-- **fix(tests):** Eliminadas todas las advertencias (`console.warn`, `console.error`) de la ejecución de las pruebas.
-  - Corregida la propagación de props inválidas al DOM en los componentes `TextButton`, `Icon` y `TextArea`.
-  - Silenciadas advertencias intencionadas en las pruebas de `Pagination` y `TableWithPagination`.
-- **feat(TextArea):** Implementada la funcionalidad `minRows` y `maxRows` para el redimensionamiento automático.
+- **refactor(Selector):** Complete refactoring of the `Selector` component.
+  - Modularized Storybook stories with a centralized `mocks.tsx` file.
+  - Refactored unit tests to use mocks and default props, improving maintainability.
+  - Verified correct application of styles, typing, and component structure.
+- **fix(lint):** Fixed multiple lint errors and warnings across the application.
+  - Fixed accessibility error in `Selector` story.
+  - Replaced use of `any` in `TextBox` types.
+  - Fixed empty function warnings in tests with `jest.fn()` or by disabling the lint rule.
+- **fix(tests):** Removed all warnings (`console.warn`, `console.error`) from test execution.
+  - Fixed invalid prop propagation to the DOM in `TextButton`, `Icon`, and `TextArea` components.
+  - Silenced intentional warnings in `Pagination` and `TableWithPagination` tests.
+- **feat(TextArea):** Implemented `minRows` and `maxRows` functionality for automatic resizing.
 
 ### 2.7.12 (2025-07-02)
-- **feat(layout):** Refactorización completa de los componentes `Layout`, `NavBar` y `Footer`.
-  - Extracción de estilos (tipografía, colores, espaciado) a variables SCSS globales para consistencia.
-  - Modularización de tipos (`interfaces`) a archivos `types.tsx` dedicados por componente.
-  - Creación de estructura de pruebas unitarias (`tests/` y `mocks.tsx`) para los tres componentes.
-- **fix(storybook):** Corregido error de construcción (`NoMetaError`) moviendo la configuración `meta` al archivo de historia.
-- **chore(scripts):** Optimización de scripts de npm en `package.json` para eliminar pasos de compilación redundantes.
+- **feat(layout):** Complete refactoring of `Layout`, `NavBar`, and `Footer` components.
+  - Extracted styles (typography, colors, spacing) to global SCSS variables for consistency.
+  - Modularized types (`interfaces`) to dedicated `types.tsx` files per component.
+  - Created unit test structure (`tests/` and `mocks.tsx`) for all three components.
+- **fix(storybook):** Fixed build error (`NoMetaError`) by moving `meta` configuration to the story file.
+- **chore(scripts):** Optimized npm scripts in `package.json` to eliminate redundant build steps.
 
 ### 2.7.9 (2025-07-02)
-- **refactor:** Componente `Pagination`
-  - Extracción de tipografía a `typography.scss` con variables para botones y texto.
-  - Extracción de colores a `palette.scss` con variables para estados de botones y fondos.
-  - Extracción de espaciados a `spacing.scss` con variables para márgenes, paddings y dimensiones.
-  - Mejora en la organización del código y consistencia en el uso de variables globales.
-  - Documentación actualizada para facilitar el mantenimiento futuro.
+- **refactor:** `Pagination` component
+  - Extracted typography to `typography.scss` with variables for buttons and text.
+  - Extracted colors to `palette.scss` with variables for button states and backgrounds.
+  - Extracted spacing to `spacing.scss` with variables for margins, paddings, and dimensions.
+  - Improved code organization and consistency in the use of global variables.
+  - Updated documentation to facilitate future maintenance.
 
 ### 2.7.8 (2025-07-02)
-- **refactor:** Componente `Modal`
-  - Extracción de tipografía a `typography.scss` con variables para títulos, contenido y botones.
-  - Extracción de colores a `palette.scss` con variables para fondos, bordes y estados interactivos.
-  - Extracción de espaciados a `spacing.scss` con variables para márgenes, paddings y dimensiones.
-  - Mejora en la organización del código y consistencia en el uso de variables globales.
-  - Documentación actualizada para facilitar el mantenimiento futuro.
+- **refactor:** `Modal` component
+  - Extracted typography to `typography.scss` with variables for titles, content, and buttons.
+  - Extracted colors to `palette.scss` with variables for backgrounds, borders, and interactive states.
+  - Extracted spacing to `spacing.scss` with variables for margins, paddings, and dimensions.
+  - Improved code organization and consistency in the use of global variables.
+  - Updated documentation to facilitate future maintenance.
 
 ### 2.7.7 (2025-07-01)
-- **refactor:** Componente `IconButton`
-  - Extracción de tipografía, colores y espaciados a variables SCSS globales.
-  - Organización de tipos en `types.ts` dedicado.
-  - Creación de archivos `mocks.tsx` para historias de Storybook.
-  - Actualización de historias para reutilizar mocks y mejorar la documentación.
-  - Corrección de tamaño de iconos utilizando `IconSize`.
-  - Corrección de estilos y variaciones del componente.
-  - Limpieza de estilos inline y uso de variables globales.
-- **chore:** Limpieza de mocks duplicados en `dist/__mocks__`.
-- **fix:** Ajustes menores de lint en archivos de Stories y Mocks.
+- **refactor:** `IconButton` component
+  - Extracted typography, colors, and spacing to global SCSS variables.
+  - Organized types in a dedicated `types.ts`.
+  - Created `mocks.tsx` files for Storybook stories.
+  - Updated stories to reuse mocks and improve documentation.
+  - Fixed icon sizing using `IconSize`.
+  - Fixed component styles and variations.
+  - Cleaned up inline styles and used global variables.
+- **chore:** Cleaned up duplicate mocks in `dist/__mocks__`.
+- **fix:** Minor lint adjustments in Stories and Mocks files.
 
 
-- **2025-07-01** refactor: Mejora en el componente Icon
-  - Mejora en el manejo de estados (disabled, inheritColor)
-  - Soporte para componentes SVG personalizados a través de la prop `component`
-  - Refactorización de estilos para usar variables globales SCSS
-  - Corrección de errores de TypeScript en las historias de Storybook
-  - Actualización de pruebas unitarias para cubrir nuevos casos de uso
-  - Mejora en la documentación de Storybook
+- **2025-07-01** refactor: Improvement in the Icon component
+  - Improved state handling (disabled, inheritColor)
+  - Support for custom SVG components through the `component` prop
+  - Refactored styles to use global SCSS variables
+  - Fixed TypeScript errors in Storybook stories
+  - Updated unit tests to cover new use cases
+  - Improved Storybook documentation
 
-- **2025-07-01** refactor: Mejora en el componente CheckButton
-  - Refactorización de estilos para usar variables globales SCSS
-  - Extracción de tipografía, colores y espaciado a archivos globales
-  - Mejora en la documentación de Storybook
-  - Actualización de pruebas unitarias
-  - Eliminación de archivos de mocks redundantes
-  - Mejora en la consistencia visual del componente
+- **2025-07-01** refactor: Improvement in the CheckButton component
+  - Refactored styles to use global SCSS variables
+  - Extracted typography, colors, and spacing to global files
+  - Improved Storybook documentation
+  - Updated unit tests
+  - Removed redundant mock files
+  - Improved component visual consistency
 
-- **2025-07-01** refactor: Mejora en el componente Card
-  - Refactorización de estilos para usar variables globales
-  - Extracción de tipografía, colores y espaciado a archivos SCSS globales
-  - Mejora en la consistencia visual del componente
-  - Actualización de documentación de estilos
+- **2025-07-01** refactor: Improvement in the Card component
+  - Refactored styles to use global variables
+  - Extracted typography, colors, and spacing to global SCSS files
+  - Improved component visual consistency
+  - Updated style documentation
 
-- **2025-07-01** refactor: Mejora en el componente Button
-  - Refactorización de estilos para usar variables globales
-  - Extracción de estilos a archivos SCSS modulares
-  - Mejora en la organización de pruebas unitarias
-  - Actualización de historias de Storybook
-  - Eliminación de código duplicado en pruebas
-  - Mejora en la documentación de props y tipos
+- **2025-07-01** refactor: Improvement in the Button component
+  - Refactored styles to use global variables
+  - Extracted styles to modular SCSS files
+  - Improved unit test organization
+  - Updated Storybook stories
+  - Removed duplicate code in tests
+  - Improved props and types documentation
 
-- **2025-07-01** feat: Eliminación de la funcionalidad de loading del componente Button
-  - Eliminada la propiedad `loading` y su lógica asociada
-  - Actualizadas las pruebas unitarias para reflejar los cambios
-  - Mejorada la consistencia del código eliminando funcionalidad no utilizada
-  - Actualizados los estilos para eliminar referencias al estado de carga
+- **2025-07-01** feat: Removed loading functionality from the Button component
+  - Removed the `loading` property and its associated logic
+  - Updated unit tests to reflect the changes
+  - Improved code consistency by removing unused functionality
+  - Updated styles to remove references to loading state
 
-- **2025-07-01** feat: Actualización de estilos y estructura de componentes
-  - Reorganización de estilos en archivos modulares SCSS
-  - Creación de archivos base para paleta de colores, tipografía y espaciado
-  - Actualización de componentes para usar los nuevos estilos modulares
-  - Mejora en la consistencia visual de los componentes
-  - Adición de archivo de índice para exportación centralizada
+- **2025-07-01** feat: Updated styles and component structure
+  - Reorganized styles into modular SCSS files
+  - Created base files for color palette, typography, and spacing
+  - Updated components to use the new modular styles
+  - Improved component visual consistency
+  - Added index file for centralized exports
 
-- **2025-07-01** refactor: Reorganización de estilos y estructura de archivos SCSS
-  - Movidos archivos SCSS a la carpeta `src/styles`
-  - Actualizadas las importaciones en los componentes afectados
-  - Corregidas variables y funciones de estilos en tablas
-  - Mejorada la organización de los estilos globales
+- **2025-07-01** refactor: Reorganized styles and SCSS file structure
+  - Moved SCSS files to the `src/styles` folder
+  - Updated imports in affected components
+  - Fixed style variables and functions in tables
+  - Improved global style organization
 
 
-- **2025-07-01** fix: Correcciones en pruebas y componentes de tablas
-  - Corregidas importaciones en componentes de tablas
-  - Mejoradas las pruebas unitarias para los componentes de tablas
-  - Actualizados los selectores de pruebas para ser más robustos
-  - Corregido el manejo de celdas vacías en las tablas
-  - Mejorada la accesibilidad en los componentes de tablas
+- **2025-07-01** fix: Fixes in table tests and components
+  - Fixed imports in table components
+  - Improved unit tests for table components
+  - Updated test selectors to be more robust
+  - Fixed empty cell handling in tables
+  - Improved accessibility in table components
 
-- **2025-06-30** feat: Agregados componentes Layout, NavBar y Footer
-  - Nuevo componente Layout como contenedor principal de la aplicación
-  - Componente NavBar para la barra de navegación superior
-  - Componente Footer para el pie de página
-  - Documentación completa en Storybook con ejemplos interactivos
-  - Pruebas unitarias implementadas para garantizar la calidad
-  - Mejoras en la accesibilidad con atributos ARIA
+- **2025-06-30** feat: Added Layout, NavBar, and Footer components
+  - New Layout component as the main application container
+  - NavBar component for the top navigation bar
+  - Footer component for the page footer
+  - Complete Storybook documentation with interactive examples
+  - Unit tests implemented to ensure quality
+  - Accessibility improvements with ARIA attributes
 
-- **2025-06-30** fix: Correcciones en el componente Modal
-  - Mejora en las pruebas unitarias del componente Modal
-  - Corrección en el manejo del cierre del modal
-  - Mejora en la accesibilidad del componente
+- **2025-06-30** fix: Fixes in the Modal component
+  - Improved Modal component unit tests
+  - Fixed modal close handling
+  - Improved component accessibility
 
-- **2025-06-30** feat: Agregado componente Pagination
-  - Nuevo componente de paginación con navegación completa (primera/última página, anterior/siguiente)
-  - Soporte para personalización del número máximo de botones visibles
-  - Estados: deshabilitado, activo, hover
-  - Documentación completa en Storybook con ejemplos interactivos
-  - Pruebas unitarias implementadas para garantizar la calidad
-  - Accesibilidad mejorada con atributos ARIA
+- **2025-06-30** feat: Added Pagination component
+  - New pagination component with full navigation (first/last page, previous/next)
+  - Support for customizing the maximum number of visible buttons
+  - States: disabled, active, hover
+  - Complete Storybook documentation with interactive examples
+  - Unit tests implemented to ensure quality
+  - Improved accessibility with ARIA attributes
 
-- **2025-06-30** feat: Agregado componente RadioButton
-  - Nuevo componente RadioButton con estilos personalizables mediante módulos SCSS
-  - Soporte para estados: deshabilitado, seleccionado, hover y focus
-  - Documentación completa en Storybook con diferentes ejemplos de uso
-  - Pruebas unitarias implementadas para garantizar la calidad
-  - Accesibilidad mejorada con atributos ARIA
+- **2025-06-30** feat: Added RadioButton component
+  - New RadioButton component with customizable styles via SCSS modules
+  - Support for states: disabled, selected, hover, and focus
+  - Complete Storybook documentation with different usage examples
+  - Unit tests implemented to ensure quality
+  - Improved accessibility with ARIA attributes
 
-- **2025-06-30** feat: Agregar componente Selector
-  - Nuevo componente Selector con soporte para opciones simples y agrupadas
-  - Incluye variantes de estilo (primary, secondary, danger, success, warning)
-  - Soporte para diferentes tamaños (small, medium, large)
-  - Estados: deshabilitado, carga, error, requerido
-  - Documentación completa en Storybook con ejemplos interactivos
-  - Pruebas unitarias implementadas para garantizar la calidad
-  - Accesibilidad mejorada con atributos ARIA
+- **2025-06-30** feat: Added Selector component
+  - New Selector component with support for simple and grouped options
+  - Includes style variants (primary, secondary, danger, success, warning)
+  - Support for different sizes (small, medium, large)
+  - States: disabled, loading, error, required
+  - Complete Storybook documentation with interactive examples
+  - Unit tests implemented to ensure quality
+  - Improved accessibility with ARIA attributes
 
-- **2025-06-30** feat: Agregado componente Title
-  - Nuevo componente Title con soporte para diferentes niveles de encabezado (h1-h6)
-  - Incluye estilos personalizables mediante módulos SCSS
-  - Documentación completa en Storybook con diferentes ejemplos de uso
-  - Pruebas unitarias implementadas para garantizar la calidad
+- **2025-06-30** feat: Added Title component
+  - New Title component with support for different heading levels (h1-h6)
+  - Includes customizable styles via SCSS modules
+  - Complete Storybook documentation with different usage examples
+  - Unit tests implemented to ensure quality
 
-- **2025-06-30** feat: Agregar componente Spinner y actualizar IconButton
-- **2025-06-30** feat: Agregar componente Spinner y actualizar IconButton
-  - Nuevo componente Spinner con soporte para múltiples tamaños y variantes
-  - Actualizado el componente IconButton para usar el sistema de iconos existente
-  - Mejorada la accesibilidad en ambos componentes
-  - Incluye documentación en Storybook y pruebas unitarias
+- **2025-06-30** feat: Added Spinner component and updated IconButton
+- **2025-06-30** feat: Added Spinner component and updated IconButton
+  - New Spinner component with support for multiple sizes and variants
+  - Updated IconButton component to use existing icon system
+  - Improved accessibility in both components
+  - Includes Storybook documentation and unit tests
 
-- **2025-06-30** feat: Agregar componente Icon
-  - Nuevo componente de icono con soporte para múltiples tamaños y variantes
-  - Incluye documentación en Storybook y pruebas unitarias
-  - Soporte para colores personalizados y herencia de colores
-  - Integración con el sistema de diseño existente
+- **2025-06-30** feat: Added Icon component
+  - New icon component with support for multiple sizes and variants
+  - Includes Storybook documentation and unit tests
+  - Support for custom colors and color inheritance
+  - Integration with existing design system
 
-- **2025-06-30** fix: Corregir variables SCSS en componentes
-  - Actualizadas importaciones de variables SCSS para usar `as *`
-  - Corregidas referencias a variables no definidas en CheckButton, TextArea y TextButton
-  - Reemplazados colores hardcodeados por variables CSS
-  - Mejorada la consistencia en el uso de variables de tema
-  - Corregidos errores de compilación en Storybook
+- **2025-06-30** fix: Fixed SCSS variables in components
+  - Updated SCSS variable imports to use `as *`
+  - Fixed references to undefined variables in CheckButton, TextArea, and TextButton
+  - Replaced hardcoded colors with CSS variables
+  - Improved consistency in theme variable usage
+  - Fixed Storybook build errors
 
-- **2025-06-30** fix: Corregir variables SCSS y errores de compilación
-  - Solucionado error de variable no definida `$primary-color-1`
-  - Actualizadas referencias a variables de color para usar las definidas
-  - Añadida paleta de grises completa para consistencia
-  - Mejorada la documentación de las variables SCSS
-  - Corregidos errores de linting en archivos de estilos
+- **2025-06-30** fix: Fixed SCSS variables and build errors
+  - Resolved undefined variable `$primary-color-1` error
+  - Updated color variable references to use defined ones
+  - Added complete gray palette for consistency
+  - Improved SCSS variable documentation
+  - Fixed linting errors in style files
 
-- **2025-06-30** fix: Corregir errores de linting y configuración de pruebas
-  - Corregidos errores de linting en archivos SCSS
-  - Actualizada configuración de Jest para soportar @testing-library/jest-dom
-  - Añadido archivo setupTests.ts para configuración global de pruebas
-  - Mejorada la cobertura de pruebas del componente CheckButton
-  - Corregidos problemas de tipos en los componentes
+- **2025-06-30** fix: Fixed linting errors and test configuration
+  - Fixed linting errors in SCSS files
+  - Updated Jest configuration to support @testing-library/jest-dom
+  - Added setupTests.ts file for global test configuration
+  - Improved CheckButton component test coverage
+  - Fixed type issues in components
 
-- **2025-06-29** feat: Actualización de estilos y configuración de linting
-  - Actualizado componente Button con nuevos estilos en SCSS
-  - Configurado Stylelint para validación de estilos SCSS
-  - Corregido uso de funciones obsoletas de Sass
-  - Mejorada la consistencia en los estilos de los componentes
-  - Actualizadas dependencias relacionadas con el procesamiento de estilos
+- **2025-06-29** feat: Updated styles and linting configuration
+  - Updated Button component with new SCSS styles
+  - Configured Stylelint for SCSS style validation
+  - Fixed use of deprecated Sass functions
+  - Improved style consistency across components
+  - Updated dependencies related to style processing
 
-- **2025-06-29** feat: Implementación del componente Card
-  - Creado componente Card con variantes: elevated, outlined y filled
-  - Añadidas historias de Storybook con documentación interactiva
-  - Implementados tests unitarios con React Testing Library
-  - Añadidos estilos CSS personalizables con variables CSS
-  - Mejorada la accesibilidad con soporte para teclado y ARIA
+- **2025-06-29** feat: Card component implementation
+  - Created Card component with variants: elevated, outlined, and filled
+  - Added Storybook stories with interactive documentation
+  - Implemented unit tests with React Testing Library
+  - Added customizable CSS styles with CSS variables
+  - Improved accessibility with keyboard and ARIA support
 
-- **3bfa360 2025-06-28** refactor: Eliminación de componentes no utilizados y limpieza de código
-  - Eliminados componentes obsoletos: Form, HomeV2, Breadcrumb, DatePicker, LayoutV2, Menu, ModalHttpMessage
-  - Movidos componentes a carpeta ToDo para futura implementación
-  - Limpieza de imports y código no utilizado
-  - Actualización de dependencias y configuración de TypeScript
+- **3bfa360 2025-06-28** refactor: Removed unused components and code cleanup
+  - Removed obsolete components: Form, HomeV2, Breadcrumb, DatePicker, LayoutV2, Menu, ModalHttpMessage
+  - Moved components to ToDo folder for future implementation
+  - Cleaned up imports and unused code
+  - Updated dependencies and TypeScript configuration
 
-- **e6b7f77 2025-06-28** refactor: Actualización de estilos SCSS y corrección de pruebas
-  - Migración de `@import` a `@use` en archivos SCSS
-  - Corrección de referencias a variables SCSS con namespaces
-  - Actualización de pruebas para reflejar cambios en los estilos
-  - Mejora en la organización de estilos por componentes
+- **e6b7f77 2025-06-28** refactor: Updated SCSS styles and fixed tests
+  - Migrated `@import` to `@use` in SCSS files
+  - Fixed SCSS variable references with namespaces
+  - Updated tests to reflect style changes
+  - Improved style organization by component
 
 - **09814fb 2025-06-28** refactor: move component styles to their respective folders
-  - Movidos los estilos SCSS a las carpetas de sus respectivos componentes
-  - Actualizadas las rutas de importación en los componentes afectados
-  - Mejorada la organización del código al agrupar los estilos con sus componentes
+  - Moved SCSS styles to their respective component folders
+  - Updated import paths in affected components
+  - Improved code organization by grouping styles with their components
 
-- **0415417 2025-06-28** fix: Corregir tipos de íconos y pruebas relacionadas
-  - Actualizado el componente Icon para manejar correctamente los tipos de íconos
-  - Corregido el error de tipo 'includes' en la verificación de íconos
-  - Actualizadas las pruebas unitarias para reflejar los cambios en los tipos
-  - Mejorada la documentación de los componentes afectados
+- **0415417 2025-06-28** fix: Fixed icon types and related tests
+  - Updated Icon component to correctly handle icon types
+  - Fixed 'includes' type error in icon verification
+  - Updated unit tests to reflect type changes
+  - Improved documentation of affected components
 
 - **ffbd38c 2025-06-26** fix: update modal components and tests to handle React Portals correctly
   - Fixed Modal and ModalNotifications components to properly handle React Portals
@@ -586,48 +586,48 @@ Todos los commits versionados en el repositorio:
   - Reorganized Button component tests into __tests__ directory
   - Added Button component stories
 
-- **80f1adf 2025-06-25** refactor: reorganiza el componente Form y añade historias de Storybook
-  - Movido archivo de prueba a la carpeta `__tests__`
-  - Añadido archivo `mocks.ts` para datos de prueba
-  - Creada documentación en Storybook
-  - Mejorada la cobertura de pruebas
-  - Actualizados los tipos TypeScript
+- **80f1adf 2025-06-25** refactor: reorganize the Form component and add Storybook stories
+  - Moved test file to `__tests__` folder
+  - Added `mocks.ts` file for test data
+  - Created Storybook documentation
+  - Improved test coverage
+  - Updated TypeScript types
 
-- **965ae8a 2025-06-25** refactor: reorganiza archivos de prueba y añade historias de Storybook para componentes Color y Message
-  - Movidos archivos de prueba a carpetas `__tests__`
-  - Añadidos archivos `mocks.ts` para datos de prueba
-  - Creadas historias de Storybook con documentación
-  - Mejorados tipos TypeScript y cobertura de pruebas
-  - Corregidos problemas de linting
+- **965ae8a 2025-06-25** refactor: reorganize test files and add Storybook stories for Color and Message components
+  - Moved test files to `__tests__` folders
+  - Added `mocks.ts` files for test data
+  - Created Storybook stories with documentation
+  - Improved TypeScript types and test coverage
+  - Fixed linting issues
 
-- **94e8512 2025-06-23** chore: limpia .gitignore, elimina public/index.html y asegura deploy correcto de Storybook a gh-pages
+- **94e8512 2025-06-23** chore: clean .gitignore, remove public/index.html and ensure correct Storybook deploy to gh-pages
 
-- **1600fdd 2025-06-23** chore(storybook): configura base path para deploy en GitHub Pages
+- **1600fdd 2025-06-23** chore(storybook): configure base path for GitHub Pages deploy
 
-- **666e9b2 2025-06-23** docs: actualiza instrucciones de publicación npm y Storybook en README y docs/index.md
+- **666e9b2 2025-06-23** docs: update npm and Storybook publishing instructions in README and docs/index.md
 
-- **817790f 2025-06-22** docs: actualiza README con guía profesional para NPM y Storybook
-- **819cd2a 2025-06-22** chore: Storybook 8.x funcionando con React 19 y Vite, stories para Title, ajustes de dependencias y config estable. Agregado deploy automatizado a GitHub Pages.
+- **817790f 2025-06-22** docs: update README with professional guide for NPM and Storybook
+- **819cd2a 2025-06-22** chore: Storybook 8.x working with React 19 and Vite, stories for Title, dependency adjustments and stable config. Added automated deploy to GitHub Pages.
 - **74186c3 2025-06-22** fix: all React component tests passing and lint clean; improved Home, TableWithIcon, and test imports for React 19/TypeScript 5
-- **9fa074c 2025-06-22** refactor: componentes estáticos compatibles con React 19, tipado estricto y tests robustos. Lint limpio.
-- **8fca8fb 2025-06-22** fix: limpieza de lint, eliminación de imports no usados y corrección de errores de ESLint y TypeScript en Layout, NavBar, SideBar y Content
+- **9fa074c 2025-06-22** refactor: static components compatible with React 19, strict typing and robust tests. Clean lint.
+- **8fca8fb 2025-06-22** fix: lint cleanup, removal of unused imports and correction of ESLint and TypeScript errors in Layout, NavBar, SideBar and Content
 - **af56c4b 2025-06-22** fix: import forwardRef in TextBox, TextArea, Selector. All tests passing.
 - **65210f3 2025-06-22** Fix: ESLint, accessibility, and test issues. All tests passing. Refactor RadioButton required logic. Update tests for accessibility and unused code.
-- **85c7636 2025-06-22** fix: corrige tests y componentes para compatibilidad con Testing Library, elimina warnings de React y asegura 100% de tests en verde
-- **97e5216 2025-06-21** refactor: migración a TypeScript y React 19
-- **7d318c3 2025-06-21** feat: Migración a React 19 y mejora de pruebas unitarias
+- **85c7636 2025-06-22** fix: fix tests and components for Testing Library compatibility, remove React warnings and ensure 100% green tests
+- **97e5216 2025-06-21** refactor: migration to TypeScript and React 19
+- **7d318c3 2025-06-21** feat: Migration to React 19 and unit test improvements
 - **ace40ba 2025-06-21** refactor: update package.json dependencies
 - **50120f1 2025-06-21** refactor: remove storybook and test files
 
-## Cambios históricos
+## Historical changes
 
-(Ver más detalles usando `git log` o navegando en GitHub)
+(See more details using `git log` or browsing on GitHub)
 
-- Commits de 2023 y anteriores incluyen múltiples publicaciones, mejoras de estilos, actualizaciones de componentes y scripts, migraciones y fixes menores.
+- Commits from 2023 and earlier include multiple releases, style improvements, component and script updates, migrations and minor fixes.
 
 ---
 
-Este archivo se genera a partir del historial de commits. Para ver detalles completos de cada commit ejecuta:
+This file is generated from the commit history. To see full details of each commit run:
 
 ```sh
 git log --pretty=format:"%h %ad %s" --date=short
