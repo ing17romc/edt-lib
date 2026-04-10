@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.15.0] - 2026-04-10
+
+### Documentation
+- Added comprehensive Storybook Docs for all components, layouts, statics, and tables with a consistent English writing pattern
+- Added `parameters.docs.description.component` to every component story
+- Added English `argTypes` with `table.type.summary` and `table.defaultValue.summary` metadata to all components
+
+### Improvements
+- Replaced `Math.random()` with `useId()` hook in `TextArea` and `TextBox` components for stable, SSR-safe ID generation
+- Improved `FloatingMenu` accessibility: events are now injected onto the trigger element via `cloneElement` instead of a wrapper div
+- Improved `ListControl` accessibility: added keyboard (`onKeyDown`) handler to list items
+
+### Fixes
+- Fixed `ReferenceError: vi is not defined` in Storybook story mocks (`Snackbar`, `DatePicker`, `Message`) — replaced `vi.fn()` with `() => {}`
+- Fixed wrong package import `@storybook/react` → `@storybook/react-vite` in multiple story files
+- Fixed `useState` inside Storybook `render()` functions (React Hooks rules violation) by extracting named components
+- Removed unused imports across multiple story and component files
+
 ## [2.13.0] - 2025-08-01
 
 ### Mejoras
