@@ -37,7 +37,7 @@ export interface FloatingMenuItem {
 /**
  * FloatingMenu component properties
  */
-export interface FloatingMenuProps extends HTMLAttributes<HTMLDivElement> {
+export interface FloatingMenuProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onSelect'> {
   /**
    * Element that opens the menu (trigger)
    */

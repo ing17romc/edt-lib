@@ -1,3 +1,4 @@
+import type { Meta } from '@storybook/react-vite'
 import { MessageProps } from '../types'
 import { ComponentVariant } from '../../../types'
 
@@ -8,7 +9,7 @@ export const defaultArgs: Partial<MessageProps> = {
   closable: false,
 }
 
-export const argTypes = {
+export const argTypes: NonNullable<Meta<MessageProps>['argTypes']> = {
   variant: {
     control: { type: 'select' },
     options: [
@@ -24,17 +25,17 @@ export const argTypes = {
     },
   },
   closable: {
-    control: 'boolean',
+    control: { type: 'boolean' },
     description: 'When true, a dismiss button is shown to close the message.',
     table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' } },
   },
   title: {
-    control: 'text',
+    control: { type: 'text' },
     description: 'Optional bold title rendered above the message body.',
     table: { type: { summary: 'string' } },
   },
   children: {
-    control: 'text',
+    control: { type: 'text' },
     description: 'Main message content.',
     table: { type: { summary: 'ReactNode' } },
   },

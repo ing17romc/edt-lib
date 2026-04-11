@@ -7,7 +7,6 @@ const config: StorybookConfig = {
     name: '@storybook/react-vite',
     options: {},
   },
-  docs: {},
   async viteFinal(config) {
     config.base = '/edt-lib/';
     return config;

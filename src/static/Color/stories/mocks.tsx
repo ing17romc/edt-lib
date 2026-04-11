@@ -1,5 +1,5 @@
 import type { ColorGroup, ColorProps } from '../types';
-import type { Meta } from '@storybook/react';
+import type { Meta } from '@storybook/react-vite';
 
 /**
  * Color groups to display in the component

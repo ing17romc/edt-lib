@@ -87,6 +87,46 @@ const ControlledTextBox = (args: React.ComponentProps<typeof TextBox>) => {
   );
 };
 
+const TextBoxStatesStory = () => {
+  const [value, setValue] = useState('');
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '400px' }}>
+      <TextBox
+        label="Default field"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        placeholder="Type something..."
+      />
+      <TextBox
+        label="Field with default value"
+        defaultValue="Default value"
+      />
+      <TextBox
+        label="Disabled field"
+        disabled
+        placeholder="You cannot type here"
+      />
+      <TextBox
+        label="Read-only field"
+        readOnly
+        value="This text cannot be edited"
+      />
+      <TextBox
+        label="Required field"
+        required
+        placeholder="This field is mandatory"
+      />
+      <TextBox
+        label="Field with error"
+        error
+        helperText="Error message"
+        defaultValue="Invalid value"
+      />
+    </div>
+  );
+};
+
 export const Default: Story = {
   render: (args) => <ControlledTextBox {...args} />,
   args: defaultArgs,
@@ -127,45 +167,7 @@ export const Sizes: Story = {
 };
 
 export const States: Story = {
-  render: () => {
-    const [value, setValue] = useState('');
-
-    return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '400px' }}>
-        <TextBox
-          label="Default field"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-          placeholder="Type something..."
-        />
-        <TextBox
-          label="Field with default value"
-          defaultValue="Default value"
-        />
-        <TextBox
-          label="Disabled field"
-          disabled
-          placeholder="You cannot type here"
-        />
-        <TextBox
-          label="Read-only field"
-          readOnly
-          value="This text cannot be edited"
-        />
-        <TextBox
-          label="Required field"
-          required
-          placeholder="This field is mandatory"
-        />
-        <TextBox
-          label="Field with error"
-          error
-          helperText="Error message"
-          defaultValue="Invalid value"
-        />
-      </div>
-    );
-  },
+  render: () => <TextBoxStatesStory />,
   parameters: {
     docs: {
       description: {

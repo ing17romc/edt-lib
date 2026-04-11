@@ -1,3 +1,4 @@
+import type { Meta } from '@storybook/react-vite'
 import { MenuProps } from '../types'
 
 export const defaultArgs: Partial<MenuProps> = {
@@ -8,9 +9,9 @@ export const defaultArgs: Partial<MenuProps> = {
   ],
 }
 
-export const argTypes = {
+export const argTypes: NonNullable<Meta<MenuProps>['argTypes']> = {
   activeKey: {
-    control: 'text',
+    control: { type: 'text' },
     description: 'Key of the currently active (highlighted) menu item.',
     table: { type: { summary: 'string' } },
   },

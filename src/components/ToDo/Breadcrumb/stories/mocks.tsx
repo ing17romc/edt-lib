@@ -1,3 +1,4 @@
+import type { Meta } from '@storybook/react-vite'
 import { BreadcrumbProps } from '../types'
 
 export const defaultArgs: Partial<BreadcrumbProps> = {
@@ -9,14 +10,14 @@ export const defaultArgs: Partial<BreadcrumbProps> = {
   separator: '/',
 }
 
-export const argTypes = {
+export const argTypes: NonNullable<Meta<BreadcrumbProps>['argTypes']> = {
   items: {
-    control: false,
+    control: { disable: true },
     description: 'Ordered list of breadcrumb entries. Each item has a `label` and an optional `href`.',
     table: { type: { summary: '{ label: string; href?: string }[]' } },
   },
   separator: {
-    control: 'text',
+    control: { type: 'text' },
     description: 'Character or node rendered between breadcrumb items.',
     table: { type: { summary: 'ReactNode' }, defaultValue: { summary: '/' } },
   },

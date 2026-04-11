@@ -1,3 +1,4 @@
+import type { Meta } from '@storybook/react-vite'
 import { MoneyAmountProps } from '../types'
 
 export const defaultArgs: Partial<MoneyAmountProps> = {
@@ -8,14 +9,14 @@ export const defaultArgs: Partial<MoneyAmountProps> = {
   showCurrency: true,
 }
 
-export const argTypes = {
+export const argTypes: NonNullable<Meta<MoneyAmountProps>['argTypes']> = {
   amount: {
     control: { type: 'number' },
     description: 'Numeric monetary value to display.',
     table: { type: { summary: 'number' } },
   },
   currency: {
-    control: 'text',
+    control: { type: 'text' },
     description: 'ISO 4217 currency code (e.g. USD, EUR).',
     table: { type: { summary: 'string' }, defaultValue: { summary: 'USD' } },
   },
@@ -25,12 +26,12 @@ export const argTypes = {
     table: { type: { summary: 'number' }, defaultValue: { summary: '2' } },
   },
   locale: {
-    control: 'text',
+    control: { type: 'text' },
     description: 'BCP 47 locale tag used for number formatting (e.g. en-US, de-DE).',
     table: { type: { summary: 'string' }, defaultValue: { summary: 'en-US' } },
   },
   showCurrency: {
-    control: 'boolean',
+    control: { type: 'boolean' },
     description: 'When true, the currency code or symbol is displayed alongside the amount.',
     table: { type: { summary: 'boolean' }, defaultValue: { summary: 'true' } },
   },

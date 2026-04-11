@@ -35,7 +35,7 @@ export interface MenuItem {
 /**
  * Menu component props
  */
-export interface MenuProps extends HTMLAttributes<HTMLUListElement> {
+export interface MenuProps extends Omit<HTMLAttributes<HTMLUListElement>, 'onSelect'> {
   /**
    * List of menu items
    */

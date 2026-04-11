@@ -5,7 +5,7 @@ export type TooltipPlacement = 'top' | 'bottom' | 'left' | 'right';
 /**
  * Tooltip component props
  */
-export interface TooltipProps extends HTMLAttributes<HTMLDivElement> {
+export interface TooltipProps extends Omit<HTMLAttributes<HTMLDivElement>, 'content'> {
   /**
    * Tooltip content
    */

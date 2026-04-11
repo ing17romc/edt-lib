@@ -1,4 +1,4 @@
-import type { Meta } from '@storybook/react';
+import type { Meta } from '@storybook/react-vite';
 import type { MessageType, MessageProps } from '../types';
 
 /**
@@ -49,7 +49,7 @@ export const defaultArgs: Partial<MessageProps> = {
 /**
  * Controls for Storybook arguments
  */
-export const argTypes: Meta<typeof defaultArgs>['argTypes'] = {
+export const argTypes: Meta<MessageProps>['argTypes'] = {
   type: {
     control: { type: 'select' },
     options: messageTypes,

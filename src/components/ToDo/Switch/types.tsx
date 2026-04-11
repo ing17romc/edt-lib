@@ -4,7 +4,7 @@ import { ComponentSize } from '../../types';
 /**
  * Switch component props
  */
-export interface SwitchProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'type'> {
+export interface SwitchProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'size' | 'type'> {
   /**
    * Switch label
    */

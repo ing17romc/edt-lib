@@ -1,3 +1,4 @@
+import type { Meta } from '@storybook/react-vite'
 import { ListControlProps } from '../types'
 
 export const defaultArgs: Partial<ListControlProps> = {
@@ -9,21 +10,21 @@ export const defaultArgs: Partial<ListControlProps> = {
   multiSelect: false,
 }
 
-export const argTypes = {
+export const argTypes: NonNullable<Meta<ListControlProps>['argTypes']> = {
   multiSelect: {
-    control: 'boolean',
+    control: { type: 'boolean' },
     description: 'When true, multiple items can be selected simultaneously.',
     table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' } },
   },
   items: {
-    control: false,
+    control: { disable: true },
     description: 'List of selectable items. Each item requires a unique key and a display label.',
     table: { type: { summary: '{ key: string; label: string; description?: string }[]' } },
   },
   onSelect: {
     action: 'selected',
     description: 'Callback fired with the selected item key(s) when the selection changes.',
-    table: { type: { summary: '(keys: string[]) => void' } },
+    table: { type: { summary: '(key: string) => void' } },
   },
 }
 

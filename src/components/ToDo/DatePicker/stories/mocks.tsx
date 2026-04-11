@@ -1,3 +1,4 @@
+import type { Meta } from '@storybook/react-vite'
 import { DatePickerProps } from '../types'
 
 export const mockOnChange = () => {}
@@ -7,34 +8,34 @@ export const defaultArgs: Partial<DatePickerProps> = {
   disabled: false,
 }
 
-export const argTypes = {
+export const argTypes: NonNullable<Meta<DatePickerProps>['argTypes']> = {
   value: {
-    control: 'text',
+    control: { type: 'text' },
     description: 'Currently selected date in ISO 8601 format (YYYY-MM-DD).',
     table: { type: { summary: 'string' } },
   },
   min: {
-    control: 'text',
+    control: { type: 'text' },
     description: 'Earliest selectable date in ISO 8601 format.',
     table: { type: { summary: 'string' } },
   },
   max: {
-    control: 'text',
+    control: { type: 'text' },
     description: 'Latest selectable date in ISO 8601 format.',
     table: { type: { summary: 'string' } },
   },
   placeholder: {
-    control: 'text',
+    control: { type: 'text' },
     description: 'Placeholder text shown when no date is selected.',
     table: { type: { summary: 'string' } },
   },
   label: {
-    control: 'text',
+    control: { type: 'text' },
     description: 'Label displayed above the date input.',
     table: { type: { summary: 'string' } },
   },
   disabled: {
-    control: 'boolean',
+    control: { type: 'boolean' },
     description: 'When true, the date picker is non-interactive.',
     table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' } },
   },

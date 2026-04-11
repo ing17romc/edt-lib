@@ -1,3 +1,4 @@
+import type { Meta } from '@storybook/react-vite'
 import { SnackbarProps } from '../types'
 import { ComponentVariant } from '../../../types'
 
@@ -11,9 +12,9 @@ export const defaultArgs: Partial<SnackbarProps> = {
   duration: 0,
 }
 
-export const argTypes = {
+export const argTypes: NonNullable<Meta<SnackbarProps>['argTypes']> = {
   message: {
-    control: 'text',
+    control: { type: 'text' },
     description: 'Main text displayed inside the snackbar.',
     table: { type: { summary: 'string' } },
   },
@@ -32,7 +33,7 @@ export const argTypes = {
     },
   },
   open: {
-    control: 'boolean',
+    control: { type: 'boolean' },
     description: 'Controls visibility of the snackbar.',
     table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' } },
   },
@@ -42,7 +43,7 @@ export const argTypes = {
     table: { type: { summary: 'number' }, defaultValue: { summary: '0' } },
   },
   actionLabel: {
-    control: 'text',
+    control: { type: 'text' },
     description: 'Label of the optional action button rendered in the snackbar.',
     table: { type: { summary: 'string' } },
   },

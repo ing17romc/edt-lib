@@ -35,7 +35,7 @@ export interface ListControlItem {
 /**
  * ListControl component properties
  */
-export interface ListControlProps extends HTMLAttributes<HTMLUListElement> {
+export interface ListControlProps extends Omit<HTMLAttributes<HTMLUListElement>, 'onSelect'> {
   /**
    * List items
    */

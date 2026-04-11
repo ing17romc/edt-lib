@@ -1,3 +1,4 @@
+import type { Meta } from '@storybook/react-vite'
 import { TooltipProps } from '../types'
 import { TooltipPlacement } from '../types'
 
@@ -7,9 +8,9 @@ export const defaultArgs: Partial<TooltipProps> = {
   disabled: false,
 }
 
-export const argTypes = {
+export const argTypes: NonNullable<Meta<TooltipProps>['argTypes']> = {
   content: {
-    control: 'text',
+    control: { type: 'text' },
     description: 'Text or node displayed inside the tooltip bubble.',
     table: { type: { summary: 'ReactNode' } },
   },
@@ -23,7 +24,7 @@ export const argTypes = {
     },
   },
   disabled: {
-    control: 'boolean',
+    control: { type: 'boolean' },
     description: 'When true, the tooltip is not shown.',
     table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' } },
   },

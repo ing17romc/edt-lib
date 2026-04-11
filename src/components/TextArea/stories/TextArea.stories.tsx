@@ -94,6 +94,167 @@ const ControlledTextArea = (args: React.ComponentProps<typeof TextArea>) => {
   );
 };
 
+const TextAreaVariantsStory = () => {
+  const [value, setValue] = useState('');
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', maxWidth: '600px' }}>
+      <TextArea
+        label="Outlined"
+        variant="outlined"
+        placeholder="Outlined"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
+      <TextArea
+        label="Filled"
+        variant="filled"
+        placeholder="Filled"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
+      <TextArea
+        label="Standard"
+        variant="standard"
+        placeholder="Standard"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
+    </div>
+  );
+};
+
+const TextAreaSizesStory = () => {
+  const [value, setValue] = useState('');
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '600px' }}>
+      <TextArea
+        label="Small"
+        size={ComponentSize.SMALL}
+        placeholder="Small size"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
+      <TextArea
+        label="Medium"
+        size={ComponentSize.MEDIUM}
+        placeholder="Medium size"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
+      <TextArea
+        label="Large"
+        size={ComponentSize.LARGE}
+        placeholder="Large size"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
+    </div>
+  );
+};
+
+const TextAreaStatesStory = () => {
+  const [value, setValue] = useState('');
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '600px' }}>
+      <TextArea
+        label="Default field"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        placeholder="Type something..."
+      />
+      <TextArea
+        label="Field with default value"
+        defaultValue="This is the default content in the text area. You can edit it."
+        rows={4}
+      />
+      <TextArea
+        label="Disabled field"
+        disabled
+        value="This text area is disabled"
+        rows={2}
+      />
+      <TextArea
+        label="Read-only field"
+        readOnly
+        value="This text area is read-only. Its content cannot be edited."
+        rows={3}
+      />
+      <TextArea
+        label="Required field"
+        required
+        placeholder="This field is mandatory"
+        rows={2}
+      />
+      <TextArea
+        label="Field with error"
+        error
+        helperText="This field is required"
+        value="Invalid value"
+        rows={2}
+      />
+    </div>
+  );
+};
+
+const TextAreaCharacterLimitStory = () => {
+  const [value, setValue] = useState('');
+  const maxLength = 100;
+
+  return (
+    <div style={{ maxWidth: '600px' }}>
+      <TextArea
+        label="Comment"
+        placeholder="Write your comment (max 100 characters)"
+        maxLength={maxLength}
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        helperText={`${value.length}/${maxLength} characters`}
+        rows={4}
+      />
+    </div>
+  );
+};
+
+const TextAreaAutoResizeStory = () => {
+  const [value, setValue] = useState('');
+
+  return (
+    <div style={{ maxWidth: '600px' }}>
+      <TextArea
+        label="Description"
+        placeholder="Write a description (will resize automatically)"
+        autoResize
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        helperText="The text area grows automatically as you type"
+        minRows={2}
+        maxRows={8}
+      />
+    </div>
+  );
+};
+
+const TextAreaFullWidthStory = () => {
+  const [value, setValue] = useState('');
+
+  return (
+    <div style={{ width: '100%' }}>
+      <TextArea
+        label="Comment"
+        fullWidth
+        placeholder="Write your comment here..."
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        helperText="This field spans the full available width"
+        rows={4}
+      />
+    </div>
+  );
+};
+
 export const Default: Story = {
   render: (args) => <ControlledTextArea {...args} />,
   args: {
@@ -102,35 +263,7 @@ export const Default: Story = {
 };
 
 export const Variants: Story = {
-  render: () => {
-    const [value, setValue] = useState('');
-
-    return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', maxWidth: '600px' }}>
-        <TextArea
-          label="Outlined"
-          variant="outlined"
-          placeholder="Outlined"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-        />
-        <TextArea
-          label="Filled"
-          variant="filled"
-          placeholder="Filled"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-        />
-        <TextArea
-          label="Standard"
-          variant="standard"
-          placeholder="Standard"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-        />
-      </div>
-    );
-  },
+  render: () => <TextAreaVariantsStory />,
   parameters: {
     docs: {
       description: {
@@ -141,35 +274,7 @@ export const Variants: Story = {
 };
 
 export const Sizes: Story = {
-  render: () => {
-    const [value, setValue] = useState('');
-
-    return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '600px' }}>
-        <TextArea
-          label="Small"
-          size={ComponentSize.SMALL}
-          placeholder="Small size"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-        />
-        <TextArea
-          label="Medium"
-          size={ComponentSize.MEDIUM}
-          placeholder="Medium size"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-        />
-        <TextArea
-          label="Large"
-          size={ComponentSize.LARGE}
-          placeholder="Large size"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-        />
-      </div>
-    );
-  },
+  render: () => <TextAreaSizesStory />,
   parameters: {
     docs: {
       description: {
@@ -180,50 +285,7 @@ export const Sizes: Story = {
 };
 
 export const States: Story = {
-  render: () => {
-    const [value, setValue] = useState('');
-
-    return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '600px' }}>
-        <TextArea
-          label="Default field"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-          placeholder="Type something..."
-        />
-        <TextArea
-          label="Field with default value"
-          defaultValue="This is the default content in the text area. You can edit it."
-          rows={4}
-        />
-        <TextArea
-          label="Disabled field"
-          disabled
-          value="This text area is disabled"
-          rows={2}
-        />
-        <TextArea
-          label="Read-only field"
-          readOnly
-          value="This text area is read-only. Its content cannot be edited."
-          rows={3}
-        />
-        <TextArea
-          label="Required field"
-          required
-          placeholder="This field is mandatory"
-          rows={2}
-        />
-        <TextArea
-          label="Field with error"
-          error
-          helperText="This field is required"
-          value="Invalid value"
-          rows={2}
-        />
-      </div>
-    );
-  },
+  render: () => <TextAreaStatesStory />,
   parameters: {
     docs: {
       description: {
@@ -234,24 +296,7 @@ export const States: Story = {
 };
 
 export const WithCharacterLimit: Story = {
-  render: () => {
-    const [value, setValue] = useState('');
-    const maxLength = 100;
-
-    return (
-      <div style={{ maxWidth: '600px' }}>
-        <TextArea
-          label="Comment"
-          placeholder="Write your comment (max 100 characters)"
-          maxLength={maxLength}
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-          helperText={`${value.length}/${maxLength} characters`}
-          rows={4}
-        />
-      </div>
-    );
-  },
+  render: () => <TextAreaCharacterLimitStory />,
   parameters: {
     docs: {
       description: {
@@ -262,24 +307,7 @@ export const WithCharacterLimit: Story = {
 };
 
 export const AutoResize: Story = {
-  render: () => {
-    const [value, setValue] = useState('');
-
-    return (
-      <div style={{ maxWidth: '600px' }}>
-        <TextArea
-          label="Description"
-          placeholder="Write a description (will resize automatically)"
-          autoResize
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-          helperText="The text area grows automatically as you type"
-          minRows={2}
-          maxRows={8}
-        />
-      </div>
-    );
-  },
+  render: () => <TextAreaAutoResizeStory />,
   parameters: {
     docs: {
       description: {
@@ -290,23 +318,7 @@ export const AutoResize: Story = {
 };
 
 export const FullWidth: Story = {
-  render: () => {
-    const [value, setValue] = useState('');
-
-    return (
-      <div style={{ width: '100%' }}>
-        <TextArea
-          label="Comment"
-          fullWidth
-          placeholder="Write your comment here..."
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-          helperText="This field spans the full available width"
-          rows={4}
-        />
-      </div>
-    );
-  },
+  render: () => <TextAreaFullWidthStory />,
   parameters: {
     docs: {
       description: {

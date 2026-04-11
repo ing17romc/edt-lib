@@ -1,4 +1,5 @@
 import React from 'react'
+import type { Meta } from '@storybook/react-vite'
 import { TabsProps } from '../types'
 
 export const defaultArgs: Partial<TabsProps> = {
@@ -9,9 +10,9 @@ export const defaultArgs: Partial<TabsProps> = {
   ],
 }
 
-export const argTypes = {
+export const argTypes: NonNullable<Meta<TabsProps>['argTypes']> = {
   defaultActiveKey: {
-    control: 'text',
+    control: { type: 'text' },
     description: 'Key of the tab that is active by default on first render.',
     table: { type: { summary: 'string' } },
   },

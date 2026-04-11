@@ -1,3 +1,4 @@
+import type { Meta } from '@storybook/react-vite'
 import { FloatingMenuProps } from '../types'
 import { FloatingMenuPlacement } from '../types'
 
@@ -12,7 +13,7 @@ export const defaultArgs: Partial<FloatingMenuProps> = {
   disabled: false,
 }
 
-export const argTypes = {
+export const argTypes: NonNullable<Meta<FloatingMenuProps>['argTypes']> = {
   placement: {
     control: { type: 'select' },
     options: ['bottom-start', 'bottom-end', 'top-start', 'top-end'] satisfies FloatingMenuPlacement[],
@@ -23,12 +24,12 @@ export const argTypes = {
     },
   },
   disabled: {
-    control: 'boolean',
+    control: { type: 'boolean' },
     description: 'When true, the trigger is non-interactive and the menu cannot be opened.',
     table: { type: { summary: 'boolean' }, defaultValue: { summary: 'false' } },
   },
   items: {
-    control: false,
+    control: { disable: true },
     description: 'List of menu items. Use `divider: true` on an item to insert a separator.',
     table: { type: { summary: '{ key: string; label: string; divider?: boolean }[]' } },
   },

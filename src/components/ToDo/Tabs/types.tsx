@@ -29,7 +29,7 @@ export interface TabItem {
 /**
  * Tabs component properties
  */
-export interface TabsProps extends HTMLAttributes<HTMLDivElement> {
+export interface TabsProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   /**
    * List of tabs
    */

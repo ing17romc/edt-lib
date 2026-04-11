@@ -18,7 +18,7 @@ export interface CarouselSlide {
 /**
  * CarouselSnapped component props
  */
-export interface CarouselSnappedProps extends HTMLAttributes<HTMLDivElement> {
+export interface CarouselSnappedProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   /**
    * Carousel slides
    */

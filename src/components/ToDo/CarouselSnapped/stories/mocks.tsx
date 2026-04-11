@@ -1,3 +1,4 @@
+import type { Meta } from '@storybook/react-vite'
 import { CarouselSnappedProps } from '../types'
 
 export const defaultArgs: Partial<CarouselSnappedProps> = {
@@ -6,14 +7,14 @@ export const defaultArgs: Partial<CarouselSnappedProps> = {
   defaultIndex: 0,
 }
 
-export const argTypes = {
+export const argTypes: NonNullable<Meta<CarouselSnappedProps>['argTypes']> = {
   showNavigation: {
-    control: 'boolean',
+    control: { type: 'boolean' },
     description: 'When true, previous/next arrow buttons are rendered.',
     table: { type: { summary: 'boolean' }, defaultValue: { summary: 'true' } },
   },
   showIndicators: {
-    control: 'boolean',
+    control: { type: 'boolean' },
     description: 'When true, dot indicators showing the current slide are rendered.',
     table: { type: { summary: 'boolean' }, defaultValue: { summary: 'true' } },
   },
