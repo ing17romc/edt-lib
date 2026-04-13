@@ -1,7 +1,7 @@
 @use 'sass:color';
-@use '../../../../styles/palette' as *;
-@use '../../../../styles/typography' as *;
-@use '../../../../styles/spacing' as *;
+@use '../../../styles/palette' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/spacing' as *;
 
 $track-width-sm: 1.75rem;
 $track-height-sm: 1rem;

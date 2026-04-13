@@ -1,7 +1,7 @@
 @use 'sass:color';
-@use '../../../../styles/palette' as *;
-@use '../../../../styles/typography' as *;
-@use '../../../../styles/spacing' as *;
+@use '../../../styles/palette' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/spacing' as *;
 
 .tag {
   display: inline-flex;
