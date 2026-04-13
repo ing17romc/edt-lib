@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { within, expect } from 'storybook/test';
 import TextBox from '../';
 import { defaultArgs } from './mocks';
 import { ComponentSize } from '../../types';
@@ -130,6 +131,10 @@ const TextBoxStatesStory = () => {
 export const Default: Story = {
   render: (args) => <ControlledTextBox {...args} />,
   args: defaultArgs,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByLabelText('Label')).toBeInTheDocument();
+  },
 };
 
 export const Variants: Story = {
@@ -140,6 +145,12 @@ export const Variants: Story = {
       <TextBox label="Standard" variant="standard" placeholder="Standard" />
     </div>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByLabelText('Outlined').parentElement).toHaveClass('variant-outlined');
+    await expect(canvas.getByLabelText('Filled').parentElement).toHaveClass('variant-filled');
+    await expect(canvas.getByLabelText('Standard').parentElement).toHaveClass('variant-standard');
+  },
   parameters: {
     docs: {
       description: {
@@ -157,6 +168,12 @@ export const Sizes: Story = {
       <TextBox label="Large" size={ComponentSize.LARGE} placeholder="Large size" />
     </div>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByLabelText('Small').parentElement).toHaveClass('size-small');
+    await expect(canvas.getByLabelText('Medium').parentElement).toHaveClass('size-medium');
+    await expect(canvas.getByLabelText('Large').parentElement).toHaveClass('size-large');
+  },
   parameters: {
     docs: {
       description: {

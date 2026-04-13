@@ -1,4 +1,5 @@
 import React from 'react'
+import { within, expect } from 'storybook/test'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import CarouselSnapped from '../index'
 import { defaultArgs, argTypes, parameters } from './mocks'
@@ -46,7 +47,12 @@ export default meta
 
 type Story = StoryObj<typeof CarouselSnapped>
 
-export const Default: Story = {}
+export const Default: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await expect(canvas.getByText('Slide 1')).toBeInTheDocument()
+  },
+}
 
 export const NoNavigation: Story = {
   args: { showNavigation: false },

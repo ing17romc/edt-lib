@@ -1,3 +1,4 @@
+import { within, expect } from 'storybook/test';
 import type { StoryObj, Meta } from '@storybook/react-vite';
 import { Selector, SelectorVariant } from '..';
 import { ComponentSize } from '../../types';
@@ -120,6 +121,11 @@ type Story = StoryObj<typeof Selector>;
 
 export const Default: Story = {
   args: defaultArgs,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByRole('combobox')).toBeInTheDocument();
+    await expect(canvas.getByText('Select an option')).toBeInTheDocument();
+  },
 };
 
 export const WithoutLabel: Story = {
@@ -128,18 +134,36 @@ export const WithoutLabel: Story = {
 
 export const WithHelperText: Story = {
   args: withHelperTextArgs,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('Select an option from the list')).toBeInTheDocument();
+  },
 };
 
 export const ErrorState: Story = {
   args: errorStateArgs,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByRole('combobox')).toHaveClass('selector--error');
+    await expect(canvas.getByText('You must select an option')).toBeInTheDocument();
+  },
 };
 
 export const Disabled: Story = {
   args: disabledArgs,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByRole('combobox')).toBeDisabled();
+  },
 };
 
 export const Loading: Story = {
   args: loadingArgs,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByRole('combobox')).toBeDisabled();
+    await expect(canvasElement.querySelector('.selectorLoadingSpinner')).toBeInTheDocument();
+  },
 };
 
 export const FullWidth: Story = {

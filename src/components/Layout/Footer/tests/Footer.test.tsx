@@ -1,18 +1,16 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import Footer from '../index';
-import { MockFooterContent } from './mocks';
+import { composeStory } from '@storybook/react-vite';
+import type { Meta } from '@storybook/react-vite';
+import * as StoriesModule from '../stories/Footer.stories';
+
+const meta = StoriesModule.default as Meta;
+const Default = composeStory(StoriesModule.Default, meta);
 
 describe('Footer', () => {
-  it('should render the footer with content', () => {
-    render(
-      <Footer>
-        <MockFooterContent />
-      </Footer>
-    );
+  describe('Stories', () => {
+    afterEach(() => { document.body.innerHTML = ''; });
 
-    expect(screen.getByText('Useful links')).toBeInTheDocument();
-    expect(screen.getByText('Contact')).toBeInTheDocument();
-    expect(screen.getByText('Email: info@example.com')).toBeInTheDocument();
+    test('Default: renders footer with content and copyright', async () => {
+      await Default.run();
+    });
   });
 });

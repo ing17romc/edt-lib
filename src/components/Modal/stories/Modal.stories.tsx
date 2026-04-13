@@ -1,3 +1,4 @@
+import { within, expect } from 'storybook/test';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import Modal from '..';
 import { 
@@ -96,6 +97,11 @@ type Story = StoryObj<typeof Modal>;
 
 export const Default: Story = {
   args: baseArgs,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByRole('heading', { level: 2, name: /modal title/i })).toBeInTheDocument();
+    await expect(canvas.getByRole('button', { name: /^close$/i })).toBeInTheDocument();
+  },
   parameters: {
     docs: {
       description: {
@@ -107,6 +113,11 @@ export const Default: Story = {
 
 export const WithFooter: Story = {
   args: withFooter,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('Cancel')).toBeInTheDocument();
+    await expect(canvas.getByText('Save Changes')).toBeInTheDocument();
+  },
   parameters: {
     docs: {
       description: {
@@ -118,6 +129,10 @@ export const WithFooter: Story = {
 
 export const WithoutTitle: Story = {
   args: withoutTitle,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.queryByRole('heading')).not.toBeInTheDocument();
+  },
   parameters: {
     docs: {
       description: {
@@ -129,6 +144,9 @@ export const WithoutTitle: Story = {
 
 export const WithCustomSize: Story = {
   args: withCustomSize,
+  play: async ({ canvasElement }) => {
+    await expect(canvasElement.querySelector('.large')).toBeInTheDocument();
+  },
   parameters: {
     docs: {
       description: {
@@ -151,6 +169,10 @@ export const WithLongContent: Story = {
 
 export const WithCustomCloseText: Story = {
   args: withCustomCloseText,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByRole('button', { name: /close window/i })).toBeInTheDocument();
+  },
   parameters: {
     docs: {
       description: {

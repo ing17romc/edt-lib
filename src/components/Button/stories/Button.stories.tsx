@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { within, expect } from 'storybook/test';
 import Button from '..';
 import { buttonStories, variants, sizes } from './mocks';
 import { ComponentVariant, ComponentSize } from '../../types';
@@ -21,6 +22,15 @@ export const Default: Story = {
     variant: ComponentVariant.PRIMARY,
     size: ComponentSize.MEDIUM,
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByRole('button', { name: /button/i });
+    await expect(button).toBeInTheDocument();
+    await expect(button).toHaveClass('button--primary');
+    await expect(button).toHaveClass('button--medium');
+    await expect(button).toHaveAttribute('type', 'button');
+    await expect(button).not.toBeDisabled();
+  },
 };
 
 // Variants
@@ -39,6 +49,13 @@ export const Variants: Story = {
       ))}
     </div>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    for (const { variant, label } of variants) {
+      const button = canvas.getByRole('button', { name: `${label} Button` });
+      await expect(button).toHaveClass(`button--${variant}`);
+    }
+  },
   parameters: {
     docs: {
       source: {
@@ -64,6 +81,13 @@ export const Sizes: Story = {
       ))}
     </div>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    for (const { size } of sizes) {
+      const button = canvas.getByRole('button', { name: `${size} Button` });
+      await expect(button).toHaveClass(`button--${size}`);
+    }
+  },
   parameters: {
     docs: {
       source: {
@@ -87,6 +111,13 @@ export const States: Story = {
       </div>
     </div>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const disabledButton = canvas.getByRole('button', { name: /disabled button/i });
+    await expect(disabledButton).toBeDisabled();
+    const fullWidthButton = canvas.getByRole('button', { name: /full width button/i });
+    await expect(fullWidthButton).toHaveClass('button--fullWidth');
+  },
   parameters: {
     docs: {
       source: {

@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { within, expect } from 'storybook/test';
 import { Card } from '..';
 import { mockCardProps, mockCardWithoutImage, mockClickableCard, mockOutlinedCard, mockFilledCard, argTypes, parameters } from './mocks';
 import styles from '../styles/Card.module.scss';
@@ -49,6 +50,11 @@ export const Default: Story = {
     ...mockCardProps,
     onClick: undefined,
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('Card Title')).toBeInTheDocument();
+    await expect(canvas.getByText('Optional subtitle')).toBeInTheDocument();
+  },
 };
 
 /**
@@ -59,6 +65,11 @@ export const Outlined: Story = {
   args: {
     ...mockOutlinedCard,
     onClick: undefined,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('Outlined Card')).toBeInTheDocument();
+    await expect(canvasElement.querySelector('.card--outlined')).not.toBeNull();
   },
   parameters: {
     docs: {
@@ -118,6 +129,11 @@ export const WithoutImage: Story = {
         <p>Ideal for content that does not require visual support.</p>
       </div>
     ),
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('Card without image')).toBeInTheDocument();
+    await expect(canvas.queryByRole('img')).not.toBeInTheDocument();
   },
   parameters: {
     docs: {

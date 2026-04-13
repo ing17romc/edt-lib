@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { within, expect } from 'storybook/test'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import Snackbar from '../index'
 import { ComponentVariant } from '../../../types'
@@ -17,7 +18,12 @@ export default meta
 
 type Story = StoryObj<typeof Snackbar>
 
-export const Default: Story = {}
+export const Default: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await expect(canvas.getByRole('status')).toBeInTheDocument()
+  },
+}
 
 export const Variants: Story = {
   render: () => (

@@ -1,156 +1,53 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-import { Title, TitleSize, TitleVariant } from '..';
-import { mockTitleProps, mockTitleWithAllProps, mockTitleWithDifferentSizes, mockTitleWithDifferentVariants } from './mocks';
+import { render, screen, fireEvent } from '@testing-library/react';
+import { composeStory } from '@storybook/react-vite';
+import type { Meta } from '@storybook/react-vite';
+import { Title } from '..';
+import { mockTitleWithAllProps } from './mocks';
+import * as StoriesModule from '../stories/Title.stories';
+
+const meta = StoriesModule.default as Meta;
+const Default = composeStory(StoriesModule.Default, meta);
+const WithAllProps = composeStory(StoriesModule.WithAllProps, meta);
+const Sizes = composeStory(StoriesModule.Sizes, meta);
+const Variants = composeStory(StoriesModule.Variants, meta);
+const TextStyles = composeStory(StoriesModule.TextStyles, meta);
+const Alignments = composeStory(StoriesModule.Alignments, meta);
+const Block = composeStory(StoriesModule.Block, meta);
+const NoWrap = composeStory(StoriesModule.NoWrap, meta);
 
 describe('Title Component', () => {
-  // Basic rendering test
-  it('should render correctly with default props', () => {
-    render(<Title>{mockTitleProps.children}</Title>);
-    const titleElement = screen.getByText(mockTitleProps.children as string);
-    
-    expect(titleElement).toBeInTheDocument();
-    expect(titleElement.tagName.toLowerCase()).toBe('h1');
-    expect(titleElement).toHaveClass('title--h1');
-    expect(titleElement).toHaveClass('title--dark');
+  describe('Stories', () => {
+    afterEach(() => { document.body.innerHTML = ''; });
+
+    test('Default: renders h1 with correct classes', async () => { await Default.run(); });
+    test('WithAllProps: applies all CSS props correctly', async () => { await WithAllProps.run(); });
+    test('Sizes: each size renders the correct tag and class', async () => { await Sizes.run(); });
+    test('Variants: each variant applies the correct class', async () => { await Variants.run(); });
+    test('TextStyles: bold/italic/underline/strikethrough classes', async () => { await TextStyles.run(); });
+    test('Alignments: each alignment applies the correct class', async () => { await Alignments.run(); });
+    test('Block: applies block class', async () => { await Block.run(); });
+    test('NoWrap: applies noWrap class', async () => { await NoWrap.run(); });
   });
 
-  // Test with all props
-  it('should apply all props correctly', () => {
-    render(<Title {...mockTitleWithAllProps} />);
-    const titleElement = screen.getByText(mockTitleWithAllProps.children as string);
-    
-    expect(titleElement).toHaveClass('title--h2');
-    expect(titleElement).toHaveClass('title--primary');
-    expect(titleElement).toHaveClass('custom-class');
-    expect(titleElement).toHaveClass('title--bold');
-    expect(titleElement).toHaveClass('title--italic');
-    expect(titleElement).toHaveClass('title--underline');
-    expect(titleElement).toHaveClass('title--center');
-    expect(titleElement.id).toBe('title-id');
-    
-    // Verify that the click handler is applied
-    titleElement.click();
-    expect(mockTitleWithAllProps.onClick).toHaveBeenCalledTimes(1);
-  });
+  describe('Unit', () => {
+    it('applies custom class, id, and onClick correctly', () => {
+      render(<Title {...mockTitleWithAllProps} />);
+      const el = screen.getByText(mockTitleWithAllProps.children as string);
 
-  // Sizes test
-  it('should render all sizes correctly', () => {
-    const sizes = Object.values(TitleSize) as TitleSize[];
-    
-    sizes.forEach(size => {
-      const props = mockTitleWithDifferentSizes(size);
-      render(<Title {...props} />);
-      const titleElement = screen.getByText(`Title ${size}`);
-      
-      expect(titleElement.tagName.toLowerCase()).toBe(size);
-      expect(titleElement).toHaveClass(`title--${size}`);
+      expect(el).toHaveClass('custom-class');
+      expect(el.id).toBe('title-id');
+
+      fireEvent.click(el);
+      expect(mockTitleWithAllProps.onClick).toHaveBeenCalledTimes(1);
     });
-  });
 
-  // Variants test
-  it('should apply color variants correctly', () => {
-    const variants = Object.values(TitleVariant) as TitleVariant[];
-    
-    variants.forEach(variant => {
-      const props = mockTitleWithDifferentVariants(variant);
-      render(<Title {...props} />);
-      const titleElement = screen.getByText(`Title ${variant}`);
-      
-      expect(titleElement).toHaveClass(`title--${variant}`);
+    it('correctly assigns the ref', () => {
+      const ref = React.createRef<HTMLHeadingElement>();
+      render(<Title ref={ref}>Ref test</Title>);
+
+      expect(ref.current).toBeInTheDocument();
+      expect(ref.current?.tagName.toLowerCase()).toBe('h1');
     });
-  });
-
-  // Alignment test
-  it('should apply alignment correctly', () => {
-    const alignments = ['left', 'center', 'right', 'justify'] as const;
-    
-    alignments.forEach((align, index) => {
-      const testText = `Test title ${index}`;
-      render(
-        <Title {...mockTitleProps} align={align}>
-          {testText}
-        </Title>
-      );
-      const titleElement = screen.getByText(testText);
-      
-      expect(titleElement).toHaveClass(`title--${align}`);
-    });
-  });
-
-  // Text styles test
-  it('should apply text styles correctly', () => {
-    const testText = 'Text styles';
-    
-    // Bold test
-    const { rerender } = render(
-      <Title {...mockTitleProps} bold>
-        {testText} - Bold
-      </Title>
-    );
-    let titleElement = screen.getByText(`${testText} - Bold`);
-    expect(titleElement).toHaveClass('title--bold');
-    
-    // Italic test
-    rerender(
-      <Title {...mockTitleProps} italic>
-        {testText} - Italic
-      </Title>
-    );
-    titleElement = screen.getByText(`${testText} - Italic`);
-    expect(titleElement).toHaveClass('title--italic');
-    
-    // Underline test
-    rerender(
-      <Title {...mockTitleProps} underline>
-        {testText} - Underline
-      </Title>
-    );
-    titleElement = screen.getByText(`${testText} - Underline`);
-    expect(titleElement).toHaveClass('title--underline');
-    
-    // Strikethrough test
-    rerender(
-      <Title {...mockTitleProps} strikethrough>
-        {testText} - Strikethrough
-      </Title>
-    );
-    titleElement = screen.getByText(`${testText} - Strikethrough`);
-    expect(titleElement).toHaveClass('title--strikethrough');
-  });
-
-  // No-wrap test
-  it('should apply the noWrap class when noWrap is true', () => {
-    const testText = 'Title without line break';
-    render(
-      <Title {...mockTitleProps} noWrap>
-        {testText}
-      </Title>
-    );
-    const titleElement = screen.getByText(testText);
-    
-    expect(titleElement).toHaveClass('title--noWrap');
-  });
-
-  // Block test
-  it('should apply the block class when block is true', () => {
-    const testText = 'Block title';
-    render(
-      <Title {...mockTitleProps} block>
-        {testText}
-      </Title>
-    );
-    const titleElement = screen.getByText(testText);
-    
-    expect(titleElement).toHaveClass('title--block');
-  });
-
-  // Ref test
-  it('should correctly assign the ref', () => {
-    const ref = React.createRef<HTMLHeadingElement>();
-    render(<Title {...mockTitleProps} ref={ref} />);
-    
-    expect(ref.current).toBeInTheDocument();
-    expect(ref.current?.tagName.toLowerCase()).toBe('h1');
   });
 });

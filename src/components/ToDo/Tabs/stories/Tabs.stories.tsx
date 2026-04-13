@@ -1,4 +1,5 @@
 import React from 'react'
+import { within, expect } from 'storybook/test'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import Tabs from '../index'
 import { defaultArgs, argTypes, parameters } from './mocks'
@@ -16,7 +17,12 @@ export default meta
 
 type Story = StoryObj<typeof Tabs>
 
-export const Default: Story = {}
+export const Default: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await expect(canvas.getByRole('tablist')).toBeInTheDocument()
+  },
+}
 
 export const WithDisabledTab: Story = {
   args: {

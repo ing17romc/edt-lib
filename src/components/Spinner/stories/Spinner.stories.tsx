@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { within, expect } from 'storybook/test';
 import Spinner from '..';
 import { SpinnerVariant } from '../types';
 import { ComponentSize } from '../../types';
@@ -24,6 +25,13 @@ type Story = StoryObj<typeof Spinner>;
 
 export const Default: Story = {
   args: {},
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const spinner = canvas.getByLabelText('Loading...');
+    await expect(spinner).toBeInTheDocument();
+    await expect(spinner).toHaveClass('spinner--medium');
+    await expect(spinner).toHaveClass('spinner--primary');
+  },
 };
 
 export const Sizes: Story = {
@@ -34,6 +42,12 @@ export const Sizes: Story = {
       <Spinner size={ComponentSize.LARGE} aria-label="Large" />
     </div>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByLabelText('Small')).toHaveClass('spinner--small');
+    await expect(canvas.getByLabelText('Medium')).toHaveClass('spinner--medium');
+    await expect(canvas.getByLabelText('Large')).toHaveClass('spinner--large');
+  },
 };
 
 export const Variants: Story = {
@@ -47,11 +61,25 @@ export const Variants: Story = {
       <Spinner variant={SpinnerVariant.WARNING} aria-label="Warning" />
     </div>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByLabelText('Primary')).toHaveClass('spinner--primary');
+    await expect(canvas.getByLabelText('Secondary')).toHaveClass('spinner--secondary');
+    await expect(canvas.getByLabelText('Tertiary')).toHaveClass('spinner--tertiary');
+    await expect(canvas.getByLabelText('Danger')).toHaveClass('spinner--danger');
+    await expect(canvas.getByLabelText('Success')).toHaveClass('spinner--success');
+    await expect(canvas.getByLabelText('Warning')).toHaveClass('spinner--warning');
+  },
 };
 
 export const Pulse: Story = {
   args: {
     pulse: true,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const spinner = canvas.getByLabelText('Loading...');
+    await expect(spinner).toHaveClass('spinner--pulse');
   },
 };
 

@@ -1,3 +1,4 @@
+import { within, expect } from 'storybook/test'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import Breadcrumb from '../index'
 import { defaultArgs, argTypes, parameters } from './mocks'
@@ -15,7 +16,12 @@ export default meta
 
 type Story = StoryObj<typeof Breadcrumb>
 
-export const Default: Story = {}
+export const Default: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await expect(canvas.getByRole('navigation')).toBeInTheDocument()
+  },
+}
 
 export const CustomSeparator: Story = {
   args: {

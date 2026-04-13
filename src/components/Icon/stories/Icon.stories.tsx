@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { within, expect } from 'storybook/test';
 import Icon from '..';
 import { IconVariant } from '../types';
 import { containerStyle, itemContainerStyle, } from './mocks';
@@ -75,6 +76,12 @@ export const Default: Story = {
   args: {
     name: 'home',
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const icon = canvas.getByRole('img');
+    await expect(icon).toHaveClass('icon--medium');
+    await expect(icon).toHaveClass('icon--outline');
+  },
 };
 
 export const Sizes: Story = {
@@ -88,6 +95,13 @@ export const Sizes: Story = {
       ))}
     </div>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const icons = canvas.getAllByRole('img');
+    await expect(icons[0]).toHaveClass('icon--small');
+    await expect(icons[1]).toHaveClass('icon--medium');
+    await expect(icons[2]).toHaveClass('icon--large');
+  },
   parameters: {
     docs: {
       description: {
@@ -119,6 +133,13 @@ export const Variants: Story = {
       </div>
     </div>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const icons = canvas.getAllByRole('img');
+    await expect(icons[0]).toHaveClass('icon--outline');
+    await expect(icons[1]).toHaveClass('icon--solid');
+    await expect(icons[2]).toHaveClass('icon--dual');
+  },
   parameters: {
     docs: {
       description: {
@@ -175,6 +196,12 @@ export const DisabledState: Story = {
       </div>
     </div>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const icons = canvas.getAllByRole('img');
+    await expect(icons[0]).toHaveClass('icon--disabled');
+    await expect(icons[1]).not.toHaveClass('icon--disabled');
+  },
   parameters: {
     docs: {
       description: {

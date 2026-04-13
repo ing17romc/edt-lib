@@ -1,5 +1,6 @@
 import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
+import { within, expect } from 'storybook/test';
 import { IconVariant } from '../../Icon/types';
 import IconButton from '..';
 import { 
@@ -29,6 +30,12 @@ export const Default: Story = {
   args: {
     'aria-label': 'Home button',
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByRole('button');
+    await expect(button).toHaveClass('iconButton--medium');
+    await expect(button).toHaveClass('iconButton--primary');
+  },
 };
 
 // Sizes
@@ -47,6 +54,13 @@ export const Sizes: Story = {
       ))}
     </div>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const buttons = canvas.getAllByRole('button');
+    await expect(buttons[0]).toHaveClass('iconButton--small');
+    await expect(buttons[1]).toHaveClass('iconButton--medium');
+    await expect(buttons[2]).toHaveClass('iconButton--large');
+  },
   parameters: {
     docs: {
       description: {
@@ -72,6 +86,16 @@ export const Variants: Story = {
       ))}
     </div>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const buttons = canvas.getAllByRole('button');
+    await expect(buttons[0]).toHaveClass('iconButton--primary');
+    await expect(buttons[1]).toHaveClass('iconButton--secondary');
+    await expect(buttons[2]).toHaveClass('iconButton--tertiary');
+    await expect(buttons[3]).toHaveClass('iconButton--danger');
+    await expect(buttons[4]).toHaveClass('iconButton--success');
+    await expect(buttons[5]).toHaveClass('iconButton--warning');
+  },
   parameters: {
     docs: {
       description: {
@@ -90,6 +114,13 @@ export const States: Story = {
       <IconButton icon="check" loading aria-label="Loading" />
     </div>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const buttons = canvas.getAllByRole('button');
+    await expect(buttons[0]).not.toHaveClass('iconButton--loading');
+    await expect(buttons[1]).toHaveAttribute('aria-disabled', 'true');
+    await expect(buttons[2]).toHaveClass('iconButton--loading');
+  },
 };
 
 // Custom icons

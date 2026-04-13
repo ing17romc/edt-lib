@@ -38,15 +38,4 @@ export default defineConfig({
       components: resolve(__dirname, 'src/components'),
     },
   },
-  test: {
-    globals: true,
-    environment: 'jsdom',
-    css: {
-      modules: {
-        classNameStrategy: 'non-scoped',
-      },
-    },
-    setupFiles: ['./src/setupTests.ts'],
-    include: ['src/**/*.test.tsx'],
-  },
 });

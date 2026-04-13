@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { within, expect } from 'storybook/test';
 import Footer from '..';
 import { MockFooterContent } from './mocks';
 
@@ -46,6 +47,12 @@ export const Default: Story = {
   args: {
     copyright: 'All rights reserved',
     year: new Date().getFullYear(),
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('Useful links')).toBeInTheDocument();
+    await expect(canvas.getByText('Contact')).toBeInTheDocument();
+    await expect(canvas.getByText('Email: info@example.com')).toBeInTheDocument();
   },
 };
 

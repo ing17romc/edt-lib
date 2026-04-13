@@ -1,4 +1,5 @@
 import React from 'react';
+import { within, expect } from 'storybook/test';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import Tag from '..';
 import { defaultArgs, argTypes, allVariants, allSizes, parameters } from './mocks';
@@ -18,6 +19,10 @@ type Story = StoryObj<typeof Tag>;
 
 export const Default: Story = {
   args: { children: 'Tag label' },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('Tag label')).toBeInTheDocument();
+  },
 };
 
 export const Variants: Story = {

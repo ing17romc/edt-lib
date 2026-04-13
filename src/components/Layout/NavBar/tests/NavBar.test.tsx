@@ -1,19 +1,16 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import NavBar from '../index';
-import { MockLogo, MockNav } from './mocks';
+import { composeStory } from '@storybook/react-vite';
+import type { Meta } from '@storybook/react-vite';
+import * as StoriesModule from '../stories/NavBar.stories';
+
+const meta = StoriesModule.default as Meta;
+const Default = composeStory(StoriesModule.Default, meta);
 
 describe('NavBar', () => {
-  it('should render the navigation bar with the logo, title, and links', () => {
-    render(
-      <NavBar logo={<MockLogo />} title="My App">
-        <MockNav />
-      </NavBar>
-    );
+  describe('Stories', () => {
+    afterEach(() => { document.body.innerHTML = ''; });
 
-    expect(screen.getByText('My App')).toBeInTheDocument();
-    expect(screen.getByText('Home')).toBeInTheDocument();
-    expect(screen.getByText('About')).toBeInTheDocument();
-    expect(screen.getByText('Contact')).toBeInTheDocument();
+    test('Default: renders nav bar with logo, title, and links', async () => {
+      await Default.run();
+    });
   });
 });

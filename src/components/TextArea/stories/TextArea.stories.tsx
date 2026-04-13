@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { within, expect } from 'storybook/test';
 import TextArea from '../';
 import { defaultArgs } from './mocks';
 import { ComponentSize } from '../../types';
@@ -260,10 +261,20 @@ export const Default: Story = {
   args: {
     ...defaultArgs,
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByLabelText('Description')).toBeInTheDocument();
+  },
 };
 
 export const Variants: Story = {
   render: () => <TextAreaVariantsStory />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByLabelText('Outlined').parentElement).toHaveClass('variant-outlined');
+    await expect(canvas.getByLabelText('Filled').parentElement).toHaveClass('variant-filled');
+    await expect(canvas.getByLabelText('Standard').parentElement).toHaveClass('variant-standard');
+  },
   parameters: {
     docs: {
       description: {
@@ -275,6 +286,12 @@ export const Variants: Story = {
 
 export const Sizes: Story = {
   render: () => <TextAreaSizesStory />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByLabelText('Small').parentElement).toHaveClass('size-small');
+    await expect(canvas.getByLabelText('Medium').parentElement).toHaveClass('size-medium');
+    await expect(canvas.getByLabelText('Large').parentElement).toHaveClass('size-large');
+  },
   parameters: {
     docs: {
       description: {

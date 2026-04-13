@@ -1,3 +1,4 @@
+import { within, expect } from 'storybook/test';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Pagination } from '..';
 import { ComponentSize } from '../../types';
@@ -83,6 +84,12 @@ type Story = StoryObj<typeof Pagination>;
 
 export const Default: Story = {
   args: baseArgs,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('Previous')).toBeInTheDocument();
+    await expect(canvas.getByText('Next')).toBeInTheDocument();
+    await expect(canvas.getByText('5')).toBeInTheDocument();
+  },
   parameters: {
     docs: {
       description: {
@@ -94,6 +101,11 @@ export const Default: Story = {
 
 export const WithCustomLabels: Story = {
   args: withCustomLabels,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('Previous')).toBeInTheDocument();
+    await expect(canvas.getByText('Next')).toBeInTheDocument();
+  },
   parameters: {
     docs: {
       description: {
@@ -105,6 +117,11 @@ export const WithCustomLabels: Story = {
 
 export const WithManyPages: Story = {
   args: withManyPages,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const ellipsis = canvas.getAllByText('...');
+    await expect(ellipsis.length).toBeGreaterThan(0);
+  },
   parameters: {
     docs: {
       description: {
@@ -116,6 +133,13 @@ export const WithManyPages: Story = {
 
 export const Disabled: Story = {
   args: disabledState,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const buttons = canvas.getAllByRole('button');
+    for (const button of buttons) {
+      await expect(button).toBeDisabled();
+    }
+  },
   parameters: {
     docs: {
       description: {
@@ -149,6 +173,9 @@ export const LastPage: Story = {
 
 export const SmallSize: Story = {
   args: smallSize,
+  play: async ({ canvasElement }) => {
+    await expect(canvasElement.firstElementChild).toHaveClass('pagination--small');
+  },
   parameters: {
     docs: {
       description: {
@@ -160,6 +187,9 @@ export const SmallSize: Story = {
 
 export const LargeSize: Story = {
   args: largeSize,
+  play: async ({ canvasElement }) => {
+    await expect(canvasElement.firstElementChild).toHaveClass('pagination--large');
+  },
   parameters: {
     docs: {
       description: {

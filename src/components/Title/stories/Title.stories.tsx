@@ -1,5 +1,6 @@
 import React from 'react';
 import { StoryObj } from '@storybook/react-vite';
+import { within, expect } from 'storybook/test';
 import { Title, TitleSize, TitleVariant } from '..';
 import metaConfig, { withAllPropsArgs } from './mocks';
 
@@ -13,11 +14,31 @@ export default meta;
 type Story = StoryObj<typeof Title>;
 
 // Default story
-export const Default: Story = {};
+export const Default: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const el = canvas.getByText('Heading example');
+    await expect(el).toBeInTheDocument();
+    await expect(el.tagName.toLowerCase()).toBe('h1');
+    await expect(el).toHaveClass('title--h1');
+    await expect(el).toHaveClass('title--dark');
+  },
+};
 
 // Story with all properties
 export const WithAllProps: Story = {
   args: withAllPropsArgs,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const el = canvas.getByText('Title with all properties');
+    await expect(el.tagName.toLowerCase()).toBe('h2');
+    await expect(el).toHaveClass('title--h2');
+    await expect(el).toHaveClass('title--primary');
+    await expect(el).toHaveClass('title--bold');
+    await expect(el).toHaveClass('title--italic');
+    await expect(el).toHaveClass('title--underline');
+    await expect(el).toHaveClass('title--center');
+  },
 };
 
 // Story with different sizes
@@ -31,6 +52,14 @@ export const Sizes: Story = {
       ))}
     </div>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    for (const size of Object.values(TitleSize)) {
+      const el = canvas.getByText(`Title ${size.toUpperCase()}`);
+      await expect(el).toHaveClass(`title--${size}`);
+      await expect(el.tagName.toLowerCase()).toBe(size);
+    }
+  },
 };
 
 // Story with different color variants
@@ -44,6 +73,13 @@ export const Variants: Story = {
       ))}
     </div>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    for (const variant of Object.values(TitleVariant)) {
+      const el = canvas.getByText(`Variant ${variant}`);
+      await expect(el).toHaveClass(`title--${variant}`);
+    }
+  },
 };
 
 // Story with different text styles
@@ -58,6 +94,16 @@ export const TextStyles: Story = {
       <Title bold italic>Bold and italic</Title>
     </div>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('Bold')).toHaveClass('title--bold');
+    await expect(canvas.getByText('Italic')).toHaveClass('title--italic');
+    await expect(canvas.getByText('Underline')).toHaveClass('title--underline');
+    await expect(canvas.getByText('Strikethrough')).toHaveClass('title--strikethrough');
+    const boldItalic = canvas.getByText('Bold and italic');
+    await expect(boldItalic).toHaveClass('title--bold');
+    await expect(boldItalic).toHaveClass('title--italic');
+  },
 };
 
 // Story with different alignments
@@ -75,6 +121,13 @@ export const Alignments: Story = {
       </Title>
     </div>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('Left alignment')).toHaveClass('title--left');
+    await expect(canvas.getByText('Center alignment')).toHaveClass('title--center');
+    await expect(canvas.getByText('Right alignment')).toHaveClass('title--right');
+    await expect(canvas.getByText(/Justified text/)).toHaveClass('title--justify');
+  },
 };
 
 // Story with block behavior
@@ -95,6 +148,10 @@ export const Block: Story = {
       <p>Content below the title</p>
     </div>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('Block title (full width)')).toHaveClass('title--block');
+  },
 };
 
 // Story with no-wrap
@@ -110,6 +167,12 @@ export const NoWrap: Story = {
       <p>The title above should be displayed on a single line with ellipsis</p>
     </div>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const headings = canvas.getAllByRole('heading');
+    await expect(headings[0]).toHaveClass('title--noWrap');
+    await expect(headings[1]).not.toHaveClass('title--noWrap');
+  },
 };
 
 // Story with click handler

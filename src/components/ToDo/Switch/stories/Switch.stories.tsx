@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { within, expect } from 'storybook/test';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import Switch from '..';
 import { defaultArgs, argTypes, allSizes, parameters } from './mocks';
@@ -18,6 +19,10 @@ type Story = StoryObj<typeof Switch>;
 
 export const Default: Story = {
   args: { label: 'Enable option' },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('Enable option')).toBeInTheDocument();
+  },
 };
 
 export const Checked: Story = {

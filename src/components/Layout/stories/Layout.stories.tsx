@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { within, expect } from 'storybook/test';
 import Layout from '../Layout';
 import NavBar from '../NavBar';
 import Footer from '../Footer';
@@ -51,6 +52,12 @@ export const Default: Story = {
     </Layout>
   ),
   args: {},
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('Main Content')).toBeInTheDocument();
+    await expect(canvas.getByText('My App')).toBeInTheDocument();
+    await expect(canvas.getByText('Useful links')).toBeInTheDocument();
+  },
 };
 
 export const WithoutNavBar: Story = {

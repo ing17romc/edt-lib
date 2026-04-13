@@ -1,5 +1,10 @@
 // Global configuration for tests with Vitest and Testing Library
 import '@testing-library/jest-dom';
+import { setProjectAnnotations } from '@storybook/react-vite';
+import * as previewConfig from '../.storybook/preview';
+
+// Register Storybook project annotations so composeStories works in jsdom
+setProjectAnnotations(previewConfig.default);
 
 // Style mocks configuration
 const localStorageMock = {

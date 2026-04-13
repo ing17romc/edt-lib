@@ -1,5 +1,6 @@
 import React from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
+import { within, expect } from 'storybook/test';
 import RadioButton from '..';
 import { ComponentSize } from '../../types';
 import { RadioButtonProps } from '../types';
@@ -80,14 +81,28 @@ type Story = StoryObj<typeof RadioButton>;
 
 export const Default: Story = {
   args: defaultArgs,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const radio = canvas.getByRole('radio');
+    await expect(radio).not.toBeChecked();
+    await expect(radio).not.toBeDisabled();
+  },
 };
 
 export const Checked: Story = {
   args: checkedArgs,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByRole('radio')).toBeChecked();
+  },
 };
 
 export const Disabled: Story = {
   args: disabledArgs,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByRole('radio')).toBeDisabled();
+  },
 };
 
 export const DisabledChecked: Story = {
@@ -107,6 +122,10 @@ export const WithCustomClass: Story = {
 
 export const SmallSize: Story = {
   args: smallSize,
+  play: async ({ canvasElement }) => {
+    const root = canvasElement.firstElementChild as HTMLElement;
+    await expect(root).toHaveClass('radioButton--small');
+  },
   parameters: {
     docs: {
       description: {
@@ -118,6 +137,10 @@ export const SmallSize: Story = {
 
 export const LargeSize: Story = {
   args: largeSize,
+  play: async ({ canvasElement }) => {
+    const root = canvasElement.firstElementChild as HTMLElement;
+    await expect(root).toHaveClass('radioButton--large');
+  },
   parameters: {
     docs: {
       description: {

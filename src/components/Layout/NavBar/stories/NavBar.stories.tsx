@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { within, expect } from 'storybook/test';
 import NavBar from '..';
 import { MockLogo, MockNav } from './mocks';
 
@@ -39,6 +40,13 @@ export const Default: Story = {
     </NavBar>
   ),
   args: {},
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('My App')).toBeInTheDocument();
+    await expect(canvas.getByText('Inicio')).toBeInTheDocument();
+    await expect(canvas.getByText('Acerca de')).toBeInTheDocument();
+    await expect(canvas.getByText('Contacto')).toBeInTheDocument();
+  },
 };
 
 export const TitleOnly: Story = {

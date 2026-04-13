@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { within, expect } from 'storybook/test';
 import TextButton from '../';
 import { argTypes, parameters, defaultArgs, allColors, allSizes } from './mocks';
 
@@ -16,6 +17,14 @@ type Story = StoryObj<typeof TextButton>;
 
 export const Default: Story = {
   args: defaultArgs,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByRole('button', { name: /text button/i });
+    await expect(button).toHaveClass('textButton');
+    await expect(button).toHaveClass('size-medium');
+    await expect(button).toHaveClass('color-primary');
+    await expect(button).toHaveClass('underline-hover');
+  },
 };
 
 export const Sizes: Story = {
@@ -28,6 +37,13 @@ export const Sizes: Story = {
       ))}
     </div>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const buttons = canvas.getAllByRole('button');
+    await expect(buttons[0]).toHaveClass('size-small');
+    await expect(buttons[1]).toHaveClass('size-medium');
+    await expect(buttons[2]).toHaveClass('size-large');
+  },
   parameters: {
     docs: {
       description: {
@@ -65,6 +81,13 @@ export const States: Story = {
       <TextButton fullWidth>Full width</TextButton>
     </div>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const buttons = canvas.getAllByRole('button');
+    await expect(buttons[1]).toBeDisabled();
+    await expect(buttons[2]).toHaveClass('loading');
+    await expect(buttons[3]).toHaveClass('fullWidth');
+  },
   parameters: {
     docs: {
       description: {
@@ -82,6 +105,13 @@ export const Underline: Story = {
       <TextButton underline="always">Always</TextButton>
     </div>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const [noneBtn, hoverBtn, alwaysBtn] = canvas.getAllByRole('button');
+    await expect(noneBtn).toHaveClass('underline-none');
+    await expect(hoverBtn).toHaveClass('underline-hover');
+    await expect(alwaysBtn).toHaveClass('underline-always');
+  },
   parameters: {
     docs: {
       description: {

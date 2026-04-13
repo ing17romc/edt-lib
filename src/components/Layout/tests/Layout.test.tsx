@@ -1,28 +1,16 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import Layout from '../Layout';
-import NavBar from '../NavBar';
-import Footer from '../Footer';
-import { MockLogo, MockNav, MockFooterContent } from './mocks';
+import { composeStory } from '@storybook/react-vite';
+import type { Meta } from '@storybook/react-vite';
+import * as StoriesModule from '../stories/Layout.stories';
+
+const meta = StoriesModule.default as Meta;
+const Default = composeStory(StoriesModule.Default, meta);
 
 describe('Layout', () => {
-  it('should render the layout with the main content', () => {
-    render(
-      <Layout>
-        <NavBar logo={<MockLogo />} title="My Application">
-          <MockNav />
-        </NavBar>
-        <main>
-          <h1>Main Content</h1>
-        </main>
-        <Footer>
-          <MockFooterContent />
-        </Footer>
-      </Layout>
-    );
+  describe('Stories', () => {
+    afterEach(() => { document.body.innerHTML = ''; });
 
-    expect(screen.getByText('Main Content')).toBeInTheDocument();
-    expect(screen.getByText('My Application')).toBeInTheDocument();
-    expect(screen.getByText('Useful links')).toBeInTheDocument();
+    test('Default: renders layout with NavBar, main content, and Footer', async () => {
+      await Default.run();
+    });
   });
 });

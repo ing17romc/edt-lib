@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { within, expect } from 'storybook/test'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import DatePicker from '../index'
 import { defaultArgs, argTypes, parameters } from './mocks'
@@ -16,7 +17,12 @@ export default meta
 
 type Story = StoryObj<typeof DatePicker>
 
-export const Default: Story = {}
+export const Default: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await expect(canvas.getByRole('button')).toBeInTheDocument()
+  },
+}
 
 export const WithValue: Story = {
   args: {

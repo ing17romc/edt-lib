@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Meta, StoryObj } from '@storybook/react-vite';
+import { within, expect } from 'storybook/test';
 import CheckButton from '../index';
 import { CheckButtonProps } from '../types';
 import { ComponentSize } from '../../types';
@@ -87,6 +88,11 @@ export const Default: Story = {
   args: {
     label: 'Default option (medium)',
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const label = canvas.getByText('Default option (medium)').closest('label');
+    await expect(label).toHaveClass('check-button');
+  },
 };
 
 export const SizeVariations: Story = {
@@ -97,6 +103,15 @@ export const SizeVariations: Story = {
       <CheckButton label={`Large size (${ComponentSize.LARGE})`} size={ComponentSize.LARGE} />
     </div>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const smallLabel = canvas.getByText(/Small size/).closest('label');
+    const mediumLabel = canvas.getByText(/Medium size/).closest('label');
+    const largeLabel = canvas.getByText(/Large size/).closest('label');
+    await expect(smallLabel).toHaveClass('check-button--small');
+    await expect(mediumLabel).toHaveClass('check-button');
+    await expect(largeLabel).toHaveClass('check-button--large');
+  },
   parameters: {
     docs: {
       description: {
@@ -110,6 +125,11 @@ export const Disabled: Story = {
   args: {
     disabled: true,
     label: 'Disabled option',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const checkbox = canvas.getByRole('checkbox');
+    await expect(checkbox).toBeDisabled();
   },
 };
 

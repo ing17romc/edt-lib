@@ -1,4 +1,5 @@
 import React from 'react'
+import { within, expect } from 'storybook/test'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import Thumbnail from '../index'
 import { defaultArgs, argTypes, parameters } from './mocks'
@@ -16,7 +17,12 @@ export default meta
 
 type Story = StoryObj<typeof Thumbnail>
 
-export const Default: Story = {}
+export const Default: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await expect(canvas.getByRole('img')).toBeInTheDocument()
+  },
+}
 
 export const WithCaption: Story = {
   args: {
