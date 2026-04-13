@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.17.0] - 2026-04-13
+
+### Improvements
+- Migrated component tests to use `composeStory` from `@storybook/react-vite`, replacing render+props unit tests with Storybook play functions across all 31 components
+- Added `play` functions to all `Default` stories for Card, TextBox, TextArea, TextButton, Selector, Modal, Pagination, and all 14 ToDo components (Breadcrumb, CarouselSnapped, DatePicker, FloatingMenu, ListControl, Menu, Message, MoneyAmount, Snackbar, Tabs, Thumbnail, Tooltip, Switch, Tag)
+- Test suite grows to 336 tests across 42 test files, all passing
+
+### Infrastructure
+- Added GitHub Actions CI workflow (`.github/workflows/ci.yml`) that runs TypeScript check and Vitest on every push and pull request
+
 ## [2.16.0] - 2026-04-10
 
 ### Documentation
