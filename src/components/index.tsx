@@ -26,18 +26,18 @@ export * from "./Title";
 // Utilities
 export * from "./utils/IconTypes";
 
-// ToDo components
-export * from "./ToDo/Breadcrumb";
-export * from "./ToDo/CarouselSnapped";
-export * from "./ToDo/DatePicker";
-export * from "./ToDo/FloatingMenu";
-export * from "./ToDo/ListControl";
-export * from "./ToDo/Menu";
-export * from "./ToDo/Message";
-export * from "./ToDo/MoneyAmount";
-export * from "./ToDo/Snackbar";
-export * from "./ToDo/Switch";
-export * from "./ToDo/Tabs";
-export * from "./ToDo/Tag";
-export * from "./ToDo/Thumbnail";
-export * from "./ToDo/Tooltip";
+// Components
+export * from "./Breadcrumb";
+export * from "./CarouselSnapped";
+export * from "./DatePicker";
+export * from "./FloatingMenu";
+export * from "./ListControl";
+export * from "./Menu";
+export * from "./Message";
+export * from "./MoneyAmount";
+export * from "./Snackbar";
+export * from "./Switch";
+export * from "./Tabs";
+export * from "./Tag";
+export * from "./Thumbnail";
+export * from "./Tooltip";
