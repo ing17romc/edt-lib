@@ -1,6 +1,6 @@
 {
   "name": "edt-lib",
-  "version": "2.17.0",
+  "version": "2.17.1",
   "description": "Front-end library, rebuilt for React",
   "type": "module",
   "main": "dist/index.cjs.js",
