@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.17.2] - 2026-04-13
+
+### Refactor
+- Moved all components from `components/ToDo/` to `components/` root, eliminating the `ToDo` subfolder
+- Updated all relative imports in moved components (`types`, `classNames`, SCSS palette/typography/spacing paths)
+- Updated `components/index.tsx` exports to remove `ToDo/` prefix
+
+## [2.17.1] - 2026-04-13
+
+### Fixes
+- Fixed SCSS relative paths (`../../../../styles/` → `../../../styles/`) in all components moved from `ToDo/`
+
 ## [2.17.0] - 2026-04-13
 
 ### Improvements
