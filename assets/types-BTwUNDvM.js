@@ -1,1 +1,0 @@
-var e=function(e){return e.SMALL=`small`,e.MEDIUM=`medium`,e.LARGE=`large`,e}({}),t=function(e){return e.PRIMARY=`primary`,e.SECONDARY=`secondary`,e.TERTIARY=`tertiary`,e.DANGER=`danger`,e.SUCCESS=`success`,e.WARNING=`warning`,e}({});export{t as n,e as t};

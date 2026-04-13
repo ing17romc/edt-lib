@@ -1,1 +1,0 @@
-function e(...t){let n=[];for(let r of t)if(!(r==null||r===!1)){if(typeof r==`string`||typeof r==`number`)n.push(String(r).trim());else if(Array.isArray(r)){if(r.length){let t=e(...r);t&&n.push(t)}}else if(typeof r==`object`)if(r.toString!==Object.prototype.toString)n.push(r.toString());else for(let[e,t]of Object.entries(r))t&&n.push(e)}return n.join(` `).trim()}export{e as t};
