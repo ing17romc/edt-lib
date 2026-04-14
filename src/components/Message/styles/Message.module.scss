@@ -40,6 +40,7 @@
   background: none;
   border: none;
   cursor: pointer;
+  color: inherit;
   font-size: $font-size-lg;
   line-height: 1;
   padding: 0;
@@ -50,37 +51,34 @@
   &:hover {
     opacity: 1;
   }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
 }
 
 // Variants
 .message--primary {
-  background-color: color.adjust($primary-color, $lightness: 45%);
-  border-left-color: $primary-color;
-  color: color.adjust($primary-color, $lightness: -20%);
-
-  .closeButton { color: color.adjust($primary-color, $lightness: -20%); }
+  background-color: var(--color-primary-soft);
+  border-left-color: var(--color-primary);
+  color: var(--color-primary-hover);
 }
 
 .message--success {
-  background-color: color.adjust($success-color, $lightness: 50%);
-  border-left-color: $success-color;
-  color: color.adjust($success-color, $lightness: -20%);
-
-  .closeButton { color: color.adjust($success-color, $lightness: -20%); }
+  background-color: var(--color-success-soft);
+  border-left-color: var(--color-success);
+  color: var(--color-success-dark);
 }
 
 .message--danger {
-  background-color: color.adjust($danger-color, $lightness: 45%);
-  border-left-color: $danger-color;
-  color: color.adjust($danger-color, $lightness: -15%);
-
-  .closeButton { color: color.adjust($danger-color, $lightness: -15%); }
+  background-color: var(--color-danger-soft);
+  border-left-color: var(--color-danger);
+  color: var(--color-danger-dark);
 }
 
 .message--warning {
-  background-color: color.adjust($warning-color, $lightness: 40%);
-  border-left-color: $warning-color;
-  color: color.adjust($warning-color, $lightness: -35%);
-
-  .closeButton { color: color.adjust($warning-color, $lightness: -35%); }
+  background-color: var(--color-warning-soft);
+  border-left-color: var(--color-warning);
+  color: var(--color-warning-dark);
 }

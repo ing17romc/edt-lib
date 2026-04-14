@@ -1,0 +1,10 @@
+@use '../../../styles/palette' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/spacing' as *;
+
+.themeProvider {
+  width: 100%;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  font-family: var(--font-family-base);
+}

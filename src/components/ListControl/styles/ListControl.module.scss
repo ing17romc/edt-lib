@@ -7,9 +7,10 @@
   list-style: none;
   margin: 0;
   padding: $space-1 0;
-  border: 1px solid $border-color;
+  border: 1px solid var(--color-border);
   border-radius: $border-radius-md;
   overflow: hidden;
+  background-color: var(--color-surface);
 }
 
 .item {
@@ -19,23 +20,23 @@
   padding: $space-3 $space-4;
   cursor: pointer;
   transition: background-color 0.1s ease;
-  border-bottom: 1px solid $border-color;
+  border-bottom: 1px solid var(--color-border);
 
   &:last-child {
     border-bottom: none;
   }
 
   &:hover:not(.item--disabled) {
-    background-color: color.adjust($primary-color, $lightness: 46%);
+    background-color: var(--color-primary-soft);
   }
 
   &--selected {
-    background-color: color.adjust($primary-color, $lightness: 44%);
-    border-left: 3px solid $primary-color;
+    background-color: var(--color-primary-soft);
+    border-left: 3px solid var(--color-primary);
     padding-left: calc($space-4 - 3px);
 
     .label {
-      color: $primary-color;
+      color: var(--color-primary);
       font-weight: $font-weight-medium;
     }
   }
@@ -48,10 +49,10 @@
 
 .label {
   font-size: $font-size-sm;
-  color: $text-color;
+  color: var(--color-text-primary);
 }
 
 .description {
   font-size: $font-size-xs;
-  color: $secondary-color;
+  color: var(--color-text-secondary);
 }

@@ -8,7 +8,7 @@
   padding: 0;
   line-height: $title-line-height;
   font-weight: $title-font-weight;
-  color: $text-color;
+  color: var(--color-text-primary);
 
   // Sizes
   &--h1 {
@@ -43,35 +43,35 @@
 
   // Variantes de color
   &--primary {
-    color: $primary-color;
+    color: var(--color-primary);
   }
 
   &--secondary {
-    color: $secondary-color;
+    color: var(--color-secondary);
   }
 
   &--danger {
-    color: $danger-color;
+    color: var(--color-danger);
   }
 
   &--success {
-    color: $success-color;
+    color: var(--color-success);
   }
 
   &--warning {
-    color: $warning-color;
+    color: var(--color-warning);
   }
 
   &--info {
-    color: $info-color;
+    color: var(--color-info);
   }
 
   &--light {
-    color: $light-color;
+    color: var(--color-light);
   }
 
   &--dark {
-    color: $dark-color;
+    color: var(--color-dark);
   }
 
   // Text styles

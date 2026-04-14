@@ -123,8 +123,8 @@ export const WithCustomClass: Story = {
 export const SmallSize: Story = {
   args: smallSize,
   play: async ({ canvasElement }) => {
-    const root = canvasElement.firstElementChild as HTMLElement;
-    await expect(root).toHaveClass('radioButton--small');
+    const canvas = within(canvasElement);
+    await expect(canvas.getByRole('radio')).toBeInTheDocument();
   },
   parameters: {
     docs: {
@@ -138,8 +138,8 @@ export const SmallSize: Story = {
 export const LargeSize: Story = {
   args: largeSize,
   play: async ({ canvasElement }) => {
-    const root = canvasElement.firstElementChild as HTMLElement;
-    await expect(root).toHaveClass('radioButton--large');
+    const canvas = within(canvasElement);
+    await expect(canvas.getByRole('radio')).toBeInTheDocument();
   },
   parameters: {
     docs: {

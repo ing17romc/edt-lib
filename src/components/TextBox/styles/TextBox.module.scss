@@ -22,7 +22,7 @@
   margin-bottom: $text-box-label-margin-bottom;
   font-size: $text-box-label-font-size;
   font-weight: $text-box-label-font-weight;
-  color: $text-color;
+  color: var(--color-text-primary);
   transition: color 0.2s ease-in-out;
 
   &.disabled {
@@ -44,13 +44,17 @@
   transition: all 0.2s ease-in-out;
   background-color: transparent;
 
+  &:focus-within {
+    box-shadow: 0 0 0 3px var(--color-focus-ring);
+  }
+
   // Variants
   &.variant-outlined {
     border: 1px solid $border-color;
     background-color: $background-paper;
 
     &:hover:not(.disabled) {
-      border-color: $text-color;
+      border-color: var(--color-text-primary);
     }
 
     &.error {
@@ -87,7 +91,7 @@
     background-color: transparent;
 
     &:hover:not(.disabled) {
-      border-bottom-color: $text-color;
+      border-bottom-color: var(--color-text-primary);
     }
 
     &.error {
@@ -122,7 +126,7 @@
   border: none;
   outline: none;
   background: transparent;
-  color: $text-color;
+  color: var(--color-text-primary);
   font-size: $text-box-input-font-size;
   line-height: $text-box-input-line-height;
   padding: 0;
@@ -140,7 +144,7 @@
 
   /* Browser-specific prefixes for older browser compatibility */
   &::placeholder { /* Modern standard and Firefox 19+ */
-    color: var(--text-secondary, #666);
+    color: var(--color-text-secondary);
     opacity: 1;
   }
   /* stylelint-enable selector-pseudo-element-no-unknown */
@@ -174,7 +178,7 @@
   &:-webkit-autofill:focus,
   &:-webkit-autofill:active {
     box-shadow: 0 0 0 30px $text-box-autofill-background-color inset !important;
-    -webkit-text-fill-color: $text-color !important;
+    -webkit-text-fill-color: var(--color-text-primary) !important;
     transition: background-color 5000s ease-in-out 0s;
   }
 }
@@ -184,7 +188,7 @@
 .endAdornment {
   display: flex;
   align-items: center;
-  color: $text-secondary;
+  color: var(--color-text-secondary);
   flex-shrink: 0;
 }
 
@@ -201,7 +205,7 @@
   margin: $text-box-helper-text-margin-top 0 0;
   padding: 0;
   font-size: $text-box-helper-text-font-size;
-  color: $text-secondary;
+  color: var(--color-text-secondary);
   min-height: $text-box-helper-text-min-height; // Prevents line jumps when there is no text
 
   &.error {

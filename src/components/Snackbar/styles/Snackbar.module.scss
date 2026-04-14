@@ -12,7 +12,7 @@
   border-radius: $border-radius-md;
   font-size: $font-size-sm;
   font-weight: $font-weight-medium;
-  box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
+  box-shadow: var(--shadow-elevated);
   min-width: 280px;
   max-width: 560px;
   animation: snackbar-in 0.2s ease-out;
@@ -57,6 +57,11 @@
   &:hover {
     background-color: rgb(255 255 255 / 20%);
   }
+
+  &:focus-visible {
+    outline: 2px solid currentcolor;
+    outline-offset: 2px;
+  }
 }
 
 .closeButton {
@@ -74,45 +79,50 @@
     opacity: 1;
     background-color: rgb(255 255 255 / 20%);
   }
+
+  &:focus-visible {
+    outline: 2px solid currentcolor;
+    outline-offset: 2px;
+  }
 }
 
 // Variants
 .snackbar--primary {
-  background-color: $primary-color;
-  color: #fff;
+  background-color: var(--color-primary);
+  color: var(--color-primary-contrast);
 
   .actionButton,
   .closeButton {
-    color: #fff;
+    color: inherit;
   }
 }
 
 .snackbar--success {
-  background-color: $success-color;
-  color: #fff;
+  background-color: var(--color-success);
+  color: var(--color-success-contrast);
 
   .actionButton,
   .closeButton {
-    color: #fff;
+    color: inherit;
   }
 }
 
 .snackbar--danger {
-  background-color: $danger-color;
-  color: #fff;
+  background-color: var(--color-danger);
+  color: var(--color-danger-contrast);
 
   .actionButton,
   .closeButton {
-    color: #fff;
+    color: inherit;
   }
 }
 
 .snackbar--warning {
-  background-color: $warning-color;
-  color: $text-color;
+  background-color: var(--color-warning);
+  color: var(--color-warning-contrast);
 
   .actionButton,
   .closeButton {
-    color: $text-color;
+    color: inherit;
   }
 }

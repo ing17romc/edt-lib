@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import classNames from '../../utils/classNames';
 import { CheckButtonProps } from './types';
-import './styles/CheckButton.scss';
+import styles from './styles/CheckButton.module.scss';
 import { ComponentSize } from '../types';
 
 /**
@@ -43,6 +43,10 @@ const CheckButton: React.FC<CheckButtonProps> = ({
 }) => {
   const [isChecked, setIsChecked] = useState(checked);
 
+  useEffect(() => {
+    setIsChecked(checked);
+  }, [checked]);
+
   const handleChange = () => {
     if (!disabled) {
       const newValue = !isChecked;
@@ -52,10 +56,11 @@ const CheckButton: React.FC<CheckButtonProps> = ({
   };
 
   const checkButtonClasses = classNames(
-    'check-button',
-    `check-button--${size}`,
+    styles.checkButton,
     {
-      'check-button--disabled': disabled,
+      [styles.small]: size === ComponentSize.SMALL,
+      [styles.large]: size === ComponentSize.LARGE,
+      [styles.disabled]: disabled,
     },
     className
   );
@@ -67,11 +72,11 @@ const CheckButton: React.FC<CheckButtonProps> = ({
         checked={isChecked}
         onChange={handleChange}
         disabled={disabled}
-        className="check-button__input"
+        className={styles.input}
         {...props}
       />
-      <span className="check-button__checkmark"></span>
-      {label && <span className="check-button__label">{label}</span>}
+      <span className={styles.checkmark}></span>
+      {label && <span className={styles.label}>{label}</span>}
     </label>
   );
 };

@@ -87,6 +87,10 @@
     color: $radiobutton-label-disabled-color;
     cursor: not-allowed;
   }
+
+  &__input:focus-visible ~ &__checkmark {
+    box-shadow: 0 0 0 3px var(--color-focus-ring);
+  }
   
   // Styles for SMALL size
   &--small {

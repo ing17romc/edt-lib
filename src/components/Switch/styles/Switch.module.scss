@@ -39,7 +39,7 @@ $track-height-lg: 1.5rem;
 .switchTrack {
   position: relative;
   flex-shrink: 0;
-  background-color: $secondary-color;
+  background-color: var(--color-disabled-border);
   border-radius: $border-radius-full;
   transition: background-color 0.2s ease;
 
@@ -59,7 +59,7 @@ $track-height-lg: 1.5rem;
   }
 
   .switchInput:checked + & {
-    background-color: $primary-color;
+    background-color: var(--color-primary);
   }
 }
 
@@ -67,7 +67,7 @@ $track-height-lg: 1.5rem;
   position: absolute;
   top: 50%;
   transform: translateY(-50%) translateX(2px);
-  background-color: $white-color;
+  background-color: var(--color-surface);
   border-radius: 50%;
   transition: transform 0.2s ease;
   box-shadow: 0 1px 3px rgb(0 0 0 / 20%);
@@ -96,9 +96,13 @@ $track-height-lg: 1.5rem;
   transform: translateY(-50%) translateX(calc(100% + 2px));
 }
 
+.switchInput:focus-visible + .switchTrack {
+  box-shadow: 0 0 0 3px var(--color-focus-ring);
+}
+
 .switchLabel {
   font-size: $font-size-sm;
-  color: $text-color;
+  color: var(--color-text-primary);
   line-height: $line-height-md;
 
   .switch--large & {

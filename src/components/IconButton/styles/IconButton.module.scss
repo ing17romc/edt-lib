@@ -24,7 +24,7 @@
     box-shadow: none;
   }
   
-  &:focus {
+  &:focus-visible {
     outline: none;
     box-shadow: $iconbutton-focus-ring;
   }
@@ -54,7 +54,7 @@
   // Variants
   &--primary {
     background-color: $iconbutton-primary-bg;
-    color: $white-color;
+    color: var(--color-primary-contrast);
     
     &:hover:not(:disabled) {
       background-color: $iconbutton-primary-hover;
@@ -67,8 +67,8 @@
   
   &--secondary {
     background-color: $iconbutton-secondary-bg;
-    color: $primary-color;
-    border-color: $border-color;
+    color: var(--color-primary);
+    border-color: var(--color-border);
     
     &:hover:not(:disabled) {
       background-color: $iconbutton-secondary-hover;
@@ -81,7 +81,7 @@
   
   &--tertiary {
     background-color: $iconbutton-tertiary-bg;
-    color: $primary-color;
+    color: var(--color-primary);
     
     &:hover:not(:disabled) {
       background-color: $iconbutton-tertiary-hover;
@@ -94,7 +94,7 @@
   
   &--danger {
     background-color: $iconbutton-danger-bg;
-    color: $white-color;
+    color: var(--color-danger-contrast);
     
     &:hover:not(:disabled) {
       background-color: $iconbutton-danger-hover;
@@ -106,35 +106,38 @@
   }
   
   &--success {
-    background-color: var(--color-success);
-    color: white;
+    background-color: $iconbutton-success-bg;
+    color: var(--color-success-contrast);
     
     &:hover:not(:disabled) {
-      background-color: var(--color-success-dark);
+      background-color: $iconbutton-success-hover;
     }
     
     &:active:not(:disabled) {
-      background-color: var(--color-success-darker);
+      background-color: $iconbutton-success-active;
     }
   }
   
   &--warning {
-    background-color: var(--color-warning);
-    color: var(--color-text);
+    background-color: $iconbutton-warning-bg;
+    color: var(--color-warning-contrast);
     
     &:hover:not(:disabled) {
-      background-color: var(--color-warning-dark);
+      background-color: $iconbutton-warning-hover;
     }
     
     &:active:not(:disabled) {
-      background-color: var(--color-warning-darker);
+      background-color: $iconbutton-warning-active;
     }
   }
   
   // States
   &--loading {
-    color: transparent;
     pointer-events: none;
+
+    > * {
+      opacity: 0;
+    }
     
     &::after {
       content: '';

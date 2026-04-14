@@ -176,9 +176,9 @@ $selector-transition: all 0.2s ease-in-out;
   &Spinner {
     width: 1rem;
     height: 1rem;
-    border: 2px solid rgba($primary-color, 0.2);
+    border: 2px solid var(--color-focus-ring);
     border-radius: 50%;
-    border-top-color: $primary-color;
+    border-top-color: var(--color-primary);
     animation: spin 1s ease-in-out infinite;
   }
 }

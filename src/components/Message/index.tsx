@@ -1,24 +1,18 @@
-import React from 'react'
-import classNames from '../../utils/classNames'
-import styles from './styles/Message.module.scss'
-import { MessageProps } from './types'
-import { ComponentVariant } from '../types'
+import React from 'react';
+import classNames from '../../utils/classNames';
+import styles from './styles/Message.module.scss';
+import { MessageProps } from './types';
+import { ComponentVariant } from '../types';
 
 const variantIcons: Record<string, string> = {
-  [ComponentVariant.PRIMARY]: 'ℹ',
-  [ComponentVariant.SUCCESS]: '✓',
-  [ComponentVariant.DANGER]: '✕',
-  [ComponentVariant.WARNING]: '⚠',
-}
+  [ComponentVariant.PRIMARY]: '\u2139',
+  [ComponentVariant.SUCCESS]: '\u2713',
+  [ComponentVariant.DANGER]: '\u2715',
+  [ComponentVariant.WARNING]: '\u26A0',
+};
 
 /**
  * Message component that displays informational messages with different levels of importance.
- *
- * @param children - Message content
- * @param variant - Color/type variant
- * @param title - Optional title
- * @param closable - Whether the message can be closed
- * @param onClose - Close callback
  */
 const Message = ({
   children,
@@ -52,11 +46,11 @@ const Message = ({
         aria-label="Close"
         onClick={onClose}
       >
-        ×
+        {'\u00D7'}
       </button>
     )}
   </div>
-)
+);
 
-export default Message
-export type { MessageProps }
+export default Message;
+export type { MessageProps };

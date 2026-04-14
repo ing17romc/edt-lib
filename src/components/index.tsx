@@ -25,6 +25,7 @@ export * from "./Title";
 
 // Utilities
 export * from "./utils/IconTypes";
+export * from "./ThemeProvider";
 
 // Components
 export * from "./Breadcrumb";

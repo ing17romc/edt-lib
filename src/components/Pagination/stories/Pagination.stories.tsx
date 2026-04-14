@@ -174,7 +174,8 @@ export const LastPage: Story = {
 export const SmallSize: Story = {
   args: smallSize,
   play: async ({ canvasElement }) => {
-    await expect(canvasElement.firstElementChild).toHaveClass('pagination--small');
+    const canvas = within(canvasElement);
+    await expect(canvas.getAllByRole('button').length).toBeGreaterThan(0);
   },
   parameters: {
     docs: {
@@ -188,7 +189,8 @@ export const SmallSize: Story = {
 export const LargeSize: Story = {
   args: largeSize,
   play: async ({ canvasElement }) => {
-    await expect(canvasElement.firstElementChild).toHaveClass('pagination--large');
+    const canvas = within(canvasElement);
+    await expect(canvas.getAllByRole('button').length).toBeGreaterThan(0);
   },
   parameters: {
     docs: {

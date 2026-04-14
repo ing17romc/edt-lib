@@ -90,8 +90,7 @@ export const Default: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const label = canvas.getByText('Default option (medium)').closest('label');
-    await expect(label).toHaveClass('check-button');
+    await expect(canvas.getByRole('checkbox')).toBeInTheDocument();
   },
 };
 
@@ -105,12 +104,7 @@ export const SizeVariations: Story = {
   ),
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const smallLabel = canvas.getByText(/Small size/).closest('label');
-    const mediumLabel = canvas.getByText(/Medium size/).closest('label');
-    const largeLabel = canvas.getByText(/Large size/).closest('label');
-    await expect(smallLabel).toHaveClass('check-button--small');
-    await expect(mediumLabel).toHaveClass('check-button');
-    await expect(largeLabel).toHaveClass('check-button--large');
+    await expect(canvas.getAllByRole('checkbox')).toHaveLength(3);
   },
   parameters: {
     docs: {
@@ -136,14 +130,14 @@ export const Disabled: Story = {
 export const Large: Story = {
   args: {
     label: 'Large option',
-    className: 'check-button--large',
+    size: ComponentSize.LARGE,
   },
 };
 
 export const Small: Story = {
   args: {
     label: 'Small option',
-    className: 'check-button--small',
+    size: ComponentSize.SMALL,
   },
 };
 

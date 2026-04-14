@@ -1,0 +1,111 @@
+@use '../../../styles/palette' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/spacing' as *;
+
+.checkButton {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  padding-left: $checkbutton-padding-left;
+  margin-bottom: $checkbutton-margin-bottom;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease-in-out;
+
+  &:hover:not(.disabled) .checkmark {
+    border-color: $checkbutton-hover-border;
+  }
+}
+
+.input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+
+  &:checked ~ .checkmark {
+    background-color: $checkbutton-checked-bg;
+    border-color: $checkbutton-checked-border;
+
+    &::after {
+      display: block;
+    }
+  }
+
+  &:focus-visible ~ .checkmark {
+    box-shadow: $checkbutton-focus-shadow;
+  }
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: $checkbutton-checkmark-size;
+  width: $checkbutton-checkmark-size;
+  background-color: $checkbutton-bg;
+  border: $checkbutton-border-width solid $checkbutton-border;
+  border-radius: $border-radius-sm;
+  transition: all 0.2s ease-in-out;
+
+  &::after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: $checkbutton-checkmark-left;
+    top: 2px;
+    width: $checkmark-width;
+    height: $checkmark-height;
+    border: solid $checkbutton-checkmark-color;
+    border-width: $checkmark-border-width;
+    transform: rotate(45deg);
+  }
+}
+
+.label {
+  margin-left: $checkbutton-label-margin-left;
+  color: $checkbutton-label-color;
+  font-size: $checkbutton-font-size;
+  line-height: $checkbutton-line-height;
+  font-weight: $checkbutton-font-weight;
+}
+
+.disabled {
+  opacity: $checkbutton-disabled-opacity;
+  cursor: not-allowed;
+}
+
+.large {
+  .checkmark {
+    width: $checkbutton-checkmark-size-lg;
+    height: $checkbutton-checkmark-size-lg;
+
+    &::after {
+      left: 8px;
+      top: 3px;
+    }
+  }
+
+  .label {
+    font-size: $checkbutton-font-size-lg;
+  }
+}
+
+.small {
+  .checkmark {
+    width: $checkbutton-checkmark-size-sm;
+    height: $checkbutton-checkmark-size-sm;
+
+    &::after {
+      left: 5px;
+      top: 1px;
+      width: 4px;
+      height: 8px;
+    }
+  }
+
+  .label {
+    font-size: $checkbutton-font-size-sm;
+  }
+}
