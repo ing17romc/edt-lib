@@ -153,15 +153,15 @@ $selector-transition: all 0.2s ease-in-out;
   margin-top: 0.25rem;
   font-size: 0.75rem;
   line-height: 1.25;
-  color: $text-secondary;
+  color: var(--color-text-secondary);
   
   &--error {
-    color: $danger-color;
+    color: var(--color-danger);
   }
 }
 
 .requiredIndicator {
-  color: $danger-color;
+  color: var(--color-danger);
   margin-left: 0.25rem;
 }
 

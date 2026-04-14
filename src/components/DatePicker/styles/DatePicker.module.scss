@@ -42,9 +42,9 @@
   }
 
   &--disabled {
-    background-color: $background-disabled;
+    background-color: var(--color-disabled-surface);
     cursor: not-allowed;
-    color: $text-disabled;
+    color: var(--color-disabled-text);
   }
 }
 
@@ -53,7 +53,7 @@
 }
 
 .placeholder {
-  color: $text-disabled;
+  color: var(--color-disabled-text);
 }
 
 .calendarIcon {
@@ -152,7 +152,7 @@
   }
 
   &--disabled {
-    color: $text-disabled;
+    color: var(--color-disabled-text);
     cursor: not-allowed;
   }
 }

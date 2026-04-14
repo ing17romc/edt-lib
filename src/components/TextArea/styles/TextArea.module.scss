@@ -26,11 +26,11 @@
   transition: color 0.2s ease-in-out;
 
   &.disabled {
-    color: var(--color-text-secondary);
+    color: var(--color-disabled-text);
   }
 
   &.error {
-    color: $danger-color;
+    color: var(--color-danger);
   }
 }
 
@@ -51,19 +51,19 @@
   // Variantes
   &.variant-outlined {
     border: 1px solid var(--color-border);
-    background-color: var(--color-white);
+    background-color: var(--color-surface);
 
     &:hover:not(.disabled) {
       border-color: var(--color-text-primary);
     }
 
     &.error {
-      border-color: $danger-color;
+      border-color: var(--color-danger);
     }
 
     &.disabled {
-      border-color: var(--color-border);
-      background-color: var(--color-background-alt);
+      border-color: var(--color-disabled-border);
+      background-color: var(--color-disabled-surface);
     }
   }
 
@@ -108,7 +108,7 @@
     }
 
     &.error {
-      border-bottom-color: $danger-color;
+      border-bottom-color: var(--color-danger);
     }
 
     .textarea {
@@ -119,22 +119,22 @@
 
   // Filled variant
   &.variant-filled {
-    background-color: $textarea-filled-bg;
+    background-color: var(--color-surface-muted);
     border-radius: $textarea-border-radius $textarea-border-radius 0 0;
     border-bottom: 1px solid var(--color-border);
 
     &:hover:not(.disabled) {
-      background-color: $textarea-filled-hover-bg;
+      background-color: var(--color-background-alt);
       border-bottom-color: var(--color-text-primary);
     }
 
     &.error {
-      border-bottom-color: $danger-color;
+      border-bottom-color: var(--color-danger);
     }
 
     &.disabled {
-      background-color: var(--color-background-alt);
-      border-bottom-color: $border-disabled;
+      background-color: var(--color-disabled-surface);
+      border-bottom-color: var(--color-disabled-border);
     }
 
     .textarea {
@@ -144,7 +144,7 @@
 
   // Error state
   &.error {
-    border-color: $danger-color;
+    border-color: var(--color-danger);
   }
 
   // Disabled state
@@ -183,9 +183,9 @@
   }
 
   &:disabled {
-    color: var(--color-text-secondary);
+    color: var(--color-disabled-text);
     cursor: not-allowed;
-    -webkit-text-fill-color: var(--color-text-secondary);
+    -webkit-text-fill-color: var(--color-disabled-text);
     opacity: 1; // Fix for iOS
   }
 
@@ -209,7 +209,7 @@
   line-height: $textarea-line-height;
 
   .error & {
-    color: $danger-color;
+    color: var(--color-danger);
   }
 }
 
@@ -230,6 +230,6 @@
   line-height: $textarea-line-height;
 
   &.error {
-    color: $danger-color;
+    color: var(--color-danger);
   }
 }

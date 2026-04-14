@@ -1,10 +1,26 @@
 # Plan de implementacion
 
+## Estado final
+
+La migracion definida en este plan ya fue ejecutada.
+
+Estado actual:
+
+- sistema de tema publico implementado con `ThemeProvider` y `useTheme`
+- soporte oficial para `light`, `dark` y `system`
+- compatibilidad con `React`, `Next.js` y `SSR`
+- entrada global de estilos disponible en `index.scss`
+- componentes migrados a tokens semanticos y `SCSS Modules`
+- documentacion principal actualizada en `README.md` y `docs/`
+- Storybook alineado con cambio de tema global
+- validacion automatica agregada para evitar imports SCSS cruzados
+- `lint`, `test` y `build` en verde
+
 ## Contexto y alcance
 
 Este proyecto es una libreria de componentes en React. Queda fuera de alcance cualquier trabajo relacionado con autenticacion, JWT, login, logout, sesiones, backend o integraciones API.
 
-El objetivo es evolucionar la libreria hacia un sistema visual mas consistente, escalable y reusable, con:
+El objetivo fue evolucionar la libreria hacia un sistema visual mas consistente, escalable y reusable, con:
 
 - arquitectura SCSS mantenible
 - componentes visualmente coherentes
@@ -12,14 +28,13 @@ El objetivo es evolucionar la libreria hacia un sistema visual mas consistente, 
 - compatibilidad con `React`, `Next.js` y `SSR`
 - migracion progresiva para reducir riesgo
 
-## Diagnostico actual
+## Diagnostico inicial
 
-- Ya existe una base de tokens en `src/styles/palette.scss`, `src/styles/typography.scss` y `src/styles/spacing.scss`.
-- La mayoria de los componentes usan `styles/*.module.scss`, pero todavia hay excepciones como `CheckButton.scss`.
-- Hay mezcla de enfoques entre variables Sass y `CSS variables`.
-- Algunos componentes consumen `var(--color-...)` que hoy no siempre estan definidas globalmente.
-- El dark mode esta fragmentado y resuelto de forma puntual en ciertos componentes.
-- La documentacion menciona `ThemeProvider`, pero el contrato publico de temas no esta consolidado.
+- Ya existia una base de tokens en `src/styles/palette.scss`, `src/styles/typography.scss` y `src/styles/spacing.scss`.
+- La mayoria de los componentes usaban `styles/*.module.scss`, pero todavia habia excepciones y mezcla de enfoques.
+- Habia convivencia entre variables Sass y `CSS variables` sin un contrato visual suficientemente claro.
+- El dark mode estaba fragmentado y resuelto de forma puntual en ciertos componentes.
+- La documentacion mencionaba `ThemeProvider`, pero el contrato publico de temas no estaba consolidado.
 
 ## Decisiones tecnicas
 
@@ -28,9 +43,10 @@ El objetivo es evolucionar la libreria hacia un sistema visual mas consistente, 
   - `tokens Sass` para autoria y consistencia
   - `CSS variables` para runtime, temas y soporte SSR
 - Implementar theming mediante `data-theme`.
-- Diseñar una identidad visual neutra, sobria y reusable.
+- Disenar una identidad visual neutra, sobria y reusable.
 - Migrar en olas, no en una sola refactorizacion masiva.
 - Evitar dependencias entre estilos de componentes.
+- Agregar validacion automatica para evitar regresiones de arquitectura SCSS.
 
 ## Arquitectura objetivo de estilos
 
@@ -81,7 +97,7 @@ Reglas:
 
 ### Direccion visual
 
-Se adopta un sistema neutro y moderno:
+Se adopto un sistema neutro y moderno:
 
 - superficies limpias
 - contraste claro
@@ -102,7 +118,7 @@ Se adopta un sistema neutro y moderno:
 
 ### Espaciado
 
-- escala uniforme basada en 4px
+- escala uniforme basada en 4px y 8px
 - reuse sistematico en padding, gaps, alturas y layouts
 
 ### Estados
@@ -136,7 +152,7 @@ Todos los componentes interactivos deben definir de forma coherente:
 
 ### Compatibilidad de componentes
 
-Todos los componentes deben terminar consumiendo variables semanticas del tema y no depender de ajustes ad hoc por componente.
+Todos los componentes deben consumir variables semanticas del tema y no depender de ajustes ad hoc por componente.
 
 ## Plan de ejecucion progresiva
 
@@ -171,19 +187,21 @@ Todos los componentes deben terminar consumiendo variables semanticas del tema y
 - actualizar README y ejemplos de uso
 - agregar soporte de tema en Storybook
 - validar `build`, tests y consumo en SSR
+- automatizar reglas de arquitectura SCSS
 
 ## Criterios de aceptacion
 
-- existe `plan.md` con la estrategia oficial
+- existe `plan.md` con la estrategia oficial y el cierre de ejecucion
 - la libreria expone un sistema de tema publico y compatible con SSR
 - las variables globales cubren `light` y `dark`
 - no hay dependencias SCSS cruzadas entre componentes
 - los componentes base tienen estados visuales coherentes
 - Storybook y tests reflejan el nuevo contrato visual
+- `lint:scss` bloquea imports SCSS no permitidos
 
-## Riesgos a controlar
+## Riesgos controlados
 
-- mezcla temporal entre tokens viejos y nuevos durante la migracion
-- regresiones visuales en componentes acoplados a colores legacy
-- diferencias de hidratacion si el tema se resuelve tarde en cliente
-- deuda tecnica en componentes todavia no migrados
+- se redujo la mezcla entre tokens viejos y nuevos mediante variables semanticas
+- se mitigaron regresiones visuales migrando por olas y validando con Storybook
+- se controlo la hidratacion al evitar lecturas de navegador durante render SSR
+- se cerro la deuda tecnica principal en theming, estilos base y documentacion

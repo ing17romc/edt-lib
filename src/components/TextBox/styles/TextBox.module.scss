@@ -26,11 +26,11 @@
   transition: color 0.2s ease-in-out;
 
   &.disabled {
-    color: $text-disabled;
+    color: var(--color-disabled-text);
   }
 
   &.error {
-    color: $danger-color;
+    color: var(--color-danger);
   }
 }
 
@@ -51,38 +51,38 @@
   // Variants
   &.variant-outlined {
     border: 1px solid var(--color-border);
-    background-color: $background-paper;
+    background-color: var(--color-surface);
 
     &:hover:not(.disabled) {
       border-color: var(--color-text-primary);
     }
 
     &.error {
-      border-color: $danger-color;
+      border-color: var(--color-danger);
     }
 
     &.disabled {
-      border-color: $border-disabled;
-      background-color: $background-disabled;
+      border-color: var(--color-disabled-border);
+      background-color: var(--color-disabled-surface);
     }
   }
 
   &.variant-filled {
-    background-color: $background-default;
+    background-color: var(--color-surface-muted);
     border: 1px solid transparent;
     border-bottom: 1px solid var(--color-border);
 
     &:hover:not(.disabled) {
-      background-color: $text-box-filled-background-color-hover;
+      background-color: var(--color-background-alt);
     }
 
     &.error {
-      border-bottom-color: $danger-color;
+      border-bottom-color: var(--color-danger);
     }
 
     &.disabled {
-      background-color: $background-disabled;
-      border-bottom-color: $border-disabled;
+      background-color: var(--color-disabled-surface);
+      border-bottom-color: var(--color-disabled-border);
     }
   }
 
@@ -95,11 +95,11 @@
     }
 
     &.error {
-      border-bottom-color: $danger-color;
+      border-bottom-color: var(--color-danger);
     }
 
     &.disabled {
-      border-bottom-color: $border-disabled;
+      border-bottom-color: var(--color-disabled-border);
     }
   }
 
@@ -134,9 +134,9 @@
   appearance: none;
 
   &:disabled {
-    color: $text-disabled;
+    color: var(--color-disabled-text);
     cursor: not-allowed;
-    -webkit-text-fill-color: $text-disabled;
+    -webkit-text-fill-color: var(--color-disabled-text);
     opacity: 1; // Fix for iOS
   }
 
@@ -177,7 +177,7 @@
   &:-webkit-autofill:hover,
   &:-webkit-autofill:focus,
   &:-webkit-autofill:active {
-    box-shadow: 0 0 0 30px $text-box-autofill-background-color inset !important;
+    box-shadow: 0 0 0 30px var(--color-surface) inset !important;
     -webkit-text-fill-color: var(--color-text-primary) !important;
     transition: background-color 5000s ease-in-out 0s;
   }
@@ -209,7 +209,7 @@
   min-height: $text-box-helper-text-min-height; // Prevents line jumps when there is no text
 
   &.error {
-    color: $danger-color;
+    color: var(--color-danger);
   }
 }
 

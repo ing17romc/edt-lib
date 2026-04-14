@@ -72,7 +72,7 @@
   }
 
   &--disabled {
-    color: $text-disabled;
+    color: var(--color-disabled-text);
     cursor: not-allowed;
   }
 }

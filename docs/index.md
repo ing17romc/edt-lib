@@ -1,239 +1,99 @@
-# 📚 edt-lib Documentation
+# edt-lib Documentation
 
-Welcome to the technical documentation for **edt-lib**, a UI component library for React with TypeScript.
+## Overview
 
-## 📋 Table of Contents
-- [Introduction](#-introduction)
-- [Installation Guide](#-installation-guide)
-- [Initial Setup](#-initial-setup)
-- [Components](#-components)
-- [Themes and Styles](#-themes-and-styles)
-- [Contributing Guide](#-contributing-guide)
-- [FAQ](#-faq)
-- [Support](#-support)
+`edt-lib` is a React component library built with `TypeScript`, `Vite`, `Sass`, and `Storybook`.
 
----
+The library now uses:
 
-## 🚀 Introduction
+- semantic theme tokens
+- `ThemeProvider` with `light`, `dark`, and `system`
+- SSR-friendly runtime theming
+- component-level style encapsulation with `SCSS Modules`
 
-`edt-lib` is a UI component library built with React 18+ and TypeScript. It is designed to offer accessible, customizable, and production-ready components that follow frontend development best practices.
-
-### Key Features
-- **Static Typing**: Fully written in TypeScript
-- **Accessibility**: WCAG 2.1 compliant
-- **Themes**: Custom theme support
-- **Responsive**: Components that adapt to any device
-- **Interactive Documentation**: With live examples using Storybook
-
-## 📥 Installation Guide
-
-### Prerequisites
-- Node.js 16 or higher
-- React 18 or higher
-- TypeScript 4.9 or higher (recommended)
-
-### Install with npm
+## Installation
 
 ```bash
 npm install edt-lib
 ```
 
-### Install with Yarn
+## Base Setup
 
-```bash
-yarn add edt-lib
+Import the global stylesheet once in your app:
+
+```tsx
+import 'edt-lib/index.scss';
 ```
 
-## ⚙️ Initial Setup
+Wrap your application with `ThemeProvider` when you want runtime theme control:
 
-### TypeScript Configuration
-
-Make sure you have React types installed:
-
-```bash
-npm install --save-dev @types/react @types/react-dom
-```
-
-### Icon Configuration
-
-The library uses Material Icons. Add the following to your application's `<head>`:
-
-```html
-<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
-```
-
-### Theme Configuration
-
-Wrap your application with `ThemeProvider` to enable custom themes:
-
-```jsx
+```tsx
 import { ThemeProvider } from 'edt-lib';
 
-function App() {
+export default function App() {
   return (
-    <ThemeProvider>
-      {/* Your application here */}
+    <ThemeProvider defaultTheme="system">
+      {/* app */}
     </ThemeProvider>
   );
 }
 ```
 
-## 🧩 Componentes
+## Theme System
 
-### Basic Usage
+The public theme API is based on semantic CSS variables and a provider that works in SSR environments.
 
-```jsx
-import { Button, Card } from 'edt-lib';
+Main props:
 
-function MyComponent() {
-  return (
-    <Card>
-      <h2>My Card</h2>
-      <p>Card content</p>
-      <Button variant="primary">Accept</Button>
-    </Card>
-  );
-}
-```
+- `defaultTheme`
+- `forcedTheme`
+- `enableSystem`
+- `storageKey`
+- `ssrFallbackTheme`
 
-### Available Components
+Use the `useTheme` hook inside the provider to read and update the active mode.
 
-#### Navigation
-- `NavBar` - Top navigation bar
-- `Footer` - Page footer
-- `Breadcrumb` - Navigation breadcrumbs
+## Styling Architecture
 
-#### Forms
-- `Button` - Buttons with multiple variants
-- `CheckButton` - Checkboxes
-- `RadioButton` - Radio buttons
-- `Selector` - Dropdown menus
-- `TextArea` - Text areas
-- `TextBox` - Text fields
+The styling system is documented in [styling-architecture.md](./styling-architecture.md).
 
-#### Surfaces
-- `Card` - Content container
-- `Modal` - Modal windows
-- `Message` - Alert messages
+Summary:
 
-#### Data
-- `Table` - Data tables
-- `TableWithPagination` - Tables with pagination
-- `TableWithButton` - Tables with actions
+- shared tokens live in `src/styles`
+- runtime values are exposed through CSS variables
+- component styles are isolated with `SCSS Modules`
+- components must not import styles from other components
+- `npm run lint:scss` checks the SCSS architecture contract
 
-#### Feedback
-- `Spinner` - Loading indicators
-- `Progress` - Progress bars
+## Storybook
 
-## 🎨 Themes and Styles
+Storybook includes a global theme toolbar and component stories for visual validation in `light`, `dark`, and `system` modes.
 
-### Style Variables
-
-The library uses custom CSS variables for colors, typography, and spacing. You can override them to customize the theme.
-
-### Customization
-
-```scss
-:root {
-  --primary-color: #007bff;
-  --secondary-color: #6c757d;
-  --font-family: 'Arial', sans-serif;
-}
-```
-
-## 👥 Contributing Guide
-
-We appreciate contributions! Please read our [contributing guide](CONTRIBUTING.md) to get started.
-
-### Code Standards
-
-- Use TypeScript with strict typing
-- Follow React naming conventions
-- Write unit tests for all new code
-- Document props and components with JSDoc
-
-### Pull Request Process
-
-1. Fork the repository
-2. Create a branch for your feature (`git checkout -b feature/new-feature`)
-3. Commit your changes (`git commit -am 'Add new feature'`)
-4. Push to the branch (`git push origin feature/new-feature`)
-5. Open a Pull Request
-
-## ❓ FAQ
-
-### How do I update to the latest version?
+Run it locally with:
 
 ```bash
-npm update edt-lib
-# o
-yarn upgrade edt-lib
+npm run sb
 ```
 
-### How do I report a bug?
+## Validation
 
-Please open an [issue](https://github.com/ing17romc/edt-lib/issues) on GitHub with the following details:
-- Library version
-- Steps to reproduce the bug
-- Expected vs. actual behavior
-- Screenshots (if applicable)
+Recommended checks during development:
 
-## 📞 Support
-
-For support, please:
-- Check the [API documentation](https://ing17romc.github.io/edt-lib/)
-- Search the [existing issues](https://github.com/ing17romc/edt-lib/issues)
-- Open a new issue if your problem has not been reported
-
----
-
-<div align="center">
-  <p>Documentation generated on July 5, 2025</p>
-  <p>Current version: 2.9.0</p>
-</div>
-      <h1>My Application</h1>
-      <Button>Button with icon</Button>
-    </div>
-  );
-}
-
-export default App;
+```bash
+npm run lint:ts
+npm run lint:scss
+npm test
+npm run build
 ```
 
-## Project Structure
+## Repository Structure
 
-- `/src`: Main library source code.
-- `/docs`: Project documentation.
-- `/dist`: Generated files for distribution.
+- `src/components`: reusable UI components
+- `src/static`: showcase/reference components
+- `src/styles`: shared style system
+- `docs`: repository documentation
 
-## Contributing
+## Support
 
-Contributions are welcome! Please follow these steps:
-1. Fork the repository.
-2. Create a branch for your feature or fix: `git checkout -b my-feature`
-3. Commit your changes: `git commit -am 'Add new feature'`
-4. Push to the branch: `git push origin my-feature`
-5. Open a Pull Request.
-
-## Publish to npm
-
-- To publish a new version to npm:
-  ```bash
-  npm run publish-lib
-  ```
-- To increment the patch, build and publish automatically:
-  ```bash
-  npm run release-lib
-  ```
-
-## Deploy Storybook to GitHub Pages
-
-- To build and deploy Storybook:
-  ```bash
-  npm run deploy-sb
-  ```
-
-## Contact
-
-For questions or suggestions, open an issue on GitHub or contact the main maintainer.
-
+- Storybook: `http://localhost:6006` during local development
+- Repository: `https://github.com/ing17romc/edt-lib`
