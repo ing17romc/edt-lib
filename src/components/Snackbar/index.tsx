@@ -1,19 +1,11 @@
-import React, { useEffect } from 'react'
-import classNames from '../../utils/classNames'
-import styles from './styles/Snackbar.module.scss'
-import { SnackbarProps } from './types'
-import { ComponentVariant } from '../types'
+import React, { useEffect } from 'react';
+import classNames from '../../utils/classNames';
+import styles from './styles/Snackbar.module.scss';
+import { SnackbarProps } from './types';
+import { ComponentVariant } from '../types';
 
 /**
  * Snackbar component that displays temporary notifications on screen.
- *
- * @param message - Notification text
- * @param variant - Color variant
- * @param open - Whether the snackbar is visible
- * @param duration - Duration in ms before closing (0 = manual)
- * @param onClose - Close callback
- * @param actionLabel - Action button text
- * @param onAction - Action button callback
  */
 const Snackbar = ({
   message,
@@ -27,12 +19,20 @@ const Snackbar = ({
   ...rest
 }: SnackbarProps) => {
   useEffect(() => {
-    if (!open || duration === 0) return
-    const timer = setTimeout(() => { onClose?.() }, duration)
-    return () => clearTimeout(timer)
-  }, [open, duration, onClose])
+    if (!open || duration === 0) {
+      return;
+    }
 
-  if (!open) return null
+    const timer = setTimeout(() => {
+      onClose?.();
+    }, duration);
+
+    return () => clearTimeout(timer);
+  }, [open, duration, onClose]);
+
+  if (!open) {
+    return null;
+  }
 
   return (
     <div
@@ -63,13 +63,13 @@ const Snackbar = ({
             aria-label="Close"
             onClick={onClose}
           >
-            ×
+            {'\u00D7'}
           </button>
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Snackbar
-export type { SnackbarProps }
+export default Snackbar;
+export type { SnackbarProps };

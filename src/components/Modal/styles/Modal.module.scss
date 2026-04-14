@@ -18,6 +18,14 @@
   backdrop-filter: blur(2px);
 }
 
+.overlayButton {
+  position: absolute;
+  inset: 0;
+  border: none;
+  background: transparent;
+  padding: 0;
+}
+
 .modalOverlay.visible {
   opacity: 1;
   visibility: visible;
@@ -25,6 +33,7 @@
 
 .modalContainer {
   background: $modal-bg;
+  color: var(--color-text-primary);
   border-radius: $modal-border-radius;
   box-shadow: $modal-box-shadow;
   width: 100%;
@@ -70,7 +79,7 @@
     margin: 0;
     font-size: $modal-title-font-size;
     font-weight: $modal-title-font-weight;
-    color: $text-color;
+    color: var(--color-text-primary);
   }
 }
 
@@ -93,7 +102,7 @@
     background-color: $modal-close-button-hover-bg;
   }
   
-  &:focus {
+  &:focus-visible {
     outline: none;
     box-shadow: $modal-focus-ring;
   }
@@ -105,6 +114,7 @@
   flex-grow: 1;
   font-size: $modal-body-font-size;
   line-height: $modal-body-line-height;
+  color: var(--color-text-primary);
   
   &:not(:last-child) {
     padding-bottom: $modal-content-padding;

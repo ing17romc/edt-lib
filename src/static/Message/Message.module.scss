@@ -1,47 +1,12 @@
 @use '../../styles/palette' as *;
 @use '../../styles/typography' as *;
 @use '../../styles/spacing' as *;
-@use 'sass:color';
-@use 'sass:map';
-@use 'sass:math';
 
-// Variables
-$message-padding: $space-4; // 1rem (16px)
-$message-border-radius: $border-radius-sm; // 4px
+$message-padding: $space-4;
+$message-border-radius: $border-radius-sm;
 $message-border-width: 4px;
-$message-icon-size: 1.5rem; // 24px
-$message-close-size: 1.25rem; // 20px
 $message-transition: opacity 0.2s ease, transform 0.2s ease;
 
-// Color map for the different message types
-$message-colors: (
-  'success': (
-    'bg': color.adjust($success-color, $lightness: 50%),
-    'border': $success-color,
-    'text': color.adjust($success-color, $lightness: -25%),
-    'icon': $success-color
-  ),
-  'info': (
-    'bg': color.adjust($info-color, $lightness: 50%),
-    'border': $info-color,
-    'text': color.adjust($info-color, $lightness: -25%),
-    'icon': $info-color
-  ),
-  'warning': (
-    'bg': color.adjust($warning-color, $lightness: 50%),
-    'border': $warning-color,
-    'text': color.adjust($warning-color, $lightness: -25%),
-    'icon': $warning-color
-  ),
-  'danger': (
-    'bg': color.adjust($danger-color, $lightness: 50%),
-    'border': $danger-color,
-    'text': color.adjust($danger-color, $lightness: -15%),
-    'icon': $danger-color
-  )
-);
-
-// Base message styles
 .message {
   position: relative;
   display: flex;
@@ -51,113 +16,127 @@ $message-colors: (
   margin-bottom: $space-4;
   border-radius: $message-border-radius;
   border-left: $message-border-width solid transparent;
+  background-color: var(--color-surface-raised);
+  color: var(--color-text-primary);
   font-family: $font-family-base;
   font-size: $font-size-md;
   line-height: $line-height-md;
   transition: $message-transition;
   overflow: hidden;
-  box-shadow: 0 1px 3px rgb(0 0 0 / 10%);
-  
+  box-shadow: var(--shadow-flat);
+
   @media (prefers-reduced-motion: reduce) {
     transition: none;
   }
 }
 
-// Message content
 .messageContent {
+  display: flex;
+  align-items: flex-start;
+  gap: $space-3;
   flex: 1;
-  min-width: 0; // Prevents content from overflowing
-  
-  > * {
-    margin: 0;
-    
-    & + * {
-      margin-top: $space-2;
-    }
-  }
+  min-width: 0;
 }
 
-// Message title
+.messageIcon {
+  flex: 0 0 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-top: $space-1;
+  color: inherit;
+}
+
+.messageText {
+  flex: 1;
+  min-width: 0;
+}
+
 .messageTitle {
   display: block;
-  font-weight: $font-weight-bold;
-  margin-bottom: $space-1;
+  margin: 0 0 $space-1;
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-sm;
+  color: inherit;
 }
 
-// Message icon
-.messageIcon {
-  flex: 0 0 $message-icon-size;
-  width: $message-icon-size;
-  height: $message-icon-size;
-  margin-top: $space-1;
-  
-  svg {
-    width: 100%;
-    height: 100%;
-    fill: currentcolor;
-  }
-}
-
-// Message body
 .messageBody {
-  flex: 1;
-  min-width: 0; // Prevents overflow in flex
-  
-  // Message title
-  .messageTitle {
-    font-weight: $font-weight-semibold;
-    margin: 0 0 $space-1;
-    font-size: $font-size-md;
-    line-height: $line-height-sm;
-    color: inherit;
-  }
-  
-  // Message text
-  .messageText {
+  margin: 0;
+  font-size: $font-size-md;
+  line-height: $line-height-md;
+  color: inherit;
+
+  > * {
     margin: 0;
-    font-size: $font-size-md;
-    line-height: $line-height-md;
+  }
+
+  > * + * {
+    margin-top: $space-2;
+  }
+
+  a {
     color: inherit;
-    
-    // Better spacing between paragraphs
-    p + p {
-      margin-top: $space-2;
-    }
-    
-    // Styles for links inside the message
-    a {
-      color: inherit;
-      text-decoration: underline;
-      font-weight: $font-weight-medium;
-      transition: color 0.2s ease;
-      
-      &:hover, 
-      &:focus {
-        text-decoration: none;
-      }
+    text-decoration: underline;
+    font-weight: $font-weight-medium;
+
+    &:hover,
+    &:focus-visible {
+      text-decoration: none;
     }
   }
 }
 
-// Styles for each message type
-@each $type, $colors in $message-colors {
-  .message-#{$type} {
-    background-color: map.get($colors, 'bg');
-    border-left-color: map.get($colors, 'border');
-    color: map.get($colors, 'text');
-    
-    .messageIcon {
-      color: map.get($colors, 'icon');
-    }
+.closeButton {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: $space-1;
+  border-radius: $border-radius-sm;
+  line-height: 1;
+  opacity: 0.8;
+  transition: opacity 0.2s ease, background-color 0.2s ease;
+
+  &:hover {
+    opacity: 1;
+    background-color: color-mix(in srgb, currentcolor 18%, transparent);
+  }
+
+  &:focus-visible {
+    outline: 2px solid currentcolor;
+    outline-offset: 2px;
   }
 }
 
-// Styles for closable messages
-.message.closable {
-  padding-right: $space-10; // Space for the close button
+.message-success {
+  background-color: var(--color-success-soft);
+  border-left-color: var(--color-success);
+  color: var(--color-success-dark);
 }
 
-// Animations
+.message-info {
+  background-color: var(--color-info-soft);
+  border-left-color: var(--color-info);
+  color: var(--color-info-dark);
+}
+
+.message-warning {
+  background-color: var(--color-warning-soft);
+  border-left-color: var(--color-warning);
+  color: var(--color-warning-dark);
+}
+
+.message-danger {
+  background-color: var(--color-danger-soft);
+  border-left-color: var(--color-danger);
+  color: var(--color-danger-dark);
+}
+
+.closable {
+  padding-right: $space-10;
+}
+
 .message-enter {
   opacity: 0;
   transform: translateY(10px);
@@ -180,37 +159,19 @@ $message-colors: (
   transition: $message-transition;
 }
 
-// Dark mode
-[data-theme='dark'] {
-  .message {
-    @each $type, $colors in $message-colors {
-      &-#{$type} {
-        background-color: color.adjust(map.get($colors, 'bg'), $lightness: -5%);
-      }
-    }
-  }
-}
-
-// Media queries for responsiveness
 @media (width <= 575.98px) {
   .message {
     flex-direction: column;
-    align-items: flex-start;
-    
-    .messageIcon {
-      margin-bottom: $space-2;
-    }
+  }
+
+  .messageContent {
+    width: 100%;
   }
 }
 
-// Accessibility improvements
 @media (prefers-reduced-motion: reduce) {
-  .message {
+  .message-enter-active,
+  .message-exit-active {
     transition: none;
-    
-    &-enter,
-    &-exit {
-      transition: none;
-    }
   }
 }

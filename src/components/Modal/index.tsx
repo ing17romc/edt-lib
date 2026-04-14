@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect, useCallback, useId } from 'react';
 import styles from './styles/Modal.module.scss';
 import { ModalProps } from './types';
 import { ComponentSize } from '../types';
@@ -23,6 +23,8 @@ const Modal: React.FC<ModalProps> = ({
   centerVertically = true,
   preventScroll = true,
 }) => {
+  const titleId = useId();
+
   // Effect to manage body scroll when the modal is open
   useEffect(() => {
     if (isOpen && preventScroll) {
@@ -73,7 +75,7 @@ const Modal: React.FC<ModalProps> = ({
       className={`${styles.modalOverlay} ${isOpen ? styles.visible : ''} ${centerVertically ? styles.centered : ''}`}
       role="dialog"
       aria-modal="true"
-      aria-labelledby={title ? 'modal-title' : undefined}
+      aria-labelledby={title ? titleId : undefined}
     >
       <button 
         type="button"
@@ -87,7 +89,7 @@ const Modal: React.FC<ModalProps> = ({
       >
         {(title || showCloseButton) && (
           <div className={styles.modalHeader}>
-            {title && <h2 id="modal-title">{title}</h2>}
+            {title && <h2 id={titleId}>{title}</h2>}
             {showCloseButton && (
               <button
                 type="button"

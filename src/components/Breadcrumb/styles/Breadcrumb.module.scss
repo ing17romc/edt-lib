@@ -25,33 +25,33 @@
 }
 
 .link {
-  color: $primary-color;
+  color: var(--color-primary);
   text-decoration: none;
   font-weight: $font-weight-medium;
   transition: color 0.15s ease;
 
   &:hover {
-    color: $primary-color-2;
+    color: var(--color-primary-hover);
     text-decoration: underline;
   }
 
   &:focus-visible {
-    outline: 2px solid $primary-color;
+    outline: 2px solid var(--color-primary);
     border-radius: $border-radius-sm;
   }
 }
 
 .text {
-  color: $secondary-color;
+  color: var(--color-text-secondary);
 
   &--active {
-    color: $text-color;
+    color: var(--color-text-primary);
     font-weight: $font-weight-medium;
   }
 }
 
 .separator {
-  color: $secondary-color;
+  color: var(--color-text-secondary);
   user-select: none;
   font-size: $font-size-xs;
 }

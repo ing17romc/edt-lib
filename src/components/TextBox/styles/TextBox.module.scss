@@ -50,7 +50,7 @@
 
   // Variants
   &.variant-outlined {
-    border: 1px solid $border-color;
+    border: 1px solid var(--color-border);
     background-color: $background-paper;
 
     &:hover:not(.disabled) {
@@ -70,7 +70,7 @@
   &.variant-filled {
     background-color: $background-default;
     border: 1px solid transparent;
-    border-bottom: 1px solid $border-color;
+    border-bottom: 1px solid var(--color-border);
 
     &:hover:not(.disabled) {
       background-color: $text-box-filled-background-color-hover;
@@ -87,7 +87,7 @@
   }
 
   &.variant-standard {
-    border-bottom: 1px solid $border-color;
+    border-bottom: 1px solid var(--color-border);
     background-color: transparent;
 
     &:hover:not(.disabled) {

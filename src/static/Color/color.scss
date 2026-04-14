@@ -2,72 +2,66 @@
 @use '../../styles/typography' as *;
 @use '../../styles/spacing' as *;
 
-// Main container
 .color-palette {
-  padding: $space-4; // 16px
+  padding: $space-4;
   font-family: $font-family-base;
-  color: $text-color;
+  color: var(--color-text-primary);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: $border-radius-md;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-// Color group
 .color-group {
-  margin-bottom: $space-6; // 24px
-  
+  margin-bottom: $space-6;
+
   &__title {
     font-size: $font-size-xl;
     font-weight: $font-weight-bold;
-    margin-bottom: $space-4; // 16px
-    color: $primary-color;
-    border-bottom: 1px solid $border-color;
-    padding-bottom: $space-1; // 4px
+    margin-bottom: $space-4;
+    color: var(--color-primary);
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: $space-1;
   }
-  
+
   &__items {
     display: flex;
     flex-direction: column;
-    gap: $space-2; // 8px
+    gap: $space-2;
   }
 }
 
-// Code elements
 .code-block {
   display: inline-block;
-  background-color: $light-gray-color;
-  padding: $space-1 $space-2; // 4px 8px
-  border-radius: 4px;
+  background-color: var(--color-surface-muted);
+  padding: $space-1 $space-2;
+  border: 1px solid var(--color-border);
+  border-radius: $border-radius-sm;
   font-family: $font-family-base;
   font-size: $font-size-sm;
-  margin-left: $space-4; // 16px
-  color: $dark-gray-color;
+  margin-left: $space-4;
+  color: var(--color-text-secondary);
 }
 
-// Divider
 .divider {
   border: 0;
   height: 1px;
-  background-color: $border-color;
-  margin: $space-2 0; // 8px 0
+  background-color: var(--color-border);
+  margin: $space-2 0;
 }
 
-// Utility classes for font colors
-.font-blue { color: $primary-color; }
-.font-red { color: $red-color; }
-.font-orange { color: $orange-color; }
-.font-green { color: $green-color; }
-.font-white { color: $white-color; }
-.font-yellow { color: $yellow-color; }
-.font-gray { color: $gray-color; }
+.font-blue { color: var(--color-primary); }
+.font-red { color: var(--red-color); }
+.font-orange { color: var(--orange-color); }
+.font-green { color: var(--green-color); }
+.font-white { color: var(--white-color); }
+.font-yellow { color: var(--yellow-color); }
+.font-gray { color: var(--gray-color); }
 
-// Utility classes for background colors
-.bg-primary-1 { background-color: $primary-color; }
-.bg-primary-2 { background-color: $primary-color-2; }
-.bg-primary-3 { background-color: $primary-color-3; }
-.bg-white { background-color: $white-color; }
-.bg-light-gray { background-color: $light-gray-color; }
-.bg-gray { background-color: $gray-color; }
-
-// Classes for displaying color variables
-// These classes are automatically generated in the component
-// using the CSS variables defined in palette.scss
+.bg-primary-1 { background-color: var(--primary-color-1); }
+.bg-primary-2 { background-color: var(--primary-color-2); }
+.bg-primary-3 { background-color: var(--primary-color-3); }
+.bg-white { background-color: var(--white-color); }
+.bg-light-gray { background-color: var(--light-gray-color); }
+.bg-gray { background-color: var(--gray-color); }

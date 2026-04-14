@@ -56,4 +56,21 @@ describe('ThemeProvider', () => {
       expect(window.localStorage.setItem).toHaveBeenCalledWith('edt-lib-theme', 'dark');
     });
   });
+
+  it('honors a forced theme and ignores updates', async () => {
+    render(
+      <ThemeProvider forcedTheme="dark" data-testid="theme-root">
+        <ThemeConsumer />
+      </ThemeProvider>
+    );
+
+    fireEvent.click(screen.getByRole('button', { name: 'Enable dark' }));
+
+    await waitFor(() => {
+      expect(screen.getByTestId('theme-root')).toHaveAttribute('data-theme', 'dark');
+      expect(screen.getByTestId('theme-mode')).toHaveTextContent('dark');
+    });
+
+    expect(window.localStorage.setItem).not.toHaveBeenCalled();
+  });
 });

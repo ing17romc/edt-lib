@@ -5,36 +5,38 @@
 
 .typographyContainer {
   font-family: $font-family-base;
-  color: $text-color;
+  color: var(--color-text-primary);
+  background-color: var(--color-surface);
   max-width: 800px;
   margin: 0 auto;
   padding: $space-4;
+  border: 1px solid var(--color-border);
+  border-radius: $border-radius-md;
 }
 
 .title {
   font-size: $title-h2-font-size;
   font-weight: $title-font-weight-bold;
   margin: $space-6 0 $space-4;
-  color: $primary-color-3;
+  color: var(--color-primary-hover);
 }
 
 .subtitle {
   font-size: $title-h3-font-size;
   font-weight: $title-font-weight;
   margin: $space-5 0 $space-3;
-  color: $primary-color-2;
+  color: var(--color-primary);
 }
 
 .headingExample {
   margin-bottom: $space-4;
-  
-  // Styles for headings h1-h6
+
   @for $i from 1 through 6 {
     .h#{$i} {
       font-size: map.get($typography-font-sizes, if($i == 1, '22', if($i == 2, '20', if($i == 3, '18', if($i == 4, '16', if($i == 5, '14', '12'))))));
       font-weight: $font-weight-bold;
       margin: $space-3 0;
-      color: $primary-color-3;
+      color: var(--color-text-primary);
     }
   }
 }
@@ -46,20 +48,17 @@
 .paragraph {
   margin: $space-3 0;
   line-height: $line-height-md;
-  
-  // Font sizes based on variables
+
   @each $size, $value in $typography-font-sizes {
     &.size-#{$size} {
       font-size: map.get($typography-font-sizes, $size);
     }
   }
-  
-  // Bold style
+
   &.bold {
     font-weight: $font-weight-bold;
   }
-  
-  // Line height examples
+
   @each $type, $value in $typography-line-heights {
     &.line-height-#{$type} {
       line-height: var(--line-height, #{$value});
@@ -71,9 +70,11 @@
   display: block;
   font-family: $button-font-family-monospace;
   font-size: $font-size-sm;
-  background-color: rgba($secondary-color, 0.1);
+  background-color: var(--color-surface-muted);
+  color: var(--color-text-secondary);
   padding: $space-2 $space-3;
-  border-radius: 4px;
+  border: 1px solid var(--color-border);
+  border-radius: $border-radius-sm;
   margin: $space-2 0;
   overflow-x: auto;
 }
@@ -81,20 +82,19 @@
 .divider {
   border: 0;
   height: 1px;
-  background-color: $border-color;
+  background-color: var(--color-border);
   margin: $space-4 0;
 }
 
-// Responsive styles
 @media (width <= 768px) {
   .typographyContainer {
     padding: $space-3;
   }
-  
+
   .title {
     font-size: $title-h3-font-size;
   }
-  
+
   .subtitle {
     font-size: $title-h4-font-size;
   }

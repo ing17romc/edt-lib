@@ -36,8 +36,8 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgb(255 255 255 / 90%);
-  border: 1px solid $border-color;
+  background-color: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
   border-radius: $border-radius-full;
   width: 2rem;
   height: 2rem;
@@ -46,7 +46,7 @@
   justify-content: center;
   cursor: pointer;
   font-size: $font-size-lg;
-  color: $text-color;
+  color: var(--color-text-primary);
   z-index: 1;
   transition: background-color 0.15s ease, opacity 0.15s ease;
   line-height: 1;
@@ -57,8 +57,13 @@
   }
 
   &:not(:disabled):hover {
-    background-color: #fff;
-    box-shadow: 0 2px 8px rgb(0 0 0 / 12%);
+    background-color: var(--color-surface);
+    box-shadow: var(--shadow-flat);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
   }
 
   &--prev {
@@ -81,14 +86,14 @@
   width: 8px;
   height: 8px;
   border-radius: $border-radius-full;
-  background-color: $border-color;
+  background-color: var(--color-border);
   border: none;
   cursor: pointer;
   padding: 0;
   transition: background-color 0.15s ease, transform 0.15s ease;
 
   &--active {
-    background-color: $primary-color;
+    background-color: var(--color-primary);
     transform: scale(1.25);
   }
 }

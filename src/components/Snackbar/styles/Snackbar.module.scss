@@ -55,7 +55,7 @@
   transition: background-color 0.15s ease;
 
   &:hover {
-    background-color: rgb(255 255 255 / 20%);
+    background-color: color-mix(in srgb, currentcolor 18%, transparent);
   }
 
   &:focus-visible {
@@ -77,7 +77,7 @@
 
   &:hover {
     opacity: 1;
-    background-color: rgb(255 255 255 / 20%);
+    background-color: color-mix(in srgb, currentcolor 18%, transparent);
   }
 
   &:focus-visible {

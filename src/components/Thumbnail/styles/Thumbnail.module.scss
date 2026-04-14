@@ -14,7 +14,7 @@
   display: block;
   object-fit: cover;
   border-radius: $border-radius-md;
-  border: 1px solid $border-color;
+  border: 1px solid var(--color-border);
 
   &--rounded {
     border-radius: $border-radius-full;
@@ -23,7 +23,7 @@
 
 .caption {
   font-size: $font-size-xs;
-  color: $secondary-color;
+  color: var(--color-text-secondary);
   text-align: center;
   max-width: 100%;
   overflow: hidden;

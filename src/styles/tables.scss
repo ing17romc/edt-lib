@@ -5,7 +5,7 @@ $padding: 12;
 
 table {
 	width: 100%;
-	background-color: $white-color;
+	background-color: var(--color-surface);
 	overflow-x: auto;
 	padding: calculate-size-vw($padding);
 
@@ -21,19 +21,19 @@ table {
 			padding: calculate-size-vw($padding);
 
 			& th {
-				border-bottom: 2px solid $primary-color;
+				border-bottom: 2px solid var(--color-primary);
 				padding: calculate-size-vw($padding);
 			}
 
 			& td {
-				border-top: 1px solid $primary-color;
+				border-top: 1px solid var(--color-primary);
 				padding: calculate-size-vw($padding);
 				vertical-align: top;
 			}
 
 			&.active {
 				&:hover {
-					background-color: $light-gray-color;
+					background-color: var(--color-surface-muted);
 					cursor: pointer;
 				}
 			}
@@ -52,12 +52,12 @@ table {
 				padding: calculate-size-px($padding);
 
 				& th {
-					border-bottom: 2px solid $primary-color;
+					border-bottom: 2px solid var(--color-primary);
 					padding: calculate-size-px($padding);
 				}
 
 				& td {
-					border-top: 1px solid $primary-color;
+					border-top: 1px solid var(--color-primary);
 					padding: calculate-size-px($padding);
 				}
 			}
@@ -77,12 +77,12 @@ table {
 				padding: calculate-size-vw($padding * $size-mobile);
 
 				& th {
-					border-bottom: 2px solid $primary-color;
+					border-bottom: 2px solid var(--color-primary);
 					padding: calculate-size-vw($padding * $size-mobile);
 				}
 
 				& td {
-					border-top: 1px solid $primary-color;
+					border-top: 1px solid var(--color-primary);
 					padding: calculate-size-vw($padding * $size-mobile);
 				}
 			}
@@ -102,12 +102,12 @@ table {
 				padding: calculate-size-vw($padding * $size-mobile-h);
 
 				& th {
-					border-bottom: 2px solid $primary-color;
+					border-bottom: 2px solid var(--color-primary);
 					padding: calculate-size-vw($padding * $size-mobile-h);
 				}
 
 				& td {
-					border-top: 1px solid $primary-color;
+					border-top: 1px solid var(--color-primary);
 					padding: calculate-size-vw($padding * $size-mobile-h);
 				}
 			}
