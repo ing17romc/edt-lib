@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.18.0] - 2026-04-13
+
+### Improvements
+- Migrated multiple component states to semantic CSS theme variables across `DatePicker`, `FloatingMenu`, `Menu`, `Selector`, `Tabs`, `TextArea`, and `TextBox`
+- Added SCSS architecture validation to `lint:scss` to block disallowed cross-component style imports
+- Added repository styling architecture documentation and refreshed the main docs to reflect the current theming system
+
+### Fixes
+- Updated disabled, surface, and error token usage to align component styles with the shared theme contract
+- Made the `release-sb` script work on Windows by replacing the Unix-only cleanup step with a cross-platform Node command
+
 ## [2.17.2] - 2026-04-13
 
 ### Refactor

@@ -34,7 +34,7 @@
     "lint": "npm run lint:js && npm run lint:scss",
     "sb": "storybook dev -p 6006",
     "build-sb": "storybook build",
-    "release-sb": "npm run build-sb && rm -rf .gh-pages && gh-pages -d storybook-static",
+      "release-sb": "npm run build-sb && node -e \"require('node:fs').rmSync('.gh-pages', { recursive: true, force: true })\" && gh-pages -d storybook-static",
     "publish-npm-patch": "npm version patch && npm run build && npm publish --access public",
     "publish-npm-minor": "npm version minor && npm run build && npm publish --access public",
     "publish-npm-major": "npm version major && npm run build && npm publish --access public"
