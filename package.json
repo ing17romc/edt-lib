@@ -59,7 +59,7 @@
     "storybook": "npm run sb",
     "build:storybook": "npm run build-sb",
     "pack:check": "npm pack --dry-run",
-    "smoke:package": "node scripts/smoke-package.mjs",
+    "smoke:package": "node tools/smoke-package.mjs",
     "ci:verify": "npm run lint && npm run test && npm run build && npm run build-sb && npm run pack:check && npm run smoke:package",
     "release-sb": "npm run build-sb && node -e \"require('node:fs').rmSync('.gh-pages', { recursive: true, force: true })\" && gh-pages -d storybook-static",
     "publish-npm-patch": "npm version patch && npm run build && npm publish --access public",
