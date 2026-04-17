@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [Unreleased]
 
+## [2.19.0] - 2026-04-16
+
 ### Documentation
 - Added an architecture-level documentation set covering public API, package contract, CI quality gates, styles and theme guidance, Storybook standards, component doc template, migration notes, patterns, and recipes
 - Added canonical multi-AI context in `docs/ai/LLMS.md` plus thin adapter files for AGENTS, CLAUDE, CODEX, GEMINI, and GitHub Copilot
