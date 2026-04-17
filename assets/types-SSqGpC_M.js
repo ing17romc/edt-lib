@@ -1,1 +1,0 @@
-import{n as e}from"./chunk-BneVvdWh.js";var t,n,r=e((()=>{t=function(e){return e.SMALL=`small`,e.MEDIUM=`medium`,e.LARGE=`large`,e}({}),n=function(e){return e.PRIMARY=`primary`,e.SECONDARY=`secondary`,e.TERTIARY=`tertiary`,e.DANGER=`danger`,e.SUCCESS=`success`,e.WARNING=`warning`,e}({})}));export{n,r,t};
