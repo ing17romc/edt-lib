@@ -58,5 +58,4 @@ Why:
 
 ## Known Technical Debt
 
-- The current ESLint ecosystem in this repository still mixes `eslint@10` with some plugins that declare older peer ranges. The repo runs successfully today, but the dependency graph should be modernized in a follow-up maintenance pass.
 - Storybook build succeeds but still reports oversized preview chunks. That is not blocking package correctness, but it is a valid optimization target.
