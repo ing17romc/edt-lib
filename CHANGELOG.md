@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [Unreleased]
 
+## [2.20.0] - 2026-04-17
+
+### Tooling
+- Aligned the ESLint toolchain on `eslint@9` and `@eslint/js@9` so installs resolve cleanly with the current React and accessibility plugin set
+- Removed legacy direct `@typescript-eslint/parser` and `@typescript-eslint/eslint-plugin` v5 dependencies in favor of the existing `typescript-eslint` v8 flat-config setup
+- Regenerated the npm lockfile so `npm ci` succeeds consistently in CI and local environments
+
+### Documentation
+- Removed the outdated architecture note that still described the old ESLint peer dependency conflict as open technical debt
+
 ## [2.19.0] - 2026-04-16
 
 ### Documentation
