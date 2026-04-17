@@ -1,0 +1,31 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Documentation/Getting Started" />
+
+# Getting Started
+
+`edt-lib` is consumed from a single package root:
+
+```tsx
+import { Button, ThemeProvider } from 'edt-lib';
+```
+
+Recommended stylesheet entry:
+
+```tsx
+import 'edt-lib/styles.css';
+```
+
+Supported raw Sass entry:
+
+```tsx
+import 'edt-lib/index.scss';
+```
+
+Use `ThemeProvider` at the app shell when the application needs light, dark, or system theme support.
+
+The canonical package contract lives in:
+
+- `docs/architecture/public-api.md`
+- `docs/architecture/package-contract.md`
+- `docs/guides/styles-and-theme.md`

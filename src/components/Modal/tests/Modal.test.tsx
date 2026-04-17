@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { composeStory } from '@storybook/react-vite';
 import type { Meta } from '@storybook/react-vite';
 import Modal from '..';
-import { mockModalProps, mockModalWithFooter, mockModalWithoutTitle, mockModalWithCustomSize, mockModalWithCustomCloseText } from './mocks';
+import { mockModalProps } from './mocks';
 import * as StoriesModule from '../stories/Modal.stories';
 
 const meta = StoriesModule.default as Meta;

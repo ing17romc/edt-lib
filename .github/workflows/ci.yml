@@ -7,7 +7,7 @@ on:
     branches: ['**']
 
 jobs:
-  test:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -16,5 +16,9 @@ jobs:
           node-version: '22'
           cache: 'npm'
       - run: npm ci
-      - run: npx tsc --noEmit
+      - run: npm run lint
       - run: npm run test
+      - run: npm run build
+      - run: npm run build-sb
+      - run: npm run pack:check
+      - run: npm run smoke:package

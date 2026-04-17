@@ -26,6 +26,7 @@ const meta: Meta<typeof Footer> = {
     },
   },
   parameters: {
+    layout: 'fullscreen',
     docs: {
       description: {
         component:

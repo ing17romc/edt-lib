@@ -41,7 +41,9 @@ export const ThemeProvider = ({
   ...rest
 }: ThemeProviderProps) => {
   const [theme, setThemeState] = useState<ThemeMode>(() => forcedTheme ?? defaultTheme);
-  const [systemTheme, setSystemTheme] = useState<ThemeName>(ssrFallbackTheme);
+  const [systemTheme, setSystemTheme] = useState<ThemeName>(() => (
+    typeof window === 'undefined' ? ssrFallbackTheme : getSystemTheme()
+  ));
 
   useEffect(() => {
     if (typeof window === 'undefined') {
@@ -57,8 +59,6 @@ export const ThemeProvider = ({
         });
       }
     }
-
-    setSystemTheme(getSystemTheme());
 
     if (!enableSystem || typeof window.matchMedia !== 'function') {
       return;

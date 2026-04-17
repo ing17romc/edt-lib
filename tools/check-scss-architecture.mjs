@@ -1,5 +1,6 @@
 import { readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
+import process from 'node:process';
 
 const rootDir = process.cwd();
 const targetDirs = ['src/components', 'src/static'];
@@ -63,13 +64,13 @@ const main = async () => {
   const violations = (await Promise.all(files.map((filePath) => validateFile(filePath)))).flat();
 
   if (violations.length > 0) {
-    console.error('SCSS architecture violations found:\n');
-    console.error(violations.join('\n'));
+    globalThis.console.error('SCSS architecture violations found:\n');
+    globalThis.console.error(violations.join('\n'));
     process.exitCode = 1;
     return;
   }
 
-  console.log(`SCSS architecture check passed for ${files.length} files.`);
+  globalThis.console.log(`SCSS architecture check passed for ${files.length} files.`);
 };
 
 await main();

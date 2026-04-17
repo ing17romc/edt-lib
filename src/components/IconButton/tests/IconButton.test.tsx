@@ -3,7 +3,6 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { composeStory } from '@storybook/react-vite';
 import type { Meta } from '@storybook/react-vite';
 import IconButton from '..';
-import { ComponentSize, ComponentVariant } from '../../types';
 import * as StoriesModule from '../stories/IconButton.stories';
 
 const meta = StoriesModule.default as Meta;

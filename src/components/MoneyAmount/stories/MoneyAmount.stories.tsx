@@ -10,7 +10,10 @@ const meta: Meta<typeof MoneyAmount> = {
   tags: ['autodocs'],
   args: defaultArgs,
   argTypes,
-  parameters,
+  parameters: {
+    ...parameters,
+    layout: 'centered',
+  },
 }
 
 export default meta

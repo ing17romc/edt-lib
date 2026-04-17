@@ -11,7 +11,10 @@ const meta: Meta<typeof Spinner> = {
   component: Spinner,
   tags: ['autodocs'],
   argTypes,
-  parameters,
+  parameters: {
+    ...parameters,
+    layout: 'centered',
+  },
   args: {
     size: ComponentSize.MEDIUM,
     variant: SpinnerVariant.PRIMARY,

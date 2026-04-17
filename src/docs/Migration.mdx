@@ -1,0 +1,16 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Documentation/Migration" />
+
+# Migration
+
+Current migration guidance focuses on package-contract alignment.
+
+Key rules:
+
+- use package-root imports from `edt-lib`
+- prefer `edt-lib/styles.css` for default integrations
+- keep `edt-lib/index.scss` only when the consumer explicitly wants raw Sass
+- update docs, tests, stories, and manifest data together when the public API changes
+
+See `docs/migrations.md` for the repository-side migration notes.

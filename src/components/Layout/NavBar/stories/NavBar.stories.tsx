@@ -21,6 +21,7 @@ const meta: Meta<typeof NavBar> = {
     },
   },
   parameters: {
+    layout: 'fullscreen',
     docs: {
       description: {
         component:

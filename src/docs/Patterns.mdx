@@ -1,0 +1,22 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Documentation/Patterns" />
+
+# Patterns
+
+Recommended composition patterns in this repository:
+
+- page shells built from `Layout`, `NavBar`, and `Footer`
+- forms composed from `TextBox`, `TextArea`, `Selector`, and `Button`
+- feedback surfaces chosen intentionally between `Message`, `Snackbar`, and `Modal`
+
+Avoid:
+
+- importing from `src/` or `dist/` in consumer examples
+- creating new wrappers when a public component already satisfies the use case
+- bypassing the public theme contract with hardcoded styling
+
+See:
+
+- `docs/patterns/composition.md`
+- `docs/patterns/layout-shells.md`

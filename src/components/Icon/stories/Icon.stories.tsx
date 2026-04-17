@@ -55,6 +55,7 @@ const meta: Meta<typeof Icon> = {
     },
   },
   parameters: {
+    layout: 'centered',
     docs: {
       description: {
         component:

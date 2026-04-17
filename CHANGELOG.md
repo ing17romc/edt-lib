@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [Unreleased]
+
+### Documentation
+- Added an architecture-level documentation set covering public API, package contract, CI quality gates, styles and theme guidance, Storybook standards, component doc template, migration notes, patterns, and recipes
+- Added canonical multi-AI context in `docs/ai/LLMS.md` plus thin adapter files for AGENTS, CLAUDE, CODEX, GEMINI, and GitHub Copilot
+- Added a machine-readable component manifest and schema documentation
+- Added Storybook MDX documentation pages for Getting Started, Theme and SSR, Patterns, Recipes, and Migration
+
+### Package Contract
+- Consolidated the package root entrypoint around `src/index.ts`
+- Fixed named root exports so documented package imports match the real bundle output
+- Added generated TypeScript declarations to the published contract
+- Exported both `edt-lib/styles.css` and `edt-lib/index.scss` as public stylesheet entries
+- Moved `react` and `react-dom` to `peerDependencies`
+
+### Tooling
+- Added a tarball smoke test that installs the packed library into a temporary consumer and validates root imports plus stylesheet subpaths
+- Expanded CI quality gates to cover lint, tests, build, Storybook build, tarball validation, and package smoke usage
+
 ## [2.18.0] - 2026-04-13
 
 ### Improvements

@@ -1,99 +1,31 @@
-# edt-lib Documentation
+# Documentation Hub
 
-## Overview
+This directory is the human-readable documentation source for `edt-lib`.
 
-`edt-lib` is a React component library built with `TypeScript`, `Vite`, `Sass`, and `Storybook`.
+## Start Here
 
-The library now uses:
+- [Library audit](./audit/library-audit.md)
+- [Alignment spec](./spec/library-alignment-spec.md)
+- [Public API](./architecture/public-api.md)
+- [Package contract](./architecture/package-contract.md)
+- [Styles and theme](./guides/styles-and-theme.md)
+- [Storybook standard](./standards/storybook-standard.md)
+- [Component doc template](./standards/component-doc-template.md)
+- [Migration notes](./migrations.md)
 
-- semantic theme tokens
-- `ThemeProvider` with `light`, `dark`, and `system`
-- SSR-friendly runtime theming
-- component-level style encapsulation with `SCSS Modules`
+## Architecture
 
-## Installation
+- [Public API](./architecture/public-api.md)
+- [Package contract](./architecture/package-contract.md)
+- [CI quality gates](./architecture/ci-quality-gates.md)
+- [Architecture decisions](./architecture/decisions.md)
 
-```bash
-npm install edt-lib
-```
+## Patterns and Recipes
 
-## Base Setup
+- [Patterns](./patterns/)
+- [Recipes](./recipes/)
 
-Import the global stylesheet once in your app:
+## AI Context
 
-```tsx
-import 'edt-lib/index.scss';
-```
-
-Wrap your application with `ThemeProvider` when you want runtime theme control:
-
-```tsx
-import { ThemeProvider } from 'edt-lib';
-
-export default function App() {
-  return (
-    <ThemeProvider defaultTheme="system">
-      {/* app */}
-    </ThemeProvider>
-  );
-}
-```
-
-## Theme System
-
-The public theme API is based on semantic CSS variables and a provider that works in SSR environments.
-
-Main props:
-
-- `defaultTheme`
-- `forcedTheme`
-- `enableSystem`
-- `storageKey`
-- `ssrFallbackTheme`
-
-Use the `useTheme` hook inside the provider to read and update the active mode.
-
-## Styling Architecture
-
-The styling system is documented in [styling-architecture.md](./styling-architecture.md).
-
-Summary:
-
-- shared tokens live in `src/styles`
-- runtime values are exposed through CSS variables
-- component styles are isolated with `SCSS Modules`
-- components must not import styles from other components
-- `npm run lint:scss` checks the SCSS architecture contract
-
-## Storybook
-
-Storybook includes a global theme toolbar and component stories for visual validation in `light`, `dark`, and `system` modes.
-
-Run it locally with:
-
-```bash
-npm run sb
-```
-
-## Validation
-
-Recommended checks during development:
-
-```bash
-npm run lint:ts
-npm run lint:scss
-npm test
-npm run build
-```
-
-## Repository Structure
-
-- `src/components`: reusable UI components
-- `src/static`: showcase/reference components
-- `src/styles`: shared style system
-- `docs`: repository documentation
-
-## Support
-
-- Storybook: `http://localhost:6006` during local development
-- Repository: `https://github.com/ing17romc/edt-lib`
+- [Canonical AI context](./ai/LLMS.md)
+- [Component manifest schema](./ai/component-manifest.schema.md)

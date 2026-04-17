@@ -29,7 +29,7 @@ export enum TitleVariant {
 /**
  * Custom properties of the Title component
  */
-interface TitleCustomProps {
+export interface TitleCustomProps {
   /**
    * Title size (corresponds to h1-h6 elements)
    * @default 'h1'

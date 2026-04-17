@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Preview } from '@storybook/react-vite';
-import '../src/styles/index.scss';
-import ThemeProvider from '../src/components/ThemeProvider';
+import '../index.scss';
+import { ThemeProvider } from '../src';
 
 const preview: Preview = {
   globalTypes: {
@@ -49,7 +49,10 @@ const preview: Preview = {
         dark: { name: 'dark', value: '#333333' },
       },
     },
-    layout: 'centered',
+    docs: {
+      toc: true,
+    },
+    layout: 'padded',
   },
   initialGlobals: {
     backgrounds: { value: 'light' },

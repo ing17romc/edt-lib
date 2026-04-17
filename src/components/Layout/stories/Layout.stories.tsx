@@ -18,6 +18,7 @@ const meta: Meta<typeof Layout> = {
     },
   },
   parameters: {
+    layout: 'fullscreen',
     docs: {
       description: {
         component:

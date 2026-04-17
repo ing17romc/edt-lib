@@ -1,47 +1,74 @@
 {
   "name": "edt-lib",
   "version": "2.18.0",
-  "description": "Front-end library, rebuilt for React",
+  "description": "React component library with Storybook docs, Sass styling, and SSR-safe theming primitives.",
   "type": "module",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.es.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index.es.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.es.js",
       "require": "./dist/index.cjs.js"
-    }
+    },
+    "./styles.css": "./dist/styles.css",
+    "./index.scss": "./index.scss",
+    "./package.json": "./package.json"
   },
   "author": "ing romc",
   "license": "ISC",
-  "homepage": "http://ing17romc.github.io/edt-lib/",
+  "homepage": "https://ing17romc.github.io/edt-lib/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ing17romc/edt-lib.git"
   },
+  "bugs": {
+    "url": "https://github.com/ing17romc/edt-lib/issues"
+  },
+  "keywords": [
+    "react",
+    "component-library",
+    "design-system",
+    "storybook",
+    "vite",
+    "sass",
+    "typescript",
+    "nextjs",
+    "vercel"
+  ],
   "engines": {
     "node": ">=20.19.0"
   },
   "scripts": {
-    "clean": "rm package-lock.json && rm -rf node_modules && rm -rf .gh-pages && rm -rf storybook-static && rm -rf dist && npm i --force",
-    "build": "vite build",
+    "clean": "node -e \"for (const target of ['.gh-pages', 'storybook-static', 'dist', '.tmp']) require('node:fs').rmSync(target, { recursive: true, force: true })\"",
+    "clean:dist": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
+    "typecheck": "tsc --noEmit",
+    "build:types": "tsc -p tsconfig.build.json",
+    "build": "npm run clean:dist && npm run build:types && vite build",
     "test": "vitest run",
     "test:watch": "vitest",
-    "lint:js": "eslint . --fix",
-    "lint:scss": "stylelint \"src/**/*.scss\" --fix && node tools/check-scss-architecture.mjs",
-    "lint:ts": "npx tsc --noEmit",
-    "lint": "npm run lint:js && npm run lint:scss",
+    "lint:js": "eslint .",
+    "lint:js:fix": "eslint . --fix",
+    "lint:scss": "stylelint \"src/**/*.scss\" && node tools/check-scss-architecture.mjs",
+    "lint:scss:fix": "stylelint \"src/**/*.scss\" --fix && node tools/check-scss-architecture.mjs",
+    "lint:ts": "npm run typecheck",
+    "lint": "npm run lint:js && npm run lint:scss && npm run lint:ts",
     "sb": "storybook dev -p 6006",
     "build-sb": "storybook build",
-      "release-sb": "npm run build-sb && node -e \"require('node:fs').rmSync('.gh-pages', { recursive: true, force: true })\" && gh-pages -d storybook-static",
+    "storybook": "npm run sb",
+    "build:storybook": "npm run build-sb",
+    "pack:check": "npm pack --dry-run",
+    "smoke:package": "node scripts/smoke-package.mjs",
+    "ci:verify": "npm run lint && npm run test && npm run build && npm run build-sb && npm run pack:check && npm run smoke:package",
+    "release-sb": "npm run build-sb && node -e \"require('node:fs').rmSync('.gh-pages', { recursive: true, force: true })\" && gh-pages -d storybook-static",
     "publish-npm-patch": "npm version patch && npm run build && npm publish --access public",
     "publish-npm-minor": "npm version minor && npm run build && npm publish --access public",
     "publish-npm-major": "npm version major && npm run build && npm publish --access public"
   },
-  "dependencies": {
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
@@ -67,6 +94,8 @@
     "globals": "^17.4.0",
     "jsdom": "^29.0.1",
     "playwright": "^1.59.1",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "sass": "^1.89.2",
     "storybook": "^10.3.5",
     "stylelint": "^16.21.0",
@@ -76,10 +105,13 @@
     "vite": "^8.0.5",
     "vitest": "^4.1.2"
   },
-  "browserslist": {},
+  "sideEffects": [
+    "**/*.css",
+    "**/*.scss"
+  ],
   "files": [
     "dist",
-    "src/styles",
-    "index.scss"
+    "index.scss",
+    "src/styles"
   ]
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { composeStory } from '@storybook/react-vite';
 import type { Meta } from '@storybook/react-vite';
-import { Card, CardVariant } from '..';
+import { Card } from '..';
 import { mockCardWithoutImage } from './mocks';
 import * as StoriesModule from '../stories/Card.stories';
 

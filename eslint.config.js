@@ -31,6 +31,6 @@ export default ts.config(
     },
   },
   {
-    ignores: ['dist/', 'node_modules/', 'storybook-static/'],
+    ignores: ['.tmp/', 'dist/', 'node_modules/', 'storybook-static/'],
   },
 );

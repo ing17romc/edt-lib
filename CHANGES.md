@@ -1,11 +1,5 @@
-## [2.9.8] - 2025-07-17
+# Legacy Changes Note
 
-### Improvements
-- Added dropdown controls for the `variant` and `size` properties in Button and CheckButton components in Storybook
-- Improved controls documentation in the arguments table
+`CHANGELOG.md` is the canonical release history for this repository.
 
-### Fixes
-- Removed unused property in the Card component
-
-### Dependencies
-- Updated development dependencies
+This file remains only as a compatibility placeholder and should not receive new entries.

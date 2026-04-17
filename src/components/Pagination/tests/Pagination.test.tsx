@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { composeStory } from '@storybook/react-vite';
 import type { Meta } from '@storybook/react-vite';
 import { Pagination } from '..';
-import { mockPaginationProps, mockPaginationDisabled, mockPaginationManyPages, mockPaginationSmallSize, mockPaginationLargeSize } from './mocks';
+import { mockPaginationProps } from './mocks';
 import * as StoriesModule from '../stories/Pagination.stories';
 
 const meta = StoriesModule.default as Meta;

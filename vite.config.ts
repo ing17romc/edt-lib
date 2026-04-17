@@ -8,11 +8,13 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url));
 export default defineConfig({
   plugins: [react()],
   build: {
+    emptyOutDir: false,
     lib: {
-      entry: resolve(__dirname, 'src/components/index.tsx'),
+      entry: resolve(__dirname, 'src/index.ts'),
       name: 'EdtLib',
       formats: ['es', 'cjs'],
       fileName: (format) => format === 'es' ? 'index.es.js' : 'index.cjs.js',
+      cssFileName: 'styles',
     },
     rollupOptions: {
       external: ['react', 'react-dom', 'react/jsx-runtime'],
