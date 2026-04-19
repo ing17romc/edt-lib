@@ -54,7 +54,7 @@ Decision:
 Why:
 
 - prevents assistant-specific documents from drifting apart
-- supports reuse across Copilot, Claude, Codex, Gemini, and generic agents
+- keeps repository guidance centralized even when only Codex is in active use
 
 ## Known Technical Debt
 

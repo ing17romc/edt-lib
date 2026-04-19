@@ -25,7 +25,7 @@ The most important issue is that the documented public API is not the same as th
 - Test files: 43
 - Current root docs: only `docs/index.md` and `docs/styling-architecture.md`
 - No `examples/` directory currently exists
-- No canonical multi-AI context files exist beyond an outdated `.github/copilot-instructions.md`
+- At audit time, no canonical multi-AI context files existed beyond an outdated `.github/copilot-instructions.md`
 
 ## Public API Audit
 
@@ -265,9 +265,9 @@ Storybook preview currently sets a global `layout: 'centered'`. That is convenie
 
 ## AI Documentation Audit
 
-### Existing state
+### Existing state at audit time
 
-- `.github/copilot-instructions.md` exists
+- `.github/copilot-instructions.md` existed
 
 ### Problems
 

@@ -103,7 +103,8 @@ See the integration guides:
 ## Documentation Map
 
 - [Audit](./docs/audit/library-audit.md)
-- [Alignment spec](./docs/spec/library-alignment-spec.md)
+- [OpenSpec alignment spec](./openspec/specs/library-alignment/spec.md)
+- [OpenSpec current structure spec](./openspec/specs/current-library-structure/spec.md)
 - [Public API](./docs/architecture/public-api.md)
 - [Package contract](./docs/architecture/package-contract.md)
 - [Styles and theme](./docs/guides/styles-and-theme.md)

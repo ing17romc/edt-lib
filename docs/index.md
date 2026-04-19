@@ -5,7 +5,8 @@ This directory is the human-readable documentation source for `edt-lib`.
 ## Start Here
 
 - [Library audit](./audit/library-audit.md)
-- [Alignment spec](./spec/library-alignment-spec.md)
+- [OpenSpec alignment spec](../openspec/specs/library-alignment/spec.md)
+- [OpenSpec current structure spec](../openspec/specs/current-library-structure/spec.md)
 - [Public API](./architecture/public-api.md)
 - [Package contract](./architecture/package-contract.md)
 - [Styles and theme](./guides/styles-and-theme.md)

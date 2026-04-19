@@ -191,7 +191,8 @@ When changing a public component:
 - `src/index.ts` is the package root source entry.
 - `src/components/index.ts` is the public export assembly layer.
 - `docs/audit/` captures observed reality
-- `docs/spec/` captures planned change strategy
+- `openspec/changes/` captures proposed and in-flight changes
+- `openspec/specs/` captures accepted repository specifications
 - `docs/architecture/` holds normative package and system docs
 - `docs/recipes/` and `docs/patterns/` are task-oriented usage docs
 
